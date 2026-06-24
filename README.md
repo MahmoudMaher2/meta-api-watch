@@ -28,56 +28,39 @@
 
 ---
 
-## Daily Workflow (what you actually do)
+## Daily Workflow
 
-### 1. Open Antigravity and paste this prompt:
+### 1. The Daily Prompt (Copy & Paste)
+Open Antigravity and paste the exact prompt below:
 
-```
+```text
 Run the Meta API Watch pipeline.
 
-Step 1 — Check status:
-  node scripts/status.js
-  This tells you what snapshots we already have.
-
-Step 2 — For each source below, fetch today's snapshot using the browser tool:
+Step 1: Check status by running `node scripts/status.js`.
+Step 2: Fetch today's snapshot using the browser tool for:
   - WhatsApp: https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog
   - Messenger: https://developers.facebook.com/docs/messenger-platform/changelog/
-  Extract main content only (no nav/footer). Save as:
-  snapshots/whatsapp-changelog/YYYY-MM-DD.md
-  snapshots/messenger-changelog/YYYY-MM-DD.md
-
-Step 3 — Diff each source:
-  node scripts/diff-snapshots.js whatsapp-changelog
-  node scripts/diff-snapshots.js messenger-changelog
-
-  - BASELINE_ONLY = first run, no article needed
-  - NO_CHANGE = nothing happened, stop here
-  - CHANGES_FOUND = proceed to draft
-
-Step 4 — For any CHANGES_FOUND:
-  Draft an article using the diff. Structure:
-  title, date, source_url, category, sv2_modules, summary, why it matters, QA action.
-  
-  **CRITICAL LEARN HUB INSTRUCTION:** 
-  If you find that a NEW feature or API endpoint was released, you MUST create a new section for it in the `content-learn/` directory (both English and Arabic versions). 
-  - Link the news article to this new Learn topic.
-  - Add a "NEW" badge/tag to the new Learn section.
-  
-  Then re-open the source URL and verify every claim (audit step).
-  Save the verified article to content/changelog/YYYY-MM-DD-slug.md
-
-Step 5 — Publish and rebuild site:
-  node scripts/publish-article.js --rebuild-only
-
-Step 6 — Deploy to GitHub Pages:
-  node scripts/deploy.ps1
+  Extract main content only. Save as `snapshots/<source>/YYYY-MM-DD.md`.
+Step 3: Diff each source using `node scripts/diff-snapshots.js <source>`.
+Step 4: For any CHANGES_FOUND, draft an article. 
+  🚨 CRITICAL LEARN HUB INSTRUCTION: If a NEW feature/API is released, you MUST create a new dual-language (EN/AR) topic for it in `content-learn/`, link it to the news article, and add a "NEW" badge to it.
+  Re-open the source URL to verify every claim (audit step), then save to `content/changelog/YYYY-MM-DD-slug.md`.
+Step 5: Publish and rebuild by running `node scripts/publish-article.js --rebuild-only`.
+Step 6: Deploy by running `node scripts/deploy.ps1`.
 
 Working directory: c:\My Projects\Neop-Projects\Seen\Meta-updates\meta-api-watch
+```
 
+### 2. How the Pipeline Operates
+Behind the scenes, Antigravity will execute the following:
+- **Check Status:** Tells you what snapshots we already have.
+- **Fetch Snapshot:** Fetches the actual rendered HTML of the changelogs.
+- **Diffing:** Compares today's snapshot vs the previous date. If `NO_CHANGE`, it stops. If `CHANGES_FOUND`, it proceeds.
+- **Drafting & Auditing:** Writes the article and strictly verifies it against the live site so it doesn't hallucinate. It also expands the Learn Hub automatically.
+- **Publishing & Deployment:** Rebuilds the HTML site and pushes it to GitHub Pages.
 
-### 2. Antigravity handles the rest — you just review the draft before audit
-
-### 3. After publish, site goes live automatically on GitHub Pages
+### 3. Review & Done
+Antigravity handles all the heavy lifting automatically. You just review the drafts before the final audit, and the site goes live!
 
 ---
 
