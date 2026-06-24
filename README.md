@@ -3,7 +3,7 @@
 > Daily tracker for Meta Developer API changes relevant to **SEEN V2**.  
 > Runs locally via Antigravity → publishes to GitHub Pages automatically.
 
-**Live site:** `https://YOUR_USERNAME.github.io/meta-api-watch/`
+**Live site:** https://mahmoudmaher2.github.io/meta-api-watch/
 
 ---
 
@@ -76,7 +76,7 @@ Working directory: c:\My Projects\Neop-Projects\Seen\Meta-updates\meta-api-watch
 
 ```powershell
 cd "c:\My Projects\Neop-Projects\Seen\Meta-updates\meta-api-watch"
-git remote add origin https://github.com/YOUR_USERNAME/meta-api-watch.git
+git remote add origin https://github.com/MahmoudMaher2/meta-api-watch.git
 git branch -M main
 git push -u origin main
 ```
@@ -90,7 +90,7 @@ git push -u origin main
 ### Step 4: Verify deployment
 
 Push triggers the Actions workflow → site goes live at:  
-`https://YOUR_USERNAME.github.io/meta-api-watch/`
+`https://mahmoudmaher2.github.io/meta-api-watch/`
 
 ---
 

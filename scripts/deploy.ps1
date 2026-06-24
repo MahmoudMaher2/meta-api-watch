@@ -88,12 +88,13 @@ if ($LASTEXITCODE -ne 0) {
     Write-Host "❌ git push failed." -ForegroundColor Red
     Write-Host "   Make sure you've set the remote origin first:"
     Write-Host "   git remote add origin https://github.com/YOUR_USERNAME/meta-api-watch.git"
+    Write-Host "   git remote add origin https://github.com/MahmoudMaher2/meta-api-watch.git"
     Write-Host "   Then run this script again."
     exit 1
 }
 
 Write-Host ""
 Write-Host "✅ Deployed! GitHub Actions will now build and publish the site." -ForegroundColor Green
-Write-Host "   Live at: https://YOUR_USERNAME.github.io/meta-api-watch/"
-Write-Host "   Actions: https://github.com/YOUR_USERNAME/meta-api-watch/actions"
+Write-Host "   Live at: https://mahmoudmaher2.github.io/meta-api-watch/"
+Write-Host "   Actions: https://github.com/MahmoudMaher2/meta-api-watch/actions"
 Write-Host ""
