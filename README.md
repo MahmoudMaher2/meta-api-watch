@@ -35,23 +35,39 @@
 ```
 Run the Meta API Watch pipeline.
 
-Start by running: node scripts/status.js
-This will tell you what snapshots we have and what needs to be done today.
+Step 1 — Check status:
+  node scripts/status.js
+  This tells you what snapshots we already have.
 
-Then for each source that needs a fetch:
-- Open the URL in the browser tool (real browser rendering)
-- Extract changelog content as Markdown
-- Save as snapshots/<slug>/YYYY-MM-DD.md
+Step 2 — For each source below, fetch today's snapshot using the browser tool:
+  - WhatsApp: https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog
+  - Messenger: https://developers.facebook.com/docs/messenger-platform/changelog/
+  Extract main content only (no nav/footer). Save as:
+  snapshots/whatsapp-changelog/YYYY-MM-DD.md
+  snapshots/messenger-changelog/YYYY-MM-DD.md
 
-Then run diff-snapshots.js for each source.
-If CHANGES_FOUND: draft an article, audit it, publish it.
-If BASELINE_ONLY or NO_CHANGE: nothing to do for that source.
+Step 3 — Diff each source:
+  node scripts/diff-snapshots.js whatsapp-changelog
+  node scripts/diff-snapshots.js messenger-changelog
 
-Finally, run: node scripts/deploy.ps1
-to push everything to GitHub Pages.
+  - BASELINE_ONLY = first run, no article needed
+  - NO_CHANGE = nothing happened, stop here
+  - CHANGES_FOUND = proceed to draft
+
+Step 4 — For any CHANGES_FOUND:
+  Draft an article using the diff. Structure:
+  title, date, source_url, category, sv2_modules, summary, why it matters, QA action.
+  Then re-open the source URL and verify every claim (audit step).
+  Save the verified article to content/changelog/YYYY-MM-DD-slug.md
+
+Step 5 — Publish and rebuild site:
+  node scripts/publish-article.js --rebuild-only
+
+Step 6 — Deploy to GitHub Pages:
+  node scripts/deploy.ps1
 
 Working directory: c:\My Projects\Neop-Projects\Seen\Meta-updates\meta-api-watch
-```
+
 
 ### 2. Antigravity handles the rest — you just review the draft before audit
 
