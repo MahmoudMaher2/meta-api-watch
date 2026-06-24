@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instagram Comments Automation & Private Replies — Meta Docs Learn</title>
+  <meta name="description" content="Learn Instagram Comments Automation & Private Replies in messenger: validation rules, error codes, examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+  <div class="header-inner">
+
+    <a href="../../index.html" class="header-logo" aria-label="Meta API Watch Home">
+      <span class="logo-icon">🔭</span>
+      <div class="logo-text">
+        <span class="site-title">Meta API Watch</span>
+        <span class="site-subtitle"
+              data-en="SEEN V2 · Developer Hub"
+              data-ar="SEEN V2 · مركز المطورين">SEEN V2 · Developer Hub</span>
+      </div>
+    </a>
+
+    <nav class="header-nav" role="navigation" aria-label="Main navigation">
+      <a href="../../changelog.html"
+         class="nav-tab"
+         >
+        <span data-en="🔔 Latest Updates" data-ar="🔔 آخر التحديثات">🔔 Latest Updates</span>
+      </a>
+      <a href="../../learn/index.html"
+         class="nav-tab active"
+         aria-current="page">
+        <span data-en="📚 Learn" data-ar="📚 تعلّم">📚 Learn</span>
+      </a>
+    </nav>
+
+    <button id="search-trigger" aria-label="Search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <span class="search-trigger-label" data-en="Search..." data-ar="ابحث...">Search...</span>
+      <span class="search-trigger-shortcut">/</span>
+    </button>
+
+    <div class="header-build-time" title="Last site build 🇪🇬">
+        <span class="build-icon">🕐</span>
+        <span class="build-label" data-en="Last Build" data-ar="آخر تحديث">Last Build</span>
+        <span class="build-value">Jun 24, 2026, 10:36 PM ðŸ‡ªðŸ‡¬</span>
+      </div>
+
+    <div class="header-actions">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+        <span class="lang-en">EN</span>
+        <span class="lang-sep" aria-hidden="true">·</span>
+        <span class="lang-ar">عربي</span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+
+
+  <div class="learn-layout">
+
+    <!-- Sidebar -->
+    <aside class="learn-sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label" data-en="On this page" data-ar="Ø¹Ù„Ù‰ Ù‡Ø°Ù‡ Ø§Ù„ØµÙ Ø­Ø©">On this page</span>
+        
+    <div class="lang-en">
+      <ul class="toc-list"><li class="toc-top"><a href="#the-7-day-limitation">The 7-Day Limitation</a></li><li class="toc-top"><a href="#text-only-rules-and-ui-limitations">Text-Only Rules and UI Limitations</a></li></ul>
+    </div>
+    
+    <div class="lang-ar">
+      <ul class="toc-list"><li class="toc-top"><a href="#قيد-الـ-7-أيام">قيد الـ 7 أيام</a></li><li class="toc-top"><a href="#قواعد-الرسائل-النصية-فقط-وقيود-واجهة-المستخدم">قواعد الرسائل النصية فقط وقيود واجهة المستخدم</a></li></ul>
+    </div>
+  
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Source</span>
+        <a href="" target="_blank" rel="noopener" class="source-link">
+          📄 Meta Developer Docs ↗
+        </a>
+        
+      </div>
+      
+    </aside>
+
+    <!-- Main Content -->
+    <main class="learn-content" id="main-content">
+      <div class="topic-breadcrumb">
+        <a href="../index.html">Learn</a>
+        <span>›</span>
+        <span style="color:#a78bfa">messenger</span>
+        <span>›</span>
+        <span>Instagram Comments Automation & Private Replies</span>
+      </div>
+
+      <div class="topic-hero">
+        <div class="topic-hero-badges">
+          <span class="platform-badge" style="background:#1a1a24;color:#a78bfa;border-color:#4c1d95">messenger</span>
+          
+        </div>
+        <h1 class="topic-title" data-en="Instagram Comments Automation & Private Replies" data-ar="أتمتة تعليقات إنستغرام والردود الخاصة">Instagram Comments Automation & Private Replies</h1>
+        <p class="topic-meta"><span data-en="messenger" data-ar="messenger">messenger</span> Â· <span data-en="Last verified:" data-ar="Ø¢Ø®Ø± Ù…Ø±Ø§Ø¬Ø¹Ø©:">Last verified:</span> N/A</p>
+      </div>
+
+      <div class="topic-body lang-en">
+        <h1>Instagram Comments Automation & Private Replies</h1>
+
+<p>The Instagram Graph API allows businesses to send private messages (DMs) to users who comment on their posts. This feature is highly restricted to prevent spam and ensure a high-quality user experience.</p>
+
+<h2 id="the-7-day-limitation">The 7-Day Limitation</h2>
+
+<p>You have a strict window to respond privately to a user's comment.</p>
+<ul><li style="margin-left:8px"><strong>7-Day Rule:</strong> A private reply can only be sent within 7 days of the exact timestamp the comment was created.</li>
+<li style="margin-left:0px"><strong>One Reply Per Comment:</strong> You are only allowed to send a single private reply to each individual comment.</li></ul>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: Sending a private DM 2 days after a user comments on your post.</p>
+<p><span class="icon-reject">❌</span> Invalid: Attempting to send a private DM 8 days after the user commented.</p>
+
+<h2 id="text-only-rules-and-ui-limitations">Text-Only Rules and UI Limitations</h2>
+
+<p>When initiating a private reply to a comment, there are strict content constraints.</p>
+<ul><li style="margin-left:8px"><strong>Text-Only First Message:</strong> The initial private reply must be text-only. You cannot include rich media (images, videos, or templates) in this initial outreach message. The message typically includes a link back to the original post automatically.</li>
+<li style="margin-left:0px"><strong>Subsequent Messages:</strong> Once the user responds to your initial text-only private reply, a standard 24-hour messaging window opens. During this window, you can send rich media and interact normally.</li>
+<li style="margin-left:0px"><strong>Instagram Live Exceptions:</strong> For comments made during an Instagram Live broadcast, private replies are only permitted <em>during</em> the live session itself. Once the broadcast ends, the window closes immediately.</li></ul>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: Sending a simple text message saying "Thanks for commenting! How can we help?" as the first reply.</p>
+<p><span class="icon-reject">❌</span> Invalid: Sending an image of a product discount code as the very first private reply to a comment.</p>
+      </div>
+      <div class="topic-body lang-ar"><h1>أتمتة تعليقات إنستغرام والردود الخاصة</h1>
+
+<p>تسمح واجهة برمجة تطبيقات (Instagram Graph API) للشركات بإرسال رسائل خاصة (DMs) للمستخدمين الذين يعلقون على منشوراتهم. هذه الميزة مقيدة بشدة لمنع البريد المزعج (Spam) ولضمان تجربة مستخدم عالية الجودة.</p>
+
+<h2 id="قيد-الـ-7-أيام">قيد الـ 7 أيام</h2>
+
+<p>لديك نافذة زمنية صارمة للرد بشكل خاص على تعليق المستخدم.</p>
+<ul><li style="margin-left:8px"><strong>قاعدة الـ 7 أيام:</strong> لا يمكن إرسال رد خاص إلا في غضون 7 أيام من الطابع الزمني الدقيق الذي تم فيه إنشاء التعليق.</li>
+<li style="margin-left:0px"><strong>رد واحد لكل تعليق:</strong> يُسمح لك بإرسال رد خاص واحد فقط لكل تعليق فردي.</li></ul>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: إرسال رسالة خاصة بعد يومين من تعليق مستخدم على منشورك.</p>
+<p><span class="icon-reject">❌</span> Invalid: محاولة إرسال رسالة خاصة بعد 8 أيام من تعليق المستخدم.</p>
+
+<h2 id="قواعد-الرسائل-النصية-فقط-وقيود-واجهة-المستخدم">قواعد الرسائل النصية فقط وقيود واجهة المستخدم</h2>
+
+<p>عند بدء رد خاص على تعليق، هناك قيود صارمة على المحتوى.</p>
+<ul><li style="margin-left:8px"><strong>الرسالة الأولى نصية فقط:</strong> يجب أن يكون الرد الخاص الأولي نصياً فقط. لا يمكنك تضمين وسائط غنية (صور، مقاطع فيديو، أو قوالب) في هذه الرسالة الأولية. تتضمن الرسالة عادةً رابطاً يعود إلى المنشور الأصلي تلقائياً.</li>
+<li style="margin-left:0px"><strong>الرسائل اللاحقة:</strong> بمجرد أن يرد المستخدم على رسالتك الخاصة النصية الأولى، تفتح نافذة مراسلة قياسية مدتها 24 ساعة. خلال هذه النافذة، يمكنك إرسال وسائط غنية والتفاعل بشكل طبيعي.</li>
+<li style="margin-left:0px"><strong>استثناءات البث المباشر (Instagram Live):</strong> بالنسبة للتعليقات التي تتم أثناء البث المباشر على إنستغرام، يُسمح بالردود الخاصة <em>فقط أثناء</em> جلسة البث نفسها. بمجرد انتهاء البث، تُغلق النافذة على الفور.</li></ul>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: إرسال رسالة نصية بسيطة تقول "شكراً لتعليقك! كيف يمكننا مساعدتك؟" كأول رد.</p>
+<p><span class="icon-reject">❌</span> Invalid: إرسال صورة لكود خصم المنتج كأول رد خاص على تعليق.</p></div>
+
+      <div class="topic-nav">
+        
+        <a class="nav-next" href="instagram-ice-breakers.html">Instagram Ice Breakers Constraints →</a>
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+(function(){
+  var html=document.documentElement,TK='maw-theme',LK='maw-lang';
+
+  // ── Theme ────────────────────────────────────────────────
+  function applyTheme(t){html.setAttribute('data-theme',t);localStorage.setItem(TK,t);}
+  applyTheme(localStorage.getItem(TK)||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));
+
+  // ── Language ─────────────────────────────────────────────
+  function applyLang(l){
+    html.setAttribute('data-lang',l);
+    html.setAttribute('lang',l==='ar'?'ar':'en');
+    html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+    localStorage.setItem(LK,l);
+    document.querySelectorAll('[data-en][data-ar]').forEach(function(el){
+      var val = el.getAttribute(l==='ar'?'data-ar':'data-en');
+      if (el.tagName==='INPUT' || el.tagName==='TEXTAREA') {
+        el.placeholder = val;
+      } else {
+        el.innerHTML = val;
+      }
+    });
+  }
+  applyLang(localStorage.getItem(LK)||'en');
+
+  // Wire up buttons after DOM is ready
+  function wireButtons(){
+    var thBtn=document.getElementById('theme-toggle');
+    if(thBtn) thBtn.addEventListener('click',function(){
+      applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+    });
+    var lgBtn=document.getElementById('lang-toggle');
+    if(lgBtn) lgBtn.addEventListener('click',function(){
+      applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
+    });
+    
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',wireButtons);
+  } else {
+    wireButtons();
+  }
+})();
+</script>
+<script>var _SEARCH_BASE_='../../';</script>
+<script src="../../search.js"></script>
+</body>
+</html>

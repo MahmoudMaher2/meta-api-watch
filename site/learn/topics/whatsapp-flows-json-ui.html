@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WhatsApp Flows JSON UI Limits & Validation — Meta Docs Learn</title>
+  <meta name="description" content="Learn WhatsApp Flows JSON UI Limits & Validation in whatsapp: validation rules, error codes, examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+  <div class="header-inner">
+
+    <a href="../../index.html" class="header-logo" aria-label="Meta API Watch Home">
+      <span class="logo-icon">🔭</span>
+      <div class="logo-text">
+        <span class="site-title">Meta API Watch</span>
+        <span class="site-subtitle"
+              data-en="SEEN V2 · Developer Hub"
+              data-ar="SEEN V2 · مركز المطورين">SEEN V2 · Developer Hub</span>
+      </div>
+    </a>
+
+    <nav class="header-nav" role="navigation" aria-label="Main navigation">
+      <a href="../../changelog.html"
+         class="nav-tab"
+         >
+        <span data-en="🔔 Latest Updates" data-ar="🔔 آخر التحديثات">🔔 Latest Updates</span>
+      </a>
+      <a href="../../learn/index.html"
+         class="nav-tab active"
+         aria-current="page">
+        <span data-en="📚 Learn" data-ar="📚 تعلّم">📚 Learn</span>
+      </a>
+    </nav>
+
+    <button id="search-trigger" aria-label="Search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <span class="search-trigger-label" data-en="Search..." data-ar="ابحث...">Search...</span>
+      <span class="search-trigger-shortcut">/</span>
+    </button>
+
+    <div class="header-build-time" title="Last site build 🇪🇬">
+        <span class="build-icon">🕐</span>
+        <span class="build-label" data-en="Last Build" data-ar="آخر تحديث">Last Build</span>
+        <span class="build-value">Jun 24, 2026, 10:36 PM ðŸ‡ªðŸ‡¬</span>
+      </div>
+
+    <div class="header-actions">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+        <span class="lang-en">EN</span>
+        <span class="lang-sep" aria-hidden="true">·</span>
+        <span class="lang-ar">عربي</span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+
+
+  <div class="learn-layout">
+
+    <!-- Sidebar -->
+    <aside class="learn-sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label" data-en="On this page" data-ar="Ø¹Ù„Ù‰ Ù‡Ø°Ù‡ Ø§Ù„ØµÙ Ø­Ø©">On this page</span>
+        
+    <div class="lang-en">
+      <ul class="toc-list"><li class="toc-top"><a href="#max-number-of-screens">Max Number of Screens</a></li><li class="toc-top"><a href="#supported-ui-components-and-limits">Supported UI Components and Limits</a></li><li class="toc-top"><a href="#character-limits-and-file-sizes">Character Limits and File Sizes</a></li><li class="toc-top"><a href="#ui-validations">UI Validations</a></li></ul>
+    </div>
+    
+    <div class="lang-ar">
+      <ul class="toc-list"><li class="toc-top"><a href="#أقصى-عدد-للشاشات">أقصى عدد للشاشات</a></li><li class="toc-top"><a href="#مكونات-واجهة-المستخدم-المدعومة-والحدود">مكونات واجهة المستخدم المدعومة والحدود</a></li><li class="toc-top"><a href="#حدود-الأحرف-وأحجام-الملفات">حدود الأحرف وأحجام الملفات</a></li><li class="toc-top"><a href="#تحققات-واجهة-المستخدم">تحققات واجهة المستخدم</a></li></ul>
+    </div>
+  
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Source</span>
+        <a href="" target="_blank" rel="noopener" class="source-link">
+          📄 Meta Developer Docs ↗
+        </a>
+        
+      </div>
+      
+    </aside>
+
+    <!-- Main Content -->
+    <main class="learn-content" id="main-content">
+      <div class="topic-breadcrumb">
+        <a href="../index.html">Learn</a>
+        <span>›</span>
+        <span style="color:#a78bfa">whatsapp</span>
+        <span>›</span>
+        <span>WhatsApp Flows JSON UI Limits & Validation</span>
+      </div>
+
+      <div class="topic-hero">
+        <div class="topic-hero-badges">
+          <span class="platform-badge" style="background:#1a1a24;color:#a78bfa;border-color:#4c1d95">whatsapp</span>
+          
+        </div>
+        <h1 class="topic-title" data-en="WhatsApp Flows JSON UI Limits & Validation" data-ar="حدود واجهة مستخدم JSON والتحقق في تدفقات واتساب">WhatsApp Flows JSON UI Limits & Validation</h1>
+        <p class="topic-meta"><span data-en="whatsapp" data-ar="whatsapp">whatsapp</span> Â· <span data-en="Last verified:" data-ar="Ø¢Ø®Ø± Ù…Ø±Ø§Ø¬Ø¹Ø©:">Last verified:</span> N/A</p>
+      </div>
+
+      <div class="topic-body lang-en">
+        <h1>WhatsApp Flows JSON UI Limits & Validation</h1>
+
+<p>When designing WhatsApp Flows, you must adhere to technical constraints regarding screen counts, UI components, and JSON file sizes.</p>
+
+<h2 id="max-number-of-screens">Max Number of Screens</h2>
+
+<p>A single Flow is strictly limited to a maximum of <strong>100 screens</strong>.</p>
+<ul><li style="margin-left:0px"><strong>Best Practice</strong>: Limit a single Flow to 3–5 screens to prevent user fatigue.</li>
+<li style="margin-left:0px"><strong>Modularization</strong>: If your workflow is complex, split it into smaller flows and link them using the <code>flow_ref</code> action.</li></ul>
+
+<h2 id="supported-ui-components-and-limits">Supported UI Components and Limits</h2>
+<ul><li style="margin-left:8px"><strong>Dropdown Components</strong>: Supported up to a maximum of <strong>200 options</strong> per dropdown.</li>
+<li style="margin-left:0px"><strong>Embedded Links</strong>: Supported up to a maximum of <strong>2 embedded links</strong> per screen.</li>
+<li style="margin-left:0px"><strong>Data Endpoint Latency</strong>: Any dynamic data fetching from an endpoint must complete within the 10-second timeout window.</li></ul>
+
+<h2 id="character-limits-and-file-sizes">Character Limits and File Sizes</h2>
+<ul><li style="margin-left:8px"><strong>Flow JSON Size</strong>: The total size of your Flow JSON file must not exceed <strong>10 MB</strong>.</li>
+<li style="margin-left:0px"><strong>Input Constraints</strong>: Use <code>min-chars</code> and <code>max-chars</code> attributes in <code>TextInput</code> and <code>TextArea</code> to validate user input natively.</li>
+<li style="margin-left:0px"><strong>Template Constraints</strong>: The template message body that triggers the flow is limited to 1,024 characters, and the subtitle is limited to 80 characters.</li></ul>
+
+<h2 id="ui-validations">UI Validations</h2>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: Using <code>min-chars="5"</code> and <code>max-chars="50"</code> on a text input to ensure the user provides a valid short description before submitting.</p>
+<p><span class="icon-reject">❌</span> Invalid: Attempting to render a dropdown component with 500 options, which exceeds the 200-option limit and causes the Flow validation to fail.</p>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: Splitting a 20-screen onboarding process into 4 separate Flows connected via <code>flow_ref</code>.</p>
+<p><span class="icon-reject">❌</span> Invalid: Building a single JSON Flow file with 150 screens, resulting in an upload rejection.</p>
+      </div>
+      <div class="topic-body lang-ar"><h1>حدود واجهة مستخدم JSON والتحقق في تدفقات واتساب</h1>
+
+<p>عند تصميم تدفقات واتساب (WhatsApp Flows)، يجب الالتزام بالقيود الفنية المتعلقة بعدد الشاشات، ومكونات واجهة المستخدم، وأحجام ملفات JSON.</p>
+
+<h2 id="أقصى-عدد-للشاشات">أقصى عدد للشاشات</h2>
+
+<p>يقتصر التدفق الواحد بشكل صارم على حد أقصى يبلغ <strong>100 شاشة</strong>.</p>
+<ul><li style="margin-left:0px"><strong>أفضل الممارسات</strong>: يوصى بقصر التدفق الواحد على 3-5 شاشات لمنع إرهاق المستخدم.</li>
+<li style="margin-left:0px"><strong>التجزئة</strong>: إذا كان سير العمل معقداً، قم بتقسيمه إلى تدفقات أصغر واربطها باستخدام إجراء <code>flow_ref</code>.</li></ul>
+
+<h2 id="مكونات-واجهة-المستخدم-المدعومة-والحدود">مكونات واجهة المستخدم المدعومة والحدود</h2>
+<ul><li style="margin-left:8px"><strong>القوائم المنسدلة (Dropdowns)</strong>: مدعومة بحد أقصى <strong>200 خيار</strong> لكل قائمة منسدلة.</li>
+<li style="margin-left:0px"><strong>الروابط المضمنة (Embedded Links)</strong>: مدعومة بحد أقصى <strong>رابطين مضمنين</strong> في كل شاشة.</li>
+<li style="margin-left:0px"><strong>زمن انتقال نقطة بيانات النهاية</strong>: يجب أن يكتمل أي جلب بيانات ديناميكي من نقطة النهاية خلال نافذة المهلة الزمنية البالغة 10 ثوانٍ.</li></ul>
+
+<h2 id="حدود-الأحرف-وأحجام-الملفات">حدود الأحرف وأحجام الملفات</h2>
+<ul><li style="margin-left:8px"><strong>حجم ملف Flow JSON</strong>: يجب ألا يتجاوز الحجم الإجمالي لملف JSON الخاص بالتدفق <strong>10 ميجابايت</strong>.</li>
+<li style="margin-left:0px"><strong>قيود الإدخال</strong>: استخدم سمات <code>min-chars</code> و <code>max-chars</code> في <code>TextInput</code> و <code>TextArea</code> للتحقق من صحة إدخال المستخدم محلياً.</li>
+<li style="margin-left:0px"><strong>قيود القالب (Template)</strong>: يقتصر نص رسالة القالب التي تبدأ التدفق على 1,024 حرفاً، بينما يقتصر العنوان الفرعي على 80 حرفاً.</li></ul>
+
+<h2 id="تحققات-واجهة-المستخدم">تحققات واجهة المستخدم</h2>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: استخدام <code>min-chars="5"</code> و <code>max-chars="50"</code> في إدخال نص للتأكد من أن المستخدم يقدم وصفاً قصيراً صالحاً قبل الإرسال.</p>
+<p><span class="icon-reject">❌</span> Invalid: محاولة عرض مكون قائمة منسدلة يحتوي على 500 خيار، مما يتجاوز حد الـ 200 خيار ويؤدي إلى فشل التحقق من صحة التدفق.</p>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: تقسيم عملية تأهيل (Onboarding) مكونة من 20 شاشة إلى 4 تدفقات منفصلة متصلة عبر <code>flow_ref</code>.</p>
+<p><span class="icon-reject">❌</span> Invalid: بناء ملف JSON لتدفق واحد يحتوي على 150 شاشة، مما يؤدي إلى رفض الرفع (Upload Rejection).</p></div>
+
+      <div class="topic-nav">
+        <a class="nav-prev" href="whatsapp-flows-data-exchange.html">← WhatsApp Flows Data Exchange Endpoint</a>
+        <a class="nav-next" href="whatsapp-number-management.html">"WhatsApp Number Management: Account Limits and Validations" →</a>
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+(function(){
+  var html=document.documentElement,TK='maw-theme',LK='maw-lang';
+
+  // ── Theme ────────────────────────────────────────────────
+  function applyTheme(t){html.setAttribute('data-theme',t);localStorage.setItem(TK,t);}
+  applyTheme(localStorage.getItem(TK)||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));
+
+  // ── Language ─────────────────────────────────────────────
+  function applyLang(l){
+    html.setAttribute('data-lang',l);
+    html.setAttribute('lang',l==='ar'?'ar':'en');
+    html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+    localStorage.setItem(LK,l);
+    document.querySelectorAll('[data-en][data-ar]').forEach(function(el){
+      var val = el.getAttribute(l==='ar'?'data-ar':'data-en');
+      if (el.tagName==='INPUT' || el.tagName==='TEXTAREA') {
+        el.placeholder = val;
+      } else {
+        el.innerHTML = val;
+      }
+    });
+  }
+  applyLang(localStorage.getItem(LK)||'en');
+
+  // Wire up buttons after DOM is ready
+  function wireButtons(){
+    var thBtn=document.getElementById('theme-toggle');
+    if(thBtn) thBtn.addEventListener('click',function(){
+      applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+    });
+    var lgBtn=document.getElementById('lang-toggle');
+    if(lgBtn) lgBtn.addEventListener('click',function(){
+      applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
+    });
+    
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',wireButtons);
+  } else {
+    wireButtons();
+  }
+})();
+</script>
+<script>var _SEARCH_BASE_='../../';</script>
+<script src="../../search.js"></script>
+</body>
+</html>

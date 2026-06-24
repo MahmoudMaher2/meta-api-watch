@@ -48,7 +48,7 @@
     <div class="header-build-time" title="Last site build 🇪🇬">
         <span class="build-icon">🕐</span>
         <span class="build-label" data-en="Last Build" data-ar="آخر تحديث">Last Build</span>
-        <span class="build-value">Jun 24, 2026, 9:47 PM 🇪🇬</span>
+        <span class="build-value">Jun 24, 2026, 10:36 PM ðŸ‡ªðŸ‡¬</span>
       </div>
 
     <div class="header-actions">
@@ -73,8 +73,16 @@
     <!-- Sidebar -->
     <aside class="learn-sidebar" id="sidebar">
       <div class="sidebar-section">
-        <span class="sidebar-label">On this page</span>
-        <ul class="toc-list"><li class="toc-top"><a href="#types-of-interactive-messages">Types of Interactive Messages</a></li><li class="toc-top"><a href="#parameters-fields">Parameters & Fields</a></li><li class="toc-sub"><a href="#reply-buttons">Reply Buttons</a></li><li class="toc-sub"><a href="#list-messages">List Messages</a></li><li class="toc-top"><a href="#validation-rules">Validation Rules</a></li><li class="toc-top"><a href="#live-preview-what-it-looks-like">Live Preview — What It Looks Like</a></li><li class="toc-sub"><a href="#-correct-usage-reply-buttons">✅ Correct Usage — Reply Buttons</a></li><li class="toc-sub"><a href="#-common-mistake-too-many-buttons">❌ Common Mistake — Too Many Buttons</a></li><li class="toc-top"><a href="#webhooks-receiving-the-response">Webhooks (Receiving the Response)</a></li><li class="toc-top"><a href="#qa-checklist">QA Checklist</a></li></ul>
+        <span class="sidebar-label" data-en="On this page" data-ar="Ø¹Ù„Ù‰ Ù‡Ø°Ù‡ Ø§Ù„ØµÙ Ø­Ø©">On this page</span>
+        
+    <div class="lang-en">
+      <ul class="toc-list"><li class="toc-top"><a href="#types-of-interactive-messages">Types of Interactive Messages</a></li><li class="toc-top"><a href="#parameters-fields">Parameters & Fields</a></li><li class="toc-sub"><a href="#reply-buttons">Reply Buttons</a></li><li class="toc-sub"><a href="#list-messages">List Messages</a></li><li class="toc-top"><a href="#validation-rules">Validation Rules</a></li><li class="toc-top"><a href="#live-preview-what-it-looks-like">Live Preview — What It Looks Like</a></li><li class="toc-sub"><a href="#correct-usage-reply-buttons">✅ Correct Usage — Reply Buttons</a></li><li class="toc-sub"><a href="#common-mistake-too-many-buttons">❌ Common Mistake — Too Many Buttons</a></li><li class="toc-top"><a href="#webhooks-receiving-the-response">Webhooks (Receiving the Response)</a></li><li class="toc-top"><a href="#qa-checklist">QA Checklist</a></li></ul>
+    </div>
+    
+    <div class="lang-ar">
+      <ul class="toc-list"><li class="toc-top"><a href="#أنواع-الرسائل-التفاعلية">أنواع الرسائل التفاعلية</a></li><li class="toc-top"><a href="#المعلمات-والحقول">المعلمات والحقول</a></li><li class="toc-sub"><a href="#أزرار-الرد">أزرار الرد</a></li><li class="toc-sub"><a href="#رسائل-القوائم">رسائل القوائم</a></li><li class="toc-top"><a href="#قواعد-التحقق">قواعد التحقق</a></li><li class="toc-top"><a href="#معاينة-حية-كيف-تبدو">معاينة حية — كيف تبدو</a></li><li class="toc-sub"><a href="#الاستخدام-الصحيح-أزرار-الرد">✅ الاستخدام الصحيح — أزرار الرد</a></li><li class="toc-sub"><a href="#خطأ-شائع-أزرار-كثيرة-جدا">❌ خطأ شائع — أزرار كثيرة جداً</a></li><li class="toc-top"><a href="#الـ-webhooks-استلام-الرد">الـ Webhooks (استلام الرد)</a></li><li class="toc-top"><a href="#قائمة-التحقق-لضمان-الجودة-qa-checklist">قائمة التحقق لضمان الجودة (QA Checklist)</a></li></ul>
+    </div>
+  
       </div>
       <div class="sidebar-section">
         <span class="sidebar-label">Source</span>
@@ -101,11 +109,11 @@
           <span class="platform-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">WhatsApp</span>
           
         </div>
-        <h1 class="topic-title">WhatsApp Interactive Messages (Buttons & Lists)</h1>
-        <p class="topic-meta">Core API · Last verified: 2026-06-24</p>
+        <h1 class="topic-title" data-en="WhatsApp Interactive Messages (Buttons & Lists)" data-ar="رسائل واتساب التفاعلية (الأزرار والقوائم)">WhatsApp Interactive Messages (Buttons & Lists)</h1>
+        <p class="topic-meta"><span data-en="Core API" data-ar="Core API">Core API</span> Â· <span data-en="Last verified:" data-ar="Ø¢Ø®Ø± Ù…Ø±Ø§Ø¬Ø¹Ø©:">Last verified:</span> 2026-06-24</p>
       </div>
 
-      <div class="topic-body">
+      <div class="topic-body lang-en">
         <h1>WhatsApp Interactive Messages</h1>
 
 <p>Interactive messages replace traditional text-based "Reply 1 for Yes" workflows with native UI elements. They reduce friction, eliminate typing errors, and improve conversion rates. For SEEN V2, interactive messages are core to the Flow Builder and Bot modules.</p>
@@ -223,6 +231,122 @@
 <li style="margin-left:0px">[ ] Ensure <code>action.button</code> (for lists) is under 20 characters</li>
 <li style="margin-left:0px">[ ] Map webhook <code>interactive.*.id</code> accurately to SEEN V2 Flow Builder triggers</div></li></ul>
       </div>
+      <div class="topic-body lang-ar"><h1>رسائل واتساب التفاعلية</h1>
+
+<p>تحل الرسائل التفاعلية محل آليات العمل التقليدية القائمة على النصوص مثل "رد بـ 1 لنعم" بعناصر واجهة مستخدم أصلية. فهي تقلل من الاحتكاك، وتزيل أخطاء الكتابة، وتحسن معدلات التحويل. بالنسبة لـ SEEN V2، تعتبر الرسائل التفاعلية جوهرية لوحدات منشئ التدفق (Flow Builder) والبوت (Bot).</p>
+
+<h2 id="أنواع-الرسائل-التفاعلية">أنواع الرسائل التفاعلية</h2>
+
+<p>1. <strong>أزرار الرد (Reply Buttons):</strong> ما يصل إلى 3 أزرار للرد السريع (مثل: "نعم"، "لا"، "التحدث إلى المبيعات").</p>
+<p>2. <strong>رسائل القوائم (List Messages):</strong> قائمة تحتوي على ما يصل إلى 10 صفوف (مثل: فئات المنتجات، مواقع المتاجر).</p>
+
+<h2 id="المعلمات-والحقول">المعلمات والحقول</h2>
+
+<h3 id="أزرار-الرد">أزرار الرد</h3>
+
+<div class="table-wrap"><table><thead><tr><th>الحقل</th><th>النوع</th><th>مطلوب</th><th>الوصف</th></tr></thead><tbody><tr><td><code>type</code></td><td>string</td><td>نعم</td><td>يُعين إلى <code>"button"</code></td></tr><tr><td><code>body.text</code></td><td>string</td><td>نعم</td><td>نص الرسالة الرئيسي (الحد الأقصى 1024 حرفاً)</td></tr><tr><td><code>action.buttons</code></td><td>array</td><td>نعم</td><td>مصفوفة تحتوي على ما يصل إلى 3 كائنات أزرار</td></tr><tr><td><code>button.type</code></td><td>string</td><td>نعم</td><td>يجب أن يكون <code>"reply"</code></td></tr><tr><td><code>button.reply.id</code></td><td>string</td><td>نعم</td><td>حمولة (Payload) فريدة تُرسل إلى الـ webhook (الحد الأقصى 256 حرفاً)</td></tr><tr><td><code>button.reply.title</code></td><td>string</td><td>نعم</td><td>نص الزر المعروض للمستخدم (الحد الأقصى 20 حرفاً)</td></tr></tbody></table></div>
+<h3 id="رسائل-القوائم">رسائل القوائم</h3>
+
+<div class="table-wrap"><table><thead><tr><th>الحقل</th><th>النوع</th><th>مطلوب</th><th>الوصف</th></tr></thead><tbody><tr><td><code>type</code></td><td>string</td><td>نعم</td><td>يُعين إلى <code>"list"</code></td></tr><tr><td><code>body.text</code></td><td>string</td><td>نعم</td><td>نص الرسالة الرئيسي (الحد الأقصى 1024 حرفاً)</td></tr><tr><td><code>action.button</code></td><td>string</td><td>نعم</td><td>النص الموجود على الزر الذي يفتح القائمة (الحد الأقصى 20 حرفاً)</td></tr><tr><td><code>action.sections</code></td><td>array</td><td>نعم</td><td>بحد أقصى 10 أقسام</td></tr><tr><td><code>row.id</code></td><td>string</td><td>نعم</td><td>الحمولة (Payload) المعادة عبر الـ webhook عند الاختيار</td></tr><tr><td><code>row.title</code></td><td>string</td><td>نعم</td><td>عنوان الصف (الحد الأقصى 24 حرفاً)</td></tr><tr><td><code>row.description</code></td><td>string</td><td>لا</td><td>نص فرعي للصف (الحد الأقصى 72 حرفاً)</td></tr></tbody></table></div>
+<h2 id="قواعد-التحقق">قواعد التحقق</h2>
+
+<div class="table-wrap"><table><thead><tr><th>القاعدة</th><th><span class="icon-reject">❌</span> تُرفض</th><th><span class="icon-accept">✅</span> تُقبل</th></tr></thead><tbody><tr><td>عدد الأزرار</td><td>4 أزرار أو أكثر</td><td>من 1 إلى 3 أزرار كحد أقصى</td></tr><tr><td>طول عنوان الزر</td><td><code>"Talk to a human representative now"</code> (34 حرفاً)</td><td><code>"Talk to Sales"</code> (كحد أقصى 20 حرفاً)</td></tr><tr><td>عدد صفوف القائمة</td><td>إجمالي 11 صفاً عبر الأقسام</td><td>إجمالي 10 صفوف كحد أقصى</td></tr><tr><td>طول عنوان الصف</td><td><code>"Schedule Appointment for Tomorrow"</code> (33 حرفاً)</td><td><code>"Book Tomorrow"</code> (كحد أقصى 24 حرفاً)</td></tr><tr><td>معرّفات الأزرار (Button IDs)</td><td>معرّفات مكررة في نفس الرسالة</td><td>معرّفات فريدة لكل زر/صف</td></tr></tbody></table></div>
+<h2 id="معاينة-حية-كيف-تبدو">معاينة حية — كيف تبدو</h2>
+
+<div class="preview-block preview-accepted"><span class="preview-label preview-label-ok">✅ Correct Usage — Live Preview</span>### ✅ الاستخدام الصحيح — أزرار الرد
+
+<pre class="code-block"><code class="lang-json">POST /v19.0/{PHONE_NUMBER_ID}/messages
+<p>Authorization: Bearer {ACCESS_TOKEN}</p>
+
+<p>{</p>
+<p>  "messaging_product": "whatsapp",</p>
+<p>  "recipient_type": "individual",</p>
+<p>  "to": "{{CUSTOMER_PHONE}}",</p>
+<p>  "type": "interactive",</p>
+<p>  "interactive": {</p>
+<p>    "type": "button",</p>
+<p>    "header": {</p>
+<p>      "type": "text",</p>
+<p>      "text": "Payment Confirmation"</p>
+<p>    },</p>
+<p>    "body": {</p>
+<p>      "text": "Your order #12345 has been processed. Would you like a receipt?"</p>
+<p>    },</p>
+<p>    "footer": {</p>
+<p>      "text": "SEEN V2 Bot"</p>
+<p>    },</p>
+<p>    "action": {</p>
+<p>      "buttons": [</p>
+<p>        {</p>
+<p>          "type": "reply",</p>
+<p>          "reply": {</p>
+<p>            "id": "receipt_yes",</p>
+<p>            "title": "Yes, please"</p>
+<p>          }</p>
+<p>        },</p>
+<p>        {</p>
+<p>          "type": "reply",</p>
+<p>          "reply": {</p>
+<p>            "id": "receipt_no",</p>
+<p>            "title": "No, thanks"</p>
+<p>          }</p>
+<p>        }</p>
+<p>      ]</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<p><strong>لماذا تنجح:</strong> عدد الأزرار 2 بالضبط، وعناوين الأزرار أقل من 20 حرفاً، والمعرّفات (IDs) فريدة.</p>
+
+<p></div><div class="preview-block preview-rejected"><span class="preview-label preview-label-err"><span class="icon-reject">❌</span> Common Mistake — What Goes Wrong</span>### <span class="icon-reject">❌</span> خطأ شائع — أزرار كثيرة جداً</p>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "action": {</p>
+<p>    "buttons": [</p>
+<p>      { "type": "reply", "reply": { "id": "1", "title": "Option 1" } },</p>
+<p>      { "type": "reply", "reply": { "id": "2", "title": "Option 2" } },</p>
+<p>      { "type": "reply", "reply": { "id": "3", "title": "Option 3" } },</p>
+<p>      { "type": "reply", "reply": { "id": "4", "title": "Option 4" } }</p>
+<p>    ]</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<p><strong>الخطأ:</strong> <code>Error 100: Invalid parameter</code> — يُسمح بحد أقصى 3 أزرار. لـ 4 خيارات أو أكثر، استخدم رسالة القائمة <code>list</code> بدلاً من ذلك.</p>
+
+<h2 id="الـ-webhooks-استلام-الرد">الـ Webhooks (استلام الرد)</h2>
+
+<p>عندما ينقر المستخدم على زر أو يحدد صفاً في قائمة، ترسل Meta حدث webhook إلى SEEN V2.</p>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "object": "whatsapp_business_account",</p>
+<p>  "entry": [{</p>
+<p>    "changes": [{</p>
+<p>      "value": {</p>
+<p>        "messages": [{</p>
+<p>          "from": "1234567890",</p>
+<p>          "type": "interactive",</p>
+<p>          "interactive": {</p>
+<p>            "type": "button_reply",</p>
+<p>            "button_reply": {</p>
+<p>              "id": "receipt_yes",</p>
+<p>              "title": "Yes, please"</p>
+<p>            }</p>
+<p>          }</p>
+<p>        }]</p>
+<p>      }</p>
+<p>    }]</p>
+<p>  }]</p>
+<p>}</code></pre></p>
+
+<p><strong>ملاحظة هامة لتنفيذ SEEN V2:</strong> يجب أن يعتمد منشئ البوت (Bot builder) على مطابقة <code>interactive.button_reply.id</code> (وليس العنوان) في منطق التوجيه (routing logic)، حيث أن المعرّف (ID) غير قابل للتغيير بينما قد يتغير العنوان بناءً على الترجمة واللغة.</p>
+
+<h2 id="قائمة-التحقق-لضمان-الجودة-qa-checklist">قائمة التحقق لضمان الجودة (QA Checklist)</h2>
+<ul><li style="margin-left:8px">[ ] التحقق من أن عناوين الأزرار لا تتجاوز 20 حرفاً</li>
+<li style="margin-left:0px">[ ] التحقق من وجود 3 أزرار كحد أقصى لكل رسالة</li>
+<li style="margin-left:0px">[ ] التحقق من أن صفوف القائمة لا تتجاوز 10 صفوف إجمالاً في جميع الأقسام</li>
+<li style="margin-left:0px">[ ] التحقق من أن عناوين الصفوف لا تتجاوز 24 حرفاً</li>
+<li style="margin-left:0px">[ ] التأكد من أن <code>action.button</code> (للقوائم) يقل عن 20 حرفاً</li>
+<li style="margin-left:0px">[ ] تعيين <code>interactive.*.id</code> الخاص بالـ webhook بدقة إلى مشغلات منشئ التدفق (Flow Builder triggers) في SEEN V2</div></li></ul></div>
 
       <div class="topic-nav">
         <a class="nav-prev" href="whatsapp-flows-v4.html">← WhatsApp Flows v4 — Interactive Forms</a>

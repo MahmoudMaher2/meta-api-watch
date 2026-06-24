@@ -105,7 +105,7 @@ function escHtml(str) {
 }
 
 function slugH(text) {
-  return text.toLowerCase().replace(/[^\w\s-]/g,'').replace(/\s+/g,'-').replace(/-+/g,'-');
+  return text.trim().toLowerCase().replace(/[^\p{L}\p{N}\s-]/gu,'').replace(/\s+/g,'-').replace(/^-+|-+$/g,'') || 'section';
 }
 
 // ── Platform badge colors ─────────────────────────────────────────────────────
@@ -131,22 +131,34 @@ function getAllTopics() {
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
       if (entry.isDirectory()) {
         walk(path.join(dir, entry.name), entry.name);
-      } else if (entry.name.endsWith('.md')) {
+      } else if (entry.name.endsWith('.md') && !entry.name.endsWith('-ar.md')) {
         const raw  = fs.readFileSync(path.join(dir, entry.name), 'utf8');
         const { meta, body } = parseFrontmatter(raw);
+        
+        let body_ar = null;
+        let meta_ar = null;
+        const arPath = path.join(dir, entry.name.replace('.md', '-ar.md'));
+        if (fs.existsSync(arPath)) {
+          const rawAr = fs.readFileSync(arPath, 'utf8');
+          const parsedAr = parseFrontmatter(rawAr);
+          meta_ar = parsedAr.meta;
+          body_ar = parsedAr.body;
+        }
+
         topics.push({
           filename: entry.name,
           slug: meta.slug || entry.name.replace('.md', ''),
           platform: meta.platform || platform || 'Common',
           category: meta.category || 'Core API',
           title: meta.title || 'Untitled',
+          title_ar: meta_ar && meta_ar.title ? meta_ar.title : (meta.title || 'Untitled'),
           priority: meta.priority || 'medium',
           source_url: meta.source_url || '',
           last_verified: meta.last_verified || '',
           isNew: meta.new === 'true' || meta.new === true,
           newSince: meta.new_since || '',
           changelogArticle: meta.changelog_article || '',
-          meta, body
+          meta, body, meta_ar, body_ar
         });
       }
     }
@@ -159,21 +171,34 @@ function getAllTopics() {
 function buildTopicPage(topic, allTopics) {
   const pc = PLATFORM_COLORS[topic.platform] || PLATFORM_COLORS['Common'];
   const content = md2html(topic.body);
+  const content_ar = topic.body_ar ? md2html(topic.body_ar) : '';
   const lastBuildLabel = new Date().toLocaleString('en-US', {
     month: 'short', day: 'numeric', year: 'numeric',
     hour: 'numeric', minute: '2-digit', hour12: true,
     timeZone: 'Africa/Cairo'
-  }) + ' 🇪🇬';
+  }) + ' ðŸ‡ªðŸ‡¬';
   
   // Extract TOC from headings
-  const headings = [...topic.body.matchAll(/^#{2,3}\s(.+)$/gm)].map(m => ({
+  const headingsEn = [...topic.body.matchAll(/^#{2,3}\s(.+)$/gm)].map(m => ({
     level: m[0].startsWith('###') ? 3 : 2,
     text: m[1],
     id: slugH(m[1])
   }));
-  const toc = headings.map(h =>
-    `<li class="toc-${h.level === 3 ? 'sub' : 'top'}"><a href="#${h.id}">${h.text}</a></li>`
-  ).join('');
+  const headingsAr = topic.body_ar ? [...topic.body_ar.matchAll(/^#{2,3}\s(.+)$/gm)].map(m => ({
+    level: m[0].startsWith('###') ? 3 : 2,
+    text: m[1],
+    id: slugH(m[1])
+  })) : [];
+  
+  const tocHtml = `
+    <div class="lang-en">
+      <ul class="toc-list">${headingsEn.map(h => `<li class="toc-${h.level === 3 ? 'sub' : 'top'}"><a href="#${h.id}">${h.text}</a></li>`).join('')}</ul>
+    </div>
+    ${topic.body_ar ? `
+    <div class="lang-ar">
+      <ul class="toc-list">${headingsAr.map(h => `<li class="toc-${h.level === 3 ? 'sub' : 'top'}"><a href="#${h.id}">${h.text}</a></li>`).join('')}</ul>
+    </div>` : ''}
+  `;
 
   // Sibling navigation
   const platformTopics = allTopics.filter(t => t.platform === topic.platform);
@@ -206,8 +231,8 @@ ${buildHead(
     <!-- Sidebar -->
     <aside class="learn-sidebar" id="sidebar">
       <div class="sidebar-section">
-        <span class="sidebar-label">On this page</span>
-        <ul class="toc-list">${toc}</ul>
+        <span class="sidebar-label" data-en="On this page" data-ar="Ø¹Ù„Ù‰ Ù‡Ø°Ù‡ Ø§Ù„ØµÙ Ø­Ø©">On this page</span>
+        ${tocHtml}
       </div>
       <div class="sidebar-section">
         <span class="sidebar-label">Source</span>
@@ -234,13 +259,14 @@ ${buildHead(
           <span class="platform-badge" style="background:${pc.bg};color:${pc.text};border-color:${pc.border}">${topic.platform}</span>
           ${newBadgeHero}
         </div>
-        <h1 class="topic-title">${topic.title}</h1>
-        <p class="topic-meta">${topic.category} · Last verified: ${topic.last_verified || 'N/A'}</p>
+        <h1 class="topic-title" data-en="${topic.title}" data-ar="${topic.title_ar}">${topic.title}</h1>
+        <p class="topic-meta"><span data-en="${topic.category}" data-ar="${topic.category}">${topic.category}</span> Â· <span data-en="Last verified:" data-ar="Ø¢Ø®Ø± Ù…Ø±Ø§Ø¬Ø¹Ø©:">Last verified:</span> ${topic.last_verified || 'N/A'}</p>
       </div>
 
-      <div class="topic-body">
+      <div class="topic-body lang-en">
         ${content}
       </div>
+      ${topic.body_ar ? `<div class="topic-body lang-ar">${content_ar}</div>` : ''}
 
       <div class="topic-nav">
         ${prevLink}

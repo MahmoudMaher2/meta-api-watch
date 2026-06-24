@@ -48,7 +48,7 @@
     <div class="header-build-time" title="Last site build 🇪🇬">
         <span class="build-icon">🕐</span>
         <span class="build-label" data-en="Last Build" data-ar="آخر تحديث">Last Build</span>
-        <span class="build-value">Jun 24, 2026, 9:47 PM 🇪🇬</span>
+        <span class="build-value">Jun 24, 2026, 10:36 PM ðŸ‡ªðŸ‡¬</span>
       </div>
 
     <div class="header-actions">
@@ -73,8 +73,16 @@
     <!-- Sidebar -->
     <aside class="learn-sidebar" id="sidebar">
       <div class="sidebar-section">
-        <span class="sidebar-label">On this page</span>
-        <ul class="toc-list"><li class="toc-top"><a href="#managing-the-profile">Managing the Profile</a></li><li class="toc-sub"><a href="#parameters-fields-updating-profile">Parameters & Fields (Updating Profile)</a></li><li class="toc-top"><a href="#validation-rules">Validation Rules</a></li><li class="toc-top"><a href="#live-preview-what-it-looks-like">Live Preview — What It Looks Like</a></li><li class="toc-sub"><a href="#-correct-usage-updating-profile">✅ Correct Usage — Updating Profile</a></li><li class="toc-sub"><a href="#-common-mistake-invalid-website-format">❌ Common Mistake — Invalid Website Format</a></li><li class="toc-top"><a href="#profile-picture">Profile Picture</a></li><li class="toc-top"><a href="#seen-v2-implementation-notes">SEEN V2 Implementation Notes</a></li><li class="toc-top"><a href="#qa-checklist">QA Checklist</a></li></ul>
+        <span class="sidebar-label" data-en="On this page" data-ar="Ø¹Ù„Ù‰ Ù‡Ø°Ù‡ Ø§Ù„ØµÙ Ø­Ø©">On this page</span>
+        
+    <div class="lang-en">
+      <ul class="toc-list"><li class="toc-top"><a href="#managing-the-profile">Managing the Profile</a></li><li class="toc-sub"><a href="#parameters-fields-updating-profile">Parameters & Fields (Updating Profile)</a></li><li class="toc-top"><a href="#validation-rules">Validation Rules</a></li><li class="toc-top"><a href="#live-preview-what-it-looks-like">Live Preview — What It Looks Like</a></li><li class="toc-sub"><a href="#correct-usage-updating-profile">✅ Correct Usage — Updating Profile</a></li><li class="toc-sub"><a href="#common-mistake-invalid-website-format">❌ Common Mistake — Invalid Website Format</a></li><li class="toc-top"><a href="#profile-picture">Profile Picture</a></li><li class="toc-top"><a href="#seen-v2-implementation-notes">SEEN V2 Implementation Notes</a></li><li class="toc-top"><a href="#qa-checklist">QA Checklist</a></li></ul>
+    </div>
+    
+    <div class="lang-ar">
+      <ul class="toc-list"><li class="toc-top"><a href="#إدارة-الملف-التعريفي">إدارة الملف التعريفي</a></li><li class="toc-sub"><a href="#المعلمات-والحقول-تحديث-الملف-التعريفي">المعلمات والحقول (تحديث الملف التعريفي)</a></li><li class="toc-top"><a href="#قواعد-التحقق">قواعد التحقق</a></li><li class="toc-top"><a href="#معاينة-حية-كيف-يبدو">معاينة حية — كيف يبدو</a></li><li class="toc-sub"><a href="#الاستخدام-الصحيح-تحديث-الملف-التعريفي">✅ الاستخدام الصحيح — تحديث الملف التعريفي</a></li><li class="toc-sub"><a href="#خطأ-شائع-تنسيق-موقع-ويب-غير-صالح">❌ خطأ شائع — تنسيق موقع ويب غير صالح</a></li><li class="toc-top"><a href="#صورة-الملف-التعريفي">صورة الملف التعريفي</a></li><li class="toc-top"><a href="#ملاحظات-التنفيذ-في-seen-v2">ملاحظات التنفيذ في SEEN V2</a></li><li class="toc-top"><a href="#قائمة-مراجعة-ضمان-الجودة-qa-checklist">قائمة مراجعة ضمان الجودة (QA Checklist)</a></li></ul>
+    </div>
+  
       </div>
       <div class="sidebar-section">
         <span class="sidebar-label">Source</span>
@@ -101,11 +109,11 @@
           <span class="platform-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">WhatsApp</span>
           
         </div>
-        <h1 class="topic-title">WhatsApp Business Profile API</h1>
-        <p class="topic-meta">Core API · Last verified: 2026-06-24</p>
+        <h1 class="topic-title" data-en="WhatsApp Business Profile API" data-ar="واجهة برمجة تطبيقات ملف الأعمال في واتساب">WhatsApp Business Profile API</h1>
+        <p class="topic-meta"><span data-en="Core API" data-ar="Core API">Core API</span> Â· <span data-en="Last verified:" data-ar="Ø¢Ø®Ø± Ù…Ø±Ø§Ø¬Ø¹Ø©:">Last verified:</span> 2026-06-24</p>
       </div>
 
-      <div class="topic-body">
+      <div class="topic-body lang-en">
         <h1>WhatsApp Business Profile API</h1>
 
 <p>The Business Profile API allows SEEN V2 to programmatically manage the public-facing profile of a WhatsApp Business Account (WABA). This is what end-users see when they click on the business name in WhatsApp.</p>
@@ -170,6 +178,69 @@
 <li style="margin-left:0px">[ ] Enforce max length of 139 chars for the <code>about</code> field</li>
 <li style="margin-left:0px">[ ] Ensure vertical selection uses Meta's exact enum values, not arbitrary strings</div></li></ul>
       </div>
+      <div class="topic-body lang-ar"><h1>واجهة برمجة تطبيقات ملف الأعمال في واتساب</h1>
+
+<p>تتيح واجهة برمجة تطبيقات ملف الأعمال (Business Profile API) لنظام SEEN V2 إدارة الملف التعريفي العام لحساب واتساب للأعمال (WABA) برمجياً. هذا ما يراه المستخدمون النهائيون عند النقر على اسم النشاط التجاري في واتساب.</p>
+
+<h2 id="إدارة-الملف-التعريفي">إدارة الملف التعريفي</h2>
+
+<p>يمكنك قراءة وتحديث تفاصيل الملف التعريفي باستخدام الحافة <code>/whatsapp_business_profile</code> على معرّف رقم الهاتف (Phone Number ID).</p>
+
+<h3 id="المعلمات-والحقول-تحديث-الملف-التعريفي">المعلمات والحقول (تحديث الملف التعريفي)</h3>
+
+<div class="table-wrap"><table><thead><tr><th>الحقل</th><th>النوع</th><th>مطلوب</th><th>الوصف</th></tr></thead><tbody><tr><td><code>messaging_product</code></td><td>string</td><td>نعم</td><td>يجب أن يكون <code>"whatsapp"</code></td></tr><tr><td><code>address</code></td><td>string</td><td>لا</td><td>العنوان الفعلي (بحد أقصى 256 حرفاً)</td></tr><tr><td><code>description</code></td><td>string</td><td>لا</td><td>وصف النشاط التجاري (بحد أقصى 512 حرفاً)</td></tr><tr><td><code>vertical</code></td><td>enum</td><td>لا</td><td>فئة الصناعة (مثل <code>RETAIL</code>، <code>FINANCE</code>)</td></tr><tr><td><code>email</code></td><td>string</td><td>لا</td><td>البريد الإلكتروني للتواصل (بحد أقصى 128 حرفاً)</td></tr><tr><td><code>websites</code></td><td>array</td><td>لا</td><td>ما يصل إلى رابطين (بحد أقصى 256 حرفاً لكل منهما)</td></tr><tr><td><code>profile_picture_handle</code></td><td>string</td><td>لا</td><td>معرّف الوسائط المرفوعة للصورة الشخصية</td></tr><tr><td><code>about</code></td><td>string</td><td>لا</td><td>نص "حول" (About) المعروض أسفل الرقم (بحد أقصى 139 حرفاً)</td></tr></tbody></table></div>
+<h2 id="قواعد-التحقق">قواعد التحقق</h2>
+
+<div class="table-wrap"><table><thead><tr><th>القاعدة</th><th><span class="icon-reject">❌</span> يُرفض (REJECTED)</th><th><span class="icon-accept">✅</span> يُقبل (ACCEPTED)</th></tr></thead><tbody><tr><td>حد مواقع الويب</td><td>مصفوفة تحتوي على 3 روابط أو أكثر</td><td>مصفوفة تحتوي على رابط واحد أو رابطين</td></tr><tr><td>تنسيق موقع الويب</td><td><code>"www.example.com"</code></td><td><code>"http://www.example.com"</code> أو <code>"https://..."</code></td></tr><tr><td>طول نص About</td><td>140 حرفاً أو أكثر</td><td>139 حرفاً كحد أقصى</td></tr><tr><td>فئة Enum (Vertical Enum)</td><td><code>"Technology"</code></td><td><code>"OTHER"</code>، <code>"RETAIL"</code>، <code>"PROF_SERVICES"</code> إلخ.</td></tr></tbody></table></div>
+<h2 id="معاينة-حية-كيف-يبدو">معاينة حية — كيف يبدو</h2>
+
+<div class="preview-block preview-accepted"><span class="preview-label preview-label-ok">✅ Correct Usage — Live Preview</span>### ✅ الاستخدام الصحيح — تحديث الملف التعريفي
+
+<pre class="code-block"><code class="lang-json">POST /v19.0/{PHONE_NUMBER_ID}/whatsapp_business_profile
+<p>Authorization: Bearer {ACCESS_TOKEN}</p>
+
+<p>{</p>
+<p>  "messaging_product": "whatsapp",</p>
+<p>  "address": "123 Commerce St, New York, NY",</p>
+<p>  "description": "Your favorite place for tech gadgets.",</p>
+<p>  "vertical": "RETAIL",</p>
+<p>  "email": "contact@seenv2.com",</p>
+<p>  "websites": [</p>
+<p>    "https://seenv2.com",</p>
+<p>    "https://help.seenv2.com"</p>
+<p>  ],</p>
+<p>  "about": "Available 24/7 for support"</p>
+<p>}</code></pre></p>
+
+<p><strong>لماذا ينجح:</strong> تنسيقات روابط صحيحة، أقل من 3 مواقع ويب، قيمة enum صحيحة للفئة.</p>
+
+<p></div><div class="preview-block preview-rejected"><span class="preview-label preview-label-err"><span class="icon-reject">❌</span> Common Mistake — What Goes Wrong</span>### <span class="icon-reject">❌</span> خطأ شائع — تنسيق موقع ويب غير صالح</p>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "messaging_product": "whatsapp",</p>
+<p>  "websites": [</p>
+<p>    "seenv2.com"</p>
+<p>  ]</p>
+<p>}</code></pre></p>
+
+<p><strong>الخطأ:</strong> <code>Error 100: Invalid parameter</code> — يجب أن تبدأ الروابط بـ <code>http://</code> أو <code>https://</code>.</p>
+
+<h2 id="صورة-الملف-التعريفي">صورة الملف التعريفي</h2>
+
+<p>يتطلب تحديث صورة الملف التعريفي عملية من خطوتين باستخدام عمليات الرفع القابلة للاستئناف (Resumable Uploads)، وليس عبر رابط مباشر.</p>
+
+<p>1. <strong>إنشاء جلسة رفع:</strong> إرسال طلب POST إلى <code>/{APP_ID}/uploads</code></p>
+<p>2. <strong>رفع الملف:</strong> إرسال بيانات ثنائية كطلب POST إلى معرّف الجلسة المُرجع</p>
+<p>3. <strong>تحديث الملف التعريفي:</strong> تمرير المعرّف المُرجع إلى <code>profile_picture_handle</code></p>
+
+<h2 id="ملاحظات-التنفيذ-في-seen-v2">ملاحظات التنفيذ في SEEN V2</h2>
+<ul><li style="margin-left:8px"><strong>واجهة مستخدم الإعدادات:</strong> يجب أن تقوم لوحة إعدادات SEEN V2 بالتحقق الصارم من صحة هذه المدخلات من جهة العميل (خاصة مخططات الروابط والحد الأقصى لعدد الأحرف) قبل الاتصال بواجهة برمجة تطبيقات Meta لمنع الأخطاء المزعجة.</li>
+<li style="margin-left:0px"><strong>التخزين المؤقت (Caching):</strong> قم بجلب الملف التعريفي عند تحميل التطبيق وقم بتخزينه مؤقتاً. لا تقم بجلبه ديناميكياً عند كل عرض (render) للصفحة.</li></ul>
+
+<h2 id="قائمة-مراجعة-ضمان-الجودة-qa-checklist">قائمة مراجعة ضمان الجودة (QA Checklist)</h2>
+<ul><li style="margin-left:8px">[ ] التحقق من أن الروابط تحتوي على <code>http(s)://</code></li>
+<li style="margin-left:0px">[ ] فرض حد أقصى للطول يبلغ 139 حرفاً للحقل <code>about</code></li>
+<li style="margin-left:0px">[ ] التأكد من أن اختيار الفئة (vertical) يستخدم قيم enum الدقيقة من Meta، وليس نصوصاً عشوائية</div></li></ul></div>
 
       <div class="topic-nav">
         <a class="nav-prev" href="whatsapp-webhooks.html">← WhatsApp Webhooks</a>

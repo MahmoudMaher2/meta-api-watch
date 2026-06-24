@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WhatsApp Billing & Pricing Model — Meta Docs Learn</title>
+  <meta name="description" content="Learn WhatsApp Billing & Pricing Model in whatsapp: validation rules, error codes, examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+  <div class="header-inner">
+
+    <a href="../../index.html" class="header-logo" aria-label="Meta API Watch Home">
+      <span class="logo-icon">🔭</span>
+      <div class="logo-text">
+        <span class="site-title">Meta API Watch</span>
+        <span class="site-subtitle"
+              data-en="SEEN V2 · Developer Hub"
+              data-ar="SEEN V2 · مركز المطورين">SEEN V2 · Developer Hub</span>
+      </div>
+    </a>
+
+    <nav class="header-nav" role="navigation" aria-label="Main navigation">
+      <a href="../../changelog.html"
+         class="nav-tab"
+         >
+        <span data-en="🔔 Latest Updates" data-ar="🔔 آخر التحديثات">🔔 Latest Updates</span>
+      </a>
+      <a href="../../learn/index.html"
+         class="nav-tab active"
+         aria-current="page">
+        <span data-en="📚 Learn" data-ar="📚 تعلّم">📚 Learn</span>
+      </a>
+    </nav>
+
+    <button id="search-trigger" aria-label="Search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <span class="search-trigger-label" data-en="Search..." data-ar="ابحث...">Search...</span>
+      <span class="search-trigger-shortcut">/</span>
+    </button>
+
+    <div class="header-build-time" title="Last site build 🇪🇬">
+        <span class="build-icon">🕐</span>
+        <span class="build-label" data-en="Last Build" data-ar="آخر تحديث">Last Build</span>
+        <span class="build-value">Jun 24, 2026, 10:36 PM ðŸ‡ªðŸ‡¬</span>
+      </div>
+
+    <div class="header-actions">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+        <span class="lang-en">EN</span>
+        <span class="lang-sep" aria-hidden="true">·</span>
+        <span class="lang-ar">عربي</span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+
+
+  <div class="learn-layout">
+
+    <!-- Sidebar -->
+    <aside class="learn-sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label" data-en="On this page" data-ar="Ø¹Ù„Ù‰ Ù‡Ø°Ù‡ Ø§Ù„ØµÙ Ø­Ø©">On this page</span>
+        
+    <div class="lang-en">
+      <ul class="toc-list"><li class="toc-top"><a href="#conversation-categories">Conversation Categories</a></li><li class="toc-top"><a href="#the-24-hour-window">The 24-Hour Window</a></li><li class="toc-top"><a href="#ui-impacts-and-validations">UI Impacts and Validations</a></li><li class="toc-sub"><a href="#ui-validation-examples">UI Validation Examples</a></li></ul>
+    </div>
+    
+    <div class="lang-ar">
+      <ul class="toc-list"><li class="toc-top"><a href="#فئات-المحادثة">فئات المحادثة</a></li><li class="toc-top"><a href="#نافذة-الـ-24-ساعة">نافذة الـ 24 ساعة</a></li><li class="toc-top"><a href="#تأثيرات-واجهة-المستخدم-والتحققات">تأثيرات واجهة المستخدم والتحققات</a></li><li class="toc-sub"><a href="#أمثلة-على-التحقق-من-صحة-واجهة-المستخدم">أمثلة على التحقق من صحة واجهة المستخدم</a></li></ul>
+    </div>
+  
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Source</span>
+        <a href="" target="_blank" rel="noopener" class="source-link">
+          📄 Meta Developer Docs ↗
+        </a>
+        
+      </div>
+      
+    </aside>
+
+    <!-- Main Content -->
+    <main class="learn-content" id="main-content">
+      <div class="topic-breadcrumb">
+        <a href="../index.html">Learn</a>
+        <span>›</span>
+        <span style="color:#a78bfa">whatsapp</span>
+        <span>›</span>
+        <span>WhatsApp Billing & Pricing Model</span>
+      </div>
+
+      <div class="topic-hero">
+        <div class="topic-hero-badges">
+          <span class="platform-badge" style="background:#1a1a24;color:#a78bfa;border-color:#4c1d95">whatsapp</span>
+          
+        </div>
+        <h1 class="topic-title" data-en="WhatsApp Billing & Pricing Model" data-ar="نموذج الفوترة والتسعير في واتساب">WhatsApp Billing & Pricing Model</h1>
+        <p class="topic-meta"><span data-en="whatsapp" data-ar="whatsapp">whatsapp</span> Â· <span data-en="Last verified:" data-ar="Ø¢Ø®Ø± Ù…Ø±Ø§Ø¬Ø¹Ø©:">Last verified:</span> N/A</p>
+      </div>
+
+      <div class="topic-body lang-en">
+        <h1>WhatsApp Billing & Pricing Model</h1>
+
+<p>As of recent updates, the WhatsApp Business API utilizes a <strong>per-message billing model</strong>. Understanding the conversation categories and the 24-hour window is crucial for managing costs and optimizing your user interface.</p>
+
+<h2 id="conversation-categories">Conversation Categories</h2>
+
+<p>Every template message is classified into one of four categories:</p>
+
+<p>1. <strong>Service</strong>: Customer-initiated replies within the 24-hour window. These are free.</p>
+<p>2. <strong>Utility</strong>: Used for order or payment updates and reminders. They are free if sent within an open 24-hour window but charged outside of it.</p>
+<p>3. <strong>Authentication</strong>: OTPs and login verification codes. These are always charged.</p>
+<p>4. <strong>Marketing</strong>: Promotions, offers, and re-engagement messages. These are always charged.</p>
+
+<h2 id="the-24-hour-window">The 24-Hour Window</h2>
+
+<p>The 24-hour "Customer Service Window" (CSW) opens when a customer sends a message to your business and resets with every new inbound message. Within this window, Service messages and Utility templates are free. Once the window expires, you can only send pre-approved templates, which are billed accordingly.</p>
+
+<h2 id="ui-impacts-and-validations">UI Impacts and Validations</h2>
+
+<p>The pricing model significantly impacts UI design for agent dashboards:</p>
+<ul><li style="margin-left:8px"><strong>Visual Countdown Timers</strong>: UIs should display the remaining time in the 24-hour window.</li>
+<li style="margin-left:0px"><strong>Template Logic</strong>: The UI must restrict or warn users when attempting to send paid templates when a free message could be used.</li>
+<li style="margin-left:0px"><strong>Cost Transparency</strong>: Dashboards should track template usage to estimate costs.</li></ul>
+
+<h3 id="ui-validation-examples">UI Validation Examples</h3>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: The UI disables the "Send Free-form Message" button and requires selecting a pre-approved template when the 24-hour window has expired.</p>
+<p><span class="icon-reject">❌</span> Invalid: The UI allows the agent to type a free-form Service message 48 hours after the customer's last reply, leading to a silent API delivery failure.</p>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: The CRM displays a clear 24-hour countdown timer next to the active chat session.</p>
+<p><span class="icon-reject">❌</span> Invalid: The agent interface provides no visual indication of the CSW state, increasing the risk of unnecessary template charges.</p>
+      </div>
+      <div class="topic-body lang-ar"><h1>نموذج الفوترة والتسعير في واتساب</h1>
+
+<p>اعتباراً من التحديثات الأخيرة، تستخدم واجهة برمجة تطبيقات واتساب للأعمال (WhatsApp Business API) <strong>نموذج الدفع لكل رسالة</strong>. يعد فهم فئات المحادثة ونافذة الـ 24 ساعة أمراً بالغ الأهمية لإدارة التكاليف وتحسين واجهة المستخدم.</p>
+
+<h2 id="فئات-المحادثة">فئات المحادثة</h2>
+
+<p>يتم تصنيف كل رسالة قالب إلى واحدة من أربع فئات:</p>
+
+<p>1. <strong>الخدمة (Service)</strong>: الردود التي يبدأها العميل خلال نافذة الـ 24 ساعة. هذه الرسائل مجانية.</p>
+<p>2. <strong>المنفعة (Utility)</strong>: تُستخدم لتحديثات الطلبات أو الدفع والتذكيرات. تكون مجانية إذا تم إرسالها خلال نافذة الـ 24 ساعة المفتوحة، ولكن يتم فرض رسوم عليها خارجها.</p>
+<p>3. <strong>المصادقة (Authentication)</strong>: كلمات المرور لمرة واحدة (OTPs) ورموز التحقق من تسجيل الدخول. يتم فرض رسوم عليها دائماً.</p>
+<p>4. <strong>التسويق (Marketing)</strong>: العروض الترويجية وعروض إعادة المشاركة. يتم فرض رسوم عليها دائماً.</p>
+
+<h2 id="نافذة-الـ-24-ساعة">نافذة الـ 24 ساعة</h2>
+
+<p>تُفتح "نافذة خدمة العملاء" (CSW) لمدة 24 ساعة عندما يرسل العميل رسالة إلى نشاطك التجاري، ويُعاد تعيينها مع كل رسالة واردة جديدة. خلال هذه النافذة، تكون رسائل الخدمة وقوالب المنفعة مجانية. بمجرد انتهاء النافذة، يمكنك فقط إرسال القوالب المعتمدة مسبقاً، والتي يتم تحصيل رسومها وفقاً لذلك.</p>
+
+<h2 id="تأثيرات-واجهة-المستخدم-والتحققات">تأثيرات واجهة المستخدم والتحققات</h2>
+
+<p>يؤثر نموذج التسعير بشكل كبير على تصميم واجهة المستخدم للوحات تحكم الوكلاء:</p>
+<ul><li style="margin-left:8px"><strong>مؤقتات العد التنازلي المرئية</strong>: يجب أن تعرض واجهات المستخدم الوقت المتبقي في نافذة الـ 24 ساعة.</li>
+<li style="margin-left:0px"><strong>منطق القوالب</strong>: يجب أن تقوم واجهة المستخدم بتقييد أو تحذير المستخدمين عند محاولة إرسال قوالب مدفوعة عندما يكون من الممكن استخدام رسالة مجانية.</li>
+<li style="margin-left:0px"><strong>شفافية التكاليف</strong>: يجب أن تتتبع لوحات التحكم استخدام القوالب لتقدير التكاليف.</li></ul>
+
+<h3 id="أمثلة-على-التحقق-من-صحة-واجهة-المستخدم">أمثلة على التحقق من صحة واجهة المستخدم</h3>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: تقوم واجهة المستخدم بتعطيل زر "إرسال رسالة حرة" وتتطلب تحديد قالب معتمد مسبقاً عند انتهاء نافذة الـ 24 ساعة.</p>
+<p><span class="icon-reject">❌</span> Invalid: تسمح واجهة المستخدم للوكيل بكتابة رسالة خدمة حرة بعد 48 ساعة من آخر رد للعميل، مما يؤدي إلى فشل تسليم صامت من واجهة برمجة التطبيقات.</p>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: يعرض نظام إدارة علاقات العملاء (CRM) مؤقت عد تنازلي واضح لمدة 24 ساعة بجوار جلسة الدردشة النشطة.</p>
+<p><span class="icon-reject">❌</span> Invalid: لا توفر واجهة الوكيل أي إشارة مرئية لحالة نافذة خدمة العملاء، مما يزيد من خطر تحمل رسوم قوالب غير ضرورية.</p></div>
+
+      <div class="topic-nav">
+        <a class="nav-prev" href="whatsapp-authentication-templates.html">← "WhatsApp Authentication Templates: UI Constraints and Validations"</a>
+        <a class="nav-next" href="whatsapp-flows-data-exchange.html">WhatsApp Flows Data Exchange Endpoint →</a>
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+(function(){
+  var html=document.documentElement,TK='maw-theme',LK='maw-lang';
+
+  // ── Theme ────────────────────────────────────────────────
+  function applyTheme(t){html.setAttribute('data-theme',t);localStorage.setItem(TK,t);}
+  applyTheme(localStorage.getItem(TK)||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));
+
+  // ── Language ─────────────────────────────────────────────
+  function applyLang(l){
+    html.setAttribute('data-lang',l);
+    html.setAttribute('lang',l==='ar'?'ar':'en');
+    html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+    localStorage.setItem(LK,l);
+    document.querySelectorAll('[data-en][data-ar]').forEach(function(el){
+      var val = el.getAttribute(l==='ar'?'data-ar':'data-en');
+      if (el.tagName==='INPUT' || el.tagName==='TEXTAREA') {
+        el.placeholder = val;
+      } else {
+        el.innerHTML = val;
+      }
+    });
+  }
+  applyLang(localStorage.getItem(LK)||'en');
+
+  // Wire up buttons after DOM is ready
+  function wireButtons(){
+    var thBtn=document.getElementById('theme-toggle');
+    if(thBtn) thBtn.addEventListener('click',function(){
+      applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+    });
+    var lgBtn=document.getElementById('lang-toggle');
+    if(lgBtn) lgBtn.addEventListener('click',function(){
+      applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
+    });
+    
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',wireButtons);
+  } else {
+    wireButtons();
+  }
+})();
+</script>
+<script>var _SEARCH_BASE_='../../';</script>
+<script src="../../search.js"></script>
+</body>
+</html>

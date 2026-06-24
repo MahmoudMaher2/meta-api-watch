@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>"Messenger 24-Hour Policy & Message Tags" — Meta Docs Learn</title>
+  <meta name="description" content="Learn "Messenger 24-Hour Policy & Message Tags" in messenger: validation rules, error codes, examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+  <div class="header-inner">
+
+    <a href="../../index.html" class="header-logo" aria-label="Meta API Watch Home">
+      <span class="logo-icon">🔭</span>
+      <div class="logo-text">
+        <span class="site-title">Meta API Watch</span>
+        <span class="site-subtitle"
+              data-en="SEEN V2 · Developer Hub"
+              data-ar="SEEN V2 · مركز المطورين">SEEN V2 · Developer Hub</span>
+      </div>
+    </a>
+
+    <nav class="header-nav" role="navigation" aria-label="Main navigation">
+      <a href="../../changelog.html"
+         class="nav-tab"
+         >
+        <span data-en="🔔 Latest Updates" data-ar="🔔 آخر التحديثات">🔔 Latest Updates</span>
+      </a>
+      <a href="../../learn/index.html"
+         class="nav-tab active"
+         aria-current="page">
+        <span data-en="📚 Learn" data-ar="📚 تعلّم">📚 Learn</span>
+      </a>
+    </nav>
+
+    <button id="search-trigger" aria-label="Search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <span class="search-trigger-label" data-en="Search..." data-ar="ابحث...">Search...</span>
+      <span class="search-trigger-shortcut">/</span>
+    </button>
+
+    <div class="header-build-time" title="Last site build 🇪🇬">
+        <span class="build-icon">🕐</span>
+        <span class="build-label" data-en="Last Build" data-ar="آخر تحديث">Last Build</span>
+        <span class="build-value">Jun 24, 2026, 10:36 PM ðŸ‡ªðŸ‡¬</span>
+      </div>
+
+    <div class="header-actions">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+        <span class="lang-en">EN</span>
+        <span class="lang-sep" aria-hidden="true">·</span>
+        <span class="lang-ar">عربي</span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+
+
+  <div class="learn-layout">
+
+    <!-- Sidebar -->
+    <aside class="learn-sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label" data-en="On this page" data-ar="Ø¹Ù„Ù‰ Ù‡Ø°Ù‡ Ø§Ù„ØµÙ Ø­Ø©">On this page</span>
+        
+    <div class="lang-en">
+      <ul class="toc-list"><li class="toc-top"><a href="#the-24-hour-window">The 24-Hour Window</a></li><li class="toc-top"><a href="#message-tags">Message Tags</a></li><li class="toc-top"><a href="#ui-limitations-and-validations">UI Limitations and Validations</a></li><li class="toc-sub"><a href="#api-error-codes-for-limitation">API Error Codes for Limitation</a></li><li class="toc-top"><a href="#examples">Examples</a></li></ul>
+    </div>
+    
+    <div class="lang-ar">
+      <ul class="toc-list"><li class="toc-top"><a href="#نافذة-الـ-24-ساعة">نافذة الـ 24 ساعة</a></li><li class="toc-top"><a href="#إشارات-الرسائل-message-tags">إشارات الرسائل (Message Tags)</a></li><li class="toc-top"><a href="#قيود-واجهة-المستخدم-والتحققات-ui-limitations-and-validations">قيود واجهة المستخدم والتحققات (UI Limitations and Validations)</a></li><li class="toc-sub"><a href="#رموز-أخطاء-واجهة-برمجة-التطبيقات-api-error-codes">رموز أخطاء واجهة برمجة التطبيقات (API Error Codes)</a></li><li class="toc-top"><a href="#أمثلة">أمثلة</a></li></ul>
+    </div>
+  
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Source</span>
+        <a href="" target="_blank" rel="noopener" class="source-link">
+          📄 Meta Developer Docs ↗
+        </a>
+        
+      </div>
+      
+    </aside>
+
+    <!-- Main Content -->
+    <main class="learn-content" id="main-content">
+      <div class="topic-breadcrumb">
+        <a href="../index.html">Learn</a>
+        <span>›</span>
+        <span style="color:#a78bfa">messenger</span>
+        <span>›</span>
+        <span>"Messenger 24-Hour Policy & Message Tags"</span>
+      </div>
+
+      <div class="topic-hero">
+        <div class="topic-hero-badges">
+          <span class="platform-badge" style="background:#1a1a24;color:#a78bfa;border-color:#4c1d95">messenger</span>
+          
+        </div>
+        <h1 class="topic-title" data-en=""Messenger 24-Hour Policy & Message Tags"" data-ar=""سياسة 24 ساعة لـ Messenger وإشارات الرسائل"">"Messenger 24-Hour Policy & Message Tags"</h1>
+        <p class="topic-meta"><span data-en=""messenger"" data-ar=""messenger"">"messenger"</span> Â· <span data-en="Last verified:" data-ar="Ø¢Ø®Ø± Ù…Ø±Ø§Ø¬Ø¹Ø©:">Last verified:</span> N/A</p>
+      </div>
+
+      <div class="topic-body lang-en">
+        <h1>Messenger 24-Hour Policy & Message Tags</h1>
+
+<p>The Messenger Platform enforces a strict 24-hour "customer service window" for businesses to respond to users. Understanding this policy is crucial to prevent API errors and ensure a seamless user experience.</p>
+
+<h2 id="the-24-hour-window">The 24-Hour Window</h2>
+
+<p>Businesses have up to 24 hours to respond to a user interaction (e.g., when a user sends a message, clicks a CTA, or interacts with a plugin). Within this window, businesses can send both standard and promotional messages.</p>
+
+<h2 id="message-tags">Message Tags</h2>
+
+<p>To send messages outside of the 24-hour window, businesses must use specific <strong>Message Tags</strong>. </p>
+<p>The most common tag is <code>HUMAN_AGENT</code>, which allows human agents to respond to inquiries within 7 days. Note that many legacy tags (like <code>CONFIRMED_EVENT_UPDATE</code> and <code>POST_PURCHASE_UPDATE</code>) have been deprecated for this use case.</p>
+
+<h2 id="ui-limitations-and-validations">UI Limitations and Validations</h2>
+
+<p>When sending messages outside the 24-hour window, the API enforces strict validations. If a bot attempts to send a standard message after 24 hours, the user's UI does not change, but the backend API request will fail, meaning the message is never delivered. In severe cases of policy violation, Facebook may temporarily block the Page from sending any messages.</p>
+
+<h3 id="api-error-codes-for-limitation">API Error Codes for Limitation</h3>
+
+<p>If you violate the policy, the API returns specific error codes:</p>
+<ul><li style="margin-left:0px"><strong>Code 10, Subcode 2018278</strong>: This message is sent outside of the allowed conversation window.</li>
+<li style="margin-left:0px"><strong>Code 10, Subcode 2534022</strong>: This message is sent outside of the allowed conversation window.</li>
+<li style="margin-left:0px"><strong>Code 100</strong>: Unsupported message tag (if using a deprecated tag).</li></ul>
+
+<h2 id="examples">Examples</h2>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: Sending a promotional message 5 hours after the user's last message.</p>
+<p><span class="icon-reject">❌</span> Invalid: Sending a promotional message 25 hours after the user's last message without a valid message tag (Triggers Error Code 10).</p>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: Using the <code>HUMAN_AGENT</code> tag to reply manually 48 hours after the user's last interaction.</p>
+<p><span class="icon-reject">❌</span> Invalid: Using the <code>HUMAN_AGENT</code> tag for an automated, non-human promotional blast.</p>
+      </div>
+      <div class="topic-body lang-ar"><h1>سياسة 24 ساعة لـ Messenger وإشارات الرسائل</h1>
+
+<p>تفرض منصة Messenger "نافذة خدمة عملاء" صارمة مدتها 24 ساعة للشركات للرد على المستخدمين. فهم هذه السياسة أمر بالغ الأهمية لمنع أخطاء واجهة برمجة التطبيقات (API) وضمان تجربة مستخدم سلسة.</p>
+
+<h2 id="نافذة-الـ-24-ساعة">نافذة الـ 24 ساعة</h2>
+
+<p>لدى الشركات ما يصل إلى 24 ساعة للرد على تفاعل المستخدم (مثل إرسال رسالة، أو النقر على عبارة تحث المستخدم على اتخاذ إجراء، أو التفاعل مع إضافة). خلال هذه النافذة، يمكن للشركات إرسال رسائل عادية وترويجية.</p>
+
+<h2 id="إشارات-الرسائل-message-tags">إشارات الرسائل (Message Tags)</h2>
+
+<p>لإرسال رسائل خارج نافذة الـ 24 ساعة، يجب على الشركات استخدام إشارات رسائل محددة. الإشارة الأكثر شيوعاً هي <code>HUMAN_AGENT</code>، والتي تسمح للوكلاء البشريين بالرد على الاستفسارات في غضون 7 أيام. لاحظ أن العديد من الإشارات القديمة (مثل <code>CONFIRMED_EVENT_UPDATE</code>) لم تعد مدعومة.</p>
+
+<h2 id="قيود-واجهة-المستخدم-والتحققات-ui-limitations-and-validations">قيود واجهة المستخدم والتحققات (UI Limitations and Validations)</h2>
+
+<p>عند إرسال رسائل خارج نافذة الـ 24 ساعة، تفرض واجهة برمجة التطبيقات عمليات تحقق صارمة. إذا حاول الروبوت إرسال رسالة عادية بعد 24 ساعة، لا تتغير واجهة المستخدم الخاصة بالعميل، ولكن طلب واجهة برمجة التطبيقات سيفشل، مما يعني عدم تسليم الرسالة. في حالات الانتهاك الشديد، قد تمنع صفحتك من إرسال الرسائل تماماً.</p>
+
+<h3 id="رموز-أخطاء-واجهة-برمجة-التطبيقات-api-error-codes">رموز أخطاء واجهة برمجة التطبيقات (API Error Codes)</h3>
+<ul><li style="margin-left:8px"><strong>الرمز 10، الرمز الفرعي 2018278</strong>: تم إرسال هذه الرسالة خارج نافذة المحادثة المسموح بها.</li>
+<li style="margin-left:0px"><strong>الرمز 10، الرمز الفرعي 2534022</strong>: تم إرسال هذه الرسالة خارج نافذة المحادثة المسموح بها.</li>
+<li style="margin-left:0px"><strong>الرمز 100</strong>: إشارة رسالة غير مدعومة.</li></ul>
+
+<h2 id="أمثلة">أمثلة</h2>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: إرسال رسالة ترويجية بعد 5 ساعات من آخر رسالة للمستخدم.</p>
+<p><span class="icon-reject">❌</span> Invalid: إرسال رسالة ترويجية بعد 25 ساعة من آخر رسالة للمستخدم بدون إشارة رسالة صالحة (يؤدي إلى ظهور خطأ الرمز 10).</p>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: استخدام إشارة <code>HUMAN_AGENT</code> للرد يدوياً بعد 48 ساعة من آخر تفاعل للمستخدم.</p>
+<p><span class="icon-reject">❌</span> Invalid: استخدام إشارة <code>HUMAN_AGENT</code> لإرسال رسائل ترويجية آلية لا يتخللها تدخل بشري.</p></div>
+
+      <div class="topic-nav">
+        <a class="nav-prev" href="instagram-story-replies.html">← Instagram Story Replies Automation</a>
+        <a class="nav-next" href="messenger-handover-protocol.html">"Messenger Handover Protocol & Thread Control" →</a>
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+(function(){
+  var html=document.documentElement,TK='maw-theme',LK='maw-lang';
+
+  // ── Theme ────────────────────────────────────────────────
+  function applyTheme(t){html.setAttribute('data-theme',t);localStorage.setItem(TK,t);}
+  applyTheme(localStorage.getItem(TK)||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));
+
+  // ── Language ─────────────────────────────────────────────
+  function applyLang(l){
+    html.setAttribute('data-lang',l);
+    html.setAttribute('lang',l==='ar'?'ar':'en');
+    html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+    localStorage.setItem(LK,l);
+    document.querySelectorAll('[data-en][data-ar]').forEach(function(el){
+      var val = el.getAttribute(l==='ar'?'data-ar':'data-en');
+      if (el.tagName==='INPUT' || el.tagName==='TEXTAREA') {
+        el.placeholder = val;
+      } else {
+        el.innerHTML = val;
+      }
+    });
+  }
+  applyLang(localStorage.getItem(LK)||'en');
+
+  // Wire up buttons after DOM is ready
+  function wireButtons(){
+    var thBtn=document.getElementById('theme-toggle');
+    if(thBtn) thBtn.addEventListener('click',function(){
+      applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+    });
+    var lgBtn=document.getElementById('lang-toggle');
+    if(lgBtn) lgBtn.addEventListener('click',function(){
+      applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
+    });
+    
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',wireButtons);
+  } else {
+    wireButtons();
+  }
+})();
+</script>
+<script>var _SEARCH_BASE_='../../';</script>
+<script src="../../search.js"></script>
+</body>
+</html>

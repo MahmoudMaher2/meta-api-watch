@@ -48,7 +48,7 @@
     <div class="header-build-time" title="Last site build 🇪🇬">
         <span class="build-icon">🕐</span>
         <span class="build-label" data-en="Last Build" data-ar="آخر تحديث">Last Build</span>
-        <span class="build-value">Jun 24, 2026, 9:47 PM 🇪🇬</span>
+        <span class="build-value">Jun 24, 2026, 10:36 PM ðŸ‡ªðŸ‡¬</span>
       </div>
 
     <div class="header-actions">
@@ -73,8 +73,16 @@
     <!-- Sidebar -->
     <aside class="learn-sidebar" id="sidebar">
       <div class="sidebar-section">
-        <span class="sidebar-label">On this page</span>
-        <ul class="toc-list"><li class="toc-top"><a href="#messaging-tiers-limits">Messaging Tiers (Limits)</a></li><li class="toc-top"><a href="#quality-ratings-status">Quality Ratings (Status)</a></li><li class="toc-sub"><a href="#the-flagged-penalty">The "Flagged" Penalty</a></li><li class="toc-top"><a href="#upgrading-limits">Upgrading Limits</a></li><li class="toc-top"><a href="#validation-rules-api-behavior">Validation Rules & API Behavior</a></li><li class="toc-top"><a href="#seen-v2-implementation-notes">SEEN V2 Implementation Notes</a></li><li class="toc-top"><a href="#qa-checklist">QA Checklist</a></li></ul>
+        <span class="sidebar-label" data-en="On this page" data-ar="Ø¹Ù„Ù‰ Ù‡Ø°Ù‡ Ø§Ù„ØµÙ Ø­Ø©">On this page</span>
+        
+    <div class="lang-en">
+      <ul class="toc-list"><li class="toc-top"><a href="#messaging-tiers-limits">Messaging Tiers (Limits)</a></li><li class="toc-top"><a href="#quality-ratings-status">Quality Ratings (Status)</a></li><li class="toc-sub"><a href="#the-flagged-penalty">The "Flagged" Penalty</a></li><li class="toc-top"><a href="#upgrading-limits">Upgrading Limits</a></li><li class="toc-top"><a href="#validation-rules-api-behavior">Validation Rules & API Behavior</a></li><li class="toc-top"><a href="#seen-v2-implementation-notes">SEEN V2 Implementation Notes</a></li><li class="toc-top"><a href="#qa-checklist">QA Checklist</a></li></ul>
+    </div>
+    
+    <div class="lang-ar">
+      <ul class="toc-list"><li class="toc-top"><a href="#مستويات-المراسلة-الحدود">مستويات المراسلة (الحدود)</a></li><li class="toc-top"><a href="#تقييمات-الجودة-الحالة">تقييمات الجودة (الحالة)</a></li><li class="toc-sub"><a href="#عقوبة-flagged-المقيد">عقوبة "Flagged" (المقيد)</a></li><li class="toc-top"><a href="#ترقية-الحدود">ترقية الحدود</a></li><li class="toc-top"><a href="#قواعد-التحقق-وسلوك-api">قواعد التحقق وسلوك API</a></li><li class="toc-top"><a href="#ملاحظات-تنفيذ-seen-v2">ملاحظات تنفيذ SEEN V2</a></li><li class="toc-top"><a href="#قائمة-مراجعة-ضمان-الجودة-qa-checklist">قائمة مراجعة ضمان الجودة (QA Checklist)</a></li></ul>
+    </div>
+  
       </div>
       <div class="sidebar-section">
         <span class="sidebar-label">Source</span>
@@ -101,11 +109,11 @@
           <span class="platform-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">WhatsApp</span>
           
         </div>
-        <h1 class="topic-title">WhatsApp Quality Rating & Messaging Limits</h1>
-        <p class="topic-meta">Core API · Last verified: 2026-06-24</p>
+        <h1 class="topic-title" data-en="WhatsApp Quality Rating & Messaging Limits" data-ar="تقييم جودة WhatsApp وحدود المراسلة">WhatsApp Quality Rating & Messaging Limits</h1>
+        <p class="topic-meta"><span data-en="Core API" data-ar="Core API">Core API</span> Â· <span data-en="Last verified:" data-ar="Ø¢Ø®Ø± Ù…Ø±Ø§Ø¬Ø¹Ø©:">Last verified:</span> 2026-06-24</p>
       </div>
 
-      <div class="topic-body">
+      <div class="topic-body lang-en">
         <h1>WhatsApp Quality Rating & Limits</h1>
 
 <p>Meta enforces a strict quality control system to prevent spam on WhatsApp. If a business sends unwanted messages, users will block or report them. Meta tracks these blocks/reports to calculate a <strong>Quality Rating</strong>.</p>
@@ -155,6 +163,54 @@
 <li style="margin-left:0px">[ ] Implement an alert banner in the SEEN V2 dashboard if the <code>quality_rating</code> webhook payload drops to <code>YELLOW</code> or <code>RED</code>.</li>
 <li style="margin-left:0px">[ ] Prevent sending broadcast messages if the template status is <code>PAUSED</code>.</li></ul>
       </div>
+      <div class="topic-body lang-ar"><h1>تقييم جودة WhatsApp وحدود المراسلة</h1>
+
+<p>تفرض Meta نظاماً صارماً لمراقبة الجودة لمنع البريد العشوائي (spam) على WhatsApp. إذا أرسل نشاط تجاري رسائل غير مرغوب فيها، فسيقوم المستخدمون بحظره أو الإبلاغ عنه. تتعقب Meta عمليات الحظر/الإبلاغ هذه لحساب <strong>تقييم الجودة</strong> (Quality Rating).</p>
+
+<h2 id="مستويات-المراسلة-الحدود">مستويات المراسلة (الحدود)</h2>
+
+<p>يبدأ كل حساب WhatsApp Business بحد مراسلة محدد. هذا هو الحد الأقصى لعدد المحادثات <strong>التي يبدأها النشاط التجاري</strong> (التسويق، المنفعة، المصادقة) التي يمكنك فتحها خلال فترة 24 ساعة متتالية.</p>
+
+<p>1. <strong>المستوى 1 (Tier 1):</strong> 1,000 عميل فريد / 24 ساعة.</p>
+<p>2. <strong>المستوى 2 (Tier 2):</strong> 10,000 عميل فريد / 24 ساعة.</p>
+<p>3. <strong>المستوى 3 (Tier 3):</strong> 100,000 عميل فريد / 24 ساعة.</p>
+<p>4. <strong>المستوى 4 (Tier 4):</strong> عدد غير محدود من العملاء الفريدين.</p>
+
+<p><em>ملاحظة: المحادثات التي يبدأها المستخدم (محادثات الخدمة) لا تُحتسب ضمن هذه الحدود.</em></p>
+
+<h2 id="تقييمات-الجودة-الحالة">تقييمات الجودة (الحالة)</h2>
+
+<p>يحتوي رقم هاتفك على تقييم جودة مرئي في WhatsApp Manager (وعبر API/Webhooks).</p>
+<ul><li style="margin-left:8px"><strong>مرتفع (أخضر):</strong> طبيعي.</li>
+<li style="margin-left:0px"><strong>متوسط (أصفر):</strong> تحذير.</li>
+<li style="margin-left:0px"><strong>منخفض (أحمر):</strong> خطر.</li></ul>
+
+<p>إذا وصل تقييمك إلى "منخفض" (Low)، تتغير حالة رقمك من <code>CONNECTED</code> إلى <code>FLAGGED</code>.</p>
+
+<h3 id="عقوبة-flagged-المقيد">عقوبة "Flagged" (المقيد)</h3>
+
+<p>عندما يكون رقمك <code>FLAGGED</code>:</p>
+<ul><li style="margin-left:0px">لا يمكنك الترقية إلى مستوى مراسلة أعلى.</li>
+<li style="margin-left:0px">إذا لم يتحسن تقييمك خلال 7 أيام، سيتم <strong>تخفيض</strong> حد المراسلة الخاص بك (على سبيل المثال، من 10 آلاف نزولاً إلى ألف).</li>
+<li style="margin-left:0px">إذا ظل التقييم منخفضاً باستمرار، فقد تقوم Meta بتعطيل الرقم بشكل دائم.</li></ul>
+
+<h2 id="ترقية-الحدود">ترقية الحدود</h2>
+
+<p>تقوم Meta تلقائياً بترقية الحد الخاص بك (على سبيل المثال، من Tier 1 إلى Tier 2) في غضون 24 ساعة عندما يتحقق كلا الشرطين التاليين:</p>
+<p>1. تقييم الجودة الخاص بك ليس منخفضاً (Low).</p>
+<p>2. الإجمالي التراكمي للمحادثات التي بدأها النشاط التجاري والتي فتحتها خلال الأيام السبعة الماضية أكبر من نصف حدك الحالي (على سبيل المثال، > 500 لحد الـ 1,000).</p>
+
+<h2 id="قواعد-التحقق-وسلوك-api">قواعد التحقق وسلوك API</h2>
+
+<div class="table-wrap"><table><thead><tr><th>السيناريو</th><th><span class="icon-reject">❌</span> النتيجة (رفض/خطأ)</th><th><span class="icon-accept">✅</span> السلوك المقبول</th></tr></thead><tbody><tr><td>إرسال بث يتجاوز الحد</td><td><code>Error 131056: Rate limit hit</code></td><td>الإيقاف المؤقت حتى تُفتح النافذة</td></tr><tr><td>إرسال قالب حالته PAUSED</td><td><code>Error 100: Invalid parameter</code></td><td>-</td></tr><tr><td>تغيير حالة Webhook</td><td>-</td><td>حدث الـ webhook <code>phone_number_quality_update</code></td></tr></tbody></table></div>
+<h2 id="ملاحظات-تنفيذ-seen-v2">ملاحظات تنفيذ SEEN V2</h2>
+<ul><li style="margin-left:8px"><strong>التحكم في معدل الإرسال (Throttling):</strong> <strong>يجب</strong> على محرك البث (Broadcast) في SEEN V2 التحقق من مستوى المراسلة الحالي قبل وضع 10,000 رسالة في قائمة الانتظار لحساب من المستوى الأول (Tier 1). إذا أرسل 10 آلاف رسالة دفعة واحدة، فستفشل 9,000 رسالة بخطأ <code>Error 131056</code>، مما يضيع طلبات الـ API وقد يؤدي إلى التقييد بسبب إساءة الاستخدام.</li>
+<li style="margin-left:0px"><strong>Webhooks:</strong> يجب أن يستمع SEEN V2 لأحداث الـ webhooks <code>phone_number_quality_update</code> و <code>message_template_status_update</code> لتنبيه مستخدم SEEN V2 إذا دخل في المنطقة "الحمراء" (Red) أو إذا تم إيقاف قالب مؤقتاً (paused) بسبب التعليقات السلبية.</li></ul>
+
+<h2 id="قائمة-مراجعة-ضمان-الجودة-qa-checklist">قائمة مراجعة ضمان الجودة (QA Checklist)</h2>
+<ul><li style="margin-left:8px">[ ] التأكد من أن SEEN V2 يتتبع الحجم التراكمي لرسائل البث الصادرة على مدار 24 ساعة.</li>
+<li style="margin-left:0px">[ ] تنفيذ شريط تنبيه (alert banner) في لوحة تحكم SEEN V2 إذا انخفضت قيمة الحمولة (payload) في webhook الخاص بـ <code>quality_rating</code> إلى <code>YELLOW</code> أو <code>RED</code>.</li>
+<li style="margin-left:0px">[ ] منع إرسال رسائل البث إذا كانت حالة القالب (template status) هي <code>PAUSED</code>.</li></ul></div>
 
       <div class="topic-nav">
         <a class="nav-prev" href="whatsapp-media-messages.html">← WhatsApp Media Messages (Images, Video, Docs)</a>

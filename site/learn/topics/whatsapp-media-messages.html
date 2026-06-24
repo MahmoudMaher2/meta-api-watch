@@ -48,7 +48,7 @@
     <div class="header-build-time" title="Last site build 🇪🇬">
         <span class="build-icon">🕐</span>
         <span class="build-label" data-en="Last Build" data-ar="آخر تحديث">Last Build</span>
-        <span class="build-value">Jun 24, 2026, 9:47 PM 🇪🇬</span>
+        <span class="build-value">Jun 24, 2026, 10:36 PM ðŸ‡ªðŸ‡¬</span>
       </div>
 
     <div class="header-actions">
@@ -73,8 +73,16 @@
     <!-- Sidebar -->
     <aside class="learn-sidebar" id="sidebar">
       <div class="sidebar-section">
-        <span class="sidebar-label">On this page</span>
-        <ul class="toc-list"><li class="toc-top"><a href="#media-types-limits">Media Types & Limits</a></li><li class="toc-top"><a href="#parameters-fields">Parameters & Fields</a></li><li class="toc-top"><a href="#validation-rules">Validation Rules</a></li><li class="toc-top"><a href="#live-preview-what-it-looks-like">Live Preview — What It Looks Like</a></li><li class="toc-sub"><a href="#-correct-usage-sending-image-via-url">✅ Correct Usage — Sending Image via URL</a></li><li class="toc-sub"><a href="#-common-mistake-wrong-media-type-key">❌ Common Mistake — Wrong Media Type Key</a></li><li class="toc-sub"><a href="#-common-mistake-exceeding-size-limit">❌ Common Mistake — Exceeding Size Limit</a></li><li class="toc-top"><a href="#the-media-upload-api-alternative-to-urls">The Media Upload API (Alternative to URLs)</a></li><li class="toc-top"><a href="#seen-v2-implementation-notes">SEEN V2 Implementation Notes</a></li><li class="toc-top"><a href="#qa-checklist">QA Checklist</a></li></ul>
+        <span class="sidebar-label" data-en="On this page" data-ar="Ø¹Ù„Ù‰ Ù‡Ø°Ù‡ Ø§Ù„ØµÙ Ø­Ø©">On this page</span>
+        
+    <div class="lang-en">
+      <ul class="toc-list"><li class="toc-top"><a href="#media-types-limits">Media Types & Limits</a></li><li class="toc-top"><a href="#parameters-fields">Parameters & Fields</a></li><li class="toc-top"><a href="#validation-rules">Validation Rules</a></li><li class="toc-top"><a href="#live-preview-what-it-looks-like">Live Preview — What It Looks Like</a></li><li class="toc-sub"><a href="#correct-usage-sending-image-via-url">✅ Correct Usage — Sending Image via URL</a></li><li class="toc-sub"><a href="#common-mistake-wrong-media-type-key">❌ Common Mistake — Wrong Media Type Key</a></li><li class="toc-sub"><a href="#common-mistake-exceeding-size-limit">❌ Common Mistake — Exceeding Size Limit</a></li><li class="toc-top"><a href="#the-media-upload-api-alternative-to-urls">The Media Upload API (Alternative to URLs)</a></li><li class="toc-top"><a href="#seen-v2-implementation-notes">SEEN V2 Implementation Notes</a></li><li class="toc-top"><a href="#qa-checklist">QA Checklist</a></li></ul>
+    </div>
+    
+    <div class="lang-ar">
+      <ul class="toc-list"><li class="toc-top"><a href="#أنواع-الوسائط-والحدود">أنواع الوسائط والحدود</a></li><li class="toc-top"><a href="#المعلمات-والحقول">المعلمات والحقول</a></li><li class="toc-top"><a href="#قواعد-التحقق">قواعد التحقق</a></li><li class="toc-top"><a href="#معاينة-حية-كيف-تبدو">معاينة حية — كيف تبدو</a></li><li class="toc-sub"><a href="#الاستخدام-الصحيح-إرسال-صورة-عبر-الرابط">✅ الاستخدام الصحيح — إرسال صورة عبر الرابط</a></li><li class="toc-sub"><a href="#خطأ-شائع-مفتاح-نوع-الوسائط-خاطئ">❌ خطأ شائع — مفتاح نوع الوسائط خاطئ</a></li><li class="toc-sub"><a href="#خطأ-شائع-تجاوز-حد-الحجم">❌ خطأ شائع — تجاوز حد الحجم</a></li><li class="toc-top"><a href="#واجهة-برمجة-تطبيقات-رفع-الوسائط-بديل-للروابط">واجهة برمجة تطبيقات رفع الوسائط (بديل للروابط)</a></li><li class="toc-top"><a href="#ملاحظات-التنفيذ-في-seen-v2">ملاحظات التنفيذ في SEEN V2</a></li><li class="toc-top"><a href="#قائمة-التحقق-من-الجودة-qa">قائمة التحقق من الجودة (QA)</a></li></ul>
+    </div>
+  
       </div>
       <div class="sidebar-section">
         <span class="sidebar-label">Source</span>
@@ -101,11 +109,11 @@
           <span class="platform-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">WhatsApp</span>
           
         </div>
-        <h1 class="topic-title">WhatsApp Media Messages (Images, Video, Docs)</h1>
-        <p class="topic-meta">Core API · Last verified: 2026-06-24</p>
+        <h1 class="topic-title" data-en="WhatsApp Media Messages (Images, Video, Docs)" data-ar="رسائل الوسائط في واتساب (الصور، الفيديو، المستندات)">WhatsApp Media Messages (Images, Video, Docs)</h1>
+        <p class="topic-meta"><span data-en="Core API" data-ar="Core API">Core API</span> Â· <span data-en="Last verified:" data-ar="Ø¢Ø®Ø± Ù…Ø±Ø§Ø¬Ø¹Ø©:">Last verified:</span> 2026-06-24</p>
       </div>
 
-      <div class="topic-body">
+      <div class="topic-body lang-en">
         <h1>WhatsApp Media Messages</h1>
 
 <p>Sending media is essential for rich communication in SEEN V2. Media can be sent either by providing a public URL or by uploading the media to Meta's servers first and passing the <code>media_id</code>.</p>
@@ -198,6 +206,97 @@
 <li style="margin-left:0px">[ ] Implement auto-conversion for common incompatible types (e.g. converting <code>.gif</code> to <code>.mp4</code>)</li>
 <li style="margin-left:0px">[ ] Verify that document filenames include the correct extension for WhatsApp to render the appropriate icon</div></li></ul>
       </div>
+      <div class="topic-body lang-ar"><h1>رسائل الوسائط في واتساب</h1>
+
+<p>يعد إرسال الوسائط أمراً أساسياً للتواصل الغني في SEEN V2. يمكن إرسال الوسائط إما عن طريق توفير رابط عام (URL) أو عن طريق رفع الوسائط إلى خوادم Meta أولاً وتمرير الـ <code>media_id</code>.</p>
+
+<h2 id="أنواع-الوسائط-والحدود">أنواع الوسائط والحدود</h2>
+
+<p>تفرض Meta حدوداً صارمة على أحجام الملفات والتنسيقات المدعومة. سيؤدي إرسال التنسيقات غير المدعومة أو الملفات ذات الأحجام الكبيرة إلى الرفض الفوري.</p>
+
+<div class="table-wrap"><table><thead><tr><th>نوع الوسائط</th><th>الحد الأقصى للحجم</th><th>التنسيقات المدعومة</th></tr></thead><tbody><tr><td><strong>الصوت (Audio)</strong></td><td>16 MB</td><td><code>audio/aac</code>, <code>audio/mp4</code>, <code>audio/mpeg</code>, <code>audio/amr</code>, <code>audio/ogg</code> (Opus فقط)</td></tr><tr><td><strong>المستند (Document)</strong></td><td>100 MB</td><td>أي نوع MIME صالح (مثل <code>text/plain</code>، <code>application/pdf</code>، <code>application/vnd.ms-excel</code>)</td></tr><tr><td><strong>الصورة (Image)</strong></td><td>5 MB</td><td><code>image/jpeg</code>, <code>image/png</code></td></tr><tr><td><strong>الفيديو (Video)</strong></td><td>16 MB</td><td><code>video/mp4</code>, <code>video/3gp</code> (برنامج ترميز الفيديو H.264 وبرنامج ترميز الصوت AAC فقط)</td></tr><tr><td><strong>الملصق (Sticker)</strong></td><td>100 KB</td><td><code>image/webp</code> (الأبعاد الدقيقة: 512x512)</td></tr></tbody></table></div>
+<h2 id="المعلمات-والحقول">المعلمات والحقول</h2>
+
+<p>عند إرسال الوسائط عبر الرابط (URL):</p>
+
+<div class="table-wrap"><table><thead><tr><th>الحقل</th><th>النوع</th><th>مطلوب</th><th>الوصف</th></tr></thead><tbody><tr><td><code>type</code></td><td>string</td><td>نعم</td><td><code>image</code>، <code>video</code>، <code>audio</code>، <code>document</code>، أو <code>sticker</code></td></tr><tr><td><code>[type].link</code></td><td>string</td><td>نعم</td><td>رابط HTTP/HTTPS لملف الوسائط</td></tr><tr><td><code>[type].caption</code></td><td>string</td><td>لا</td><td>نص التسمية التوضيحية (بحد أقصى 1024 حرفاً، مدعوم للصور/الفيديو/المستندات)</td></tr><tr><td><code>[type].filename</code></td><td>string</td><td>لا</td><td>اسم ملف مخصص (فقط لنوع المستند)</td></tr></tbody></table></div>
+<p>عند إرسال الوسائط عبر المعرف (ID):</p>
+
+<div class="table-wrap"><table><thead><tr><th>الحقل</th><th>النوع</th><th>مطلوب</th><th>الوصف</th></tr></thead><tbody><tr><td><code>[type].id</code></td><td>string</td><td>نعم</td><td>المعرف المرجع من واجهة برمجة تطبيقات رفع الوسائط (Media Upload API)</td></tr></tbody></table></div>
+<h2 id="قواعد-التحقق">قواعد التحقق</h2>
+
+<div class="table-wrap"><table><thead><tr><th>القاعدة</th><th><span class="icon-reject">❌</span> يُرفض</th><th><span class="icon-accept">✅</span> يُقبل</th></tr></thead><tbody><tr><td>تنسيق الصورة</td><td><code>.gif</code> أو <code>.bmp</code></td><td><code>.jpg</code>, <code>.jpeg</code>, <code>.png</code></td></tr><tr><td>حجم الصورة</td><td>صورة بحجم 6 MB</td><td>صورة بحجم 4.9 MB</td></tr><tr><td>تنسيق الفيديو</td><td><code>.mkv</code> أو <code>.avi</code></td><td><code>.mp4</code> (ترميز H.264)</td></tr><tr><td>أبعاد الملصق</td><td>500x500</td><td>512x512 بالضبط</td></tr><tr><td>رابط URL</td><td>يتطلب مصادقة أو إعادة توجيه</td><td>رابط مباشر يُرجع Content-Type صالح</td></tr></tbody></table></div>
+<h2 id="معاينة-حية-كيف-تبدو">معاينة حية — كيف تبدو</h2>
+
+<div class="preview-block preview-accepted"><span class="preview-label preview-label-ok">✅ Correct Usage — Live Preview</span>### ✅ الاستخدام الصحيح — إرسال صورة عبر الرابط
+
+<pre class="code-block"><code class="lang-json">POST /v19.0/{PHONE_NUMBER_ID}/messages
+<p>Authorization: Bearer {ACCESS_TOKEN}</p>
+
+<p>{</p>
+<p>  "messaging_product": "whatsapp",</p>
+<p>  "recipient_type": "individual",</p>
+<p>  "to": "{{CUSTOMER_PHONE}}",</p>
+<p>  "type": "image",</p>
+<p>  "image": {</p>
+<p>    "link": "https://seen-v2.example.com/assets/promo.jpg",</p>
+<p>    "caption": "Check out our latest summer collection! ☀️"</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<p><strong>لماذا ينجح هذا:</strong> الرابط هو رابط مباشر لملف <code>.jpg</code>، والتسمية التوضيحية أقل من 1024 حرفاً.</p>
+
+<p></div><div class="preview-block preview-rejected"><span class="preview-label preview-label-err"><span class="icon-reject">❌</span> Common Mistake — What Goes Wrong</span>### <span class="icon-reject">❌</span> خطأ شائع — مفتاح نوع الوسائط خاطئ</p>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "type": "image",</p>
+<p>  "media": {</p>
+<p>    "link": "https://example.com/image.png"</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<p><strong>الخطأ:</strong> <code>Error 100: Invalid parameter</code> — يجب أن يتطابق المفتاح داخل JSON مع الـ <code>type</code>. إذا كان <code>type</code> هو <code>"image"</code>، يجب أن يكون الكائن <code>"image": {...}</code>، وليس <code>"media": {...}</code>.</p>
+
+<p></div><div class="preview-block preview-rejected"><span class="preview-label preview-label-err"><span class="icon-reject">❌</span> Common Mistake — What Goes Wrong</span>### <span class="icon-reject">❌</span> خطأ شائع — تجاوز حد الحجم</p>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "type": "video",</p>
+<p>  "video": {</p>
+<p>    "link": "https://example.com/huge-presentation.mp4"</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<p><strong>الخطأ:</strong> إذا تجاوز الملف الموجود في الرابط 16MB، ستحاول Meta تنزيله، وستفشل في التحقق من الحجم، وسترسل خطأ webhook بشكل غير متزامن يشير إلى فشل التنزيل بسبب حدود الحجم.</p>
+
+<h2 id="واجهة-برمجة-تطبيقات-رفع-الوسائط-بديل-للروابط">واجهة برمجة تطبيقات رفع الوسائط (بديل للروابط)</h2>
+
+<p>إذا كنت لا ترغب في كشف الوسائط عبر روابط عامة، قم برفعها إلى Meta أولاً.</p>
+
+<p>1. <strong>الرفع:</strong></p>
+<pre class="code-block"><code class="lang-bash">curl -X POST "https://graph.facebook.com/v19.0/{PHONE_NUMBER_ID}/media" \
+<p>  -H "Authorization: Bearer {ACCESS_TOKEN}" \</p>
+<p>  -F "file=@/path/to/local/file.pdf" \</p>
+<p>  -F "type=application/pdf" \</p>
+<p>  -F "messaging_product=whatsapp"</code></pre></p>
+<p><em>يُرجع:</em> <code>{"id":"1234567890"}</code></p>
+
+<p>2. <strong>الإرسال:</strong></p>
+<pre class="code-block"><code class="lang-json">{
+<p>  "type": "document",</p>
+<p>  "document": {</p>
+<p>    "id": "1234567890",</p>
+<p>    "filename": "SEEN_Invoice.pdf"</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<h2 id="ملاحظات-التنفيذ-في-seen-v2">ملاحظات التنفيذ في SEEN V2</h2>
+<ul><li style="margin-left:8px"><strong>الرابط (URL) مقابل المعرف (ID):</strong> فضل دائماً استخدام <code>link</code> للأصول الثابتة (الشعارات، لافتات التسويق) واستخدام <code>id</code> للأصول الديناميكية/الحساسة (الفواتير، التقارير) التي لا ينبغي أن تكون متاحة للجمهور على شبكة توصيل المحتوى (CDN) الخاصة بك.</li>
+<li style="margin-left:0px"><strong>دعم GIF:</strong> لا يدعم واتساب تنسيقات الوسائط GIF محلياً في واجهة برمجة تطبيقات الأعمال (Business API). يجب عليك تحويل ملفات GIF إلى <code>.mp4</code> وإرسالها كـ <code>video</code>.</li></ul>
+
+<h2 id="قائمة-التحقق-من-الجودة-qa">قائمة التحقق من الجودة (QA)</h2>
+<ul><li style="margin-left:8px">[ ] التأكد من التحقق من صحة عمليات رفع المستخدمين في SEEN V2 مقابل حدود MB الصارمة الخاصة بـ Meta <em>قبل</em> إرسالها إلى واجهة برمجة التطبيقات (API).</li>
+<li style="margin-left:0px">[ ] تنفيذ التحويل التلقائي للأنواع الشائعة غير المتوافقة (مثل تحويل <code>.gif</code> إلى <code>.mp4</code>).</li>
+<li style="margin-left:0px">[ ] التحقق من أن أسماء ملفات المستندات تتضمن الامتداد الصحيح ليتمكن واتساب من عرض الأيقونة المناسبة.</div></li></ul></div>
 
       <div class="topic-nav">
         <a class="nav-prev" href="whatsapp-interactive-messages.html">← WhatsApp Interactive Messages (Buttons & Lists)</a>

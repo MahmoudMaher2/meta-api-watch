@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>"Messenger Handover Protocol & Thread Control" — Meta Docs Learn</title>
+  <meta name="description" content="Learn "Messenger Handover Protocol & Thread Control" in messenger: validation rules, error codes, examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+  <div class="header-inner">
+
+    <a href="../../index.html" class="header-logo" aria-label="Meta API Watch Home">
+      <span class="logo-icon">🔭</span>
+      <div class="logo-text">
+        <span class="site-title">Meta API Watch</span>
+        <span class="site-subtitle"
+              data-en="SEEN V2 · Developer Hub"
+              data-ar="SEEN V2 · مركز المطورين">SEEN V2 · Developer Hub</span>
+      </div>
+    </a>
+
+    <nav class="header-nav" role="navigation" aria-label="Main navigation">
+      <a href="../../changelog.html"
+         class="nav-tab"
+         >
+        <span data-en="🔔 Latest Updates" data-ar="🔔 آخر التحديثات">🔔 Latest Updates</span>
+      </a>
+      <a href="../../learn/index.html"
+         class="nav-tab active"
+         aria-current="page">
+        <span data-en="📚 Learn" data-ar="📚 تعلّم">📚 Learn</span>
+      </a>
+    </nav>
+
+    <button id="search-trigger" aria-label="Search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <span class="search-trigger-label" data-en="Search..." data-ar="ابحث...">Search...</span>
+      <span class="search-trigger-shortcut">/</span>
+    </button>
+
+    <div class="header-build-time" title="Last site build 🇪🇬">
+        <span class="build-icon">🕐</span>
+        <span class="build-label" data-en="Last Build" data-ar="آخر تحديث">Last Build</span>
+        <span class="build-value">Jun 24, 2026, 10:36 PM ðŸ‡ªðŸ‡¬</span>
+      </div>
+
+    <div class="header-actions">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+        <span class="lang-en">EN</span>
+        <span class="lang-sep" aria-hidden="true">·</span>
+        <span class="lang-ar">عربي</span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+
+
+  <div class="learn-layout">
+
+    <!-- Sidebar -->
+    <aside class="learn-sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label" data-en="On this page" data-ar="Ø¹Ù„Ù‰ Ù‡Ø°Ù‡ Ø§Ù„ØµÙ Ø­Ø©">On this page</span>
+        
+    <div class="lang-en">
+      <ul class="toc-list"><li class="toc-top"><a href="#thread-control">Thread Control</a></li><li class="toc-top"><a href="#ui-limitations-and-validations">UI Limitations and Validations</a></li><li class="toc-sub"><a href="#ui-indicators-for-human-vs-bot">UI Indicators for Human vs. Bot</a></li><li class="toc-top"><a href="#examples">Examples</a></li></ul>
+    </div>
+    
+    <div class="lang-ar">
+      <ul class="toc-list"><li class="toc-top"><a href="#التحكم-في-المحادثة-thread-control">التحكم في المحادثة (Thread Control)</a></li><li class="toc-top"><a href="#قيود-واجهة-المستخدم-والتحققات-ui-limitations-and-validations">قيود واجهة المستخدم والتحققات (UI Limitations and Validations)</a></li><li class="toc-sub"><a href="#مؤشرات-واجهة-المستخدم-للبشر-مقابل-الروبوت-ui-indicators">مؤشرات واجهة المستخدم للبشر مقابل الروبوت (UI Indicators)</a></li><li class="toc-top"><a href="#أمثلة">أمثلة</a></li></ul>
+    </div>
+  
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Source</span>
+        <a href="" target="_blank" rel="noopener" class="source-link">
+          📄 Meta Developer Docs ↗
+        </a>
+        
+      </div>
+      
+    </aside>
+
+    <!-- Main Content -->
+    <main class="learn-content" id="main-content">
+      <div class="topic-breadcrumb">
+        <a href="../index.html">Learn</a>
+        <span>›</span>
+        <span style="color:#a78bfa">messenger</span>
+        <span>›</span>
+        <span>"Messenger Handover Protocol & Thread Control"</span>
+      </div>
+
+      <div class="topic-hero">
+        <div class="topic-hero-badges">
+          <span class="platform-badge" style="background:#1a1a24;color:#a78bfa;border-color:#4c1d95">messenger</span>
+          
+        </div>
+        <h1 class="topic-title" data-en=""Messenger Handover Protocol & Thread Control"" data-ar=""بروتوكول التسليم في Messenger والتحكم في المحادثة"">"Messenger Handover Protocol & Thread Control"</h1>
+        <p class="topic-meta"><span data-en=""messenger"" data-ar=""messenger"">"messenger"</span> Â· <span data-en="Last verified:" data-ar="Ø¢Ø®Ø± Ù…Ø±Ø§Ø¬Ø¹Ø©:">Last verified:</span> N/A</p>
+      </div>
+
+      <div class="topic-body lang-en">
+        <h1>Messenger Handover Protocol & Thread Control</h1>
+
+<p>The Messenger Handover Protocol (now integrated into Conversation Routing) provides the technical infrastructure for businesses to seamlessly transfer conversations between automated bots and live human agents.</p>
+
+<h2 id="thread-control">Thread Control</h2>
+
+<p>Thread control dictates which app is allowed to send messages to the user at any given time.</p>
+<ul><li style="margin-left:0px"><strong>Primary Receiver</strong>: Usually the automated bot. It handles standard routing and basic inquiries.</li>
+<li style="margin-left:0px"><strong>Secondary Receiver</strong>: Usually a human agent inbox (e.g., Facebook Page Inbox or a CRM tool). </li></ul>
+<p>Only one receiver can possess thread control at a time, ensuring that bots and humans do not clash by sending conflicting messages simultaneously.</p>
+
+<h2 id="ui-limitations-and-validations">UI Limitations and Validations</h2>
+
+<p>Unlike some other platforms, Meta's Handover Protocol is designed to be visually seamless. There are important UI considerations to keep in mind:</p>
+
+<h3 id="ui-indicators-for-human-vs-bot">UI Indicators for Human vs. Bot</h3>
+<p>The platform <strong>does not</strong> automatically insert native "Bot" or "Human Agent" badges or system messages into the user's UI when thread control changes hands. The transition is inherently invisible.</p>
+
+<p>To create valid visual distinctions, developers must build custom indicators:</p>
+<p>1. <strong>Persona API</strong>: You can dynamically change the sender's display name and profile picture. For instance, the bot might use the brand's logo, while a human agent uses a real photo and name.</p>
+<p>2. <strong>System Messages</strong>: The bot should send a clear text message (e.g., <em>"Transferring you to a human agent..."</em>) right before passing thread control.</p>
+
+<h2 id="examples">Examples</h2>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: Using the Persona API to change the avatar to a human face when thread control is passed to the Secondary Receiver.</p>
+<p><span class="icon-reject">❌</span> Invalid: Relying on Facebook to automatically inform the user that a human has joined the chat without sending any transition message.</p>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: Only the app that currently holds Thread Control sending a message to the user.</p>
+<p><span class="icon-reject">❌</span> Invalid: The Primary Receiver (Bot) attempting to send automated replies while the Secondary Receiver (Human) holds Thread Control. (The API will block the bot's messages).</p>
+      </div>
+      <div class="topic-body lang-ar"><h1>بروتوكول التسليم في Messenger والتحكم في المحادثة</h1>
+
+<p>يوفر بروتوكول التسليم في Messenger (الذي تم دمجه الآن في توجيه المحادثات - Conversation Routing) البنية التحتية الفنية للشركات لنقل المحادثات بسلاسة بين الروبوتات الآلية والوكلاء البشريين.</p>
+
+<h2 id="التحكم-في-المحادثة-thread-control">التحكم في المحادثة (Thread Control)</h2>
+
+<p>يحدد التحكم في المحادثة التطبيق المسموح له بإرسال رسائل إلى المستخدم في أي وقت.</p>
+<ul><li style="margin-left:0px"><strong>المستقبل الأساسي (Primary Receiver)</strong>: عادةً ما يكون الروبوت الآلي.</li>
+<li style="margin-left:0px"><strong>المستقبل الثانوي (Secondary Receiver)</strong>: عادةً ما يكون صندوق بريد وكيل بشري (مثل صندوق بريد صفحة Facebook أو نظام إدارة علاقات العملاء CRM).</li></ul>
+<p>يمكن لمستقبل واحد فقط التحكم في المحادثة في نفس الوقت، مما يضمن عدم تداخل رسائل الروبوتات مع رسائل البشر.</p>
+
+<h2 id="قيود-واجهة-المستخدم-والتحققات-ui-limitations-and-validations">قيود واجهة المستخدم والتحققات (UI Limitations and Validations)</h2>
+
+<p>على عكس بعض المنصات الأخرى، تم تصميم بروتوكول التسليم ليكون سلساً بصرياً. هناك اعتبارات هامة تتعلق بواجهة المستخدم:</p>
+
+<h3 id="مؤشرات-واجهة-المستخدم-للبشر-مقابل-الروبوت-ui-indicators">مؤشرات واجهة المستخدم للبشر مقابل الروبوت (UI Indicators)</h3>
+<p><strong>لا تقوم</strong> المنصة تلقائياً بإدراج شارات "روبوت" أو "وكيل بشري" في واجهة المستخدم الخاصة بالعميل عند نقل التحكم في المحادثة. الانتقال يكون غير مرئي بطبيعته.</p>
+
+<p>لإنشاء تمييز مرئي، يجب على المطورين تصميم مؤشرات مخصصة:</p>
+<p>1. <strong>واجهة Persona API</strong>: يمكنك تغيير اسم العرض وصورة الملف الشخصي للمرسل ديناميكياً. على سبيل المثال، يستخدم الروبوت شعار العلامة التجارية، بينما يستخدم الوكيل البشري صورة واسماً حقيقياً.</p>
+<p>2. <strong>رسائل النظام</strong>: يجب أن يرسل الروبوت رسالة نصية واضحة (مثل، <em>"جاري تحويلك إلى وكيل بشري..."</em>) قبل تمرير التحكم في المحادثة مباشرة.</p>
+
+<h2 id="أمثلة">أمثلة</h2>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: استخدام Persona API لتغيير الصورة الرمزية إلى وجه بشري عند تمرير التحكم في المحادثة إلى المستقبل الثانوي.</p>
+<p><span class="icon-reject">❌</span> Invalid: الاعتماد على Facebook لإبلاغ المستخدم تلقائياً بانضمام شخص بشري إلى المحادثة دون إرسال رسالة انتقال صريحة.</p>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: إرسال الرسائل للمستخدم فقط من خلال التطبيق الذي يمتلك التحكم في المحادثة حالياً.</p>
+<p><span class="icon-reject">❌</span> Invalid: محاولة المستقبل الأساسي (الروبوت) إرسال ردود آلية بينما يمتلك المستقبل الثانوي (البشري) التحكم في المحادثة (ستقوم واجهة برمجة التطبيقات بحظر رسائل الروبوت).</p></div>
+
+      <div class="topic-nav">
+        <a class="nav-prev" href="messenger-24-hour-policy.html">← "Messenger 24-Hour Policy & Message Tags"</a>
+        <a class="nav-next" href="messenger-persistent-menu.html">"Messenger Persistent Menu Limits & Best Practices" →</a>
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+(function(){
+  var html=document.documentElement,TK='maw-theme',LK='maw-lang';
+
+  // ── Theme ────────────────────────────────────────────────
+  function applyTheme(t){html.setAttribute('data-theme',t);localStorage.setItem(TK,t);}
+  applyTheme(localStorage.getItem(TK)||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));
+
+  // ── Language ─────────────────────────────────────────────
+  function applyLang(l){
+    html.setAttribute('data-lang',l);
+    html.setAttribute('lang',l==='ar'?'ar':'en');
+    html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+    localStorage.setItem(LK,l);
+    document.querySelectorAll('[data-en][data-ar]').forEach(function(el){
+      var val = el.getAttribute(l==='ar'?'data-ar':'data-en');
+      if (el.tagName==='INPUT' || el.tagName==='TEXTAREA') {
+        el.placeholder = val;
+      } else {
+        el.innerHTML = val;
+      }
+    });
+  }
+  applyLang(localStorage.getItem(LK)||'en');
+
+  // Wire up buttons after DOM is ready
+  function wireButtons(){
+    var thBtn=document.getElementById('theme-toggle');
+    if(thBtn) thBtn.addEventListener('click',function(){
+      applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+    });
+    var lgBtn=document.getElementById('lang-toggle');
+    if(lgBtn) lgBtn.addEventListener('click',function(){
+      applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
+    });
+    
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',wireButtons);
+  } else {
+    wireButtons();
+  }
+})();
+</script>
+<script>var _SEARCH_BASE_='../../';</script>
+<script src="../../search.js"></script>
+</body>
+</html>

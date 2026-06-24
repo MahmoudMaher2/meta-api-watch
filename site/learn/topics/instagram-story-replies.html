@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instagram Story Replies Automation — Meta Docs Learn</title>
+  <meta name="description" content="Learn Instagram Story Replies Automation in messenger: validation rules, error codes, examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+  <div class="header-inner">
+
+    <a href="../../index.html" class="header-logo" aria-label="Meta API Watch Home">
+      <span class="logo-icon">🔭</span>
+      <div class="logo-text">
+        <span class="site-title">Meta API Watch</span>
+        <span class="site-subtitle"
+              data-en="SEEN V2 · Developer Hub"
+              data-ar="SEEN V2 · مركز المطورين">SEEN V2 · Developer Hub</span>
+      </div>
+    </a>
+
+    <nav class="header-nav" role="navigation" aria-label="Main navigation">
+      <a href="../../changelog.html"
+         class="nav-tab"
+         >
+        <span data-en="🔔 Latest Updates" data-ar="🔔 آخر التحديثات">🔔 Latest Updates</span>
+      </a>
+      <a href="../../learn/index.html"
+         class="nav-tab active"
+         aria-current="page">
+        <span data-en="📚 Learn" data-ar="📚 تعلّم">📚 Learn</span>
+      </a>
+    </nav>
+
+    <button id="search-trigger" aria-label="Search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <span class="search-trigger-label" data-en="Search..." data-ar="ابحث...">Search...</span>
+      <span class="search-trigger-shortcut">/</span>
+    </button>
+
+    <div class="header-build-time" title="Last site build 🇪🇬">
+        <span class="build-icon">🕐</span>
+        <span class="build-label" data-en="Last Build" data-ar="آخر تحديث">Last Build</span>
+        <span class="build-value">Jun 24, 2026, 10:36 PM ðŸ‡ªðŸ‡¬</span>
+      </div>
+
+    <div class="header-actions">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+        <span class="lang-en">EN</span>
+        <span class="lang-sep" aria-hidden="true">·</span>
+        <span class="lang-ar">عربي</span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+
+
+  <div class="learn-layout">
+
+    <!-- Sidebar -->
+    <aside class="learn-sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label" data-en="On this page" data-ar="Ø¹Ù„Ù‰ Ù‡Ø°Ù‡ Ø§Ù„ØµÙ Ø­Ø©">On this page</span>
+        
+    <div class="lang-en">
+      <ul class="toc-list"><li class="toc-top"><a href="#ui-limitations-24-hour-constraints">UI Limitations & 24-Hour Constraints</a></li><li class="toc-top"><a href="#media-fetching-limitations">Media Fetching Limitations</a></li><li class="toc-top"><a href="#api-payload-structure">API Payload Structure</a></li></ul>
+    </div>
+    
+    <div class="lang-ar">
+      <ul class="toc-list"><li class="toc-top"><a href="#قيود-واجهة-المستخدم-وقيود-الـ-24-ساعة">قيود واجهة المستخدم وقيود الـ 24 ساعة</a></li><li class="toc-top"><a href="#قيود-جلب-الوسائط">قيود جلب الوسائط</a></li><li class="toc-top"><a href="#هيكل-الاستجابة-api-payload">هيكل الاستجابة (API Payload)</a></li></ul>
+    </div>
+  
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Source</span>
+        <a href="" target="_blank" rel="noopener" class="source-link">
+          📄 Meta Developer Docs ↗
+        </a>
+        
+      </div>
+      
+    </aside>
+
+    <!-- Main Content -->
+    <main class="learn-content" id="main-content">
+      <div class="topic-breadcrumb">
+        <a href="../index.html">Learn</a>
+        <span>›</span>
+        <span style="color:#a78bfa">messenger</span>
+        <span>›</span>
+        <span>Instagram Story Replies Automation</span>
+      </div>
+
+      <div class="topic-hero">
+        <div class="topic-hero-badges">
+          <span class="platform-badge" style="background:#1a1a24;color:#a78bfa;border-color:#4c1d95">messenger</span>
+          
+        </div>
+        <h1 class="topic-title" data-en="Instagram Story Replies Automation" data-ar="أتمتة الردود على قصص إنستغرام">Instagram Story Replies Automation</h1>
+        <p class="topic-meta"><span data-en="messenger" data-ar="messenger">messenger</span> Â· <span data-en="Last verified:" data-ar="Ø¢Ø®Ø± Ù…Ø±Ø§Ø¬Ø¹Ø©:">Last verified:</span> N/A</p>
+      </div>
+
+      <div class="topic-body lang-en">
+        <h1>Instagram Story Replies Automation</h1>
+
+<p>Automating replies to Instagram Stories using the Instagram Graph API is a powerful way to engage with your audience. However, developers must navigate strict API constraints, specifically regarding messaging windows and media access.</p>
+
+<h2 id="ui-limitations-24-hour-constraints">UI Limitations & 24-Hour Constraints</h2>
+
+<p>The most critical limitation when dealing with story replies is the <strong>24-hour messaging window</strong>.</p>
+<ul><li style="margin-left:8px"><strong>The Messaging Window:</strong> When a user replies to your Instagram Story, they initiate a conversation, which opens a 24-hour messaging window. You can only send automated messages within this period.</li>
+<li style="margin-left:0px"><strong>Media Expiration:</strong> Stories are ephemeral. The <code>IG Media</code> object representing the story is only accessible via the API for 24 hours. After this, any attempt to fetch the story media or insights will fail.</li></ul>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: Sending an automated welcome message immediately after a user replies to your story.</p>
+<p><span class="icon-reject">❌</span> Invalid: Attempting to send an automated promotional message 48 hours after the user's last interaction.</p>
+
+<h2 id="media-fetching-limitations">Media Fetching Limitations</h2>
+
+<p>When a webhook notification for a story reply is received, the payload includes a reference to the story media. However, there are limitations:</p>
+<ul><li style="margin-left:0px">If you need to analyze the media (e.g., download the image or video), you must do so within the 24-hour window.</li>
+<li style="margin-left:0px">The API will not return data for expired stories, even if you have the Media ID.</li></ul>
+
+<h2 id="api-payload-structure">API Payload Structure</h2>
+
+<p>The webhook payload for a story reply typically contains a <code>story</code> object nested within the message data.</p>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "object": "instagram",</p>
+<p>  "entry": [</p>
+<p>    {</p>
+<p>      "id": "&lt;IG_ACCOUNT_ID&gt;",</p>
+<p>      "time": 1600000000,</p>
+<p>      "messaging": [</p>
+<p>        {</p>
+<p>          "sender": { "id": "&lt;IGSID&gt;" },</p>
+<p>          "recipient": { "id": "&lt;IG_ACCOUNT_ID&gt;" },</p>
+<p>          "timestamp": 1600000000,</p>
+<p>          "message": {</p>
+<p>            "mid": "&lt;MESSAGE_ID&gt;",</p>
+<p>            "text": "Love this!",</p>
+<p>            "reply_to": {</p>
+<p>              "mid": "&lt;STORY_MESSAGE_ID&gt;",</p>
+<p>              "story": {</p>
+<p>                "url": "&lt;STORY_MEDIA_URL&gt;",</p>
+<p>                "id": "&lt;STORY_MEDIA_ID&gt;"</p>
+<p>              }</p>
+<p>            }</p>
+<p>          }</p>
+<p>        }</p>
+<p>      ]</p>
+<p>    }</p>
+<p>  ]</p>
+<p>}</code></pre></p>
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: Extracting the <code>story.url</code> within the first few minutes to log the interaction.</p>
+<p><span class="icon-reject">❌</span> Invalid: Trying to query the Graph API for <code><STORY_MEDIA_ID></code> two days later.</p>
+      </div>
+      <div class="topic-body lang-ar"><h1>أتمتة الردود على قصص إنستغرام</h1>
+
+<p>تعد أتمتة الردود على قصص إنستغرام باستخدام Instagram Graph API طريقة فعالة للتفاعل مع جمهورك. ومع ذلك، يجب على المطورين التعامل مع قيود صارمة لواجهة برمجة التطبيقات، خاصة فيما يتعلق بنوافذ المراسلة والوصول إلى الوسائط.</p>
+
+<h2 id="قيود-واجهة-المستخدم-وقيود-الـ-24-ساعة">قيود واجهة المستخدم وقيود الـ 24 ساعة</h2>
+
+<p>القيود الأكثر أهمية عند التعامل مع الردود على القصص هي <strong>نافذة المراسلة التي تبلغ 24 ساعة</strong>.</p>
+<ul><li style="margin-left:8px"><strong>نافذة المراسلة:</strong> عندما يرد مستخدم على قصتك في إنستغرام، فإنه يبدأ محادثة، مما يفتح نافذة مراسلة مدتها 24 ساعة. يمكنك إرسال رسائل آلية فقط خلال هذه الفترة.</li>
+<li style="margin-left:0px"><strong>انتهاء صلاحية الوسائط:</strong> القصص مؤقتة بطبيعتها. يمكن الوصول إلى كائن <code>IG Media</code> الذي يمثل القصة عبر واجهة برمجة التطبيقات لمدة 24 ساعة فقط. بعد ذلك، ستفشل أي محاولة لجلب وسائط القصة أو الرؤى الخاصة بها.</li></ul>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: إرسال رسالة ترحيب آلية فور رد المستخدم على قصتك.</p>
+<p><span class="icon-reject">❌</span> Invalid: محاولة إرسال رسالة ترويجية آلية بعد 48 ساعة من آخر تفاعل للمستخدم.</p>
+
+<h2 id="قيود-جلب-الوسائط">قيود جلب الوسائط</h2>
+
+<p>عندما تتلقى إشعار Webhook لرد على قصة، تتضمن البيانات إشارة إلى وسائط القصة. ومع ذلك، هناك قيود:</p>
+<ul><li style="margin-left:0px">إذا كنت بحاجة إلى تحليل الوسائط (مثل تنزيل الصورة أو الفيديو)، فيجب عليك القيام بذلك خلال نافذة الـ 24 ساعة.</li>
+<li style="margin-left:0px">لن تُرجع واجهة برمجة التطبيقات بيانات للقصص منتهية الصلاحية، حتى لو كان لديك معرّف الوسائط (Media ID).</li></ul>
+
+<h2 id="هيكل-الاستجابة-api-payload">هيكل الاستجابة (API Payload)</h2>
+
+<p>عادةً ما تحتوي بيانات Webhook لرد القصة على كائن <code>story</code> متداخل داخل بيانات الرسالة.</p>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "object": "instagram",</p>
+<p>  "entry": [</p>
+<p>    {</p>
+<p>      "id": "&lt;IG_ACCOUNT_ID&gt;",</p>
+<p>      "time": 1600000000,</p>
+<p>      "messaging": [</p>
+<p>        {</p>
+<p>          "sender": { "id": "&lt;IGSID&gt;" },</p>
+<p>          "recipient": { "id": "&lt;IG_ACCOUNT_ID&gt;" },</p>
+<p>          "timestamp": 1600000000,</p>
+<p>          "message": {</p>
+<p>            "mid": "&lt;MESSAGE_ID&gt;",</p>
+<p>            "text": "Love this!",</p>
+<p>            "reply_to": {</p>
+<p>              "mid": "&lt;STORY_MESSAGE_ID&gt;",</p>
+<p>              "story": {</p>
+<p>                "url": "&lt;STORY_MEDIA_URL&gt;",</p>
+<p>                "id": "&lt;STORY_MEDIA_ID&gt;"</p>
+<p>              }</p>
+<p>            }</p>
+<p>          }</p>
+<p>        }</p>
+<p>      ]</p>
+<p>    }</p>
+<p>  ]</p>
+<p>}</code></pre></p>
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: استخراج <code>story.url</code> في الدقائق الأولى لتسجيل التفاعل.</p>
+<p><span class="icon-reject">❌</span> Invalid: محاولة الاستعلام عن واجهة برمجة التطبيقات للحصول على <code><STORY_MEDIA_ID></code> بعد يومين.</p></div>
+
+      <div class="topic-nav">
+        <a class="nav-prev" href="instagram-ice-breakers.html">← Instagram Ice Breakers Constraints</a>
+        <a class="nav-next" href="messenger-24-hour-policy.html">"Messenger 24-Hour Policy & Message Tags" →</a>
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+(function(){
+  var html=document.documentElement,TK='maw-theme',LK='maw-lang';
+
+  // ── Theme ────────────────────────────────────────────────
+  function applyTheme(t){html.setAttribute('data-theme',t);localStorage.setItem(TK,t);}
+  applyTheme(localStorage.getItem(TK)||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));
+
+  // ── Language ─────────────────────────────────────────────
+  function applyLang(l){
+    html.setAttribute('data-lang',l);
+    html.setAttribute('lang',l==='ar'?'ar':'en');
+    html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+    localStorage.setItem(LK,l);
+    document.querySelectorAll('[data-en][data-ar]').forEach(function(el){
+      var val = el.getAttribute(l==='ar'?'data-ar':'data-en');
+      if (el.tagName==='INPUT' || el.tagName==='TEXTAREA') {
+        el.placeholder = val;
+      } else {
+        el.innerHTML = val;
+      }
+    });
+  }
+  applyLang(localStorage.getItem(LK)||'en');
+
+  // Wire up buttons after DOM is ready
+  function wireButtons(){
+    var thBtn=document.getElementById('theme-toggle');
+    if(thBtn) thBtn.addEventListener('click',function(){
+      applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+    });
+    var lgBtn=document.getElementById('lang-toggle');
+    if(lgBtn) lgBtn.addEventListener('click',function(){
+      applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
+    });
+    
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',wireButtons);
+  } else {
+    wireButtons();
+  }
+})();
+</script>
+<script>var _SEARCH_BASE_='../../';</script>
+<script src="../../search.js"></script>
+</body>
+</html>

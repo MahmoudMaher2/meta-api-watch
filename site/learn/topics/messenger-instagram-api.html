@@ -48,7 +48,7 @@
     <div class="header-build-time" title="Last site build 🇪🇬">
         <span class="build-icon">🕐</span>
         <span class="build-label" data-en="Last Build" data-ar="آخر تحديث">Last Build</span>
-        <span class="build-value">Jun 24, 2026, 9:47 PM 🇪🇬</span>
+        <span class="build-value">Jun 24, 2026, 10:36 PM ðŸ‡ªðŸ‡¬</span>
       </div>
 
     <div class="header-actions">
@@ -73,8 +73,16 @@
     <!-- Sidebar -->
     <aside class="learn-sidebar" id="sidebar">
       <div class="sidebar-section">
-        <span class="sidebar-label">On this page</span>
-        <ul class="toc-list"><li class="toc-top"><a href="#the-24-hour-messaging-window">The 24-Hour Messaging Window</a></li><li class="toc-top"><a href="#shared-features-messenger-instagram">Shared Features (Messenger & Instagram)</a></li><li class="toc-top"><a href="#instagram-specific-features">Instagram-Specific Features</a></li><li class="toc-top"><a href="#parameters-fields-sending-a-generic-template">Parameters & Fields (Sending a Generic Template)</a></li><li class="toc-top"><a href="#validation-rules">Validation Rules</a></li><li class="toc-top"><a href="#webhooks">Webhooks</a></li><li class="toc-top"><a href="#qa-checklist">QA Checklist</a></li></ul>
+        <span class="sidebar-label" data-en="On this page" data-ar="Ø¹Ù„Ù‰ Ù‡Ø°Ù‡ Ø§Ù„ØµÙ Ø­Ø©">On this page</span>
+        
+    <div class="lang-en">
+      <ul class="toc-list"><li class="toc-top"><a href="#the-24-hour-messaging-window">The 24-Hour Messaging Window</a></li><li class="toc-top"><a href="#shared-features-messenger-instagram">Shared Features (Messenger & Instagram)</a></li><li class="toc-top"><a href="#instagram-specific-features">Instagram-Specific Features</a></li><li class="toc-top"><a href="#parameters-fields-sending-a-generic-template">Parameters & Fields (Sending a Generic Template)</a></li><li class="toc-top"><a href="#validation-rules">Validation Rules</a></li><li class="toc-top"><a href="#webhooks">Webhooks</a></li><li class="toc-top"><a href="#qa-checklist">QA Checklist</a></li></ul>
+    </div>
+    
+    <div class="lang-ar">
+      <ul class="toc-list"><li class="toc-top"><a href="#نافذة-المراسلة-لمدة-24-ساعة">نافذة المراسلة لمدة 24 ساعة</a></li><li class="toc-top"><a href="#الميزات-المشتركة-messenger-و-instagram">الميزات المشتركة (Messenger و Instagram)</a></li><li class="toc-top"><a href="#الميزات-الخاصة-بـ-instagram">الميزات الخاصة بـ Instagram</a></li><li class="toc-top"><a href="#المعلمات-والحقول-إرسال-قالب-عام">المعلمات والحقول (إرسال قالب عام)</a></li><li class="toc-top"><a href="#قواعد-التحقق">قواعد التحقق</a></li><li class="toc-top"><a href="#خطافات-الويب-webhooks">خطافات الويب (Webhooks)</a></li><li class="toc-top"><a href="#قائمة-التحقق-لضمان-الجودة">قائمة التحقق لضمان الجودة</a></li></ul>
+    </div>
+  
       </div>
       <div class="sidebar-section">
         <span class="sidebar-label">Source</span>
@@ -101,11 +109,11 @@
           <span class="platform-badge" style="background:#0f1d3d;color:#93c5fd;border-color:#1e3a8a">Messenger</span>
           
         </div>
-        <h1 class="topic-title">Messenger & Instagram Messaging API</h1>
-        <p class="topic-meta">Core API · Last verified: 2026-06-24</p>
+        <h1 class="topic-title" data-en="Messenger & Instagram Messaging API" data-ar="واجهة برمجة تطبيقات المراسلة لـ Messenger و Instagram">Messenger & Instagram Messaging API</h1>
+        <p class="topic-meta"><span data-en="Core API" data-ar="Core API">Core API</span> Â· <span data-en="Last verified:" data-ar="Ø¢Ø®Ø± Ù…Ø±Ø§Ø¬Ø¹Ø©:">Last verified:</span> 2026-06-24</p>
       </div>
 
-      <div class="topic-body">
+      <div class="topic-body lang-en">
         <h1>Messenger & Instagram Messaging API</h1>
 
 <p>The Messenger Platform powers both Facebook Messenger and Instagram Direct. Unlike WhatsApp, which is heavily template-driven and monetized per conversation, Messenger and Instagram rely on a <strong>24-hour standard messaging window</strong>.</p>
@@ -181,6 +189,80 @@
 <li style="margin-left:0px">[ ] Prevent agents or automated broadcasts from sending untagged messages after 24 hours.</li>
 <li style="margin-left:0px">[ ] Implement support for Instagram Story Mention webhook payloads natively in the Flow Builder.</li></ul>
       </div>
+      <div class="topic-body lang-ar"><h1>واجهة برمجة تطبيقات المراسلة لـ Messenger و Instagram</h1>
+
+<p>تُشغّل منصة Messenger كلاً من Facebook Messenger و Instagram Direct. على عكس WhatsApp، الذي يعتمد بشكل كبير على القوالب ويتم تحقيق الدخل منه لكل محادثة، يعتمد Messenger و Instagram على <strong>نافذة المراسلة القياسية لمدة 24 ساعة</strong>.</p>
+
+<h2 id="نافذة-المراسلة-لمدة-24-ساعة">نافذة المراسلة لمدة 24 ساعة</h2>
+
+<p>عندما يرسل مستخدم رسالة إلى صفحتك على Facebook أو حسابك الاحترافي على Instagram، يبدأ مؤقت مدته 24 ساعة.</p>
+<ul><li style="margin-left:8px"><strong>خلال 24 ساعة:</strong> يمكنك إرسال رسائل قياسية ووسائط وعناصر تفاعلية (مثل القوالب العامة) مجاناً.</li>
+<li style="margin-left:0px"><strong>بعد 24 ساعة:</strong> يمكنك <strong>فقط</strong> إرسال الرسائل إذا كانت مؤهلة لعلامات رسائل محددة (على سبيل المثال، <code>CONFIRMED_EVENT_UPDATE</code>، <code>POST_PURCHASE_UPDATE</code>، <code>ACCOUNT_UPDATE</code>). تُحظر الرسائل الترويجية خارج نافذة الـ 24 ساعة منعاً باتاً ما لم يتم إرسالها كرسائل ممولة (إعلانات).</li></ul>
+
+<h2 id="الميزات-المشتركة-messenger-و-instagram">الميزات المشتركة (Messenger و Instagram)</h2>
+
+<div class="table-wrap"><table><thead><tr><th>الميزة</th><th>Messenger</th><th>Instagram</th><th>الوصف</th></tr></thead><tbody><tr><td><strong>النص والوسائط</strong></td><td><span class="icon-accept">✅</span></td><td><span class="icon-accept">✅</span></td><td>النصوص القياسية والصور والصوت والفيديو والملفات.</td></tr><tr><td><strong>كاسرات الجليد</strong></td><td><span class="icon-accept">✅</span></td><td><span class="icon-accept">✅</span></td><td>أسئلة شائعة يمكن النقر عليها سريعاً تظهر عندما يفتح المستخدم الدردشة لأول مرة.</td></tr><tr><td><strong>القالب العام</strong></td><td><span class="icon-accept">✅</span></td><td><span class="icon-accept">✅</span></td><td>مجموعة بطاقات قابلة للتمرير أفقياً (صورة، عنوان، عنوان فرعي، أزرار).</td></tr><tr><td><strong>الردود السريعة</strong></td><td><span class="icon-accept">✅</span></td><td><span class="icon-accept">✅</span></td><td>ما يصل إلى 13 زراً (Messenger) أو 13 زراً (Instagram) تختفي بعد النقر عليها.</td></tr></tbody></table></div>
+<h2 id="الميزات-الخاصة-بـ-instagram">الميزات الخاصة بـ Instagram</h2>
+
+<div class="table-wrap"><table><thead><tr><th>الميزة</th><th>الوصف</th><th>حالة الاستخدام في SEEN V2</th></tr></thead><tbody><tr><td><strong>إشارات القصة</strong></td><td>يُشغّل خطاف ويب (webhook) عندما يقوم مستخدم بعمل إشارة (@mention) للعلامة التجارية في قصته.</td><td>الرد التلقائي على الإشارات بشكر المستخدم وإرسال كود خصم.</td></tr><tr><td><strong>ردود القصة</strong></td><td>يُشغّل خطاف ويب (webhook) عندما يرد مستخدم على قصة العلامة التجارية.</td><td>التقاط العملاء المحتملين بناءً على محتوى قصة محدد.</td></tr><tr><td><strong>قوالب المنتجات</strong></td><td>إرسال منتجات متجر Instagram بشكل أصلي داخل الدردشة.</td><td>استعادة سلة التسوق المتروكة خلال نافذة الـ 24 ساعة.</td></tr></tbody></table></div>
+<h2 id="المعلمات-والحقول-إرسال-قالب-عام">المعلمات والحقول (إرسال قالب عام)</h2>
+
+<p>القالب العام (العنصر الدوار) هو عنصر واجهة المستخدم الغني الأكثر شيوعاً عبر كلتا المنصتين.</p>
+
+<pre class="code-block"><code class="lang-json">POST /v19.0/{PAGE_ID}/messages
+<p>Authorization: Bearer {PAGE_ACCESS_TOKEN}</p>
+
+<p>{</p>
+<p>  "recipient": {</p>
+<p>    "id": "{{PSID_OR_IGSID}}"</p>
+<p>  },</p>
+<p>  "message": {</p>
+<p>    "attachment": {</p>
+<p>      "type": "template",</p>
+<p>      "payload": {</p>
+<p>        "template_type": "generic",</p>
+<p>        "elements": [</p>
+<p>          {</p>
+<p>            "title": "Welcome to SEEN V2",</p>
+<p>            "image_url": "https://seen-v2.com/hero.jpg",</p>
+<p>            "subtitle": "The ultimate omnichannel platform.",</p>
+<p>            "default_action": {</p>
+<p>              "type": "web_url",</p>
+<p>              "url": "https://seen-v2.com",</p>
+<p>              "webview_height_ratio": "tall"</p>
+<p>            },</p>
+<p>            "buttons": [</p>
+<p>              {</p>
+<p>                "type": "web_url",</p>
+<p>                "url": "https://seen-v2.com",</p>
+<p>                "title": "View Website"</p>
+<p>              },</p>
+<p>              {</p>
+<p>                "type": "postback",</p>
+<p>                "title": "Start Chatting",</p>
+<p>                "payload": "START_PAYLOAD"</p>
+<p>              }</p>
+<p>            ]</p>
+<p>          }</p>
+<p>        ]</p>
+<p>      }</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<h2 id="قواعد-التحقق">قواعد التحقق</h2>
+
+<div class="table-wrap"><table><thead><tr><th>القاعدة</th><th><span class="icon-reject">❌</span> يتم الرفض</th><th><span class="icon-accept">✅</span> يتم القبول</th></tr></thead><tbody><tr><td>بطاقات العنصر الدوار</td><td>11 عنصر أو أكثر</td><td>ما يصل إلى 10 عناصر</td></tr><tr><td>الردود السريعة</td><td>14 رد سريع أو أكثر</td><td>ما يصل إلى 13 رداً سريعاً</td></tr><tr><td>خارج نافذة الـ 24 ساعة</td><td>رسالة قياسية بدون علامة</td><td>رسالة بعلامة <code>message_tag</code> صالحة</td></tr><tr><td>إشارة قصة Instagram</td><td>الرد بعد 8 أيام</td><td>الرد خلال 7 أيام</td></tr></tbody></table></div>
+<h2 id="خطافات-الويب-webhooks">خطافات الويب (Webhooks)</h2>
+
+<p>تتشارك خطافات الويب لكل من Messenger و Instagram في نفس التنسيق تماماً ويتم تسليمها إلى نفس نقطة النهاية.</p>
+
+<p><strong>ملاحظة هامة في SEEN V2:</strong> نظراً لأن الحمولات تبدو متطابقة، يجب عليك التحقق من علامة <code>messaging.message.is_echo</code> لتجاهل الرسائل التي أرسلها الروبوت نفسه، والبحث عن أحداث <code>standby</code> مقابل أحداث <code>messaging</code> إذا كنت تستخدم بروتوكول التسليم (تمرير التحكم بين الروبوت والوكيل البشري).</p>
+
+<h2 id="قائمة-التحقق-لضمان-الجودة">قائمة التحقق لضمان الجودة</h2>
+<ul><li style="margin-left:8px">[ ] تأكد من أن SEEN V2 يتتبع مؤقت نافذة الـ 24 ساعة لكل محادثة نشطة لكل مستخدم (PSID/IGSID).</li>
+<li style="margin-left:0px">[ ] منع الوكلاء أو البث الآلي من إرسال رسائل غير مميزة بعلامات بعد مرور 24 ساعة.</li>
+<li style="margin-left:0px">[ ] تنفيذ الدعم لحمولات خطاف الويب الخاصة بإشارة قصة Instagram بشكل أصلي في منشئ التدفق (Flow Builder).</li></ul></div>
 
       <div class="topic-nav">
         

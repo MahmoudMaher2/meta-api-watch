@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WhatsApp Flows Data Exchange Endpoint — Meta Docs Learn</title>
+  <meta name="description" content="Learn WhatsApp Flows Data Exchange Endpoint in whatsapp: validation rules, error codes, examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+  <div class="header-inner">
+
+    <a href="../../index.html" class="header-logo" aria-label="Meta API Watch Home">
+      <span class="logo-icon">🔭</span>
+      <div class="logo-text">
+        <span class="site-title">Meta API Watch</span>
+        <span class="site-subtitle"
+              data-en="SEEN V2 · Developer Hub"
+              data-ar="SEEN V2 · مركز المطورين">SEEN V2 · Developer Hub</span>
+      </div>
+    </a>
+
+    <nav class="header-nav" role="navigation" aria-label="Main navigation">
+      <a href="../../changelog.html"
+         class="nav-tab"
+         >
+        <span data-en="🔔 Latest Updates" data-ar="🔔 آخر التحديثات">🔔 Latest Updates</span>
+      </a>
+      <a href="../../learn/index.html"
+         class="nav-tab active"
+         aria-current="page">
+        <span data-en="📚 Learn" data-ar="📚 تعلّم">📚 Learn</span>
+      </a>
+    </nav>
+
+    <button id="search-trigger" aria-label="Search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <span class="search-trigger-label" data-en="Search..." data-ar="ابحث...">Search...</span>
+      <span class="search-trigger-shortcut">/</span>
+    </button>
+
+    <div class="header-build-time" title="Last site build 🇪🇬">
+        <span class="build-icon">🕐</span>
+        <span class="build-label" data-en="Last Build" data-ar="آخر تحديث">Last Build</span>
+        <span class="build-value">Jun 24, 2026, 10:36 PM ðŸ‡ªðŸ‡¬</span>
+      </div>
+
+    <div class="header-actions">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+        <span class="lang-en">EN</span>
+        <span class="lang-sep" aria-hidden="true">·</span>
+        <span class="lang-ar">عربي</span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+
+
+  <div class="learn-layout">
+
+    <!-- Sidebar -->
+    <aside class="learn-sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label" data-en="On this page" data-ar="Ø¹Ù„Ù‰ Ù‡Ø°Ù‡ Ø§Ù„ØµÙ Ø­Ø©">On this page</span>
+        
+    <div class="lang-en">
+      <ul class="toc-list"><li class="toc-top"><a href="#endpoint-encryption-decryption">Endpoint Encryption & Decryption</a></li><li class="toc-top"><a href="#max-payload-sizes">Max Payload Sizes</a></li><li class="toc-top"><a href="#timeout-validations">Timeout Validations</a></li><li class="toc-top"><a href="#endpoint-validations">Endpoint Validations</a></li></ul>
+    </div>
+    
+    <div class="lang-ar">
+      <ul class="toc-list"><li class="toc-top"><a href="#تشفير-وفك-تشفير-نقطة-النهاية">تشفير وفك تشفير نقطة النهاية</a></li><li class="toc-top"><a href="#أقصى-أحجام-لحمولة-البيانات-payload">أقصى أحجام لحمولة البيانات (Payload)</a></li><li class="toc-top"><a href="#التحققات-من-المهلة-الزمنية-timeouts">التحققات من المهلة الزمنية (Timeouts)</a></li><li class="toc-top"><a href="#تحققات-نقطة-النهاية">تحققات نقطة النهاية</a></li></ul>
+    </div>
+  
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Source</span>
+        <a href="" target="_blank" rel="noopener" class="source-link">
+          📄 Meta Developer Docs ↗
+        </a>
+        
+      </div>
+      
+    </aside>
+
+    <!-- Main Content -->
+    <main class="learn-content" id="main-content">
+      <div class="topic-breadcrumb">
+        <a href="../index.html">Learn</a>
+        <span>›</span>
+        <span style="color:#a78bfa">whatsapp</span>
+        <span>›</span>
+        <span>WhatsApp Flows Data Exchange Endpoint</span>
+      </div>
+
+      <div class="topic-hero">
+        <div class="topic-hero-badges">
+          <span class="platform-badge" style="background:#1a1a24;color:#a78bfa;border-color:#4c1d95">whatsapp</span>
+          
+        </div>
+        <h1 class="topic-title" data-en="WhatsApp Flows Data Exchange Endpoint" data-ar="نقطة نهاية تبادل البيانات في تدفقات واتساب">WhatsApp Flows Data Exchange Endpoint</h1>
+        <p class="topic-meta"><span data-en="whatsapp" data-ar="whatsapp">whatsapp</span> Â· <span data-en="Last verified:" data-ar="Ø¢Ø®Ø± Ù…Ø±Ø§Ø¬Ø¹Ø©:">Last verified:</span> N/A</p>
+      </div>
+
+      <div class="topic-body lang-en">
+        <h1>WhatsApp Flows Data Exchange Endpoint</h1>
+
+<p>Implementing a secure and performant WhatsApp Flows data exchange endpoint requires strict adherence to Meta's encryption protocols and timeout limits.</p>
+
+<h2 id="endpoint-encryption-decryption">Endpoint Encryption & Decryption</h2>
+
+<p>WhatsApp Flows use an end-to-end encrypted channel.</p>
+<ul><li style="margin-left:0px"><strong>Protocol</strong>: You must implement the WhatsApp Business Encryption protocol using <strong>RSA</strong> for key exchange and <strong>AES-GCM</strong> for payload encryption.</li>
+<li style="margin-left:0px"><strong>Key Management</strong>: Generate a 2048-bit RSA key pair. Upload the public key to your WABA and securely store the private key.</li>
+<li style="margin-left:0px"><strong>Workflow</strong>: Decrypt the <code>encrypted_aes_key</code> using your RSA private key, then use the AES key and IV to decrypt <code>encrypted_flow_data</code>. Your response must be encrypted with the same AES key and an inverted IV.</li></ul>
+
+<h2 id="max-payload-sizes">Max Payload Sizes</h2>
+
+<p>While there is no strict byte limit documented, keeping payloads minimal is highly recommended. </p>
+<ul><li style="margin-left:0px">Avoid large data blobs like base64-encoded images.</li>
+<li style="margin-left:0px">Only include the specific data required for the Flow's logic to maintain low latency.</li></ul>
+
+<h2 id="timeout-validations">Timeout Validations</h2>
+
+<p>Your data exchange endpoint must process and return a response within <strong>10 seconds</strong>.</p>
+<ul><li style="margin-left:0px">If the server takes longer, the request times out, resulting in a "Failed to fetch response" error for the user.</li>
+<li style="margin-left:0px">Ensure you perform heavy processing asynchronously and optimize database queries.</li></ul>
+
+<h2 id="endpoint-validations">Endpoint Validations</h2>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: The endpoint responds with a 200 OK and a lean, encrypted JSON payload within 2 seconds.</p>
+<p><span class="icon-reject">❌</span> Invalid: The endpoint includes a 5MB base64 image in the payload and takes 12 seconds to process, causing a timeout error on the WhatsApp client.</p>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: The endpoint implements proper error handling and returns a specific, mapped error screen state if a requested account ID is not found.</p>
+<p><span class="icon-reject">❌</span> Invalid: The endpoint relies on HTTP 500 errors without encrypted fallback payloads when validation fails.</p>
+      </div>
+      <div class="topic-body lang-ar"><h1>نقطة نهاية تبادل البيانات في تدفقات واتساب</h1>
+
+<p>يتطلب تنفيذ نقطة نهاية (Endpoint) آمنة وسريعة لتبادل البيانات في تدفقات واتساب (WhatsApp Flows) الالتزام الصارم ببروتوكولات التشفير وحدود المهلة الزمنية التي وضعتها شركة ميتا.</p>
+
+<h2 id="تشفير-وفك-تشفير-نقطة-النهاية">تشفير وفك تشفير نقطة النهاية</h2>
+
+<p>تستخدم تدفقات واتساب قناة مشفرة من طرف إلى طرف.</p>
+<ul><li style="margin-left:0px"><strong>البروتوكول</strong>: يجب عليك تنفيذ بروتوكول تشفير واتساب للأعمال باستخدام <strong>RSA</strong> لتبادل المفاتيح و <strong>AES-GCM</strong> لتشفير حمولة البيانات (Payload).</li>
+<li style="margin-left:0px"><strong>إدارة المفاتيح</strong>: قم بإنشاء زوج مفاتيح RSA بحجم 2048 بت. قم برفع المفتاح العام (Public Key) إلى حساب واتساب للأعمال الخاص بك (WABA) واحتفظ بالمفتاح الخاص (Private Key) بشكل آمن.</li>
+<li style="margin-left:0px"><strong>سير العمل</strong>: قم بفك تشفير <code>encrypted_aes_key</code> باستخدام مفتاح RSA الخاص بك، ثم استخدم مفتاح AES ومتجه التهيئة (IV) لفك تشفير <code>encrypted_flow_data</code>. يجب تشفير استجابتك باستخدام نفس مفتاح AES ومتجه تهيئة معكوس.</li></ul>
+
+<h2 id="أقصى-أحجام-لحمولة-البيانات-payload">أقصى أحجام لحمولة البيانات (Payload)</h2>
+
+<p>على الرغم من عدم وجود حد أقصى دقيق للبتات موثق رسمياً، يوصى بشدة بالحفاظ على حجم حمولة البيانات في حده الأدنى.</p>
+<ul><li style="margin-left:0px">تجنب البيانات الكبيرة مثل الصور المرمزة بـ base64.</li>
+<li style="margin-left:0px">قم بتضمين البيانات المحددة المطلوبة لمنطق التدفق فقط للحفاظ على زمن انتقال منخفض.</li></ul>
+
+<h2 id="التحققات-من-المهلة-الزمنية-timeouts">التحققات من المهلة الزمنية (Timeouts)</h2>
+
+<p>يجب أن تقوم نقطة نهاية تبادل البيانات بمعالجة الطلب وإرجاع استجابة خلال <strong>10 ثوانٍ</strong>.</p>
+<ul><li style="margin-left:0px">إذا استغرق الخادم وقتاً أطول، تنتهي مهلة الطلب، مما يؤدي إلى ظهور خطأ "فشل في جلب الاستجابة" للمستخدم.</li>
+<li style="margin-left:0px">تأكد من أداء المعالجة الثقيلة بشكل غير متزامن (Asynchronously) وتحسين استعلامات قاعدة البيانات.</li></ul>
+
+<h2 id="تحققات-نقطة-النهاية">تحققات نقطة النهاية</h2>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: تستجيب نقطة النهاية برمز 200 OK وحمولة JSON مشفرة وخفيفة خلال ثانيتين.</p>
+<p><span class="icon-reject">❌</span> Invalid: تتضمن نقطة النهاية صورة بحجم 5 ميجابايت مرمزة بـ base64 في حمولة البيانات وتستغرق 12 ثانية للمعالجة، مما يتسبب في خطأ انتهاء المهلة على تطبيق واتساب.</p>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Valid: تنفذ نقطة النهاية معالجة مناسبة للأخطاء وتعيد شاشة خطأ محددة ومعينة إذا لم يتم العثور على معرف الحساب المطلوب.</p>
+<p><span class="icon-reject">❌</span> Invalid: تعتمد نقطة النهاية على أخطاء HTTP 500 بدون حمولات احتياطية مشفرة عند فشل التحقق.</p></div>
+
+      <div class="topic-nav">
+        <a class="nav-prev" href="whatsapp-billing-pricing.html">← WhatsApp Billing & Pricing Model</a>
+        <a class="nav-next" href="whatsapp-flows-json-ui.html">WhatsApp Flows JSON UI Limits & Validation →</a>
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+(function(){
+  var html=document.documentElement,TK='maw-theme',LK='maw-lang';
+
+  // ── Theme ────────────────────────────────────────────────
+  function applyTheme(t){html.setAttribute('data-theme',t);localStorage.setItem(TK,t);}
+  applyTheme(localStorage.getItem(TK)||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));
+
+  // ── Language ─────────────────────────────────────────────
+  function applyLang(l){
+    html.setAttribute('data-lang',l);
+    html.setAttribute('lang',l==='ar'?'ar':'en');
+    html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+    localStorage.setItem(LK,l);
+    document.querySelectorAll('[data-en][data-ar]').forEach(function(el){
+      var val = el.getAttribute(l==='ar'?'data-ar':'data-en');
+      if (el.tagName==='INPUT' || el.tagName==='TEXTAREA') {
+        el.placeholder = val;
+      } else {
+        el.innerHTML = val;
+      }
+    });
+  }
+  applyLang(localStorage.getItem(LK)||'en');
+
+  // Wire up buttons after DOM is ready
+  function wireButtons(){
+    var thBtn=document.getElementById('theme-toggle');
+    if(thBtn) thBtn.addEventListener('click',function(){
+      applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+    });
+    var lgBtn=document.getElementById('lang-toggle');
+    if(lgBtn) lgBtn.addEventListener('click',function(){
+      applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
+    });
+    
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',wireButtons);
+  } else {
+    wireButtons();
+  }
+})();
+</script>
+<script>var _SEARCH_BASE_='../../';</script>
+<script src="../../search.js"></script>
+</body>
+</html>
