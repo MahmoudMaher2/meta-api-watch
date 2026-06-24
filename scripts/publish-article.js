@@ -96,39 +96,126 @@ function escHtml(str) {
   return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
+// ── Date helpers ──────────────────────────────────────────────────────────────
+function formatDate(isoDate) {
+  if (!isoDate) return '';
+  const d = new Date(isoDate + 'T00:00:00Z');
+  return d.toLocaleDateString('en-GB', {
+    year:'numeric', month:'short', day:'numeric', timeZone:'UTC'
+  });
+}
+
+// Convert ISO date → Meta changelog anchor (e.g. 2026-06-12 → #june-12-2026)
+function dateToAnchor(isoDate) {
+  if (!isoDate) return '';
+  const d = new Date(isoDate + 'T00:00:00Z');
+  const months = ['january','february','march','april','may','june',
+    'july','august','september','october','november','december'];
+  return `#${months[d.getUTCMonth()]}-${d.getUTCDate()}-${d.getUTCFullYear()}`;
+}
+
+// Parse a section from article body markdown
+function getSection(body, heading) {
+  const rx = new RegExp(`## ${heading}\n\n([\\s\\S]*?)(?=\n## |$)`);
+  const match = body.match(rx);
+  return match ? match[1].trim() : '';
+}
+
+// Unique card ID
+let _cardIdx = 0;
+
 // ── Article card HTML ─────────────────────────────────────────────────────────
 function articleCard(article) {
   const m = article.meta;
+  const body = article.body || '';
   const modules = Array.isArray(m.sv2_modules) ? m.sv2_modules
     : (m.sv2_modules ? m.sv2_modules.split(',').map(s => s.trim()) : []);
 
-  const auditNote = m.audit_corrections && m.audit_corrections !== 'none'
-    ? `<div class="audit-note">🔍 Audit: ${escHtml(m.audit_corrections)}</div>` : '';
+  // Parse body sections
+  const whatChanged  = getSection(body, 'Summary')  || m.summary_short || m.summary || '';
+  const sv2Impact    = getSection(body, 'Why it Matters for SV2');
+  const qaAction     = getSection(body, 'Suggested QA Action');
 
-  return `
-  <article class="card" 
-    data-date="${escHtml(m.date)}" 
-    data-category="${escHtml(m.category)}" 
+  // Build direct link to the specific dated changelog section
+  const anchor      = dateToAnchor(m.date);
+  const changelogUrl = (m.source_url || '').replace(/\/$/, '') + anchor;
+
+  // Format date nicely
+  const dateDisplay = formatDate(m.date);
+
+  // Card ID
+  const uid = `card-${_cardIdx++}`;
+  const detId = `det-${uid}`;
+
+  // Audit note (skip backfill notes — they're noise)
+  const isBackfill = (m.audit_corrections || '').startsWith('backfill');
+  const auditNote = (!isBackfill && m.audit_corrections && m.audit_corrections !== 'none')
+    ? `<div class="audit-note">🔍 <span data-en="Audit" data-ar="مراجعة">Audit</span>: ${escHtml(m.audit_corrections)}</div>` : '';
+
+  return `<article class="card"
+    id="${uid}"
+    data-date="${escHtml(m.date)}"
+    data-category="${escHtml(m.category)}"
     data-modules="${escHtml(modules.join(','))}">
+
     <div class="card-header">
-      <time class="card-date">${escHtml(m.date)}</time>
+      <time class="card-date">${escHtml(dateDisplay)}</time>
       ${categoryBadge(m.category)}
     </div>
-    <h2 class="card-title">${escHtml(m.title)}</h2>
+
+    <h2 class="card-title">${escHtml(m.title || '')}</h2>
     <div class="card-badges">${modules.map(moduleBadge).join('')}</div>
-    <p class="card-summary">${escHtml(m.summary_short || m.summary || '')}</p>
-    ${auditNote}
+    <p class="card-summary">${escHtml(m.summary_short || whatChanged.slice(0, 180))}</p>
+
+    <!-- Expandable detail panel -->
+    <div class="card-details" id="${detId}" aria-hidden="true">
+
+      ${whatChanged ? `<div class="detail-section detail-changed">
+        <h4 class="detail-label">
+          <span class="detail-icon">📌</span>
+          <span data-en="What Changed" data-ar="ما الذي تغيّر">What Changed</span>
+        </h4>
+        <p>${escHtml(whatChanged)}</p>
+      </div>` : ''}
+
+      ${sv2Impact ? `<div class="detail-section detail-impact">
+        <h4 class="detail-label">
+          <span class="detail-icon">🎯</span>
+          <span data-en="Impact on SEEN V2" data-ar="التأثير على SEEN V2">Impact on SEEN V2</span>
+        </h4>
+        <p>${escHtml(sv2Impact)}</p>
+      </div>` : ''}
+
+      ${qaAction ? `<div class="detail-section detail-qa">
+        <h4 class="detail-label">
+          <span class="detail-icon">✅</span>
+          <span data-en="Suggested QA Action" data-ar="إجراء QA المقترح">Suggested QA Action</span>
+        </h4>
+        <p>${escHtml(qaAction)}</p>
+      </div>` : ''}
+
+      ${auditNote}
+    </div>
+
     <div class="card-footer">
-      <a class="card-source" href="${escHtml(m.source_url)}" target="_blank" rel="noopener">
-        📄 Source
+      <button class="btn-expand"
+        data-det="${detId}"
+        aria-expanded="false"
+        aria-controls="${detId}">
+        <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
+        <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
+        <span class="expand-chevron">▾</span>
+      </button>
+      <a class="card-source" href="${escHtml(changelogUrl)}" target="_blank" rel="noopener">
+        📄 <span data-en="View in Changelog" data-ar="رابط في سجل التغييرات">View in Changelog</span> ↗
       </a>
-      <span class="card-source-name">${escHtml(m.source_name || m.source_slug || '')}</span>
     </div>
   </article>`.trim();
 }
 
 // ── Full site index HTML ──────────────────────────────────────────────────────
 function buildIndex(articles) {
+  _cardIdx = 0; // reset card IDs each build
   const allCategories = [...new Set(articles.map(a => a.meta.category).filter(Boolean))];
   const allModules    = [...new Set(articles.flatMap(a => {
     const mods = a.meta.sv2_modules;
@@ -153,7 +240,7 @@ function buildIndex(articles) {
   }) + ' (Cairo)';
 
   return `<!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" data-lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -171,12 +258,15 @@ function buildIndex(articles) {
         <span class="logo-icon">🔭</span>
         <div>
           <h1 class="site-title">Meta API Watch</h1>
-          <p class="site-subtitle">SEEN V2 · Developer Docs Tracker</p>
+          <p class="site-subtitle"
+             data-en="SEEN V2 · Developer Docs Tracker"
+             data-ar="SEEN V2 · متتبّع تحديثات المطورين">SEEN V2 · Developer Docs Tracker</p>
         </div>
       </div>
       <div class="header-center">
         <div class="last-build">
-          <span class="last-build-label">Last Build</span>
+          <span class="last-build-label"
+                data-en="Last Build" data-ar="آخر بناء">Last Build</span>
           <span class="last-build-date">${buildDateDisplay}</span>
           <span class="last-build-time">${buildTimeDisplay}</span>
         </div>
@@ -185,17 +275,28 @@ function buildIndex(articles) {
         <div class="header-stats">
           <div class="stat">
             <span class="stat-num" id="total-count">${articles.length}</span>
-            <span class="stat-label">updates tracked</span>
+            <span class="stat-label"
+                  data-en="updates tracked" data-ar="تحديث مرصود">updates tracked</span>
           </div>
           <div class="stat">
             <span class="stat-num">${articles.filter(a=>a.meta.category==='Breaking Change').length}</span>
-            <span class="stat-label">breaking changes</span>
+            <span class="stat-label"
+                  data-en="breaking changes" data-ar="تغيير جذري">breaking changes</span>
           </div>
         </div>
+        <!-- Language toggle -->
+        <button id="lang-toggle" class="lang-toggle" aria-label="Toggle language">
+          <span class="lang-en">EN</span>
+          <span class="lang-sep">·</span>
+          <span class="lang-ar">عربي</span>
+        </button>
         <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode">
           <span class="icon-sun">☀️</span>
           <span class="icon-moon">🌙</span>
         </button>
+        <a href="learn/index.html" class="btn-learn">
+          <span data-en="📚 Learn" data-ar="📚 تعلّم">📚 Learn</span>
+        </a>
       </div>
     </div>
   </header>
@@ -203,22 +304,28 @@ function buildIndex(articles) {
   <div class="filters-bar">
     <div class="filters-inner">
       <div class="filter-group">
-        <label for="filter-category">Category</label>
+        <label for="filter-category"
+               data-en="Category" data-ar="الفئة">Category</label>
         <select id="filter-category">
-          <option value="">All categories</option>
+          <option value=""
+                  data-en="All categories" data-ar="جميع الفئات">All categories</option>
           ${catOptions}
         </select>
       </div>
       <div class="filter-group">
-        <label for="filter-module">SV2 Module</label>
+        <label for="filter-module"
+               data-en="SV2 Module" data-ar="موديول SV2">SV2 Module</label>
         <select id="filter-module">
-          <option value="">All modules</option>
+          <option value=""
+                  data-en="All modules" data-ar="جميع الموديولات">All modules</option>
           ${modOptions}
         </select>
       </div>
-      <button id="clear-filters" class="btn-clear">Clear filters</button>
+      <button id="clear-filters" class="btn-clear"
+              data-en="Clear filters" data-ar="مسح الفلاتر">Clear filters</button>
       <div class="filter-results">
-        <span id="filtered-count">${articles.length}</span> results
+        <span id="filtered-count">${articles.length}</span>
+        <span data-en="results" data-ar="نتيجة">results</span>
       </div>
     </div>
   </div>
@@ -227,16 +334,22 @@ function buildIndex(articles) {
     <div class="cards-grid" id="cards-grid">
       ${cards || `<div class="empty-state">
         <span>📭</span>
-        <p>No updates published yet.</p>
-        <p class="empty-sub">Run the pipeline to fetch the latest Meta API changes.</p>
+        <p data-en="No updates published yet." data-ar="لا توجد تحديثات منشورة بعد.">No updates published yet.</p>
+        <p class="empty-sub"
+           data-en="Run the pipeline to fetch the latest Meta API changes."
+           data-ar="شغّل البايبلاين لجلب أحدث تغييرات Meta API.">Run the pipeline to fetch the latest Meta API changes.</p>
       </div>`}
     </div>
   </main>
 
   <footer class="site-footer">
-    <p>Built with <a href="https://antigravity.dev" target="_blank" rel="noopener">Antigravity</a> · 
-       Sources: <a href="https://developers.facebook.com/docs" target="_blank" rel="noopener">Meta for Developers</a> · 
-       Built: <time datetime="${buildDateISO}">${buildDateDisplay} at ${buildTimeDisplay}</time></p>
+    <p>
+      <span data-en="Built with" data-ar="مبني بـ">Built with</span>
+      <a href="https://antigravity.dev" target="_blank" rel="noopener">Antigravity</a> ·
+      <span data-en="Sources:" data-ar="المصادر:">Sources:</span>
+      <a href="https://developers.facebook.com/docs" target="_blank" rel="noopener">Meta for Developers</a> ·
+      <time datetime="${buildDateISO}">${buildDateDisplay} ${buildTimeDisplay}</time>
+    </p>
   </footer>
 
   <script src="app.js"></script>
