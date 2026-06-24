@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Error Codes — Complete Reference — Meta Docs Learn</title>
+  <meta name="description" content="Learn how Error Codes — Complete Reference works in Common — parameters, validation rules, error codes, and examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <header class="learn-header">
+    <div class="learn-header-inner">
+      <a href="../index.html" class="back-home">
+        <span>←</span> Meta Docs Learn
+      </a>
+      <div class="header-actions">
+        <a href="../../index.html" class="link-changelog">📋 Changelog</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <span class="icon-sun">☀️</span>
+          <span class="icon-moon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="learn-layout">
+
+    <!-- Sidebar -->
+    <aside class="learn-sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label">On this page</span>
+        <ul class="toc-list"><li class="toc-top"><a href="#error-response-structure">Error Response Structure</a></li><li class="toc-top"><a href="#top-level-error-codes">Top-Level Error Codes</a></li><li class="toc-sub"><a href="#graph-api-general-errors">Graph API General Errors</a></li><li class="toc-top"><a href="#whatsapp-specific-error-codes-13xxxx">WhatsApp-Specific Error Codes (13xxxx)</a></li><li class="toc-sub"><a href="#130xxx-throttling-rate-limits">130xxx — Throttling & Rate Limits</a></li><li class="toc-sub"><a href="#131xxx-message-send-errors">131xxx — Message Send Errors</a></li><li class="toc-sub"><a href="#131063-131064-template-enforcement">131063-131064 — Template Enforcement</a></li><li class="toc-sub"><a href="#132xxx-template-errors">132xxx — Template Errors</a></li><li class="toc-sub"><a href="#133xxx-account-registration-errors">133xxx — Account Registration Errors</a></li><li class="toc-sub"><a href="#134xxx-template-sync-errors-send-time">134xxx — Template Sync Errors (Send-time)</a></li><li class="toc-top"><a href="#template-validation-error-subcodes">Template Validation Error Subcodes</a></li><li class="toc-top"><a href="#messenger-error-codes">Messenger Error Codes</a></li><li class="toc-top"><a href="#error-handling-strategy-for-seen-v2">Error Handling Strategy for SEEN V2</a></li></ul>
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Source</span>
+        <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/support/error-codes" target="_blank" rel="noopener" class="source-link">
+          📄 Meta Developer Docs ↗
+        </a>
+        <span class="verified-date">Verified: 2026-06-24</span>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="learn-content" id="main-content">
+      <div class="topic-breadcrumb">
+        <a href="../index.html">Learn</a>
+        <span>›</span>
+        <span style="color:#a78bfa">Common</span>
+        <span>›</span>
+        <span>Error Codes — Complete Reference</span>
+      </div>
+
+      <div class="topic-hero">
+        <span class="platform-badge" style="background:#1a1a24;color:#a78bfa;border-color:#4c1d95">Common</span>
+        <h1 class="topic-title">Error Codes — Complete Reference</h1>
+        <p class="topic-meta">Core API · Last verified: 2026-06-24</p>
+      </div>
+
+      <div class="topic-body">
+        <h1>Error Codes — Complete Reference</h1>
+
+<p>All WhatsApp Business API errors follow a consistent structure. Understanding the codes prevents wasted debugging time.</p>
+
+<h2 id="error-response-structure">Error Response Structure</h2>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "error": {</p>
+<p>    "message": "Invalid parameter",</p>
+<p>    "type": "OAuthException",</p>
+<p>    "code": 100,</p>
+<p>    "error_subcode": 2388024,</p>
+<p>    "error_data": {</p>
+<p>      "messaging_product": "whatsapp",</p>
+<p>      "details": "Template name already exists"</p>
+<p>    },</p>
+<p>    "fbtrace_id": "AbCd1234..."</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Meaning</th></tr></thead><tbody><tr><td><code>code</code></td><td>Top-level error category</td></tr><tr><td><code>error_subcode</code></td><td>Specific sub-error within category</td></tr><tr><td><code>error_data.details</code></td><td>Human-readable explanation</td></tr><tr><td><code>fbtrace_id</code></td><td>Use this when contacting Meta Support</td></tr></tbody></table></div>
+<hr>
+
+<h2 id="top-level-error-codes">Top-Level Error Codes</h2>
+
+<h3 id="graph-api-general-errors">Graph API General Errors</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Code</th><th>Name</th><th>Common Cause</th></tr></thead><tbody><tr><td><code>1</code></td><td>Unknown error</td><td>Temporary Meta issue — retry</td></tr><tr><td><code>2</code></td><td>Service temporarily unavailable</td><td>Meta outage — retry with backoff</td></tr><tr><td><code>4</code></td><td>Application request limit reached</td><td>Rate limit exceeded</td></tr><tr><td><code>10</code></td><td>Permission denied</td><td>App lacks required permission</td></tr><tr><td><code>100</code></td><td>Invalid parameter</td><td>Wrong value format or missing field</td></tr><tr><td><code>190</code></td><td>Invalid/expired access token</td><td>Token expired or revoked</td></tr><tr><td><code>200</code></td><td>Requires permission</td><td>Missing Facebook/Meta permission</td></tr></tbody></table></div>
+<hr>
+
+<h2 id="whatsapp-specific-error-codes-13xxxx">WhatsApp-Specific Error Codes (13xxxx)</h2>
+
+<h3 id="130xxx-throttling-rate-limits">130xxx — Throttling & Rate Limits</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Code</th><th>Error</th><th>Cause</th><th>Fix</th></tr></thead><tbody><tr><td><code>130429</code></td><td>Rate limit hit</td><td>Sending > 80 msg/sec</td><td>Reduce to 80/sec</td></tr><tr><td><code>130472</code></td><td>User message limit reached</td><td>Individual user limit</td><td>Back off for this user</td></tr></tbody></table></div>
+<h3 id="131xxx-message-send-errors">131xxx — Message Send Errors</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Code</th><th>Error</th><th>Cause</th><th>Fix</th></tr></thead><tbody><tr><td><code>131000</code></td><td>Sending failure</td><td>Generic error</td><td>Check <code>details</code> for specifics</td></tr><tr><td><code>131005</code></td><td>Permission denied</td><td>Missing <code>whatsapp_business_messaging</code></td><td>Grant permission in app review</td></tr><tr><td><code>131008</code></td><td>Required parameter missing</td><td>Missing <code>to</code>, <code>type</code>, etc.</td><td>Add missing field</td></tr><tr><td><code>131009</code></td><td>Parameter not valid</td><td>Bad phone number, invalid media</td><td>Validate before sending</td></tr><tr><td><code>131016</code></td><td>Service unavailable</td><td>WhatsApp Cloud API down</td><td>Retry with exponential backoff</td></tr><tr><td><code>131021</code></td><td>Recipient not valid</td><td>Number not registered on WhatsApp</td><td>Verify number first</td></tr><tr><td><code>131026</code></td><td>Message undeliverable</td><td>User unreachable or blocked</td><td>Log and skip</td></tr><tr><td><code>131042</code></td><td>Business eligibility — payments</td><td>Not enabled for payments</td><td>Enable payments for WABA</td></tr><tr><td><code>131045</code></td><td>Incorrect certificate</td><td>SSL issue</td><td>Fix SSL configuration</td></tr><tr><td><code>131047</code></td><td>Re-engagement required</td><td>No 24h window open</td><td>Send a template</td></tr><tr><td><code>131048</code></td><td>Spam rate limit</td><td>Too many messages to user</td><td>Throttle per-user sends</td></tr><tr><td><code>131049</code></td><td>Marketing template limit</td><td>User hit Meta-enforced limit</td><td>Normal — respect the limit</td></tr><tr><td><code>131050</code></td><td>User opted out</td><td>User unsubscribed</td><td>Must not message this user</td></tr><tr><td><code>131051</code></td><td>Unsupported message type</td><td>User can't receive this type</td><td>Use different type</td></tr><tr><td><code>131052</code></td><td>Media download error</td><td>URL inaccessible or expired</td><td>Re-upload media</td></tr><tr><td><code>131053</code></td><td>Media upload error</td><td>Upload failed</td><td>Retry upload</td></tr><tr><td><code>131057</code></td><td>Account in maintenance</td><td>WABA under maintenance</td><td>Wait and retry</td></tr></tbody></table></div>
+<h3 id="131063-131064-template-enforcement">131063-131064 — Template Enforcement</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Code</th><th>Error</th><th>Cause</th><th>Fix</th></tr></thead><tbody><tr><td><code>131063</code></td><td>Marketing templates disabled</td><td>WABA violated policy</td><td>Contact Meta support</td></tr><tr><td><code>131064</code></td><td>Account messaging limit</td><td>Classification violations accumulated</td><td>Review and fix template categories</td></tr></tbody></table></div>
+<h3 id="132xxx-template-errors">132xxx — Template Errors</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Code</th><th>Error</th><th>Cause</th><th>Fix</th></tr></thead><tbody><tr><td><code>132000</code></td><td>Template param count wrong</td><td>Wrong number of <code>parameters</code> objects</td><td>Count must match template exactly</td></tr><tr><td><code>132001</code></td><td>Template not found</td><td>Wrong name, wrong language, not approved</td><td>Verify template is <code>APPROVED</code></td></tr><tr><td><code>132005</code></td><td>Translated text too long</td><td>Variable expansion exceeds limit</td><td>Shorten parameter values</td></tr><tr><td><code>132006</code></td><td>Template paused</td><td>Low quality score</td><td>Use a different template</td></tr><tr><td><code>132007</code></td><td>Template policy violation</td><td>Violates WhatsApp Business Policy</td><td>Fix template content</td></tr><tr><td><code>132012</code></td><td>Variable format incorrect</td><td>Wrong parameter type or format</td><td>Check <code>type</code> in parameters</td></tr><tr><td><code>132015</code></td><td>Template paused</td><td>Same as 132006</td><td>—</td></tr><tr><td><code>132016</code></td><td>Template disabled</td><td>Permanently disabled</td><td>Create a new template</td></tr><tr><td><code>132018</code></td><td>Template validation error</td><td>Variables mismatch</td><td>Align send params with template</td></tr><tr><td><code>132068</code></td><td>Flow unavailable</td><td>Embedded flow in template failed</td><td>Check Flow status</td></tr><tr><td><code>132069</code></td><td>Flow blocked</td><td>Flow has errors</td><td>Fix the Flow</td></tr></tbody></table></div>
+<h3 id="133xxx-account-registration-errors">133xxx — Account Registration Errors</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Code</th><th>Error</th><th>Cause</th><th>Fix</th></tr></thead><tbody><tr><td><code>133000</code></td><td>Phone number not registered</td><td>Registration didn't complete</td><td>Complete Cloud API registration</td></tr><tr><td><code>133004</code></td><td>Server temporarily unavailable</td><td>Registration service down</td><td>Retry</td></tr><tr><td><code>133005</code></td><td>Two-step verification PIN error</td><td>Wrong PIN</td><td>Provide correct PIN</td></tr><tr><td><code>133006</code></td><td>Phone number re-verification needed</td><td>Cert expired</td><td>Re-verify number</td></tr><tr><td><code>133008</code></td><td>Account locked</td><td>Too many PIN attempts</td><td>Wait for lockout to expire</td></tr><tr><td><code>133009</code></td><td>Phone already registered</td><td>Can't re-register</td><td>Deregister first</td></tr><tr><td><code>133010</code></td><td>Cloud API not accessible</td><td>Account issue</td><td>Contact Meta support</td></tr><tr><td><code>133015</code></td><td>Registration too fast</td><td>Repeated registration attempts</td><td>Wait before retrying</td></tr></tbody></table></div>
+<h3 id="134xxx-template-sync-errors-send-time">134xxx — Template Sync Errors (Send-time)</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Code</th><th>Error</th><th>Cause</th><th>Fix</th></tr></thead><tbody><tr><td><code>134100</code></td><td>Template does not exist</td><td>Not propagated yet after creation</td><td>Wait up to 10 minutes</td></tr><tr><td><code>134101</code></td><td>Template not synced</td><td>Creation/edit still propagating</td><td>Retry after a few minutes</td></tr><tr><td><code>134102</code></td><td>Template unavailable</td><td>Ad sync failed</td><td>Check Meta Ads account link</td></tr></tbody></table></div>
+<hr>
+
+<h2 id="template-validation-error-subcodes">Template Validation Error Subcodes</h2>
+
+<p>These appear as <code>error_subcode</code> when creating/editing templates:</p>
+
+<div class="table-wrap"><table><thead><tr><th>Subcode</th><th>Error</th><th>Fix</th></tr></thead><tbody><tr><td><code>2388019</code></td><td>Template count limit</td><td>Delete unused templates</td></tr><tr><td><code>2388024</code></td><td>Duplicate template name</td><td>Choose different name</td></tr><tr><td><code>2388040</code></td><td>Character limit exceeded</td><td>Shorten field</td></tr><tr><td><code>2388047</code></td><td>Header format incorrect</td><td>Fix header component</td></tr><tr><td><code>2388049</code></td><td>Button URL invalid</td><td>Use valid HTTPS URL</td></tr><tr><td><code>2388055</code></td><td>Coupon code too long</td><td>Max 20 chars</td></tr><tr><td><code>2388072</code></td><td>Body format incorrect</td><td>Fix <code>{{n}}</code> variable syntax</td></tr><tr><td><code>2388073</code></td><td>Footer has variables</td><td>Remove variables from footer</td></tr><tr><td><code>2388075</code></td><td>Sample value mismatch</td><td>Fix example values</td></tr><tr><td><code>2388293</code></td><td>Too many variables</td><td>Reduce variable count or add text</td></tr><tr><td><code>2388299</code></td><td>Dangling variable</td><td>Surround variable with text</td></tr><tr><td><code>2494177</code></td><td>TOS URL not allowed</td><td>Use approved ToS URL</td></tr></tbody></table></div>
+<hr>
+
+<h2 id="messenger-error-codes">Messenger Error Codes</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Code</th><th>Error</th><th>Cause</th><th>Fix</th></tr></thead><tbody><tr><td><code>10</code></td><td>Permission not granted</td><td>Send API not approved</td><td>Submit for App Review</td></tr><tr><td><code>100</code></td><td>Invalid parameter</td><td>Wrong PSID, wrong attachment</td><td>Validate recipient</td></tr><tr><td><code>200</code></td><td>No messaging permission</td><td>User hasn't messaged page, outside 24h window</td><td>Use notification/message tag</td></tr><tr><td><code>551</code></td><td>User blocked</td><td>User blocked the page</td><td>Don't retry</td></tr><tr><td><code>613</code></td><td>Rate limit</td><td>Too many messages</td><td>Throttle sends</td></tr></tbody></table></div>
+<hr>
+
+<h2 id="error-handling-strategy-for-seen-v2">Error Handling Strategy for SEEN V2</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Error Code</th><th>Action</th></tr></thead><tbody><tr><td><code>131000</code>, <code>131016</code>, <code>2</code></td><td>Retry with exponential backoff (max 3 attempts)</td></tr><tr><td><code>131026</code></td><td>Log and skip — don't retry</td></tr><tr><td><code>131047</code></td><td>Queue message as "template required"</td></tr><tr><td><code>131048</code>, <code>130429</code></td><td>Back off — wait before sending more</td></tr><tr><td><code>131049</code>, <code>131050</code></td><td>Remove user from broadcast list</td></tr><tr><td><code>131052</code>, <code>131053</code></td><td>Re-upload media and retry</td></tr><tr><td><code>132001</code>, <code>132006</code>, <code>132016</code></td><td>Alert QA team — template issue</td></tr><tr><td><code>132000</code></td><td>Bug — fix parameter count in code</td></tr><tr><td><code>190</code></td><td>Refresh access token</td></tr><tr><td><code>4</code>, <code>10</code></td><td>Alert developer — permission issue</td></tr></tbody></table></div>
+      </div>
+
+      <div class="topic-nav">
+        
+        
+      </div>
+    </main>
+
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

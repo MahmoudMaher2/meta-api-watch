@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WhatsApp Webhooks — Meta Docs Learn</title>
+  <meta name="description" content="Learn how WhatsApp Webhooks works in WhatsApp — parameters, validation rules, error codes, and examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <header class="learn-header">
+    <div class="learn-header-inner">
+      <a href="../index.html" class="back-home">
+        <span>←</span> Meta Docs Learn
+      </a>
+      <div class="header-actions">
+        <a href="../../index.html" class="link-changelog">📋 Changelog</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <span class="icon-sun">☀️</span>
+          <span class="icon-moon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="learn-layout">
+
+    <!-- Sidebar -->
+    <aside class="learn-sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label">On this page</span>
+        <ul class="toc-list"><li class="toc-top"><a href="#setup-requirements">Setup Requirements</a></li><li class="toc-top"><a href="#verification-flow-one-time-setup">Verification Flow (One-Time Setup)</a></li><li class="toc-sub"><a href="#-correct-response">✅ Correct Response</a></li><li class="toc-sub"><a href="#-wrong-responses">❌ Wrong Responses</a></li><li class="toc-top"><a href="#signature-verification">Signature Verification</a></li><li class="toc-top"><a href="#webhook-fields-subscription">Webhook Fields — Subscription</a></li><li class="toc-top"><a href="#webhook-event-types">Webhook Event Types</a></li><li class="toc-sub"><a href="#messages-inbound-messages">`messages` — Inbound Messages</a></li><li class="toc-sub"><a href="#message-types-in-webhook">Message Types in Webhook</a></li><li class="toc-sub"><a href="#statuses-message-status-updates">`statuses` — Message Status Updates</a></li><li class="toc-sub"><a href="#status-flow">Status Flow</a></li><li class="toc-sub"><a href="#message_template_status_update">`message_template_status_update`</a></li><li class="toc-sub"><a href="#account_update">`account_update`</a></li><li class="toc-top"><a href="#validation-rules">Validation Rules</a></li><li class="toc-top"><a href="#error-codes-in-status-webhooks">Error Codes in Status Webhooks</a></li><li class="toc-top"><a href="#seen-v2-notes">SEEN V2 Notes</a></li></ul>
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Source</span>
+        <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/webhooks" target="_blank" rel="noopener" class="source-link">
+          📄 Meta Developer Docs ↗
+        </a>
+        <span class="verified-date">Verified: 2026-06-24</span>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="learn-content" id="main-content">
+      <div class="topic-breadcrumb">
+        <a href="../index.html">Learn</a>
+        <span>›</span>
+        <span style="color:#4ade80">WhatsApp</span>
+        <span>›</span>
+        <span>WhatsApp Webhooks</span>
+      </div>
+
+      <div class="topic-hero">
+        <span class="platform-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">WhatsApp</span>
+        <h1 class="topic-title">WhatsApp Webhooks</h1>
+        <p class="topic-meta">Webhooks · Last verified: 2026-06-24</p>
+      </div>
+
+      <div class="topic-body">
+        <h1>WhatsApp Webhooks</h1>
+
+<p>Webhooks are HTTP callbacks that Meta sends to your server when events occur — a message is received, a template status changes, a user's phone number changes, etc. You must verify your endpoint and handle each event type correctly.</p>
+
+<h2 id="setup-requirements">Setup Requirements</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Requirement</th><th>Value</th></tr></thead><tbody><tr><td>Callback URL</td><td>HTTPS only (no HTTP)</td></tr><tr><td>Verification token</td><td>Any static string you define</td></tr><tr><td>Response time</td><td>Must respond <code>200 OK</code> within <strong>5 seconds</strong></td></tr><tr><td>Signature header</td><td><code>X-Hub-Signature-256</code> — HMAC-SHA256 of payload</td></tr><tr><td>Retry policy</td><td>Meta retries failed deliveries for up to <strong>30 days</strong></td></tr></tbody></table></div>
+<hr>
+
+<h2 id="verification-flow-one-time-setup">Verification Flow (One-Time Setup)</h2>
+
+<p>When you save the webhook URL in your App Dashboard, Meta sends a <code>GET</code> request:</p>
+
+<pre class="code-block"><code class="lang-http">GET https://your-server.com/webhook
+<p>  ?hub.mode=subscribe</p>
+<p>  &amp;hub.verify_token=YOUR_TOKEN</p>
+<p>  &amp;hub.challenge=CHALLENGE_STRING</code></pre></p>
+
+<h3 id="-correct-response">✅ Correct Response</h3>
+
+<pre class="code-block"><code class="lang-http">HTTP 200
+<p>Body: CHALLENGE_STRING</code></pre></p>
+
+<h3 id="-wrong-responses">❌ Wrong Responses</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Response</th><th>Result</th></tr></thead><tbody><tr><td>Return anything other than the challenge</td><td>Verification fails</td></tr><tr><td>Return <code>200</code> with wrong body</td><td>Verification fails</td></tr><tr><td>Return <code>4xx</code> or <code>5xx</code></td><td>Verification fails</td></tr><tr><td>Take more than 5 seconds</td><td>Timeout — verification fails</td></tr></tbody></table></div>
+<hr>
+
+<h2 id="signature-verification">Signature Verification</h2>
+
+<p>Every webhook POST includes the header <code>X-Hub-Signature-256</code>. You <strong>must</strong> validate it to confirm the payload is from Meta:</p>
+
+<pre class="code-block"><code class="lang-javascript">// ✅ Correct signature validation
+<p>const crypto = require('crypto');</p>
+
+<p>function verifySignature(payload, signature, appSecret) {</p>
+<p>  const expected = 'sha256=' + crypto</p>
+<p>    .createHmac('sha256', appSecret)</p>
+<p>    .update(payload)   // raw Buffer — NOT parsed JSON</p>
+<p>    .digest('hex');</p>
+<p>  return crypto.timingSafeEqual(</p>
+<p>    Buffer.from(signature),</p>
+<p>    Buffer.from(expected)</p>
+<p>  );</p>
+<p>}</code></pre></p>
+
+<div class="callout callout-warn"><span>⚠️</span><p>Use the raw request body for HMAC calculation — NOT `JSON.stringify(req.body)`. Body parsers may reformat the JSON.</p></div>
+
+<hr>
+
+<h2 id="webhook-fields-subscription">Webhook Fields — Subscription</h2>
+
+<p>Subscribe to fields in your App Dashboard or via API:</p>
+
+<pre class="code-block"><code class="lang-json">POST /v21.0/{phone-number-id}/subscribed_apps
+<p>{</p>
+<p>  "subscribed_fields": [</p>
+<p>    "messages",</p>
+<p>    "message_template_status_update",</p>
+<p>    "phone_number_name_update",</p>
+<p>    "account_update"</p>
+<p>  ]</p>
+<p>}</code></pre></p>
+
+<hr>
+
+<h2 id="webhook-event-types">Webhook Event Types</h2>
+
+<h3 id="messages-inbound-messages">`messages` — Inbound Messages</h3>
+
+<p>Fires when a user sends your business a message.</p>
+
+<p><strong>Payload structure:</strong></p>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "object": "whatsapp_business_account",</p>
+<p>  "entry": [{</p>
+<p>    "id": "WABA_ID",</p>
+<p>    "changes": [{</p>
+<p>      "value": {</p>
+<p>        "messaging_product": "whatsapp",</p>
+<p>        "metadata": {</p>
+<p>          "display_phone_number": "15550123456",</p>
+<p>          "phone_number_id": "PHONE_NUMBER_ID"</p>
+<p>        },</p>
+<p>        "contacts": [{ "profile": { "name": "Alice" }, "wa_id": "15551234567" }],</p>
+<p>        "messages": [{</p>
+<p>          "from": "15551234567",</p>
+<p>          "id": "wamid.xxx",</p>
+<p>          "timestamp": "1700000000",</p>
+<p>          "type": "text",</p>
+<p>          "text": { "body": "Hello!" }</p>
+<p>        }]</p>
+<p>      },</p>
+<p>      "field": "messages"</p>
+<p>    }]</p>
+<p>  }]</p>
+<p>}</code></pre></p>
+
+<h3 id="message-types-in-webhook">Message Types in Webhook</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Type</th><th>Description</th><th>Key fields</th></tr></thead><tbody><tr><td><code>text</code></td><td>Plain text message</td><td><code>text.body</code></td></tr><tr><td><code>image</code></td><td>Image (JPEG/PNG)</td><td><code>image.id</code>, <code>image.mime_type</code>, <code>image.url</code></td></tr><tr><td><code>video</code></td><td>Video (MP4)</td><td><code>video.id</code>, <code>video.url</code></td></tr><tr><td><code>audio</code></td><td>Audio/voice message</td><td><code>audio.id</code>, <code>audio.voice</code> (bool)</td></tr><tr><td><code>document</code></td><td>File attachment</td><td><code>document.id</code>, <code>document.filename</code></td></tr><tr><td><code>sticker</code></td><td>WhatsApp sticker</td><td><code>sticker.id</code>, <code>sticker.animated</code></td></tr><tr><td><code>location</code></td><td>GPS coordinates</td><td><code>location.latitude</code>, <code>location.longitude</code></td></tr><tr><td><code>contacts</code></td><td>vCard contact</td><td><code>contacts[].name</code>, <code>contacts[].phones</code></td></tr><tr><td><code>button</code></td><td>Quick reply tapped</td><td><code>button.text</code>, <code>button.payload</code></td></tr><tr><td><code>interactive</code></td><td>List/button reply</td><td><code>interactive.type</code>, <code>interactive.list_reply</code></td></tr><tr><td><code>reaction</code></td><td>Emoji reaction</td><td><code>reaction.message_id</code>, <code>reaction.emoji</code></td></tr><tr><td><code>order</code></td><td>Product order</td><td><code>order.catalog_id</code>, <code>order.product_items</code></td></tr><tr><td><code>referral</code></td><td>Click-to-WhatsApp ad</td><td><code>referral.source_type</code>, <code>referral.source_id</code></td></tr><tr><td><code>unsupported</code></td><td>Unsupported type</td><td><code>errors[].code</code></td></tr><tr><td><code>system</code></td><td>System event (number change)</td><td><code>system.type</code>, <code>system.identity</code></td></tr></tbody></table></div>
+<hr>
+
+<h3 id="statuses-message-status-updates">`statuses` — Message Status Updates</h3>
+
+<p>Fires when a message you sent changes status.</p>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "statuses": [{</p>
+<p>    "id": "wamid.xxx",</p>
+<p>    "status": "delivered",</p>
+<p>    "timestamp": "1700000001",</p>
+<p>    "recipient_id": "15551234567",</p>
+<p>    "conversation": {</p>
+<p>      "id": "CONV_ID",</p>
+<p>      "origin": { "type": "utility" }</p>
+<p>    },</p>
+<p>    "pricing": {</p>
+<p>      "billable": true,</p>
+<p>      "pricing_model": "CBP",</p>
+<p>      "category": "utility"</p>
+<p>    }</p>
+<p>  }]</p>
+<p>}</code></pre></p>
+
+<h3 id="status-flow">Status Flow</h3>
+
+<pre class="code-block"><code class="lang-text">sent → delivered → read
+<p>           ↓</p>
+<p>         failed (if undeliverable)</code></pre></p>
+
+<div class="table-wrap"><table><thead><tr><th>Status</th><th>Meaning</th></tr></thead><tbody><tr><td><code>sent</code></td><td>Message sent from Meta servers</td></tr><tr><td><code>delivered</code></td><td>Received on user's device</td></tr><tr><td><code>read</code></td><td>User opened the message</td></tr><tr><td><code>failed</code></td><td>Delivery failed — check <code>errors[]</code></td></tr><tr><td><code>deleted</code></td><td>User deleted the message</td></tr><tr><td><code>played</code></td><td>Voice message was played</td></tr></tbody></table></div>
+<hr>
+
+<h3 id="message_template_status_update">`message_template_status_update`</h3>
+
+<p>Fires when a template's review status changes.</p>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "value": {</p>
+<p>    "event": "APPROVED",</p>
+<p>    "message_template_id": 123456,</p>
+<p>    "message_template_name": "hello_world",</p>
+<p>    "message_template_language": "en_US",</p>
+<p>    "reason": null</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<div class="table-wrap"><table><thead><tr><th>Event</th><th>Meaning</th></tr></thead><tbody><tr><td><code>APPROVED</code></td><td>Template is ready to use</td></tr><tr><td><code>REJECTED</code></td><td>Template failed Meta's review — <code>reason</code> field explains why</td></tr><tr><td><code>FLAGGED</code></td><td>Quality concerns — may be paused soon</td></tr><tr><td><code>PAUSED</code></td><td>Template paused due to low quality</td></tr><tr><td><code>DISABLED</code></td><td>Template permanently disabled</td></tr><tr><td><code>REINSTATED</code></td><td>Template re-approved after appeal</td></tr></tbody></table></div>
+<hr>
+
+<h3 id="account_update">`account_update`</h3>
+
+<p>Fires when WABA-level changes occur.</p>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "value": {</p>
+<p>    "phone_number": "15550000000",</p>
+<p>    "event": "ACCOUNT_UPDATE",</p>
+<p>    "banner_type": "BUSINESS_INITIATED_DISABLED"</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<div class="table-wrap"><table><thead><tr><th>Event</th><th>Meaning</th></tr></thead><tbody><tr><td><code>PHONE_NUMBER_NAME_UPDATE</code></td><td>Display name approved/rejected</td></tr><tr><td><code>PHONE_NUMBER_QUALITY_UPDATE</code></td><td>Quality score change</td></tr><tr><td><code>PHONE_NUMBER_BANNED</code></td><td>Number banned</td></tr><tr><td><code>ACCOUNT_VIOLATION</code></td><td>Policy violation flagged</td></tr><tr><td><code>PARTNER_REMOVED</code></td><td>Business disconnected from BSP</td></tr></tbody></table></div>
+<hr>
+
+<h2 id="validation-rules">Validation Rules</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Rejected</th><th><span class="icon-accept">✅</span> Accepted</th></tr></thead><tbody><tr><td><strong>Response time</strong></td><td>> 5 seconds</td><td>< 5 seconds</td></tr><tr><td><strong>Response code</strong></td><td><code>4xx</code>, <code>5xx</code>, or timeout</td><td><code>200</code></td></tr><tr><td><strong>Signature check</strong></td><td>Wrong or missing</td><td>Valid <code>X-Hub-Signature-256</code></td></tr><tr><td><strong>Callback URL</strong></td><td><code>http://</code></td><td><code>https://</code></td></tr><tr><td><strong>Deduplication</strong></td><td>Processing same <code>id</code> twice (causes bugs)</td><td>Check <code>message.id</code> before processing</td></tr><tr><td><strong>Ordering</strong></td><td>Assuming messages arrive in order</td><td>Messages can arrive out of order</td></tr></tbody></table></div>
+<hr>
+
+<h2 id="error-codes-in-status-webhooks">Error Codes in Status Webhooks</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Code</th><th>Error</th><th>Fix</th></tr></thead><tbody><tr><td><code>131026</code></td><td>Message undeliverable</td><td>User may be offline or number invalid</td></tr><tr><td><code>131047</code></td><td>Re-engagement message</td><td>Cannot message user — no open window</td></tr><tr><td><code>131048</code></td><td>Spam rate limit</td><td>Too many messages to this user</td></tr><tr><td><code>131051</code></td><td>Unsupported message type</td><td>Don't send this type to this user</td></tr><tr><td><code>131052</code></td><td>Media download error</td><td>Media expired or inaccessible</td></tr><tr><td><code>131053</code></td><td>Media upload error</td><td>Problem with uploaded media</td></tr><tr><td><code>130429</code></td><td>Rate limit exceeded</td><td>Throttle your sending rate</td></tr><tr><td><code>131000</code></td><td>Generic send error</td><td>Check payload</td></tr></tbody></table></div>
+<hr>
+
+<h2 id="seen-v2-notes">SEEN V2 Notes</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Feature</th><th>Notes</th></tr></thead><tbody><tr><td>Inbound messages</td><td>Route to the right SEEN V2 conversation thread</td></tr><tr><td>Status updates</td><td><code>delivered</code> / <code>read</code> → update message state in UI</td></tr><tr><td>Template status</td><td><code>APPROVED</code> → unlock template for use in Broadcasts</td></tr><tr><td>Deduplication</td><td>Store processed <code>wamid</code> to avoid double-processing</td></tr><tr><td>Signature</td><td>Must verify in production — never skip in a real app</td></tr></tbody></table></div>
+      </div>
+
+      <div class="topic-nav">
+        <a class="nav-prev" href="whatsapp-messages-api.html">← Messages API (Send Messages)</a>
+        
+      </div>
+    </main>
+
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>
