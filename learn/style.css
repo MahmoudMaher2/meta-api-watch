@@ -611,6 +611,172 @@ blockquote {
 .learn-footer a { color: var(--text-muted); }
 .learn-footer a:hover { color: var(--text); }
 
+/* ── NEW Badge ───────────────────────────────────────────────────────────────── */
+.new-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 100px;
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  color: #fff;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.55);
+  animation: pulse-new 2.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.new-badge-hero {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 12px;
+  border-radius: 100px;
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  color: #fff;
+  box-shadow: 0 0 14px rgba(34, 197, 94, 0.5);
+  margin-left: 10px;
+  animation: pulse-new 2.5s ease-in-out infinite;
+  vertical-align: middle;
+}
+
+@keyframes pulse-new {
+  0%, 100% { box-shadow: 0 0 8px rgba(34, 197, 94, 0.5); }
+  50%       { box-shadow: 0 0 18px rgba(34, 197, 94, 0.85); }
+}
+
+/* Card shimmer for new topics */
+.topic-card-new {
+  border-color: rgba(34, 197, 94, 0.25) !important;
+  background: linear-gradient(
+    135deg,
+    var(--bg2) 0%,
+    rgba(34, 197, 94, 0.04) 100%
+  ) !important;
+}
+.topic-card-new:hover {
+  border-color: rgba(34, 197, 94, 0.5) !important;
+  box-shadow: 0 4px 24px rgba(34, 197, 94, 0.12) !important;
+}
+
+/* Topic hero badges row */
+.topic-hero-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.topic-hero-badges .platform-badge {
+  margin-bottom: 0;
+}
+
+/* ── Live Preview Blocks ─────────────────────────────────────────────────────── */
+.preview-block {
+  border-radius: var(--radius);
+  border: 1px solid;
+  padding: 0 20px 16px;
+  margin: 20px 0;
+  position: relative;
+}
+
+.preview-label {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 0 0 8px 8px;
+  margin-bottom: 14px;
+  position: relative;
+  top: 0;
+  left: -1px;
+}
+
+.preview-accepted {
+  background: var(--accept-bg);
+  border-color: var(--accept-border);
+}
+.preview-accepted .preview-label-ok {
+  background: var(--accept-bg);
+  color: var(--accept-text);
+  border: 1px solid var(--accept-border);
+  border-top: none;
+}
+/* Correct icon on the top-left corner */
+.preview-accepted::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--accept-text);
+  border-radius: var(--radius) 0 0 var(--radius);
+  opacity: 0.5;
+}
+
+.preview-rejected {
+  background: var(--reject-bg);
+  border-color: var(--reject-border);
+}
+.preview-rejected .preview-label-err {
+  background: var(--reject-bg);
+  color: var(--reject-text);
+  border: 1px solid var(--reject-border);
+  border-top: none;
+}
+.preview-rejected::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--reject-text);
+  border-radius: var(--radius) 0 0 var(--radius);
+  opacity: 0.5;
+}
+
+/* Preview inner headings — hide the h3 since label replaces it */
+.preview-block h3 { display: none; }
+
+/* Preview code blocks inherit their parent colors */
+.preview-accepted .code-block {
+  border-color: var(--accept-border);
+  background: rgba(34, 197, 94, 0.04);
+}
+.preview-rejected .code-block {
+  border-color: var(--reject-border);
+  background: rgba(239, 68, 68, 0.04);
+}
+
+/* ── Changelog Back-link in Sidebar ─────────────────────────────────────────── */
+.changelog-back-link {
+  display: block;
+  font-size: 0.78rem;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  color: var(--accent2);
+  transition: background 0.15s, border-color 0.15s;
+  line-height: 1.5;
+}
+.changelog-back-link:hover {
+  background: var(--bg3);
+  border-color: var(--accent);
+  text-decoration: none;
+}
+.changelog-back-link small {
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  font-family: 'JetBrains Mono', monospace;
+}
+
 /* ── Responsive ──────────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .learn-layout { grid-template-columns: 1fr; }

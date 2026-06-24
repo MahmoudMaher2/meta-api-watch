@@ -263,6 +263,164 @@ Then report: "DRAFT_SAVED: $draftFile"
     Write-Host "   Press ENTER when the draft has been saved..."
     if (-not $DryRun) { Read-Host | Out-Null }
 
+    # ── STEP 3.5: Auto-generate LEARN section for New Features ───────────────
+    Log "[$slug] Step 3.5: Check if New Feature → generate LEARN topic"
+    Write-Host ""
+    Write-Host "📚 STEP 3.5 — Auto-generate LEARN section (New Features only)" -ForegroundColor Cyan
+    Write-Host ""
+
+    $draftContentForLearn = if (Test-Path $draftFile) { Get-Content $draftFile -Raw } else { "" }
+    $learnDir  = Join-Path $ProjectRoot "content-learn"
+    $learnRootDir = Split-Path $ProjectRoot -Parent  # not used, using $learnDir directly
+
+    $learnPrompt = @"
+You are the LEARN Auto-generator for Meta API Watch.
+
+Read the draft article below and decide:
+  - IF the frontmatter field `category` is exactly "New Feature"
+    → Create a NEW learn topic page (see instructions below)
+  - IF the category is anything else (Breaking Change, Deprecation, etc.)
+    → Output: "LEARN_SKIP: category is not New Feature — no learn topic needed."
+    → Do NOT create any files.
+
+═══════════════════════════════════════
+DRAFT ARTICLE:
+───────────────────────────────────────
+$draftContentForLearn
+═══════════════════════════════════════
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IF CATEGORY IS "New Feature" — INSTRUCTIONS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Determine the PLATFORM from sv2_modules:
+   - Contains "WhatsApp Templates", "Broadcasts", "Webhooks" → platform = "WhatsApp"
+   - Contains "Instagram Messaging"                         → platform = "Instagram"
+   - Contains "Messenger"                                   → platform = "Messenger"
+   - Anything else / mixed                                  → platform = "Common"
+
+2. Determine the LEARN DIRECTORY:
+   - WhatsApp  → $learnDir\whatsapp\
+   - Instagram → $learnDir\instagram\
+   - Messenger → $learnDir\messenger\
+   - Common    → $learnDir\common\
+
+3. Create the learn topic file at:
+   [learn-dir]\[feature-slug].md
+   where [feature-slug] is a lowercase-hyphen-slug of the feature name (max 40 chars).
+
+4. The file MUST use this EXACT frontmatter + body structure:
+
+---
+slug: [feature-slug]
+title: [clear, descriptive title of the new feature]
+platform: [WhatsApp | Instagram | Messenger | Common]
+category: Core API
+priority: high
+new: true
+new_since: $Date
+changelog_article: $Date
+source_url: $url
+last_verified: $Date
+---
+
+# [Title]
+
+[1-2 sentence intro: what this feature is and why it was added]
+
+## Overview
+
+[3-5 sentences explaining the feature clearly — what it does, when to use it, how it fits into the SEEN V2 workflow]
+
+## How It Works
+
+[Step-by-step explanation of the feature's mechanism. Use bullet points or numbered list.]
+
+## Parameters & Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+[Fill in the actual fields from the feature — at minimum 3 rows]
+
+## Validation Rules
+
+| Rule | ❌ Gets REJECTED | ✅ Gets ACCEPTED |
+|------|-----------------|-----------------|
+[Fill in at least 3 real validation rules from the feature]
+
+## Live Preview — What It Looks Like
+
+[If the Meta documentation contains actual images/screenshots of this feature, EMBED them here using markdown: `![Feature UI Preview](https://scontent.../image.png)`]
+
+[Provide detailed comparisons of correct vs wrong usages below:]
+
+<!-- preview:accepted -->
+### ✅ Correct Usage
+
+```json
+[Real working example from the actual Meta docs page — copy the exact example]
+```
+
+**Why it works:** [Brief explanation of why this is correct]
+
+<!-- preview:rejected -->
+### ❌ Common Mistake
+
+```json
+[Real rejected / wrong usage example]
+```
+
+**Error:** [The actual error code and message this produces]
+
+## Comparison: Before vs After This Feature
+
+| Aspect | Before This Feature | After This Feature |
+|--------|--------------------|--------------------|
+[At least 3 rows comparing old behavior vs new behavior]
+
+## Code Example — Full Working Request
+
+```json
+[Complete, copy-paste-ready JSON example for SEEN V2 developers]
+```
+
+## SEEN V2 — Impact & Notes
+
+| Module | Impact |
+|--------|--------|
+[List only the actually affected SEEN V2 modules and the specific impact]
+
+> **📋 Linked Changelog Article:** This feature was detected on $Date.
+> See: [Changelog entry for $Date]($url)
+
+## QA Checklist
+
+- [ ] Verify the new feature is accessible in your WABA / phone number
+- [ ] Test the ✅ accepted example — confirm success response
+- [ ] Test the ❌ rejected example — confirm expected error code
+- [ ] [Add 2-3 more specific QA steps relevant to this feature]
+
+5. IMPORTANT RULES:
+   - DO NOT invent details. Use ONLY information from the draft article and the live source page.
+   - For the "Live Preview" section: open the source URL ($url) with the browser tool and find the REAL example for this feature. Copy it exactly.
+   - For the comparison table: base it on the diff showing what changed.
+   - The "new: true" frontmatter flag is critical — it makes the card show a "NEW" badge in the Learn index.
+   - Keep all JSON examples valid and copy-pasteable.
+
+6. After saving the file, output:
+   "LEARN_CREATED: [full path to the new .md file]"
+   OR if skipped:
+   "LEARN_SKIP: [reason]"
+"@
+
+    Write-Host "── ANTIGRAVITY PROMPT (copy & run this) ─────────────────────────────" -ForegroundColor DarkGray
+    Write-Host $learnPrompt -ForegroundColor Gray
+    Write-Host "─────────────────────────────────────────────────────────────────────" -ForegroundColor DarkGray
+    Write-Host ""
+    Write-Host "⏸  This step may create a new LEARN topic file."
+    Write-Host "   Press ENTER when Step 3.5 is complete (or if skipped)..."
+    if (-not $DryRun) { Read-Host | Out-Null }
+
     # ── STEP 4: Self-Audit ────────────────────────────────────────────────────
     Log "[$slug] Step 4: Self-Audit"
     Write-Host ""
