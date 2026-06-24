@@ -16,7 +16,8 @@ const path = require('path');
 
 const ROOT        = path.resolve(__dirname, '..');
 const CONTENT_DIR = path.join(ROOT, 'content-learn');
-const LEARN_DIR   = path.join(ROOT, 'learn');
+const SITE_DIR    = path.join(ROOT, 'site');
+const LEARN_DIR   = path.join(SITE_DIR, 'learn');
 const TOPICS_DIR  = path.join(LEARN_DIR, 'topics');
 
 // ── Frontmatter parser ────────────────────────────────────────────────────────
@@ -175,7 +176,7 @@ function buildTopicPage(topic, allTopics) {
         <span>←</span> Meta Docs Learn
       </a>
       <div class="header-actions">
-        <a href="../../index.html" class="link-changelog">📋 Changelog</a>
+        <a href="../../changelog.html" class="link-changelog">📋 Changelog</a>
         <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
           <span class="icon-sun">☀️</span>
           <span class="icon-moon">🌙</span>
@@ -296,7 +297,7 @@ function buildIndex(topics) {
         </div>
       </div>
       <div class="header-actions">
-        <a href="../index.html" class="link-changelog">📋 Changelog</a>
+        <a href="../changelog.html" class="link-changelog">📋 Changelog</a>
         <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
           <span class="icon-sun">☀️</span>
           <span class="icon-moon">🌙</span>
@@ -342,6 +343,14 @@ function main() {
   const topics = getAllTopics();
   console.log(`\n📚 Found ${topics.length} topic(s)\n`);
 
+  // Copy CSS + JS from content-learn if not in site/learn
+  const cssSource = path.join(ROOT, 'learn', 'style.css');
+  const jsSource  = path.join(ROOT, 'learn', 'app.js');
+  const cssDest   = path.join(LEARN_DIR, 'style.css');
+  const jsDest    = path.join(LEARN_DIR, 'app.js');
+  if (fs.existsSync(cssSource)) fs.copyFileSync(cssSource, cssDest);
+  if (fs.existsSync(jsSource))  fs.copyFileSync(jsSource,  jsDest);
+
   // Build each topic page
   for (const topic of topics) {
     const html = buildTopicPage(topic, topics);
@@ -353,8 +362,8 @@ function main() {
   // Build home index
   const indexHtml = buildIndex(topics);
   fs.writeFileSync(path.join(LEARN_DIR, 'index.html'), indexHtml);
-  console.log(`\n✅ learn/index.html generated (${topics.length} topics)`);
-  console.log(`✅ learn/topics/ — ${topics.length} pages`);
+  console.log(`\n✅ site/learn/index.html generated (${topics.length} topics)`);
+  console.log(`✅ site/learn/topics/ — ${topics.length} pages`);
 }
 
 main();

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Message Templates — Meta Docs Learn</title>
+  <meta name="description" content="Learn how Message Templates works in WhatsApp — parameters, validation rules, error codes, and examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <header class="learn-header">
+    <div class="learn-header-inner">
+      <a href="../index.html" class="back-home">
+        <span>←</span> Meta Docs Learn
+      </a>
+      <div class="header-actions">
+        <a href="../../changelog.html" class="link-changelog">📋 Changelog</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <span class="icon-sun">☀️</span>
+          <span class="icon-moon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="learn-layout">
+
+    <!-- Sidebar -->
+    <aside class="learn-sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label">On this page</span>
+        <ul class="toc-list"><li class="toc-top"><a href="#endpoints">Endpoints</a></li><li class="toc-top"><a href="#create-parameters">CREATE — Parameters</a></li><li class="toc-sub"><a href="#required">Required</a></li><li class="toc-sub"><a href="#optional">Optional</a></li><li class="toc-top"><a href="#create-validation-rules">CREATE — Validation Rules</a></li><li class="toc-top"><a href="#components-detail-limits">Components — Detail & Limits</a></li><li class="toc-sub"><a href="#header-optional">HEADER (optional)</a></li><li class="toc-sub"><a href="#body-required">BODY (required)</a></li><li class="toc-sub"><a href="#footer-optional">FOOTER (optional)</a></li><li class="toc-sub"><a href="#buttons-optional">BUTTONS (optional)</a></li><li class="toc-top"><a href="#edit-rules">EDIT — Rules</a></li><li class="toc-sub"><a href="#what-can-be-changed">What CAN be changed</a></li><li class="toc-sub"><a href="#what-cannot-be-changed-immutable">What CANNOT be changed (Immutable)</a></li><li class="toc-sub"><a href="#edit-rate-limits">Edit Rate Limits</a></li><li class="toc-top"><a href="#delete-rules">DELETE — Rules</a></li><li class="toc-sub"><a href="#delete-restrictions">Delete Restrictions</a></li><li class="toc-top"><a href="#error-codes-reference">Error Codes Reference</a></li><li class="toc-sub"><a href="#creation-validation-errors">Creation / Validation Errors</a></li><li class="toc-sub"><a href="#send-time-errors-when-sending-a-template-message">Send-time Errors (when sending a template message)</a></li><li class="toc-top"><a href="#code-examples">Code Examples</a></li><li class="toc-sub"><a href="#-valid-create-a-utility-template">✅ Valid: Create a UTILITY template</a></li><li class="toc-sub"><a href="#-rejected-name-with-uppercase-letters">❌ Rejected: Name with uppercase letters</a></li><li class="toc-sub"><a href="#-rejected-body-starts-with-a-variable-dangling">❌ Rejected: Body starts with a variable (dangling)</a></li><li class="toc-sub"><a href="#-rejected-footer-has-a-variable">❌ Rejected: Footer has a variable</a></li><li class="toc-sub"><a href="#-valid-edit-a-rejected-template-change-body">✅ Valid: Edit a rejected template (change body)</a></li><li class="toc-sub"><a href="#-rejected-trying-to-change-template-name-immutable">❌ Rejected: Trying to change template name (immutable)</a></li><li class="toc-top"><a href="#seen-v2-notes">SEEN V2 — Notes</a></li></ul>
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Source</span>
+        <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/overview" target="_blank" rel="noopener" class="source-link">
+          📄 Meta Developer Docs ↗
+        </a>
+        <span class="verified-date">Verified: 2026-06-24</span>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="learn-content" id="main-content">
+      <div class="topic-breadcrumb">
+        <a href="../index.html">Learn</a>
+        <span>›</span>
+        <span style="color:#4ade80">WhatsApp</span>
+        <span>›</span>
+        <span>Message Templates</span>
+      </div>
+
+      <div class="topic-hero">
+        <span class="platform-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">WhatsApp</span>
+        <h1 class="topic-title">Message Templates</h1>
+        <p class="topic-meta">Core API · Last verified: 2026-06-24</p>
+      </div>
+
+      <div class="topic-body">
+        <h1>Message Templates</h1>
+
+<p>Templates are pre-approved message formats required for business-initiated conversations outside of a 24-hour customer service window. Every marketing, utility, or authentication message sent first must exist as an approved template.</p>
+
+<h2 id="endpoints">Endpoints</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Method</th><th>Endpoint</th><th>Purpose</th></tr></thead><tbody><tr><td><code>POST</code></td><td><code>/{version}/{waba-id}/message_templates</code></td><td>Create a template</td></tr><tr><td><code>GET</code></td><td><code>/{version}/{waba-id}/message_templates</code></td><td>List templates</td></tr><tr><td><code>GET</code></td><td><code>/{version}/{template-id}</code></td><td>Get template details</td></tr><tr><td><code>POST</code></td><td><code>/{version}/{template-id}</code></td><td>Edit a template</td></tr><tr><td><code>DELETE</code></td><td><code>/{version}/{waba-id}/message_templates</code></td><td>Delete template(s)</td></tr></tbody></table></div>
+<hr>
+
+<h2 id="create-parameters">CREATE — Parameters</h2>
+
+<h3 id="required">Required</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Type</th><th>Valid Values</th><th>Notes</th></tr></thead><tbody><tr><td><code>name</code></td><td>string</td><td><code>^[a-z0-9_]+$</code></td><td>Max 512 chars. Lowercase, digits, underscores <strong>only</strong></td></tr><tr><td><code>language</code></td><td>string</td><td><code>en_US</code>, <code>ar</code>, <code>en</code>, ...</td><td>ISO 639 language code with optional locale</td></tr><tr><td><code>category</code></td><td>enum</td><td><code>MARKETING</code> \</td><td><code>UTILITY</code> \</td><td><code>AUTHENTICATION</code></td><td>Controls pricing and allowed content</td></tr></tbody></table></div>
+<h3 id="optional">Optional</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Type</th><th>Default</th><th>Notes</th></tr></thead><tbody><tr><td><code>components</code></td><td>array</td><td>—</td><td>Header, body, footer, buttons</td></tr><tr><td><code>parameter_format</code></td><td>enum</td><td><code>POSITIONAL</code></td><td><code>POSITIONAL</code> (<code>{{1}}</code>) or <code>NAMED</code> (<code>{{name}}</code>)</td></tr><tr><td><code>allow_category_change</code></td><td>boolean</td><td><code>false</code></td><td>Let Meta reassign category during review</td></tr><tr><td><code>message_send_ttl_seconds</code></td><td>integer</td><td>—</td><td>Authentication templates only</td></tr><tr><td><code>sub_category</code></td><td>string</td><td>—</td><td>Utility template sub-categories</td></tr><tr><td><code>cta_url_link_tracking_opted_out</code></td><td>boolean</td><td><code>false</code></td><td>Opt out of URL tracking</td></tr><tr><td><code>library_template_name</code></td><td>string</td><td>—</td><td>Clone from Meta's template library</td></tr></tbody></table></div>
+<hr>
+
+<h2 id="create-validation-rules">CREATE — Validation Rules</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Gets REJECTED</th><th><span class="icon-accept">✅</span> Gets ACCEPTED</th></tr></thead><tbody><tr><td><strong>Name format</strong></td><td><code>Hello World</code>, <code>hello-world</code>, <code>hello#world</code></td><td><code>hello_world</code>, <code>order_update_2</code></td></tr><tr><td><strong>Name length</strong></td><td>More than 512 characters</td><td>512 characters or fewer</td></tr><tr><td><strong>Category value</strong></td><td><code>TRANSACTIONAL</code>, <code>OTP</code> (old values)</td><td><code>MARKETING</code>, <code>UTILITY</code>, <code>AUTHENTICATION</code></td></tr><tr><td><strong>Duplicate body</strong></td><td>Same body+footer text as existing template in same WABA+language</td><td>Any unique body (AUTHENTICATION exempt)</td></tr><tr><td><strong>Variable format (positional)</strong></td><td><code>{1}</code>, <code>%1</code>, <code>[[1]]</code>, <code>{{ 1 }}</code></td><td><code>{{1}}</code>, <code>{{2}}</code></td></tr><tr><td><strong>Variable format (named)</strong></td><td><code>{name}</code>, <code>%name%</code></td><td><code>{{customer_name}}</code></td></tr><tr><td><strong>Variable characters</strong></td><td><code>{{name#}}</code>, <code>{{price$}}</code>, <code>{{id%}}</code></td><td><code>{{name}}</code>, <code>{{order_id}}</code></td></tr><tr><td><strong>Variable sequence</strong></td><td><code>{{1}}</code>, <code>{{2}}</code>, <code>{{5}}</code> (gap)</td><td><code>{{1}}</code>, <code>{{2}}</code>, <code>{{3}}</code></td></tr><tr><td><strong>Dangling variables</strong></td><td>Starting/ending body with <code>{{1}}</code> only</td><td>Variable surrounded by text on both sides</td></tr><tr><td><strong>Variable density</strong></td><td>Too many <code>{{n}}</code> relative to actual text words</td><td>Reasonable ratio of text to variables</td></tr><tr><td><strong>Sample values</strong></td><td>Template with variables but no <code>example</code> field</td><td><code>"example": { "body_text": [["John"]] }</code></td></tr><tr><td><strong>Policy</strong></td><td>Requesting credit card numbers, national IDs, passwords</td><td>Functional business content</td></tr></tbody></table></div>
+<hr>
+
+<h2 id="components-detail-limits">Components — Detail & Limits</h2>
+
+<h3 id="header-optional">HEADER (optional)</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Format</th><th>Limit</th><th>Notes</th></tr></thead><tbody><tr><td>TEXT</td><td>Max 60 chars</td><td>Supports <strong>1 variable</strong> max. Requires sample.</td></tr><tr><td>IMAGE</td><td>—</td><td>Needs <code>header_handle</code> (upload first)</td></tr><tr><td>VIDEO</td><td>—</td><td>Needs <code>header_handle</code></td></tr><tr><td>DOCUMENT</td><td>—</td><td>Needs <code>header_handle</code></td></tr><tr><td>GIF</td><td>Max 3.5 MB</td><td>Actually MP4 format under the hood</td></tr><tr><td>LOCATION</td><td>—</td><td>UTILITY and MARKETING only</td></tr></tbody></table></div>
+<h3 id="body-required">BODY (required)</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Property</th><th>Limit</th></tr></thead><tbody><tr><td>Max characters</td><td><strong>1024</strong></td></tr><tr><td>Variables</td><td>Multiple allowed</td></tr><tr><td>Markdown</td><td><strong>Not</strong> supported</td></tr><tr><td>Requires sample</td><td>Yes, when variables present</td></tr></tbody></table></div>
+<h3 id="footer-optional">FOOTER (optional)</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody><tr><td>Max characters</td><td><strong>60</strong></td></tr><tr><td>Variables</td><td><span class="icon-reject">❌</span> Not allowed</td></tr><tr><td>Format</td><td>Text only</td></tr></tbody></table></div>
+<h3 id="buttons-optional">BUTTONS (optional)</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Type</th><th>Max per template</th><th>Limit per button</th><th>Notes</th></tr></thead><tbody><tr><td><code>QUICK_REPLY</code></td><td>10</td><td>Text: 25 chars</td><td>Must be grouped (all first or all last)</td></tr><tr><td><code>URL</code></td><td>2</td><td>Text: 25 chars, URL: 2000 chars</td><td>1 variable at URL end only</td></tr><tr><td><code>PHONE_NUMBER</code></td><td>1</td><td>Text: 25 chars, number: 20 chars</td><td>—</td></tr><tr><td><code>COPY_CODE</code></td><td>1</td><td>Code: 20 chars</td><td>—</td></tr></tbody></table></div>
+<div class="callout callout-warn"><span>⚠️</span><p>Templates with 4+ buttons, or Quick Reply buttons mixed with other types, are **hidden on WhatsApp Desktop**. Visible on mobile only.</p></div>
+
+<div class="callout callout-info"><strong>UI rule:</strong><p>When total buttons > 3, only the first 2 show — rest hidden under "See all options."</p></div>
+
+<hr>
+
+<h2 id="edit-rules">EDIT — Rules</h2>
+
+<pre class="code-block"><code class="lang-text">POST /{version}/{template-id}</code></pre>
+
+<h3 id="what-can-be-changed">What CAN be changed</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Condition</th></tr></thead><tbody><tr><td><code>components</code> (body, header, buttons)</td><td>Always (re-triggers review)</td></tr><tr><td><code>category</code></td><td>Only if template is <code>REJECTED</code> or <code>PAUSED</code></td></tr><tr><td><code>message_send_ttl_seconds</code></td><td>Any state</td></tr><tr><td><code>allow_category_change</code></td><td>Any state</td></tr></tbody></table></div>
+<h3 id="what-cannot-be-changed-immutable">What CANNOT be changed (Immutable)</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Workaround</th></tr></thead><tbody><tr><td><code>name</code></td><td>Delete + create new</td></tr><tr><td><code>language</code></td><td>Delete + create new</td></tr></tbody></table></div>
+<h3 id="edit-rate-limits">Edit Rate Limits</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Template state</th><th>Edits allowed</th></tr></thead><tbody><tr><td><code>APPROVED</code></td><td>Max <strong>10 edits per 30 days</strong>, or <strong>1 edit per 24 hours</strong></td></tr><tr><td><code>REJECTED</code></td><td>Unlimited</td></tr><tr><td><code>PAUSED</code></td><td>Unlimited</td></tr></tbody></table></div>
+<hr>
+
+<h2 id="delete-rules">DELETE — Rules</h2>
+
+<pre class="code-block"><code class="lang-text">DELETE /{version}/{waba-id}/message_templates</code></pre>
+
+<div class="table-wrap"><table><thead><tr><th>Param</th><th>Effect</th></tr></thead><tbody><tr><td><code>name</code> only</td><td>Deletes <strong>all</strong> languages of that template</td></tr><tr><td><code>name</code> + <code>hsm_id</code></td><td>Deletes <strong>one specific</strong> language</td></tr><tr><td><code>hsm_ids</code> (array)</td><td>Deletes up to <strong>100</strong> templates at once — if any ID is invalid, <strong>entire request fails</strong></td></tr></tbody></table></div>
+<h3 id="delete-restrictions">Delete Restrictions</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Condition</th><th>Result</th></tr></thead><tbody><tr><td>Template is <code>DISABLED</code></td><td><span class="icon-reject">❌</span> Cannot delete</td></tr><tr><td>Template was <code>APPROVED</code></td><td>Name <strong>blocked for 30 days</strong> from reuse</td></tr><tr><td>Template in transit when deleted</td><td>Status becomes <code>PENDING_DELETION</code>, delivery retried for 30 days</td></tr><tr><td>Missing <code>whatsapp_business_management</code> permission</td><td>Error code <code>200</code></td></tr></tbody></table></div>
+<hr>
+
+<h2 id="error-codes-reference">Error Codes Reference</h2>
+
+<h3 id="creation-validation-errors">Creation / Validation Errors</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Code</th><th>Subcode</th><th>Error</th><th>What triggered it</th><th>Fix</th></tr></thead><tbody><tr><td><code>100</code></td><td>—</td><td>Invalid parameter</td><td>Name contains uppercase/special chars, invalid category</td><td>Use <code>^[a-z0-9_]+$</code> names</td></tr><tr><td><code>100</code></td><td><code>2388024</code></td><td>Duplicate name</td><td>Same name+language already exists in this WABA</td><td>Use a different name</td></tr><tr><td><code>2388040</code></td><td>—</td><td>Character limit exceeded</td><td>Body > 1024, header > 60, footer > 60</td><td>Shorten field</td></tr><tr><td><code>2388047</code></td><td>—</td><td>Header format incorrect</td><td>Invalid header structure</td><td>Check header component format</td></tr><tr><td><code>2388072</code></td><td>—</td><td>Body format incorrect</td><td>Bad variable syntax or structure</td><td>Check <code>{{n}}</code> format</td></tr><tr><td><code>2388073</code></td><td>—</td><td>Footer format incorrect</td><td>Footer has variables</td><td>Remove variables from footer</td></tr><tr><td><code>2388293</code></td><td>—</td><td>Words/parameters ratio exceeded</td><td>Too many variables for text length</td><td>Add more text around variables</td></tr><tr><td><code>2388299</code></td><td>—</td><td>Dangling parameter</td><td>Template starts or ends with a variable</td><td>Wrap variable with text</td></tr><tr><td><code>2388019</code></td><td>—</td><td>Template limit exceeded</td><td>WABA has too many templates</td><td>Delete unused templates</td></tr></tbody></table></div>
+<h3 id="send-time-errors-when-sending-a-template-message">Send-time Errors (when sending a template message)</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Code</th><th>Error</th><th>What triggered it</th><th>Fix</th></tr></thead><tbody><tr><td><code>132000</code></td><td>Parameter count mismatch</td><td>Request has different variable count than template</td><td>Match variables exactly</td></tr><tr><td><code>132001</code></td><td>Template not found or not approved</td><td>Wrong slug, wrong language, or still in review</td><td>Verify name/language/status</td></tr><tr><td><code>132005</code></td><td>Translated text too long</td><td>—</td><td>Shorten text</td></tr><tr><td><code>132007</code></td><td>Policy violation</td><td>Template content violates WhatsApp policy</td><td>Review template content</td></tr><tr><td><code>132012</code></td><td>Variable format incorrect</td><td>Malformed variable values in send request</td><td>Fix parameter format</td></tr><tr><td><code>132015</code></td><td>Template paused</td><td>Low quality score</td><td>Improve template relevance</td></tr><tr><td><code>132016</code></td><td>Template disabled</td><td>Paused too many times</td><td>Create a new template</td></tr><tr><td><code>132018</code></td><td>Template validation error</td><td>Variables in request don't match template</td><td>Check parameter structure</td></tr><tr><td><code>134101</code></td><td>Template still syncing</td><td>Just created/edited, not propagated yet</td><td>Wait up to 10 minutes</td></tr><tr><td><code>134102</code></td><td>Template unavailable (ad sync failed)</td><td>Ad link failed</td><td>Check Meta Ad account link</td></tr><tr><td><code>131049</code></td><td>Message blocked (per-user limit)</td><td>User reached marketing template limit</td><td>Normal — user-enforced limit</td></tr><tr><td><code>131050</code></td><td>User opted out</td><td>User unsubscribed from marketing</td><td>Respect opt-out</td></tr><tr><td><code>131063</code></td><td>Marketing templates disabled</td><td>WABA disabled marketing</td><td>Contact Meta support</td></tr><tr><td><code>131064</code></td><td>Account messaging limit</td><td>Template classification violations</td><td>Review template categories</td></tr></tbody></table></div>
+<hr>
+
+<h2 id="code-examples">Code Examples</h2>
+
+<h3 id="-valid-create-a-utility-template">✅ Valid: Create a UTILITY template</h3>
+
+<pre class="code-block"><code class="lang-json">POST /v21.0/{WABA_ID}/message_templates
+
+<p>{</p>
+<p>  "name": "order_shipped",</p>
+<p>  "language": "en_US",</p>
+<p>  "category": "UTILITY",</p>
+<p>  "components": [</p>
+<p>    {</p>
+<p>      "type": "HEADER",</p>
+<p>      "format": "TEXT",</p>
+<p>      "text": "Order Update",</p>
+<p>      "example": { "header_text": ["Order Update"] }</p>
+<p>    },</p>
+<p>    {</p>
+<p>      "type": "BODY",</p>
+<p>      "text": "Hi {{1}}, your order {{2}} has shipped and will arrive by {{3}}.",</p>
+<p>      "example": {</p>
+<p>        "body_text": [["Sarah", "#ORD-1234", "Friday"]]</p>
+<p>      }</p>
+<p>    },</p>
+<p>    {</p>
+<p>      "type": "FOOTER",</p>
+<p>      "text": "Reply STOP to unsubscribe"</p>
+<p>    },</p>
+<p>    {</p>
+<p>      "type": "BUTTONS",</p>
+<p>      "buttons": [</p>
+<p>        {</p>
+<p>          "type": "URL",</p>
+<p>          "text": "Track Order",</p>
+<p>          "url": "https://example.com/track/{{1}}",</p>
+<p>          "example": ["ABC123"]</p>
+<p>        }</p>
+<p>      ]</p>
+<p>    }</p>
+<p>  ]</p>
+<p>}</code></pre></p>
+
+<h3 id="-rejected-name-with-uppercase-letters">❌ Rejected: Name with uppercase letters</h3>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "name": "Order_Shipped",  ← ERROR: uppercase 'O' and 'S'</p>
+<p>  "language": "en_US",</p>
+<p>  "category": "UTILITY"</p>
+<p>}</p>
+<p>// Error 100: Parameter name must match ^[a-z0-9_]+$</code></pre></p>
+
+<h3 id="-rejected-body-starts-with-a-variable-dangling">❌ Rejected: Body starts with a variable (dangling)</h3>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "type": "BODY",</p>
+<p>  "text": "{{1}} has placed an order."  ← ERROR: starts with variable</p>
+<p>}</p>
+<p>// Error 2388299: Leading or trailing parameters not allowed</code></pre></p>
+
+<h3 id="-rejected-footer-has-a-variable">❌ Rejected: Footer has a variable</h3>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "type": "FOOTER",</p>
+<p>  "text": "Order ID: {{1}}"  ← ERROR: variables not allowed in footer</p>
+<p>}</p>
+<p>// Error 2388073: Message footer format is incorrect</code></pre></p>
+
+<h3 id="-valid-edit-a-rejected-template-change-body">✅ Valid: Edit a rejected template (change body)</h3>
+
+<pre class="code-block"><code class="lang-json">POST /v21.0/{TEMPLATE_ID}
+
+<p>{</p>
+<p>  "components": [</p>
+<p>    {</p>
+<p>      "type": "BODY",</p>
+<p>      "text": "Hi {{1}}, your updated order is confirmed.",</p>
+<p>      "example": {</p>
+<p>        "body_text": [["Sarah"]]</p>
+<p>      }</p>
+<p>    }</p>
+<p>  ]</p>
+<p>}</code></pre></p>
+
+<h3 id="-rejected-trying-to-change-template-name-immutable">❌ Rejected: Trying to change template name (immutable)</h3>
+
+<pre class="code-block"><code class="lang-json">POST /v21.0/{TEMPLATE_ID}
+
+<p>{</p>
+<p>  "name": "new_name"  ← ERROR: name is immutable</p>
+<p>}</p>
+<p>// Field is silently ignored or returns error — name cannot change</code></pre></p>
+
+<hr>
+
+<h2 id="seen-v2-notes">SEEN V2 — Notes</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Feature</th><th>How SEEN V2 Uses It</th></tr></thead><tbody><tr><td>WhatsApp Templates</td><td>Core of Broadcasts module — all bulk sends</td></tr><tr><td>Category</td><td><code>MARKETING</code> for campaigns, <code>UTILITY</code> for transactional</td></tr><tr><td>Webhooks</td><td><code>message_template_status_update</code> → watch for <code>APPROVED</code>/<code>REJECTED</code></td></tr><tr><td>Rate limits</td><td>Apply per WABA — shared across all SEEN V2 clients on same WABA</td></tr><tr><td>Opt-out</td><td><code>131050</code> must be handled gracefully in Broadcasts</td></tr></tbody></table></div>
+<div class="callout callout-info"><strong>QA Note:</strong><p>When testing template creation, always include sample values (`example`) for any template with variables, or the API will reject with a validation error.</p></div>
+      </div>
+
+      <div class="topic-nav">
+        
+        <a class="nav-next" href="whatsapp-messages-api.html">Messages API (Send Messages) →</a>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

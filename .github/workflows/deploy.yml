@@ -9,6 +9,8 @@ on:
     paths:
       - 'site/**'
       - 'content/**'
+      - 'content-learn/**'
+      - 'scripts/**'
       - '.github/workflows/deploy.yml'
   workflow_dispatch: # allow manual trigger from GitHub UI
 
@@ -41,6 +43,10 @@ jobs:
       # Rebuild site index from content/ articles (in case any drift)
       - name: Rebuild site index
         run: node scripts/publish-article.js --rebuild-only
+
+      # Build Learn section into site/learn/
+      - name: Build Learn section
+        run: node scripts/build-learn.js
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4

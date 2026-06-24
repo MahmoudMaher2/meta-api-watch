@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Messages API (Send Messages) — Meta Docs Learn</title>
+  <meta name="description" content="Learn how Messages API (Send Messages) works in WhatsApp — parameters, validation rules, error codes, and examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <header class="learn-header">
+    <div class="learn-header-inner">
+      <a href="../index.html" class="back-home">
+        <span>←</span> Meta Docs Learn
+      </a>
+      <div class="header-actions">
+        <a href="../../changelog.html" class="link-changelog">📋 Changelog</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <span class="icon-sun">☀️</span>
+          <span class="icon-moon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="learn-layout">
+
+    <!-- Sidebar -->
+    <aside class="learn-sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label">On this page</span>
+        <ul class="toc-list"><li class="toc-top"><a href="#endpoint">Endpoint</a></li><li class="toc-top"><a href="#base-parameters-all-requests">Base Parameters (All Requests)</a></li><li class="toc-top"><a href="#message-types-parameters-validation">Message Types — Parameters & Validation</a></li><li class="toc-sub"><a href="#text">TEXT</a></li><li class="toc-sub"><a href="#validation-rules-for-text">Validation Rules for TEXT</a></li><li class="toc-sub"><a href="#image-video-audio-document">IMAGE / VIDEO / AUDIO / DOCUMENT</a></li><li class="toc-sub"><a href="#media-limits">Media Limits</a></li><li class="toc-sub"><a href="#media-validation-rules">Media Validation Rules</a></li><li class="toc-sub"><a href="#interactive-list-messages">INTERACTIVE — List Messages</a></li><li class="toc-sub"><a href="#interactive-list-limits">Interactive List Limits</a></li><li class="toc-sub"><a href="#interactive-reply-buttons">INTERACTIVE — Reply Buttons</a></li><li class="toc-sub"><a href="#template">TEMPLATE</a></li><li class="toc-sub"><a href="#template-send-validation">Template Send Validation</a></li><li class="toc-sub"><a href="#reaction">REACTION</a></li><li class="toc-sub"><a href="#location">LOCATION</a></li><li class="toc-top"><a href="#messaging-windows-when-you-can-send">Messaging Windows (When You Can Send)</a></li><li class="toc-top"><a href="#rate-limits">Rate Limits</a></li><li class="toc-top"><a href="#response-success">Response (Success)</a></li><li class="toc-top"><a href="#error-codes-reference">Error Codes Reference</a></li><li class="toc-top"><a href="#seen-v2-notes">SEEN V2 Notes</a></li></ul>
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Source</span>
+        <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/messages/overview" target="_blank" rel="noopener" class="source-link">
+          📄 Meta Developer Docs ↗
+        </a>
+        <span class="verified-date">Verified: 2026-06-24</span>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="learn-content" id="main-content">
+      <div class="topic-breadcrumb">
+        <a href="../index.html">Learn</a>
+        <span>›</span>
+        <span style="color:#4ade80">WhatsApp</span>
+        <span>›</span>
+        <span>Messages API (Send Messages)</span>
+      </div>
+
+      <div class="topic-hero">
+        <span class="platform-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">WhatsApp</span>
+        <h1 class="topic-title">Messages API (Send Messages)</h1>
+        <p class="topic-meta">Core API · Last verified: 2026-06-24</p>
+      </div>
+
+      <div class="topic-body">
+        <h1>Messages API (Send Messages)</h1>
+
+<p>The Messages API is how your business sends messages to users — text, media, templates, interactive messages, and more.</p>
+
+<h2 id="endpoint">Endpoint</h2>
+
+<pre class="code-block"><code class="lang-http">POST /v21.0/{phone-number-id}/messages</code></pre>
+
+<hr>
+
+<h2 id="base-parameters-all-requests">Base Parameters (All Requests)</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Valid Values</th></tr></thead><tbody><tr><td><code>messaging_product</code></td><td>string</td><td><span class="icon-accept">✅</span></td><td><code>"whatsapp"</code></td></tr><tr><td><code>recipient_type</code></td><td>string</td><td><span class="icon-reject">❌</span></td><td><code>"individual"</code> (default) or <code>"group"</code></td></tr><tr><td><code>to</code></td><td>string</td><td><span class="icon-accept">✅</span></td><td>Phone number with country code (no <code>+</code>) or group ID</td></tr><tr><td><code>type</code></td><td>string</td><td><span class="icon-accept">✅</span></td><td><code>text</code>, <code>image</code>, <code>video</code>, <code>audio</code>, <code>document</code>, <code>sticker</code>, <code>location</code>, <code>contacts</code>, <code>interactive</code>, <code>template</code>, <code>reaction</code></td></tr><tr><td><code>context</code></td><td>object</td><td><span class="icon-reject">❌</span></td><td><code>{ "message_id": "wamid.xxx" }</code> — quotes/replies</td></tr><tr><td><code>biz_opaque_callback_data</code></td><td>string</td><td><span class="icon-reject">❌</span></td><td>Max 512 chars — returned in status webhook</td></tr></tbody></table></div>
+<hr>
+
+<h2 id="message-types-parameters-validation">Message Types — Parameters & Validation</h2>
+
+<h3 id="text">TEXT</h3>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "messaging_product": "whatsapp",</p>
+<p>  "to": "15551234567",</p>
+<p>  "type": "text",</p>
+<p>  "text": {</p>
+<p>    "body": "Hello, how can I help you?",</p>
+<p>    "preview_url": false</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Limit</th><th>Notes</th></tr></thead><tbody><tr><td><code>text.body</code></td><td>Max <strong>4096</strong> chars</td><td>Supports <em>italics</em>, <strong>bold</strong>, <del>strikethrough</del>, <code>monospace</code></td></tr><tr><td><code>text.preview_url</code></td><td>boolean</td><td><code>true</code> = show link preview</td></tr></tbody></table></div>
+<h3 id="validation-rules-for-text">Validation Rules for TEXT</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Rejected</th><th><span class="icon-accept">✅</span> Accepted</th></tr></thead><tbody><tr><td>Body length</td><td>> 4096 chars</td><td>≤ 4096 chars</td></tr><tr><td>Sending to non-customer</td><td>Business-initiated without open window and no template</td><td>Send template instead</td></tr><tr><td>HTML tags</td><td><code><b>text</b></code></td><td><code><em>text</em></code> (WhatsApp markdown)</td></tr></tbody></table></div>
+<hr>
+
+<h3 id="image-video-audio-document">IMAGE / VIDEO / AUDIO / DOCUMENT</h3>
+
+<p>Media can be sent by <code>id</code> (uploaded to Meta) or <code>link</code> (direct URL):</p>
+
+<pre class="code-block"><code class="lang-json">// ✅ By URL
+<p>{</p>
+<p>  "type": "image",</p>
+<p>  "image": {</p>
+<p>    "link": "https://example.com/image.jpg",</p>
+<p>    "caption": "This is a caption"</p>
+<p>  }</p>
+<p>}</p>
+
+<p>// <span class="icon-accept">✅</span> By ID (pre-uploaded)</p>
+<p>{</p>
+<p>  "type": "image",</p>
+<p>  "image": {</p>
+<p>    "id": "MEDIA_ID",</p>
+<p>    "caption": "Caption here"</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<h3 id="media-limits">Media Limits</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Type</th><th>Max Size</th><th>Accepted Formats</th></tr></thead><tbody><tr><td>Image</td><td><strong>5 MB</strong></td><td>JPEG, PNG</td></tr><tr><td>Video</td><td><strong>16 MB</strong></td><td>MP4, 3GPP</td></tr><tr><td>Audio</td><td><strong>16 MB</strong></td><td>AAC, MP4, MPEG, AMR, OGG</td></tr><tr><td>Document</td><td><strong>100 MB</strong></td><td>PDF, Word, Excel, PowerPoint, text</td></tr><tr><td>Sticker</td><td><strong>500 KB</strong></td><td>WebP (static), WebP animated</td></tr></tbody></table></div>
+<h3 id="media-validation-rules">Media Validation Rules</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Rejected</th><th><span class="icon-accept">✅</span> Accepted</th></tr></thead><tbody><tr><td>Image format</td><td>GIF, BMP, TIFF</td><td>JPEG, PNG</td></tr><tr><td>Video format</td><td>AVI, MOV, WMV</td><td>MP4, 3GPP</td></tr><tr><td>Media by URL</td><td>Private/auth-required URL</td><td>Publicly accessible HTTPS URL</td></tr><tr><td>Caption on audio</td><td>Adding <code>caption</code> to audio</td><td>Audio has no caption support</td></tr><tr><td>Caption on sticker</td><td>Adding <code>caption</code> to sticker</td><td>Sticker has no caption support</td></tr><tr><td><code>id</code> and <code>link</code> together</td><td>Both fields in same object</td><td>Use one or the other</td></tr></tbody></table></div>
+<hr>
+
+<h3 id="interactive-list-messages">INTERACTIVE — List Messages</h3>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "type": "interactive",</p>
+<p>  "interactive": {</p>
+<p>    "type": "list",</p>
+<p>    "header": { "type": "text", "text": "Choose an option" },</p>
+<p>    "body": { "text": "Select from the list below:" },</p>
+<p>    "footer": { "text": "Tap to choose" },</p>
+<p>    "action": {</p>
+<p>      "button": "View Options",</p>
+<p>      "sections": [</p>
+<p>        {</p>
+<p>          "title": "Support",</p>
+<p>          "rows": [</p>
+<p>            { "id": "row_1", "title": "Billing Issue", "description": "Help with billing" },</p>
+<p>            { "id": "row_2", "title": "Tech Support", "description": "Technical help" }</p>
+<p>          ]</p>
+<p>        }</p>
+<p>      ]</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<h3 id="interactive-list-limits">Interactive List Limits</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Element</th><th>Limit</th></tr></thead><tbody><tr><td>Sections</td><td>Max <strong>10</strong></td></tr><tr><td>Rows per section</td><td>Max <strong>10</strong></td></tr><tr><td>Total rows</td><td>Max <strong>10</strong></td></tr><tr><td>Button text</td><td>Max <strong>20</strong> chars</td></tr><tr><td>Section title</td><td>Max <strong>24</strong> chars</td></tr><tr><td>Row title</td><td>Max <strong>24</strong> chars</td></tr><tr><td>Row description</td><td>Max <strong>72</strong> chars</td></tr><tr><td>Row ID</td><td>Max <strong>200</strong> chars</td></tr><tr><td>Header text</td><td>Max <strong>60</strong> chars</td></tr><tr><td>Body text</td><td>Max <strong>4096</strong> chars</td></tr><tr><td>Footer text</td><td>Max <strong>60</strong> chars</td></tr></tbody></table></div>
+<h3 id="interactive-reply-buttons">INTERACTIVE — Reply Buttons</h3>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "type": "interactive",</p>
+<p>  "interactive": {</p>
+<p>    "type": "button",</p>
+<p>    "body": { "text": "Choose an action:" },</p>
+<p>    "action": {</p>
+<p>      "buttons": [</p>
+<p>        { "type": "reply", "reply": { "id": "btn_yes", "title": "Yes" } },</p>
+<p>        { "type": "reply", "reply": { "id": "btn_no",  "title": "No" } }</p>
+<p>      ]</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<div class="table-wrap"><table><thead><tr><th>Element</th><th>Limit</th></tr></thead><tbody><tr><td>Max buttons</td><td><strong>3</strong></td></tr><tr><td>Button title</td><td>Max <strong>20</strong> chars</td></tr><tr><td>Button ID</td><td>Max <strong>256</strong> chars, must be unique</td></tr></tbody></table></div>
+<hr>
+
+<h3 id="template">TEMPLATE</h3>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "type": "template",</p>
+<p>  "template": {</p>
+<p>    "name": "order_shipped",</p>
+<p>    "language": { "code": "en_US" },</p>
+<p>    "components": [</p>
+<p>      {</p>
+<p>        "type": "header",</p>
+<p>        "parameters": [</p>
+<p>          { "type": "image", "image": { "link": "https://example.com/img.jpg" } }</p>
+<p>        ]</p>
+<p>      },</p>
+<p>      {</p>
+<p>        "type": "body",</p>
+<p>        "parameters": [</p>
+<p>          { "type": "text", "text": "Sarah" },</p>
+<p>          { "type": "text", "text": "#ORD-1234" }</p>
+<p>        ]</p>
+<p>      },</p>
+<p>      {</p>
+<p>        "type": "button",</p>
+<p>        "sub_type": "url",</p>
+<p>        "index": "0",</p>
+<p>        "parameters": [</p>
+<p>          { "type": "text", "text": "ABC123" }</p>
+<p>        ]</p>
+<p>      }</p>
+<p>    ]</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<h3 id="template-send-validation">Template Send Validation</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Rejected</th><th><span class="icon-accept">✅</span> Accepted</th></tr></thead><tbody><tr><td>Variable count</td><td>Wrong number of <code>parameters</code></td><td>Exact count matching template definition</td></tr><tr><td>Language code</td><td><code>"en"</code> for <code>en_US</code> template</td><td><code>"en_US"</code> exactly</td></tr><tr><td>Template status</td><td>Sending <code>REJECTED</code> or <code>PAUSED</code> template</td><td><code>APPROVED</code> templates only</td></tr><tr><td>Variable type</td><td><code>text</code> param for image header</td><td><code>image</code> or <code>video</code> param for media header</td></tr><tr><td>Button index</td><td>Wrong <code>index</code> for button order</td><td><code>"0"</code> for first, <code>"1"</code> for second button</td></tr><tr><td>Empty parameter</td><td><code>"text": ""</code></td><td>Non-empty string</td></tr></tbody></table></div>
+<hr>
+
+<h3 id="reaction">REACTION</h3>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "type": "reaction",</p>
+<p>  "reaction": {</p>
+<p>    "message_id": "wamid.xxx",</p>
+<p>    "emoji": "❤️"</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Rejected</th><th><span class="icon-accept">✅</span> Accepted</th></tr></thead><tbody><tr><td>Emoji</td><td>Non-emoji text, multiple emojis</td><td>Single emoji character</td></tr><tr><td>Remove reaction</td><td>Omitting <code>emoji</code></td><td><code>"emoji": ""</code></td></tr><tr><td>Target message</td><td>Message from another WABA</td><td>Message in same conversation</td></tr></tbody></table></div>
+<hr>
+
+<h3 id="location">LOCATION</h3>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "type": "location",</p>
+<p>  "location": {</p>
+<p>    "latitude": 30.0444,</p>
+<p>    "longitude": 31.2357,</p>
+<p>    "name": "Cairo, Egypt",</p>
+<p>    "address": "Cairo, Egypt"</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<hr>
+
+<h2 id="messaging-windows-when-you-can-send">Messaging Windows (When You Can Send)</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Window Type</th><th>Duration</th><th>What you can send</th></tr></thead><tbody><tr><td><strong>Customer Service</strong></td><td>24h from last user message</td><td>Any message type</td></tr><tr><td><strong>Free Entry Point</strong></td><td>72h from Click-to-WhatsApp ad</td><td>Any message type (free)</td></tr><tr><td><strong>Outside window</strong></td><td>After 24h of silence</td><td>Templates only</td></tr></tbody></table></div>
+<hr>
+
+<h2 id="rate-limits">Rate Limits</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Limit</th><th>Value</th></tr></thead><tbody><tr><td>Messages per second (per phone number)</td><td><strong>80 messages/sec</strong></td></tr><tr><td>Template messages to same user</td><td><strong>Marketing templates</strong>: per-user limit enforced by Meta</td></tr><tr><td>Phone number tier</td><td>Scales with usage: 1K → 10K → 100K → unlimited/day</td></tr></tbody></table></div>
+<hr>
+
+<h2 id="response-success">Response (Success)</h2>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "messaging_product": "whatsapp",</p>
+<p>  "contacts": [{ "input": "15551234567", "wa_id": "15551234567" }],</p>
+<p>  "messages": [{ "id": "wamid.HBgNMTU1NTEyMzQ1Njc..." }]</p>
+<p>}</code></pre></p>
+
+<p>Save the <code>messages[0].id</code> — you'll need it to correlate with status webhooks.</p>
+
+<hr>
+
+<h2 id="error-codes-reference">Error Codes Reference</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Code</th><th>Error</th><th>Cause</th><th>Fix</th></tr></thead><tbody><tr><td><code>100</code></td><td>Invalid parameter</td><td>Wrong field value or format</td><td>Check payload structure</td></tr><tr><td><code>131000</code></td><td>Generic error</td><td>Various</td><td>Check full error message</td></tr><tr><td><code>131005</code></td><td>Permission denied</td><td>Token lacks permission</td><td>Grant <code>whatsapp_business_messaging</code></td></tr><tr><td><code>131008</code></td><td>Required parameter missing</td><td>Missing <code>to</code>, <code>type</code>, etc.</td><td>Add missing field</td></tr><tr><td><code>131009</code></td><td>Parameter value not valid</td><td>Invalid phone, invalid media</td><td>Validate input</td></tr><tr><td><code>131021</code></td><td>Invalid recipient</td><td>Phone number not on WhatsApp</td><td>Verify number</td></tr><tr><td><code>131026</code></td><td>Message undeliverable</td><td>User unreachable</td><td>No action — log and move on</td></tr><tr><td><code>131047</code></td><td>Re-engagement required</td><td>No open window</td><td>Send template</td></tr><tr><td><code>131048</code></td><td>Spam rate limit</td><td>Too many messages</td><td>Back off</td></tr><tr><td><code>131049</code></td><td>Marketing limit</td><td>User reached limit</td><td>Respect the limit</td></tr><tr><td><code>131050</code></td><td>User opted out</td><td>User unsubscribed</td><td>Respect opt-out</td></tr><tr><td><code>131051</code></td><td>Unsupported type</td><td>Can't send this type</td><td>Use different type</td></tr><tr><td><code>130429</code></td><td>Rate limit hit</td><td>Sending too fast</td><td>Throttle to 80/sec</td></tr><tr><td><code>132000</code></td><td>Template param count wrong</td><td>Wrong number of variables</td><td>Fix parameters array</td></tr><tr><td><code>132001</code></td><td>Template not found/approved</td><td>Wrong name/language</td><td>Use approved template</td></tr></tbody></table></div>
+<hr>
+
+<h2 id="seen-v2-notes">SEEN V2 Notes</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Feature</th><th>Notes</th></tr></thead><tbody><tr><td>Broadcasts</td><td>Use <code>template</code> type. Always pass exact parameter count.</td></tr><tr><td>Customer replies</td><td>Handle <code>messages</code> webhook, parse by <code>type</code></td></tr><tr><td>Reply/context</td><td>Set <code>context.message_id</code> to quote user's message</td></tr><tr><td>Media messages</td><td>Store <code>media.id</code> from webhook — don't re-download from URL (expires)</td></tr><tr><td>Status tracking</td><td>Store <code>messages[0].id</code> and track statuses in webhook</td></tr></tbody></table></div>
+      </div>
+
+      <div class="topic-nav">
+        <a class="nav-prev" href="whatsapp-message-templates.html">← Message Templates</a>
+        <a class="nav-next" href="whatsapp-webhooks.html">WhatsApp Webhooks →</a>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>
