@@ -57,6 +57,12 @@ Step 3 — Diff each source:
 Step 4 — For any CHANGES_FOUND:
   Draft an article using the diff. Structure:
   title, date, source_url, category, sv2_modules, summary, why it matters, QA action.
+  
+  **CRITICAL LEARN HUB INSTRUCTION:** 
+  If you find that a NEW feature or API endpoint was released, you MUST create a new section for it in the `content-learn/` directory (both English and Arabic versions). 
+  - Link the news article to this new Learn topic.
+  - Add a "NEW" badge/tag to the new Learn section.
+  
   Then re-open the source URL and verify every claim (audit step).
   Save the verified article to content/changelog/YYYY-MM-DD-slug.md
 
@@ -121,12 +127,18 @@ meta-api-watch/
 │   ├── whatsapp-changelog/   ← YYYY-MM-DD.md per run (the "memory")
 │   └── messenger-changelog/
 ├── content/changelog/        ← Verified, published articles
+├── content-learn/            ← Learn Hub documentation (23+ topics)
+│   ├── common/
+│   ├── messenger/
+│   └── whatsapp/
 ├── site/
 │   ├── index.html            ← Static site (served via GitHub Pages)
+│   ├── learn/                ← Dual-language (EN/AR) interactive docs
 │   ├── style.css
 │   └── app.js
 ├── scripts/
 │   ├── status.js             ← ⭐ START HERE: shows what Antigravity knows
+│   ├── build-learn.js        ← Compiles Learn docs & handles EN/AR switching
 │   ├── diff-snapshots.js     ← Step 2: compares snapshots
 │   ├── publish-article.js    ← Step 5: saves articles + rebuilds site
 │   ├── deploy.ps1            ← git commit + push to GitHub
