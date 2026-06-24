@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WhatsApp Interactive Messages (Buttons & Lists) — Meta Docs Learn</title>
+  <meta name="description" content="Learn WhatsApp Interactive Messages (Buttons & Lists) in WhatsApp: validation rules, error codes, examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+  <div class="header-inner">
+
+    <a href="../../index.html" class="header-logo" aria-label="Meta API Watch Home">
+      <span class="logo-icon">🔭</span>
+      <div class="logo-text">
+        <span class="site-title">Meta API Watch</span>
+        <span class="site-subtitle"
+              data-en="SEEN V2 · Developer Hub"
+              data-ar="SEEN V2 · مركز المطورين">SEEN V2 · Developer Hub</span>
+      </div>
+    </a>
+
+    <nav class="header-nav" role="navigation" aria-label="Main navigation">
+      <a href="../../changelog.html"
+         class="nav-tab"
+         >
+        <span data-en="🔔 Latest Updates" data-ar="🔔 آخر التحديثات">🔔 Latest Updates</span>
+      </a>
+      <a href="../../learn/index.html"
+         class="nav-tab active"
+         aria-current="page">
+        <span data-en="📚 Learn" data-ar="📚 تعلّم">📚 Learn</span>
+      </a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+        <span class="lang-en">EN</span>
+        <span class="lang-sep" aria-hidden="true">·</span>
+        <span class="lang-ar">عربي</span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+
+
+  <div class="learn-layout">
+
+    <!-- Sidebar -->
+    <aside class="learn-sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label">On this page</span>
+        <ul class="toc-list"><li class="toc-top"><a href="#types-of-interactive-messages">Types of Interactive Messages</a></li><li class="toc-top"><a href="#parameters-fields">Parameters & Fields</a></li><li class="toc-sub"><a href="#reply-buttons">Reply Buttons</a></li><li class="toc-sub"><a href="#list-messages">List Messages</a></li><li class="toc-top"><a href="#validation-rules">Validation Rules</a></li><li class="toc-top"><a href="#live-preview-what-it-looks-like">Live Preview — What It Looks Like</a></li><li class="toc-sub"><a href="#-correct-usage-reply-buttons">✅ Correct Usage — Reply Buttons</a></li><li class="toc-sub"><a href="#-common-mistake-too-many-buttons">❌ Common Mistake — Too Many Buttons</a></li><li class="toc-top"><a href="#webhooks-receiving-the-response">Webhooks (Receiving the Response)</a></li><li class="toc-top"><a href="#qa-checklist">QA Checklist</a></li></ul>
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Source</span>
+        <a href="https://developers.facebook.com/docs/whatsapp/cloud-api/messages/interactive-messages" target="_blank" rel="noopener" class="source-link">
+          📄 Meta Developer Docs ↗
+        </a>
+        <span class="verified-date">Verified: 2026-06-24</span>
+      </div>
+      
+    </aside>
+
+    <!-- Main Content -->
+    <main class="learn-content" id="main-content">
+      <div class="topic-breadcrumb">
+        <a href="../index.html">Learn</a>
+        <span>›</span>
+        <span style="color:#4ade80">WhatsApp</span>
+        <span>›</span>
+        <span>WhatsApp Interactive Messages (Buttons & Lists)</span>
+      </div>
+
+      <div class="topic-hero">
+        <div class="topic-hero-badges">
+          <span class="platform-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">WhatsApp</span>
+          
+        </div>
+        <h1 class="topic-title">WhatsApp Interactive Messages (Buttons & Lists)</h1>
+        <p class="topic-meta">Core API · Last verified: 2026-06-24</p>
+      </div>
+
+      <div class="topic-body">
+        <h1>WhatsApp Interactive Messages</h1>
+
+<p>Interactive messages replace traditional text-based "Reply 1 for Yes" workflows with native UI elements. They reduce friction, eliminate typing errors, and improve conversion rates. For SEEN V2, interactive messages are core to the Flow Builder and Bot modules.</p>
+
+<h2 id="types-of-interactive-messages">Types of Interactive Messages</h2>
+
+<p>1. <strong>Reply Buttons:</strong> Up to 3 quick-reply buttons (e.g., "Yes", "No", "Talk to Sales").</p>
+<p>2. <strong>List Messages:</strong> A menu of up to 10 rows (e.g., product categories, store locations).</p>
+
+<h2 id="parameters-fields">Parameters & Fields</h2>
+
+<h3 id="reply-buttons">Reply Buttons</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>type</code></td><td>string</td><td>Yes</td><td>Set to <code>"button"</code></td></tr><tr><td><code>body.text</code></td><td>string</td><td>Yes</td><td>Main message text (max 1024 chars)</td></tr><tr><td><code>action.buttons</code></td><td>array</td><td>Yes</td><td>Array of up to 3 button objects</td></tr><tr><td><code>button.type</code></td><td>string</td><td>Yes</td><td>Must be <code>"reply"</code></td></tr><tr><td><code>button.reply.id</code></td><td>string</td><td>Yes</td><td>Unique payload sent to webhook (max 256 chars)</td></tr><tr><td><code>button.reply.title</code></td><td>string</td><td>Yes</td><td>Button text shown to user (max 20 chars)</td></tr></tbody></table></div>
+<h3 id="list-messages">List Messages</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>type</code></td><td>string</td><td>Yes</td><td>Set to <code>"list"</code></td></tr><tr><td><code>body.text</code></td><td>string</td><td>Yes</td><td>Main message text (max 1024 chars)</td></tr><tr><td><code>action.button</code></td><td>string</td><td>Yes</td><td>Text on the button that opens the list (max 20 chars)</td></tr><tr><td><code>action.sections</code></td><td>array</td><td>Yes</td><td>Up to 10 sections max</td></tr><tr><td><code>row.id</code></td><td>string</td><td>Yes</td><td>Payload returned via webhook on selection</td></tr><tr><td><code>row.title</code></td><td>string</td><td>Yes</td><td>Row title (max 24 chars)</td></tr><tr><td><code>row.description</code></td><td>string</td><td>No</td><td>Subtext for the row (max 72 chars)</td></tr></tbody></table></div>
+<h2 id="validation-rules">Validation Rules</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Gets REJECTED</th><th><span class="icon-accept">✅</span> Gets ACCEPTED</th></tr></thead><tbody><tr><td>Buttons Count</td><td>4 or more buttons</td><td>1 to 3 buttons max</td></tr><tr><td>Button Title Length</td><td><code>"Talk to a human representative now"</code> (34 chars)</td><td><code>"Talk to Sales"</code> (20 chars max)</td></tr><tr><td>List Rows Count</td><td>11 rows total across sections</td><td>10 rows total max</td></tr><tr><td>Row Title Length</td><td><code>"Schedule Appointment for Tomorrow"</code> (33 chars)</td><td><code>"Book Tomorrow"</code> (24 chars max)</td></tr><tr><td>Button IDs</td><td>Duplicate IDs in the same message</td><td>Unique IDs per button/row</td></tr></tbody></table></div>
+<h2 id="live-preview-what-it-looks-like">Live Preview — What It Looks Like</h2>
+
+<div class="preview-block preview-accepted"><span class="preview-label preview-label-ok">✅ Correct Usage — Live Preview</span>### ✅ Correct Usage — Reply Buttons
+
+<pre class="code-block"><code class="lang-json">POST /v19.0/{PHONE_NUMBER_ID}/messages
+<p>Authorization: Bearer {ACCESS_TOKEN}</p>
+
+<p>{</p>
+<p>  "messaging_product": "whatsapp",</p>
+<p>  "recipient_type": "individual",</p>
+<p>  "to": "{{CUSTOMER_PHONE}}",</p>
+<p>  "type": "interactive",</p>
+<p>  "interactive": {</p>
+<p>    "type": "button",</p>
+<p>    "header": {</p>
+<p>      "type": "text",</p>
+<p>      "text": "Payment Confirmation"</p>
+<p>    },</p>
+<p>    "body": {</p>
+<p>      "text": "Your order #12345 has been processed. Would you like a receipt?"</p>
+<p>    },</p>
+<p>    "footer": {</p>
+<p>      "text": "SEEN V2 Bot"</p>
+<p>    },</p>
+<p>    "action": {</p>
+<p>      "buttons": [</p>
+<p>        {</p>
+<p>          "type": "reply",</p>
+<p>          "reply": {</p>
+<p>            "id": "receipt_yes",</p>
+<p>            "title": "Yes, please"</p>
+<p>          }</p>
+<p>        },</p>
+<p>        {</p>
+<p>          "type": "reply",</p>
+<p>          "reply": {</p>
+<p>            "id": "receipt_no",</p>
+<p>            "title": "No, thanks"</p>
+<p>          }</p>
+<p>        }</p>
+<p>      ]</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<p><strong>Why it works:</strong> Exactly 2 buttons, titles are under 20 chars, IDs are unique.</p>
+
+<p></div><div class="preview-block preview-rejected"><span class="preview-label preview-label-err"><span class="icon-reject">❌</span> Common Mistake — What Goes Wrong</span>### <span class="icon-reject">❌</span> Common Mistake — Too Many Buttons</p>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "action": {</p>
+<p>    "buttons": [</p>
+<p>      { "type": "reply", "reply": { "id": "1", "title": "Option 1" } },</p>
+<p>      { "type": "reply", "reply": { "id": "2", "title": "Option 2" } },</p>
+<p>      { "type": "reply", "reply": { "id": "3", "title": "Option 3" } },</p>
+<p>      { "type": "reply", "reply": { "id": "4", "title": "Option 4" } }</p>
+<p>    ]</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<p><strong>Error:</strong> <code>Error 100: Invalid parameter</code> — Maximum of 3 buttons allowed. For 4+ options, use a <code>list</code> message instead.</p>
+
+<h2 id="webhooks-receiving-the-response">Webhooks (Receiving the Response)</h2>
+
+<p>When a user clicks a button or selects a list row, Meta sends a webhook to SEEN V2.</p>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "object": "whatsapp_business_account",</p>
+<p>  "entry": [{</p>
+<p>    "changes": [{</p>
+<p>      "value": {</p>
+<p>        "messages": [{</p>
+<p>          "from": "1234567890",</p>
+<p>          "type": "interactive",</p>
+<p>          "interactive": {</p>
+<p>            "type": "button_reply",</p>
+<p>            "button_reply": {</p>
+<p>              "id": "receipt_yes",</p>
+<p>              "title": "Yes, please"</p>
+<p>            }</p>
+<p>          }</p>
+<p>        }]</p>
+<p>      }</p>
+<p>    }]</p>
+<p>  }]</p>
+<p>}</code></pre></p>
+
+<p><strong>Important SEEN V2 implementation note:</strong> The bot builder should match against the <code>interactive.button_reply.id</code> (not the title) for routing logic, as the ID is immutable while the title might change based on localization.</p>
+
+<h2 id="qa-checklist">QA Checklist</h2>
+<ul><li style="margin-left:8px">[ ] Verify button titles do not exceed 20 characters</li>
+<li style="margin-left:0px">[ ] Verify maximum 3 buttons per message</li>
+<li style="margin-left:0px">[ ] Verify list rows do not exceed 10 across all sections combined</li>
+<li style="margin-left:0px">[ ] Verify row titles do not exceed 24 characters</li>
+<li style="margin-left:0px">[ ] Ensure <code>action.button</code> (for lists) is under 20 characters</li>
+<li style="margin-left:0px">[ ] Map webhook <code>interactive.*.id</code> accurately to SEEN V2 Flow Builder triggers</div></li></ul>
+      </div>
+
+      <div class="topic-nav">
+        <a class="nav-prev" href="whatsapp-flows-v4.html">← WhatsApp Flows v4 — Interactive Forms</a>
+        <a class="nav-next" href="whatsapp-media-messages.html">WhatsApp Media Messages (Images, Video, Docs) →</a>
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+(function(){
+  var html=document.documentElement,TK='maw-theme',LK='maw-lang';
+
+  // ── Theme ────────────────────────────────────────────────
+  function applyTheme(t){html.setAttribute('data-theme',t);localStorage.setItem(TK,t);}
+  applyTheme(localStorage.getItem(TK)||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));
+
+  // ── Language ─────────────────────────────────────────────
+  function applyLang(l){
+    html.setAttribute('data-lang',l);
+    html.setAttribute('lang',l==='ar'?'ar':'en');
+    html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+    localStorage.setItem(LK,l);
+    document.querySelectorAll('[data-en][data-ar]').forEach(function(el){
+      el.textContent=el.getAttribute(l==='ar'?'data-ar':'data-en');
+    });
+  }
+  applyLang(localStorage.getItem(LK)||'en');
+
+  // Wire up buttons after DOM is ready
+  function wireButtons(){
+    var thBtn=document.getElementById('theme-toggle');
+    if(thBtn) thBtn.addEventListener('click',function(){
+      applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+    });
+    var lgBtn=document.getElementById('lang-toggle');
+    if(lgBtn) lgBtn.addEventListener('click',function(){
+      applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
+    });
+    
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',wireButtons);
+  } else {
+    wireButtons();
+  }
+})();
+</script>
+</body>
+</html>

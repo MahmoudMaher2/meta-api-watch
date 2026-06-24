@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WhatsApp Campaigns & Broadcasts — Meta Docs Learn</title>
+  <meta name="description" content="Learn WhatsApp Campaigns & Broadcasts in WhatsApp: validation rules, error codes, examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+  <div class="header-inner">
+
+    <a href="../../index.html" class="header-logo" aria-label="Meta API Watch Home">
+      <span class="logo-icon">🔭</span>
+      <div class="logo-text">
+        <span class="site-title">Meta API Watch</span>
+        <span class="site-subtitle"
+              data-en="SEEN V2 · Developer Hub"
+              data-ar="SEEN V2 · مركز المطورين">SEEN V2 · Developer Hub</span>
+      </div>
+    </a>
+
+    <nav class="header-nav" role="navigation" aria-label="Main navigation">
+      <a href="../../changelog.html"
+         class="nav-tab"
+         >
+        <span data-en="🔔 Latest Updates" data-ar="🔔 آخر التحديثات">🔔 Latest Updates</span>
+      </a>
+      <a href="../../learn/index.html"
+         class="nav-tab active"
+         aria-current="page">
+        <span data-en="📚 Learn" data-ar="📚 تعلّم">📚 Learn</span>
+      </a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+        <span class="lang-en">EN</span>
+        <span class="lang-sep" aria-hidden="true">·</span>
+        <span class="lang-ar">عربي</span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+
+
+  <div class="learn-layout">
+
+    <!-- Sidebar -->
+    <aside class="learn-sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label">On this page</span>
+        <ul class="toc-list"><li class="toc-top"><a href="#how-broadcasts-work">How Broadcasts Work</a></li><li class="toc-top"><a href="#template-categories-pricing-impacts">Template Categories (Pricing Impacts)</a></li><li class="toc-top"><a href="#parameters-fields-sending-a-template">Parameters & Fields (Sending a Template)</a></li><li class="toc-sub"><a href="#the-components-array">The Components Array</a></li><li class="toc-top"><a href="#validation-rules">Validation Rules</a></li><li class="toc-top"><a href="#live-preview-what-it-looks-like">Live Preview — What It Looks Like</a></li><li class="toc-sub"><a href="#-correct-usage-sending-a-marketing-broadcast">✅ Correct Usage — Sending a Marketing Broadcast</a></li><li class="toc-sub"><a href="#-common-mistake-missing-component-variables">❌ Common Mistake — Missing Component Variables</a></li><li class="toc-top"><a href="#whatsapp-quality-limits-the-penalty-box">WhatsApp Quality Limits (The Penalty Box)</a></li><li class="toc-top"><a href="#seen-v2-implementation-notes">SEEN V2 Implementation Notes</a></li><li class="toc-top"><a href="#qa-checklist">QA Checklist</a></li></ul>
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Source</span>
+        <a href="https://developers.facebook.com/docs/whatsapp/cloud-api/messages/message-templates" target="_blank" rel="noopener" class="source-link">
+          📄 Meta Developer Docs ↗
+        </a>
+        <span class="verified-date">Verified: 2026-06-24</span>
+      </div>
+      
+    </aside>
+
+    <!-- Main Content -->
+    <main class="learn-content" id="main-content">
+      <div class="topic-breadcrumb">
+        <a href="../index.html">Learn</a>
+        <span>›</span>
+        <span style="color:#4ade80">WhatsApp</span>
+        <span>›</span>
+        <span>WhatsApp Campaigns & Broadcasts</span>
+      </div>
+
+      <div class="topic-hero">
+        <div class="topic-hero-badges">
+          <span class="platform-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">WhatsApp</span>
+          
+        </div>
+        <h1 class="topic-title">WhatsApp Campaigns & Broadcasts</h1>
+        <p class="topic-meta">Core API · Last verified: 2026-06-24</p>
+      </div>
+
+      <div class="topic-body">
+        <h1>WhatsApp Campaigns & Broadcasts</h1>
+
+<p>In WhatsApp, you cannot send arbitrary free-form promotional text to users whenever you want. Any business-initiated conversation must begin with an approved <strong>Message Template</strong>. This is the foundation of Broadcasts and Campaigns in SEEN V2.</p>
+
+<h2 id="how-broadcasts-work">How Broadcasts Work</h2>
+
+<p>To send a broadcast to 1,000 users, SEEN V2 iterates over the list and fires the <code>/messages</code> API using a pre-approved template for each user. </p>
+
+<p>1. Create a template in Meta Business Manager (or via API).</p>
+<p>2. Wait for approval (usually seconds to minutes).</p>
+<p>3. Execute the campaign by sending the template to the audience.</p>
+
+<h2 id="template-categories-pricing-impacts">Template Categories (Pricing Impacts)</h2>
+
+<p>When creating templates, they must be assigned a category. Meta prices conversations based on this category.</p>
+<ul><li style="margin-left:8px"><strong>Marketing:</strong> Promotions, offers, newsletters. (Highest cost)</li>
+<li style="margin-left:0px"><strong>Utility:</strong> Transaction updates, shipping alerts, account notifications.</li>
+<li style="margin-left:0px"><strong>Authentication:</strong> OTPs, verification codes. (Lowest cost)</li></ul>
+
+<h2 id="parameters-fields-sending-a-template">Parameters & Fields (Sending a Template)</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>type</code></td><td>string</td><td>Yes</td><td>Set to <code>"template"</code></td></tr><tr><td><code>template.name</code></td><td>string</td><td>Yes</td><td>The exact name of the approved template</td></tr><tr><td><code>template.language.code</code></td><td>string</td><td>Yes</td><td>e.g., <code>"en_US"</code>, <code>"ar"</code></td></tr><tr><td><code>template.components</code></td><td>array</td><td>No</td><td>Variables/media mapped to the template placeholders</td></tr></tbody></table></div>
+<h3 id="the-components-array">The Components Array</h3>
+
+<p>If your template has variables like <code>{{1}}</code> in the body, or requires an image in the header, you must pass them in <code>components</code>.</p>
+
+<div class="table-wrap"><table><thead><tr><th>Component Type</th><th>Sub-type</th><th>Description</th></tr></thead><tbody><tr><td><code>"header"</code></td><td><code>image</code>, <code>video</code>, <code>document</code>, <code>text</code></td><td>Fills the header placeholder</td></tr><tr><td><code>"body"</code></td><td><code>text</code></td><td>Replaces <code>{{1}}</code>, <code>{{2}}</code> sequentially</td></tr><tr><td><code>"button"</code></td><td><code>payload</code>, <code>text</code></td><td>Dynamic URLs or Quick Reply payloads</td></tr></tbody></table></div>
+<h2 id="validation-rules">Validation Rules</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Gets REJECTED</th><th><span class="icon-accept">✅</span> Gets ACCEPTED</th></tr></thead><tbody><tr><td>Variable Match</td><td>Template has 2 vars, you send 1</td><td>Send exactly the number of vars expected</td></tr><tr><td>Language Code</td><td><code>"en-us"</code> or <code>"EN"</code></td><td>Exact match <code>"en_US"</code></td></tr><tr><td>Template Status</td><td>Template is <code>REJECTED</code> or <code>PAUSED</code></td><td>Template is <code>APPROVED</code></td></tr><tr><td>24-Hour Rule</td><td><em>Not applicable for templates</em></td><td>Templates bypass the 24-hour customer service window</td></tr></tbody></table></div>
+<h2 id="live-preview-what-it-looks-like">Live Preview — What It Looks Like</h2>
+
+<div class="preview-block preview-accepted"><span class="preview-label preview-label-ok">✅ Correct Usage — Live Preview</span>### ✅ Correct Usage — Sending a Marketing Broadcast
+
+<pre class="code-block"><code class="lang-json">POST /v19.0/{PHONE_NUMBER_ID}/messages
+<p>Authorization: Bearer {ACCESS_TOKEN}</p>
+
+<p>{</p>
+<p>  "messaging_product": "whatsapp",</p>
+<p>  "recipient_type": "individual",</p>
+<p>  "to": "{{CUSTOMER_PHONE}}",</p>
+<p>  "type": "template",</p>
+<p>  "template": {</p>
+<p>    "name": "summer_sale_2026",</p>
+<p>    "language": {</p>
+<p>      "code": "en_US"</p>
+<p>    },</p>
+<p>    "components": [</p>
+<p>      {</p>
+<p>        "type": "header",</p>
+<p>        "parameters": [</p>
+<p>          {</p>
+<p>            "type": "image",</p>
+<p>            "image": {</p>
+<p>              "link": "https://seen-v2.com/promo.jpg"</p>
+<p>            }</p>
+<p>          }</p>
+<p>        ]</p>
+<p>      },</p>
+<p>      {</p>
+<p>        "type": "body",</p>
+<p>        "parameters": [</p>
+<p>          { "type": "text", "text": "Sarah" },</p>
+<p>          { "type": "text", "text": "50%" }</p>
+<p>        ]</p>
+<p>      }</p>
+<p>    ]</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<p><strong>Why it works:</strong> The template <code>summer_sale_2026</code> expects an image header and two body variables (Name and Discount). The payload maps these exactly.</p>
+
+<p></div><div class="preview-block preview-rejected"><span class="preview-label preview-label-err"><span class="icon-reject">❌</span> Common Mistake — What Goes Wrong</span>### <span class="icon-reject">❌</span> Common Mistake — Missing Component Variables</p>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "type": "template",</p>
+<p>  "template": {</p>
+<p>    "name": "order_update",</p>
+<p>    "language": { "code": "en" }</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<p><strong>Error:</strong> <code>Error 100: Invalid parameter</code> — If <code>order_update</code> was approved with body text "Your order {{1}} is arriving on {{2}}", sending it without the <code>components</code> array will fail validation instantly.</p>
+
+<h2 id="whatsapp-quality-limits-the-penalty-box">WhatsApp Quality Limits (The Penalty Box)</h2>
+
+<p>When executing massive campaigns, Meta monitors user feedback. If users block or report your broadcast:</p>
+<p>1. <strong>Tier Drop:</strong> Your messaging limit (e.g., 10K/day) can be instantly downgraded to 1K/day.</p>
+<p>2. <strong>Template Pause:</strong> Meta will flag the specific template as <code>PAUSED</code>. Sending it will return an error until it's unpaused.</p>
+<p>3. <strong>Number Ban:</strong> Continuous low quality results in complete restriction.</p>
+
+<h2 id="seen-v2-implementation-notes">SEEN V2 Implementation Notes</h2>
+<ul><li style="margin-left:8px"><strong>Batching:</strong> WhatsApp API restricts concurrency. For a 100K user campaign, SEEN V2 must implement rate limiting (max 80 requests per second) to avoid HTTP 429 Too Many Requests.</li>
+<li style="margin-left:0px"><strong>Failures:</strong> Not all numbers have WhatsApp. SEEN V2 must gracefully handle <code>Error 131026: Message undeteliverable</code> and mark the contact accordingly so they are skipped in future broadcasts.</li></ul>
+
+<h2 id="qa-checklist">QA Checklist</h2>
+<ul><li style="margin-left:8px">[ ] Ensure SEEN V2 maps exactly the correct number of variables per component</li>
+<li style="margin-left:0px">[ ] Enforce language code case sensitivity (<code>en_US</code> not <code>en-us</code>)</li>
+<li style="margin-left:0px">[ ] Implement a queue system for large broadcasts to adhere to rate limits</li>
+<li style="margin-left:0px">[ ] Read webhook statuses (<code>sent</code>, <code>delivered</code>, <code>read</code>, <code>failed</code>) to update campaign analytics in real-time</div></li></ul>
+      </div>
+
+      <div class="topic-nav">
+        <a class="nav-prev" href="whatsapp-business-profile.html">← WhatsApp Business Profile API</a>
+        <a class="nav-next" href="whatsapp-flows-v4.html">WhatsApp Flows v4 — Interactive Forms →</a>
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+(function(){
+  var html=document.documentElement,TK='maw-theme',LK='maw-lang';
+
+  // ── Theme ────────────────────────────────────────────────
+  function applyTheme(t){html.setAttribute('data-theme',t);localStorage.setItem(TK,t);}
+  applyTheme(localStorage.getItem(TK)||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));
+
+  // ── Language ─────────────────────────────────────────────
+  function applyLang(l){
+    html.setAttribute('data-lang',l);
+    html.setAttribute('lang',l==='ar'?'ar':'en');
+    html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+    localStorage.setItem(LK,l);
+    document.querySelectorAll('[data-en][data-ar]').forEach(function(el){
+      el.textContent=el.getAttribute(l==='ar'?'data-ar':'data-en');
+    });
+  }
+  applyLang(localStorage.getItem(LK)||'en');
+
+  // Wire up buttons after DOM is ready
+  function wireButtons(){
+    var thBtn=document.getElementById('theme-toggle');
+    if(thBtn) thBtn.addEventListener('click',function(){
+      applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+    });
+    var lgBtn=document.getElementById('lang-toggle');
+    if(lgBtn) lgBtn.addEventListener('click',function(){
+      applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
+    });
+    
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',wireButtons);
+  } else {
+    wireButtons();
+  }
+})();
+</script>
+</body>
+</html>

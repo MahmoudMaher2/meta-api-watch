@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WhatsApp Media Messages (Images, Video, Docs) — Meta Docs Learn</title>
+  <meta name="description" content="Learn WhatsApp Media Messages (Images, Video, Docs) in WhatsApp: validation rules, error codes, examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+  <div class="header-inner">
+
+    <a href="../../index.html" class="header-logo" aria-label="Meta API Watch Home">
+      <span class="logo-icon">🔭</span>
+      <div class="logo-text">
+        <span class="site-title">Meta API Watch</span>
+        <span class="site-subtitle"
+              data-en="SEEN V2 · Developer Hub"
+              data-ar="SEEN V2 · مركز المطورين">SEEN V2 · Developer Hub</span>
+      </div>
+    </a>
+
+    <nav class="header-nav" role="navigation" aria-label="Main navigation">
+      <a href="../../changelog.html"
+         class="nav-tab"
+         >
+        <span data-en="🔔 Latest Updates" data-ar="🔔 آخر التحديثات">🔔 Latest Updates</span>
+      </a>
+      <a href="../../learn/index.html"
+         class="nav-tab active"
+         aria-current="page">
+        <span data-en="📚 Learn" data-ar="📚 تعلّم">📚 Learn</span>
+      </a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+        <span class="lang-en">EN</span>
+        <span class="lang-sep" aria-hidden="true">·</span>
+        <span class="lang-ar">عربي</span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+
+
+  <div class="learn-layout">
+
+    <!-- Sidebar -->
+    <aside class="learn-sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label">On this page</span>
+        <ul class="toc-list"><li class="toc-top"><a href="#media-types-limits">Media Types & Limits</a></li><li class="toc-top"><a href="#parameters-fields">Parameters & Fields</a></li><li class="toc-top"><a href="#validation-rules">Validation Rules</a></li><li class="toc-top"><a href="#live-preview-what-it-looks-like">Live Preview — What It Looks Like</a></li><li class="toc-sub"><a href="#-correct-usage-sending-image-via-url">✅ Correct Usage — Sending Image via URL</a></li><li class="toc-sub"><a href="#-common-mistake-wrong-media-type-key">❌ Common Mistake — Wrong Media Type Key</a></li><li class="toc-sub"><a href="#-common-mistake-exceeding-size-limit">❌ Common Mistake — Exceeding Size Limit</a></li><li class="toc-top"><a href="#the-media-upload-api-alternative-to-urls">The Media Upload API (Alternative to URLs)</a></li><li class="toc-top"><a href="#seen-v2-implementation-notes">SEEN V2 Implementation Notes</a></li><li class="toc-top"><a href="#qa-checklist">QA Checklist</a></li></ul>
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Source</span>
+        <a href="https://developers.facebook.com/docs/whatsapp/cloud-api/messages/media-messages" target="_blank" rel="noopener" class="source-link">
+          📄 Meta Developer Docs ↗
+        </a>
+        <span class="verified-date">Verified: 2026-06-24</span>
+      </div>
+      
+    </aside>
+
+    <!-- Main Content -->
+    <main class="learn-content" id="main-content">
+      <div class="topic-breadcrumb">
+        <a href="../index.html">Learn</a>
+        <span>›</span>
+        <span style="color:#4ade80">WhatsApp</span>
+        <span>›</span>
+        <span>WhatsApp Media Messages (Images, Video, Docs)</span>
+      </div>
+
+      <div class="topic-hero">
+        <div class="topic-hero-badges">
+          <span class="platform-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">WhatsApp</span>
+          
+        </div>
+        <h1 class="topic-title">WhatsApp Media Messages (Images, Video, Docs)</h1>
+        <p class="topic-meta">Core API · Last verified: 2026-06-24</p>
+      </div>
+
+      <div class="topic-body">
+        <h1>WhatsApp Media Messages</h1>
+
+<p>Sending media is essential for rich communication in SEEN V2. Media can be sent either by providing a public URL or by uploading the media to Meta's servers first and passing the <code>media_id</code>.</p>
+
+<h2 id="media-types-limits">Media Types & Limits</h2>
+
+<p>Meta imposes strict limits on file sizes and supported formats. Sending unsupported formats or oversized files will result in immediate rejection.</p>
+
+<div class="table-wrap"><table><thead><tr><th>Media Type</th><th>Max Size</th><th>Supported Formats</th></tr></thead><tbody><tr><td><strong>Audio</strong></td><td>16 MB</td><td><code>audio/aac</code>, <code>audio/mp4</code>, <code>audio/mpeg</code>, <code>audio/amr</code>, <code>audio/ogg</code> (Opus only)</td></tr><tr><td><strong>Document</strong></td><td>100 MB</td><td>Any valid MIME type (e.g., <code>text/plain</code>, <code>application/pdf</code>, <code>application/vnd.ms-excel</code>)</td></tr><tr><td><strong>Image</strong></td><td>5 MB</td><td><code>image/jpeg</code>, <code>image/png</code></td></tr><tr><td><strong>Video</strong></td><td>16 MB</td><td><code>video/mp4</code>, <code>video/3gp</code> (H.264 video codec and AAC audio codec only)</td></tr><tr><td><strong>Sticker</strong></td><td>100 KB</td><td><code>image/webp</code> (Exact dimensions: 512x512)</td></tr></tbody></table></div>
+<h2 id="parameters-fields">Parameters & Fields</h2>
+
+<p>When sending media via URL:</p>
+
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>type</code></td><td>string</td><td>Yes</td><td><code>image</code>, <code>video</code>, <code>audio</code>, <code>document</code>, or <code>sticker</code></td></tr><tr><td><code>[type].link</code></td><td>string</td><td>Yes</td><td>HTTP/HTTPS URL of the media file</td></tr><tr><td><code>[type].caption</code></td><td>string</td><td>No</td><td>Caption text (max 1024 chars, supported for image/video/document)</td></tr><tr><td><code>[type].filename</code></td><td>string</td><td>No</td><td>Custom filename (only for document type)</td></tr></tbody></table></div>
+<p>When sending media via ID:</p>
+
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>[type].id</code></td><td>string</td><td>Yes</td><td>ID returned by the Media Upload API</td></tr></tbody></table></div>
+<h2 id="validation-rules">Validation Rules</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Gets REJECTED</th><th><span class="icon-accept">✅</span> Gets ACCEPTED</th></tr></thead><tbody><tr><td>Image format</td><td><code>.gif</code> or <code>.bmp</code></td><td><code>.jpg</code>, <code>.jpeg</code>, <code>.png</code></td></tr><tr><td>Image size</td><td>6 MB image</td><td>4.9 MB image</td></tr><tr><td>Video format</td><td><code>.mkv</code> or <code>.avi</code></td><td><code>.mp4</code> (H.264 codec)</td></tr><tr><td>Sticker dimensions</td><td>500x500</td><td>exactly 512x512</td></tr><tr><td>Link URL</td><td>Requires auth or redirects</td><td>Direct link returning valid Content-Type</td></tr></tbody></table></div>
+<h2 id="live-preview-what-it-looks-like">Live Preview — What It Looks Like</h2>
+
+<div class="preview-block preview-accepted"><span class="preview-label preview-label-ok">✅ Correct Usage — Live Preview</span>### ✅ Correct Usage — Sending Image via URL
+
+<pre class="code-block"><code class="lang-json">POST /v19.0/{PHONE_NUMBER_ID}/messages
+<p>Authorization: Bearer {ACCESS_TOKEN}</p>
+
+<p>{</p>
+<p>  "messaging_product": "whatsapp",</p>
+<p>  "recipient_type": "individual",</p>
+<p>  "to": "{{CUSTOMER_PHONE}}",</p>
+<p>  "type": "image",</p>
+<p>  "image": {</p>
+<p>    "link": "https://seen-v2.example.com/assets/promo.jpg",</p>
+<p>    "caption": "Check out our latest summer collection! ☀️"</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<p><strong>Why it works:</strong> URL is a direct link to a <code>.jpg</code>, and caption is under 1024 characters.</p>
+
+<p></div><div class="preview-block preview-rejected"><span class="preview-label preview-label-err"><span class="icon-reject">❌</span> Common Mistake — What Goes Wrong</span>### <span class="icon-reject">❌</span> Common Mistake — Wrong Media Type Key</p>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "type": "image",</p>
+<p>  "media": {</p>
+<p>    "link": "https://example.com/image.png"</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<p><strong>Error:</strong> <code>Error 100: Invalid parameter</code> — The key inside the JSON must match the <code>type</code>. If <code>type</code> is <code>"image"</code>, the object must be <code>"image": {...}</code>, not <code>"media": {...}</code>.</p>
+
+<p></div><div class="preview-block preview-rejected"><span class="preview-label preview-label-err"><span class="icon-reject">❌</span> Common Mistake — What Goes Wrong</span>### <span class="icon-reject">❌</span> Common Mistake — Exceeding Size Limit</p>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "type": "video",</p>
+<p>  "video": {</p>
+<p>    "link": "https://example.com/huge-presentation.mp4"</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<p><strong>Error:</strong> If the file at the link exceeds 16MB, Meta will try to download it, fail the size validation, and send an error webhook asynchronously indicating the download failed due to size limits.</p>
+
+<h2 id="the-media-upload-api-alternative-to-urls">The Media Upload API (Alternative to URLs)</h2>
+
+<p>If you don't want to expose media via public URLs, upload it to Meta first.</p>
+
+<p>1. <strong>Upload:</strong></p>
+<pre class="code-block"><code class="lang-bash">curl -X POST "https://graph.facebook.com/v19.0/{PHONE_NUMBER_ID}/media" \
+<p>  -H "Authorization: Bearer {ACCESS_TOKEN}" \</p>
+<p>  -F "file=@/path/to/local/file.pdf" \</p>
+<p>  -F "type=application/pdf" \</p>
+<p>  -F "messaging_product=whatsapp"</code></pre></p>
+<p><em>Returns:</em> <code>{"id":"1234567890"}</code></p>
+
+<p>2. <strong>Send:</strong></p>
+<pre class="code-block"><code class="lang-json">{
+<p>  "type": "document",</p>
+<p>  "document": {</p>
+<p>    "id": "1234567890",</p>
+<p>    "filename": "SEEN_Invoice.pdf"</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<h2 id="seen-v2-implementation-notes">SEEN V2 Implementation Notes</h2>
+<ul><li style="margin-left:8px"><strong>URL vs ID:</strong> Always prefer <code>link</code> for static assets (logos, marketing banners) and <code>id</code> for dynamic/sensitive assets (invoices, reports) that shouldn't be publicly accessible on your CDN.</li>
+<li style="margin-left:0px"><strong>GIF Support:</strong> WhatsApp does not natively support GIF media types for business API. You must convert GIFs to <code>.mp4</code> and send them as <code>video</code>.</li></ul>
+
+<h2 id="qa-checklist">QA Checklist</h2>
+<ul><li style="margin-left:8px">[ ] Ensure user uploads in SEEN V2 are validated against Meta's strict MB limits <em>before</em> API dispatch</li>
+<li style="margin-left:0px">[ ] Implement auto-conversion for common incompatible types (e.g. converting <code>.gif</code> to <code>.mp4</code>)</li>
+<li style="margin-left:0px">[ ] Verify that document filenames include the correct extension for WhatsApp to render the appropriate icon</div></li></ul>
+      </div>
+
+      <div class="topic-nav">
+        <a class="nav-prev" href="whatsapp-interactive-messages.html">← WhatsApp Interactive Messages (Buttons & Lists)</a>
+        <a class="nav-next" href="whatsapp-quality-limits.html">WhatsApp Quality Rating & Messaging Limits →</a>
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+(function(){
+  var html=document.documentElement,TK='maw-theme',LK='maw-lang';
+
+  // ── Theme ────────────────────────────────────────────────
+  function applyTheme(t){html.setAttribute('data-theme',t);localStorage.setItem(TK,t);}
+  applyTheme(localStorage.getItem(TK)||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));
+
+  // ── Language ─────────────────────────────────────────────
+  function applyLang(l){
+    html.setAttribute('data-lang',l);
+    html.setAttribute('lang',l==='ar'?'ar':'en');
+    html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+    localStorage.setItem(LK,l);
+    document.querySelectorAll('[data-en][data-ar]').forEach(function(el){
+      el.textContent=el.getAttribute(l==='ar'?'data-ar':'data-en');
+    });
+  }
+  applyLang(localStorage.getItem(LK)||'en');
+
+  // Wire up buttons after DOM is ready
+  function wireButtons(){
+    var thBtn=document.getElementById('theme-toggle');
+    if(thBtn) thBtn.addEventListener('click',function(){
+      applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+    });
+    var lgBtn=document.getElementById('lang-toggle');
+    if(lgBtn) lgBtn.addEventListener('click',function(){
+      applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
+    });
+    
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',wireButtons);
+  } else {
+    wireButtons();
+  }
+})();
+</script>
+</body>
+</html>

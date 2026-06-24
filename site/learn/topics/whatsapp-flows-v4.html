@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WhatsApp Flows v4 — Interactive Forms — Meta Docs Learn</title>
+  <meta name="description" content="Learn WhatsApp Flows v4 — Interactive Forms in WhatsApp: validation rules, error codes, examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+  <div class="header-inner">
+
+    <a href="../../index.html" class="header-logo" aria-label="Meta API Watch Home">
+      <span class="logo-icon">🔭</span>
+      <div class="logo-text">
+        <span class="site-title">Meta API Watch</span>
+        <span class="site-subtitle"
+              data-en="SEEN V2 · Developer Hub"
+              data-ar="SEEN V2 · مركز المطورين">SEEN V2 · Developer Hub</span>
+      </div>
+    </a>
+
+    <nav class="header-nav" role="navigation" aria-label="Main navigation">
+      <a href="../../changelog.html"
+         class="nav-tab"
+         >
+        <span data-en="🔔 Latest Updates" data-ar="🔔 آخر التحديثات">🔔 Latest Updates</span>
+      </a>
+      <a href="../../learn/index.html"
+         class="nav-tab active"
+         aria-current="page">
+        <span data-en="📚 Learn" data-ar="📚 تعلّم">📚 Learn</span>
+      </a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+        <span class="lang-en">EN</span>
+        <span class="lang-sep" aria-hidden="true">·</span>
+        <span class="lang-ar">عربي</span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+
+
+  <div class="learn-layout">
+
+    <!-- Sidebar -->
+    <aside class="learn-sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label">On this page</span>
+        <ul class="toc-list"><li class="toc-top"><a href="#overview">Overview</a></li><li class="toc-top"><a href="#how-it-works">How It Works</a></li><li class="toc-top"><a href="#parameters-fields">Parameters & Fields</a></li><li class="toc-top"><a href="#validation-rules">Validation Rules</a></li><li class="toc-top"><a href="#live-preview-what-it-looks-like">Live Preview — What It Looks Like</a></li><li class="toc-sub"><a href="#-correct-usage">✅ Correct Usage</a></li><li class="toc-sub"><a href="#-common-mistake">❌ Common Mistake</a></li><li class="toc-top"><a href="#comparison-before-vs-after-this-feature">Comparison: Before vs After This Feature</a></li><li class="toc-top"><a href="#code-example-full-working-request">Code Example — Full Working Request</a></li><li class="toc-top"><a href="#seen-v2-impact-notes">SEEN V2 — Impact & Notes</a></li><li class="toc-top"><a href="#qa-checklist">QA Checklist</a></li></ul>
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Source</span>
+        <a href="https://developers.facebook.com/docs/whatsapp/flows" target="_blank" rel="noopener" class="source-link">
+          📄 Meta Developer Docs ↗
+        </a>
+        <span class="verified-date">Verified: 2026-06-24</span>
+      </div>
+      <div class="sidebar-section"><span class="sidebar-label">📰 From Changelog</span><a href="../../changelog.html" class="source-link changelog-back-link">📋 View Changelog Entry ↗<br><small>2026-06-24</small></a></div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="learn-content" id="main-content">
+      <div class="topic-breadcrumb">
+        <a href="../index.html">Learn</a>
+        <span>›</span>
+        <span style="color:#4ade80">WhatsApp</span>
+        <span>›</span>
+        <span>WhatsApp Flows v4 — Interactive Forms</span>
+      </div>
+
+      <div class="topic-hero">
+        <div class="topic-hero-badges">
+          <span class="platform-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">WhatsApp</span>
+          <span class="new-badge-hero" title="Detected: 2026-06-24">✦ NEW</span>
+        </div>
+        <h1 class="topic-title">WhatsApp Flows v4 — Interactive Forms</h1>
+        <p class="topic-meta">Core API · Last verified: 2026-06-24</p>
+      </div>
+
+      <div class="topic-body">
+        <h1>WhatsApp Flows v4 — Interactive Forms</h1>
+
+<p>WhatsApp Flows v4 introduces native interactive forms inside WhatsApp conversations, letting businesses collect structured data without redirecting users to external links.</p>
+
+<h2 id="overview">Overview</h2>
+
+<p>Flows v4 enables businesses to build multi-screen form experiences that run natively inside WhatsApp. Users answer questions, select options, and submit data — all without leaving the chat. For SEEN V2, this is directly relevant to lead capture, onboarding, and survey workflows in the Broadcasts module.</p>
+
+<h2 id="how-it-works">How It Works</h2>
+<ul><li style="margin-left:8px">Business sends a Flow message via the Messages API</li>
+<li style="margin-left:0px">WhatsApp renders the interactive screens on the user's device</li>
+<li style="margin-left:0px">User submits the form — a webhook payload arrives with the collected data</li>
+<li style="margin-left:0px">SEEN V2 maps the payload to a contact record or conversation</li></ul>
+
+<h2 id="parameters-fields">Parameters & Fields</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>flow_id</code></td><td>string</td><td>Yes</td><td>Unique ID of the published Flow</td></tr><tr><td><code>flow_action</code></td><td>enum</td><td>Yes</td><td><code>navigate</code> or <code>data_exchange</code></td></tr><tr><td><code>flow_action_payload</code></td><td>object</td><td>No</td><td>Data passed to the flow on open</td></tr><tr><td><code>flow_token</code></td><td>string</td><td>No</td><td>Unique token per conversation for tracking</td></tr></tbody></table></div>
+<h2 id="validation-rules">Validation Rules</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Gets REJECTED</th><th><span class="icon-accept">✅</span> Gets ACCEPTED</th></tr></thead><tbody><tr><td>Flow status</td><td>Sending a <code>DRAFT</code> flow</td><td>Only <code>PUBLISHED</code> flows can be sent</td></tr><tr><td>flow_action value</td><td><code>"open"</code>, <code>"start"</code> (invalid)</td><td><code>"navigate"</code> or <code>"data_exchange"</code></td></tr><tr><td>flow_token length</td><td>More than 64 characters</td><td>64 chars or fewer, alphanumeric</td></tr></tbody></table></div>
+<h2 id="live-preview-what-it-looks-like">Live Preview — What It Looks Like</h2>
+
+<div class="preview-block preview-accepted"><span class="preview-label preview-label-ok">✅ Correct Usage — Live Preview</span>### ✅ Correct Usage
+
+<pre class="code-block"><code class="lang-json">POST /v19.0/{PHONE_NUMBER_ID}/messages
+
+<p>{</p>
+<p>  "messaging_product": "whatsapp",</p>
+<p>  "recipient_type": "individual",</p>
+<p>  "to": "{{CUSTOMER_PHONE}}",</p>
+<p>  "type": "interactive",</p>
+<p>  "interactive": {</p>
+<p>    "type": "flow",</p>
+<p>    "header": { "type": "text", "text": "Complete your profile" },</p>
+<p>    "body": { "text": "Please fill in your details below." },</p>
+<p>    "footer": { "text": "Takes less than 2 minutes" },</p>
+<p>    "action": {</p>
+<p>      "name": "flow",</p>
+<p>      "parameters": {</p>
+<p>        "flow_message_version": "3",</p>
+<p>        "flow_token": "AQAAAAACS5FpgQ_cAAAAAD0QI3s",</p>
+<p>        "flow_id": "991881656454398",</p>
+<p>        "flow_cta": "Open Form",</p>
+<p>        "flow_action": "navigate",</p>
+<p>        "flow_action_payload": {</p>
+<p>          "screen": "WELCOME",</p>
+<p>          "data": { "name": "Sarah" }</p>
+<p>        }</p>
+<p>      }</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<p><strong>Why it works:</strong> Flow is <code>PUBLISHED</code>, <code>flow_action</code> is <code>navigate</code>, token is valid length, all required fields present.</p>
+
+<p></div><div class="preview-block preview-rejected"><span class="preview-label preview-label-err"><span class="icon-reject">❌</span> Common Mistake — What Goes Wrong</span>### <span class="icon-reject">❌</span> Common Mistake</p>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "action": {</p>
+<p>    "name": "flow",</p>
+<p>    "parameters": {</p>
+<p>      "flow_id": "991881656454398",</p>
+<p>      "flow_action": "open",</p>
+<p>      "flow_token": "this-token-is-way-too-long-and-exceeds-the-maximum-allowed-64-character-limit-xyz"</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<p><strong>Error:</strong> <code>Error 100: Invalid parameter</code> — <code>flow_action</code> must be <code>navigate</code> or <code>data_exchange</code>, and <code>flow_token</code> exceeds 64 characters.</p>
+
+<h2 id="comparison-before-vs-after-this-feature">Comparison: Before vs After This Feature</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Aspect</th><th>Before This Feature</th><th>After This Feature</th></tr></thead><tbody><tr><td>Data collection</td><td>Redirect to external web form</td><td>Native in-chat form</td></tr><tr><td>Drop-off rate</td><td>High (leaves WhatsApp)</td><td>Low (stays in chat)</td></tr><tr><td>Webhook payload</td><td>Text message only</td><td>Structured JSON with all form fields</td></tr></tbody></table></div>
+<h2 id="code-example-full-working-request">Code Example — Full Working Request</h2>
+
+<pre class="code-block"><code class="lang-json">POST /v19.0/{PHONE_NUMBER_ID}/messages
+<p>Authorization: Bearer {ACCESS_TOKEN}</p>
+
+<p>{</p>
+<p>  "messaging_product": "whatsapp",</p>
+<p>  "to": "{{CUSTOMER_PHONE}}",</p>
+<p>  "type": "interactive",</p>
+<p>  "interactive": {</p>
+<p>    "type": "flow",</p>
+<p>    "body": { "text": "Hi {{1}}, complete your onboarding in 60 seconds!" },</p>
+<p>    "action": {</p>
+<p>      "name": "flow",</p>
+<p>      "parameters": {</p>
+<p>        "flow_message_version": "3",</p>
+<p>        "flow_id": "{{YOUR_FLOW_ID}}",</p>
+<p>        "flow_token": "{{UNIQUE_SESSION_TOKEN}}",</p>
+<p>        "flow_cta": "Start Onboarding",</p>
+<p>        "flow_action": "navigate"</p>
+<p>      }</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<h2 id="seen-v2-impact-notes">SEEN V2 — Impact & Notes</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Module</th><th>Impact</th></tr></thead><tbody><tr><td>Broadcasts</td><td>Can send Flow messages as part of campaigns — use for lead forms</td></tr><tr><td>Webhooks</td><td>New <code>flow_completion</code> webhook event delivers submitted form data</td></tr><tr><td>Channel Integration/OAuth</td><td>Flow ID must be associated with the connected WABA</td></tr></tbody></table></div>
+<div class="callout callout-info"><strong>📋 Linked Changelog Article:</strong><p>This feature was detected on 2026-06-24.</p></div>
+<blockquote><p>See: [Changelog entry for 2026-06-24](https://developers.facebook.com/docs/whatsapp/flows)</p></blockquote>
+
+<h2 id="qa-checklist">QA Checklist</h2>
+<ul><li style="margin-left:8px">[ ] Verify Flow is in <code>PUBLISHED</code> state before sending</li>
+<li style="margin-left:0px">[ ] Test the <span class="icon-accept">✅</span> accepted example — confirm interactive message renders in WhatsApp</li>
+<li style="margin-left:0px">[ ] Test the <span class="icon-reject">❌</span> rejected example — confirm error 100 for invalid <code>flow_action</code></li>
+<li style="margin-left:0px">[ ] Verify webhook receives structured payload on flow completion</li>
+<li style="margin-left:0px">[ ] Test with <code>flow_token</code> exactly 64 chars — confirm it works</div></li></ul>
+      </div>
+
+      <div class="topic-nav">
+        <a class="nav-prev" href="whatsapp-campaigns-broadcasts.html">← WhatsApp Campaigns & Broadcasts</a>
+        <a class="nav-next" href="whatsapp-interactive-messages.html">WhatsApp Interactive Messages (Buttons & Lists) →</a>
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+(function(){
+  var html=document.documentElement,TK='maw-theme',LK='maw-lang';
+
+  // ── Theme ────────────────────────────────────────────────
+  function applyTheme(t){html.setAttribute('data-theme',t);localStorage.setItem(TK,t);}
+  applyTheme(localStorage.getItem(TK)||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));
+
+  // ── Language ─────────────────────────────────────────────
+  function applyLang(l){
+    html.setAttribute('data-lang',l);
+    html.setAttribute('lang',l==='ar'?'ar':'en');
+    html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+    localStorage.setItem(LK,l);
+    document.querySelectorAll('[data-en][data-ar]').forEach(function(el){
+      el.textContent=el.getAttribute(l==='ar'?'data-ar':'data-en');
+    });
+  }
+  applyLang(localStorage.getItem(LK)||'en');
+
+  // Wire up buttons after DOM is ready
+  function wireButtons(){
+    var thBtn=document.getElementById('theme-toggle');
+    if(thBtn) thBtn.addEventListener('click',function(){
+      applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+    });
+    var lgBtn=document.getElementById('lang-toggle');
+    if(lgBtn) lgBtn.addEventListener('click',function(){
+      applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
+    });
+    
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',wireButtons);
+  } else {
+    wireButtons();
+  }
+})();
+</script>
+</body>
+</html>

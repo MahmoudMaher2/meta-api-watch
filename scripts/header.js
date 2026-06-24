@@ -59,9 +59,11 @@ function buildHeader(basePath, activePage) {
 
 /**
  * Inline JS for theme + language toggle.
- * Accepts optional extra JS string to run inside the IIFE.
+ * basePath: path prefix to site root (e.g., '' for root, '../' for learn/, '../../' for learn/topics/)
+ * Accepts optional extra JS string to run inside the listener.
  */
-function buildSharedScript(extraJs) {
+function buildSharedScript(basePath, extraJs) {
+  const bp = basePath || '';
   return `<script>
 (function(){
   var html=document.documentElement,TK='maw-theme',LK='maw-lang';
@@ -69,10 +71,6 @@ function buildSharedScript(extraJs) {
   // ── Theme ────────────────────────────────────────────────
   function applyTheme(t){html.setAttribute('data-theme',t);localStorage.setItem(TK,t);}
   applyTheme(localStorage.getItem(TK)||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));
-  var thBtn=document.getElementById('theme-toggle');
-  if(thBtn) thBtn.addEventListener('click',function(){
-    applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
-  });
 
   // ── Language ─────────────────────────────────────────────
   function applyLang(l){
@@ -85,12 +83,25 @@ function buildSharedScript(extraJs) {
     });
   }
   applyLang(localStorage.getItem(LK)||'en');
-  var lgBtn=document.getElementById('lang-toggle');
-  if(lgBtn) lgBtn.addEventListener('click',function(){
-    applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
-  });
 
-  ${extraJs || ''}
+  // Wire up buttons after DOM is ready
+  function wireButtons(){
+    var thBtn=document.getElementById('theme-toggle');
+    if(thBtn) thBtn.addEventListener('click',function(){
+      applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+    });
+    var lgBtn=document.getElementById('lang-toggle');
+    if(lgBtn) lgBtn.addEventListener('click',function(){
+      applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
+    });
+    ${extraJs || ''}
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',wireButtons);
+  } else {
+    wireButtons();
+  }
 })();
 </script>`;
 }

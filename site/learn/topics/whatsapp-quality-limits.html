@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WhatsApp Quality Rating & Messaging Limits — Meta Docs Learn</title>
+  <meta name="description" content="Learn WhatsApp Quality Rating & Messaging Limits in WhatsApp: validation rules, error codes, examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+  <div class="header-inner">
+
+    <a href="../../index.html" class="header-logo" aria-label="Meta API Watch Home">
+      <span class="logo-icon">🔭</span>
+      <div class="logo-text">
+        <span class="site-title">Meta API Watch</span>
+        <span class="site-subtitle"
+              data-en="SEEN V2 · Developer Hub"
+              data-ar="SEEN V2 · مركز المطورين">SEEN V2 · Developer Hub</span>
+      </div>
+    </a>
+
+    <nav class="header-nav" role="navigation" aria-label="Main navigation">
+      <a href="../../changelog.html"
+         class="nav-tab"
+         >
+        <span data-en="🔔 Latest Updates" data-ar="🔔 آخر التحديثات">🔔 Latest Updates</span>
+      </a>
+      <a href="../../learn/index.html"
+         class="nav-tab active"
+         aria-current="page">
+        <span data-en="📚 Learn" data-ar="📚 تعلّم">📚 Learn</span>
+      </a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+        <span class="lang-en">EN</span>
+        <span class="lang-sep" aria-hidden="true">·</span>
+        <span class="lang-ar">عربي</span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+
+
+  <div class="learn-layout">
+
+    <!-- Sidebar -->
+    <aside class="learn-sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label">On this page</span>
+        <ul class="toc-list"><li class="toc-top"><a href="#messaging-tiers-limits">Messaging Tiers (Limits)</a></li><li class="toc-top"><a href="#quality-ratings-status">Quality Ratings (Status)</a></li><li class="toc-sub"><a href="#the-flagged-penalty">The "Flagged" Penalty</a></li><li class="toc-top"><a href="#upgrading-limits">Upgrading Limits</a></li><li class="toc-top"><a href="#validation-rules-api-behavior">Validation Rules & API Behavior</a></li><li class="toc-top"><a href="#seen-v2-implementation-notes">SEEN V2 Implementation Notes</a></li><li class="toc-top"><a href="#qa-checklist">QA Checklist</a></li></ul>
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Source</span>
+        <a href="https://developers.facebook.com/docs/whatsapp/messaging-limits" target="_blank" rel="noopener" class="source-link">
+          📄 Meta Developer Docs ↗
+        </a>
+        <span class="verified-date">Verified: 2026-06-24</span>
+      </div>
+      
+    </aside>
+
+    <!-- Main Content -->
+    <main class="learn-content" id="main-content">
+      <div class="topic-breadcrumb">
+        <a href="../index.html">Learn</a>
+        <span>›</span>
+        <span style="color:#4ade80">WhatsApp</span>
+        <span>›</span>
+        <span>WhatsApp Quality Rating & Messaging Limits</span>
+      </div>
+
+      <div class="topic-hero">
+        <div class="topic-hero-badges">
+          <span class="platform-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">WhatsApp</span>
+          
+        </div>
+        <h1 class="topic-title">WhatsApp Quality Rating & Messaging Limits</h1>
+        <p class="topic-meta">Core API · Last verified: 2026-06-24</p>
+      </div>
+
+      <div class="topic-body">
+        <h1>WhatsApp Quality Rating & Limits</h1>
+
+<p>Meta enforces a strict quality control system to prevent spam on WhatsApp. If a business sends unwanted messages, users will block or report them. Meta tracks these blocks/reports to calculate a <strong>Quality Rating</strong>.</p>
+
+<h2 id="messaging-tiers-limits">Messaging Tiers (Limits)</h2>
+
+<p>Every WhatsApp Business Account starts with a specific messaging limit. This is the maximum number of <strong>business-initiated</strong> conversations (Marketing, Utility, Auth) you can open in a rolling 24-hour window.</p>
+
+<p>1. <strong>Tier 1:</strong> 1,000 unique customers / 24 hours.</p>
+<p>2. <strong>Tier 2:</strong> 10,000 unique customers / 24 hours.</p>
+<p>3. <strong>Tier 3:</strong> 100,000 unique customers / 24 hours.</p>
+<p>4. <strong>Tier 4:</strong> Unlimited unique customers.</p>
+
+<p><em>Note: User-initiated conversations (Service conversations) do not count towards these limits.</em></p>
+
+<h2 id="quality-ratings-status">Quality Ratings (Status)</h2>
+
+<p>Your phone number has a Quality Rating visible in the WhatsApp Manager (and via API/Webhooks).</p>
+<ul><li style="margin-left:8px"><strong>High (Green):</strong> Normal.</li>
+<li style="margin-left:0px"><strong>Medium (Yellow):</strong> Warning.</li>
+<li style="margin-left:0px"><strong>Low (Red):</strong> Danger.</li></ul>
+
+<p>If your rating hits "Low", your number's status changes from <code>CONNECTED</code> to <code>FLAGGED</code>.</p>
+
+<h3 id="the-flagged-penalty">The "Flagged" Penalty</h3>
+
+<p>When your number is <code>FLAGGED</code>:</p>
+<ul><li style="margin-left:0px">You cannot upgrade to a higher messaging tier.</li>
+<li style="margin-left:0px">If your rating doesn't improve within 7 days, your messaging limit is <strong>downgraded</strong> (e.g., from 10K back down to 1K).</li>
+<li style="margin-left:0px">If it remains low continuously, Meta may permanently disable the number.</li></ul>
+
+<h2 id="upgrading-limits">Upgrading Limits</h2>
+
+<p>Meta automatically upgrades your limit (e.g., Tier 1 -> Tier 2) within 24 hours when both of the following are true:</p>
+<p>1. Your quality rating is NOT Low.</p>
+<p>2. The cumulative total of business-initiated conversations you've opened over the last 7 days is greater than half of your current limit (e.g., > 500 for a 1k limit).</p>
+
+<h2 id="validation-rules-api-behavior">Validation Rules & API Behavior</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Scenario</th><th><span class="icon-reject">❌</span> Result (Rejection/Error)</th><th><span class="icon-accept">✅</span> Accepted Behavior</th></tr></thead><tbody><tr><td>Sending Broadcast over limit</td><td><code>Error 131056: Rate limit hit</code></td><td>Paused until window opens</td></tr><tr><td>Sending a PAUSED template</td><td><code>Error 100: Invalid parameter</code></td><td>-</td></tr><tr><td>Webhook status change</td><td>-</td><td><code>phone_number_quality_update</code> webhook</td></tr></tbody></table></div>
+<h2 id="seen-v2-implementation-notes">SEEN V2 Implementation Notes</h2>
+<ul><li style="margin-left:8px"><strong>Throttling:</strong> SEEN V2's Broadcast engine <strong>MUST</strong> check the current messaging tier before queuing 10,000 messages on a Tier 1 account. If it blasts 10K messages, 9,000 will fail with <code>Error 131056</code>, wasting API calls and potentially getting flagged for abuse.</li>
+<li style="margin-left:0px"><strong>Webhooks:</strong> SEEN V2 should listen for the <code>phone_number_quality_update</code> and <code>message_template_status_update</code> webhooks to alert the SEEN V2 user if they enter the "Red" zone or a template gets paused due to negative feedback.</li></ul>
+
+<h2 id="qa-checklist">QA Checklist</h2>
+<ul><li style="margin-left:8px">[ ] Ensure SEEN V2 tracks the 24-hour rolling volume of outbound broadcast messages.</li>
+<li style="margin-left:0px">[ ] Implement an alert banner in the SEEN V2 dashboard if the <code>quality_rating</code> webhook payload drops to <code>YELLOW</code> or <code>RED</code>.</li>
+<li style="margin-left:0px">[ ] Prevent sending broadcast messages if the template status is <code>PAUSED</code>.</li></ul>
+      </div>
+
+      <div class="topic-nav">
+        <a class="nav-prev" href="whatsapp-media-messages.html">← WhatsApp Media Messages (Images, Video, Docs)</a>
+        
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+(function(){
+  var html=document.documentElement,TK='maw-theme',LK='maw-lang';
+
+  // ── Theme ────────────────────────────────────────────────
+  function applyTheme(t){html.setAttribute('data-theme',t);localStorage.setItem(TK,t);}
+  applyTheme(localStorage.getItem(TK)||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));
+
+  // ── Language ─────────────────────────────────────────────
+  function applyLang(l){
+    html.setAttribute('data-lang',l);
+    html.setAttribute('lang',l==='ar'?'ar':'en');
+    html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+    localStorage.setItem(LK,l);
+    document.querySelectorAll('[data-en][data-ar]').forEach(function(el){
+      el.textContent=el.getAttribute(l==='ar'?'data-ar':'data-en');
+    });
+  }
+  applyLang(localStorage.getItem(LK)||'en');
+
+  // Wire up buttons after DOM is ready
+  function wireButtons(){
+    var thBtn=document.getElementById('theme-toggle');
+    if(thBtn) thBtn.addEventListener('click',function(){
+      applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+    });
+    var lgBtn=document.getElementById('lang-toggle');
+    if(lgBtn) lgBtn.addEventListener('click',function(){
+      applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
+    });
+    
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',wireButtons);
+  } else {
+    wireButtons();
+  }
+})();
+</script>
+</body>
+</html>

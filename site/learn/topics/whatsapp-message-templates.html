@@ -69,6 +69,7 @@
         </a>
         <span class="verified-date">Verified: 2026-06-24</span>
       </div>
+      
     </aside>
 
     <!-- Main Content -->
@@ -82,7 +83,10 @@
       </div>
 
       <div class="topic-hero">
-        <span class="platform-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">WhatsApp</span>
+        <div class="topic-hero-badges">
+          <span class="platform-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">WhatsApp</span>
+          
+        </div>
         <h1 class="topic-title">Message Templates</h1>
         <p class="topic-meta">Core API · Last verified: 2026-06-24</p>
       </div>
@@ -282,10 +286,6 @@
   // ── Theme ────────────────────────────────────────────────
   function applyTheme(t){html.setAttribute('data-theme',t);localStorage.setItem(TK,t);}
   applyTheme(localStorage.getItem(TK)||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));
-  var thBtn=document.getElementById('theme-toggle');
-  if(thBtn) thBtn.addEventListener('click',function(){
-    applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
-  });
 
   // ── Language ─────────────────────────────────────────────
   function applyLang(l){
@@ -298,12 +298,25 @@
     });
   }
   applyLang(localStorage.getItem(LK)||'en');
-  var lgBtn=document.getElementById('lang-toggle');
-  if(lgBtn) lgBtn.addEventListener('click',function(){
-    applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
-  });
 
-  
+  // Wire up buttons after DOM is ready
+  function wireButtons(){
+    var thBtn=document.getElementById('theme-toggle');
+    if(thBtn) thBtn.addEventListener('click',function(){
+      applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+    });
+    var lgBtn=document.getElementById('lang-toggle');
+    if(lgBtn) lgBtn.addEventListener('click',function(){
+      applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
+    });
+    
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',wireButtons);
+  } else {
+    wireButtons();
+  }
 })();
 </script>
 </body>

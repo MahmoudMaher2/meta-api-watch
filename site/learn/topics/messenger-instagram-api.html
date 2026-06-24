@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Messenger & Instagram Messaging API — Meta Docs Learn</title>
+  <meta name="description" content="Learn Messenger & Instagram Messaging API in Messenger: validation rules, error codes, examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+  <div class="header-inner">
+
+    <a href="../../index.html" class="header-logo" aria-label="Meta API Watch Home">
+      <span class="logo-icon">🔭</span>
+      <div class="logo-text">
+        <span class="site-title">Meta API Watch</span>
+        <span class="site-subtitle"
+              data-en="SEEN V2 · Developer Hub"
+              data-ar="SEEN V2 · مركز المطورين">SEEN V2 · Developer Hub</span>
+      </div>
+    </a>
+
+    <nav class="header-nav" role="navigation" aria-label="Main navigation">
+      <a href="../../changelog.html"
+         class="nav-tab"
+         >
+        <span data-en="🔔 Latest Updates" data-ar="🔔 آخر التحديثات">🔔 Latest Updates</span>
+      </a>
+      <a href="../../learn/index.html"
+         class="nav-tab active"
+         aria-current="page">
+        <span data-en="📚 Learn" data-ar="📚 تعلّم">📚 Learn</span>
+      </a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+        <span class="lang-en">EN</span>
+        <span class="lang-sep" aria-hidden="true">·</span>
+        <span class="lang-ar">عربي</span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+
+
+  <div class="learn-layout">
+
+    <!-- Sidebar -->
+    <aside class="learn-sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label">On this page</span>
+        <ul class="toc-list"><li class="toc-top"><a href="#the-24-hour-messaging-window">The 24-Hour Messaging Window</a></li><li class="toc-top"><a href="#shared-features-messenger-instagram">Shared Features (Messenger & Instagram)</a></li><li class="toc-top"><a href="#instagram-specific-features">Instagram-Specific Features</a></li><li class="toc-top"><a href="#parameters-fields-sending-a-generic-template">Parameters & Fields (Sending a Generic Template)</a></li><li class="toc-top"><a href="#validation-rules">Validation Rules</a></li><li class="toc-top"><a href="#webhooks">Webhooks</a></li><li class="toc-top"><a href="#qa-checklist">QA Checklist</a></li></ul>
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Source</span>
+        <a href="https://developers.facebook.com/docs/messenger-platform" target="_blank" rel="noopener" class="source-link">
+          📄 Meta Developer Docs ↗
+        </a>
+        <span class="verified-date">Verified: 2026-06-24</span>
+      </div>
+      
+    </aside>
+
+    <!-- Main Content -->
+    <main class="learn-content" id="main-content">
+      <div class="topic-breadcrumb">
+        <a href="../index.html">Learn</a>
+        <span>›</span>
+        <span style="color:#93c5fd">Messenger</span>
+        <span>›</span>
+        <span>Messenger & Instagram Messaging API</span>
+      </div>
+
+      <div class="topic-hero">
+        <div class="topic-hero-badges">
+          <span class="platform-badge" style="background:#0f1d3d;color:#93c5fd;border-color:#1e3a8a">Messenger</span>
+          
+        </div>
+        <h1 class="topic-title">Messenger & Instagram Messaging API</h1>
+        <p class="topic-meta">Core API · Last verified: 2026-06-24</p>
+      </div>
+
+      <div class="topic-body">
+        <h1>Messenger & Instagram Messaging API</h1>
+
+<p>The Messenger Platform powers both Facebook Messenger and Instagram Direct. Unlike WhatsApp, which is heavily template-driven and monetized per conversation, Messenger and Instagram rely on a <strong>24-hour standard messaging window</strong>.</p>
+
+<h2 id="the-24-hour-messaging-window">The 24-Hour Messaging Window</h2>
+
+<p>When a user sends a message to your Facebook Page or Instagram Professional Account, a 24-hour timer starts.</p>
+<ul><li style="margin-left:8px"><strong>Within 24 hours:</strong> You can send standard messages, media, and interactive elements (like generic templates) for free.</li>
+<li style="margin-left:0px"><strong>After 24 hours:</strong> You can <strong>only</strong> send messages if they qualify for specific Message Tags (e.g., <code>CONFIRMED_EVENT_UPDATE</code>, <code>POST_PURCHASE_UPDATE</code>, <code>ACCOUNT_UPDATE</code>). Promotional messages outside the 24-hour window are strictly prohibited unless sent as Sponsored Messages (Ads).</li></ul>
+
+<h2 id="shared-features-messenger-instagram">Shared Features (Messenger & Instagram)</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Feature</th><th>Messenger</th><th>Instagram</th><th>Description</th></tr></thead><tbody><tr><td><strong>Text & Media</strong></td><td><span class="icon-accept">✅</span></td><td><span class="icon-accept">✅</span></td><td>Standard text, images, audio, video, files.</td></tr><tr><td><strong>Ice Breakers</strong></td><td><span class="icon-accept">✅</span></td><td><span class="icon-accept">✅</span></td><td>Quick-tap FAQs shown when a user first opens the chat.</td></tr><tr><td><strong>Generic Template</strong></td><td><span class="icon-accept">✅</span></td><td><span class="icon-accept">✅</span></td><td>A horizontal scrollable carousel of cards (image, title, subtitle, buttons).</td></tr><tr><td><strong>Quick Replies</strong></td><td><span class="icon-accept">✅</span></td><td><span class="icon-accept">✅</span></td><td>Up to 13 buttons (Messenger) or 13 buttons (Instagram) that disappear after tapping.</td></tr></tbody></table></div>
+<h2 id="instagram-specific-features">Instagram-Specific Features</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Feature</th><th>Description</th><th>SEEN V2 Use Case</th></tr></thead><tbody><tr><td><strong>Story Mentions</strong></td><td>Triggers a webhook when a user @mentions the brand in their Story.</td><td>Auto-reply to mentions thanking the user and sending a discount code.</td></tr><tr><td><strong>Story Replies</strong></td><td>Triggers a webhook when a user replies to the brand's Story.</td><td>Capture leads based on specific Story content.</td></tr><tr><td><strong>Product Templates</strong></td><td>Send Instagram Shop products natively in chat.</td><td>abandoned cart recovery within the 24-hour window.</td></tr></tbody></table></div>
+<h2 id="parameters-fields-sending-a-generic-template">Parameters & Fields (Sending a Generic Template)</h2>
+
+<p>The Generic Template (Carousel) is the most common rich UI element across both platforms.</p>
+
+<pre class="code-block"><code class="lang-json">POST /v19.0/{PAGE_ID}/messages
+<p>Authorization: Bearer {PAGE_ACCESS_TOKEN}</p>
+
+<p>{</p>
+<p>  "recipient": {</p>
+<p>    "id": "{{PSID_OR_IGSID}}"</p>
+<p>  },</p>
+<p>  "message": {</p>
+<p>    "attachment": {</p>
+<p>      "type": "template",</p>
+<p>      "payload": {</p>
+<p>        "template_type": "generic",</p>
+<p>        "elements": [</p>
+<p>          {</p>
+<p>            "title": "Welcome to SEEN V2",</p>
+<p>            "image_url": "https://seen-v2.com/hero.jpg",</p>
+<p>            "subtitle": "The ultimate omnichannel platform.",</p>
+<p>            "default_action": {</p>
+<p>              "type": "web_url",</p>
+<p>              "url": "https://seen-v2.com",</p>
+<p>              "webview_height_ratio": "tall"</p>
+<p>            },</p>
+<p>            "buttons": [</p>
+<p>              {</p>
+<p>                "type": "web_url",</p>
+<p>                "url": "https://seen-v2.com",</p>
+<p>                "title": "View Website"</p>
+<p>              },</p>
+<p>              {</p>
+<p>                "type": "postback",</p>
+<p>                "title": "Start Chatting",</p>
+<p>                "payload": "START_PAYLOAD"</p>
+<p>              }</p>
+<p>            ]</p>
+<p>          }</p>
+<p>        ]</p>
+<p>      }</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<h2 id="validation-rules">Validation Rules</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Gets REJECTED</th><th><span class="icon-accept">✅</span> Gets ACCEPTED</th></tr></thead><tbody><tr><td>Carousel Cards</td><td>11+ elements</td><td>Up to 10 elements</td></tr><tr><td>Quick Replies</td><td>14+ quick replies</td><td>Up to 13 quick replies</td></tr><tr><td>Outside 24h Window</td><td>Standard message with no tag</td><td>Message with valid <code>message_tag</code></td></tr><tr><td>IG Story Mention</td><td>Replying 8 days later</td><td>Replying within 7 days</td></tr></tbody></table></div>
+<h2 id="webhooks">Webhooks</h2>
+
+<p>Messenger and Instagram webhooks share the exact same format and are delivered to the same endpoint.</p>
+
+<p><strong>Crucial SEEN V2 Note:</strong> Because the payloads look identical, you must check the <code>messaging.message.is_echo</code> flag to ignore messages the bot itself sent, and look for <code>standby</code> vs <code>messaging</code> events if using the Handover Protocol (passing control between Bot and Human agent).</p>
+
+<h2 id="qa-checklist">QA Checklist</h2>
+<ul><li style="margin-left:8px">[ ] Ensure SEEN V2 tracks the 24-hour window timer for every active conversation per user (PSID/IGSID).</li>
+<li style="margin-left:0px">[ ] Prevent agents or automated broadcasts from sending untagged messages after 24 hours.</li>
+<li style="margin-left:0px">[ ] Implement support for Instagram Story Mention webhook payloads natively in the Flow Builder.</li></ul>
+      </div>
+
+      <div class="topic-nav">
+        
+        
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+(function(){
+  var html=document.documentElement,TK='maw-theme',LK='maw-lang';
+
+  // ── Theme ────────────────────────────────────────────────
+  function applyTheme(t){html.setAttribute('data-theme',t);localStorage.setItem(TK,t);}
+  applyTheme(localStorage.getItem(TK)||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));
+
+  // ── Language ─────────────────────────────────────────────
+  function applyLang(l){
+    html.setAttribute('data-lang',l);
+    html.setAttribute('lang',l==='ar'?'ar':'en');
+    html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+    localStorage.setItem(LK,l);
+    document.querySelectorAll('[data-en][data-ar]').forEach(function(el){
+      el.textContent=el.getAttribute(l==='ar'?'data-ar':'data-en');
+    });
+  }
+  applyLang(localStorage.getItem(LK)||'en');
+
+  // Wire up buttons after DOM is ready
+  function wireButtons(){
+    var thBtn=document.getElementById('theme-toggle');
+    if(thBtn) thBtn.addEventListener('click',function(){
+      applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+    });
+    var lgBtn=document.getElementById('lang-toggle');
+    if(lgBtn) lgBtn.addEventListener('click',function(){
+      applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
+    });
+    
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',wireButtons);
+  } else {
+    wireButtons();
+  }
+})();
+</script>
+</body>
+</html>

@@ -383,7 +383,6 @@ ${buildHead(
   </footer>
 
   <script src="app.js"></script>
-  ${buildSharedScript()}
 </body>
 </html>`;
 }
@@ -473,7 +472,7 @@ ${buildHead(
     </p>
   </footer>
 
-  ${buildSharedScript()}
+  <script src="app.js"></script>
 </body>
 </html>`;
 }
@@ -523,6 +522,20 @@ function main() {
   const welcomeHtml = buildWelcome(articles, learnTopics);
   fs.writeFileSync(WELCOME, welcomeHtml);
   console.log(`✅ Welcome page rebuilt: ${WELCOME}`);
+
+  // 3. Rebuild Learn section (picks up any new content-learn topics from Step 3.5)
+  const buildLearnScript = path.join(__dirname, 'build-learn.js');
+  if (fs.existsSync(buildLearnScript)) {
+    try {
+      require(buildLearnScript);
+      console.log(`✅ Learn section rebuilt`);
+    } catch(e) {
+      // build-learn calls main() immediately on require — run as child process instead
+      const { execSync } = require('child_process');
+      execSync(`node "${buildLearnScript}"`, { cwd: path.join(__dirname, '..'), stdio: 'inherit' });
+      console.log(`✅ Learn section rebuilt`);
+    }
+  }
 }
 
 main();

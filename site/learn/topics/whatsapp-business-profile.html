@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WhatsApp Business Profile API — Meta Docs Learn</title>
+  <meta name="description" content="Learn WhatsApp Business Profile API in WhatsApp: validation rules, error codes, examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+  <div class="header-inner">
+
+    <a href="../../index.html" class="header-logo" aria-label="Meta API Watch Home">
+      <span class="logo-icon">🔭</span>
+      <div class="logo-text">
+        <span class="site-title">Meta API Watch</span>
+        <span class="site-subtitle"
+              data-en="SEEN V2 · Developer Hub"
+              data-ar="SEEN V2 · مركز المطورين">SEEN V2 · Developer Hub</span>
+      </div>
+    </a>
+
+    <nav class="header-nav" role="navigation" aria-label="Main navigation">
+      <a href="../../changelog.html"
+         class="nav-tab"
+         >
+        <span data-en="🔔 Latest Updates" data-ar="🔔 آخر التحديثات">🔔 Latest Updates</span>
+      </a>
+      <a href="../../learn/index.html"
+         class="nav-tab active"
+         aria-current="page">
+        <span data-en="📚 Learn" data-ar="📚 تعلّم">📚 Learn</span>
+      </a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+        <span class="lang-en">EN</span>
+        <span class="lang-sep" aria-hidden="true">·</span>
+        <span class="lang-ar">عربي</span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+
+
+  <div class="learn-layout">
+
+    <!-- Sidebar -->
+    <aside class="learn-sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label">On this page</span>
+        <ul class="toc-list"><li class="toc-top"><a href="#managing-the-profile">Managing the Profile</a></li><li class="toc-sub"><a href="#parameters-fields-updating-profile">Parameters & Fields (Updating Profile)</a></li><li class="toc-top"><a href="#validation-rules">Validation Rules</a></li><li class="toc-top"><a href="#live-preview-what-it-looks-like">Live Preview — What It Looks Like</a></li><li class="toc-sub"><a href="#-correct-usage-updating-profile">✅ Correct Usage — Updating Profile</a></li><li class="toc-sub"><a href="#-common-mistake-invalid-website-format">❌ Common Mistake — Invalid Website Format</a></li><li class="toc-top"><a href="#profile-picture">Profile Picture</a></li><li class="toc-top"><a href="#seen-v2-implementation-notes">SEEN V2 Implementation Notes</a></li><li class="toc-top"><a href="#qa-checklist">QA Checklist</a></li></ul>
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Source</span>
+        <a href="https://developers.facebook.com/docs/whatsapp/cloud-api/reference/business-profiles" target="_blank" rel="noopener" class="source-link">
+          📄 Meta Developer Docs ↗
+        </a>
+        <span class="verified-date">Verified: 2026-06-24</span>
+      </div>
+      
+    </aside>
+
+    <!-- Main Content -->
+    <main class="learn-content" id="main-content">
+      <div class="topic-breadcrumb">
+        <a href="../index.html">Learn</a>
+        <span>›</span>
+        <span style="color:#4ade80">WhatsApp</span>
+        <span>›</span>
+        <span>WhatsApp Business Profile API</span>
+      </div>
+
+      <div class="topic-hero">
+        <div class="topic-hero-badges">
+          <span class="platform-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">WhatsApp</span>
+          
+        </div>
+        <h1 class="topic-title">WhatsApp Business Profile API</h1>
+        <p class="topic-meta">Core API · Last verified: 2026-06-24</p>
+      </div>
+
+      <div class="topic-body">
+        <h1>WhatsApp Business Profile API</h1>
+
+<p>The Business Profile API allows SEEN V2 to programmatically manage the public-facing profile of a WhatsApp Business Account (WABA). This is what end-users see when they click on the business name in WhatsApp.</p>
+
+<h2 id="managing-the-profile">Managing the Profile</h2>
+
+<p>You can read and update the profile details using the <code>/whatsapp_business_profile</code> edge on the Phone Number ID.</p>
+
+<h3 id="parameters-fields-updating-profile">Parameters & Fields (Updating Profile)</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>messaging_product</code></td><td>string</td><td>Yes</td><td>Must be <code>"whatsapp"</code></td></tr><tr><td><code>address</code></td><td>string</td><td>No</td><td>Physical address (max 256 chars)</td></tr><tr><td><code>description</code></td><td>string</td><td>No</td><td>Business description (max 512 chars)</td></tr><tr><td><code>vertical</code></td><td>enum</td><td>No</td><td>Industry category (e.g., <code>RETAIL</code>, <code>FINANCE</code>)</td></tr><tr><td><code>email</code></td><td>string</td><td>No</td><td>Contact email (max 128 chars)</td></tr><tr><td><code>websites</code></td><td>array</td><td>No</td><td>Up to 2 URLs (max 256 chars each)</td></tr><tr><td><code>profile_picture_handle</code></td><td>string</td><td>No</td><td>Uploaded media handle for the avatar</td></tr><tr><td><code>about</code></td><td>string</td><td>No</td><td>The "About" text shown below the number (max 139 chars)</td></tr></tbody></table></div>
+<h2 id="validation-rules">Validation Rules</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Gets REJECTED</th><th><span class="icon-accept">✅</span> Gets ACCEPTED</th></tr></thead><tbody><tr><td>Websites Limit</td><td>Array with 3+ URLs</td><td>Array with 1 or 2 URLs</td></tr><tr><td>Website Format</td><td><code>"www.example.com"</code></td><td><code>"http://www.example.com"</code> or <code>"https://..."</code></td></tr><tr><td>About Length</td><td>140+ characters</td><td>139 chars max</td></tr><tr><td>Vertical Enum</td><td><code>"Technology"</code></td><td><code>"OTHER"</code>, <code>"RETAIL"</code>, <code>"PROF_SERVICES"</code> etc.</td></tr></tbody></table></div>
+<h2 id="live-preview-what-it-looks-like">Live Preview — What It Looks Like</h2>
+
+<div class="preview-block preview-accepted"><span class="preview-label preview-label-ok">✅ Correct Usage — Live Preview</span>### ✅ Correct Usage — Updating Profile
+
+<pre class="code-block"><code class="lang-json">POST /v19.0/{PHONE_NUMBER_ID}/whatsapp_business_profile
+<p>Authorization: Bearer {ACCESS_TOKEN}</p>
+
+<p>{</p>
+<p>  "messaging_product": "whatsapp",</p>
+<p>  "address": "123 Commerce St, New York, NY",</p>
+<p>  "description": "Your favorite place for tech gadgets.",</p>
+<p>  "vertical": "RETAIL",</p>
+<p>  "email": "contact@seenv2.com",</p>
+<p>  "websites": [</p>
+<p>    "https://seenv2.com",</p>
+<p>    "https://help.seenv2.com"</p>
+<p>  ],</p>
+<p>  "about": "Available 24/7 for support"</p>
+<p>}</code></pre></p>
+
+<p><strong>Why it works:</strong> Valid URL formats, less than 3 websites, valid vertical enum.</p>
+
+<p></div><div class="preview-block preview-rejected"><span class="preview-label preview-label-err"><span class="icon-reject">❌</span> Common Mistake — What Goes Wrong</span>### <span class="icon-reject">❌</span> Common Mistake — Invalid Website Format</p>
+
+<pre class="code-block"><code class="lang-json">{
+<p>  "messaging_product": "whatsapp",</p>
+<p>  "websites": [</p>
+<p>    "seenv2.com"</p>
+<p>  ]</p>
+<p>}</code></pre></p>
+
+<p><strong>Error:</strong> <code>Error 100: Invalid parameter</code> — URLs must begin with <code>http://</code> or <code>https://</code>.</p>
+
+<h2 id="profile-picture">Profile Picture</h2>
+
+<p>Updating the profile picture requires a 2-step process using Resumable Uploads, not a direct URL.</p>
+
+<p>1. <strong>Create an Upload Session:</strong> POST to <code>/{APP_ID}/uploads</code></p>
+<p>2. <strong>Upload the file:</strong> POST binary data to the returned session ID</p>
+<p>3. <strong>Update the profile:</strong> Pass the returned handle to <code>profile_picture_handle</code></p>
+
+<h2 id="seen-v2-implementation-notes">SEEN V2 Implementation Notes</h2>
+<ul><li style="margin-left:8px"><strong>Settings UI:</strong> SEEN V2's settings dashboard should strictly validate these inputs client-side (especially URL schemes and max character counts) before hitting the Meta API to prevent frustrating errors.</li>
+<li style="margin-left:0px"><strong>Caching:</strong> Fetch the profile on app load and cache it. Do not fetch it dynamically on every page render.</li></ul>
+
+<h2 id="qa-checklist">QA Checklist</h2>
+<ul><li style="margin-left:8px">[ ] Validate URLs have <code>http(s)://</code></li>
+<li style="margin-left:0px">[ ] Enforce max length of 139 chars for the <code>about</code> field</li>
+<li style="margin-left:0px">[ ] Ensure vertical selection uses Meta's exact enum values, not arbitrary strings</div></li></ul>
+      </div>
+
+      <div class="topic-nav">
+        <a class="nav-prev" href="whatsapp-webhooks.html">← WhatsApp Webhooks</a>
+        <a class="nav-next" href="whatsapp-campaigns-broadcasts.html">WhatsApp Campaigns & Broadcasts →</a>
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+(function(){
+  var html=document.documentElement,TK='maw-theme',LK='maw-lang';
+
+  // ── Theme ────────────────────────────────────────────────
+  function applyTheme(t){html.setAttribute('data-theme',t);localStorage.setItem(TK,t);}
+  applyTheme(localStorage.getItem(TK)||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));
+
+  // ── Language ─────────────────────────────────────────────
+  function applyLang(l){
+    html.setAttribute('data-lang',l);
+    html.setAttribute('lang',l==='ar'?'ar':'en');
+    html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+    localStorage.setItem(LK,l);
+    document.querySelectorAll('[data-en][data-ar]').forEach(function(el){
+      el.textContent=el.getAttribute(l==='ar'?'data-ar':'data-en');
+    });
+  }
+  applyLang(localStorage.getItem(LK)||'en');
+
+  // Wire up buttons after DOM is ready
+  function wireButtons(){
+    var thBtn=document.getElementById('theme-toggle');
+    if(thBtn) thBtn.addEventListener('click',function(){
+      applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+    });
+    var lgBtn=document.getElementById('lang-toggle');
+    if(lgBtn) lgBtn.addEventListener('click',function(){
+      applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
+    });
+    
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',wireButtons);
+  } else {
+    wireButtons();
+  }
+})();
+</script>
+</body>
+</html>

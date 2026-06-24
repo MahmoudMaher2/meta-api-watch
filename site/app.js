@@ -6,9 +6,9 @@
   const html = document.documentElement;
 
   // ── Theme Toggle ────────────────────────────────────────────────────────────
-  const themeBtn    = document.getElementById('theme-toggle');
-  const THEME_KEY   = 'maw-theme';
-  const LANG_KEY    = 'maw-lang';
+  const themeBtn  = document.getElementById('theme-toggle');
+  const THEME_KEY = 'maw-theme';
+  const LANG_KEY  = 'maw-lang';
 
   function applyTheme(theme) {
     html.setAttribute('data-theme', theme);
@@ -20,19 +20,18 @@
   applyTheme(savedTheme);
 
   if (themeBtn) {
-    themeBtn.addEventListener('click', () => {
+    themeBtn.addEventListener('click', function() {
       applyTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
     });
   }
 
-  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
+  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', function(e) {
     if (!localStorage.getItem(THEME_KEY)) applyTheme(e.matches ? 'light' : 'dark');
   });
 
   // ── Language Toggle (AR / EN) ───────────────────────────────────────────────
   const langBtn = document.getElementById('lang-toggle');
 
-  // Elements with data-en / data-ar attributes
   function applyLang(lang) {
     html.setAttribute('data-lang', lang);
     html.setAttribute('lang', lang === 'ar' ? 'ar' : 'en');
@@ -40,12 +39,12 @@
     localStorage.setItem(LANG_KEY, lang);
 
     // Update all bilingual text nodes
-    document.querySelectorAll('[data-en][data-ar]').forEach(el => {
+    document.querySelectorAll('[data-en][data-ar]').forEach(function(el) {
       el.textContent = el.getAttribute(lang === 'ar' ? 'data-ar' : 'data-en');
     });
 
     // Update expand button labels inside cards
-    document.querySelectorAll('.btn-expand').forEach(btn => {
+    document.querySelectorAll('.btn-expand').forEach(function(btn) {
       const more = btn.querySelector('.lbl-more');
       const less = btn.querySelector('.lbl-less');
       if (more) more.textContent = more.getAttribute(lang === 'ar' ? 'data-ar' : 'data-en');
@@ -57,29 +56,27 @@
   applyLang(savedLang);
 
   if (langBtn) {
-    langBtn.addEventListener('click', () => {
+    langBtn.addEventListener('click', function() {
       applyLang(html.getAttribute('data-lang') === 'ar' ? 'en' : 'ar');
     });
   }
 
   // ── Card Expand / Collapse ──────────────────────────────────────────────────
-  document.addEventListener('click', e => {
+  document.addEventListener('click', function(e) {
     const btn = e.target.closest('.btn-expand');
     if (!btn) return;
 
-    const detId  = btn.getAttribute('data-det');
-    const detEl  = detId ? document.getElementById(detId) : null;
+    const detId = btn.getAttribute('data-det');
+    const detEl = detId ? document.getElementById(detId) : null;
     if (!detEl) return;
 
     const isOpen = btn.getAttribute('aria-expanded') === 'true';
 
     if (isOpen) {
-      // Close
       detEl.classList.remove('open');
       btn.setAttribute('aria-expanded', 'false');
       detEl.setAttribute('aria-hidden', 'true');
     } else {
-      // Open — re-trigger animation
       detEl.classList.remove('open');
       void detEl.offsetWidth; // reflow
       detEl.classList.add('open');
@@ -88,46 +85,48 @@
     }
   });
 
-  // ── Filters ─────────────────────────────────────────────────────────────────
+  // ── Filters (Changelog page only) ───────────────────────────────────────────
   const filterCat = document.getElementById('filter-category');
   const filterMod = document.getElementById('filter-module');
   const clearBtn  = document.getElementById('clear-filters');
   const countEl   = document.getElementById('filtered-count');
   const grid      = document.getElementById('cards-grid');
 
-  if (!grid) return;
+  // Only wire up filters if we're on a page that has them
+  if (grid && filterCat && filterMod && clearBtn) {
 
-  function applyFilters() {
-    const cat   = filterCat.value.toLowerCase();
-    const mod   = filterMod.value.toLowerCase();
-    const cards = grid.querySelectorAll('.card');
-    let visible = 0;
+    function applyFilters() {
+      const cat   = filterCat.value.toLowerCase();
+      const mod   = filterMod.value.toLowerCase();
+      const cards = grid.querySelectorAll('.card');
+      let visible = 0;
 
-    cards.forEach(card => {
-      const cardCat  = (card.dataset.category || '').toLowerCase();
-      const cardMods = (card.dataset.modules  || '').toLowerCase();
-      const catOk = !cat || cardCat === cat;
-      const modOk = !mod || cardMods.split(',').map(m => m.trim()).includes(mod);
-      const show = catOk && modOk;
-      card.classList.toggle('hidden', !show);
-      if (show) visible++;
+      cards.forEach(function(card) {
+        const cardCat  = (card.dataset.category || '').toLowerCase();
+        const cardMods = (card.dataset.modules  || '').toLowerCase();
+        const catOk = !cat || cardCat === cat;
+        const modOk = !mod || cardMods.split(',').map(function(m) { return m.trim(); }).includes(mod);
+        const show = catOk && modOk;
+        card.classList.toggle('hidden', !show);
+        if (show) visible++;
+      });
+
+      if (countEl) countEl.textContent = visible;
+    }
+
+    filterCat.addEventListener('change', applyFilters);
+    filterMod.addEventListener('change', applyFilters);
+
+    clearBtn.addEventListener('click', function() {
+      filterCat.value = '';
+      filterMod.value = '';
+      applyFilters();
     });
 
-    if (countEl) countEl.textContent = visible;
+    // Stagger card animations
+    grid.querySelectorAll('.card').forEach(function(card, i) {
+      card.style.animationDelay = (i * 30) + 'ms';
+    });
   }
-
-  filterCat.addEventListener('change', applyFilters);
-  filterMod.addEventListener('change', applyFilters);
-
-  clearBtn.addEventListener('click', () => {
-    filterCat.value = '';
-    filterMod.value = '';
-    applyFilters();
-  });
-
-  // Stagger card animations
-  grid.querySelectorAll('.card').forEach((card, i) => {
-    card.style.animationDelay = `${i * 30}ms`;
-  });
 
 })();
