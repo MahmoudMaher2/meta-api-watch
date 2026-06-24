@@ -4,61 +4,55 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meta API Watch — SEEN V2 Changelog Tracker</title>
-  <meta name="description" content="Daily tracker for Meta Developer API changes relevant to SEEN V2 (WhatsApp, Messenger, Instagram Messaging). Never get blindsided by an API update again." />
+  <meta name="description" content="Daily tracker for Meta Developer API changes for SEEN V2." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <header class="site-header">
-    <div class="header-inner">
-      <div class="header-logo">
-        <span class="logo-icon">🔭</span>
-        <div>
-          <h1 class="site-title">Meta API Watch</h1>
-          <p class="site-subtitle"
-             data-en="SEEN V2 · Developer Docs Tracker"
-             data-ar="SEEN V2 · متتبّع تحديثات المطورين">SEEN V2 · Developer Docs Tracker</p>
-        </div>
+  <div class="header-inner">
+
+    <a href="index.html" class="header-logo" aria-label="Meta API Watch Home">
+      <span class="logo-icon">🔭</span>
+      <div class="logo-text">
+        <span class="site-title">Meta API Watch</span>
+        <span class="site-subtitle"
+              data-en="SEEN V2 · Developer Hub"
+              data-ar="SEEN V2 · مركز المطورين">SEEN V2 · Developer Hub</span>
       </div>
-      <div class="header-center">
-        <div class="last-build">
-          <span class="last-build-label"
-                data-en="Last Build" data-ar="آخر بناء">Last Build</span>
-          <span class="last-build-date">24 Jun 2026</span>
-          <span class="last-build-time">5:38 PM (Cairo)</span>
-        </div>
-      </div>
-      <div class="header-right">
-        <div class="header-stats">
-          <div class="stat">
-            <span class="stat-num" id="total-count">110</span>
-            <span class="stat-label"
-                  data-en="updates tracked" data-ar="تحديث مرصود">updates tracked</span>
-          </div>
-          <div class="stat">
-            <span class="stat-num">1</span>
-            <span class="stat-label"
-                  data-en="breaking changes" data-ar="تغيير جذري">breaking changes</span>
-          </div>
-        </div>
-        <!-- Language toggle -->
-        <button id="lang-toggle" class="lang-toggle" aria-label="Toggle language">
-          <span class="lang-en">EN</span>
-          <span class="lang-sep">·</span>
-          <span class="lang-ar">عربي</span>
-        </button>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode">
-          <span class="icon-sun">☀️</span>
-          <span class="icon-moon">🌙</span>
-        </button>
-        <a href="learn/index.html" class="btn-learn">
-          <span data-en="📚 Learn" data-ar="📚 تعلّم">📚 Learn</span>
-        </a>
-      </div>
+    </a>
+
+    <nav class="header-nav" role="navigation" aria-label="Main navigation">
+      <a href="changelog.html"
+         class="nav-tab active"
+         aria-current="page">
+        <span data-en="🔔 Latest Updates" data-ar="🔔 آخر التحديثات">🔔 Latest Updates</span>
+      </a>
+      <a href="learn/index.html"
+         class="nav-tab"
+         >
+        <span data-en="📚 Learn" data-ar="📚 تعلّم">📚 Learn</span>
+      </a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+        <span class="lang-en">EN</span>
+        <span class="lang-sep" aria-hidden="true">·</span>
+        <span class="lang-ar">عربي</span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+      </button>
     </div>
-  </header>
+
+  </div>
+</header>
+
+
 
   <div class="filters-bar">
     <div class="filters-inner">
@@ -7139,10 +7133,41 @@
       <a href="https://antigravity.dev" target="_blank" rel="noopener">Antigravity</a> ·
       <span data-en="Sources:" data-ar="المصادر:">Sources:</span>
       <a href="https://developers.facebook.com/docs" target="_blank" rel="noopener">Meta for Developers</a> ·
-      <time datetime="2026-06-24T14:38:50.358Z">24 Jun 2026 5:38 PM (Cairo)</time>
+      <time datetime="2026-06-24T15:51:02.069Z">24 Jun 2026 6:51 PM (Cairo)</time>
     </p>
   </footer>
 
   <script src="app.js"></script>
+  <script>
+(function(){
+  var html=document.documentElement,TK='maw-theme',LK='maw-lang';
+
+  // ── Theme ────────────────────────────────────────────────
+  function applyTheme(t){html.setAttribute('data-theme',t);localStorage.setItem(TK,t);}
+  applyTheme(localStorage.getItem(TK)||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));
+  var thBtn=document.getElementById('theme-toggle');
+  if(thBtn) thBtn.addEventListener('click',function(){
+    applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+  });
+
+  // ── Language ─────────────────────────────────────────────
+  function applyLang(l){
+    html.setAttribute('data-lang',l);
+    html.setAttribute('lang',l==='ar'?'ar':'en');
+    html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+    localStorage.setItem(LK,l);
+    document.querySelectorAll('[data-en][data-ar]').forEach(function(el){
+      el.textContent=el.getAttribute(l==='ar'?'data-ar':'data-en');
+    });
+  }
+  applyLang(localStorage.getItem(LK)||'en');
+  var lgBtn=document.getElementById('lang-toggle');
+  if(lgBtn) lgBtn.addEventListener('click',function(){
+    applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
+  });
+
+  
+})();
+</script>
 </body>
 </html>

@@ -13,6 +13,7 @@
 
 const fs   = require('fs');
 const path = require('path');
+const { buildHeader, buildSharedScript, buildHead } = require('./header');
 
 const ROOT        = path.resolve(__dirname, '..');
 const CONTENT_DIR = path.join(ROOT, 'content-learn');
@@ -158,32 +159,17 @@ function buildTopicPage(topic, allTopics) {
   const nextLink = next ? `<a class="nav-next" href="${next.slug}.html">${next.title} →</a>` : '';
 
   return `<!DOCTYPE html>
-<html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>${topic.title} — Meta Docs Learn</title>
-  <meta name="description" content="Learn how ${topic.title} works in ${topic.platform} — parameters, validation rules, error codes, and examples." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css" />
-</head>
+<html lang="en" data-theme="dark" data-lang="en">
+${buildHead(
+  `${topic.title} — Meta Docs Learn`,
+  `Learn ${topic.title} in ${topic.platform}: validation rules, error codes, examples.`,
+  '../../style.css'
+)}
 <body>
 
-  <header class="learn-header">
-    <div class="learn-header-inner">
-      <a href="../index.html" class="back-home">
-        <span>←</span> Meta Docs Learn
-      </a>
-      <div class="header-actions">
-        <a href="../../changelog.html" class="link-changelog">📋 Changelog</a>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-          <span class="icon-sun">☀️</span>
-          <span class="icon-moon">🌙</span>
-        </button>
-      </div>
-    </div>
-  </header>
+  ${buildHeader('../../', 'learn')}
+
+
 
   <div class="learn-layout">
 
@@ -230,7 +216,7 @@ function buildTopicPage(topic, allTopics) {
 
   </div>
 
-  <script src="../app.js"></script>
+  ${buildSharedScript()}
 </body>
 </html>`;
 }
@@ -275,36 +261,17 @@ function buildIndex(topics) {
   });
 
   return `<!DOCTYPE html>
-<html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meta Docs Learn — WhatsApp & Messenger API Reference</title>
-  <meta name="description" content="Learn every Meta API feature with validation rules, error codes, and CRUD examples for WhatsApp, Messenger, and Instagram APIs." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-</head>
+<html lang="en" data-theme="dark" data-lang="en">
+${buildHead(
+  'Meta Docs Learn — WhatsApp & Messenger API Reference',
+  'Learn every Meta API feature with exact validation rules, error codes, and CRUD examples.',
+  '../style.css'
+)}
 <body>
 
-  <header class="learn-header">
-    <div class="learn-header-inner">
-      <div class="learn-brand">
-        <span class="learn-brand-icon">📚</span>
-        <div>
-          <h1 class="learn-brand-title">Meta Docs Learn</h1>
-          <p class="learn-brand-sub">Validation-first API reference for SEEN V2</p>
-        </div>
-      </div>
-      <div class="header-actions">
-        <a href="../changelog.html" class="link-changelog">📋 Changelog</a>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-          <span class="icon-sun">☀️</span>
-          <span class="icon-moon">🌙</span>
-        </button>
-      </div>
-    </div>
-  </header>
+  ${buildHeader('../', 'learn')}
+
+
 
   <main class="learn-home">
     <div class="home-hero">
@@ -331,7 +298,7 @@ function buildIndex(topics) {
     </footer>
   </main>
 
-  <script src="app.js"></script>
+  ${buildSharedScript()}
 </body>
 </html>`;
 }
@@ -343,13 +310,7 @@ function main() {
   const topics = getAllTopics();
   console.log(`\n📚 Found ${topics.length} topic(s)\n`);
 
-  // Copy CSS + JS from content-learn if not in site/learn
-  const cssSource = path.join(ROOT, 'learn', 'style.css');
-  const jsSource  = path.join(ROOT, 'learn', 'app.js');
-  const cssDest   = path.join(LEARN_DIR, 'style.css');
-  const jsDest    = path.join(LEARN_DIR, 'app.js');
-  if (fs.existsSync(cssSource)) fs.copyFileSync(cssSource, cssDest);
-  if (fs.existsSync(jsSource))  fs.copyFileSync(jsSource,  jsDest);
+  // CSS served from site/style.css (shared header)
 
   // Build each topic page
   for (const topic of topics) {
