@@ -1,0 +1,1757 @@
+{
+  "version": 1,
+  "built": "2026-06-24T18:43:54.243Z",
+  "items": [
+    {
+      "type": "changelog",
+      "id": "changelog-2026-06-11-whatsapp-changelog--webhooks-updated-the-business-scoped-user-ids-page",
+      "title": ", *Webhooks*  Updated the Business-scoped user IDs page",
+      "date": "2026-06-11",
+      "category": "New Feature",
+      "modules": [
+        "Webhooks"
+      ],
+      "snippet": "Summary , Webhooks Updated the Business-scoped user IDs page. Added from_user_id and from_parent_user_id to the coexistence edit and revoke messages webhooks pa…",
+      "url": "changelog.html",
+      "anchor": "card-2026-06-11-whatsapp-changelog--webhooks-updated-the-business-scoped-user-ids-page"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-06-10-whatsapp-changelog--corrected-the-terms-of-service-url-required-in-the-policy",
+      "title": "* Corrected the Terms of Service URL required in the `policy",
+      "date": "2026-06-10",
+      "category": "Bug Fix/Clarification",
+      "modules": [
+        "WhatsApp Templates",
+        "Channel Integration/OAuth"
+      ],
+      "snippet": "Summary Corrected the Terms of Service URL required in the policy.tos field when you create your first signup with the In-App Signup API. The approved URL is ht…",
+      "url": "changelog.html",
+      "anchor": "card-2026-06-10-whatsapp-changelog--corrected-the-terms-of-service-url-required-in-the-policy"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-06-09-whatsapp-changelog-updated-the-business-scoped-user-ids-doc-to-document-the-opt",
+      "title": "Updated the Business-scoped user IDs doc to document the optional `transfer_action` reques",
+      "date": "2026-06-09",
+      "category": "Bug Fix/Clarification",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary Updated the Business-scoped user IDs doc to document the optional transfer_action request parameter (none, force_transfer) on the set-username endpoint,…",
+      "url": "changelog.html",
+      "anchor": "card-2026-06-09-whatsapp-changelog-updated-the-business-scoped-user-ids-doc-to-document-the-opt"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-06-03-whatsapp-changelog--clarified-the-business-phone-numbers-documentation-deleting",
+      "title": "* Clarified the Business phone numbers documentation: deleting a business phone number isn",
+      "date": "2026-06-03",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary Clarified the Business phone numbers documentation: deleting a business phone number isn’t supported via the API. Use WhatsApp Manager⁠ to delete a busi…",
+      "url": "changelog.html",
+      "anchor": "card-2026-06-03-whatsapp-changelog--clarified-the-business-phone-numbers-documentation-deleting"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-06-02-whatsapp-changelog-added-in-app-signup-a-new-guide-for-creating-opt-in-deep-lin",
+      "title": "Added In-App Signup, a new guide for creating opt-in deep links that WhatsApp users click",
+      "date": "2026-06-02",
+      "category": "Bug Fix/Clarification",
+      "modules": [
+        "Channel Integration/OAuth"
+      ],
+      "snippet": "Summary Added In-App Signup, a new guide for creating opt-in deep links that WhatsApp users click to subscribe to your messages. The guide covers creating, retr…",
+      "url": "changelog.html",
+      "anchor": "card-2026-06-02-whatsapp-changelog-added-in-app-signup-a-new-guide-for-creating-opt-in-deep-lin"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-06-01-whatsapp-changelog--message-templates-updated-the-message-templates-api-to-retu",
+      "title": ", *Message Templates*  Updated the Message Templates API to return detailed response objec",
+      "date": "2026-06-01",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary , Message Templates Updated the Message Templates API to return detailed response objects when archiving or unarchiving templates, instead of {\"success\"…",
+      "url": "changelog.html",
+      "anchor": "card-2026-06-01-whatsapp-changelog--message-templates-updated-the-message-templates-api-to-retu"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-05-31-messenger-changelog--sticker-api-for-messenger-platform-new-endpoints-get-sticke",
+      "title": "### Sticker API for Messenger Platform  **New endpoints:**  - `GET /sticker_packs` — List",
+      "date": "2026-05-31",
+      "category": "Deprecation",
+      "modules": [
+        "WhatsApp Templates",
+        "Broadcasts",
+        "Channel Integration/OAuth",
+        "Webhooks",
+        "Instagram Messaging",
+        "Messenger",
+        "RBAC"
+      ],
+      "snippet": "Summary Sticker API for Messenger Platform New endpoints: GET /sticker_packs — List available sticker packs with name, description, preview image, and sticker c…",
+      "url": "changelog.html",
+      "anchor": "card-2026-05-31-messenger-changelog--sticker-api-for-messenger-platform-new-endpoints-get-sticke"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-05-28-whatsapp-changelog--webhooks-added-voicemail-configuration-and-webhooks-to-the",
+      "title": ", *Webhooks*  Added voicemail configuration and webhooks to the Configure Call Settings pa",
+      "date": "2026-05-28",
+      "category": "New Feature",
+      "modules": [
+        "Webhooks"
+      ],
+      "snippet": "Summary , Webhooks Added voicemail configuration and webhooks to the Configure Call Settings page. Voicemail is in alpha — early integration partners can config…",
+      "url": "changelog.html",
+      "anchor": "card-2026-05-28-whatsapp-changelog--webhooks-added-voicemail-configuration-and-webhooks-to-the"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-05-27-whatsapp-changelog--webhooks-updated-the-calling-api-reference-page",
+      "title": ", *Webhooks*  Updated the Calling API reference page",
+      "date": "2026-05-27",
+      "category": "New Feature",
+      "modules": [
+        "Webhooks"
+      ],
+      "snippet": "Summary , Webhooks Updated the Calling API reference page. Added BSUID and username fields to calling webhooks: to_user_id, to_parent_user_id, and contacts with…",
+      "url": "changelog.html",
+      "anchor": "card-2026-05-27-whatsapp-changelog--webhooks-updated-the-calling-api-reference-page"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-05-26-whatsapp-changelog--pricing-added-an-iso-country-code-column-to-the-country-cal",
+      "title": ", *Pricing*  Added an ISO Country Code column to the country calling codes table on the pr",
+      "date": "2026-05-26",
+      "category": "Pricing/Rate Limit",
+      "modules": [
+        "Billing"
+      ],
+      "snippet": "Summary , Pricing Added an ISO Country Code column to the country calling codes table on the pricing page. The new column displays ISO 3166 Alpha-2 country code…",
+      "url": "changelog.html",
+      "anchor": "card-2026-05-26-whatsapp-changelog--pricing-added-an-iso-country-code-column-to-the-country-cal"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-05-25-whatsapp-changelog--pricing-updated-the-calling-api-pricing-page-with-upcoming",
+      "title": ", *Pricing*  Updated the Calling API Pricing page with upcoming rate cards effective July",
+      "date": "2026-05-25",
+      "category": "Pricing/Rate Limit",
+      "modules": [
+        "Billing"
+      ],
+      "snippet": "Summary , Pricing Updated the Calling API Pricing page with upcoming rate cards effective July 1, 2026 across 16 currencies. Why it Matters for SV2 Billing modu…",
+      "url": "changelog.html",
+      "anchor": "card-2026-05-25-whatsapp-changelog--pricing-updated-the-calling-api-pricing-page-with-upcoming"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-05-17-whatsapp-changelog-added-reconnect-offboarded-coexistence-clients-a-new-guide-f",
+      "title": "Added Reconnect offboarded coexistence clients, a new guide for coexistence partners",
+      "date": "2026-05-17",
+      "category": "New Feature",
+      "modules": [
+        "Channel Integration/OAuth"
+      ],
+      "snippet": "Summary Added Reconnect offboarded coexistence clients, a new guide for coexistence partners. When a coexistence client re-registers their WhatsApp Business app…",
+      "url": "changelog.html",
+      "anchor": "card-2026-05-17-whatsapp-changelog-added-reconnect-offboarded-coexistence-clients-a-new-guide-f"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-05-13-whatsapp-changelog--groups-api-updated-mark-messages-as-read-documentation",
+      "title": ", *Groups API*  Updated mark messages as read documentation",
+      "date": "2026-05-13",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary , Groups API Updated mark messages as read documentation. Businesses can now mark group messages as read using the same Messages API endpoint. Unlike in…",
+      "url": "changelog.html",
+      "anchor": "card-2026-05-13-whatsapp-changelog--groups-api-updated-mark-messages-as-read-documentation"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-05-12-whatsapp-changelog-effective-june-15-2026-keyboard-suggestions-will-be-enabled",
+      "title": "Effective June 15, 2026, Keyboard suggestions will be enabled by default for all authentic",
+      "date": "2026-05-12",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary Effective June 15, 2026, Keyboard suggestions will be enabled by default for all authentication templates. On iOS 26 and later, WhatsApp users will see…",
+      "url": "changelog.html",
+      "anchor": "card-2026-05-12-whatsapp-changelog-effective-june-15-2026-keyboard-suggestions-will-be-enabled"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-05-11-whatsapp-changelog--pricing-updated-the-ai-providers-pricing-policy-page",
+      "title": ", *Pricing*  Updated the AI Providers pricing policy page",
+      "date": "2026-05-11",
+      "category": "Pricing/Rate Limit",
+      "modules": [
+        "WhatsApp Templates",
+        "Billing"
+      ],
+      "snippet": "Summary , Pricing Updated the AI Providers pricing policy page. Effective May 13, 2026, Meta will no longer charge “AI Providers” for non-template messages deli…",
+      "url": "changelog.html",
+      "anchor": "card-2026-05-11-whatsapp-changelog--pricing-updated-the-ai-providers-pricing-policy-page"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-04-29-whatsapp-changelog-added-new-timezone-ids-reference-documentation-listing-all-s",
+      "title": "Added new timezone IDs reference documentation listing all supported timezone identifiers",
+      "date": "2026-04-29",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary Added new timezone IDs reference documentation listing all supported timezone identifiers for the WhatsApp Business Platform. Why it Matters for SV2 Mon…",
+      "url": "changelog.html",
+      "anchor": "card-2026-04-29-whatsapp-changelog-added-new-timezone-ids-reference-documentation-listing-all-s"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-04-20-whatsapp-changelog-automatic-creative-optimizations-are-now-disabled-by-default",
+      "title": "Automatic creative optimizations are now disabled by default at the WhatsApp Business Acco",
+      "date": "2026-04-20",
+      "category": "New Feature",
+      "modules": [
+        "Broadcasts"
+      ],
+      "snippet": "Summary Automatic creative optimizations are now disabled by default at the WhatsApp Business Account level. You can opt in via the API or directly in WhatsApp…",
+      "url": "changelog.html",
+      "anchor": "card-2026-04-20-whatsapp-changelog-automatic-creative-optimizations-are-now-disabled-by-default"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-04-19-whatsapp-changelog--webhooks-the-account_update-webhooks-partner_removed-event",
+      "title": ", *Webhooks*  The account_update webhook’s `PARTNER_REMOVED` event `disconnection_info` ob",
+      "date": "2026-04-19",
+      "category": "Deprecation",
+      "modules": [
+        "Channel Integration/OAuth",
+        "Webhooks"
+      ],
+      "snippet": "Summary , Webhooks The account_update webhook’s PARTNER_REMOVED event disconnection_info object now supports three additional reason values when your client was…",
+      "url": "changelog.html",
+      "anchor": "card-2026-04-19-whatsapp-changelog--webhooks-the-account_update-webhooks-partner_removed-event"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-04-16-whatsapp-changelog-added-new-error-code-131064",
+      "title": "Added new error code 131064",
+      "date": "2026-04-16",
+      "category": "Bug Fix/Clarification",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary Added new error code 131064. The API returns this error when a WhatsApp Business account has exceeded its messaging limit due to template classification…",
+      "url": "changelog.html",
+      "anchor": "card-2026-04-16-whatsapp-changelog-added-new-error-code-131064"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-04-14-whatsapp-changelog--embedded-signup-whatsapp-business-app-phone-numbers-from-ni",
+      "title": ", *Embedded Signup*  WhatsApp Business app phone numbers from Nigeria and South Africa are",
+      "date": "2026-04-14",
+      "category": "New Feature",
+      "modules": [
+        "Channel Integration/OAuth"
+      ],
+      "snippet": "Summary , Embedded Signup WhatsApp Business app phone numbers from Nigeria and South Africa are now supported when onboarding WhatsApp Business app users via Em…",
+      "url": "changelog.html",
+      "anchor": "card-2026-04-14-whatsapp-changelog--embedded-signup-whatsapp-business-app-phone-numbers-from-ni"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-04-02-whatsapp-changelog--webhooks-the-account_update-webhooks-partner_removed-event",
+      "title": ", *Webhooks*  The account_update webhook’s `PARTNER_REMOVED` event now includes a `disconn",
+      "date": "2026-04-02",
+      "category": "Deprecation",
+      "modules": [
+        "Channel Integration/OAuth",
+        "Webhooks"
+      ],
+      "snippet": "Summary , Webhooks The account_update webhook’s PARTNER_REMOVED event now includes a disconnection_info object when your client was using both the WhatsApp Busi…",
+      "url": "changelog.html",
+      "anchor": "card-2026-04-02-whatsapp-changelog--webhooks-the-account_update-webhooks-partner_removed-event"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-03-31-whatsapp-changelog--pricing-updated-per-message-rate-cards-with-rate-changes-fo",
+      "title": ", *Pricing*  Updated per-message rate cards with rate changes for Saudi Arabia, India, Pak",
+      "date": "2026-03-31",
+      "category": "Pricing/Rate Limit",
+      "modules": [
+        "Billing"
+      ],
+      "snippet": "Summary , Pricing Updated per-message rate cards with rate changes for Saudi Arabia, India, Pakistan, and Turkey. Introduced 8 new billing currencies for both m…",
+      "url": "changelog.html",
+      "anchor": "card-2026-03-31-whatsapp-changelog--pricing-updated-per-message-rate-cards-with-rate-changes-fo"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-03-26-whatsapp-changelog--conversational-components-removed-the-request_welcome-webho",
+      "title": ", *Conversational Components*  Removed the `request_welcome` webhook and welcome message f",
+      "date": "2026-03-26",
+      "category": "Deprecation",
+      "modules": [
+        "Webhooks"
+      ],
+      "snippet": "Summary , Conversational Components Removed the request_welcome webhook and welcome message feature from conversational components. This feature is no longer su…",
+      "url": "changelog.html",
+      "anchor": "card-2026-03-26-whatsapp-changelog--conversational-components-removed-the-request_welcome-webho"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-03-01-whatsapp-changelog--marketing-messages-api-for-whatsapp-pricing-argentina-ars-a",
+      "title": ", *Marketing Messages API for WhatsApp*, *Pricing*  Argentina (ARS), Australia (AUD), Chil",
+      "date": "2026-03-01",
+      "category": "Pricing/Rate Limit",
+      "modules": [
+        "Broadcasts",
+        "Billing"
+      ],
+      "snippet": "Summary , Marketing Messages API for WhatsApp, Pricing Argentina (ARS), Australia (AUD), Chile (CLP), Colombia (COP), Euro (EUR), India (INR), Indonesia (IDR),…",
+      "url": "changelog.html",
+      "anchor": "card-2026-03-01-whatsapp-changelog--marketing-messages-api-for-whatsapp-pricing-argentina-ars-a"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-02-18-whatsapp-changelog-added-new-unsupported-message-types-in-the-unsupported-messa",
+      "title": "Added new unsupported message types in the unsupported messages webhook",
+      "date": "2026-02-18",
+      "category": "New Feature",
+      "modules": [
+        "Webhooks"
+      ],
+      "snippet": "Summary Added new unsupported message types in the unsupported messages webhook. Why it Matters for SV2 Monitor Webhooks integration for any behavioural impact.…",
+      "url": "changelog.html",
+      "anchor": "card-2026-02-18-whatsapp-changelog-added-new-unsupported-message-types-in-the-unsupported-messa"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-02-18-whatsapp-changelog-added-a-new-automatic-creative-optimization-type-auto-promot",
+      "title": "Added a new Automatic Creative Optimization type: Auto promotion tag",
+      "date": "2026-02-18",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates",
+        "Broadcasts"
+      ],
+      "snippet": "Summary Added a new Automatic Creative Optimization type: Auto promotion tag. Why it Matters for SV2 Monitor WhatsApp Templates, Broadcasts integration for any…",
+      "url": "changelog.html",
+      "anchor": "card-2026-02-18-whatsapp-changelog-added-a-new-automatic-creative-optimization-type-auto-promot"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-02-03-whatsapp-changelog-added-account_offboarded-and-account_reconnected-webhooks-fo",
+      "title": "Added `account_offboarded` and `account_reconnected` webhooks for Coexistence",
+      "date": "2026-02-03",
+      "category": "New Feature",
+      "modules": [
+        "Channel Integration/OAuth",
+        "Webhooks"
+      ],
+      "snippet": "Summary Added account_offboarded and account_reconnected webhooks for Coexistence. Why it Matters for SV2 Monitor Channel Integration/OAuth, Webhooks integratio…",
+      "url": "changelog.html",
+      "anchor": "card-2026-02-03-whatsapp-changelog-added-account_offboarded-and-account_reconnected-webhooks-fo"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-02-02-whatsapp-changelog-cloud-api-groups-are-now-available-to-all-businesses-with-an",
+      "title": "Cloud API Groups are now available to all businesses with an Official Business Account",
+      "date": "2026-02-02",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary Cloud API Groups are now available to all businesses with an Official Business Account. Why it Matters for SV2 Monitor WhatsApp Templates integration fo…",
+      "url": "changelog.html",
+      "anchor": "card-2026-02-02-whatsapp-changelog-cloud-api-groups-are-now-available-to-all-businesses-with-an"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-01-28-whatsapp-changelog-multi-solution-conversations-are-now-available-for-marketing",
+      "title": "Multi-solution conversations are now available for Marketing Messages API for WhatsApp",
+      "date": "2026-01-28",
+      "category": "New Feature",
+      "modules": [
+        "Broadcasts"
+      ],
+      "snippet": "Summary Multi-solution conversations are now available for Marketing Messages API for WhatsApp. Why it Matters for SV2 Monitor Broadcasts integration for any be…",
+      "url": "changelog.html",
+      "anchor": "card-2026-01-28-whatsapp-changelog-multi-solution-conversations-are-now-available-for-marketing"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2026-01-27-whatsapp-changelog-effective-february-16-2026-in-countries-where-meta-is-legall",
+      "title": "Effective February 16, 2026, in countries where Meta is legally required to support AI Pro",
+      "date": "2026-01-27",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary Effective February 16, 2026, in countries where Meta is legally required to support AI Providers, Meta will charge AI Providers for non-template message…",
+      "url": "changelog.html",
+      "anchor": "card-2026-01-27-whatsapp-changelog-effective-february-16-2026-in-countries-where-meta-is-legall"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-12-17-whatsapp-changelog-added-hsm_ids-field-to-delete-whatsapp-business-account-mess",
+      "title": "Added `hsm_ids` field to DELETE WhatsApp Business Account > Message Templates endpoint",
+      "date": "2025-12-17",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary Added hsm_ids field to DELETE WhatsApp Business Account > Message Templates endpoint. Accepts an array of up to 100 template IDs to delete in a single r…",
+      "url": "changelog.html",
+      "anchor": "card-2025-12-17-whatsapp-changelog-added-hsm_ids-field-to-delete-whatsapp-business-account-mess"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-12-07-whatsapp-changelog-added-business-portfolio-pacing-a-new-template-message-deliv",
+      "title": "Added business portfolio pacing, a new template message delivery batching mechanism that a",
+      "date": "2025-12-07",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates",
+        "Broadcasts"
+      ],
+      "snippet": "Summary Added business portfolio pacing, a new template message delivery batching mechanism that allows time to gather feedback on any template sent as part of…",
+      "url": "changelog.html",
+      "anchor": "card-2025-12-07-whatsapp-changelog-added-business-portfolio-pacing-a-new-template-message-deliv"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-12-03-whatsapp-changelog-businesses-that-use-marketing-messages-api-for-whatsapp-can",
+      "title": "Businesses that use Marketing Messages API for WhatsApp can now view metrics for quick rep",
+      "date": "2025-12-03",
+      "category": "New Feature",
+      "modules": [
+        "Broadcasts"
+      ],
+      "snippet": "Summary Businesses that use Marketing Messages API for WhatsApp can now view metrics for quick replies. Why it Matters for SV2 Monitor Broadcasts integration fo…",
+      "url": "changelog.html",
+      "anchor": "card-2025-12-03-whatsapp-changelog-businesses-that-use-marketing-messages-api-for-whatsapp-can"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-12-02-whatsapp-changelog-coupon-code-templates-now-support-codes-with-up-to-20-charac",
+      "title": "Coupon code templates now support codes with up to 20 characters, instead of 15",
+      "date": "2025-12-02",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary Coupon code templates now support codes with up to 20 characters, instead of 15. Why it Matters for SV2 Monitor WhatsApp Templates integration for any b…",
+      "url": "changelog.html",
+      "anchor": "card-2025-12-02-whatsapp-changelog-coupon-code-templates-now-support-codes-with-up-to-20-charac"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-11-30-whatsapp-changelog-added-no-storage-an-alternative-local-storage-configuration",
+      "title": "Added No Storage, an alternative Local Storage configuration",
+      "date": "2025-11-30",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary Added No Storage, an alternative Local Storage configuration. With No Storage, in-transit data is kept for a shorter period of time, and at-rest data is…",
+      "url": "changelog.html",
+      "anchor": "card-2025-11-30-whatsapp-changelog-added-no-storage-an-alternative-local-storage-configuration"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-11-25-whatsapp-changelog-ss-messagingwhatsappembedded-signupoverviewhow-it-works-indi",
+      "title": "ss-messaging/whatsapp/embedded-signup/overview#how-it-works) indicating users may experien",
+      "date": "2025-11-25",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates",
+        "Channel Integration/OAuth",
+        "RBAC"
+      ],
+      "snippet": "Summary ss-messaging/whatsapp/embedded-signup/overview#how-it-works) indicating users may experience a new completion flow for all versions. A new View your set…",
+      "url": "changelog.html",
+      "anchor": "card-2025-11-25-whatsapp-changelog-ss-messagingwhatsappembedded-signupoverviewhow-it-works-indi"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-11-24-whatsapp-changelog--edit-messages-revoke-messages",
+      "title": "* Edit messages * Revoke messages",
+      "date": "2025-11-24",
+      "category": "New Feature",
+      "modules": [
+        "Channel Integration/OAuth"
+      ],
+      "snippet": "Summary Edit messages Revoke messages Why it Matters for SV2 Monitor Channel Integration/OAuth integration for any behavioural impact. Suggested QA Action Infor…",
+      "url": "changelog.html",
+      "anchor": "card-2025-11-24-whatsapp-changelog--edit-messages-revoke-messages"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-11-18-whatsapp-changelog-marketing-messages-api-for-whatsapp-formerly-known-as-market",
+      "title": "Marketing Messages API for WhatsApp (formerly known as Marketing Messages Lite API) is now",
+      "date": "2025-11-18",
+      "category": "New Feature",
+      "modules": [
+        "Broadcasts"
+      ],
+      "snippet": "Summary Marketing Messages API for WhatsApp (formerly known as Marketing Messages Lite API) is now generally available. Why it Matters for SV2 Monitor Broadcast…",
+      "url": "changelog.html",
+      "anchor": "card-2025-11-18-whatsapp-changelog-marketing-messages-api-for-whatsapp-formerly-known-as-market"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-11-10-whatsapp-changelog--whatsapp-flows-endpoints-security-enhancements-data-api-ver",
+      "title": "#### WhatsApp Flows Endpoints Security Enhancements (Data API Version 4",
+      "date": "2025-11-10",
+      "category": "New Feature",
+      "modules": [
+        "Channel Integration/OAuth"
+      ],
+      "snippet": "Summary WhatsApp Flows Endpoints Security Enhancements (Data API Version 4.0) To further protect user interactions and ensure requests are genuinely from the in…",
+      "url": "changelog.html",
+      "anchor": "card-2025-11-10-whatsapp-changelog--whatsapp-flows-endpoints-security-enhancements-data-api-ver"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-11-02-whatsapp-changelog-added-new-played-status-message-webhook-which-indicates-when",
+      "title": "Added new played status message webhook which indicates when a voice messge is played by t",
+      "date": "2025-11-02",
+      "category": "New Feature",
+      "modules": [
+        "Webhooks"
+      ],
+      "snippet": "Summary Added new played status message webhook which indicates when a voice messge is played by the Whatsapp user. Why it Matters for SV2 Monitor Webhooks inte…",
+      "url": "changelog.html",
+      "anchor": "card-2025-11-02-whatsapp-changelog-added-new-played-status-message-webhook-which-indicates-when"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-11-02-whatsapp-changelog--updated-the-unsupported-messages-webhook-by-adding-details",
+      "title": "* Updated the unsupported messages webhook by adding details about the actual message type",
+      "date": "2025-11-02",
+      "category": "New Feature",
+      "modules": [
+        "Webhooks"
+      ],
+      "snippet": "Summary Updated the unsupported messages webhook by adding details about the actual message type. Added new played status messages webhook status value, which i…",
+      "url": "changelog.html",
+      "anchor": "card-2025-11-02-whatsapp-changelog--updated-the-unsupported-messages-webhook-by-adding-details"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-10-30-whatsapp-changelog--added-two-new-automatic-creative-optimization-types-product",
+      "title": "* Added two new Automatic Creative Optimization types: product extensions and text formatt",
+      "date": "2025-10-30",
+      "category": "New Feature",
+      "modules": [
+        "Broadcasts"
+      ],
+      "snippet": "Summary Added two new Automatic Creative Optimization types: product extensions and text formatting optimization. Launched a new endpoint to support WABA-level…",
+      "url": "changelog.html",
+      "anchor": "card-2025-10-30-whatsapp-changelog--added-two-new-automatic-creative-optimization-types-product"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-10-22-whatsapp-changelog--australia-japan-philippines-russia-south-korea-turkey-europ",
+      "title": "* Australia * Japan * Philippines * Russia * South Korea * Turkey * European Economic Area",
+      "date": "2025-10-22",
+      "category": "New Feature",
+      "modules": [
+        "Channel Integration/OAuth"
+      ],
+      "snippet": "Summary Australia Japan Philippines Russia South Korea Turkey European Economic Area (EEA) European Union (EU) United Kingdom (UK) Why it Matters for SV2 Monito…",
+      "url": "changelog.html",
+      "anchor": "card-2025-10-22-whatsapp-changelog--australia-japan-philippines-russia-south-korea-turkey-europ"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-10-19-whatsapp-changelog-ad-click-ids-will-not-be-included-in-incoming-text-messages",
+      "title": "Ad click IDs will not be included in incoming text messages webhooks payloads describing a",
+      "date": "2025-10-19",
+      "category": "New Feature",
+      "modules": [
+        "Webhooks"
+      ],
+      "snippet": "Summary Ad click IDs will not be included in incoming text messages webhooks payloads describing an incoming message that originated from a WhatsApp Status ad p…",
+      "url": "changelog.html",
+      "anchor": "card-2025-10-19-whatsapp-changelog-ad-click-ids-will-not-be-included-in-incoming-text-messages"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-10-19-whatsapp-changelog--offsite-conversion-metrics-is-now-available-in-whatsapp-bus",
+      "title": "* Offsite conversion metrics is now available in WhatsApp Business Manager and in the Temp",
+      "date": "2025-10-19",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates",
+        "Broadcasts"
+      ],
+      "snippet": "Summary Offsite conversion metrics is now available in WhatsApp Business Manager and in the Template Analytics API. Added two new Automatic Creative Optimizatio…",
+      "url": "changelog.html",
+      "anchor": "card-2025-10-19-whatsapp-changelog--offsite-conversion-metrics-is-now-available-in-whatsapp-bus"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-10-16-whatsapp-changelog-added-marketing_messages_onboarding_status-and-owner_busines",
+      "title": "Added marketing_messages_onboarding_status and owner_business_info fields to check Terms o",
+      "date": "2025-10-16",
+      "category": "Policy/Compliance",
+      "modules": [
+        "Broadcasts",
+        "Channel Integration/OAuth"
+      ],
+      "snippet": "Summary Added marketing_messages_onboarding_status and owner_business_info fields to check Terms of Service and Intent request status for business manager. Why…",
+      "url": "changelog.html",
+      "anchor": "card-2025-10-16-whatsapp-changelog-added-marketing_messages_onboarding_status-and-owner_busines"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-10-15-whatsapp-changelog--incoming-media-messages-webhooks-image-messages-video-messa",
+      "title": "* Incoming media messages webhooks (image messages, video messages, etc",
+      "date": "2025-10-15",
+      "category": "New Feature",
+      "modules": [
+        "Webhooks"
+      ],
+      "snippet": "Summary Incoming media messages webhooks (image messages, video messages, etc.) now include the incoming media asset’s media URL, which is assigned to the url p…",
+      "url": "changelog.html",
+      "anchor": "card-2025-10-15-whatsapp-changelog--incoming-media-messages-webhooks-image-messages-video-messa"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-10-13-whatsapp-changelog-the-product_policy-field-is-now-100-rolled-out-for-businesse",
+      "title": "The product_policy field is now 100% rolled out for businesses customers",
+      "date": "2025-10-13",
+      "category": "Policy/Compliance",
+      "modules": [
+        "WhatsApp Templates",
+        "Broadcasts"
+      ],
+      "snippet": "Summary The product_policy field is now 100% rolled out for businesses customers. Why it Matters for SV2 Monitor WhatsApp Templates, Broadcasts integration for…",
+      "url": "changelog.html",
+      "anchor": "card-2025-10-13-whatsapp-changelog-the-product_policy-field-is-now-100-rolled-out-for-businesse"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-10-07-whatsapp-changelog-updated-the-onboarding-page-with-an-onboarding-video-tutoria",
+      "title": "Updated the onboarding page with an onboarding video tutorial",
+      "date": "2025-10-07",
+      "category": "New Feature",
+      "modules": [
+        "Channel Integration/OAuth"
+      ],
+      "snippet": "Summary Updated the onboarding page with an onboarding video tutorial. Why it Matters for SV2 Monitor Channel Integration/OAuth integration for any behavioural…",
+      "url": "changelog.html",
+      "anchor": "card-2025-10-07-whatsapp-changelog-updated-the-onboarding-page-with-an-onboarding-video-tutoria"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-10-07-whatsapp-changelog--messaging-limits-are-now-business-portfolio-based-instead-o",
+      "title": "* Messaging limits are now business portfolio-based instead of business phone number-based",
+      "date": "2025-10-07",
+      "category": "Pricing/Rate Limit",
+      "modules": [
+        "WhatsApp Templates",
+        "Broadcasts",
+        "Channel Integration/OAuth",
+        "Webhooks",
+        "Billing"
+      ],
+      "snippet": "Summary Messaging limits are now business portfolio-based instead of business phone number-based, and the initial increase via scaling path is now 2,000 instead…",
+      "url": "changelog.html",
+      "anchor": "card-2025-10-07-whatsapp-changelog--messaging-limits-are-now-business-portfolio-based-instead-o"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-10-05-whatsapp-changelog-introducing-whatsapp-groups-api-which-enables-programmatic-c",
+      "title": "Introducing WhatsApp Groups API, which enables programmatic creation and management of gro",
+      "date": "2025-10-05",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary Introducing WhatsApp Groups API, which enables programmatic creation and management of groups on WhatsApp. Why it Matters for SV2 Monitor WhatsApp Templ…",
+      "url": "changelog.html",
+      "anchor": "card-2025-10-05-whatsapp-changelog-introducing-whatsapp-groups-api-which-enables-programmatic-c"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-10-02-whatsapp-changelog-access-verification-is-no-longer-required-to-become-a-tech-p",
+      "title": "Access verification is no longer required to become a Tech Provider",
+      "date": "2025-10-02",
+      "category": "New Feature",
+      "modules": [
+        "RBAC"
+      ],
+      "snippet": "Summary Access verification is no longer required to become a Tech Provider. Why it Matters for SV2 Monitor RBAC integration for any behavioural impact. Suggest…",
+      "url": "changelog.html",
+      "anchor": "card-2025-10-02-whatsapp-changelog-access-verification-is-no-longer-required-to-become-a-tech-p"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-09-30-whatsapp-changelog-updated-the-support-page-with-new-troubleshooting-guides",
+      "title": "Updated the support page with new troubleshooting guides",
+      "date": "2025-09-30",
+      "category": "New Feature",
+      "modules": [
+        "Broadcasts"
+      ],
+      "snippet": "Summary Updated the support page with new troubleshooting guides. Why it Matters for SV2 Monitor Broadcasts integration for any behavioural impact. Suggested QA…",
+      "url": "changelog.html",
+      "anchor": "card-2025-09-30-whatsapp-changelog-updated-the-support-page-with-new-troubleshooting-guides"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-09-30-whatsapp-changelog--increased-marketing-message-rates-for-united-arab-emirates",
+      "title": "* Increased marketing message rates for United Arab Emirates",
+      "date": "2025-09-30",
+      "category": "Pricing/Rate Limit",
+      "modules": [
+        "Broadcasts",
+        "Billing"
+      ],
+      "snippet": "Summary Increased marketing message rates for United Arab Emirates. Increased utility and authentication message rates for Colombia. Decreased marketing message…",
+      "url": "changelog.html",
+      "anchor": "card-2025-09-30-whatsapp-changelog--increased-marketing-message-rates-for-united-arab-emirates"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-09-28-whatsapp-changelog-added-a-coexistence-onboarding-guide-to-mm-lite",
+      "title": "Added a Coexistence onboarding guide to MM Lite",
+      "date": "2025-09-28",
+      "category": "New Feature",
+      "modules": [
+        "Broadcasts",
+        "Channel Integration/OAuth"
+      ],
+      "snippet": "Summary Added a Coexistence onboarding guide to MM Lite. Whatsapp Business users can now onboard with their existing WhatsApp Business app account and phone num…",
+      "url": "changelog.html",
+      "anchor": "card-2025-09-28-whatsapp-changelog-added-a-coexistence-onboarding-guide-to-mm-lite"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-09-23-whatsapp-changelog-added-note-in-the-media-document-when-retrieving-a-media-fro",
+      "title": "Added note in the media document when retrieving a media from a media ID received via webh",
+      "date": "2025-09-23",
+      "category": "New Feature",
+      "modules": [
+        "Webhooks"
+      ],
+      "snippet": "Summary Added note in the media document when retrieving a media from a media ID received via webhook, the media ID will only be available to download for 30 da…",
+      "url": "changelog.html",
+      "anchor": "card-2025-09-23-whatsapp-changelog-added-note-in-the-media-document-when-retrieving-a-media-fro"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-09-09-whatsapp-changelog--flow-json-validation-updates-validation-for-routing-model-a",
+      "title": "#### Flow JSON Validation Updates  #### Validation for routing model and data model in Flo",
+      "date": "2025-09-09",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary Flow JSON Validation Updates #### Validation for routing model and data model in Flow JSON The Flow’s routing model's improved validation makes sure onl…",
+      "url": "changelog.html",
+      "anchor": "card-2025-09-09-whatsapp-changelog--flow-json-validation-updates-validation-for-routing-model-a"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-09-07-whatsapp-changelog--updated-v3-document-to-display-an-example-of-the-v3-syntax",
+      "title": "* Updated v3 document to display an example of the v3 syntax",
+      "date": "2025-09-07",
+      "category": "New Feature",
+      "modules": [
+        "RBAC"
+      ],
+      "snippet": "Summary Updated v3 document to display an example of the v3 syntax. Added Call Permissions Request type under interactive objects for messages. Why it Matters f…",
+      "url": "changelog.html",
+      "anchor": "card-2025-09-07-whatsapp-changelog--updated-v3-document-to-display-an-example-of-the-v3-syntax"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-09-02-whatsapp-changelog--on-september-8th-2025-were-launching-a-new-mm-lite-tos-sign",
+      "title": "* On September 8th, 2025, we’re launching a new “MM Lite ToS signed” webhook, which will b",
+      "date": "2025-09-02",
+      "category": "Deprecation",
+      "modules": [
+        "WhatsApp Templates",
+        "Broadcasts",
+        "Channel Integration/OAuth",
+        "Webhooks"
+      ],
+      "snippet": "Summary On September 8th, 2025, we’re launching a new “MM Lite ToS signed” webhook, which will be sent whenever a business signs the MM Lite ToS via any method…",
+      "url": "changelog.html",
+      "anchor": "card-2025-09-02-whatsapp-changelog--on-september-8th-2025-were-launching-a-new-mm-lite-tos-sign"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-08-26-whatsapp-changelog-added-call-permissions-request-type-under-interactive-object",
+      "title": "Added Call Permissions Request type under interactive objects for messages",
+      "date": "2025-08-26",
+      "category": "New Feature",
+      "modules": [
+        "Channel Integration/OAuth",
+        "RBAC"
+      ],
+      "snippet": "Summary Added Call Permissions Request type under interactive objects for messages. Why it Matters for SV2 Monitor Channel Integration/OAuth, RBAC integration f…",
+      "url": "changelog.html",
+      "anchor": "card-2025-08-26-whatsapp-changelog-added-call-permissions-request-type-under-interactive-object"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-08-21-whatsapp-changelog-mdyhtbyxzjzkqksdk4_8inc49mk8enfcyoa3z0agfulu2zphcqzli7fbtshb",
+      "title": "mDYHTbyXZJzkQksdk4_8InC49MK8eNfCyoA3Z0agfULu2ZPhCQzLi7FbtShb70qLD3284SBtir-5PvfFVa7V6BsjcC",
+      "date": "2025-08-21",
+      "category": "New Feature",
+      "modules": [
+        "Broadcasts"
+      ],
+      "snippet": "Summary mDYHTbyXZJzkQksdk4_8InC49MK8eNfCyoA3Z0agfULu2ZPhCQzLi7FbtShb70qLD3284SBtir-5PvfFVa7V6BsjcCZpq3pTM9j1hDc_l1xgDFrHyAV6221ZFcKA), providing visibility into…",
+      "url": "changelog.html",
+      "anchor": "card-2025-08-21-whatsapp-changelog-mdyhtbyxzjzkqksdk4_8inc49mk8enfcyoa3z0agfulu2zphcqzli7fbtshb"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-08-13-whatsapp-changelog-in-september-we-are-simplifying-the-embedded-signup-flow-acr",
+      "title": "In September we are simplifying the Embedded Signup flow across all versions",
+      "date": "2025-08-13",
+      "category": "New Feature",
+      "modules": [
+        "Channel Integration/OAuth"
+      ],
+      "snippet": "Summary In September we are simplifying the Embedded Signup flow across all versions. You can preview the simplified flow by configuring Embedded Signup with v#…",
+      "url": "changelog.html",
+      "anchor": "card-2025-08-13-whatsapp-changelog-in-september-we-are-simplifying-the-embedded-signup-flow-acr"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-08-11-whatsapp-changelog-added-ad_account_linked-event-to-the-account_update-webhook",
+      "title": "Added `AD_ACCOUNT_LINKED` event to the account_update webhook, which triggers when a WABA",
+      "date": "2025-08-11",
+      "category": "New Feature",
+      "modules": [
+        "Broadcasts",
+        "Channel Integration/OAuth",
+        "Webhooks",
+        "RBAC"
+      ],
+      "snippet": "Summary Added AD_ACCOUNT_LINKED event to the account_update webhook, which triggers when a WABA has onboarded to MM LITE through Embedded Signup or Intent API g…",
+      "url": "changelog.html",
+      "anchor": "card-2025-08-11-whatsapp-changelog-added-ad_account_linked-event-to-the-account_update-webhook"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-08-10-whatsapp-changelog-added-welcome-message-sequences-which-allow-you-to-populate",
+      "title": "Added Welcome Message Sequences, which allow you to populate a set of pre-defined text and",
+      "date": "2025-08-10",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary Added Welcome Message Sequences, which allow you to populate a set of pre-defined text and FAQs or a prefilled message, that can appear in a WhatsApp th…",
+      "url": "changelog.html",
+      "anchor": "card-2025-08-10-whatsapp-changelog-added-welcome-message-sequences-which-allow-you-to-populate"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-08-05-whatsapp-changelog-added-a-image-background-generation-field-for-automatic-crea",
+      "title": "Added a image background generation field for automatic creative optimization",
+      "date": "2025-08-05",
+      "category": "New Feature",
+      "modules": [
+        "Broadcasts"
+      ],
+      "snippet": "Summary Added a image background generation field for automatic creative optimization. Why it Matters for SV2 Monitor Broadcasts integration for any behavioural…",
+      "url": "changelog.html",
+      "anchor": "card-2025-08-05-whatsapp-changelog-added-a-image-background-generation-field-for-automatic-crea"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-08-03-whatsapp-changelog-added-new-whatsapp_business_manage_events-permission-to-log",
+      "title": "Added new whatsapp_business_manage_events permission to log events",
+      "date": "2025-08-03",
+      "category": "New Feature",
+      "modules": [
+        "RBAC"
+      ],
+      "snippet": "Summary Added new whatsapp_business_manage_events permission to log events. Why it Matters for SV2 Monitor RBAC integration for any behavioural impact. Suggeste…",
+      "url": "changelog.html",
+      "anchor": "card-2025-08-03-whatsapp-changelog-added-new-whatsapp_business_manage_events-permission-to-log"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-07-29-whatsapp-changelog-changed-the-media-card-carousel-template-requirements-so-tha",
+      "title": "Changed the Media Card Carousel Template requirements so that card body text is no longer",
+      "date": "2025-07-29",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary Changed the Media Card Carousel Template requirements so that card body text is no longer mandatory. Why it Matters for SV2 Monitor WhatsApp Templates i…",
+      "url": "changelog.html",
+      "anchor": "card-2025-07-29-whatsapp-changelog-changed-the-media-card-carousel-template-requirements-so-tha"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-07-24-whatsapp-changelog-added-the-tap-target-title-url-override-message-template",
+      "title": "Added the Tap target title URL override message template",
+      "date": "2025-07-24",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary Added the Tap target title URL override message template. Why it Matters for SV2 Monitor WhatsApp Templates integration for any behavioural impact. Sugg…",
+      "url": "changelog.html",
+      "anchor": "card-2025-07-24-whatsapp-changelog-added-the-tap-target-title-url-override-message-template"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-07-24-whatsapp-changelog--updated-references-to-mobile-app-id-to-meta-app-id-when-cre",
+      "title": "* Updated references to “Mobile App ID” to “Meta App ID” when creating a template to avoid",
+      "date": "2025-07-24",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates",
+        "Broadcasts"
+      ],
+      "snippet": "Summary Updated references to “Mobile App ID” to “Meta App ID” when creating a template to avoid confusion. Added a Template-to-ad-syncing guideline for clients…",
+      "url": "changelog.html",
+      "anchor": "card-2025-07-24-whatsapp-changelog--updated-references-to-mobile-app-id-to-meta-app-id-when-cre"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-07-21-whatsapp-changelog-local-storage-is-now-available-for-mm-lite",
+      "title": "Local Storage is now available for MM Lite",
+      "date": "2025-07-21",
+      "category": "New Feature",
+      "modules": [
+        "Broadcasts"
+      ],
+      "snippet": "Summary Local Storage is now available for MM Lite. If you have already enabled Local Storage for the Cloud API, your existing settings are automatically applie…",
+      "url": "changelog.html",
+      "anchor": "card-2025-07-21-whatsapp-changelog-local-storage-is-now-available-for-mm-lite"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-07-15-whatsapp-changelog--meta-business-suite-navigate-to-the-business-settings-to-vi",
+      "title": "* Meta Business Suite⁠: Navigate to the Business Settings to view users with **Full Contro",
+      "date": "2025-07-15",
+      "category": "New Feature",
+      "modules": [
+        "Broadcasts",
+        "RBAC"
+      ],
+      "snippet": "Summary Meta Business Suite⁠: Navigate to the Business Settings to view users with Full Control access. API: GET /<WHATSAPP_BUSINESS_ACCOUNT_ID> and GET /<BUSIN…",
+      "url": "changelog.html",
+      "anchor": "card-2025-07-15-whatsapp-changelog--meta-business-suite-navigate-to-the-business-settings-to-vi"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-07-14-whatsapp-changelog-whatsapp-business-calling-api-now-available",
+      "title": "WhatsApp Business Calling API now available",
+      "date": "2025-07-14",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary WhatsApp Business Calling API now available. Multi-solution Conversations is now available in open beta Multi-solution Conversations enables businesses…",
+      "url": "changelog.html",
+      "anchor": "card-2025-07-14-whatsapp-changelog-whatsapp-business-calling-api-now-available"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-07-14-whatsapp-changelog--added-marketing_messages_onboarding_status-field-which-prov",
+      "title": "* Added marketing_messages_onboarding_status field which provides more granular eligibilit",
+      "date": "2025-07-14",
+      "category": "Deprecation",
+      "modules": [
+        "WhatsApp Templates",
+        "Broadcasts",
+        "Channel Integration/OAuth"
+      ],
+      "snippet": "Summary Added marketing_messages_onboarding_status field which provides more granular eligibility status data. The field will be a replacement for marketing_mes…",
+      "url": "changelog.html",
+      "anchor": "card-2025-07-14-whatsapp-changelog--added-marketing_messages_onboarding_status-field-which-prov"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-07-07-whatsapp-changelog--component-updates-validation-for-nested-expressions-in-flow",
+      "title": "#### Component updates  #### Validation for nested expressions in Flow JSON actions  * Nes",
+      "date": "2025-07-07",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary Component updates #### Validation for nested expressions in Flow JSON actions Nested expressions used in actions are now validated to ensure referenced…",
+      "url": "changelog.html",
+      "anchor": "card-2025-07-07-whatsapp-changelog--component-updates-validation-for-nested-expressions-in-flow"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-07-06-whatsapp-changelog-added-profile_picture_lost-as-a-new-alert_type-to-account_al",
+      "title": "Added `PROFILE_PICTURE_LOST` as a new `alert_type` to account_alerts webhooks, to notify y",
+      "date": "2025-07-06",
+      "category": "New Feature",
+      "modules": [
+        "Webhooks"
+      ],
+      "snippet": "Summary Added PROFILE_PICTURE_LOST as a new alert_type to account_alerts webhooks, to notify you when a business phone number’s business profile photo has been…",
+      "url": "changelog.html",
+      "anchor": "card-2025-07-06-whatsapp-changelog-added-profile_picture_lost-as-a-new-alert_type-to-account_al"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-06-30-whatsapp-changelog-per-message-pricing-now-applies-to-mm-lite-api",
+      "title": "Per-message pricing now applies to MM Lite API",
+      "date": "2025-06-30",
+      "category": "Pricing/Rate Limit",
+      "modules": [
+        "Broadcasts",
+        "Billing"
+      ],
+      "snippet": "Summary Per-message pricing now applies to MM Lite API! See Pricing on the WhatsApp Business Platform to learn more. Why it Matters for SV2 Billing module may n…",
+      "url": "changelog.html",
+      "anchor": "card-2025-06-30-whatsapp-changelog-per-message-pricing-now-applies-to-mm-lite-api"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-06-30-whatsapp-changelog-per-message-pricing-is-now-live",
+      "title": "Per-message pricing is now live",
+      "date": "2025-06-30",
+      "category": "Pricing/Rate Limit",
+      "modules": [
+        "Billing"
+      ],
+      "snippet": "Summary Per-message pricing is now live. Why it Matters for SV2 Billing module may need to reflect updated rates. Verify cost assumptions in Broadcasts for affe…",
+      "url": "changelog.html",
+      "anchor": "card-2025-06-30-whatsapp-changelog-per-message-pricing-is-now-live"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-06-23-whatsapp-changelog-added-text-overlays-and-image-animation-automatic-creative-o",
+      "title": "Added text overlays and image animation Automatic Creative Optimizations",
+      "date": "2025-06-23",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates",
+        "Broadcasts"
+      ],
+      "snippet": "Summary Added text overlays and image animation Automatic Creative Optimizations. Like other optimizations, these are enabled by default on all templates, but c…",
+      "url": "changelog.html",
+      "anchor": "card-2025-06-23-whatsapp-changelog-added-text-overlays-and-image-animation-automatic-creative-o"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-06-19-whatsapp-changelog-businesses-in-russia-who-were-previously-unable-to-send-mess",
+      "title": "Businesses in Russia who were previously unable to send messages via MM Lite API can now d",
+      "date": "2025-06-19",
+      "category": "New Feature",
+      "modules": [
+        "Broadcasts",
+        "RBAC"
+      ],
+      "snippet": "Summary Businesses in Russia who were previously unable to send messages via MM Lite API can now do so. Note that these businesses will not have access to some…",
+      "url": "changelog.html",
+      "anchor": "card-2025-06-19-whatsapp-changelog-businesses-in-russia-who-were-previously-unable-to-send-mess"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-06-17-whatsapp-changelog-solution-partners-can-now-claim-sandbox-accounts",
+      "title": "Solution Partners can now claim sandbox accounts",
+      "date": "2025-06-17",
+      "category": "New Feature",
+      "modules": [
+        "Channel Integration/OAuth"
+      ],
+      "snippet": "Summary Solution Partners can now claim sandbox accounts. Why it Matters for SV2 Monitor Channel Integration/OAuth integration for any behavioural impact. Sugge…",
+      "url": "changelog.html",
+      "anchor": "card-2025-06-17-whatsapp-changelog-solution-partners-can-now-claim-sandbox-accounts"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-06-12-whatsapp-changelog-you-can-now-request-official-business-account-status-via-api",
+      "title": "You can now request Official Business Account status via API and edit your display name vi",
+      "date": "2025-06-12",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary You can now request Official Business Account status via API and edit your display name via API. Before you could only do this using WhatsApp Manager. W…",
+      "url": "changelog.html",
+      "anchor": "card-2025-06-12-whatsapp-changelog-you-can-now-request-official-business-account-status-via-api"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-06-09-whatsapp-changelog--marketing_messages_read_rate_benchmark-marketing_messages_c",
+      "title": "* `marketing_messages_read_rate_benchmark` * `marketing_messages_click_rate_benchmark`",
+      "date": "2025-06-09",
+      "category": "New Feature",
+      "modules": [
+        "Broadcasts"
+      ],
+      "snippet": "Summary marketing_messages_read_rate_benchmark marketing_messages_click_rate_benchmark Why it Matters for SV2 Monitor Broadcasts integration for any behavioural…",
+      "url": "changelog.html",
+      "anchor": "card-2025-06-09-whatsapp-changelog--marketing_messages_read_rate_benchmark-marketing_messages_c"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-06-09-whatsapp-changelog--component-updates-update-to-the-chipsselector-component-we",
+      "title": "#### Component Updates  #### Update to the ChipsSelector component  * We are updating the",
+      "date": "2025-06-09",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary Component Updates #### Update to the ChipsSelector component We are updating the ChipsSelector component to align its behaviour with other list selectio…",
+      "url": "changelog.html",
+      "anchor": "card-2025-06-09-whatsapp-changelog--component-updates-update-to-the-chipsselector-component-we"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-06-04-whatsapp-changelog-to-be-notified-of-these-events-you-can-subscribe-to-the-new",
+      "title": "To be notified of these events, you can subscribe to the new new **automatic_events** webh",
+      "date": "2025-06-04",
+      "category": "New Feature",
+      "modules": [
+        "Channel Integration/OAuth",
+        "Webhooks"
+      ],
+      "snippet": "Summary To be notified of these events, you can subscribe to the new new automatic_events webhook, and optionally, report them via Conversions API. See Automati…",
+      "url": "changelog.html",
+      "anchor": "card-2025-06-04-whatsapp-changelog-to-be-notified-of-these-events-you-can-subscribe-to-the-new"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-06-03-whatsapp-changelog-a-phone_number_quality_update-webhook-with-event-set-to-thro",
+      "title": "A phone_number_quality_update webhook with `event` set to `THROUGHPUT_UPGRADE` and `curren",
+      "date": "2025-06-03",
+      "category": "New Feature",
+      "modules": [
+        "Webhooks"
+      ],
+      "snippet": "Summary A phone_number_quality_update webhook with event set to THROUGHPUT_UPGRADE and current_limit set to TIER_UNLIMITED will now be triggered if your busines…",
+      "url": "changelog.html",
+      "anchor": "card-2025-06-03-whatsapp-changelog-a-phone_number_quality_update-webhook-with-event-set-to-thro"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-05-28-whatsapp-changelog-version-3-is-now-available",
+      "title": "Version 3 is now available",
+      "date": "2025-05-28",
+      "category": "New Feature",
+      "modules": [
+        "Broadcasts",
+        "Channel Integration/OAuth",
+        "RBAC"
+      ],
+      "snippet": "Summary Version 3 is now available. As part of this release, we have introduced versioning that will align with Graph API’s release cadence. The following chang…",
+      "url": "changelog.html",
+      "anchor": "card-2025-05-28-whatsapp-changelog-version-3-is-now-available"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-05-22-whatsapp-changelog-added-android-deep-link-support",
+      "title": "Added Android deep link support",
+      "date": "2025-05-22",
+      "category": "New Feature",
+      "modules": [
+        "Broadcasts"
+      ],
+      "snippet": "Summary Added Android deep link support. Why it Matters for SV2 Monitor Broadcasts integration for any behavioural impact. Suggested QA Action Informational — n…",
+      "url": "changelog.html",
+      "anchor": "card-2025-05-22-whatsapp-changelog-added-android-deep-link-support"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-05-20-whatsapp-changelog-added-an-error-messages-section-to-whatsapp-manager-that-sho",
+      "title": "Added an Error messages section to  WhatsApp Manager that shows a summary of errors encoun",
+      "date": "2025-05-20",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates",
+        "Broadcasts"
+      ],
+      "snippet": "Summary Added an Error messages section to WhatsApp Manager that shows a summary of errors encountered by your templates within a given period of time. Why it M…",
+      "url": "changelog.html",
+      "anchor": "card-2025-05-20-whatsapp-changelog-added-an-error-messages-section-to-whatsapp-manager-that-sho"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-05-19-whatsapp-changelog--134100-134101-134102-134103",
+      "title": "* `134100` * `134101` * `134102` * `134103`",
+      "date": "2025-05-19",
+      "category": "New Feature",
+      "modules": [
+        "Broadcasts"
+      ],
+      "snippet": "Summary 134100 134101 134102 134103 Why it Matters for SV2 Monitor Broadcasts integration for any behavioural impact. Suggested QA Action Informational — no imm…",
+      "url": "changelog.html",
+      "anchor": "card-2025-05-19-whatsapp-changelog--134100-134101-134102-134103"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-05-04-whatsapp-changelog-solution-providers-can-now-onboard-whatsapp-business-app-use",
+      "title": "Solution providers can now onboard WhatsApp Business app users  who have a WhatsApp Busine",
+      "date": "2025-05-04",
+      "category": "New Feature",
+      "modules": [
+        "Channel Integration/OAuth"
+      ],
+      "snippet": "Summary Solution providers can now onboard WhatsApp Business app users who have a WhatsApp Business app phone number with an India country dialing code. Why it…",
+      "url": "changelog.html",
+      "anchor": "card-2025-05-04-whatsapp-changelog-solution-providers-can-now-onboard-whatsapp-business-app-use"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-04-15-whatsapp-changelog-we-are-offering-a-limited-roll-out-of-webhook-access-to-clic",
+      "title": "We are offering a limited roll-out of webhook access to click events on marketing messages",
+      "date": "2025-04-15",
+      "category": "New Feature",
+      "modules": [
+        "Broadcasts",
+        "Webhooks",
+        "RBAC"
+      ],
+      "snippet": "Summary We are offering a limited roll-out of webhook access to click events on marketing messages sent using MM Lite. Read the “Tracking click events” page for…",
+      "url": "changelog.html",
+      "anchor": "card-2025-04-15-whatsapp-changelog-we-are-offering-a-limited-roll-out-of-webhook-access-to-clic"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-04-10-whatsapp-changelog-please-reach-out-to-your-partner-if-you-would-like-to-be-inc",
+      "title": "Please reach out to your partner, if you would like to be included in early access to this",
+      "date": "2025-04-10",
+      "category": "New Feature",
+      "modules": [
+        "Broadcasts",
+        "RBAC"
+      ],
+      "snippet": "Summary Please reach out to your partner, if you would like to be included in early access to this feature. Why it Matters for SV2 Monitor Broadcasts, RBAC inte…",
+      "url": "changelog.html",
+      "anchor": "card-2025-04-10-whatsapp-changelog-please-reach-out-to-your-partner-if-you-would-like-to-be-inc"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-04-08-whatsapp-changelog-we-no-longer-support-the-allow_category_change-property-duri",
+      "title": "We no longer support the `allow_category_change` property during template creation",
+      "date": "2025-04-08",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary We no longer support the allow_category_change property during template creation. Previously, if set to true in a template creation request, this allowe…",
+      "url": "changelog.html",
+      "anchor": "card-2025-04-08-whatsapp-changelog-we-no-longer-support-the-allow_category_change-property-duri"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-04-07-whatsapp-changelog-added-typing-indicators-so-you-can-let-whatsapp-users-know-t",
+      "title": "Added typing indicators so you can let WhatsApp users know that you are preparing a respon",
+      "date": "2025-04-07",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary Added typing indicators so you can let WhatsApp users know that you are preparing a response. Why it Matters for SV2 Monitor WhatsApp Templates integrat…",
+      "url": "changelog.html",
+      "anchor": "card-2025-04-07-whatsapp-changelog-added-typing-indicators-so-you-can-let-whatsapp-users-know-t"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-04-07-whatsapp-changelog--message-template-updates-flows-can-now-be-sent-with-other-b",
+      "title": "#### Message template updates  #### Flows can now be sent with other buttons in message te",
+      "date": "2025-04-07",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary Message template updates #### Flows can now be sent with other buttons in message templates You can now send message templates with a Flow and other typ…",
+      "url": "changelog.html",
+      "anchor": "card-2025-04-07-whatsapp-changelog--message-template-updates-flows-can-now-be-sent-with-other-b"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-04-01-whatsapp-changelog-tsappwhatsapp-business-accountsshare-your-waba-with-a-soluti",
+      "title": "tsapp/whatsapp-business-accounts#share-your-waba-with-a-solution-provider) WhatsApp Busine",
+      "date": "2025-04-01",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary tsapp/whatsapp-business-accounts#share-your-waba-with-a-solution-provider) WhatsApp Business Accounts using WhatsApp Manager. Why it Matters for SV2 Mon…",
+      "url": "changelog.html",
+      "anchor": "card-2025-04-01-whatsapp-changelog-tsappwhatsapp-business-accountsshare-your-waba-with-a-soluti"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-03-31-whatsapp-changelog-lowered-authentication-international-pricing-rates-for-egypt",
+      "title": "Lowered authentication-international pricing rates for Egypt, Nigeria, Pakistan, and South",
+      "date": "2025-03-31",
+      "category": "Pricing/Rate Limit",
+      "modules": [
+        "Billing"
+      ],
+      "snippet": "Summary Lowered authentication-international pricing rates for Egypt, Nigeria, Pakistan, and South Africa. Why it Matters for SV2 Billing module may need to ref…",
+      "url": "changelog.html",
+      "anchor": "card-2025-03-31-whatsapp-changelog-lowered-authentication-international-pricing-rates-for-egypt"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-03-31-whatsapp-changelog--self-signup-for-all-partners-and-businesses",
+      "title": "* **Self-signup for all partners and businesses**",
+      "date": "2025-03-31",
+      "category": "New Feature",
+      "modules": [
+        "Broadcasts",
+        "Channel Integration/OAuth"
+      ],
+      "snippet": "Summary Self-signup for all partners and businesses. All businesses and solution providers (including Solution Partners, Tech Providers and Tech Partners) can n…",
+      "url": "changelog.html",
+      "anchor": "card-2025-03-31-whatsapp-changelog--self-signup-for-all-partners-and-businesses"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-03-30-whatsapp-changelog-payments-api-for-business-portfolios-with-singapore-addresse",
+      "title": "Payments API for business portfolios with Singapore addresses is no longer available",
+      "date": "2025-03-30",
+      "category": "New Feature",
+      "modules": [
+        "Billing"
+      ],
+      "snippet": "Summary Payments API for business portfolios with Singapore addresses is no longer available. Why it Matters for SV2 Monitor Billing integration for any behavio…",
+      "url": "changelog.html",
+      "anchor": "card-2025-03-30-whatsapp-changelog-payments-api-for-business-portfolios-with-singapore-addresse"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-03-26-whatsapp-changelog-key-updates-character-limits-for-the-body-component-will-var",
+      "title": "**Key Updates**:  * Character limits for the body component will vary based on the templat",
+      "date": "2025-03-26",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates",
+        "Broadcasts"
+      ],
+      "snippet": "Summary Key Updates: Character limits for the body component will vary based on the template format and tag The number of emojis allowed in the body component m…",
+      "url": "changelog.html",
+      "anchor": "card-2025-03-26-whatsapp-changelog-key-updates-character-limits-for-the-body-component-will-var"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-03-19-whatsapp-changelog-added-partner-initiated-waba-creation-to-replace-the-on-beha",
+      "title": "Added partner-initiated WABA creation to replace the On-Behalf-Of (“OBO”) account ownershi",
+      "date": "2025-03-19",
+      "category": "Deprecation",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary Added partner-initiated WABA creation to replace the On-Behalf-Of (“OBO”) account ownership model, which is being deprecated. Starting September 30, 202…",
+      "url": "changelog.html",
+      "anchor": "card-2025-03-19-whatsapp-changelog-added-partner-initiated-waba-creation-to-replace-the-on-beha"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-03-10-whatsapp-changelog--component-updates-flow-json-version-7",
+      "title": "#### Component updates (Flow JSON Version 7",
+      "date": "2025-03-10",
+      "category": "Breaking Change",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary Component updates (Flow JSON Version 7.0) #### New property “label-variant” on TextArea and TextInput You can now utilize the label-variant: 'large' att…",
+      "url": "changelog.html",
+      "anchor": "card-2025-03-10-whatsapp-changelog--component-updates-flow-json-version-7"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-02-26-whatsapp-changelog--marketing-messages-lite-api-conversions-api-marketing-api-n",
+      "title": "* Marketing Messages Lite API * Conversions API * Marketing API  Note that these tiles onl",
+      "date": "2025-02-26",
+      "category": "New Feature",
+      "modules": [
+        "Broadcasts"
+      ],
+      "snippet": "Summary Marketing Messages Lite API Conversions API Marketing API Note that these tiles only appear for products that you are eligible to use. Why it Matters fo…",
+      "url": "changelog.html",
+      "anchor": "card-2025-02-26-whatsapp-changelog--marketing-messages-lite-api-conversions-api-marketing-api-n"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-02-13-whatsapp-changelog--added-get-waba_idtemplate_groups-added-post-waba_idtemplate",
+      "title": "* Added GET /<WABA_ID>/template_groups * Added POST /<WABA_ID>/template_groups * Added GET",
+      "date": "2025-02-13",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary Added GET /<WABA_ID>/template_groups Added POST /<WABA_ID>/template_groups Added GET /<WABA_ID>/template_group_analytics Added GET /<TEMPLATE_GROUP_ID>…",
+      "url": "changelog.html",
+      "anchor": "card-2025-02-13-whatsapp-changelog--added-get-waba_idtemplate_groups-added-post-waba_idtemplate"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-02-10-whatsapp-changelog-added-ability-for-solution-providers-to-onboard-whatsapp-bus",
+      "title": "Added ability for solution providers to onboard WhatsApp Business app users via Embedded S",
+      "date": "2025-02-10",
+      "category": "New Feature",
+      "modules": [
+        "Channel Integration/OAuth"
+      ],
+      "snippet": "Summary Added ability for solution providers to onboard WhatsApp Business app users via Embedded Signup (aka “Coexistence”). Why it Matters for SV2 Monitor Chan…",
+      "url": "changelog.html",
+      "anchor": "card-2025-02-10-whatsapp-changelog-added-ability-for-solution-providers-to-onboard-whatsapp-bus"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-01-31-whatsapp-changelog--lowered-authentication-pricing-rates-for-egypt-malaysia-nig",
+      "title": "* Lowered authentication pricing rates for Egypt, Malaysia, Nigeria, Pakistan, Saudi Arabi",
+      "date": "2025-01-31",
+      "category": "Pricing/Rate Limit",
+      "modules": [
+        "Billing"
+      ],
+      "snippet": "Summary Lowered authentication pricing rates for Egypt, Malaysia, Nigeria, Pakistan, Saudi Arabia, South Africa, and the United Arab Emirates. Added authenticat…",
+      "url": "changelog.html",
+      "anchor": "card-2025-01-31-whatsapp-changelog--lowered-authentication-pricing-rates-for-egypt-malaysia-nig"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-01-22-whatsapp-changelog-added-ability-for-business-customers-of-solution-providers-t",
+      "title": "Added ability for business customers of solution providers to claim “555” business phone n",
+      "date": "2025-01-22",
+      "category": "New Feature",
+      "modules": [
+        "Channel Integration/OAuth"
+      ],
+      "snippet": "Summary Added ability for business customers of solution providers to claim “555” business phone numbers when onboarding via Embedded Signup. Why it Matters for…",
+      "url": "changelog.html",
+      "anchor": "card-2025-01-22-whatsapp-changelog-added-ability-for-business-customers-of-solution-providers-t"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-01-15-whatsapp-changelog-added-the-block-api-giving-businesses-the-ability-to-manage",
+      "title": "Added the Block API giving businesses the ability to manage unwanted spam by blocking or u",
+      "date": "2025-01-15",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary Added the Block API giving businesses the ability to manage unwanted spam by blocking or unblocking specific customer phone numbers. Why it Matters for…",
+      "url": "changelog.html",
+      "anchor": "card-2025-01-15-whatsapp-changelog-added-the-block-api-giving-businesses-the-ability-to-manage"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-01-13-whatsapp-changelog--component-updates-flow-json-version-6",
+      "title": "#### Component updates (Flow JSON version 6",
+      "date": "2025-01-13",
+      "category": "New Feature",
+      "modules": [
+        "WhatsApp Templates"
+      ],
+      "snippet": "Summary Component updates (Flow JSON version 6.3) #### Chips selector component The Chips Selector component simplifies tasks, such as selecting preferences or…",
+      "url": "changelog.html",
+      "anchor": "card-2025-01-13-whatsapp-changelog--component-updates-flow-json-version-6"
+    },
+    {
+      "type": "changelog",
+      "id": "changelog-2025-01-06-whatsapp-changelog--added-ability-to-migrate-business-customers-off-of-multi-pa",
+      "title": "* Added ability to migrate business customers off of Multi-Partner Solutions via Embedded",
+      "date": "2025-01-06",
+      "category": "New Feature",
+      "modules": [
+        "Channel Integration/OAuth"
+      ],
+      "snippet": "Summary Added ability to migrate business customers off of Multi-Partner Solutions via Embedded Signup and via Meta Business Suite. Both methods skip business p…",
+      "url": "changelog.html",
+      "anchor": "card-2025-01-06-whatsapp-changelog--added-ability-to-migrate-business-customers-off-of-multi-pa"
+    },
+    {
+      "type": "learn",
+      "id": "learn-error-codes",
+      "title": "Error Codes — Complete Reference",
+      "platform": "Common",
+      "category": "Core API",
+      "headings": [
+        "Error Response Structure",
+        "Top-Level Error Codes",
+        "Graph API General Errors",
+        "WhatsApp-Specific Error Codes (13xxxx)",
+        "130xxx — Throttling & Rate Limits",
+        "131xxx — Message Send Errors",
+        "131063-131064 — Template Enforcement",
+        "132xxx — Template Errors",
+        "133xxx — Account Registration Errors",
+        "134xxx — Template Sync Errors (Send-time)",
+        "Template Validation Error Subcodes",
+        "Messenger Error Codes",
+        "Error Handling Strategy for SEEN V2"
+      ],
+      "snippet": "Error Codes — Complete Reference All WhatsApp Business API errors follow a consistent structure. Understanding the codes prevents wasted debugging time. Error R…",
+      "body": "Error Codes — Complete Reference All WhatsApp Business API errors follow a consistent structure. Understanding the codes prevents wasted debugging time. Error Response Structure --Top-Level Error Codes Graph API General Errors --WhatsApp-Specific Error Codes (13xxxx) 130xxx — Throttling & Rate Limits 131xxx — Message Send Errors 131063-131064 — Template Enforcement 132xxx — Template Errors 133xxx — Account Registration Errors 134xxx — Template Sync Errors (Send-time) --Template Validation Error Subcodes These appear as when creating/editing templates: --Messenger Error Codes --Error Handling Strategy for SEEN V2",
+      "url": "learn/topics/error-codes.html"
+    },
+    {
+      "type": "learn",
+      "id": "learn-messenger-instagram-api",
+      "title": "Messenger & Instagram Messaging API",
+      "platform": "Messenger",
+      "category": "Core API",
+      "headings": [
+        "The 24-Hour Messaging Window",
+        "Shared Features (Messenger & Instagram)",
+        "Instagram-Specific Features",
+        "Parameters & Fields (Sending a Generic Template)",
+        "Validation Rules",
+        "Webhooks",
+        "QA Checklist"
+      ],
+      "snippet": "Messenger & Instagram Messaging API The Messenger Platform powers both Facebook Messenger and Instagram Direct. Unlike WhatsApp, which is heavily template-drive…",
+      "body": "Messenger & Instagram Messaging API The Messenger Platform powers both Facebook Messenger and Instagram Direct. Unlike WhatsApp, which is heavily template-driven and monetized per conversation, Messenger and Instagram rely on a 24-hour standard messaging window. The 24-Hour Messaging Window When a user sends a message to your Facebook Page or Instagram Professional Account, a 24-hour timer starts. Within 24 hours: You can send standard messages, media, and interactive elements (like generic templates) for free.\nAfter 24 hours: You can only send messages if they qualify for specific Message Tags (e.g., , , ). Promotional messages outside the 24-hour window are strictly prohibited unless sent as Sponsored Messages (Ads). Shared Features (Messenger & Instagram) Instagram-Specific Features Parameters & Fields (Sending a Generic Template) The Generic Template (Carousel) is the most common rich UI element across both platforms. Validation Rules Webhooks Messenger and Instagram webhooks share the exact same format and are delivered to the same endpoint. Crucial SEEN V2 Note: Because the payloads look identical, you must check the flag to ignore messages the bot itself sent, and look for vs events if using the Handover Protocol (passing control between Bot and Human agent). QA Checklist [ ] Ensure SEEN V2 tracks the 24-hour window timer for every active conversation per user (PSID/IGSID).\n[ ] Prevent agents or automated broadcasts from sending untagged messages after 24 hours.\n[ ] Implement support for Instagram Story Mention webhook payloads natively in the Flow Builder.",
+      "url": "learn/topics/messenger-instagram-api.html"
+    },
+    {
+      "type": "learn",
+      "id": "learn-whatsapp-message-templates",
+      "title": "Message Templates",
+      "platform": "WhatsApp",
+      "category": "Core API",
+      "headings": [
+        "Endpoints",
+        "CREATE — Parameters",
+        "Required",
+        "Optional",
+        "CREATE — Validation Rules",
+        "Components — Detail & Limits",
+        "HEADER (optional)",
+        "BODY (required)",
+        "FOOTER (optional)",
+        "BUTTONS (optional)",
+        "EDIT — Rules",
+        "What CAN be changed",
+        "What CANNOT be changed (Immutable)",
+        "Edit Rate Limits",
+        "DELETE — Rules",
+        "Delete Restrictions",
+        "Error Codes Reference",
+        "Creation / Validation Errors",
+        "Send-time Errors (when sending a template message)",
+        "Code Examples",
+        "✅ Valid: Create a UTILITY template",
+        "❌ Rejected: Name with uppercase letters",
+        "❌ Rejected: Body starts with a variable (dangling)",
+        "❌ Rejected: Footer has a variable",
+        "✅ Valid: Edit a rejected template (change body)",
+        "❌ Rejected: Trying to change template name (immutable)",
+        "SEEN V2 — Notes"
+      ],
+      "snippet": "Message Templates Templates are pre-approved message formats required for business-initiated conversations outside of a 24-hour customer service window. Every m…",
+      "body": "Message Templates Templates are pre-approved message formats required for business-initiated conversations outside of a 24-hour customer service window. Every marketing, utility, or authentication message sent first must exist as an approved template. Endpoints --CREATE — Parameters Required Optional --CREATE — Validation Rules --Components — Detail & Limits HEADER (optional) BODY (required) FOOTER (optional) BUTTONS (optional) > ⚠️ Desktop visibility rule: Templates with 4buttons, or Quick Reply buttons mixed with other types, are hidden on WhatsApp Desktop. Visible on mobile only. > UI rule: When total buttons > 3, only the first 2 show — rest hidden under \"See all options.\" --EDIT — Rules What CAN be changed What CANNOT be changed (Immutable) Edit Rate Limits --DELETE — Rules Delete Restrictions --Error Codes Reference Creation / Validation Errors Send-time Errors (when sending a template message) --Code Examples ✅ Valid: Create a UTILITY template ❌ Rejected: Name with uppercase letters ❌ Rejected: Body starts with a variable (dangling) ❌ Rejected: Footer has a variable ✅ Valid: Edit a rejected template (change body) ❌ Rejected: Trying to change template name (immutable) --SEEN V2 — Notes > QA Note: When testing template creation, always include sample values () for any template with variables, or the API will reject with a validation error.",
+      "url": "learn/topics/whatsapp-message-templates.html"
+    },
+    {
+      "type": "learn",
+      "id": "learn-whatsapp-messages-api",
+      "title": "Messages API (Send Messages)",
+      "platform": "WhatsApp",
+      "category": "Core API",
+      "headings": [
+        "Endpoint",
+        "Base Parameters (All Requests)",
+        "Message Types — Parameters & Validation",
+        "TEXT",
+        "Validation Rules for TEXT",
+        "IMAGE / VIDEO / AUDIO / DOCUMENT",
+        "Media Limits",
+        "Media Validation Rules",
+        "INTERACTIVE — List Messages",
+        "Interactive List Limits",
+        "INTERACTIVE — Reply Buttons",
+        "TEMPLATE",
+        "Template Send Validation",
+        "REACTION",
+        "LOCATION",
+        "Messaging Windows (When You Can Send)",
+        "Rate Limits",
+        "Response (Success)",
+        "Error Codes Reference",
+        "SEEN V2 Notes"
+      ],
+      "snippet": "Messages API (Send Messages) The Messages API is how your business sends messages to users — text, media, templates, interactive messages, and more. Endpoint --…",
+      "body": "Messages API (Send Messages) The Messages API is how your business sends messages to users — text, media, templates, interactive messages, and more. Endpoint --Base Parameters (All Requests) --Message Types — Parameters & Validation TEXT Validation Rules for TEXT --IMAGE / VIDEO / AUDIO / DOCUMENT Media can be sent by (uploaded to Meta) or (direct URL): Media Limits Media Validation Rules --INTERACTIVE — List Messages Interactive List Limits INTERACTIVE — Reply Buttons --TEMPLATE Template Send Validation --REACTION --LOCATION --Messaging Windows (When You Can Send) --Rate Limits --Response (Success) Save the — you'll need it to correlate with status webhooks. --Error Codes Reference --SEEN V2 Notes",
+      "url": "learn/topics/whatsapp-messages-api.html"
+    },
+    {
+      "type": "learn",
+      "id": "learn-whatsapp-webhooks",
+      "title": "WhatsApp Webhooks",
+      "platform": "WhatsApp",
+      "category": "Webhooks",
+      "headings": [
+        "Setup Requirements",
+        "Verification Flow (One-Time Setup)",
+        "✅ Correct Response",
+        "❌ Wrong Responses",
+        "Signature Verification",
+        "Webhook Fields — Subscription",
+        "Webhook Event Types",
+        "`messages` — Inbound Messages",
+        "Message Types in Webhook",
+        "`statuses` — Message Status Updates",
+        "Status Flow",
+        "`message_template_status_update`",
+        "`account_update`",
+        "Validation Rules",
+        "Error Codes in Status Webhooks",
+        "SEEN V2 Notes"
+      ],
+      "snippet": "WhatsApp Webhooks Webhooks are HTTP callbacks that Meta sends to your server when events occur — a message is received, a template status changes, a user's phon…",
+      "body": "WhatsApp Webhooks Webhooks are HTTP callbacks that Meta sends to your server when events occur — a message is received, a template status changes, a user's phone number changes, etc. You must verify your endpoint and handle each event type correctly. Setup Requirements --Verification Flow (One-Time Setup) When you save the webhook URL in your App Dashboard, Meta sends a request: ✅ Correct Response ❌ Wrong Responses --Signature Verification Every webhook POST includes the header . You must validate it to confirm the payload is from Meta: > ⚠️ Warning: Use the raw request body for HMAC calculation — NOT . Body parsers may reformat the JSON. --Webhook Fields — Subscription Subscribe to fields in your App Dashboard or via API: --Webhook Event Types — Inbound Messages Fires when a user sends your business a message. Payload structure: Message Types in Webhook --— Message Status Updates Fires when a message you sent changes status. Status Flow --Fires when a template's review status changes. --Fires when WABA-level changes occur. --Validation Rules --Error Codes in Status Webhooks --SEEN V2 Notes",
+      "url": "learn/topics/whatsapp-webhooks.html"
+    },
+    {
+      "type": "learn",
+      "id": "learn-whatsapp-business-profile",
+      "title": "WhatsApp Business Profile API",
+      "platform": "WhatsApp",
+      "category": "Core API",
+      "headings": [
+        "Managing the Profile",
+        "Parameters & Fields (Updating Profile)",
+        "Validation Rules",
+        "Live Preview — What It Looks Like",
+        "✅ Correct Usage — Updating Profile",
+        "❌ Common Mistake — Invalid Website Format",
+        "Profile Picture",
+        "SEEN V2 Implementation Notes",
+        "QA Checklist"
+      ],
+      "snippet": "WhatsApp Business Profile API The Business Profile API allows SEEN V2 to programmatically manage the public-facing profile of a WhatsApp Business Account (WABA)…",
+      "body": "WhatsApp Business Profile API The Business Profile API allows SEEN V2 to programmatically manage the public-facing profile of a WhatsApp Business Account (WABA). This is what end-users see when they click on the business name in WhatsApp. Managing the Profile You can read and update the profile details using the edge on the Phone Number ID. Parameters & Fields (Updating Profile) Validation Rules Live Preview — What It Looks Like ✅ Correct Usage — Updating Profile Why it works: Valid URL formats, less than 3 websites, valid vertical enum. ❌ Common Mistake — Invalid Website Format Error: — URLs must begin with or . Profile Picture Updating the profile picture requires a 2-step process using Resumable Uploads, not a direct URL. 1. Create an Upload Session: POST to 2. Upload the file: POST binary data to the returned session ID\n3. Update the profile: Pass the returned handle to SEEN V2 Implementation Notes Settings UI: SEEN V2's settings dashboard should strictly validate these inputs client-side (especially URL schemes and max character counts) before hitting the Meta API to prevent frustrating errors.\nCaching: Fetch the profile on app load and cache it. Do not fetch it dynamically on every page render. QA Checklist [ ] Validate URLs have [ ] Enforce max length of 139 chars for the field\n[ ] Ensure vertical selection uses Meta's exact enum values, not arbitrary strings",
+      "url": "learn/topics/whatsapp-business-profile.html"
+    },
+    {
+      "type": "learn",
+      "id": "learn-whatsapp-campaigns-broadcasts",
+      "title": "WhatsApp Campaigns & Broadcasts",
+      "platform": "WhatsApp",
+      "category": "Core API",
+      "headings": [
+        "How Broadcasts Work",
+        "Template Categories (Pricing Impacts)",
+        "Parameters & Fields (Sending a Template)",
+        "The Components Array",
+        "Validation Rules",
+        "Live Preview — What It Looks Like",
+        "✅ Correct Usage — Sending a Marketing Broadcast",
+        "❌ Common Mistake — Missing Component Variables",
+        "WhatsApp Quality Limits (The Penalty Box)",
+        "SEEN V2 Implementation Notes",
+        "QA Checklist"
+      ],
+      "snippet": "WhatsApp Campaigns & Broadcasts In WhatsApp, you cannot send arbitrary free-form promotional text to users whenever you want. Any business-initiated conversatio…",
+      "body": "WhatsApp Campaigns & Broadcasts In WhatsApp, you cannot send arbitrary free-form promotional text to users whenever you want. Any business-initiated conversation must begin with an approved Message Template. This is the foundation of Broadcasts and Campaigns in SEEN V2. How Broadcasts Work To send a broadcast to 1,000 users, SEEN V2 iterates over the list and fires the API using a pre-approved template for each user. 1. Create a template in Meta Business Manager (or via API).\n2. Wait for approval (usually seconds to minutes).\n3. Execute the campaign by sending the template to the audience. Template Categories (Pricing Impacts) When creating templates, they must be assigned a category. Meta prices conversations based on this category. Marketing: Promotions, offers, newsletters. (Highest cost)\nUtility: Transaction updates, shipping alerts, account notifications.\nAuthentication: OTPs, verification codes. (Lowest cost) Parameters & Fields (Sending a Template) The Components Array If your template has variables like in the body, or requires an image in the header, you must pass them in . Validation Rules Live Preview — What It Looks Like ✅ Correct Usage — Sending a Marketing Broadcast Why it works: The template expects an image header and two body variables (Name and Discount). The payload maps these exactly. ❌ Common Mistake — Missing Component Variables Error: — If was approved with body text \"Your order {{1}} is arriving on {{2}}\", sending it without the array will fail validation instantly. WhatsApp Quality Limits (The Penalty Box) When executing massive campaigns, Meta monitors user feedback. If users block or report your broadcast:\n1. Tier Drop: Your messaging limit (e.g., 10K/day) can be instantly downgraded to 1K/day.\n2. Template Pause: Meta will flag the specific template as . Sending it will return an error until it's unpaused.\n3. Number Ban: Continuous low quality results in complete restriction. SEEN V2 Implementation Notes Batching: WhatsApp API restricts concurrency. For a 100K user campaign, SEEN V2 must implement rate limiting (max 80 requests per second) to avoid HTTP 429 Too Many Requests.\nFailures: Not all numbers have WhatsApp. SEEN V2 must gracefully handle and mark the contact accordingly so they are skipped in future broadcasts. QA Checklist [ ] Ensure SEEN V2 maps exactly the correct number of variables per component\n[ ] Enforce language code case sensitivity ( not )\n[ ] Implement a queue system for large broadcasts to adhere to rate limits\n[ ] Read webhook statuses (, , , ) to update campaign analytics in real-time",
+      "url": "learn/topics/whatsapp-campaigns-broadcasts.html"
+    },
+    {
+      "type": "learn",
+      "id": "learn-whatsapp-flows-v4",
+      "title": "WhatsApp Flows v4 — Interactive Forms",
+      "platform": "WhatsApp",
+      "category": "Core API",
+      "headings": [
+        "Overview",
+        "How It Works",
+        "Parameters & Fields",
+        "Validation Rules",
+        "Live Preview — What It Looks Like",
+        "✅ Correct Usage",
+        "❌ Common Mistake",
+        "Comparison: Before vs After This Feature",
+        "Code Example — Full Working Request",
+        "SEEN V2 — Impact & Notes",
+        "QA Checklist"
+      ],
+      "snippet": "WhatsApp Flows v4 — Interactive Forms WhatsApp Flows v4 introduces native interactive forms inside WhatsApp conversations, letting businesses collect structured…",
+      "body": "WhatsApp Flows v4 — Interactive Forms WhatsApp Flows v4 introduces native interactive forms inside WhatsApp conversations, letting businesses collect structured data without redirecting users to external links. Overview Flows v4 enables businesses to build multi-screen form experiences that run natively inside WhatsApp. Users answer questions, select options, and submit data — all without leaving the chat. For SEEN V2, this is directly relevant to lead capture, onboarding, and survey workflows in the Broadcasts module. How It Works Business sends a Flow message via the Messages API\nWhatsApp renders the interactive screens on the user's device\nUser submits the form — a webhook payload arrives with the collected data\nSEEN V2 maps the payload to a contact record or conversation Parameters & Fields Validation Rules Live Preview — What It Looks Like ✅ Correct Usage Why it works: Flow is , is , token is valid length, all required fields present. ❌ Common Mistake Error: — must be or , and exceeds 64 characters. Comparison: Before vs After This Feature Code Example — Full Working Request SEEN V2 — Impact & Notes > 📋 Linked Changelog Article: This feature was detected on 2026-06-24.\n> See: Changelog entry for 2026-06-24 QA Checklist [ ] Verify Flow is in state before sending\n[ ] Test the ✅ accepted example — confirm interactive message renders in WhatsApp\n[ ] Test the ❌ rejected example — confirm error 100 for invalid [ ] Verify webhook receives structured payload on flow completion\n[ ] Test with exactly 64 chars — confirm it works",
+      "url": "learn/topics/whatsapp-flows-v4.html"
+    },
+    {
+      "type": "learn",
+      "id": "learn-whatsapp-interactive-messages",
+      "title": "WhatsApp Interactive Messages (Buttons & Lists)",
+      "platform": "WhatsApp",
+      "category": "Core API",
+      "headings": [
+        "Types of Interactive Messages",
+        "Parameters & Fields",
+        "Reply Buttons",
+        "List Messages",
+        "Validation Rules",
+        "Live Preview — What It Looks Like",
+        "✅ Correct Usage — Reply Buttons",
+        "❌ Common Mistake — Too Many Buttons",
+        "Webhooks (Receiving the Response)",
+        "QA Checklist"
+      ],
+      "snippet": "WhatsApp Interactive Messages Interactive messages replace traditional text-based \"Reply 1 for Yes\" workflows with native UI elements. They reduce friction, eli…",
+      "body": "WhatsApp Interactive Messages Interactive messages replace traditional text-based \"Reply 1 for Yes\" workflows with native UI elements. They reduce friction, eliminate typing errors, and improve conversion rates. For SEEN V2, interactive messages are core to the Flow Builder and Bot modules. Types of Interactive Messages 1. Reply Buttons: Up to 3 quick-reply buttons (e.g., \"Yes\", \"No\", \"Talk to Sales\").\n2. List Messages: A menu of up to 10 rows (e.g., product categories, store locations). Parameters & Fields Reply Buttons List Messages Validation Rules Live Preview — What It Looks Like ✅ Correct Usage — Reply Buttons Why it works: Exactly 2 buttons, titles are under 20 chars, IDs are unique. ❌ Common Mistake — Too Many Buttons Error: — Maximum of 3 buttons allowed. For 4options, use a message instead. Webhooks (Receiving the Response) When a user clicks a button or selects a list row, Meta sends a webhook to SEEN V2. Important SEEN V2 implementation note: The bot builder should match against the (not the title) for routing logic, as the ID is immutable while the title might change based on localization. QA Checklist [ ] Verify button titles do not exceed 20 characters\n[ ] Verify maximum 3 buttons per message\n[ ] Verify list rows do not exceed 10 across all sections combined\n[ ] Verify row titles do not exceed 24 characters\n[ ] Ensure (for lists) is under 20 characters\n[ ] Map webhook accurately to SEEN V2 Flow Builder triggers",
+      "url": "learn/topics/whatsapp-interactive-messages.html"
+    },
+    {
+      "type": "learn",
+      "id": "learn-whatsapp-media-messages",
+      "title": "WhatsApp Media Messages (Images, Video, Docs)",
+      "platform": "WhatsApp",
+      "category": "Core API",
+      "headings": [
+        "Media Types & Limits",
+        "Parameters & Fields",
+        "Validation Rules",
+        "Live Preview — What It Looks Like",
+        "✅ Correct Usage — Sending Image via URL",
+        "❌ Common Mistake — Wrong Media Type Key",
+        "❌ Common Mistake — Exceeding Size Limit",
+        "The Media Upload API (Alternative to URLs)",
+        "SEEN V2 Implementation Notes",
+        "QA Checklist"
+      ],
+      "snippet": "WhatsApp Media Messages Sending media is essential for rich communication in SEEN V2. Media can be sent either by providing a public URL or by uploading the med…",
+      "body": "WhatsApp Media Messages Sending media is essential for rich communication in SEEN V2. Media can be sent either by providing a public URL or by uploading the media to Meta's servers first and passing the . Media Types & Limits Meta imposes strict limits on file sizes and supported formats. Sending unsupported formats or oversized files will result in immediate rejection. Parameters & Fields When sending media via URL: When sending media via ID: Validation Rules Live Preview — What It Looks Like ✅ Correct Usage — Sending Image via URL Why it works: URL is a direct link to a , and caption is under 1024 characters. ❌ Common Mistake — Wrong Media Type Key Error: — The key inside the JSON must match the . If is , the object must be , not . ❌ Common Mistake — Exceeding Size Limit Error: If the file at the link exceeds 16MB, Meta will try to download it, fail the size validation, and send an error webhook asynchronously indicating the download failed due to size limits. The Media Upload API (Alternative to URLs) If you don't want to expose media via public URLs, upload it to Meta first. 1. Upload: Returns: 2. Send: SEEN V2 Implementation Notes URL vs ID: Always prefer for static assets (logos, marketing banners) and for dynamic/sensitive assets (invoices, reports) that shouldn't be publicly accessible on your CDN.\nGIF Support: WhatsApp does not natively support GIF media types for business API. You must convert GIFs to and send them as . QA Checklist [ ] Ensure user uploads in SEEN V2 are validated against Meta's strict MB limits before API dispatch\n[ ] Implement auto-conversion for common incompatible types (e.g. converting to )\n[ ] Verify that document filenames include the correct extension for WhatsApp to render the appropriate icon",
+      "url": "learn/topics/whatsapp-media-messages.html"
+    },
+    {
+      "type": "learn",
+      "id": "learn-whatsapp-quality-limits",
+      "title": "WhatsApp Quality Rating & Messaging Limits",
+      "platform": "WhatsApp",
+      "category": "Core API",
+      "headings": [
+        "Messaging Tiers (Limits)",
+        "Quality Ratings (Status)",
+        "The \"Flagged\" Penalty",
+        "Upgrading Limits",
+        "Validation Rules & API Behavior",
+        "SEEN V2 Implementation Notes",
+        "QA Checklist"
+      ],
+      "snippet": "WhatsApp Quality Rating & Limits Meta enforces a strict quality control system to prevent spam on WhatsApp. If a business sends unwanted messages, users will bl…",
+      "body": "WhatsApp Quality Rating & Limits Meta enforces a strict quality control system to prevent spam on WhatsApp. If a business sends unwanted messages, users will block or report them. Meta tracks these blocks/reports to calculate a Quality Rating. Messaging Tiers (Limits) Every WhatsApp Business Account starts with a specific messaging limit. This is the maximum number of business-initiated conversations (Marketing, Utility, Auth) you can open in a rolling 24-hour window. 1. Tier 1: 1,000 unique customers / 24 hours.\n2. Tier 2: 10,000 unique customers / 24 hours.\n3. Tier 3: 100,000 unique customers / 24 hours.\n4. Tier 4: Unlimited unique customers. Note: User-initiated conversations (Service conversations) do not count towards these limits. Quality Ratings (Status) Your phone number has a Quality Rating visible in the WhatsApp Manager (and via API/Webhooks). High (Green): Normal.\nMedium (Yellow): Warning.\nLow (Red): Danger. If your rating hits \"Low\", your number's status changes from to . The \"Flagged\" Penalty When your number is :\nYou cannot upgrade to a higher messaging tier.\nIf your rating doesn't improve within 7 days, your messaging limit is downgraded (e.g., from 10K back down to 1K).\nIf it remains low continuously, Meta may permanently disable the number. Upgrading Limits Meta automatically upgrades your limit (e.g., Tier 1 -> Tier 2) within 24 hours when both of the following are true:\n1. Your quality rating is NOT Low.\n2. The cumulative total of business-initiated conversations you've opened over the last 7 days is greater than half of your current limit (e.g., > 500 for a 1k limit). Validation Rules & API Behavior SEEN V2 Implementation Notes Throttling: SEEN V2's Broadcast engine MUST check the current messaging tier before queuing 10,000 messages on a Tier 1 account. If it blasts 10K messages, 9,000 will fail with , wasting API calls and potentially getting flagged for abuse.\nWebhooks: SEEN V2 should listen for the and webhooks to alert the SEEN V2 user if they enter the \"Red\" zone or a template gets paused due to negative feedback. QA Checklist [ ] Ensure SEEN V2 tracks the 24-hour rolling volume of outbound broadcast messages.\n[ ] Implement an alert banner in the SEEN V2 dashboard if the webhook payload drops to or .\n[ ] Prevent sending broadcast messages if the template status is .",
+      "url": "learn/topics/whatsapp-quality-limits.html"
+    }
+  ]
+}

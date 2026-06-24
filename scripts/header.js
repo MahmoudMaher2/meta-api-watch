@@ -49,6 +49,14 @@ function buildHeader(basePath, activePage, lastBuild) {
       </a>
     </nav>
 
+    <button id="search-trigger" aria-label="Search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <span class="search-trigger-label" data-en="Search..." data-ar="ابحث...">Search...</span>
+      <span class="search-trigger-shortcut">Ctrl K</span>
+    </button>
+
     ${buildBadge}
 
     <div class="header-actions">
@@ -68,9 +76,8 @@ function buildHeader(basePath, activePage, lastBuild) {
 }
 
 /**
- * Inline JS for theme + language toggle.
+ * Inline JS for theme + language toggle + search loader.
  * basePath: path prefix to site root (e.g., '' for root, '../' for learn/, '../../' for learn/topics/)
- * Accepts optional extra JS string to run inside the listener.
  */
 function buildSharedScript(basePath, extraJs) {
   const bp = basePath || '';
@@ -118,7 +125,9 @@ function buildSharedScript(basePath, extraJs) {
     wireButtons();
   }
 })();
-</script>`;
+</script>
+<script>var _SEARCH_BASE_='${bp}';</script>
+<script src="${bp}search.js"></script>`;
 }
 
 /** Shared <head> open — fonts + CSS reference */

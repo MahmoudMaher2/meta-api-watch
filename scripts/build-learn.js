@@ -250,7 +250,7 @@ ${buildHead(
 
   </div>
 
-  ${buildSharedScript()}
+  ${buildSharedScript('../../')}
 </body>
 </html>`;
 }
