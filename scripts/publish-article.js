@@ -316,7 +316,7 @@ function buildIndex(articles) {
   const buildTimeDisplay = buildDate.toLocaleTimeString('en-US', {
     hour: 'numeric', minute: '2-digit', hour12: true,
     timeZone: 'Africa/Cairo'
-  }) + ' (Cairo)';
+  }) + ' 🇪🇬';
   const lastBuildLabel = `${buildDateDisplay} · ${buildTimeDisplay}`;
 
   return `<!DOCTYPE html>
@@ -384,6 +384,8 @@ ${buildHead(
   </footer>
 
   <script src="app.js"></script>
+  <script>var _SEARCH_BASE_='';</script>
+  <script src="search.js"></script>
 </body>
 </html>`;
 }
@@ -414,7 +416,7 @@ function buildWelcome(articles, learnTopics) {
   const buildTime = new Date().toLocaleTimeString('en-US', {
     hour:'numeric', minute:'2-digit', hour12:true, timeZone:'Africa/Cairo'
   });
-  const lastBuildLabel = `${buildDate} · ${buildTime} (Cairo)`;
+  const lastBuildLabel = `${buildDate} · ${buildTime} 🇪🇬`;
   const breaking = articles.filter(a=>a.meta.category==='Breaking Change').length;
   return `<!DOCTYPE html>
 <html lang="en" data-theme="dark" data-lang="en">
@@ -453,7 +455,7 @@ ${buildHead(
       </div>
       <div class="welcome-build">
         <span class="welcome-build-label" data-en="Last Updated" data-ar="آخر تحديث">Last Updated</span>
-        <span>${buildDate} &middot; ${buildTime} (Cairo)</span>
+        <span>${buildDate} &middot; ${buildTime} 🇪🇬</span>
       </div>
       <div class="welcome-cta">
         <a href="changelog.html" class="cta-primary">
@@ -475,6 +477,8 @@ ${buildHead(
   </footer>
 
   <script src="app.js"></script>
+  <script>var _SEARCH_BASE_='';</script>
+  <script src="search.js"></script>
 </body>
 </html>`;
 }

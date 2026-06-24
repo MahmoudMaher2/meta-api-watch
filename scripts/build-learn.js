@@ -163,7 +163,7 @@ function buildTopicPage(topic, allTopics) {
     month: 'short', day: 'numeric', year: 'numeric',
     hour: 'numeric', minute: '2-digit', hour12: true,
     timeZone: 'Africa/Cairo'
-  }) + ' (Cairo)';
+  }) + ' 🇪🇬';
   
   // Extract TOC from headings
   const headings = [...topic.body.matchAll(/^#{2,3}\s(.+)$/gm)].map(m => ({
@@ -431,7 +431,7 @@ function buildIndex(topics) {
   const buildTime = new Date().toLocaleTimeString('en-US', {
     hour: 'numeric', minute: '2-digit', hour12: true, timeZone: 'Africa/Cairo'
   });
-  const lastBuildLabel = `${buildDate} · ${buildTime} (Cairo)`;
+  const lastBuildLabel = `${buildDate} · ${buildTime} 🇪🇬`;
 
   return `<!DOCTYPE html>
 <html lang="en" data-theme="dark" data-lang="en">
@@ -505,9 +505,9 @@ ${buildHead(
     ${platformSections}
 
     <footer class="learn-footer">
-      <p data-en="Meta Docs Learn · Built with Antigravity · Last updated: ${buildDate} (Cairo)" 
+      <p data-en="Meta Docs Learn · Built with Antigravity · Last updated: ${buildDate} 🇪🇬" 
          data-ar="تعلّم Meta Docs · تم التطوير بواسطة Antigravity · آخر تحديث: ${buildDate} (القاهرة)">
-        Meta Docs Learn · Built with Antigravity · Last updated: ${buildDate} (Cairo)
+        Meta Docs Learn · Built with Antigravity · Last updated: ${buildDate} 🇪🇬
       </p>
       <p data-en="All content extracted directly from Meta Developer Documentation" 
          data-ar="تم استخراج كافة المحتويات مباشرة من مستندات مطوري Meta">

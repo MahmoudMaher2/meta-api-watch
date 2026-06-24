@@ -16,7 +16,7 @@ function buildHeader(basePath, activePage, lastBuild) {
   const isLearn     = activePage === 'learn';
 
   const buildBadge = lastBuild
-    ? `<div class="header-build-time" title="Last site build (Cairo time)">
+    ? `<div class="header-build-time" title="Last site build 🇪🇬">
         <span class="build-icon">🕐</span>
         <span class="build-label" data-en="Last Build" data-ar="آخر تحديث">Last Build</span>
         <span class="build-value">${lastBuild}</span>
@@ -54,7 +54,7 @@ function buildHeader(basePath, activePage, lastBuild) {
         <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
       </svg>
       <span class="search-trigger-label" data-en="Search..." data-ar="ابحث...">Search...</span>
-      <span class="search-trigger-shortcut">Ctrl K</span>
+      <span class="search-trigger-shortcut">/</span>
     </button>
 
     ${buildBadge}
