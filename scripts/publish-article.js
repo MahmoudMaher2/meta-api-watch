@@ -141,10 +141,17 @@ function buildIndex(articles) {
     .map(m => `<option value="${escHtml(m)}">${escHtml(m)}</option>`).join('');
 
   const cards = articles.map(articleCard).join('\n\n');
-  const buildDate = new Date().toISOString();
+  const buildDate = new Date();
+  const buildDateISO = buildDate.toISOString();
+  const buildDateDisplay = buildDate.toLocaleDateString('en-GB', {
+    year: 'numeric', month: 'short', day: 'numeric'
+  });
+  const buildTimeDisplay = buildDate.toLocaleTimeString('en-GB', {
+    hour: '2-digit', minute: '2-digit', hour12: false
+  });
 
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -165,15 +172,28 @@ function buildIndex(articles) {
           <p class="site-subtitle">SEEN V2 · Developer Docs Tracker</p>
         </div>
       </div>
-      <div class="header-stats">
-        <div class="stat">
-          <span class="stat-num" id="total-count">${articles.length}</span>
-          <span class="stat-label">updates tracked</span>
+      <div class="header-center">
+        <div class="last-build">
+          <span class="last-build-label">Last Build</span>
+          <span class="last-build-date">${buildDateDisplay}</span>
+          <span class="last-build-time">${buildTimeDisplay}</span>
         </div>
-        <div class="stat">
-          <span class="stat-num">${articles.filter(a=>a.meta.category==='Breaking Change').length}</span>
-          <span class="stat-label">breaking changes</span>
+      </div>
+      <div class="header-right">
+        <div class="header-stats">
+          <div class="stat">
+            <span class="stat-num" id="total-count">${articles.length}</span>
+            <span class="stat-label">updates tracked</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">${articles.filter(a=>a.meta.category==='Breaking Change').length}</span>
+            <span class="stat-label">breaking changes</span>
+          </div>
         </div>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode">
+          <span class="icon-sun">☀️</span>
+          <span class="icon-moon">🌙</span>
+        </button>
       </div>
     </div>
   </header>
@@ -214,7 +234,7 @@ function buildIndex(articles) {
   <footer class="site-footer">
     <p>Built with <a href="https://antigravity.dev" target="_blank" rel="noopener">Antigravity</a> · 
        Sources: <a href="https://developers.facebook.com/docs" target="_blank" rel="noopener">Meta for Developers</a> · 
-       Last built: <time>${buildDate}</time></p>
+       Built: <time datetime="${buildDateISO}">${buildDateDisplay} at ${buildTimeDisplay}</time></p>
   </footer>
 
   <script src="app.js"></script>

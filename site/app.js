@@ -1,13 +1,46 @@
-/* Meta API Watch — Client-Side Filtering */
+/* Meta API Watch — Client-Side Logic */
 
 (function () {
   'use strict';
 
-  const filterCat    = document.getElementById('filter-category');
-  const filterMod    = document.getElementById('filter-module');
-  const clearBtn     = document.getElementById('clear-filters');
-  const countEl      = document.getElementById('filtered-count');
-  const grid         = document.getElementById('cards-grid');
+  // ── Theme Toggle ──────────────────────────────────────────────────────────
+  const html      = document.documentElement;
+  const themeBtn  = document.getElementById('theme-toggle');
+  const STORAGE_KEY = 'maw-theme';
+
+  function getSystemTheme() {
+    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  }
+
+  function applyTheme(theme) {
+    html.setAttribute('data-theme', theme);
+    localStorage.setItem(STORAGE_KEY, theme);
+  }
+
+  // Load saved theme or fall back to system preference
+  const savedTheme = localStorage.getItem(STORAGE_KEY) || getSystemTheme();
+  applyTheme(savedTheme);
+
+  if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  }
+
+  // Sync with OS theme changes (if user hasn't manually set a preference)
+  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
+    if (!localStorage.getItem(STORAGE_KEY)) {
+      applyTheme(e.matches ? 'light' : 'dark');
+    }
+  });
+
+  // ── Filters ───────────────────────────────────────────────────────────────
+  const filterCat = document.getElementById('filter-category');
+  const filterMod = document.getElementById('filter-module');
+  const clearBtn  = document.getElementById('clear-filters');
+  const countEl   = document.getElementById('filtered-count');
+  const grid      = document.getElementById('cards-grid');
 
   if (!grid) return;
 
@@ -18,8 +51,8 @@
     let visible = 0;
 
     cards.forEach(card => {
-      const cardCat = (card.dataset.category || '').toLowerCase();
-      const cardMods = (card.dataset.modules || '').toLowerCase();
+      const cardCat  = (card.dataset.category || '').toLowerCase();
+      const cardMods = (card.dataset.modules  || '').toLowerCase();
 
       const catOk = !cat || cardCat === cat;
       const modOk = !mod || cardMods.split(',').map(m => m.trim()).includes(mod);

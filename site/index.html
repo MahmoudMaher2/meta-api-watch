@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meta API Watch â€” SEEN V2 Changelog Tracker</title>
+  <title>Meta API Watch — SEEN V2 Changelog Tracker</title>
   <meta name="description" content="Daily tracker for Meta Developer API changes relevant to SEEN V2 (WhatsApp, Messenger, Instagram Messaging). Never get blindsided by an API update again." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -14,21 +14,34 @@
   <header class="site-header">
     <div class="header-inner">
       <div class="header-logo">
-        <span class="logo-icon">ðŸ”­</span>
+        <span class="logo-icon">🔭</span>
         <div>
           <h1 class="site-title">Meta API Watch</h1>
-          <p class="site-subtitle">SEEN V2 Â· Developer Docs Tracker</p>
+          <p class="site-subtitle">SEEN V2 · Developer Docs Tracker</p>
         </div>
       </div>
-      <div class="header-stats">
-        <div class="stat">
-          <span class="stat-num" id="total-count">0</span>
-          <span class="stat-label">updates tracked</span>
+      <div class="header-center">
+        <div class="last-build">
+          <span class="last-build-label">Last Build</span>
+          <span class="last-build-date">24 Jun 2026</span>
+          <span class="last-build-time">16:41</span>
         </div>
-        <div class="stat">
-          <span class="stat-num">0</span>
-          <span class="stat-label">breaking changes</span>
+      </div>
+      <div class="header-right">
+        <div class="header-stats">
+          <div class="stat">
+            <span class="stat-num" id="total-count">0</span>
+            <span class="stat-label">updates tracked</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">0</span>
+            <span class="stat-label">breaking changes</span>
+          </div>
         </div>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode">
+          <span class="icon-sun">☀️</span>
+          <span class="icon-moon">🌙</span>
+        </button>
       </div>
     </div>
   </header>
@@ -59,7 +72,7 @@
   <main class="main-content">
     <div class="cards-grid" id="cards-grid">
       <div class="empty-state">
-        <span>ðŸ“­</span>
+        <span>📭</span>
         <p>No updates published yet.</p>
         <p class="empty-sub">Run the pipeline to fetch the latest Meta API changes.</p>
       </div>
@@ -67,9 +80,9 @@
   </main>
 
   <footer class="site-footer">
-    <p>Built with <a href="https://antigravity.dev" target="_blank" rel="noopener">Antigravity</a> Â· 
-       Sources: <a href="https://developers.facebook.com/docs" target="_blank" rel="noopener">Meta for Developers</a> Â· 
-       Last built: <time>2026-06-24T16:36:51Z</time></p>
+    <p>Built with <a href="https://antigravity.dev" target="_blank" rel="noopener">Antigravity</a> · 
+       Sources: <a href="https://developers.facebook.com/docs" target="_blank" rel="noopener">Meta for Developers</a> · 
+       Built: <time datetime="2026-06-24T13:41:01.330Z">24 Jun 2026 at 16:41</time></p>
   </footer>
 
   <script src="app.js"></script>

@@ -183,7 +183,7 @@ audit_corrections: none
 
 ## Why the Audit Step Matters
 
-Every article is verified against the live source before publishing. Corrections are noted inline — same approach as [claude.nagdy.me](https://claude.nagdy.me)'s "PR rejected" entries. This is the difference between a tracker you trust and one that hallucinate quietly.
+Every article is verified against the live source before publishing. Any corrections are noted inline — what was wrong, what it was corrected to. This is the difference between a tracker you can trust and one that quietly hallucinates.
 
 ---
 
