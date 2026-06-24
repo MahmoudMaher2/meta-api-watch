@@ -24,17 +24,17 @@
         <div class="last-build">
           <span class="last-build-label">Last Build</span>
           <span class="last-build-date">24 Jun 2026</span>
-          <span class="last-build-time">16:41</span>
+          <span class="last-build-time">16:52</span>
         </div>
       </div>
       <div class="header-right">
         <div class="header-stats">
           <div class="stat">
-            <span class="stat-num" id="total-count">0</span>
+            <span class="stat-num" id="total-count">110</span>
             <span class="stat-label">updates tracked</span>
           </div>
           <div class="stat">
-            <span class="stat-num">0</span>
+            <span class="stat-num">1</span>
             <span class="stat-label">breaking changes</span>
           </div>
         </div>
@@ -52,37 +52,2231 @@
         <label for="filter-category">Category</label>
         <select id="filter-category">
           <option value="">All categories</option>
-          
+          <option value="New Feature">New Feature</option><option value="Bug Fix/Clarification">Bug Fix/Clarification</option><option value="Deprecation">Deprecation</option><option value="Pricing/Rate Limit">Pricing/Rate Limit</option><option value="Policy/Compliance">Policy/Compliance</option><option value="Breaking Change">Breaking Change</option>
         </select>
       </div>
       <div class="filter-group">
         <label for="filter-module">SV2 Module</label>
         <select id="filter-module">
           <option value="">All modules</option>
-          
+          <option value="Webhooks">Webhooks</option><option value="WhatsApp Templates">WhatsApp Templates</option><option value="Channel Integration/OAuth">Channel Integration/OAuth</option><option value="Broadcasts">Broadcasts</option><option value="Instagram Messaging">Instagram Messaging</option><option value="Messenger">Messenger</option><option value="RBAC">RBAC</option><option value="Billing">Billing</option>
         </select>
       </div>
       <button id="clear-filters" class="btn-clear">Clear filters</button>
       <div class="filter-results">
-        <span id="filtered-count">0</span> results
+        <span id="filtered-count">110</span> results
       </div>
     </div>
   </div>
 
   <main class="main-content">
     <div class="cards-grid" id="cards-grid">
-      <div class="empty-state">
-        <span>📭</span>
-        <p>No updates published yet.</p>
-        <p class="empty-sub">Run the pipeline to fetch the latest Meta API changes.</p>
-      </div>
+      <article class="card" 
+    data-date="2026-06-11" 
+    data-category="New Feature" 
+    data-modules="Webhooks">
+    <div class="card-header">
+      <time class="card-date">2026-06-11</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">, *Webhooks*  Updated the Business-scoped user IDs page</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span></div>
+    <p class="card-summary">, *Webhooks*  Updated the Business-scoped user IDs page. Added from_user_id and from_parent_user_id to the coexistence edit and revoke messa</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-06-10" 
+    data-category="Bug Fix/Clarification" 
+    data-modules="WhatsApp Templates,Channel Integration/OAuth">
+    <div class="card-header">
+      <time class="card-date">2026-06-10</time>
+      <span class="badge cat-badge" style="background:#0d2d2d;color:#67e8f9;border-color:#0e7490">Bug Fix/Clarification</span>
+    </div>
+    <h2 class="card-title">* Corrected the Terms of Service URL required in the `policy</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span></div>
+    <p class="card-summary">* Corrected the Terms of Service URL required in the policy.tos field when you create your first signup with the In-App Signup API. The appr</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-06-09" 
+    data-category="Bug Fix/Clarification" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2026-06-09</time>
+      <span class="badge cat-badge" style="background:#0d2d2d;color:#67e8f9;border-color:#0e7490">Bug Fix/Clarification</span>
+    </div>
+    <h2 class="card-title">Updated the Business-scoped user IDs doc to document the optional `transfer_action` reques</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">Updated the Business-scoped user IDs doc to document the optional transfer_action request parameter (none, force_transfer) on the set-userna</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-06-03" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2026-06-03</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">* Clarified the Business phone numbers documentation: deleting a business phone number isn</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">* Clarified the Business phone numbers documentation: deleting a business phone number isn’t supported via the API. Use WhatsApp Manager⁠ to</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-06-02" 
+    data-category="Bug Fix/Clarification" 
+    data-modules="Channel Integration/OAuth">
+    <div class="card-header">
+      <time class="card-date">2026-06-02</time>
+      <span class="badge cat-badge" style="background:#0d2d2d;color:#67e8f9;border-color:#0e7490">Bug Fix/Clarification</span>
+    </div>
+    <h2 class="card-title">Added In-App Signup, a new guide for creating opt-in deep links that WhatsApp users click</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span></div>
+    <p class="card-summary">Added In-App Signup, a new guide for creating opt-in deep links that WhatsApp users click to subscribe to your messages. The guide covers cr</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-06-01" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2026-06-01</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">, *Message Templates*  Updated the Message Templates API to return detailed response objec</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">, *Message Templates*  Updated the Message Templates API to return detailed response objects when archiving or unarchiving templates, instea</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-05-31" 
+    data-category="Deprecation" 
+    data-modules="WhatsApp Templates,Broadcasts,Channel Integration/OAuth,Webhooks,Instagram Messaging,Messenger,RBAC">
+    <div class="card-header">
+      <time class="card-date">2026-05-31</time>
+      <span class="badge cat-badge" style="background:#2d2000;color:#fbbf24;border-color:#92400e">Deprecation</span>
+    </div>
+    <h2 class="card-title">### Sticker API for Messenger Platform  **New endpoints:**  - `GET /sticker_packs` — List</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span><span class="badge mod-badge" style="border-color:#e1306c;color:#e1306c">Instagram Messaging</span><span class="badge mod-badge" style="border-color:#0084ff;color:#0084ff">Messenger</span><span class="badge mod-badge" style="border-color:#8b5cf6;color:#8b5cf6">RBAC</span></div>
+    <p class="card-summary">### Sticker API for Messenger Platform  New endpoints:  - GET /sticker_packs — List available sticker packs with name, description, preview</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/docs/messenger-platform/changelog/" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">Messenger Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-05-28" 
+    data-category="New Feature" 
+    data-modules="Webhooks">
+    <div class="card-header">
+      <time class="card-date">2026-05-28</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">, *Webhooks*  Added voicemail configuration and webhooks to the Configure Call Settings pa</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span></div>
+    <p class="card-summary">, *Webhooks*  Added voicemail configuration and webhooks to the Configure Call Settings page. Voicemail is in alpha — early integration part</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-05-27" 
+    data-category="New Feature" 
+    data-modules="Webhooks">
+    <div class="card-header">
+      <time class="card-date">2026-05-27</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">, *Webhooks*  Updated the Calling API reference page</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span></div>
+    <p class="card-summary">, *Webhooks*  Updated the Calling API reference page. Added BSUID and username fields to calling webhooks: to_user_id, to_parent_user_id, an</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-05-26" 
+    data-category="Pricing/Rate Limit" 
+    data-modules="Billing">
+    <div class="card-header">
+      <time class="card-date">2026-05-26</time>
+      <span class="badge cat-badge" style="background:#2d1a3d;color:#c084fc;border-color:#6b21a8">Pricing/Rate Limit</span>
+    </div>
+    <h2 class="card-title">, *Pricing*  Added an ISO Country Code column to the country calling codes table on the pr</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#10b981;color:#10b981">Billing</span></div>
+    <p class="card-summary">, *Pricing*  Added an ISO Country Code column to the country calling codes table on the pricing page. The new column displays ISO 3166 Alpha</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-05-25" 
+    data-category="Pricing/Rate Limit" 
+    data-modules="Billing">
+    <div class="card-header">
+      <time class="card-date">2026-05-25</time>
+      <span class="badge cat-badge" style="background:#2d1a3d;color:#c084fc;border-color:#6b21a8">Pricing/Rate Limit</span>
+    </div>
+    <h2 class="card-title">, *Pricing*  Updated the Calling API Pricing page with upcoming rate cards effective July</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#10b981;color:#10b981">Billing</span></div>
+    <p class="card-summary">, *Pricing*  Updated the Calling API Pricing page with upcoming rate cards effective July 1, 2026 across 16 currencies.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-05-17" 
+    data-category="New Feature" 
+    data-modules="Channel Integration/OAuth">
+    <div class="card-header">
+      <time class="card-date">2026-05-17</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Added Reconnect offboarded coexistence clients, a new guide for coexistence partners</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span></div>
+    <p class="card-summary">Added Reconnect offboarded coexistence clients, a new guide for coexistence partners. When a coexistence client re-registers their WhatsApp</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-05-13" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2026-05-13</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">, *Groups API*  Updated mark messages as read documentation</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">, *Groups API*  Updated mark messages as read documentation. Businesses can now mark group messages as read using the same Messages API endp</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-05-12" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2026-05-12</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Effective June 15, 2026, Keyboard suggestions will be enabled by default for all authentic</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">Effective June 15, 2026, Keyboard suggestions will be enabled by default for all authentication templates. On iOS 26 and later, WhatsApp use</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-05-11" 
+    data-category="Pricing/Rate Limit" 
+    data-modules="WhatsApp Templates,Billing">
+    <div class="card-header">
+      <time class="card-date">2026-05-11</time>
+      <span class="badge cat-badge" style="background:#2d1a3d;color:#c084fc;border-color:#6b21a8">Pricing/Rate Limit</span>
+    </div>
+    <h2 class="card-title">, *Pricing*  Updated the AI Providers pricing policy page</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span><span class="badge mod-badge" style="border-color:#10b981;color:#10b981">Billing</span></div>
+    <p class="card-summary">, *Pricing*  Updated the AI Providers pricing policy page. Effective May 13, 2026, Meta will no longer charge “AI Providers” for non-templat</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-04-29" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2026-04-29</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Added new timezone IDs reference documentation listing all supported timezone identifiers</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">Added new timezone IDs reference documentation listing all supported timezone identifiers for the WhatsApp Business Platform.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-04-20" 
+    data-category="New Feature" 
+    data-modules="Broadcasts">
+    <div class="card-header">
+      <time class="card-date">2026-04-20</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Automatic creative optimizations are now disabled by default at the WhatsApp Business Acco</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span></div>
+    <p class="card-summary">Automatic creative optimizations are now disabled by default at the WhatsApp Business Account level. You can opt in via the API or directly</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-04-19" 
+    data-category="Deprecation" 
+    data-modules="Channel Integration/OAuth,Webhooks">
+    <div class="card-header">
+      <time class="card-date">2026-04-19</time>
+      <span class="badge cat-badge" style="background:#2d2000;color:#fbbf24;border-color:#92400e">Deprecation</span>
+    </div>
+    <h2 class="card-title">, *Webhooks*  The account_update webhook’s `PARTNER_REMOVED` event `disconnection_info` ob</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span></div>
+    <p class="card-summary">, *Webhooks*  The account_update webhook’s PARTNER_REMOVED event disconnection_info object now supports three additional reason values when</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-04-16" 
+    data-category="Bug Fix/Clarification" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2026-04-16</time>
+      <span class="badge cat-badge" style="background:#0d2d2d;color:#67e8f9;border-color:#0e7490">Bug Fix/Clarification</span>
+    </div>
+    <h2 class="card-title">Added new error code 131064</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">Added new error code 131064. The API returns this error when a WhatsApp Business account has exceeded its messaging limit due to template cl</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-04-14" 
+    data-category="New Feature" 
+    data-modules="Channel Integration/OAuth">
+    <div class="card-header">
+      <time class="card-date">2026-04-14</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">, *Embedded Signup*  WhatsApp Business app phone numbers from Nigeria and South Africa are</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span></div>
+    <p class="card-summary">, *Embedded Signup*  WhatsApp Business app phone numbers from Nigeria and South Africa are now supported when onboarding WhatsApp Business a</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-04-02" 
+    data-category="Deprecation" 
+    data-modules="Channel Integration/OAuth,Webhooks">
+    <div class="card-header">
+      <time class="card-date">2026-04-02</time>
+      <span class="badge cat-badge" style="background:#2d2000;color:#fbbf24;border-color:#92400e">Deprecation</span>
+    </div>
+    <h2 class="card-title">, *Webhooks*  The account_update webhook’s `PARTNER_REMOVED` event now includes a `disconn</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span></div>
+    <p class="card-summary">, *Webhooks*  The account_update webhook’s PARTNER_REMOVED event now includes a disconnection_info object when your client was using both th</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-03-31" 
+    data-category="Pricing/Rate Limit" 
+    data-modules="Billing">
+    <div class="card-header">
+      <time class="card-date">2026-03-31</time>
+      <span class="badge cat-badge" style="background:#2d1a3d;color:#c084fc;border-color:#6b21a8">Pricing/Rate Limit</span>
+    </div>
+    <h2 class="card-title">, *Pricing*  Updated per-message rate cards with rate changes for Saudi Arabia, India, Pak</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#10b981;color:#10b981">Billing</span></div>
+    <p class="card-summary">, *Pricing*  Updated per-message rate cards with rate changes for Saudi Arabia, India, Pakistan, and Turkey. Introduced 8 new billing curren</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-03-26" 
+    data-category="Deprecation" 
+    data-modules="Webhooks">
+    <div class="card-header">
+      <time class="card-date">2026-03-26</time>
+      <span class="badge cat-badge" style="background:#2d2000;color:#fbbf24;border-color:#92400e">Deprecation</span>
+    </div>
+    <h2 class="card-title">, *Conversational Components*  Removed the `request_welcome` webhook and welcome message f</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span></div>
+    <p class="card-summary">, *Conversational Components*  Removed the request_welcome webhook and welcome message feature from conversational components. This feature</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-03-01" 
+    data-category="Pricing/Rate Limit" 
+    data-modules="Broadcasts,Billing">
+    <div class="card-header">
+      <time class="card-date">2026-03-01</time>
+      <span class="badge cat-badge" style="background:#2d1a3d;color:#c084fc;border-color:#6b21a8">Pricing/Rate Limit</span>
+    </div>
+    <h2 class="card-title">, *Marketing Messages API for WhatsApp*, *Pricing*  Argentina (ARS), Australia (AUD), Chil</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span><span class="badge mod-badge" style="border-color:#10b981;color:#10b981">Billing</span></div>
+    <p class="card-summary">, *Marketing Messages API for WhatsApp*, *Pricing*  Argentina (ARS), Australia (AUD), Chile (CLP), Colombia (COP), Euro (EUR), India (INR),</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-02-18" 
+    data-category="New Feature" 
+    data-modules="Webhooks">
+    <div class="card-header">
+      <time class="card-date">2026-02-18</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Added new unsupported message types in the unsupported messages webhook</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span></div>
+    <p class="card-summary">Added new unsupported message types in the unsupported messages webhook.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-02-18" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates,Broadcasts">
+    <div class="card-header">
+      <time class="card-date">2026-02-18</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Added a new Automatic Creative Optimization type: Auto promotion tag</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span></div>
+    <p class="card-summary">Added a new Automatic Creative Optimization type: Auto promotion tag.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-02-03" 
+    data-category="New Feature" 
+    data-modules="Channel Integration/OAuth,Webhooks">
+    <div class="card-header">
+      <time class="card-date">2026-02-03</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Added `account_offboarded` and `account_reconnected` webhooks for Coexistence</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span></div>
+    <p class="card-summary">Added account_offboarded and account_reconnected webhooks for Coexistence.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-02-02" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2026-02-02</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Cloud API Groups are now available to all businesses with an Official Business Account</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">Cloud API Groups are now available to all businesses with an Official Business Account.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-01-28" 
+    data-category="New Feature" 
+    data-modules="Broadcasts">
+    <div class="card-header">
+      <time class="card-date">2026-01-28</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Multi-solution conversations are now available for Marketing Messages API for WhatsApp</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span></div>
+    <p class="card-summary">Multi-solution conversations are now available for Marketing Messages API for WhatsApp.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2026-01-27" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2026-01-27</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Effective February 16, 2026, in countries where Meta is legally required to support AI Pro</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">Effective February 16, 2026, in countries where Meta is legally required to support AI Providers, Meta will charge AI Providers for non-temp</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-12-17" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2025-12-17</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Added `hsm_ids` field to DELETE WhatsApp Business Account &gt; Message Templates endpoint</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">Added hsm_ids field to DELETE WhatsApp Business Account &gt; Message Templates endpoint. Accepts an array of up to 100 template IDs to delete i</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-12-07" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates,Broadcasts">
+    <div class="card-header">
+      <time class="card-date">2025-12-07</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Added business portfolio pacing, a new template message delivery batching mechanism that a</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span></div>
+    <p class="card-summary">Added business portfolio pacing, a new template message delivery batching mechanism that allows time to gather feedback on any template sent</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-12-03" 
+    data-category="New Feature" 
+    data-modules="Broadcasts">
+    <div class="card-header">
+      <time class="card-date">2025-12-03</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Businesses that use Marketing Messages API for WhatsApp can now view metrics for quick rep</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span></div>
+    <p class="card-summary">Businesses that use Marketing Messages API for WhatsApp can now view metrics for quick replies.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-12-02" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2025-12-02</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Coupon code templates now support codes with up to 20 characters, instead of 15</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">Coupon code templates now support codes with up to 20 characters, instead of 15.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-11-30" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2025-11-30</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Added No Storage, an alternative Local Storage configuration</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">Added No Storage, an alternative Local Storage configuration. With No Storage, in-transit data is kept for a shorter period of time, and at-</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-11-25" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates,Channel Integration/OAuth,RBAC">
+    <div class="card-header">
+      <time class="card-date">2025-11-25</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">ss-messaging/whatsapp/embedded-signup/overview#how-it-works) indicating users may experien</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span><span class="badge mod-badge" style="border-color:#8b5cf6;color:#8b5cf6">RBAC</span></div>
+    <p class="card-summary">ss-messaging/whatsapp/embedded-signup/overview#how-it-works) indicating users may experience a new completion flow for all versions. A new V</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-11-24" 
+    data-category="New Feature" 
+    data-modules="Channel Integration/OAuth">
+    <div class="card-header">
+      <time class="card-date">2025-11-24</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">* Edit messages * Revoke messages</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span></div>
+    <p class="card-summary">* Edit messages * Revoke messages</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-11-18" 
+    data-category="New Feature" 
+    data-modules="Broadcasts">
+    <div class="card-header">
+      <time class="card-date">2025-11-18</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Marketing Messages API for WhatsApp (formerly known as Marketing Messages Lite API) is now</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span></div>
+    <p class="card-summary">Marketing Messages API for WhatsApp (formerly known as Marketing Messages Lite API) is now generally available.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-11-10" 
+    data-category="New Feature" 
+    data-modules="Channel Integration/OAuth">
+    <div class="card-header">
+      <time class="card-date">2025-11-10</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">#### WhatsApp Flows Endpoints Security Enhancements (Data API Version 4</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span></div>
+    <p class="card-summary">#### WhatsApp Flows Endpoints Security Enhancements (Data API Version 4.0)  * To further protect user interactions and ensure requests are g</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-11-02" 
+    data-category="New Feature" 
+    data-modules="Webhooks">
+    <div class="card-header">
+      <time class="card-date">2025-11-02</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Added new played status message webhook which indicates when a voice messge is played by t</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span></div>
+    <p class="card-summary">Added new played status message webhook which indicates when a voice messge is played by the Whatsapp user.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-11-02" 
+    data-category="New Feature" 
+    data-modules="Webhooks">
+    <div class="card-header">
+      <time class="card-date">2025-11-02</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">* Updated the unsupported messages webhook by adding details about the actual message type</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span></div>
+    <p class="card-summary">* Updated the unsupported messages webhook by adding details about the actual message type. * Added new played status messages webhook statu</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-10-30" 
+    data-category="New Feature" 
+    data-modules="Broadcasts">
+    <div class="card-header">
+      <time class="card-date">2025-10-30</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">* Added two new Automatic Creative Optimization types: product extensions and text formatt</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span></div>
+    <p class="card-summary">* Added two new Automatic Creative Optimization types: product extensions and text formatting optimization. * Launched a new endpoint to sup</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-10-22" 
+    data-category="New Feature" 
+    data-modules="Channel Integration/OAuth">
+    <div class="card-header">
+      <time class="card-date">2025-10-22</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">* Australia * Japan * Philippines * Russia * South Korea * Turkey * European Economic Area</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span></div>
+    <p class="card-summary">* Australia * Japan * Philippines * Russia * South Korea * Turkey * European Economic Area (EEA) * European Union (EU) * United Kingdom (UK)</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-10-19" 
+    data-category="New Feature" 
+    data-modules="Webhooks">
+    <div class="card-header">
+      <time class="card-date">2025-10-19</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Ad click IDs will not be included in incoming text messages webhooks payloads describing a</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span></div>
+    <p class="card-summary">Ad click IDs will not be included in incoming text messages webhooks payloads describing an incoming message that originated from a WhatsApp</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-10-19" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates,Broadcasts">
+    <div class="card-header">
+      <time class="card-date">2025-10-19</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">* Offsite conversion metrics is now available in WhatsApp Business Manager and in the Temp</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span></div>
+    <p class="card-summary">* Offsite conversion metrics is now available in WhatsApp Business Manager and in the Template Analytics API. * Added two new Automatic Crea</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-10-16" 
+    data-category="Policy/Compliance" 
+    data-modules="Broadcasts,Channel Integration/OAuth">
+    <div class="card-header">
+      <time class="card-date">2025-10-16</time>
+      <span class="badge cat-badge" style="background:#0f1d3d;color:#93c5fd;border-color:#1e3a8a">Policy/Compliance</span>
+    </div>
+    <h2 class="card-title">Added marketing_messages_onboarding_status and owner_business_info fields to check Terms o</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span></div>
+    <p class="card-summary">Added marketing_messages_onboarding_status and owner_business_info fields to check Terms of Service and Intent request status for business m</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-10-15" 
+    data-category="New Feature" 
+    data-modules="Webhooks">
+    <div class="card-header">
+      <time class="card-date">2025-10-15</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">* Incoming media messages webhooks (image messages, video messages, etc</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span></div>
+    <p class="card-summary">* Incoming media messages webhooks (image messages, video messages, etc.) now include the incoming media asset’s media URL, which is assigne</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-10-13" 
+    data-category="Policy/Compliance" 
+    data-modules="WhatsApp Templates,Broadcasts">
+    <div class="card-header">
+      <time class="card-date">2025-10-13</time>
+      <span class="badge cat-badge" style="background:#0f1d3d;color:#93c5fd;border-color:#1e3a8a">Policy/Compliance</span>
+    </div>
+    <h2 class="card-title">The product_policy field is now 100% rolled out for businesses customers</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span></div>
+    <p class="card-summary">The product_policy field is now 100% rolled out for businesses customers.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-10-07" 
+    data-category="New Feature" 
+    data-modules="Channel Integration/OAuth">
+    <div class="card-header">
+      <time class="card-date">2025-10-07</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Updated the onboarding page with an onboarding video tutorial</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span></div>
+    <p class="card-summary">Updated the onboarding page with an onboarding video tutorial.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-10-07" 
+    data-category="Pricing/Rate Limit" 
+    data-modules="WhatsApp Templates,Broadcasts,Channel Integration/OAuth,Webhooks,Billing">
+    <div class="card-header">
+      <time class="card-date">2025-10-07</time>
+      <span class="badge cat-badge" style="background:#2d1a3d;color:#c084fc;border-color:#6b21a8">Pricing/Rate Limit</span>
+    </div>
+    <h2 class="card-title">* Messaging limits are now business portfolio-based instead of business phone number-based</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span><span class="badge mod-badge" style="border-color:#10b981;color:#10b981">Billing</span></div>
+    <p class="card-summary">* Messaging limits are now business portfolio-based instead of business phone number-based, and the initial increase via scaling path is now</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-10-05" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2025-10-05</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Introducing WhatsApp Groups API, which enables programmatic creation and management of gro</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">Introducing WhatsApp Groups API, which enables programmatic creation and management of groups on WhatsApp.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-10-02" 
+    data-category="New Feature" 
+    data-modules="RBAC">
+    <div class="card-header">
+      <time class="card-date">2025-10-02</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Access verification is no longer required to become a Tech Provider</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#8b5cf6;color:#8b5cf6">RBAC</span></div>
+    <p class="card-summary">Access verification is no longer required to become a Tech Provider.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-09-30" 
+    data-category="New Feature" 
+    data-modules="Broadcasts">
+    <div class="card-header">
+      <time class="card-date">2025-09-30</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Updated the support page with new troubleshooting guides</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span></div>
+    <p class="card-summary">Updated the support page with new troubleshooting guides.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-09-30" 
+    data-category="Pricing/Rate Limit" 
+    data-modules="Broadcasts,Billing">
+    <div class="card-header">
+      <time class="card-date">2025-09-30</time>
+      <span class="badge cat-badge" style="background:#2d1a3d;color:#c084fc;border-color:#6b21a8">Pricing/Rate Limit</span>
+    </div>
+    <h2 class="card-title">* Increased marketing message rates for United Arab Emirates</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span><span class="badge mod-badge" style="border-color:#10b981;color:#10b981">Billing</span></div>
+    <p class="card-summary">* Increased marketing message rates for United Arab Emirates. * Increased utility and authentication message rates for Colombia. * Decreased</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-09-28" 
+    data-category="New Feature" 
+    data-modules="Broadcasts,Channel Integration/OAuth">
+    <div class="card-header">
+      <time class="card-date">2025-09-28</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Added a Coexistence onboarding guide to MM Lite</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span></div>
+    <p class="card-summary">Added a Coexistence onboarding guide to MM Lite. Whatsapp Business users can now onboard with their existing WhatsApp Business app account a</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-09-23" 
+    data-category="New Feature" 
+    data-modules="Webhooks">
+    <div class="card-header">
+      <time class="card-date">2025-09-23</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Added note in the media document when retrieving a media from a media ID received via webh</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span></div>
+    <p class="card-summary">Added note in the media document when retrieving a media from a media ID received via webhook, the media ID will only be available to downlo</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-09-09" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2025-09-09</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">#### Flow JSON Validation Updates  #### Validation for routing model and data model in Flo</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">#### Flow JSON Validation Updates  #### Validation for routing model and data model in Flow JSON  * The Flow’s routing model's improved vali</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-09-07" 
+    data-category="New Feature" 
+    data-modules="RBAC">
+    <div class="card-header">
+      <time class="card-date">2025-09-07</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">* Updated v3 document to display an example of the v3 syntax</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#8b5cf6;color:#8b5cf6">RBAC</span></div>
+    <p class="card-summary">* Updated v3 document to display an example of the v3 syntax. * Added Call Permissions Request type under interactive objects for messages.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-09-02" 
+    data-category="Deprecation" 
+    data-modules="WhatsApp Templates,Broadcasts,Channel Integration/OAuth,Webhooks">
+    <div class="card-header">
+      <time class="card-date">2025-09-02</time>
+      <span class="badge cat-badge" style="background:#2d2000;color:#fbbf24;border-color:#92400e">Deprecation</span>
+    </div>
+    <h2 class="card-title">* On September 8th, 2025, we’re launching a new “MM Lite ToS signed” webhook, which will b</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span></div>
+    <p class="card-summary">* On September 8th, 2025, we’re launching a new “MM Lite ToS signed” webhook, which will be sent whenever a business signs the MM Lite ToS v</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-08-26" 
+    data-category="New Feature" 
+    data-modules="Channel Integration/OAuth,RBAC">
+    <div class="card-header">
+      <time class="card-date">2025-08-26</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Added Call Permissions Request type under interactive objects for messages</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span><span class="badge mod-badge" style="border-color:#8b5cf6;color:#8b5cf6">RBAC</span></div>
+    <p class="card-summary">Added Call Permissions Request type under interactive objects for messages.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-08-21" 
+    data-category="New Feature" 
+    data-modules="Broadcasts">
+    <div class="card-header">
+      <time class="card-date">2025-08-21</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">mDYHTbyXZJzkQksdk4_8InC49MK8eNfCyoA3Z0agfULu2ZPhCQzLi7FbtShb70qLD3284SBtir-5PvfFVa7V6BsjcC</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span></div>
+    <p class="card-summary">mDYHTbyXZJzkQksdk4_8InC49MK8eNfCyoA3Z0agfULu2ZPhCQzLi7FbtShb70qLD3284SBtir-5PvfFVa7V6BsjcCZpq3pTM9j1hDc_l1xgDFrHyAV6221ZFcKA), providing vis</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-08-13" 
+    data-category="New Feature" 
+    data-modules="Channel Integration/OAuth">
+    <div class="card-header">
+      <time class="card-date">2025-08-13</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">In September we are simplifying the Embedded Signup flow across all versions</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span></div>
+    <p class="card-summary">In September we are simplifying the Embedded Signup flow across all versions. You can preview the simplified flow by configuring Embedded Si</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-08-11" 
+    data-category="New Feature" 
+    data-modules="Broadcasts,Channel Integration/OAuth,Webhooks,RBAC">
+    <div class="card-header">
+      <time class="card-date">2025-08-11</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Added `AD_ACCOUNT_LINKED` event to the account_update webhook, which triggers when a WABA</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span><span class="badge mod-badge" style="border-color:#8b5cf6;color:#8b5cf6">RBAC</span></div>
+    <p class="card-summary">Added AD_ACCOUNT_LINKED event to the account_update webhook, which triggers when a WABA has onboarded to MM LITE through Embedded Signup or</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-08-10" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2025-08-10</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Added Welcome Message Sequences, which allow you to populate a set of pre-defined text and</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">Added Welcome Message Sequences, which allow you to populate a set of pre-defined text and FAQs or a prefilled message, that can appear in a</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-08-05" 
+    data-category="New Feature" 
+    data-modules="Broadcasts">
+    <div class="card-header">
+      <time class="card-date">2025-08-05</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Added a image background generation field for automatic creative optimization</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span></div>
+    <p class="card-summary">Added a image background generation field for automatic creative optimization.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-08-03" 
+    data-category="New Feature" 
+    data-modules="RBAC">
+    <div class="card-header">
+      <time class="card-date">2025-08-03</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Added new whatsapp_business_manage_events permission to log events</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#8b5cf6;color:#8b5cf6">RBAC</span></div>
+    <p class="card-summary">Added new whatsapp_business_manage_events permission to log events.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-07-29" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2025-07-29</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Changed the Media Card Carousel Template requirements so that card body text is no longer</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">Changed the Media Card Carousel Template requirements so that card body text is no longer mandatory.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-07-24" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2025-07-24</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Added the Tap target title URL override message template</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">Added the Tap target title URL override message template.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-07-24" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates,Broadcasts">
+    <div class="card-header">
+      <time class="card-date">2025-07-24</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">* Updated references to “Mobile App ID” to “Meta App ID” when creating a template to avoid</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span></div>
+    <p class="card-summary">* Updated references to “Mobile App ID” to “Meta App ID” when creating a template to avoid confusion. * Added a Template-to-ad-syncing guide</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-07-21" 
+    data-category="New Feature" 
+    data-modules="Broadcasts">
+    <div class="card-header">
+      <time class="card-date">2025-07-21</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Local Storage is now available for MM Lite</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span></div>
+    <p class="card-summary">Local Storage is now available for MM Lite. If you have already enabled Local Storage for the Cloud API, your existing settings are automati</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-07-15" 
+    data-category="New Feature" 
+    data-modules="Broadcasts,RBAC">
+    <div class="card-header">
+      <time class="card-date">2025-07-15</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">* Meta Business Suite⁠: Navigate to the Business Settings to view users with **Full Contro</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span><span class="badge mod-badge" style="border-color:#8b5cf6;color:#8b5cf6">RBAC</span></div>
+    <p class="card-summary">* Meta Business Suite⁠: Navigate to the Business Settings to view users with Full Control access. * API: GET /&lt;WHATSAPP_BUSINESS_ACCOUNT_ID&gt;</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-07-14" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2025-07-14</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">WhatsApp Business Calling API now available</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">WhatsApp Business Calling API now available.  Multi-solution Conversations is now available in open beta  Multi-solution Conversations enabl</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-07-14" 
+    data-category="Deprecation" 
+    data-modules="WhatsApp Templates,Broadcasts,Channel Integration/OAuth">
+    <div class="card-header">
+      <time class="card-date">2025-07-14</time>
+      <span class="badge cat-badge" style="background:#2d2000;color:#fbbf24;border-color:#92400e">Deprecation</span>
+    </div>
+    <h2 class="card-title">* Added marketing_messages_onboarding_status field which provides more granular eligibilit</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span></div>
+    <p class="card-summary">* Added marketing_messages_onboarding_status field which provides more granular eligibility status data. The field will be a replacement for</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-07-07" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2025-07-07</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">#### Component updates  #### Validation for nested expressions in Flow JSON actions  * Nes</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">#### Component updates  #### Validation for nested expressions in Flow JSON actions  * Nested expressions used in actions are now validated</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-07-06" 
+    data-category="New Feature" 
+    data-modules="Webhooks">
+    <div class="card-header">
+      <time class="card-date">2025-07-06</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Added `PROFILE_PICTURE_LOST` as a new `alert_type` to account_alerts webhooks, to notify y</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span></div>
+    <p class="card-summary">Added PROFILE_PICTURE_LOST as a new alert_type to account_alerts webhooks, to notify you when a business phone number’s business profile pho</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-06-30" 
+    data-category="Pricing/Rate Limit" 
+    data-modules="Broadcasts,Billing">
+    <div class="card-header">
+      <time class="card-date">2025-06-30</time>
+      <span class="badge cat-badge" style="background:#2d1a3d;color:#c084fc;border-color:#6b21a8">Pricing/Rate Limit</span>
+    </div>
+    <h2 class="card-title">Per-message pricing now applies to MM Lite API</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span><span class="badge mod-badge" style="border-color:#10b981;color:#10b981">Billing</span></div>
+    <p class="card-summary">Per-message pricing now applies to MM Lite API! See Pricing on the WhatsApp Business Platform to learn more.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-06-30" 
+    data-category="Pricing/Rate Limit" 
+    data-modules="Billing">
+    <div class="card-header">
+      <time class="card-date">2025-06-30</time>
+      <span class="badge cat-badge" style="background:#2d1a3d;color:#c084fc;border-color:#6b21a8">Pricing/Rate Limit</span>
+    </div>
+    <h2 class="card-title">Per-message pricing is now live</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#10b981;color:#10b981">Billing</span></div>
+    <p class="card-summary">Per-message pricing is now live.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-06-23" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates,Broadcasts">
+    <div class="card-header">
+      <time class="card-date">2025-06-23</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Added text overlays and image animation Automatic Creative Optimizations</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span></div>
+    <p class="card-summary">Added text overlays and image animation Automatic Creative Optimizations. Like other optimizations, these are enabled by default on all temp</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-06-19" 
+    data-category="New Feature" 
+    data-modules="Broadcasts,RBAC">
+    <div class="card-header">
+      <time class="card-date">2025-06-19</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Businesses in Russia who were previously unable to send messages via MM Lite API can now d</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span><span class="badge mod-badge" style="border-color:#8b5cf6;color:#8b5cf6">RBAC</span></div>
+    <p class="card-summary">Businesses in Russia who were previously unable to send messages via MM Lite API can now do so. Note that these businesses will not have acc</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-06-17" 
+    data-category="New Feature" 
+    data-modules="Channel Integration/OAuth">
+    <div class="card-header">
+      <time class="card-date">2025-06-17</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Solution Partners can now claim sandbox accounts</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span></div>
+    <p class="card-summary">Solution Partners can now claim sandbox accounts.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-06-12" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2025-06-12</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">You can now request Official Business Account status via API and edit your display name vi</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">You can now request Official Business Account status via API and edit your display name via API. Before you could only do this using WhatsAp</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-06-09" 
+    data-category="New Feature" 
+    data-modules="Broadcasts">
+    <div class="card-header">
+      <time class="card-date">2025-06-09</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">* `marketing_messages_read_rate_benchmark` * `marketing_messages_click_rate_benchmark`</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span></div>
+    <p class="card-summary">* marketing_messages_read_rate_benchmark * marketing_messages_click_rate_benchmark</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-06-09" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2025-06-09</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">#### Component Updates  #### Update to the ChipsSelector component  * We are updating the</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">#### Component Updates  #### Update to the ChipsSelector component  * We are updating the ChipsSelector component to align its behaviour wit</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-06-04" 
+    data-category="New Feature" 
+    data-modules="Channel Integration/OAuth,Webhooks">
+    <div class="card-header">
+      <time class="card-date">2025-06-04</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">To be notified of these events, you can subscribe to the new new **automatic_events** webh</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span></div>
+    <p class="card-summary">To be notified of these events, you can subscribe to the new new automatic_events webhook, and optionally, report them via Conversions API.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-06-03" 
+    data-category="New Feature" 
+    data-modules="Webhooks">
+    <div class="card-header">
+      <time class="card-date">2025-06-03</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">A phone_number_quality_update webhook with `event` set to `THROUGHPUT_UPGRADE` and `curren</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span></div>
+    <p class="card-summary">A phone_number_quality_update webhook with event set to THROUGHPUT_UPGRADE and current_limit set to TIER_UNLIMITED will now be triggered if</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-05-28" 
+    data-category="New Feature" 
+    data-modules="Broadcasts,Channel Integration/OAuth,RBAC">
+    <div class="card-header">
+      <time class="card-date">2025-05-28</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Version 3 is now available</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span><span class="badge mod-badge" style="border-color:#8b5cf6;color:#8b5cf6">RBAC</span></div>
+    <p class="card-summary">Version 3 is now available. As part of this release, we have introduced versioning that will align with Graph API’s release cadence. The fol</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-05-22" 
+    data-category="New Feature" 
+    data-modules="Broadcasts">
+    <div class="card-header">
+      <time class="card-date">2025-05-22</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Added Android deep link support</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span></div>
+    <p class="card-summary">Added Android deep link support.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-05-20" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates,Broadcasts">
+    <div class="card-header">
+      <time class="card-date">2025-05-20</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Added an Error messages section to  WhatsApp Manager that shows a summary of errors encoun</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span></div>
+    <p class="card-summary">Added an Error messages section to  WhatsApp Manager that shows a summary of errors encountered by your templates within a given period of t</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-05-19" 
+    data-category="New Feature" 
+    data-modules="Broadcasts">
+    <div class="card-header">
+      <time class="card-date">2025-05-19</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">* `134100` * `134101` * `134102` * `134103`</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span></div>
+    <p class="card-summary">* 134100 * 134101 * 134102 * 134103</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-05-04" 
+    data-category="New Feature" 
+    data-modules="Channel Integration/OAuth">
+    <div class="card-header">
+      <time class="card-date">2025-05-04</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Solution providers can now onboard WhatsApp Business app users  who have a WhatsApp Busine</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span></div>
+    <p class="card-summary">Solution providers can now onboard WhatsApp Business app users  who have a WhatsApp Business app phone number with an India country dialing</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-04-15" 
+    data-category="New Feature" 
+    data-modules="Broadcasts,Webhooks,RBAC">
+    <div class="card-header">
+      <time class="card-date">2025-04-15</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">We are offering a limited roll-out of webhook access to click events on marketing messages</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span><span class="badge mod-badge" style="border-color:#8b5cf6;color:#8b5cf6">RBAC</span></div>
+    <p class="card-summary">We are offering a limited roll-out of webhook access to click events on marketing messages sent using MM Lite. Read the “Tracking click even</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-04-10" 
+    data-category="New Feature" 
+    data-modules="Broadcasts,RBAC">
+    <div class="card-header">
+      <time class="card-date">2025-04-10</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Please reach out to your partner, if you would like to be included in early access to this</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span><span class="badge mod-badge" style="border-color:#8b5cf6;color:#8b5cf6">RBAC</span></div>
+    <p class="card-summary">Please reach out to your partner, if you would like to be included in early access to this feature.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-04-08" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2025-04-08</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">We no longer support the `allow_category_change` property during template creation</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">We no longer support the allow_category_change property during template creation. Previously, if set to true in a template creation request,</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-04-07" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2025-04-07</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Added typing indicators so you can let WhatsApp users know that you are preparing a respon</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">Added typing indicators so you can let WhatsApp users know that you are preparing a response.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-04-07" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2025-04-07</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">#### Message template updates  #### Flows can now be sent with other buttons in message te</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">#### Message template updates  #### Flows can now be sent with other buttons in message templates  * You can now send message templates with</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-04-01" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2025-04-01</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">tsapp/whatsapp-business-accounts#share-your-waba-with-a-solution-provider) WhatsApp Busine</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">tsapp/whatsapp-business-accounts#share-your-waba-with-a-solution-provider) WhatsApp Business Accounts using WhatsApp Manager.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-03-31" 
+    data-category="Pricing/Rate Limit" 
+    data-modules="Billing">
+    <div class="card-header">
+      <time class="card-date">2025-03-31</time>
+      <span class="badge cat-badge" style="background:#2d1a3d;color:#c084fc;border-color:#6b21a8">Pricing/Rate Limit</span>
+    </div>
+    <h2 class="card-title">Lowered authentication-international pricing rates for Egypt, Nigeria, Pakistan, and South</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#10b981;color:#10b981">Billing</span></div>
+    <p class="card-summary">Lowered authentication-international pricing rates for Egypt, Nigeria, Pakistan, and South Africa.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-03-31" 
+    data-category="New Feature" 
+    data-modules="Broadcasts,Channel Integration/OAuth">
+    <div class="card-header">
+      <time class="card-date">2025-03-31</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">* **Self-signup for all partners and businesses**</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span></div>
+    <p class="card-summary">* Self-signup for all partners and businesses. All businesses and solution providers (including Solution Partners, Tech Providers and Tech P</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-03-30" 
+    data-category="New Feature" 
+    data-modules="Billing">
+    <div class="card-header">
+      <time class="card-date">2025-03-30</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Payments API for business portfolios with Singapore addresses is no longer available</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#10b981;color:#10b981">Billing</span></div>
+    <p class="card-summary">Payments API for business portfolios with Singapore addresses is no longer available.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-03-26" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates,Broadcasts">
+    <div class="card-header">
+      <time class="card-date">2025-03-26</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">**Key Updates**:  * Character limits for the body component will vary based on the templat</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span></div>
+    <p class="card-summary">Key Updates:  * Character limits for the body component will vary based on the template format and tag * The number of emojis allowed in the</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-03-19" 
+    data-category="Deprecation" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2025-03-19</time>
+      <span class="badge cat-badge" style="background:#2d2000;color:#fbbf24;border-color:#92400e">Deprecation</span>
+    </div>
+    <h2 class="card-title">Added partner-initiated WABA creation to replace the On-Behalf-Of (“OBO”) account ownershi</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">Added partner-initiated WABA creation to replace the On-Behalf-Of (“OBO”) account ownership model, which is being deprecated. Starting Septe</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-03-10" 
+    data-category="Breaking Change" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2025-03-10</time>
+      <span class="badge cat-badge" style="background:#3d0a0a;color:#f87171;border-color:#991b1b">Breaking Change</span>
+    </div>
+    <h2 class="card-title">#### Component updates (Flow JSON Version 7</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">#### Component updates (Flow JSON Version 7.0)  #### New property “label-variant” on TextArea and TextInput  * You can now utilize the *labe</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-02-26" 
+    data-category="New Feature" 
+    data-modules="Broadcasts">
+    <div class="card-header">
+      <time class="card-date">2025-02-26</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">* Marketing Messages Lite API * Conversions API * Marketing API  Note that these tiles onl</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span></div>
+    <p class="card-summary">* Marketing Messages Lite API * Conversions API * Marketing API  Note that these tiles only appear for products that you are eligible to use</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-02-13" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2025-02-13</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">* Added GET /&lt;WABA_ID&gt;/template_groups * Added POST /&lt;WABA_ID&gt;/template_groups * Added GET</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">* Added GET /&lt;WABA_ID&gt;/template_groups * Added POST /&lt;WABA_ID&gt;/template_groups * Added GET /&lt;WABA_ID&gt;/template_group_analytics * Added GET /</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-02-10" 
+    data-category="New Feature" 
+    data-modules="Channel Integration/OAuth">
+    <div class="card-header">
+      <time class="card-date">2025-02-10</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Added ability for solution providers to onboard WhatsApp Business app users via Embedded S</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span></div>
+    <p class="card-summary">Added ability for solution providers to onboard WhatsApp Business app users via Embedded Signup (aka “Coexistence”).</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-01-31" 
+    data-category="Pricing/Rate Limit" 
+    data-modules="Billing">
+    <div class="card-header">
+      <time class="card-date">2025-01-31</time>
+      <span class="badge cat-badge" style="background:#2d1a3d;color:#c084fc;border-color:#6b21a8">Pricing/Rate Limit</span>
+    </div>
+    <h2 class="card-title">* Lowered authentication pricing rates for Egypt, Malaysia, Nigeria, Pakistan, Saudi Arabi</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#10b981;color:#10b981">Billing</span></div>
+    <p class="card-summary">* Lowered authentication pricing rates for Egypt, Malaysia, Nigeria, Pakistan, Saudi Arabia, South Africa, and the United Arab Emirates. * A</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-01-22" 
+    data-category="New Feature" 
+    data-modules="Channel Integration/OAuth">
+    <div class="card-header">
+      <time class="card-date">2025-01-22</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Added ability for business customers of solution providers to claim “555” business phone n</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span></div>
+    <p class="card-summary">Added ability for business customers of solution providers to claim “555” business phone numbers when onboarding via Embedded Signup.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-01-15" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2025-01-15</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">Added the Block API giving businesses the ability to manage unwanted spam by blocking or u</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">Added the Block API giving businesses the ability to manage unwanted spam by blocking or unblocking specific customer phone numbers.</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-01-13" 
+    data-category="New Feature" 
+    data-modules="WhatsApp Templates">
+    <div class="card-header">
+      <time class="card-date">2025-01-13</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">#### Component updates (Flow JSON version 6</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary">#### Component updates (Flow JSON version 6.3)  #### Chips selector component  * The Chips Selector component simplifies tasks, such as sele</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
+
+<article class="card" 
+    data-date="2025-01-06" 
+    data-category="New Feature" 
+    data-modules="Channel Integration/OAuth">
+    <div class="card-header">
+      <time class="card-date">2025-01-06</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+    <h2 class="card-title">* Added ability to migrate business customers off of Multi-Partner Solutions via Embedded</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span></div>
+    <p class="card-summary">* Added ability to migrate business customers off of Multi-Partner Solutions via Embedded Signup and via Meta Business Suite. Both methods s</p>
+    <div class="audit-note">🔍 Audit: backfill (historical entry, not diff-detected)</div>
+    <div class="card-footer">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">
+        📄 Source
+      </a>
+      <span class="card-source-name">WhatsApp Business Platform Changelog</span>
+    </div>
+  </article>
     </div>
   </main>
 
   <footer class="site-footer">
     <p>Built with <a href="https://antigravity.dev" target="_blank" rel="noopener">Antigravity</a> · 
        Sources: <a href="https://developers.facebook.com/docs" target="_blank" rel="noopener">Meta for Developers</a> · 
-       Built: <time datetime="2026-06-24T13:41:01.330Z">24 Jun 2026 at 16:41</time></p>
+       Built: <time datetime="2026-06-24T13:52:14.389Z">24 Jun 2026 at 16:52</time></p>
   </footer>
 
   <script src="app.js"></script>

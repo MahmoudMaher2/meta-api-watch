@@ -1,0 +1,32 @@
+---
+title: Added text overlays and image animation Automatic Creative Optimizations
+date: 2025-06-23
+source_slug: whatsapp-changelog
+source_name: WhatsApp Business Platform Changelog
+source_url: https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog
+category: New Feature
+sv2_modules: [WhatsApp Templates, Broadcasts]
+summary_short: Added text overlays and image animation Automatic Creative Optimizations. Like other optimizations, these are enabled by default on all temp
+audit_corrections: backfill (historical entry, not diff-detected)
+---
+
+## Summary
+
+Added text overlays and image animation Automatic Creative Optimizations. Like other optimizations, these are enabled by default on all templates, but can be disabled upon template creation, or when editing a template.
+
+## Why it Matters for SV2
+
+Monitor WhatsApp Templates, Broadcasts integration for any behavioural impact.
+
+## Suggested QA Action
+
+Informational — no immediate action required. Monitor in future test runs.
+
+## Source Details
+
+- **Source**: [WhatsApp Business Platform Changelog](https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog)
+- **Original date**: June 24, 2025
+- **Tags**: MM Lite API
+
+---
+*Backfilled from snapshot on 2026-06-24.*
