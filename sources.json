@@ -1,0 +1,77 @@
+{
+  "version": "1.0",
+  "sources": [
+    {
+      "slug": "whatsapp-changelog",
+      "name": "WhatsApp Business Platform Changelog",
+      "url": "https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog",
+      "tags": ["WhatsApp Templates", "Broadcasts", "Webhooks", "Billing"],
+      "enabled": true,
+      "phase": 1,
+      "notes": "Cloud API, Flows, ACO, webhooks, pricing — the big one. Tested: responds to plain fetch."
+    },
+    {
+      "slug": "messenger-changelog",
+      "name": "Messenger Platform Changelog",
+      "url": "https://developers.facebook.com/docs/messenger-platform/changelog/",
+      "tags": ["Messenger", "Instagram Messaging", "Webhooks"],
+      "enabled": true,
+      "phase": 1,
+      "notes": "Messenger + Messenger API for Instagram overlap. Tested: responds to plain fetch."
+    },
+    {
+      "slug": "graph-api-changelog",
+      "name": "Graph API Changelog (versioned)",
+      "url": "https://developers.facebook.com/docs/graph-api/changelog/",
+      "tags": ["Channel Integration/OAuth", "Webhooks"],
+      "enabled": false,
+      "phase": 2,
+      "notes": "WARNING: returned 'Request Couldn't be Processed' on plain fetch. Needs browser rendering."
+    },
+    {
+      "slug": "graph-api-nvc",
+      "name": "Graph API Non-Versioned Changes",
+      "url": "https://developers.facebook.com/docs/graph-api/changelog/non-versioned-changes/nvc-2026/",
+      "tags": ["Channel Integration/OAuth", "Webhooks"],
+      "enabled": false,
+      "phase": 2,
+      "notes": "Rolling changes before a version bump — sneaky. Update year in URL annually."
+    },
+    {
+      "slug": "instagram-platform",
+      "name": "Instagram Platform Docs",
+      "url": "https://developers.facebook.com/docs/instagram-platform",
+      "tags": ["Instagram Messaging"],
+      "enabled": false,
+      "phase": 2,
+      "notes": "Instagram Messaging API."
+    },
+    {
+      "slug": "marketing-messages-changelog",
+      "name": "Marketing Messages Changelog",
+      "url": "https://developers.facebook.com/documentation/business-messaging/whatsapp/marketing-messages/changelog",
+      "tags": ["Broadcasts", "WhatsApp Templates"],
+      "enabled": false,
+      "phase": 2,
+      "notes": "Template pacing / marketing template rules."
+    },
+    {
+      "slug": "whatsapp-flows-changelog",
+      "name": "WhatsApp Flows Changelog",
+      "url": "https://developers.facebook.com/docs/whatsapp/flows/changelogs/",
+      "tags": ["WhatsApp Templates"],
+      "enabled": false,
+      "phase": 2,
+      "notes": "If SEEN V2 ever touches Flows."
+    },
+    {
+      "slug": "meta-dev-blog",
+      "name": "Meta for Developers Blog",
+      "url": "https://developers.facebook.com/blog",
+      "tags": ["WhatsApp Templates", "Broadcasts", "Channel Integration/OAuth", "Webhooks", "Instagram Messaging", "Messenger", "Billing", "RBAC"],
+      "enabled": false,
+      "phase": 2,
+      "notes": "Higher-level announcements. Check for direct RSS feed URL."
+    }
+  ]
+}

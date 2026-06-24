@@ -1,0 +1,14 @@
+# Logs - never commit these
+logs/*.log
+logs/*-draft.md
+logs/*-audited.md
+
+# Snapshots are committed (they ARE the memory)
+# !snapshots/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meta API Watch — SEEN V2 Changelog Tracker</title>
+  <meta name="description" content="Daily tracker for Meta Developer API changes relevant to SEEN V2 (WhatsApp, Messenger, Instagram Messaging). Never get blindsided by an API update again." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-logo">
+        <span class="logo-icon">🔭</span>
+        <div>
+          <h1 class="site-title">Meta API Watch</h1>
+          <p class="site-subtitle">SEEN V2 · Developer Docs Tracker</p>
+        </div>
+      </div>
+      <div class="header-stats">
+        <div class="stat">
+          <span class="stat-num" id="total-count">0</span>
+          <span class="stat-label">updates tracked</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">0</span>
+          <span class="stat-label">breaking changes</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="filters-bar">
+    <div class="filters-inner">
+      <div class="filter-group">
+        <label for="filter-category">Category</label>
+        <select id="filter-category">
+          <option value="">All categories</option>
+          
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filter-module">SV2 Module</label>
+        <select id="filter-module">
+          <option value="">All modules</option>
+          
+        </select>
+      </div>
+      <button id="clear-filters" class="btn-clear">Clear filters</button>
+      <div class="filter-results">
+        <span id="filtered-count">0</span> results
+      </div>
+    </div>
+  </div>
+
+  <main class="main-content">
+    <div class="cards-grid" id="cards-grid">
+      <div class="empty-state">
+        <span>📭</span>
+        <p>No updates published yet.</p>
+        <p class="empty-sub">Run the pipeline to fetch the latest Meta API changes.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Built with <a href="https://antigravity.dev" target="_blank" rel="noopener">Antigravity</a> · 
+       Sources: <a href="https://developers.facebook.com/docs" target="_blank" rel="noopener">Meta for Developers</a> · 
+       Last built: <time>2026-06-24T12:39:43.902Z</time></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
