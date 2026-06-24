@@ -1,0 +1,50 @@
+name: Daily Meta API Watch Pipeline
+
+on:
+  schedule:
+    # Run daily at 08:00 UTC
+    - cron: '0 8 * * *'
+  workflow_dispatch: # Allow manual runs
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  check-changes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run CI Cron (Fetch & Diff)
+        id: cron
+        run: |
+          node scripts/ci-cron.js
+          
+      # If raw HTTP fetch works and detects diffs, we commit the raw snapshots
+      - name: Commit new snapshots if any
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add snapshots/
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: save daily API snapshots [skip ci]" && git push)
+
+      # Create an issue to notify the user to run the Antigravity pipeline locally
+      - name: Create Issue on Changes
+        if: steps.cron.outputs.has_changes == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const changed = "${{ steps.cron.outputs.changed_sources }}";
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🚨 Meta API Changes Detected (${new Date().toISOString().slice(0,10)})`,
+              body: `The daily GitHub Actions cron job detected changes in the following sources:\n\n**${changed}**\n\n### Next Steps:\n1. Pull the latest changes: \`git pull origin main\`\n2. Run the pipeline locally to draft the changelog articles using Antigravity:\n   \`\`\`powershell\n   .\\scripts\\run-pipeline.ps1\n   \`\`\`\n\n_This issue was generated automatically by the Meta API Watch pipeline._`
+            });

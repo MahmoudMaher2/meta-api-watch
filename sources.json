@@ -24,7 +24,7 @@
       "name": "Graph API Changelog (versioned)",
       "url": "https://developers.facebook.com/docs/graph-api/changelog/",
       "tags": ["Channel Integration/OAuth", "Webhooks"],
-      "enabled": false,
+      "enabled": true,
       "phase": 2,
       "notes": "WARNING: returned 'Request Couldn't be Processed' on plain fetch. Needs browser rendering."
     },
@@ -33,7 +33,7 @@
       "name": "Graph API Non-Versioned Changes",
       "url": "https://developers.facebook.com/docs/graph-api/changelog/non-versioned-changes/nvc-2026/",
       "tags": ["Channel Integration/OAuth", "Webhooks"],
-      "enabled": false,
+      "enabled": true,
       "phase": 2,
       "notes": "Rolling changes before a version bump — sneaky. Update year in URL annually."
     },
@@ -42,7 +42,7 @@
       "name": "Instagram Platform Docs",
       "url": "https://developers.facebook.com/docs/instagram-platform",
       "tags": ["Instagram Messaging"],
-      "enabled": false,
+      "enabled": true,
       "phase": 2,
       "notes": "Instagram Messaging API."
     },
@@ -51,7 +51,7 @@
       "name": "Marketing Messages Changelog",
       "url": "https://developers.facebook.com/documentation/business-messaging/whatsapp/marketing-messages/changelog",
       "tags": ["Broadcasts", "WhatsApp Templates"],
-      "enabled": false,
+      "enabled": true,
       "phase": 2,
       "notes": "Template pacing / marketing template rules."
     },
@@ -60,7 +60,7 @@
       "name": "WhatsApp Flows Changelog",
       "url": "https://developers.facebook.com/docs/whatsapp/flows/changelogs/",
       "tags": ["WhatsApp Templates"],
-      "enabled": false,
+      "enabled": true,
       "phase": 2,
       "notes": "If SEEN V2 ever touches Flows."
     },
@@ -69,7 +69,7 @@
       "name": "Meta for Developers Blog",
       "url": "https://developers.facebook.com/blog",
       "tags": ["WhatsApp Templates", "Broadcasts", "Channel Integration/OAuth", "Webhooks", "Instagram Messaging", "Messenger", "Billing", "RBAC"],
-      "enabled": false,
+      "enabled": true,
       "phase": 2,
       "notes": "Higher-level announcements. Check for direct RSS feed URL."
     }
