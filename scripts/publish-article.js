@@ -317,6 +317,7 @@ function buildIndex(articles) {
     hour: 'numeric', minute: '2-digit', hour12: true,
     timeZone: 'Africa/Cairo'
   }) + ' (Cairo)';
+  const lastBuildLabel = `${buildDateDisplay} · ${buildTimeDisplay}`;
 
   return `<!DOCTYPE html>
 <html lang="en" data-theme="dark" data-lang="en">
@@ -327,7 +328,7 @@ ${buildHead(
 )}
 <body>
 
-  ${buildHeader('', 'changelog')}
+  ${buildHeader('', 'changelog', lastBuildLabel)}
 
 
 
@@ -413,6 +414,7 @@ function buildWelcome(articles, learnTopics) {
   const buildTime = new Date().toLocaleTimeString('en-US', {
     hour:'numeric', minute:'2-digit', hour12:true, timeZone:'Africa/Cairo'
   });
+  const lastBuildLabel = `${buildDate} · ${buildTime} (Cairo)`;
   const breaking = articles.filter(a=>a.meta.category==='Breaking Change').length;
   return `<!DOCTYPE html>
 <html lang="en" data-theme="dark" data-lang="en">
@@ -423,7 +425,7 @@ ${buildHead(
 )}
 <body>
 
-  ${buildHeader('', 'home')}
+  ${buildHeader('', 'home', lastBuildLabel)}
 
   <main class="welcome-page">
     <div class="welcome-container">

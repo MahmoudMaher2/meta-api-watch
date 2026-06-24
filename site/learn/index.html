@@ -37,6 +37,12 @@
       </a>
     </nav>
 
+    <div class="header-build-time" title="Last site build (Cairo time)">
+        <span class="build-icon">🕐</span>
+        <span class="build-label" data-en="Last Build" data-ar="آخر تحديث">Last Build</span>
+        <span class="build-value">24 Jun 2026 · 9:36 PM (Cairo)</span>
+      </div>
+
     <div class="header-actions">
       <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
         <span class="lang-en">EN</span>
@@ -52,183 +58,272 @@
   </div>
 </header>
 
-
-
   <main class="learn-home">
-    <div class="home-hero">
-      <p class="home-hero-desc">
+    <div class="learn-hero">
+      <h1 class="learn-hero-title">
+        <span data-en="Meta Docs Learn Hub" data-ar="تعلّم · مرجع واجهة برمجة تطبيقات Meta">Meta Docs Learn Hub</span>
+      </h1>
+      <p class="learn-hero-desc" 
+         data-en="Every Meta API feature explained with <strong>exact validation rules</strong> — what gets accepted, what gets rejected, and why. Focused on WhatsApp, Messenger, and everything that matters for SEEN V2." 
+         data-ar="شرح مفصل لكل ميزة في واجهة برمجة تطبيقات Meta مع <strong>قواعد التحقق الدقيقة</strong> — ما يتم قبوله، وما يتم رفضه، والسبب. يركز على WhatsApp و Messenger وكل ما يهم الإصدار الثاني من SEEN.">
         Every Meta API feature explained with <strong>exact validation rules</strong> — what gets accepted, what gets rejected, and why. Focused on WhatsApp, Messenger, and everything that matters for SEEN V2.
       </p>
-      <div class="home-stats">
-        <div class="home-stat">
-          <span class="home-stat-num">11</span>
-          <span class="home-stat-label">topics</span>
+      
+      <div class="learn-stats">
+        <div class="learn-stat">
+          <div class="learn-stat-icon">📚</div>
+          <div class="learn-stat-content">
+            <span class="learn-stat-num">11</span>
+            <span class="learn-stat-label" data-en="topics" data-ar="موضوعاً">topics</span>
+          </div>
         </div>
-        <div class="home-stat">
-          <span class="home-stat-num">3</span>
-          <span class="home-stat-label">platforms</span>
+        <div class="learn-stat">
+          <div class="learn-stat-icon">🔌</div>
+          <div class="learn-stat-content">
+            <span class="learn-stat-num">3</span>
+            <span class="learn-stat-label" data-en="platforms" data-ar="منصات">platforms</span>
+          </div>
         </div>
       </div>
     </div>
 
+    <div class="learn-search-section">
+      <div class="search-box-container">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="learn-search" class="search-input" data-en="Search topics..." data-ar="ابحث عن المواضيع..." placeholder="Search topics...">
+        <button id="search-clear" class="search-clear-btn" style="display:none">✕</button>
+      </div>
+      <div class="filter-group">
+        <div class="filter-pills" id="platform-filters">
+          <button class="filter-pill active" data-platform="all" data-en="All Platforms" data-ar="جميع المنصات">All Platforms</button>
+          <button class="filter-pill" data-platform="whatsapp" data-en="WhatsApp" data-ar="واتساب">WhatsApp</button>
+          <button class="filter-pill" data-platform="messenger" data-en="Messenger" data-ar="مسنجر">Messenger</button>
+          <button class="filter-pill" data-platform="instagram" data-en="Instagram" data-ar="إنستغرام">Instagram</button>
+          <button class="filter-pill" data-platform="common" data-en="Common" data-ar="عام">Common</button>
+        </div>
+        <div class="filter-pills" id="category-filters">
+          <button class="filter-pill active" data-category="all" data-en="All Categories" data-ar="جميع الفئات">All Categories</button>
+          <button class="filter-pill" data-category="core api" data-en="Core API" data-ar="الأساسية">Core API</button>
+          <button class="filter-pill" data-category="webhooks" data-en="Webhooks" data-ar="ويب هوكس">Webhooks</button>
+          <button class="filter-pill" data-category="pricing" data-en="Pricing" data-ar="التسعير">Pricing</button>
+          <button class="filter-pill" data-category="auth" data-en="Auth" data-ar="المصادقة">Auth</button>
+        </div>
+      </div>
+      <div class="search-results-count" id="search-results-info" style="display:none">
+        <span data-en="Found" data-ar="تم العثور على">Found</span> 
+        <span id="results-count">0</span> 
+        <span data-en="topics" data-ar="موضوعاً">topics</span>
+      </div>
+    </div>
+
     
-      <section class="platform-section">
+      <section class="platform-section" data-sect-id="common">
         <h2 class="platform-heading">
           <span class="platform-dot" style="background:#a78bfa"></span>
-          Common
+          <span data-en="Common" data-ar="عام">Common</span>
         </h2>
         <div class="topic-cards">
-      <a class="topic-card" href="topics/error-codes.html">
+      <a class="topic-card" 
+         href="topics/error-codes.html"
+         data-platform="common"
+         data-category="core api"
+         data-search-text="error codes — complete reference core api common # error codes — complete reference  all whatsapp business api errors follow a consistent structure. understanding the codes prevents wasted debugging time.  ## error response structure  ```json {   &quot;error&quot;: {     &quot;message&quot;: &quot;invalid parameter&quot;,     &quot;type&quot;: &quot;oauthexception&quot;,     &quot;code&quot;: 100,     &quot;err">
         <div class="topic-card-header">
           <span class="topic-card-icon">⚡</span>
           <div style="display:flex;align-items:center;gap:6px">
-            <span class="topic-card-platform" style="color:#a78bfa">Common</span>
+            <span class="topic-card-platform" style="color:#a78bfa" data-en="Common" data-ar="عام">Common</span>
             
           </div>
         </div>
         <h3 class="topic-card-title">Error Codes — Complete Reference</h3>
-        <p class="topic-card-category">Core API</p>
+        <p class="topic-card-category" data-en="Core API" data-ar="الأساسية (Core API)">Core API</p>
         <span class="topic-card-arrow">→</span>
       </a></div>
       </section>
-      <section class="platform-section">
+      <section class="platform-section" data-sect-id="messenger">
         <h2 class="platform-heading">
           <span class="platform-dot" style="background:#93c5fd"></span>
-          Messenger
+          <span data-en="Messenger" data-ar="مسنجر">Messenger</span>
         </h2>
         <div class="topic-cards">
-      <a class="topic-card" href="topics/messenger-instagram-api.html">
+      <a class="topic-card" 
+         href="topics/messenger-instagram-api.html"
+         data-platform="messenger"
+         data-category="core api"
+         data-search-text="messenger & instagram messaging api core api messenger # messenger & instagram messaging api  the messenger platform powers both facebook messenger and instagram direct. unlike whatsapp, which is heavily template-driven and monetized per conversation, messenger and instagram rely on a **24-hour standard messaging window**.  ## the 24-hour messaging wind">
         <div class="topic-card-header">
           <span class="topic-card-icon">⚡</span>
           <div style="display:flex;align-items:center;gap:6px">
-            <span class="topic-card-platform" style="color:#93c5fd">Messenger</span>
+            <span class="topic-card-platform" style="color:#93c5fd" data-en="Messenger" data-ar="مسنجر">Messenger</span>
             
           </div>
         </div>
         <h3 class="topic-card-title">Messenger & Instagram Messaging API</h3>
-        <p class="topic-card-category">Core API</p>
+        <p class="topic-card-category" data-en="Core API" data-ar="الأساسية (Core API)">Core API</p>
         <span class="topic-card-arrow">→</span>
       </a></div>
       </section>
-      <section class="platform-section">
+      <section class="platform-section" data-sect-id="whatsapp">
         <h2 class="platform-heading">
           <span class="platform-dot" style="background:#4ade80"></span>
-          WhatsApp
+          <span data-en="WhatsApp" data-ar="واتساب">WhatsApp</span>
         </h2>
         <div class="topic-cards">
-      <a class="topic-card" href="topics/whatsapp-message-templates.html">
+      <a class="topic-card" 
+         href="topics/whatsapp-message-templates.html"
+         data-platform="whatsapp"
+         data-category="core api"
+         data-search-text="message templates core api whatsapp # message templates  templates are pre-approved message formats required for business-initiated conversations outside of a 24-hour customer service window. every marketing, utility, or authentication message sent first must exist as an approved template.  ## endpoints  | method | endpoint | purpose ">
         <div class="topic-card-header">
           <span class="topic-card-icon">⚡</span>
           <div style="display:flex;align-items:center;gap:6px">
-            <span class="topic-card-platform" style="color:#4ade80">WhatsApp</span>
+            <span class="topic-card-platform" style="color:#4ade80" data-en="WhatsApp" data-ar="واتساب">WhatsApp</span>
             
           </div>
         </div>
         <h3 class="topic-card-title">Message Templates</h3>
-        <p class="topic-card-category">Core API</p>
+        <p class="topic-card-category" data-en="Core API" data-ar="الأساسية (Core API)">Core API</p>
         <span class="topic-card-arrow">→</span>
       </a>
-      <a class="topic-card" href="topics/whatsapp-messages-api.html">
+      <a class="topic-card" 
+         href="topics/whatsapp-messages-api.html"
+         data-platform="whatsapp"
+         data-category="core api"
+         data-search-text="messages api (send messages) core api whatsapp # messages api (send messages)  the messages api is how your business sends messages to users — text, media, templates, interactive messages, and more.  ## endpoint  ```http post /v21.0/{phone-number-id}/messages ```  ---  ## base parameters (all requests)  | field | type | required | valid values |">
         <div class="topic-card-header">
           <span class="topic-card-icon">⚡</span>
           <div style="display:flex;align-items:center;gap:6px">
-            <span class="topic-card-platform" style="color:#4ade80">WhatsApp</span>
+            <span class="topic-card-platform" style="color:#4ade80" data-en="WhatsApp" data-ar="واتساب">WhatsApp</span>
             
           </div>
         </div>
         <h3 class="topic-card-title">Messages API (Send Messages)</h3>
-        <p class="topic-card-category">Core API</p>
+        <p class="topic-card-category" data-en="Core API" data-ar="الأساسية (Core API)">Core API</p>
         <span class="topic-card-arrow">→</span>
       </a>
-      <a class="topic-card" href="topics/whatsapp-webhooks.html">
+      <a class="topic-card" 
+         href="topics/whatsapp-webhooks.html"
+         data-platform="whatsapp"
+         data-category="webhooks"
+         data-search-text="whatsapp webhooks webhooks whatsapp # whatsapp webhooks  webhooks are http callbacks that meta sends to your server when events occur — a message is received, a template status changes, a user&#39;s phone number changes, etc. you must verify your endpoint and handle each event type correctly.  ## setup requirements  | requirement | value ">
         <div class="topic-card-header">
           <span class="topic-card-icon">🔔</span>
           <div style="display:flex;align-items:center;gap:6px">
-            <span class="topic-card-platform" style="color:#4ade80">WhatsApp</span>
+            <span class="topic-card-platform" style="color:#4ade80" data-en="WhatsApp" data-ar="واتساب">WhatsApp</span>
             
           </div>
         </div>
         <h3 class="topic-card-title">WhatsApp Webhooks</h3>
-        <p class="topic-card-category">Webhooks</p>
+        <p class="topic-card-category" data-en="Webhooks" data-ar="ويب هوكس (Webhooks)">Webhooks</p>
         <span class="topic-card-arrow">→</span>
       </a>
-      <a class="topic-card" href="topics/whatsapp-business-profile.html">
+      <a class="topic-card" 
+         href="topics/whatsapp-business-profile.html"
+         data-platform="whatsapp"
+         data-category="core api"
+         data-search-text="whatsapp business profile api core api whatsapp # whatsapp business profile api  the business profile api allows seen v2 to programmatically manage the public-facing profile of a whatsapp business account (waba). this is what end-users see when they click on the business name in whatsapp.  ## managing the profile  you can read and update the prof">
         <div class="topic-card-header">
           <span class="topic-card-icon">⚡</span>
           <div style="display:flex;align-items:center;gap:6px">
-            <span class="topic-card-platform" style="color:#4ade80">WhatsApp</span>
+            <span class="topic-card-platform" style="color:#4ade80" data-en="WhatsApp" data-ar="واتساب">WhatsApp</span>
             
           </div>
         </div>
         <h3 class="topic-card-title">WhatsApp Business Profile API</h3>
-        <p class="topic-card-category">Core API</p>
+        <p class="topic-card-category" data-en="Core API" data-ar="الأساسية (Core API)">Core API</p>
         <span class="topic-card-arrow">→</span>
       </a>
-      <a class="topic-card" href="topics/whatsapp-campaigns-broadcasts.html">
+      <a class="topic-card" 
+         href="topics/whatsapp-campaigns-broadcasts.html"
+         data-platform="whatsapp"
+         data-category="core api"
+         data-search-text="whatsapp campaigns & broadcasts core api whatsapp # whatsapp campaigns & broadcasts  in whatsapp, you cannot send arbitrary free-form promotional text to users whenever you want. any business-initiated conversation must begin with an approved **message template**. this is the foundation of broadcasts and campaigns in seen v2.  ## how broadcasts wor">
         <div class="topic-card-header">
           <span class="topic-card-icon">⚡</span>
           <div style="display:flex;align-items:center;gap:6px">
-            <span class="topic-card-platform" style="color:#4ade80">WhatsApp</span>
+            <span class="topic-card-platform" style="color:#4ade80" data-en="WhatsApp" data-ar="واتساب">WhatsApp</span>
             
           </div>
         </div>
         <h3 class="topic-card-title">WhatsApp Campaigns & Broadcasts</h3>
-        <p class="topic-card-category">Core API</p>
+        <p class="topic-card-category" data-en="Core API" data-ar="الأساسية (Core API)">Core API</p>
         <span class="topic-card-arrow">→</span>
       </a>
-      <a class="topic-card topic-card-new" href="topics/whatsapp-flows-v4.html">
+      <a class="topic-card topic-card-new" 
+         href="topics/whatsapp-flows-v4.html"
+         data-platform="whatsapp"
+         data-category="core api"
+         data-search-text="whatsapp flows v4 — interactive forms core api whatsapp # whatsapp flows v4 — interactive forms  whatsapp flows v4 introduces native interactive forms inside whatsapp conversations, letting businesses collect structured data without redirecting users to external links.  ## overview  flows v4 enables businesses to build multi-screen form experiences that ">
         <div class="topic-card-header">
           <span class="topic-card-icon">⚡</span>
           <div style="display:flex;align-items:center;gap:6px">
-            <span class="topic-card-platform" style="color:#4ade80">WhatsApp</span>
-            <span class="new-badge">NEW</span>
+            <span class="topic-card-platform" style="color:#4ade80" data-en="WhatsApp" data-ar="واتساب">WhatsApp</span>
+            <span class="new-badge" data-en="NEW" data-ar="جديد">NEW</span>
           </div>
         </div>
         <h3 class="topic-card-title">WhatsApp Flows v4 — Interactive Forms</h3>
-        <p class="topic-card-category">Core API</p>
+        <p class="topic-card-category" data-en="Core API" data-ar="الأساسية (Core API)">Core API</p>
         <span class="topic-card-arrow">→</span>
       </a>
-      <a class="topic-card" href="topics/whatsapp-interactive-messages.html">
+      <a class="topic-card" 
+         href="topics/whatsapp-interactive-messages.html"
+         data-platform="whatsapp"
+         data-category="core api"
+         data-search-text="whatsapp interactive messages (buttons & lists) core api whatsapp # whatsapp interactive messages  interactive messages replace traditional text-based &quot;reply 1 for yes&quot; workflows with native ui elements. they reduce friction, eliminate typing errors, and improve conversion rates. for seen v2, interactive messages are core to the flow builder and bot modules.  ## t">
         <div class="topic-card-header">
           <span class="topic-card-icon">⚡</span>
           <div style="display:flex;align-items:center;gap:6px">
-            <span class="topic-card-platform" style="color:#4ade80">WhatsApp</span>
+            <span class="topic-card-platform" style="color:#4ade80" data-en="WhatsApp" data-ar="واتساب">WhatsApp</span>
             
           </div>
         </div>
         <h3 class="topic-card-title">WhatsApp Interactive Messages (Buttons & Lists)</h3>
-        <p class="topic-card-category">Core API</p>
+        <p class="topic-card-category" data-en="Core API" data-ar="الأساسية (Core API)">Core API</p>
         <span class="topic-card-arrow">→</span>
       </a>
-      <a class="topic-card" href="topics/whatsapp-media-messages.html">
+      <a class="topic-card" 
+         href="topics/whatsapp-media-messages.html"
+         data-platform="whatsapp"
+         data-category="core api"
+         data-search-text="whatsapp media messages (images, video, docs) core api whatsapp # whatsapp media messages  sending media is essential for rich communication in seen v2. media can be sent either by providing a public url or by uploading the media to meta&#39;s servers first and passing the `media_id`.  ## media types & limits  meta imposes strict limits on file sizes and supported f">
         <div class="topic-card-header">
           <span class="topic-card-icon">⚡</span>
           <div style="display:flex;align-items:center;gap:6px">
-            <span class="topic-card-platform" style="color:#4ade80">WhatsApp</span>
+            <span class="topic-card-platform" style="color:#4ade80" data-en="WhatsApp" data-ar="واتساب">WhatsApp</span>
             
           </div>
         </div>
         <h3 class="topic-card-title">WhatsApp Media Messages (Images, Video, Docs)</h3>
-        <p class="topic-card-category">Core API</p>
+        <p class="topic-card-category" data-en="Core API" data-ar="الأساسية (Core API)">Core API</p>
         <span class="topic-card-arrow">→</span>
       </a>
-      <a class="topic-card" href="topics/whatsapp-quality-limits.html">
+      <a class="topic-card" 
+         href="topics/whatsapp-quality-limits.html"
+         data-platform="whatsapp"
+         data-category="core api"
+         data-search-text="whatsapp quality rating & messaging limits core api whatsapp # whatsapp quality rating & limits  meta enforces a strict quality control system to prevent spam on whatsapp. if a business sends unwanted messages, users will block or report them. meta tracks these blocks/reports to calculate a **quality rating**.  ## messaging tiers (limits)  every whatsapp busi">
         <div class="topic-card-header">
           <span class="topic-card-icon">⚡</span>
           <div style="display:flex;align-items:center;gap:6px">
-            <span class="topic-card-platform" style="color:#4ade80">WhatsApp</span>
+            <span class="topic-card-platform" style="color:#4ade80" data-en="WhatsApp" data-ar="واتساب">WhatsApp</span>
             
           </div>
         </div>
         <h3 class="topic-card-title">WhatsApp Quality Rating & Messaging Limits</h3>
-        <p class="topic-card-category">Core API</p>
+        <p class="topic-card-category" data-en="Core API" data-ar="الأساسية (Core API)">Core API</p>
         <span class="topic-card-arrow">→</span>
       </a></div>
       </section>
 
     <footer class="learn-footer">
-      <p>Meta Docs Learn · Built with Antigravity · Last updated: 24 Jun 2026 (Cairo)</p>
-      <p>All content extracted directly from <a href="https://developers.facebook.com" target="_blank">Meta Developer Documentation</a></p>
+      <p data-en="Meta Docs Learn · Built with Antigravity · Last updated: 24 Jun 2026 (Cairo)" 
+         data-ar="تعلّم Meta Docs · تم التطوير بواسطة Antigravity · آخر تحديث: 24 Jun 2026 (القاهرة)">
+        Meta Docs Learn · Built with Antigravity · Last updated: 24 Jun 2026 (Cairo)
+      </p>
+      <p data-en="All content extracted directly from Meta Developer Documentation" 
+         data-ar="تم استخراج كافة المحتويات مباشرة من مستندات مطوري Meta">
+        All content extracted directly from <a href="https://developers.facebook.com" target="_blank">Meta Developer Documentation</a>
+      </p>
     </footer>
   </main>
 
@@ -247,7 +342,12 @@
     html.setAttribute('dir',l==='ar'?'rtl':'ltr');
     localStorage.setItem(LK,l);
     document.querySelectorAll('[data-en][data-ar]').forEach(function(el){
-      el.textContent=el.getAttribute(l==='ar'?'data-ar':'data-en');
+      var val = el.getAttribute(l==='ar'?'data-ar':'data-en');
+      if (el.tagName==='INPUT' || el.tagName==='TEXTAREA') {
+        el.placeholder = val;
+      } else {
+        el.innerHTML = val;
+      }
     });
   }
   applyLang(localStorage.getItem(LK)||'en');
@@ -263,6 +363,96 @@
       applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
     });
     
+  var searchInput = document.getElementById('learn-search');
+  var clearBtn = document.getElementById('search-clear');
+  var platformButtons = document.querySelectorAll('#platform-filters .filter-pill');
+  var categoryButtons = document.querySelectorAll('#category-filters .filter-pill');
+  var cards = document.querySelectorAll('.topic-card');
+  var sections = document.querySelectorAll('.platform-section');
+  var resultsInfo = document.getElementById('search-results-info');
+  var resultsCount = document.getElementById('results-count');
+  
+  var activePlatform = 'all';
+  var activeCategory = 'all';
+  var searchQuery = '';
+
+  function filterCards() {
+    var visibleCount = 0;
+    var sectionsHasVisible = {};
+
+    cards.forEach(function(card) {
+      var text = card.getAttribute('data-search-text') || '';
+      var platform = (card.getAttribute('data-platform') || '').toLowerCase();
+      var category = (card.getAttribute('data-category') || '').toLowerCase();
+
+      var matchSearch = !searchQuery || text.indexOf(searchQuery) !== -1;
+      var matchPlatform = activePlatform === 'all' || platform === activePlatform;
+      var matchCategory = activeCategory === 'all' || category === activeCategory;
+
+      if (matchSearch && matchPlatform && matchCategory) {
+        card.style.display = '';
+        visibleCount++;
+        var sect = card.closest('.platform-section');
+        if (sect) {
+          sectionsHasVisible[sect.getAttribute('data-sect-id')] = true;
+        }
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    sections.forEach(function(section) {
+      var sectId = section.getAttribute('data-sect-id');
+      if (sectionsHasVisible[sectId]) {
+        section.style.display = '';
+      } else {
+        section.style.display = 'none';
+      }
+    });
+
+    if (searchQuery || activePlatform !== 'all' || activeCategory !== 'all') {
+      resultsInfo.style.display = 'block';
+      resultsCount.textContent = visibleCount;
+    } else {
+      resultsInfo.style.display = 'none';
+    }
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      searchQuery = searchInput.value.toLowerCase().trim();
+      clearBtn.style.display = searchQuery ? 'inline-block' : 'none';
+      filterCards();
+    });
+  }
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function() {
+      searchInput.value = '';
+      clearBtn.style.display = 'none';
+      searchQuery = '';
+      filterCards();
+      searchInput.focus();
+    });
+  }
+
+  platformButtons.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      platformButtons.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      activePlatform = btn.getAttribute('data-platform').toLowerCase();
+      filterCards();
+    });
+  });
+  categoryButtons.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      categoryButtons.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      activeCategory = btn.getAttribute('data-category').toLowerCase();
+      filterCards();
+    });
+  });
+  
   }
 
   if(document.readyState==='loading'){

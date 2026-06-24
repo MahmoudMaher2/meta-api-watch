@@ -23,7 +23,7 @@ const TOPICS_DIR  = path.join(LEARN_DIR, 'topics');
 
 // ── Frontmatter parser ────────────────────────────────────────────────────────
 function parseFrontmatter(raw) {
-  const match = raw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+  const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
   if (!match) return { meta: {}, body: raw };
   const meta = {};
   for (const line of match[1].split('\n')) {
@@ -33,8 +33,25 @@ function parseFrontmatter(raw) {
   return { meta, body: match[2].trim() };
 }
 
+// ── Live preview block processor ─────────────────────────────────────────
+function processPreviewBlocks(text) {
+  // <!-- preview:accepted --> ... ### ✅ ... → wrap in .preview-accepted
+  // <!-- preview:rejected --> ... ### ❌ ... → wrap in .preview-rejected
+  text = text.replace(
+    /<!--\s*preview:accepted\s*-->\s*([\s\S]*?)(?=<!--\s*preview:|$)/g,
+    (_, content) => `<div class="preview-block preview-accepted"><span class="preview-label preview-label-ok">✅ Correct Usage — Live Preview</span>${content}</div>`
+  );
+  text = text.replace(
+    /<!--\s*preview:rejected\s*-->\s*([\s\S]*?)(?=<!--\s*preview:|$)/g,
+    (_, content) => `<div class="preview-block preview-rejected"><span class="preview-label preview-label-err">❌ Common Mistake — What Goes Wrong</span>${content}</div>`
+  );
+  return text;
+}
+
 // ── Markdown → HTML (minimal, no deps) ───────────────────────────────────────
 function md2html(text) {
+  // Process live preview blocks first (before markdown parsing)
+  text = processPreviewBlocks(text);
   return text
     // Code blocks (must come before inline code)
     .replace(/```(\w+)?\n([\s\S]*?)```/g, (_, lang, code) =>
@@ -126,6 +143,9 @@ function getAllTopics() {
           priority: meta.priority || 'medium',
           source_url: meta.source_url || '',
           last_verified: meta.last_verified || '',
+          isNew: meta.new === 'true' || meta.new === true,
+          newSince: meta.new_since || '',
+          changelogArticle: meta.changelog_article || '',
           meta, body
         });
       }
@@ -139,6 +159,11 @@ function getAllTopics() {
 function buildTopicPage(topic, allTopics) {
   const pc = PLATFORM_COLORS[topic.platform] || PLATFORM_COLORS['Common'];
   const content = md2html(topic.body);
+  const lastBuildLabel = new Date().toLocaleString('en-US', {
+    month: 'short', day: 'numeric', year: 'numeric',
+    hour: 'numeric', minute: '2-digit', hour12: true,
+    timeZone: 'Africa/Cairo'
+  }) + ' (Cairo)';
   
   // Extract TOC from headings
   const headings = [...topic.body.matchAll(/^#{2,3}\s(.+)$/gm)].map(m => ({
@@ -158,6 +183,11 @@ function buildTopicPage(topic, allTopics) {
   const prevLink = prev ? `<a class="nav-prev" href="${prev.slug}.html">← ${prev.title}</a>` : '';
   const nextLink = next ? `<a class="nav-next" href="${next.slug}.html">${next.title} →</a>` : '';
 
+  const newBadgeHero = topic.isNew
+    ? `<span class="new-badge-hero" title="Detected: ${topic.newSince}">✦ NEW</span>` : '';
+  const changelogLink = topic.changelogArticle
+    ? `<div class="sidebar-section"><span class="sidebar-label">📰 From Changelog</span><a href="../../changelog.html" class="source-link changelog-back-link">📋 View Changelog Entry ↗<br><small>${topic.changelogArticle}</small></a></div>` : '';
+
   return `<!DOCTYPE html>
 <html lang="en" data-theme="dark" data-lang="en">
 ${buildHead(
@@ -167,7 +197,7 @@ ${buildHead(
 )}
 <body>
 
-  ${buildHeader('../../', 'learn')}
+  ${buildHeader('../../', 'learn', lastBuildLabel)}
 
 
 
@@ -186,6 +216,7 @@ ${buildHead(
         </a>
         ${topic.last_verified ? `<span class="verified-date">Verified: ${topic.last_verified}</span>` : ''}
       </div>
+      ${changelogLink}
     </aside>
 
     <!-- Main Content -->
@@ -199,7 +230,10 @@ ${buildHead(
       </div>
 
       <div class="topic-hero">
-        <span class="platform-badge" style="background:${pc.bg};color:${pc.text};border-color:${pc.border}">${topic.platform}</span>
+        <div class="topic-hero-badges">
+          <span class="platform-badge" style="background:${pc.bg};color:${pc.text};border-color:${pc.border}">${topic.platform}</span>
+          ${newBadgeHero}
+        </div>
         <h1 class="topic-title">${topic.title}</h1>
         <p class="topic-meta">${topic.category} · Last verified: ${topic.last_verified || 'N/A'}</p>
       </div>
@@ -221,6 +255,37 @@ ${buildHead(
 </html>`;
 }
 
+// ── Translation Helpers ───────────────────────────────────────────────────────
+function translatePlatform(platform) {
+  const dict = {
+    'WhatsApp': 'واتساب',
+    'Messenger': 'مسنجر',
+    'Instagram': 'إنستغرام',
+    'Common': 'عام'
+  };
+  return dict[platform] || platform;
+}
+
+function translateCategory(category) {
+  const dict = {
+    'Core API': 'الأساسية (Core API)',
+    'Webhooks': 'ويب هوكس (Webhooks)',
+    'Pricing': 'التسعير والرسوم',
+    'Auth': 'المصادقة والتفويض'
+  };
+  return dict[category] || category;
+}
+
+function escSearchText(text) {
+  return text
+    .toLowerCase()
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+    .replace(/\n/g, ' ')
+    .replace(/\r/g, ' ')
+    .replace(/\\/g, '\\\\');
+}
+
 // ── Build home index ──────────────────────────────────────────────────────────
 function buildIndex(topics) {
   const grouped = {};
@@ -231,8 +296,14 @@ function buildIndex(topics) {
 
   const platformSections = Object.entries(grouped).map(([platform, pts]) => {
     const pc = PLATFORM_COLORS[platform] || PLATFORM_COLORS['Common'];
-    const cards = pts.map(t => `
-      <a class="topic-card" href="topics/${t.slug}.html">
+    const cards = pts.map(t => {
+      const searchTxt = escSearchText(`${t.title} ${t.category} ${platform} ${t.body.substring(0, 300)}`);
+      return `
+      <a class="topic-card${t.isNew ? ' topic-card-new' : ''}" 
+         href="topics/${t.slug}.html"
+         data-platform="${platform.toLowerCase()}"
+         data-category="${t.category.toLowerCase()}"
+         data-search-text="${searchTxt}">
         <div class="topic-card-header">
           <span class="topic-card-icon">${
             t.category === 'Core API' ? '⚡' :
@@ -240,25 +311,127 @@ function buildIndex(topics) {
             t.category === 'Pricing' ? '💰' :
             t.category === 'Auth' ? '🔐' : '📖'
           }</span>
-          <span class="topic-card-platform" style="color:${pc.text}">${platform}</span>
+          <div style="display:flex;align-items:center;gap:6px">
+            <span class="topic-card-platform" style="color:${pc.text}" data-en="${platform}" data-ar="${translatePlatform(platform)}">${platform}</span>
+            ${t.isNew ? '<span class="new-badge" data-en="NEW" data-ar="جديد">NEW</span>' : ''}
+          </div>
         </div>
         <h3 class="topic-card-title">${t.title}</h3>
-        <p class="topic-card-category">${t.category}</p>
+        <p class="topic-card-category" data-en="${t.category}" data-ar="${translateCategory(t.category)}">${t.category}</p>
         <span class="topic-card-arrow">→</span>
-      </a>`).join('');
+      </a>`;
+    }).join('');
     return `
-      <section class="platform-section">
+      <section class="platform-section" data-sect-id="${platform.toLowerCase()}">
         <h2 class="platform-heading">
           <span class="platform-dot" style="background:${pc.text}"></span>
-          ${platform}
+          <span data-en="${platform}" data-ar="${translatePlatform(platform)}">${platform}</span>
         </h2>
         <div class="topic-cards">${cards}</div>
       </section>`;
   }).join('');
 
+
+
+  const searchJs = `
+  var searchInput = document.getElementById('learn-search');
+  var clearBtn = document.getElementById('search-clear');
+  var platformButtons = document.querySelectorAll('#platform-filters .filter-pill');
+  var categoryButtons = document.querySelectorAll('#category-filters .filter-pill');
+  var cards = document.querySelectorAll('.topic-card');
+  var sections = document.querySelectorAll('.platform-section');
+  var resultsInfo = document.getElementById('search-results-info');
+  var resultsCount = document.getElementById('results-count');
+  
+  var activePlatform = 'all';
+  var activeCategory = 'all';
+  var searchQuery = '';
+
+  function filterCards() {
+    var visibleCount = 0;
+    var sectionsHasVisible = {};
+
+    cards.forEach(function(card) {
+      var text = card.getAttribute('data-search-text') || '';
+      var platform = (card.getAttribute('data-platform') || '').toLowerCase();
+      var category = (card.getAttribute('data-category') || '').toLowerCase();
+
+      var matchSearch = !searchQuery || text.indexOf(searchQuery) !== -1;
+      var matchPlatform = activePlatform === 'all' || platform === activePlatform;
+      var matchCategory = activeCategory === 'all' || category === activeCategory;
+
+      if (matchSearch && matchPlatform && matchCategory) {
+        card.style.display = '';
+        visibleCount++;
+        var sect = card.closest('.platform-section');
+        if (sect) {
+          sectionsHasVisible[sect.getAttribute('data-sect-id')] = true;
+        }
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    sections.forEach(function(section) {
+      var sectId = section.getAttribute('data-sect-id');
+      if (sectionsHasVisible[sectId]) {
+        section.style.display = '';
+      } else {
+        section.style.display = 'none';
+      }
+    });
+
+    if (searchQuery || activePlatform !== 'all' || activeCategory !== 'all') {
+      resultsInfo.style.display = 'block';
+      resultsCount.textContent = visibleCount;
+    } else {
+      resultsInfo.style.display = 'none';
+    }
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      searchQuery = searchInput.value.toLowerCase().trim();
+      clearBtn.style.display = searchQuery ? 'inline-block' : 'none';
+      filterCards();
+    });
+  }
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function() {
+      searchInput.value = '';
+      clearBtn.style.display = 'none';
+      searchQuery = '';
+      filterCards();
+      searchInput.focus();
+    });
+  }
+
+  platformButtons.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      platformButtons.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      activePlatform = btn.getAttribute('data-platform').toLowerCase();
+      filterCards();
+    });
+  });
+  categoryButtons.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      categoryButtons.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      activeCategory = btn.getAttribute('data-category').toLowerCase();
+      filterCards();
+    });
+  });
+  `;
+
   const buildDate = new Date().toLocaleDateString('en-GB', {
     year: 'numeric', month: 'short', day: 'numeric', timeZone: 'Africa/Cairo'
   });
+  const buildTime = new Date().toLocaleTimeString('en-US', {
+    hour: 'numeric', minute: '2-digit', hour12: true, timeZone: 'Africa/Cairo'
+  });
+  const lastBuildLabel = `${buildDate} · ${buildTime} (Cairo)`;
 
   return `<!DOCTYPE html>
 <html lang="en" data-theme="dark" data-lang="en">
@@ -269,36 +442,81 @@ ${buildHead(
 )}
 <body>
 
-  ${buildHeader('../', 'learn')}
-
-
+  ${buildHeader('../', 'learn', lastBuildLabel)}
 
   <main class="learn-home">
-    <div class="home-hero">
-      <p class="home-hero-desc">
+    <div class="learn-hero">
+      <h1 class="learn-hero-title">
+        <span data-en="Meta Docs Learn Hub" data-ar="تعلّم · مرجع واجهة برمجة تطبيقات Meta">Meta Docs Learn Hub</span>
+      </h1>
+      <p class="learn-hero-desc" 
+         data-en="Every Meta API feature explained with <strong>exact validation rules</strong> — what gets accepted, what gets rejected, and why. Focused on WhatsApp, Messenger, and everything that matters for SEEN V2." 
+         data-ar="شرح مفصل لكل ميزة في واجهة برمجة تطبيقات Meta مع <strong>قواعد التحقق الدقيقة</strong> — ما يتم قبوله، وما يتم رفضه، والسبب. يركز على WhatsApp و Messenger وكل ما يهم الإصدار الثاني من SEEN.">
         Every Meta API feature explained with <strong>exact validation rules</strong> — what gets accepted, what gets rejected, and why. Focused on WhatsApp, Messenger, and everything that matters for SEEN V2.
       </p>
-      <div class="home-stats">
-        <div class="home-stat">
-          <span class="home-stat-num">${topics.length}</span>
-          <span class="home-stat-label">topics</span>
+      
+      <div class="learn-stats">
+        <div class="learn-stat">
+          <div class="learn-stat-icon">📚</div>
+          <div class="learn-stat-content">
+            <span class="learn-stat-num">${topics.length}</span>
+            <span class="learn-stat-label" data-en="topics" data-ar="موضوعاً">topics</span>
+          </div>
         </div>
-        <div class="home-stat">
-          <span class="home-stat-num">${Object.keys(grouped).length}</span>
-          <span class="home-stat-label">platforms</span>
+        <div class="learn-stat">
+          <div class="learn-stat-icon">🔌</div>
+          <div class="learn-stat-content">
+            <span class="learn-stat-num">${Object.keys(grouped).length}</span>
+            <span class="learn-stat-label" data-en="platforms" data-ar="منصات">platforms</span>
+          </div>
         </div>
+      </div>
+    </div>
+
+    <div class="learn-search-section">
+      <div class="search-box-container">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="learn-search" class="search-input" data-en="Search topics..." data-ar="ابحث عن المواضيع..." placeholder="Search topics...">
+        <button id="search-clear" class="search-clear-btn" style="display:none">✕</button>
+      </div>
+      <div class="filter-group">
+        <div class="filter-pills" id="platform-filters">
+          <button class="filter-pill active" data-platform="all" data-en="All Platforms" data-ar="جميع المنصات">All Platforms</button>
+          <button class="filter-pill" data-platform="whatsapp" data-en="WhatsApp" data-ar="واتساب">WhatsApp</button>
+          <button class="filter-pill" data-platform="messenger" data-en="Messenger" data-ar="مسنجر">Messenger</button>
+          <button class="filter-pill" data-platform="instagram" data-en="Instagram" data-ar="إنستغرام">Instagram</button>
+          <button class="filter-pill" data-platform="common" data-en="Common" data-ar="عام">Common</button>
+        </div>
+        <div class="filter-pills" id="category-filters">
+          <button class="filter-pill active" data-category="all" data-en="All Categories" data-ar="جميع الفئات">All Categories</button>
+          <button class="filter-pill" data-category="core api" data-en="Core API" data-ar="الأساسية">Core API</button>
+          <button class="filter-pill" data-category="webhooks" data-en="Webhooks" data-ar="ويب هوكس">Webhooks</button>
+          <button class="filter-pill" data-category="pricing" data-en="Pricing" data-ar="التسعير">Pricing</button>
+          <button class="filter-pill" data-category="auth" data-en="Auth" data-ar="المصادقة">Auth</button>
+        </div>
+      </div>
+      <div class="search-results-count" id="search-results-info" style="display:none">
+        <span data-en="Found" data-ar="تم العثور على">Found</span> 
+        <span id="results-count">0</span> 
+        <span data-en="topics" data-ar="موضوعاً">topics</span>
       </div>
     </div>
 
     ${platformSections}
 
     <footer class="learn-footer">
-      <p>Meta Docs Learn · Built with Antigravity · Last updated: ${buildDate} (Cairo)</p>
-      <p>All content extracted directly from <a href="https://developers.facebook.com" target="_blank">Meta Developer Documentation</a></p>
+      <p data-en="Meta Docs Learn · Built with Antigravity · Last updated: ${buildDate} (Cairo)" 
+         data-ar="تعلّم Meta Docs · تم التطوير بواسطة Antigravity · آخر تحديث: ${buildDate} (القاهرة)">
+        Meta Docs Learn · Built with Antigravity · Last updated: ${buildDate} (Cairo)
+      </p>
+      <p data-en="All content extracted directly from Meta Developer Documentation" 
+         data-ar="تم استخراج كافة المحتويات مباشرة من مستندات مطوري Meta">
+        All content extracted directly from <a href="https://developers.facebook.com" target="_blank">Meta Developer Documentation</a>
+      </p>
     </footer>
   </main>
 
-  ${buildSharedScript()}
+  ${buildSharedScript('../', searchJs)}
 </body>
 </html>`;
 }

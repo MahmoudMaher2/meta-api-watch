@@ -10,10 +10,18 @@
  *   const headerHtml = buildHeader('../../', 'learn'); // from learn/topics/
  */
 
-function buildHeader(basePath, activePage) {
+function buildHeader(basePath, activePage, lastBuild) {
   const bp = basePath || '';
   const isChangelog = activePage === 'changelog';
   const isLearn     = activePage === 'learn';
+
+  const buildBadge = lastBuild
+    ? `<div class="header-build-time" title="Last site build (Cairo time)">
+        <span class="build-icon">🕐</span>
+        <span class="build-label" data-en="Last Build" data-ar="آخر تحديث">Last Build</span>
+        <span class="build-value">${lastBuild}</span>
+      </div>`
+    : '';
 
   return `<header class="site-header">
   <div class="header-inner">
@@ -40,6 +48,8 @@ function buildHeader(basePath, activePage) {
         <span data-en="📚 Learn" data-ar="📚 تعلّم">📚 Learn</span>
       </a>
     </nav>
+
+    ${buildBadge}
 
     <div class="header-actions">
       <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
@@ -79,7 +89,12 @@ function buildSharedScript(basePath, extraJs) {
     html.setAttribute('dir',l==='ar'?'rtl':'ltr');
     localStorage.setItem(LK,l);
     document.querySelectorAll('[data-en][data-ar]').forEach(function(el){
-      el.textContent=el.getAttribute(l==='ar'?'data-ar':'data-en');
+      var val = el.getAttribute(l==='ar'?'data-ar':'data-en');
+      if (el.tagName==='INPUT' || el.tagName==='TEXTAREA') {
+        el.placeholder = val;
+      } else {
+        el.innerHTML = val;
+      }
     });
   }
   applyLang(localStorage.getItem(LK)||'en');
