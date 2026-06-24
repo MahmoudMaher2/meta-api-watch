@@ -14,22 +14,22 @@
 
   <header class="site-header">
   <div class="header-inner">
-    <div class="header-logo">
+    <a href="../../index.html" class="header-logo" style="text-decoration: none;">
       <span class="logo-icon">🔭</span>
       <div class="logo-text">
-        <strong>Meta API Watch</strong>
-        <span>SEEN V2 · Developer Hub</span>
+        <div class="site-title">Meta API Explain</div>
+        <div class="site-subtitle">SEEN V2 · Developer Hub</div>
       </div>
-    </div>
+    </a>
     
     <nav class="header-nav">
-      <a href="../../index.html" class="nav-item ">
+      <a href="../../changelog.html" class="nav-tab ">
         <span class="nav-icon">🔔</span>
-        Latest Updates
+        <span class="nav-text" data-en="Latest Updates" data-ar="آخر التحديثات">Latest Updates</span>
       </a>
-      <a href="../../learn/index.html" class="nav-item active">
+      <a href="../../learn/index.html" class="nav-tab active">
         <span class="nav-icon">📚</span>
-        Learn
+        <span class="nav-text" data-en="Learn" data-ar="تعلّم">Learn</span>
       </a>
     </nav>
 
@@ -37,51 +37,36 @@
       <!-- Search Trigger -->
       <button id="search-trigger" class="search-btn" title="Search documentation... (Ctrl+K)">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        <span>Search...</span>
+        <span>Search</span>
         <kbd>/</kbd>
       </button>
 
-      <div class="build-badge">
-        <span class="pulse"></span>
-        LAST BUILD Jun 24, 2026, 11:13 PM 🇪🇬
+      <div class="header-build-time" title="System Status: Up to date">
+        <div class="build-pulse"></div>
+        <span class="build-label">LAST BUILD</span>
+        <span class="build-value">Jun 24, 2026, 11:52 PM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
-      <button id="lang-toggle" class="icon-btn" title="Toggle Language (AR/EN)">
+      <button id="lang-toggle" class="lang-toggle" title="Toggle Language (AR/EN)">
         <span class="lang-en">EN</span>
+        <span class="lang-sep">|</span>
         <span class="lang-ar">عربي</span>
       </button>
       
       <!-- Theme Toggle -->
-      <button id="theme-toggle" class="icon-btn" title="Toggle Theme">
-        <span class="moon">🌙</span>
-        <span class="sun">☀️</span>
+      <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
       </button>
     </div>
   </div>
 </header>
 
-<!-- Search Modal -->
-<div id="search-modal" class="search-modal">
-  <div class="search-modal-content">
-    <div class="search-header">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-      <input type="text" id="search-input" placeholder="Search topics, error codes, guidelines..." autocomplete="off">
-      <button id="search-close" class="icon-btn">×</button>
-    </div>
-    <div id="search-results" class="search-results"></div>
-    <div class="search-footer">
-      <span><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span>
-      <span><kbd>Enter</kbd> to select</span>
-      <span><kbd>ESC</kbd> to close</span>
-    </div>
-  </div>
-</div>
 
 
 
-
-  <div class="learn-layout">
+  <div class="learn-layout has-panels">
 
     <!-- Sidebar -->
     <aside class="learn-sidebar" id="sidebar">
@@ -89,11 +74,11 @@
         <span class="sidebar-label" data-en="On this page" data-ar="على هذه الصفحة">On this page</span>
         
     <div class="lang-en">
-      <ul class="toc-list"><li class="toc-top"><a href="#messaging-tiers-limits">Messaging Tiers (Limits)</a></li><li class="toc-top"><a href="#quality-ratings-status">Quality Ratings (Status)</a></li><li class="toc-sub"><a href="#the-flagged-penalty">The "Flagged" Penalty</a></li><li class="toc-top"><a href="#upgrading-limits">Upgrading Limits</a></li><li class="toc-top"><a href="#validation-rules-api-behavior">Validation Rules & API Behavior</a></li><li class="toc-top"><a href="#seen-v2-implementation-notes">SEEN V2 Implementation Notes</a></li><li class="toc-top"><a href="#qa-checklist">QA Checklist</a></li></ul>
+      <ul class="toc-list"><li class="toc-top"><a href="#1-phone-number-quality">1. Phone Number Quality</a></li><li class="toc-sub"><a href="#quality-levels">Quality Levels:</a></li><li class="toc-sub"><a href="#phone-number-status-flagged-penalty">Phone Number Status & "Flagged" Penalty:</a></li><li class="toc-top"><a href="#2-message-template-quality">2. Message Template Quality</a></li><li class="toc-sub"><a href="#template-quality-levels">Template Quality Levels:</a></li><li class="toc-top"><a href="#3-messaging-limits-tiers">3. Messaging Limits (Tiers)</a></li><li class="toc-sub"><a href="#how-are-upgrades-handled">How are upgrades handled?</a></li><li class="toc-top"><a href="#4-validation-rules-api-behavior">4. Validation Rules & API Behavior</a></li><li class="toc-top"><a href="#5-seen-v2-implementation-notes">5. SEEN V2 Implementation Notes</a></li></ul>
     </div>
     
     <div class="lang-ar">
-      <ul class="toc-list"><li class="toc-top"><a href="#مستويات-المراسلة-الحدود">مستويات المراسلة (الحدود)</a></li><li class="toc-top"><a href="#تقييمات-الجودة-الحالة">تقييمات الجودة (الحالة)</a></li><li class="toc-sub"><a href="#عقوبة-flagged-المقيد">عقوبة "Flagged" (المقيد)</a></li><li class="toc-top"><a href="#ترقية-الحدود">ترقية الحدود</a></li><li class="toc-top"><a href="#قواعد-التحقق-وسلوك-api">قواعد التحقق وسلوك API</a></li><li class="toc-top"><a href="#ملاحظات-تنفيذ-seen-v2">ملاحظات تنفيذ SEEN V2</a></li><li class="toc-top"><a href="#قائمة-مراجعة-ضمان-الجودة-qa-checklist">قائمة مراجعة ضمان الجودة (QA Checklist)</a></li></ul>
+      <ul class="toc-list"><li class="toc-top"><a href="#1-جودة-رقم-الهاتف-phone-number-quality">1. جودة رقم الهاتف (Phone Number Quality)</a></li><li class="toc-sub"><a href="#مستويات-جودة-الرقم">مستويات جودة الرقم:</a></li><li class="toc-sub"><a href="#حالة-الرقم-status-وعقوبة-flagged">حالة الرقم (Status) وعقوبة "Flagged":</a></li><li class="toc-top"><a href="#2-جودة-قالب-الرسالة-message-template-quality">2. جودة قالب الرسالة (Message Template Quality)</a></li><li class="toc-sub"><a href="#مستويات-جودة-القالب">مستويات جودة القالب:</a></li><li class="toc-top"><a href="#3-مستويات-المراسلة-messaging-limits">3. مستويات المراسلة (Messaging Limits)</a></li><li class="toc-sub"><a href="#كيف-تتم-الترقية-upgrade">كيف تتم الترقية (Upgrade)؟</a></li><li class="toc-top"><a href="#4-قواعد-التحقق-وسلوك-api">4. قواعد التحقق وسلوك API</a></li><li class="toc-top"><a href="#5-ملاحظات-تنفيذ-seen-v2">5. ملاحظات تنفيذ SEEN V2</a></li></ul>
     </div>
   
       </div>
@@ -122,108 +107,148 @@
           <span class="platform-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">WhatsApp</span>
           
         </div>
-        <h1 class="topic-title" data-en="WhatsApp Quality Rating & Messaging Limits" data-ar="تقييم جودة WhatsApp وحدود المراسلة">WhatsApp Quality Rating & Messaging Limits</h1>
+        <h1 class="topic-title" data-en="WhatsApp Quality Rating & Messaging Limits" data-ar="جودة واتساب (Quality) وحدود المراسلة">WhatsApp Quality Rating & Messaging Limits</h1>
         <p class="topic-meta"><span data-en="Core API" data-ar="Core API">Core API</span> · <span data-en="Last verified:" data-ar="آخر مراجعة:">Last verified:</span> 2026-06-24</p>
       </div>
 
       <div class="topic-body lang-en">
-        <h1>WhatsApp Quality Rating & Limits</h1>
+        <h1>WhatsApp Quality Rating & Messaging Limits</h1>
 
-<p>Meta enforces a strict quality control system to prevent spam on WhatsApp. If a business sends unwanted messages, users will block or report them. Meta tracks these blocks/reports to calculate a <strong>Quality Rating</strong>.</p>
+<p>Meta enforces a strict quality control system to prevent spam on WhatsApp. This system relies heavily on <strong>user feedback</strong> (blocks, reports, low engagement).</p>
+<p>The quality system in WhatsApp Business is divided into two interconnected parts: <strong>Phone Number Quality</strong> and <strong>Message Template Quality</strong>.</p>
 
-<h2 id="messaging-tiers-limits">Messaging Tiers (Limits)</h2>
+<hr>
 
-<p>Every WhatsApp Business Account starts with a specific messaging limit. This is the maximum number of <strong>business-initiated</strong> conversations (Marketing, Utility, Auth) you can open in a rolling 24-hour window.</p>
+<h2 id="1-phone-number-quality">1. Phone Number Quality</h2>
 
-<p>1. <strong>Tier 1:</strong> 1,000 unique customers / 24 hours.</p>
-<p>2. <strong>Tier 2:</strong> 10,000 unique customers / 24 hours.</p>
-<p>3. <strong>Tier 3:</strong> 100,000 unique customers / 24 hours.</p>
-<p>4. <strong>Tier 4:</strong> Unlimited unique customers.</p>
+<p>Your business phone number's quality rating is evaluated based on the messages sent over the past 7 days.</p>
 
-<p><em>Note: User-initiated conversations (Service conversations) do not count towards these limits.</em></p>
+<h3 id="quality-levels">Quality Levels:</h3>
+<ul><li style="margin-left:0px"><strong>High (GREEN):</strong> High quality. Block and report rates are very low.</li>
+<li style="margin-left:0px"><strong>Medium (YELLOW):</strong> Warning. There is a noticeable increase in negative user feedback (blocks/reports). You should review your message content and target your audience more precisely.</li>
+<li style="margin-left:0px"><strong>Low (RED):</strong> Danger. Quality is very low, which will lead to a change in your phone number status.</li></ul>
 
-<h2 id="quality-ratings-status">Quality Ratings (Status)</h2>
+<h3 id="phone-number-status-flagged-penalty">Phone Number Status & "Flagged" Penalty:</h3>
+<ul><li style="margin-left:0px">\<code>CONNECTED\</code>: The normal status of the number.</li>
+<li style="margin-left:0px">\<code>FLAGGED\</code>: If the number's quality drops to <strong>Low (RED)</strong>, its status changes to Flagged.</li>
+<li style="margin-left:16px"><strong>Penalty:</strong> You cannot upgrade your messaging tier to a higher level.</li>
+<li style="margin-left:16px"><strong>Grace Period:</strong> If the quality does not improve within 7 days, your messaging limit will be <strong>downgraded</strong> (e.g., from 100,000 down to 10,000).</li>
+<li style="margin-left:0px">\<code>RESTRICTED\</code>: The number is restricted if it reaches its messaging limit while having a low quality rating.</li>
+<li style="margin-left:0px">\<code>OFFLINE\</code>: The number is permanently banned or unavailable.</li></ul>
 
-<p>Your phone number has a Quality Rating visible in the WhatsApp Manager (and via API/Webhooks).</p>
-<ul><li style="margin-left:8px"><strong>High (Green):</strong> Normal.</li>
-<li style="margin-left:0px"><strong>Medium (Yellow):</strong> Warning.</li>
-<li style="margin-left:0px"><strong>Low (Red):</strong> Danger.</li></ul>
+<hr>
 
-<p>If your rating hits "Low", your number's status changes from <code>CONNECTED</code> to <code>FLAGGED</code>.</p>
+<h2 id="2-message-template-quality">2. Message Template Quality</h2>
 
-<h3 id="the-flagged-penalty">The "Flagged" Penalty</h3>
+<p>To protect phone numbers from quickly dropping to the "RED" state, Meta introduced a specific rating for each individual message template.</p>
 
-<p>When your number is <code>FLAGGED</code>:</p>
-<ul><li style="margin-left:0px">You cannot upgrade to a higher messaging tier.</li>
-<li style="margin-left:0px">If your rating doesn't improve within 7 days, your messaging limit is <strong>downgraded</strong> (e.g., from 10K back down to 1K).</li>
-<li style="margin-left:0px">If it remains low continuously, Meta may permanently disable the number.</li></ul>
+<h3 id="template-quality-levels">Template Quality Levels:</h3>
+<ul><li style="margin-left:0px"><strong>Active (GREEN):</strong> The template works normally, and user engagement is positive or neutral.</li>
+<li style="margin-left:0px"><strong>Active - Warning (YELLOW):</strong> The template is receiving more negative feedback than usual. (You will receive a warning to change the content).</li>
+<li style="margin-left:0px"><strong>Paused (RED):</strong> If the template's quality drops to a very low level, it is <strong>automatically paused</strong>.</li>
+<li style="margin-left:16px">This template cannot be sent to any new customer (any API request will be met with \<code class="code-red">Error 100\</code>).</li>
+<li style="margin-left:16px">The pause is enacted to protect your phone number from dropping in overall rating.</li>
+<li style="margin-left:16px">The pause duration increases progressively:</li>
+<li style="margin-left:32px">1st time: Paused for 3 hours.</li>
+<li style="margin-left:32px">2nd time: Paused for 6 hours.</li>
+<li style="margin-left:32px">3rd time: \<code>DISABLED\</code> (permanently disabled).</li></ul>
 
-<h2 id="upgrading-limits">Upgrading Limits</h2>
+<hr>
 
-<p>Meta automatically upgrades your limit (e.g., Tier 1 -> Tier 2) within 24 hours when both of the following are true:</p>
-<p>1. Your quality rating is NOT Low.</p>
-<p>2. The cumulative total of business-initiated conversations you've opened over the last 7 days is greater than half of your current limit (e.g., > 500 for a 1k limit).</p>
+<h2 id="3-messaging-limits-tiers">3. Messaging Limits (Tiers)</h2>
 
-<h2 id="validation-rules-api-behavior">Validation Rules & API Behavior</h2>
+<p>Messaging limits determine the <strong>maximum number of business-initiated conversations (Marketing, Utility, Auth)</strong> you can open in a consecutive 24-hour period.</p>
+<p><em>(User-initiated Service conversations do not count toward this limit).</em></p>
 
-<div class="table-wrap"><table><thead><tr><th>Scenario</th><th><span class="icon-reject">❌</span> Result (Rejection/Error)</th><th><span class="icon-accept">✅</span> Accepted Behavior</th></tr></thead><tbody><tr><td>Sending Broadcast over limit</td><td><code>Error 131056: Rate limit hit</code></td><td>Paused until window opens</td></tr><tr><td>Sending a PAUSED template</td><td><code>Error 100: Invalid parameter</code></td><td>-</td></tr><tr><td>Webhook status change</td><td>-</td><td><code>phone_number_quality_update</code> webhook</td></tr></tbody></table></div>
-<h2 id="seen-v2-implementation-notes">SEEN V2 Implementation Notes</h2>
-<ul><li style="margin-left:8px"><strong>Throttling:</strong> SEEN V2's Broadcast engine <strong>MUST</strong> check the current messaging tier before queuing 10,000 messages on a Tier 1 account. If it blasts 10K messages, 9,000 will fail with <code>Error 131056</code>, wasting API calls and potentially getting flagged for abuse.</li>
-<li style="margin-left:0px"><strong>Webhooks:</strong> SEEN V2 should listen for the <code>phone_number_quality_update</code> and <code>message_template_status_update</code> webhooks to alert the SEEN V2 user if they enter the "Red" zone or a template gets paused due to negative feedback.</li></ul>
+<p>1. <strong>Unverified Limit:</strong> 250 conversations / 24 hours (for businesses that are not yet verified).</p>
+<p>2. <strong>Tier 1:</strong> 1,000 unique customers / 24 hours.</p>
+<p>3. <strong>Tier 2:</strong> 10,000 unique customers / 24 hours.</p>
+<p>4. <strong>Tier 3:</strong> 100,000 unique customers / 24 hours.</p>
+<p>5. <strong>Tier 4:</strong> Unlimited.</p>
 
-<h2 id="qa-checklist">QA Checklist</h2>
-<ul><li style="margin-left:8px">[ ] Ensure SEEN V2 tracks the 24-hour rolling volume of outbound broadcast messages.</li>
-<li style="margin-left:0px">[ ] Implement an alert banner in the SEEN V2 dashboard if the <code>quality_rating</code> webhook payload drops to <code>YELLOW</code> or <code>RED</code>.</li>
-<li style="margin-left:0px">[ ] Prevent sending broadcast messages if the template status is <code>PAUSED</code>.</li></ul>
+<h3 id="how-are-upgrades-handled">How are upgrades handled?</h3>
+<p>Meta automatically upgrades your number to the next tier within 24 hours if two conditions are met:</p>
+<p>1. <strong>Your Phone Number Quality is not "Low" (RED)</strong>.</p>
+<p>2. The volume of conversations initiated over the last 7 days <strong>exceeds half of your current limit</strong> (e.g., sending over 500 messages to unique customers while in Tier 1).</p>
+
+<hr>
+
+<h2 id="4-validation-rules-api-behavior">4. Validation Rules & API Behavior</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Scenario</th><th><span class="icon-reject">❌</span> Result (Reject/Error)</th><th><span class="icon-accept">✅</span> Accepted Behavior</th></tr></thead><tbody><tr><td>Sending a broadcast exceeding limit</td><td>\<code class="code-red">Error 131056: Rate limit hit\</code></td><td>Throttle campaign messages until a new window opens</td></tr><tr><td>Attempting to send a PAUSED template</td><td>\<code class="code-red">Error 100: Invalid parameter\</code></td><td>Handle rejection and notify user of paused template</td></tr><tr><td>Tracking quality changes</td><td>-</td><td>Listen for Webhooks: \<code>phone_number_quality_update\</code></td></tr></tbody></table></div>
+
+<h2 id="5-seen-v2-implementation-notes">5. SEEN V2 Implementation Notes</h2>
+<ul><li style="margin-left:8px"><strong>Throttling Engine:</strong> The broadcast engine must check the current Tier of the number to avoid sending messages that exceed the limit, wasting API calls with \<code class="code-red">Error 131056\</code>.</li>
+<li style="margin-left:0px"><strong>Template Pause Monitoring:</strong> Enable the \<code>message_template_status_update\</code> Webhook to know when a template goes \<code>PAUSED\</code>, immediately halt scheduled campaigns relying on it, and show an alert to the user.</li></ul>
       </div>
-      <div class="topic-body lang-ar"><h1>تقييم جودة WhatsApp وحدود المراسلة</h1>
+      <div class="topic-body lang-ar"><h1>جودة واتساب (Quality) وحدود المراسلة</h1>
 
-<p>تفرض Meta نظاماً صارماً لمراقبة الجودة لمنع البريد العشوائي (spam) على WhatsApp. إذا أرسل نشاط تجاري رسائل غير مرغوب فيها، فسيقوم المستخدمون بحظره أو الإبلاغ عنه. تتعقب Meta عمليات الحظر/الإبلاغ هذه لحساب <strong>تقييم الجودة</strong> (Quality Rating).</p>
+<p>تفرض Meta نظاماً صارماً لمراقبة الجودة لمنع البريد العشوائي (Spam). يعتمد هذا النظام بشكل أساسي على <strong>ردود فعل المستخدمين</strong> (حظر، إبلاغ، عدم اهتمام). </p>
+<p>ينقسم نظام الجودة في WhatsApp Business إلى قسمين مترابطين: <strong>جودة رقم الهاتف</strong> و <strong>جودة قوالب الرسائل</strong>.</p>
 
-<h2 id="مستويات-المراسلة-الحدود">مستويات المراسلة (الحدود)</h2>
+<hr>
 
-<p>يبدأ كل حساب WhatsApp Business بحد مراسلة محدد. هذا هو الحد الأقصى لعدد المحادثات <strong>التي يبدأها النشاط التجاري</strong> (التسويق، المنفعة، المصادقة) التي يمكنك فتحها خلال فترة 24 ساعة متتالية.</p>
+<h2 id="1-جودة-رقم-الهاتف-phone-number-quality">1. جودة رقم الهاتف (Phone Number Quality)</h2>
 
-<p>1. <strong>المستوى 1 (Tier 1):</strong> 1,000 عميل فريد / 24 ساعة.</p>
-<p>2. <strong>المستوى 2 (Tier 2):</strong> 10,000 عميل فريد / 24 ساعة.</p>
-<p>3. <strong>المستوى 3 (Tier 3):</strong> 100,000 عميل فريد / 24 ساعة.</p>
-<p>4. <strong>المستوى 4 (Tier 4):</strong> عدد غير محدود من العملاء الفريدين.</p>
+<p>يتم تقييم جودة رقم الهاتف الخاص بنشاطك التجاري بناءً على الرسائل المرسلة خلال الأيام السبعة الماضية.</p>
 
-<p><em>ملاحظة: المحادثات التي يبدأها المستخدم (محادثات الخدمة) لا تُحتسب ضمن هذه الحدود.</em></p>
+<h3 id="مستويات-جودة-الرقم">مستويات جودة الرقم:</h3>
+<ul><li style="margin-left:0px"><strong>مرتفع (GREEN):</strong> جودة عالية. معدلات الحظر والإبلاغ منخفضة جداً.</li>
+<li style="margin-left:0px"><strong>متوسط (YELLOW):</strong> تحذير. هناك ارتفاع ملحوظ في تعليقات المستخدمين السلبية (الحظر/التبليغ). يجب مراجعة محتوى الرسائل وتحديد الجمهور بدقة أكبر.</li>
+<li style="margin-left:0px"><strong>منخفض (RED):</strong> خطر. الجودة منخفضة جداً مما يؤدي لتغيير حالة الرقم.</li></ul>
 
-<h2 id="تقييمات-الجودة-الحالة">تقييمات الجودة (الحالة)</h2>
+<h3 id="حالة-الرقم-status-وعقوبة-flagged">حالة الرقم (Status) وعقوبة "Flagged":</h3>
+<ul><li style="margin-left:0px">\<code>CONNECTED\</code> (متصل): الحالة الطبيعية للرقم.</li>
+<li style="margin-left:0px">\<code>FLAGGED\</code> (مقيد): إذا انخفضت جودة الرقم إلى <strong>أحمر (RED)</strong>، تتغير حالته إلى Flagged.</li>
+<li style="margin-left:16px"><strong>العقوبة:</strong> لا يمكنك ترقية مستوى المراسلة (Tier) إلى مستوى أعلى أبداً.</li>
+<li style="margin-left:16px"><strong>المهلة:</strong> إذا لم تتحسن الجودة خلال 7 أيام، سيتم <strong>تخفيض</strong> حد المراسلة الخاص بك (مثلاً من 100,000 إلى 10,000).</li>
+<li style="margin-left:0px">\<code>RESTRICTED\</code> (مقيد بشدة): يتم تقييد الرقم إذا وصل إلى حد المراسلة الخاص به ولديه جودة منخفضة.</li>
+<li style="margin-left:0px">\<code>OFFLINE\</code> (غير متصل): الرقم محظور نهائياً أو غير متاح.</li></ul>
 
-<p>يحتوي رقم هاتفك على تقييم جودة مرئي في WhatsApp Manager (وعبر API/Webhooks).</p>
-<ul><li style="margin-left:8px"><strong>مرتفع (أخضر):</strong> طبيعي.</li>
-<li style="margin-left:0px"><strong>متوسط (أصفر):</strong> تحذير.</li>
-<li style="margin-left:0px"><strong>منخفض (أحمر):</strong> خطر.</li></ul>
+<hr>
 
-<p>إذا وصل تقييمك إلى "منخفض" (Low)، تتغير حالة رقمك من <code>CONNECTED</code> إلى <code>FLAGGED</code>.</p>
+<h2 id="2-جودة-قالب-الرسالة-message-template-quality">2. جودة قالب الرسالة (Message Template Quality)</h2>
 
-<h3 id="عقوبة-flagged-المقيد">عقوبة "Flagged" (المقيد)</h3>
+<p>لحماية أرقام الهواتف من الوصول إلى الحالة "الحمراء" (RED) بسرعة، قدمت Meta تقييماً خاصاً بكل قالب (Template) على حدة. </p>
 
-<p>عندما يكون رقمك <code>FLAGGED</code>:</p>
-<ul><li style="margin-left:0px">لا يمكنك الترقية إلى مستوى مراسلة أعلى.</li>
-<li style="margin-left:0px">إذا لم يتحسن تقييمك خلال 7 أيام، سيتم <strong>تخفيض</strong> حد المراسلة الخاص بك (على سبيل المثال، من 10 آلاف نزولاً إلى ألف).</li>
-<li style="margin-left:0px">إذا ظل التقييم منخفضاً باستمرار، فقد تقوم Meta بتعطيل الرقم بشكل دائم.</li></ul>
+<h3 id="مستويات-جودة-القالب">مستويات جودة القالب:</h3>
+<ul><li style="margin-left:0px"><strong>Active (نشط - GREEN):</strong> القالب يعمل بشكل طبيعي وتفاعل المستخدمين إيجابي أو محايد.</li>
+<li style="margin-left:0px"><strong>Active - Warning (تحذير - YELLOW):</strong> القالب يتلقى تعليقات سلبية أكثر من المعتاد. (ستتلقى تنبيهاً لتغيير المحتوى).</li>
+<li style="margin-left:0px"><strong>Paused (إيقاف مؤقت - RED):</strong> إذا وصلت جودة القالب إلى مستوى منخفض جداً، يتم <strong>إيقافه مؤقتاً بشكل تلقائي</strong>.</li>
+<li style="margin-left:16px">لا يمكن إرسال هذا القالب لأي عميل جديد (أي طلب API سيُقابل بـ \<code class="code-red">Error 100\</code>).</li>
+<li style="margin-left:16px">يتم الإيقاف المؤقت لحماية رقم هاتفك من الانخفاض في التقييم. </li>
+<li style="margin-left:16px">مدة الإيقاف تتزايد تدريجياً:</li>
+<li style="margin-left:32px">المرة الأولى: الإيقاف لمدة 3 ساعات.</li>
+<li style="margin-left:32px">المرة الثانية: الإيقاف لمدة 6 ساعات.</li>
+<li style="margin-left:32px">المرة الثالثة: \<code>DISABLED\</code> (معطل بشكل دائم).</li></ul>
 
-<h2 id="ترقية-الحدود">ترقية الحدود</h2>
+<hr>
 
-<p>تقوم Meta تلقائياً بترقية الحد الخاص بك (على سبيل المثال، من Tier 1 إلى Tier 2) في غضون 24 ساعة عندما يتحقق كلا الشرطين التاليين:</p>
-<p>1. تقييم الجودة الخاص بك ليس منخفضاً (Low).</p>
-<p>2. الإجمالي التراكمي للمحادثات التي بدأها النشاط التجاري والتي فتحتها خلال الأيام السبعة الماضية أكبر من نصف حدك الحالي (على سبيل المثال، > 500 لحد الـ 1,000).</p>
+<h2 id="3-مستويات-المراسلة-messaging-limits">3. مستويات المراسلة (Messaging Limits)</h2>
 
-<h2 id="قواعد-التحقق-وسلوك-api">قواعد التحقق وسلوك API</h2>
+<p>حدود المراسلة تعني: <strong>الحد الأقصى لعدد المحادثات التي يبدأها النشاط التجاري (Marketing, Utility, Auth)</strong> التي يمكنك فتحها خلال فترة 24 ساعة متتالية.</p>
+<p><em>(المحادثات التي يبدأها العميل Service لا تدخل في هذا الحد).</em></p>
 
-<div class="table-wrap"><table><thead><tr><th>السيناريو</th><th><span class="icon-reject">❌</span> النتيجة (رفض/خطأ)</th><th><span class="icon-accept">✅</span> السلوك المقبول</th></tr></thead><tbody><tr><td>إرسال بث يتجاوز الحد</td><td><code>Error 131056: Rate limit hit</code></td><td>الإيقاف المؤقت حتى تُفتح النافذة</td></tr><tr><td>إرسال قالب حالته PAUSED</td><td><code>Error 100: Invalid parameter</code></td><td>-</td></tr><tr><td>تغيير حالة Webhook</td><td>-</td><td>حدث الـ webhook <code>phone_number_quality_update</code></td></tr></tbody></table></div>
-<h2 id="ملاحظات-تنفيذ-seen-v2">ملاحظات تنفيذ SEEN V2</h2>
-<ul><li style="margin-left:8px"><strong>التحكم في معدل الإرسال (Throttling):</strong> <strong>يجب</strong> على محرك البث (Broadcast) في SEEN V2 التحقق من مستوى المراسلة الحالي قبل وضع 10,000 رسالة في قائمة الانتظار لحساب من المستوى الأول (Tier 1). إذا أرسل 10 آلاف رسالة دفعة واحدة، فستفشل 9,000 رسالة بخطأ <code>Error 131056</code>، مما يضيع طلبات الـ API وقد يؤدي إلى التقييد بسبب إساءة الاستخدام.</li>
-<li style="margin-left:0px"><strong>Webhooks:</strong> يجب أن يستمع SEEN V2 لأحداث الـ webhooks <code>phone_number_quality_update</code> و <code>message_template_status_update</code> لتنبيه مستخدم SEEN V2 إذا دخل في المنطقة "الحمراء" (Red) أو إذا تم إيقاف قالب مؤقتاً (paused) بسبب التعليقات السلبية.</li></ul>
+<p>1. <strong>الحد المبدئي (Unverified):</strong> 250 محادثة / 24 ساعة (للأنشطة التي لم توثق أعمالها بعد).</p>
+<p>2. <strong>المستوى الأول (Tier 1):</strong> 1,000 عميل فريد / 24 ساعة.</p>
+<p>3. <strong>المستوى الثاني (Tier 2):</strong> 10,000 عميل فريد / 24 ساعة.</p>
+<p>4. <strong>المستوى الثالث (Tier 3):</strong> 100,000 عميل فريد / 24 ساعة.</p>
+<p>5. <strong>المستوى الرابع (Tier 4):</strong> عدد غير محدود (Unlimited).</p>
 
-<h2 id="قائمة-مراجعة-ضمان-الجودة-qa-checklist">قائمة مراجعة ضمان الجودة (QA Checklist)</h2>
-<ul><li style="margin-left:8px">[ ] التأكد من أن SEEN V2 يتتبع الحجم التراكمي لرسائل البث الصادرة على مدار 24 ساعة.</li>
-<li style="margin-left:0px">[ ] تنفيذ شريط تنبيه (alert banner) في لوحة تحكم SEEN V2 إذا انخفضت قيمة الحمولة (payload) في webhook الخاص بـ <code>quality_rating</code> إلى <code>YELLOW</code> أو <code>RED</code>.</li>
-<li style="margin-left:0px">[ ] منع إرسال رسائل البث إذا كانت حالة القالب (template status) هي <code>PAUSED</code>.</li></ul></div>
+<h3 id="كيف-تتم-الترقية-upgrade">كيف تتم الترقية (Upgrade)؟</h3>
+<p>تقوم Meta بالترقية التلقائية إلى المستوى التالي خلال 24 ساعة بشرطين:</p>
+<p>1. <strong>جودة الرقم ليست "أحمر" (RED)</strong>.</p>
+<p>2. حجم المحادثات المرسلة خلال آخر 7 أيام <strong>تجاوز نصف الحد الحالي</strong> (مثلاً أرسلت أكثر من 500 رسالة لعملاء مختلفين وأنت في Tier 1).</p>
+
+<hr>
+
+<h2 id="4-قواعد-التحقق-وسلوك-api">4. قواعد التحقق وسلوك API</h2>
+
+<div class="table-wrap"><table><thead><tr><th>السيناريو</th><th><span class="icon-reject">❌</span> النتيجة (رفض/خطأ)</th><th><span class="icon-accept">✅</span> السلوك المقبول</th></tr></thead><tbody><tr><td>إرسال بث يتجاوز الحد</td><td>\<code class="code-red">Error 131056: Rate limit hit\</code></td><td>الإيقاف المؤقت لرسائل الحملة حتى تُفتح نافذة جديدة</td></tr><tr><td>محاولة إرسال قالب حالته PAUSED</td><td>\<code class="code-red">Error 100: Invalid parameter\</code></td><td>معالجة الرفض وإشعار المستخدم بإيقاف القالب</td></tr><tr><td>متابعة تغييرات الجودة</td><td>-</td><td>الاستماع لـ Webhooks: \<code>phone_number_quality_update\</code></td></tr></tbody></table></div>
+
+<h2 id="5-ملاحظات-تنفيذ-seen-v2">5. ملاحظات تنفيذ SEEN V2</h2>
+<ul><li style="margin-left:8px"><strong>إدارة الإرسال (Throttling):</strong> يجب على محرك الحملات (Broadcast) التحقق من الـ Tier الحالي للرقم لعدم إرسال رسائل تتجاوز الحد وتتسبب في إهدار استدعاءات API بخطأ \<code>131056\</code>.</li>
+<li style="margin-left:0px"><strong>متابعة الإيقاف المؤقت للقالب:</strong> تفعيل الـ Webhook الخاص بـ \<code>message_template_status_update\</code> لمعرفة متى يتحول القالب إلى \<code>PAUSED\</code> وإيقاف الحملات المجدولة التي تعتمد عليه فوراً وعرض تنبيه للعميل.</li></ul></div>
 
       <div class="topic-nav">
         <a class="nav-prev" href="whatsapp-media-messages.html">← WhatsApp Media Messages (Images, Video, Docs)</a>
@@ -233,26 +258,143 @@
 
     <!-- Interactive Panels -->
     
+    <div class="learn-right-sidebar">
+      <aside class="interactive-panel lang-en">
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">Comparison</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>Relationship Between Template Quality and Phone Number Quality</strong></p>
+<ul><li style="margin-left:0px"><strong>Template Quality:</strong> The first line of defense. It stops a specific annoying marketing message from reaching more customers.</li>
+<li style="margin-left:0px"><strong>Phone Number Quality:</strong> The overall rating. It is affected by all templates and customer service messages combined.</li></ul>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">Test Your Knowledge</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_en_1_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:right">Question 1 of 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p>What happens if you ignore a phone number quality warning and your rating drops to Low (RED)?</p></div>
+          <div class="mcq-options">
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] Your account is immediately and permanently banned.</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] Only customer service messages are paused.</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="correct" onclick="handleMcqClick(this)">
+              <span class="mcq-text">The number status changes to Flagged, tier upgrades are blocked, and if it lasts for 7 days, your limit is downgraded.</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] Nothing happens except the template in use gets paused.</span>
+            </label>
+          </div>
+        </div>
+      
+        </div>
+      </div>
+    </aside>
+      <aside class="interactive-panel lang-ar">
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">مقارنة</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>العلاقة بين جودة القالب وجودة الرقم</strong></p>
+<ul><li style="margin-left:0px"><strong>جودة القالب (Template Quality):</strong> خط الدفاع الأول. توقف رسالة تسويقية محددة مزعجة للعملاء.</li>
+<li style="margin-left:0px"><strong>جودة الرقم (Phone Number Quality):</strong> التقييم الشامل. يتأثر بكل القوالب ورسائل خدمة العملاء معاً.</li></ul>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">اختبر فهمك</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_ar_1_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:left">السؤال 1 من 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p>ماذا يحدث إذا تجاهلت تحذير جودة رقم الهاتف ووصل تقييمك إلى اللون الأحمر (RED)؟</p></div>
+          <div class="mcq-options">
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] يتم حظر حسابك فوراً وبشكل نهائي.</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] تتوقف رسائل خدمة العملاء فقط.</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="correct" onclick="handleMcqClick(this)">
+              <span class="mcq-text">تتغير حالة الرقم إلى Flagged ولا يمكن ترقية حدود المراسلة، وإذا استمر لمدة 7 أيام يتم تخفيض حدك.</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] لا يحدث شيء سوى إيقاف قالب الرسالة المستخدم.</span>
+            </label>
+          </div>
+        </div>
+      
+        </div>
+      </div>
+    </aside>
+    </div>
+    
 
   </div>
 
   <script>
 (function(){
   var html=document.documentElement;
-  var theme=localStorage.getItem('theme');
+  var theme=localStorage.getItem('maw-theme');
   if(!theme){
     theme=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
   }
   function applyTheme(t){
     html.setAttribute('data-theme',t);
-    localStorage.setItem('theme',t);
+    localStorage.setItem('maw-theme',t);
   }
   applyTheme(theme);
   
-  var lang=localStorage.getItem('lang')||'en';
+  var lang=localStorage.getItem('maw-lang')||'en';
   function applyLang(l){
     html.setAttribute('data-lang',l);
-    localStorage.setItem('lang',l);
+    localStorage.setItem('maw-lang',l);
   }
   applyLang(lang);
 

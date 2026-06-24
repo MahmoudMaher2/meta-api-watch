@@ -43,7 +43,7 @@ function snapshotPath(slug, date) {
 // ── Main content extractor prompt (used by Antigravity browser subagent) ────
 function buildBrowserPrompt(url, slug, date, outputPath) {
   return `
-You are the Fetch & Snapshot Agent for Meta API Watch.
+You are the Fetch & Snapshot Agent for Meta API Explain.
 
 Task:
 1. Open this URL using the browser tool (real browser rendering — NOT a plain HTTP request):

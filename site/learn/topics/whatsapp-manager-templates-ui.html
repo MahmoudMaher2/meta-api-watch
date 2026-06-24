@@ -14,22 +14,22 @@
 
   <header class="site-header">
   <div class="header-inner">
-    <div class="header-logo">
+    <a href="../../index.html" class="header-logo" style="text-decoration: none;">
       <span class="logo-icon">🔭</span>
       <div class="logo-text">
-        <strong>Meta API Watch</strong>
-        <span>SEEN V2 · Developer Hub</span>
+        <div class="site-title">Meta API Explain</div>
+        <div class="site-subtitle">SEEN V2 · Developer Hub</div>
       </div>
-    </div>
+    </a>
     
     <nav class="header-nav">
-      <a href="../../index.html" class="nav-item ">
+      <a href="../../changelog.html" class="nav-tab ">
         <span class="nav-icon">🔔</span>
-        Latest Updates
+        <span class="nav-text" data-en="Latest Updates" data-ar="آخر التحديثات">Latest Updates</span>
       </a>
-      <a href="../../learn/index.html" class="nav-item active">
+      <a href="../../learn/index.html" class="nav-tab active">
         <span class="nav-icon">📚</span>
-        Learn
+        <span class="nav-text" data-en="Learn" data-ar="تعلّم">Learn</span>
       </a>
     </nav>
 
@@ -37,46 +37,31 @@
       <!-- Search Trigger -->
       <button id="search-trigger" class="search-btn" title="Search documentation... (Ctrl+K)">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        <span>Search...</span>
+        <span>Search</span>
         <kbd>/</kbd>
       </button>
 
-      <div class="build-badge">
-        <span class="pulse"></span>
-        LAST BUILD Jun 24, 2026, 11:13 PM 🇪🇬
+      <div class="header-build-time" title="System Status: Up to date">
+        <div class="build-pulse"></div>
+        <span class="build-label">LAST BUILD</span>
+        <span class="build-value">Jun 24, 2026, 11:52 PM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
-      <button id="lang-toggle" class="icon-btn" title="Toggle Language (AR/EN)">
+      <button id="lang-toggle" class="lang-toggle" title="Toggle Language (AR/EN)">
         <span class="lang-en">EN</span>
+        <span class="lang-sep">|</span>
         <span class="lang-ar">عربي</span>
       </button>
       
       <!-- Theme Toggle -->
-      <button id="theme-toggle" class="icon-btn" title="Toggle Theme">
-        <span class="moon">🌙</span>
-        <span class="sun">☀️</span>
+      <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
       </button>
     </div>
   </div>
 </header>
-
-<!-- Search Modal -->
-<div id="search-modal" class="search-modal">
-  <div class="search-modal-content">
-    <div class="search-header">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-      <input type="text" id="search-input" placeholder="Search topics, error codes, guidelines..." autocomplete="off">
-      <button id="search-close" class="icon-btn">×</button>
-    </div>
-    <div id="search-results" class="search-results"></div>
-    <div class="search-footer">
-      <span><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span>
-      <span><kbd>Enter</kbd> to select</span>
-      <span><kbd>ESC</kbd> to close</span>
-    </div>
-  </div>
-</div>
 
 
 
@@ -171,7 +156,7 @@
 <hr>
 
 <h2 id="3-best-practices-for-the-ui">3. Best Practices for the UI</h2>
-<ul><li style="margin-left:8px"><strong>Search and Filter:</strong> As your library grows, use the filter bar to sort by Category, Language, or Status. This is especially helpful for finding and deleting old, unused <code>REJECTED</code> templates.</li>
+<ul><li style="margin-left:8px"><strong>Search and Filter:</strong> As your library grows, use the filter bar to sort by Category, Language, or Status. This is especially helpful for finding and deleting old, unused <code class="code-red">REJECTED</code> templates.</li>
 <li style="margin-left:0px"><strong>Duplication:</strong> Instead of building complex templates from scratch (like Flow templates or Carousel templates), use the "Duplicate" icon next to an existing approved template to save time.</li>
 <li style="margin-left:0px"><strong>Deletion:</strong> Meta enforces a global limit of <strong>250 templates per WABA</strong> (WhatsApp Business Account). Regularly delete old seasonal templates (e.g., <code>black_friday_2023</code>) to free up space for new ones.</li></ul>
 
@@ -221,7 +206,7 @@
 <hr>
 
 <h2 id="3-أفضل-الممارسات-لاستخدام-الواجهة">3. أفضل الممارسات لاستخدام الواجهة</h2>
-<ul><li style="margin-left:8px"><strong>البحث والفلترة:</strong> مع تزايد عدد قوالبك، استخدم شريط التصفية (Filter) للترتيب حسب الفئة، اللغة، أو الحالة. هذا مفيد جداً للعثور على القوالب الـ <code>REJECTED</code> القديمة وحذفها.</li>
+<ul><li style="margin-left:8px"><strong>البحث والفلترة:</strong> مع تزايد عدد قوالبك، استخدم شريط التصفية (Filter) للترتيب حسب الفئة، اللغة، أو الحالة. هذا مفيد جداً للعثور على القوالب الـ <code class="code-red">REJECTED</code> القديمة وحذفها.</li>
 <li style="margin-left:0px"><strong>النسخ (Duplication):</strong> بدلاً من بناء قوالب معقدة من الصفر (مثل قوالب الـ Flows أو القوالب الدوارة Carousel)، استخدم أيقونة "التكرار" (Duplicate) بجوار قالب معتمد موجود لتوفير الوقت.</li>
 <li style="margin-left:0px"><strong>الحذف:</strong> تفرض ميتا حداً أقصى يبلغ <strong>250 قالباً لكل حساب (WABA)</strong>. قم بانتظام بحذف القوالب الموسمية القديمة (مثل <code>ramadan_offers_2023</code>) لإخلاء مساحة للقوالب الجديدة.</li></ul>
 
@@ -254,8 +239,28 @@
               <div class="mcq-progress-bar-fill" style="width: 0%"></div>
             </div>
           </div>
-          <div class="mcq-question"><p><strong>Question:</strong></p><p>Can I edit the text of a template after it has been approved?</p><p><strong>Answer:</strong></p><p><strong>Yes!</strong> Meta now allows you to edit approved templates up to <strong>10 times in a 30-day window</strong>. Once edited, the template enters the review process again, but the previous version remains active until the new one is approved.</p></div>
-          <div class="mcq-options"></div>
+          <div class="mcq-question"><p>Can I edit the text of a template after it has been approved by Meta?</p></div>
+          <div class="mcq-options">
+            <label class="mcq-option">
+              <input type="radio" name="q_en_0" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] No, you can never edit a template once approved</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_0" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] Yes, unlimited times and at any moment</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_0" value="correct" onclick="handleMcqClick(this)">
+              <span class="mcq-text">Yes, up to 10 times in a 30-day window, and the old version remains active during review</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_0" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] Yes, but the template stops working immediately until the new version is approved</span>
+            </label>
+          </div>
         </div>
       
         </div>
@@ -304,8 +309,28 @@
               <div class="mcq-progress-bar-fill" style="width: 0%"></div>
             </div>
           </div>
-          <div class="mcq-question"><p><strong>سؤال:</strong></p><p>هل يمكنني تعديل نص القالب بعد الموافقة عليه؟</p><p><strong>إجابة:</strong></p><p><strong>نعم!</strong> تسمح لك ميتا الآن بتعديل القوالب المعتمدة حتى <strong>10 مرات خلال 30 يوماً</strong>. بمجرد التعديل، يدخل القالب في عملية المراجعة مرة أخرى، ولكن تظل النسخة القديمة فعالة حتى تتم الموافقة على النسخة الجديدة.</p></div>
-          <div class="mcq-options"></div>
+          <div class="mcq-question"><p>هل يمكنني تعديل نص القالب بعد الموافقة عليه من قبل ميتا؟</p></div>
+          <div class="mcq-options">
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_0" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] لا، لا يمكنك تعديل القالب أبداً بمجرد الموافقة عليه</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_0" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] نعم، مرات غير محدودة وفي أي وقت</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_0" value="correct" onclick="handleMcqClick(this)">
+              <span class="mcq-text">نعم، حتى 10 مرات خلال 30 يوماً، وتظل النسخة القديمة فعالة أثناء المراجعة</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_0" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] نعم، ولكن يتوقف القالب عن العمل فور التعديل حتى تتم مراجعته</span>
+            </label>
+          </div>
         </div>
       
         </div>
@@ -344,20 +369,20 @@
   <script>
 (function(){
   var html=document.documentElement;
-  var theme=localStorage.getItem('theme');
+  var theme=localStorage.getItem('maw-theme');
   if(!theme){
     theme=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
   }
   function applyTheme(t){
     html.setAttribute('data-theme',t);
-    localStorage.setItem('theme',t);
+    localStorage.setItem('maw-theme',t);
   }
   applyTheme(theme);
   
-  var lang=localStorage.getItem('lang')||'en';
+  var lang=localStorage.getItem('maw-lang')||'en';
   function applyLang(l){
     html.setAttribute('data-lang',l);
-    localStorage.setItem('lang',l);
+    localStorage.setItem('maw-lang',l);
   }
   applyLang(lang);
 

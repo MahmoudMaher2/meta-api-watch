@@ -658,4 +658,18 @@ Templates inactive for **12+ months** are automatically archived and **scheduled
 | Edit rate (approved templates) | **10 edits / 30 days** OR **1 edit / 24 hours** |
 | Analytics template IDs per call | **10** |
 | Click data retention | **7 days** |
-| Post-deletion name ban | **30 days** |
+| Post-deletion name ban | **30 days** |\n\n
+<!-- panel:comparison -->
+**Marketing Templates vs Utility Templates**
+- **Marketing:** Used for promotions, offers, newsletters. Highest cost per conversation.
+- **Utility:** Used for specific agreed-upon updates like shipping alerts, account updates. Lower cost.
+<!-- endpanel -->
+\n
+<!-- panel:quiz -->
+What status does a template get when it is first submitted but under review?
+- [ ] APPROVED
+- [x] PENDING
+- [ ] REJECTED
+- [ ] PAUSED
+<!-- endpanel -->
+\n

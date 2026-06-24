@@ -108,9 +108,17 @@ function md2html(text) {
 
 function inlineHtml(text) {
   return text
-    .replace(/`([^`]+)`/g, '<code>$1</code>')
-    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+    .replace(/`([^`]+)`/g, (_, codeStr) => {
+      let cssClass = '';
+      const s = codeStr.toLowerCase();
+      if (/(?:^|\s|_|-)(red|error|failed|reject|rejected|احمر)(?:\s|_|-|$)/.test(s)) cssClass = 'code-red';
+      else if (/(?:^|\s|_|-)(green|success|accept|accepted|valid|اخضر)(?:\s|_|-|$)/.test(s)) cssClass = 'code-green';
+      else if (/(?:^|\s|_|-)(blue|info|ازرق)(?:\s|_|-|$)/.test(s)) cssClass = 'code-blue';
+      else if (/(?:^|\s|_|-)(yellow|warning|warn|اصفر)(?:\s|_|-|$)/.test(s)) cssClass = 'code-yellow';
+      return `<code${cssClass ? ` class="${cssClass}"` : ''}>${codeStr}</code>`;
+    })
+    .replace(/\*\*([^\*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*([^\*]+)\*/g, '<em>$1</em>')
     .replace(/~~([^~]+)~~/g, '<del>$1</del>')
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
     .replace(/❌/g, '<span class="icon-reject">❌</span>')

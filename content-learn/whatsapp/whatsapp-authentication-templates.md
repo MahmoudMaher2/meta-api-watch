@@ -41,4 +41,18 @@ Authentication templates are heavily restricted regarding the types of buttons t
 
 <!-- preview -->
 ✅ Valid: An authentication template featuring a single "Copy Code" button at the bottom.
-❌ Invalid: An authentication template that includes a "Copy Code" button alongside a "Visit Website" URL button.
+❌ Invalid: An authentication template that includes a "Copy Code" button alongside a "Visit Website" URL button.\n\n
+<!-- panel:comparison -->
+**Copy Code vs Autofill**
+- **Copy Code Button:** User taps the button, and the OTP is copied to their clipboard to manually paste in your app.
+- **Autofill Button (Zero Tap):** Handshake between WhatsApp and your App intercepts the code and fills it automatically.
+<!-- endpanel -->
+\n
+<!-- panel:quiz -->
+What is the strict rule regarding the body text of an Authentication Template?
+- [ ] You can add promotional text as long as the OTP is clear.
+- [x] Meta restricts editing. You must use the strictly predefined formats and cannot add custom marketing text.
+- [ ] You can add an image header.
+- [ ] The body must be empty.
+<!-- endpanel -->
+\n

@@ -21,7 +21,7 @@ console.log('2. buildIndex block:', si, '->', ei, si > 0 && ei > si ? 'âœ…' : 'â
 const NEW_OPEN = 'return `<!DOCTYPE html>\n' +
   '<html lang="en" data-theme="dark" data-lang="en">\n' +
   '${buildHead(\n' +
-  "  'Meta API Watch \u2014 SEEN V2 Changelog Tracker',\n" +
+  "  'Meta API Explain \u2014 SEEN V2 Changelog Tracker',\n" +
   "  'Daily tracker for Meta Developer API changes for SEEN V2.',\n" +
   "  'style.css'\n" +
   ')}\n' +
@@ -74,7 +74,7 @@ function buildWelcome(articles, learnTopics) {
   return \`<!DOCTYPE html>
 <html lang="en" data-theme="dark" data-lang="en">
 \${buildHead(
-  'Meta API Watch \u2014 SEEN V2 Developer Hub',
+  'Meta API Explain \u2014 SEEN V2 Developer Hub',
   'Track every Meta API change. Learn every feature with validation rules. Built for SEEN V2.',
   'style.css'
 )}
@@ -84,7 +84,7 @@ function buildWelcome(articles, learnTopics) {
 
   <main class="welcome-page">
     <div class="welcome-container">
-      <div class="welcome-badge">&#x1F52D; Meta API Watch</div>
+      <div class="welcome-badge">&#x1F52D; Meta API Explain</div>
       <h1 class="welcome-h1">
         <span data-en="Track Changes." data-ar="\u062a\u062a\u0628\u0651\u0639 \u0627\u0644\u062a\u063a\u064a\u064a\u0631\u0627\u062a.">Track Changes.</span><br>
         <span data-en="Master the API." data-ar="\u0623\u062a\u0642\u0646 \u0627\u0644\u0640 API.">Master the API.</span>
@@ -123,7 +123,7 @@ function buildWelcome(articles, learnTopics) {
 
   <footer class="site-footer">
     <p>
-      Meta API Watch &middot; SEEN V2 &middot;
+      Meta API Explain &middot; SEEN V2 &middot;
       <a href="changelog.html" data-en="Changelog" data-ar="\u0633\u062c\u0644 \u0627\u0644\u062a\u063a\u064a\u064a\u0631\u0627\u062a">Changelog</a> &middot;
       <a href="learn/index.html" data-en="Learn" data-ar="\u062a\u0639\u0644\u0651\u0645">Learn</a>
     </p>

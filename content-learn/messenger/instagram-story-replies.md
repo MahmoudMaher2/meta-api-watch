@@ -62,4 +62,18 @@ The webhook payload for a story reply typically contains a `story` object nested
 ```
 <!-- preview -->
 ✅ Valid: Extracting the `story.url` within the first few minutes to log the interaction.
-❌ Invalid: Trying to query the Graph API for `<STORY_MEDIA_ID>` two days later.
+❌ Invalid: Trying to query the Graph API for `<STORY_MEDIA_ID>` two days later.\n\n
+<!-- panel:comparison -->
+**Story Mentions vs Story Replies**
+- **Story Mentions:** Triggered when a user tags your IG account in their own story. You receive a webhook event.
+- **Story Replies:** Triggered when a user swipes up and replies to your published story. Handled as a standard message.
+<!-- endpanel -->
+\n
+<!-- panel:quiz -->
+What happens when a user replies to your Instagram Story?
+- [ ] You receive an email notification.
+- [x] You receive a webhook event and a 24-hour messaging window opens.
+- [ ] You can only reply with an automated template.
+- [ ] Story replies cannot be handled by the API.
+<!-- endpanel -->
+\n

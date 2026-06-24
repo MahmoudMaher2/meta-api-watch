@@ -156,4 +156,18 @@ When a user clicks a button or selects a list row, Meta sends a webhook to SEEN 
 - [ ] Verify list rows do not exceed 10 across all sections combined
 - [ ] Verify row titles do not exceed 24 characters
 - [ ] Ensure `action.button` (for lists) is under 20 characters
-- [ ] Map webhook `interactive.*.id` accurately to SEEN V2 Flow Builder triggers
+- [ ] Map webhook `interactive.*.id` accurately to SEEN V2 Flow Builder triggers\n\n
+<!-- panel:comparison -->
+**Reply Buttons vs List Messages**
+- **Reply Buttons:** Maximum 3 buttons. Fast, highly visible 1-tap options.
+- **List Messages:** Maximum 10 rows. Opens a bottom sheet. Ideal for menus, store locations, or long selections.
+<!-- endpanel -->
+\n
+<!-- panel:quiz -->
+What happens if you try to send an Interactive Message with 4 Reply Buttons?
+- [ ] WhatsApp automatically converts them into a List.
+- [x] The API request fails with a validation error.
+- [ ] Only the first 3 buttons are shown.
+- [ ] It sends successfully.
+<!-- endpanel -->
+\n

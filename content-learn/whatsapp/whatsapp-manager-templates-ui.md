@@ -29,11 +29,11 @@ To create a new template, click the **"Create template"** button in the top righ
 When you include variables (`{{1}}`) or dynamic media, Meta highly recommends providing **Sample Content**. This means showing the reviewers exactly what the variable will look like (e.g., putting "John" in the sample box for `{{1}}`). Templates with realistic samples are approved much faster.
 
 <!-- panel:quiz -->
-**Question:**
-Can I edit the text of a template after it has been approved?
-
-**Answer:**
-**Yes!** Meta now allows you to edit approved templates up to **10 times in a 30-day window**. Once edited, the template enters the review process again, but the previous version remains active until the new one is approved.
+Can I edit the text of a template after it has been approved by Meta?
+- [ ] No, you can never edit a template once approved
+- [ ] Yes, unlimited times and at any moment
+- [x] Yes, up to 10 times in a 30-day window, and the old version remains active during review
+- [ ] Yes, but the template stops working immediately until the new version is approved
 <!-- endpanel -->
 
 ---

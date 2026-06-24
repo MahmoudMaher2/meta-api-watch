@@ -94,4 +94,18 @@ Updating the profile picture requires a 2-step process using Resumable Uploads, 
 
 - [ ] Validate URLs have `http(s)://`
 - [ ] Enforce max length of 139 chars for the `about` field
-- [ ] Ensure vertical selection uses Meta's exact enum values, not arbitrary strings
+- [ ] Ensure vertical selection uses Meta's exact enum values, not arbitrary strings\n\n
+<!-- panel:comparison -->
+**Profile Picture vs Description**
+- **Profile Picture:** Must be an image (JPG/PNG). Displayed prominently in the chat header.
+- **Description:** Text describing your business. Max 256 characters. Displayed in the contact info view.
+<!-- endpanel -->
+\n
+<!-- panel:quiz -->
+Which of the following fields CANNOT be updated via the WhatsApp Business Profile API?
+- [ ] address
+- [ ] email
+- [x] phone_number (Display Name)
+- [ ] websites
+<!-- endpanel -->
+\n

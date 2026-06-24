@@ -14,22 +14,22 @@
 
   <header class="site-header">
   <div class="header-inner">
-    <div class="header-logo">
+    <a href="../../index.html" class="header-logo" style="text-decoration: none;">
       <span class="logo-icon">🔭</span>
       <div class="logo-text">
-        <strong>Meta API Watch</strong>
-        <span>SEEN V2 · Developer Hub</span>
+        <div class="site-title">Meta API Explain</div>
+        <div class="site-subtitle">SEEN V2 · Developer Hub</div>
       </div>
-    </div>
+    </a>
     
     <nav class="header-nav">
-      <a href="../../index.html" class="nav-item ">
+      <a href="../../changelog.html" class="nav-tab ">
         <span class="nav-icon">🔔</span>
-        Latest Updates
+        <span class="nav-text" data-en="Latest Updates" data-ar="آخر التحديثات">Latest Updates</span>
       </a>
-      <a href="../../learn/index.html" class="nav-item active">
+      <a href="../../learn/index.html" class="nav-tab active">
         <span class="nav-icon">📚</span>
-        Learn
+        <span class="nav-text" data-en="Learn" data-ar="تعلّم">Learn</span>
       </a>
     </nav>
 
@@ -37,51 +37,36 @@
       <!-- Search Trigger -->
       <button id="search-trigger" class="search-btn" title="Search documentation... (Ctrl+K)">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        <span>Search...</span>
+        <span>Search</span>
         <kbd>/</kbd>
       </button>
 
-      <div class="build-badge">
-        <span class="pulse"></span>
-        LAST BUILD Jun 24, 2026, 11:13 PM 🇪🇬
+      <div class="header-build-time" title="System Status: Up to date">
+        <div class="build-pulse"></div>
+        <span class="build-label">LAST BUILD</span>
+        <span class="build-value">Jun 24, 2026, 11:52 PM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
-      <button id="lang-toggle" class="icon-btn" title="Toggle Language (AR/EN)">
+      <button id="lang-toggle" class="lang-toggle" title="Toggle Language (AR/EN)">
         <span class="lang-en">EN</span>
+        <span class="lang-sep">|</span>
         <span class="lang-ar">عربي</span>
       </button>
       
       <!-- Theme Toggle -->
-      <button id="theme-toggle" class="icon-btn" title="Toggle Theme">
-        <span class="moon">🌙</span>
-        <span class="sun">☀️</span>
+      <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
       </button>
     </div>
   </div>
 </header>
 
-<!-- Search Modal -->
-<div id="search-modal" class="search-modal">
-  <div class="search-modal-content">
-    <div class="search-header">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-      <input type="text" id="search-input" placeholder="Search topics, error codes, guidelines..." autocomplete="off">
-      <button id="search-close" class="icon-btn">×</button>
-    </div>
-    <div id="search-results" class="search-results"></div>
-    <div class="search-footer">
-      <span><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span>
-      <span><kbd>Enter</kbd> to select</span>
-      <span><kbd>ESC</kbd> to close</span>
-    </div>
-  </div>
-</div>
 
 
 
-
-  <div class="learn-layout">
+  <div class="learn-layout has-panels">
 
     <!-- Sidebar -->
     <aside class="learn-sidebar" id="sidebar">
@@ -227,7 +212,7 @@
 <p>        </div></p>
 <p>      </div></p>
 
-<p><strong>Error:</strong> <code>Error 100: Invalid parameter</code> — <code>flow_action</code> must be <code>navigate</code> or <code>data_exchange</code>, and <code>flow_token</code> exceeds 64 characters.</p>
+<p><strong>Error:</strong> <code class="code-red">Error 100: Invalid parameter</code> — <code>flow_action</code> must be <code>navigate</code> or <code>data_exchange</code>, and <code>flow_token</code> exceeds 64 characters.</p>
 
 <h2 id="comparison-before-vs-after-this-feature">Comparison: Before vs After This Feature</h2>
 
@@ -284,7 +269,11 @@
 <li style="margin-left:0px">[ ] Test the <span class="icon-accept">✅</span> accepted example — confirm interactive message renders in WhatsApp</li>
 <li style="margin-left:0px">[ ] Test the <span class="icon-reject">❌</span> rejected example — confirm error 100 for invalid <code>flow_action</code></li>
 <li style="margin-left:0px">[ ] Verify webhook receives structured payload on flow completion</li>
-<li style="margin-left:0px">[ ] Test with <code>flow_token</code> exactly 64 chars — confirm it works</div></li></ul>
+<li style="margin-left:0px">[ ] Test with <code>flow_token</code> exactly 64 chars — confirm it works\n\n</li></ul>
+
+<p>\n</p>
+
+<p>\n</div></p>
       </div>
       <div class="topic-body lang-ar"><h1>WhatsApp Flows v4 — نماذج تفاعلية</h1>
 
@@ -386,7 +375,7 @@
 <p>        </div></p>
 <p>      </div></p>
 
-<p><strong>الخطأ:</strong> <code>Error 100: Invalid parameter</code> — يجب أن يكون <code>flow_action</code> إما <code>navigate</code> أو <code>data_exchange</code>، ويتجاوز <code>flow_token</code> 64 حرفاً.</p>
+<p><strong>الخطأ:</strong> <code class="code-red">Error 100: Invalid parameter</code> — يجب أن يكون <code>flow_action</code> إما <code>navigate</code> أو <code>data_exchange</code>، ويتجاوز <code>flow_token</code> 64 حرفاً.</p>
 
 <h2 id="مقارنة-قبل-وبعد-هذه-الميزة">مقارنة: قبل وبعد هذه الميزة</h2>
 
@@ -443,7 +432,11 @@
 <li style="margin-left:0px">[ ] اختبر المثال المقبول <span class="icon-accept">✅</span> — تأكد من أن الرسالة التفاعلية تظهر في WhatsApp</li>
 <li style="margin-left:0px">[ ] اختبر المثال المرفوض <span class="icon-reject">❌</span> — تأكد من ظهور الخطأ 100 لـ <code>flow_action</code> غير الصالح</li>
 <li style="margin-left:0px">[ ] تحقق من أن webhook يستقبل حمولة منظمة عند اكتمال الـ flow</li>
-<li style="margin-left:0px">[ ] اختبر باستخدام <code>flow_token</code> من 64 حرفاً بالضبط — تأكد من أنه يعمل</div></li></ul></div>
+<li style="margin-left:0px">[ ] اختبر باستخدام <code>flow_token</code> من 64 حرفاً بالضبط — تأكد من أنه يعمل\n\n</li></ul>
+
+<p>\n</p>
+
+<p>\n</div></p></div>
 
       <div class="topic-nav">
         <a class="nav-prev" href="whatsapp-campaigns-broadcasts.html">← WhatsApp Campaigns & Broadcasts</a>
@@ -453,26 +446,143 @@
 
     <!-- Interactive Panels -->
     
+    <div class="learn-right-sidebar">
+      <aside class="interactive-panel lang-en">
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">Comparison</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>Flows v3 vs Flows v4</strong></p>
+<ul><li style="margin-left:0px"><strong>Flows v3:</strong> Basic forms and static layouts. Routing required heavy backend logic.</li>
+<li style="margin-left:0px"><strong>Flows v4:</strong> Introduces declarative branching, client-side validation, and dynamic UI updates without endpoint calls.</li></ul>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">Test Your Knowledge</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_en_1_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:right">Question 1 of 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p>What is a major feature introduced in WhatsApp Flows v4?</p></div>
+          <div class="mcq-options">
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] The ability to send videos inside the Flow.</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="correct" onclick="handleMcqClick(this)">
+              <span class="mcq-text">Client-side logic and declarative branching using "routing".</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] Removal of the JSON requirement.</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] Integration with Instagram.</span>
+            </label>
+          </div>
+        </div>
+      
+        </div>
+      </div>
+    </aside>
+      <aside class="interactive-panel lang-ar">
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">مقارنة</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>Flows v3 مقابل Flows v4</strong></p>
+<ul><li style="margin-left:0px"><strong>الإصدار الثالث (Flows v3):</strong> نماذج أساسية وتصميمات ثابتة. كان توجيه الشاشات يتطلب منطقاً معقداً من السيرفر.</li>
+<li style="margin-left:0px"><strong>الإصدار الرابع (Flows v4):</strong> يقدم التوجيه المشروط (Branching)، والتحقق من جانب العميل، وتحديث الواجهة دون الاتصال بالسيرفر.</li></ul>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">اختبر فهمك</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_ar_1_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:left">السؤال 1 من 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p>ما هي الميزة الرئيسية التي تم تقديمها في WhatsApp Flows v4؟</p></div>
+          <div class="mcq-options">
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] القدرة على إرسال فيديوهات داخل الـ Flow.</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="correct" onclick="handleMcqClick(this)">
+              <span class="mcq-text">المنطق من جانب العميل (Client-side) والتوجيه المشروط.</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] إلغاء الحاجة لاستخدام JSON.</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] الدمج مع إنستغرام.</span>
+            </label>
+          </div>
+        </div>
+      
+        </div>
+      </div>
+    </aside>
+    </div>
+    
 
   </div>
 
   <script>
 (function(){
   var html=document.documentElement;
-  var theme=localStorage.getItem('theme');
+  var theme=localStorage.getItem('maw-theme');
   if(!theme){
     theme=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
   }
   function applyTheme(t){
     html.setAttribute('data-theme',t);
-    localStorage.setItem('theme',t);
+    localStorage.setItem('maw-theme',t);
   }
   applyTheme(theme);
   
-  var lang=localStorage.getItem('lang')||'en';
+  var lang=localStorage.getItem('maw-lang')||'en';
   function applyLang(l){
     html.setAttribute('data-lang',l);
-    localStorage.setItem('lang',l);
+    localStorage.setItem('maw-lang',l);
   }
   applyLang(lang);
 

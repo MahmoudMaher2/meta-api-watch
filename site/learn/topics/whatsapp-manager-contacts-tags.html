@@ -14,22 +14,22 @@
 
   <header class="site-header">
   <div class="header-inner">
-    <div class="header-logo">
+    <a href="../../index.html" class="header-logo" style="text-decoration: none;">
       <span class="logo-icon">🔭</span>
       <div class="logo-text">
-        <strong>Meta API Watch</strong>
-        <span>SEEN V2 · Developer Hub</span>
+        <div class="site-title">Meta API Explain</div>
+        <div class="site-subtitle">SEEN V2 · Developer Hub</div>
       </div>
-    </div>
+    </a>
     
     <nav class="header-nav">
-      <a href="../../index.html" class="nav-item ">
+      <a href="../../changelog.html" class="nav-tab ">
         <span class="nav-icon">🔔</span>
-        Latest Updates
+        <span class="nav-text" data-en="Latest Updates" data-ar="آخر التحديثات">Latest Updates</span>
       </a>
-      <a href="../../learn/index.html" class="nav-item active">
+      <a href="../../learn/index.html" class="nav-tab active">
         <span class="nav-icon">📚</span>
-        Learn
+        <span class="nav-text" data-en="Learn" data-ar="تعلّم">Learn</span>
       </a>
     </nav>
 
@@ -37,46 +37,31 @@
       <!-- Search Trigger -->
       <button id="search-trigger" class="search-btn" title="Search documentation... (Ctrl+K)">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        <span>Search...</span>
+        <span>Search</span>
         <kbd>/</kbd>
       </button>
 
-      <div class="build-badge">
-        <span class="pulse"></span>
-        LAST BUILD Jun 24, 2026, 11:13 PM 🇪🇬
+      <div class="header-build-time" title="System Status: Up to date">
+        <div class="build-pulse"></div>
+        <span class="build-label">LAST BUILD</span>
+        <span class="build-value">Jun 24, 2026, 11:52 PM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
-      <button id="lang-toggle" class="icon-btn" title="Toggle Language (AR/EN)">
+      <button id="lang-toggle" class="lang-toggle" title="Toggle Language (AR/EN)">
         <span class="lang-en">EN</span>
+        <span class="lang-sep">|</span>
         <span class="lang-ar">عربي</span>
       </button>
       
       <!-- Theme Toggle -->
-      <button id="theme-toggle" class="icon-btn" title="Toggle Theme">
-        <span class="moon">🌙</span>
-        <span class="sun">☀️</span>
+      <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
       </button>
     </div>
   </div>
 </header>
-
-<!-- Search Modal -->
-<div id="search-modal" class="search-modal">
-  <div class="search-modal-content">
-    <div class="search-header">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-      <input type="text" id="search-input" placeholder="Search topics, error codes, guidelines..." autocomplete="off">
-      <button id="search-close" class="icon-btn">×</button>
-    </div>
-    <div id="search-results" class="search-results"></div>
-    <div class="search-footer">
-      <span><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span>
-      <span><kbd>Enter</kbd> to select</span>
-      <span><kbd>ESC</kbd> to close</span>
-    </div>
-  </div>
-</div>
 
 
 
@@ -258,8 +243,28 @@
               <div class="mcq-progress-bar-fill" style="width: 0%"></div>
             </div>
           </div>
-          <div class="mcq-question"><p><strong>Question:</strong></p><p>Can I automatically tag a user based on the message they send me?</p><p><strong>Answer:</strong></p><p><strong>Not natively in the UI.</strong> The WhatsApp Manager UI allows manual tagging or bulk-tagging on upload. For automatic tagging based on chat behavior, you must use a Webhook-driven script or a 3rd-party inbox system.</p></div>
-          <div class="mcq-options"></div>
+          <div class="mcq-question"><p>Can I automatically tag a user based on the message they send me natively in WhatsApp Manager?</p></div>
+          <div class="mcq-options">
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] Yes, using the built-in auto-rules feature</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="correct" onclick="handleMcqClick(this)">
+              <span class="mcq-text">No, not natively. Automatic tagging requires a Webhook-driven script</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] Yes, but only for verified business accounts</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] No, it is impossible to tag users based on their messages</span>
+            </label>
+          </div>
         </div>
       
         </div>
@@ -309,8 +314,28 @@
               <div class="mcq-progress-bar-fill" style="width: 0%"></div>
             </div>
           </div>
-          <div class="mcq-question"><p><strong>سؤال:</strong></p><p>هل يمكنني تصنيف العميل تلقائياً بناءً على الرسالة التي يرسلها لي؟</p><p><strong>إجابة:</strong></p><p><strong>ليس من خلال الواجهة مباشرة.</strong> واجهة WhatsApp Manager تتيح التصنيف اليدوي أو الجماعي عند الرفع فقط. للتصنيف الآلي بناءً على سلوك العميل في المحادثة، يجب عليك استخدام سكريبت يعتمد على الـ Webhooks أو نظام خارجي للردود الآلية.</p></div>
-          <div class="mcq-options"></div>
+          <div class="mcq-question"><p>هل يمكنني تصنيف العميل تلقائياً بناءً على الرسالة التي يرسلها لي داخل مدير واتساب؟</p></div>
+          <div class="mcq-options">
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] نعم، يدعم مدير واتساب قواعد الرد الآلي (Auto-rules)</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="correct" onclick="handleMcqClick(this)">
+              <span class="mcq-text">لا، ليس من خلال الواجهة. يتطلب التصنيف الآلي سكريبت يعتمد على الـ Webhooks</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] نعم، لكن فقط للعملاء الموثقين</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] لا، لا يمكن أبداً إضافة تصنيفات بناءً على الرسائل</span>
+            </label>
+          </div>
         </div>
       
         </div>
@@ -338,20 +363,20 @@
   <script>
 (function(){
   var html=document.documentElement;
-  var theme=localStorage.getItem('theme');
+  var theme=localStorage.getItem('maw-theme');
   if(!theme){
     theme=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
   }
   function applyTheme(t){
     html.setAttribute('data-theme',t);
-    localStorage.setItem('theme',t);
+    localStorage.setItem('maw-theme',t);
   }
   applyTheme(theme);
   
-  var lang=localStorage.getItem('lang')||'en';
+  var lang=localStorage.getItem('maw-lang')||'en';
   function applyLang(l){
     html.setAttribute('data-lang',l);
-    localStorage.setItem('lang',l);
+    localStorage.setItem('maw-lang',l);
   }
   applyLang(lang);
 

@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   Meta API Watch — Professional Search Modal
+   Meta API Explain — Professional Search Modal
    site/search.js
    ═══════════════════════════════════════════════════════════════ */
 
@@ -22,44 +22,83 @@
   // ════════════════════════════════════════════════════════════════
   // PAGE HIGHLIGHT — runs on every page load
   // ════════════════════════════════════════════════════════════════
+  var currentMarks = [];
+  var currentHlIndex = -1;
+  var localSearchTimer = null;
+
   function runPageHighlight() {
     var query = '';
     try { query = sessionStorage.getItem(HIGHLIGHT_KEY) || ''; } catch(e) {}
     if (!query) return;
+    highlightPageContent(query, false);
+  }
 
-    var words = query.trim().split(/\s+/).filter(function(w){ return w.length > 1; });
-    if (!words.length) return;
+  function highlightPageContent(query, isInteractive) {
+    var words = query.trim().split(/\s+/).filter(function(w){ return w.length > 0; });
+    
+    // Clear previous
+    var existingMarks = document.querySelectorAll('mark.search-hl');
+    for (var i = 0; i < existingMarks.length; i++) {
+      var m = existingMarks[i];
+      if (m.parentNode) m.parentNode.replaceChild(document.createTextNode(m.textContent), m);
+    }
+    currentMarks = [];
+    currentHlIndex = -1;
 
-    // Target the main content area only (not header/nav)
+    if (!words.length) {
+      if (isInteractive) updateBannerCount(0);
+      return;
+    }
+
     var target = document.querySelector('main, .learn-content, .cards-grid, #cards-grid, .card-body, article');
     if (!target) return;
 
     var count = highlightInNode(target, words);
-    if (!count) return;
-
-    // Scroll to first highlight
-    var first = target.querySelector('mark.search-hl');
-    if (first) {
-      setTimeout(function() {
-        first.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 200);
+    currentMarks = document.querySelectorAll('mark.search-hl');
+    
+    if (isInteractive) {
+      updateBannerCount(count);
+      if (count > 0) scrollToMatch(0);
+    } else {
+      if (count > 0) {
+        showHighlightBanner(query, count);
+        setTimeout(function() { scrollToMatch(0); }, 200);
+      }
     }
+  }
 
-    // Show a dismissable banner
-    showHighlightBanner(query, count);
+  function scrollToMatch(index) {
+    if (!currentMarks.length) return;
+    if (currentHlIndex >= 0 && currentHlIndex < currentMarks.length) {
+      currentMarks[currentHlIndex].classList.remove('active-hl');
+    }
+    currentHlIndex = index;
+    if (currentHlIndex < 0) currentHlIndex = currentMarks.length - 1;
+    if (currentHlIndex >= currentMarks.length) currentHlIndex = 0;
+    
+    var m = currentMarks[currentHlIndex];
+    m.classList.add('active-hl');
+    m.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    updateBannerCount(currentMarks.length);
+  }
+
+  function updateBannerCount(total) {
+    var countEl = document.getElementById('hl-banner-count');
+    if (countEl) {
+      if (total === 0) countEl.textContent = '0 / 0';
+      else countEl.textContent = (currentHlIndex + 1) + ' / ' + total;
+    }
   }
 
   function highlightInNode(root, words) {
     var re = new RegExp('(' + words.map(escRe).join('|') + ')', 'gi');
     var count = 0;
-
     function walk(node) {
-      if (node.nodeType === 3) { // Text node
+      if (node.nodeType === 3) {
         var m = node.nodeValue.match(re);
         if (m) {
           var frag = document.createDocumentFragment();
           var remaining = node.nodeValue;
-          var match;
           re.lastIndex = 0;
           var parts = remaining.split(re);
           for (var i = 0; i < parts.length; i++) {
@@ -73,55 +112,89 @@
               frag.appendChild(document.createTextNode(parts[i]));
             }
           }
-          node.parentNode.replaceChild(frag, node);
+          if(node.parentNode) node.parentNode.replaceChild(frag, node);
         }
       } else if (node.nodeType === 1) {
         var tag = node.tagName;
         if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'MARK' ||
             tag === 'HEADER' || tag === 'NAV' || tag === 'FOOTER' ||
-            node.id === 'search-overlay') return;
-        // Clone children list since we'll mutate
+            node.id === 'search-overlay' || node.id === 'search-highlight-banner') return;
         var children = Array.prototype.slice.call(node.childNodes);
         for (var c = 0; c < children.length; c++) { walk(children[c]); }
       }
     }
-
     walk(root);
     return count;
   }
 
-  function showHighlightBanner(query, count) {
-    var banner = document.createElement('div');
+  function showHighlightBanner(initialQuery, initialCount) {
+    var banner = document.getElementById('search-highlight-banner');
+    if (banner) {
+      var input = document.getElementById('hl-banner-input');
+      if (input) { input.focus(); input.select(); }
+      return;
+    }
+    
+    banner = document.createElement('div');
     banner.id = 'search-highlight-banner';
     banner.innerHTML =
       '<span class="hl-banner-icon">🔍</span>' +
-      '<span class="hl-banner-text">Highlighted <strong>' + count + '</strong> match' + (count > 1 ? 'es' : '') +
-      ' for "<em>' + escHtml(query) + '</em>"</span>' +
-      '<button class="hl-banner-clear" id="hl-banner-clear" title="Clear highlights">✕ Clear</button>';
+      '<input type="text" id="hl-banner-input" class="hl-banner-input" placeholder="Find in page..." autocomplete="off" spellcheck="false" value="' + escHtml(initialQuery||'') + '">' +
+      '<span class="hl-banner-text"><strong id="hl-banner-count">' + (initialCount ? '1 / ' + initialCount : '0 / 0') + '</strong> matches</span>' +
+      '<div class="hl-banner-nav">' +
+      '  <button class="hl-banner-btn" id="hl-banner-prev" title="Previous match">▲</button>' +
+      '  <button class="hl-banner-btn" id="hl-banner-next" title="Next match">▼</button>' +
+      '</div>' +
+      '<button class="hl-banner-clear" id="hl-banner-clear" title="Close">✕</button>';
     document.body.appendChild(banner);
 
-    document.getElementById('hl-banner-clear').addEventListener('click', function() {
-      clearPageHighlights();
-      banner.style.animation = 'hl-banner-out .3s forwards';
-      setTimeout(function(){ if (banner.parentNode) banner.parentNode.removeChild(banner); }, 350);
+    var input = document.getElementById('hl-banner-input');
+    
+    input.addEventListener('input', function() {
+      clearTimeout(localSearchTimer);
+      localSearchTimer = setTimeout(function() {
+        highlightPageContent(input.value, true);
+      }, 150);
+    });
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        scrollToMatch(currentHlIndex + 1);
+      } else if (e.key === 'Escape') {
+        closeHighlightBanner();
+      }
     });
 
-    // Auto-dismiss after 8 seconds
-    setTimeout(function() {
-      if (banner.parentNode) {
-        banner.style.animation = 'hl-banner-out .4s forwards';
-        setTimeout(function(){ if (banner.parentNode) banner.parentNode.removeChild(banner); }, 450);
-      }
-    }, 8000);
+    document.getElementById('hl-banner-prev').addEventListener('click', function() { scrollToMatch(currentHlIndex - 1); });
+    document.getElementById('hl-banner-next').addEventListener('click', function() { scrollToMatch(currentHlIndex + 1); });
+    document.getElementById('hl-banner-clear').addEventListener('click', function() { closeHighlightBanner(); });
+    
+    if (!initialQuery) {
+      setTimeout(function() { input.focus(); }, 100);
+    }
+  }
+
+  function closeHighlightBanner() {
+    clearPageHighlights();
+    var banner = document.getElementById('search-highlight-banner');
+    if (banner) {
+      banner.style.animation = 'hl-banner-out .3s forwards';
+      setTimeout(function(){ if (banner.parentNode) banner.parentNode.removeChild(banner); }, 350);
+    }
   }
 
   function clearPageHighlights() {
     try { sessionStorage.removeItem(HIGHLIGHT_KEY); } catch(e) {}
-    var marks = document.querySelectorAll('mark.search-hl');
-    for (var i = 0; i < marks.length; i++) {
-      var m = marks[i];
-      m.parentNode.replaceChild(document.createTextNode(m.textContent), m);
+    var existingMarks = document.querySelectorAll('mark.search-hl');
+    for (var i = 0; i < existingMarks.length; i++) {
+      var m = existingMarks[i];
+      if (m.parentNode) m.parentNode.replaceChild(document.createTextNode(m.textContent), m);
     }
+    var target = document.querySelector('main, .learn-content, .cards-grid, #cards-grid, .card-body, article');
+    if (target) target.normalize(); // Merge adjacent text nodes so subsequent searches work!
+    
+    currentMarks = [];
+    currentHlIndex = -1;
   }
 
   // ════════════════════════════════════════════════════════════════
@@ -224,7 +297,7 @@
       '    </div>',
       '  </div>',
       '  <div class="search-footer">',
-      '    <span class="search-footer-brand">🔭 Meta API Watch</span>',
+      '    <span class="search-footer-brand">🔭 Meta API Explain</span>',
       '    <span class="search-footer-hint">',
       '      <kbd>/</kbd> to open · <kbd>↑↓</kbd> navigate · <kbd>↵</kbd> open',
       '    </span>',
@@ -444,9 +517,17 @@
   // ════════════════════════════════════════════════════════════════
   // GLOBAL SHORTCUTS
   // ════════════════════════════════════════════════════════════════
-  document.addEventListener('keydown',function(e){
+  window.addEventListener('keydown',function(e){
     var tag=document.activeElement?document.activeElement.tagName:'';
     var inInput=(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT');
+
+    // Override Ctrl+F, Cmd+F, and F3
+    if (((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'f') || e.key === 'F3') {
+      e.preventDefault();
+      showHighlightBanner();
+      return;
+    }
+
     if(e.key==='/'&&!inInput){
       e.preventDefault();
       if(overlay&&overlay.classList.contains('open')){closeModal();}else{openModal();}
@@ -455,7 +536,7 @@
     if(e.key==='Escape'&&overlay&&overlay.classList.contains('open')){
       e.preventDefault(); closeModal();
     }
-  });
+  }, { capture: true });
 
   // ════════════════════════════════════════════════════════════════
   // WIRE BUTTON

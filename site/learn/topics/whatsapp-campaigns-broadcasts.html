@@ -14,22 +14,22 @@
 
   <header class="site-header">
   <div class="header-inner">
-    <div class="header-logo">
+    <a href="../../index.html" class="header-logo" style="text-decoration: none;">
       <span class="logo-icon">🔭</span>
       <div class="logo-text">
-        <strong>Meta API Watch</strong>
-        <span>SEEN V2 · Developer Hub</span>
+        <div class="site-title">Meta API Explain</div>
+        <div class="site-subtitle">SEEN V2 · Developer Hub</div>
       </div>
-    </div>
+    </a>
     
     <nav class="header-nav">
-      <a href="../../index.html" class="nav-item ">
+      <a href="../../changelog.html" class="nav-tab ">
         <span class="nav-icon">🔔</span>
-        Latest Updates
+        <span class="nav-text" data-en="Latest Updates" data-ar="آخر التحديثات">Latest Updates</span>
       </a>
-      <a href="../../learn/index.html" class="nav-item active">
+      <a href="../../learn/index.html" class="nav-tab active">
         <span class="nav-icon">📚</span>
-        Learn
+        <span class="nav-text" data-en="Learn" data-ar="تعلّم">Learn</span>
       </a>
     </nav>
 
@@ -37,51 +37,36 @@
       <!-- Search Trigger -->
       <button id="search-trigger" class="search-btn" title="Search documentation... (Ctrl+K)">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        <span>Search...</span>
+        <span>Search</span>
         <kbd>/</kbd>
       </button>
 
-      <div class="build-badge">
-        <span class="pulse"></span>
-        LAST BUILD Jun 24, 2026, 11:13 PM 🇪🇬
+      <div class="header-build-time" title="System Status: Up to date">
+        <div class="build-pulse"></div>
+        <span class="build-label">LAST BUILD</span>
+        <span class="build-value">Jun 24, 2026, 11:52 PM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
-      <button id="lang-toggle" class="icon-btn" title="Toggle Language (AR/EN)">
+      <button id="lang-toggle" class="lang-toggle" title="Toggle Language (AR/EN)">
         <span class="lang-en">EN</span>
+        <span class="lang-sep">|</span>
         <span class="lang-ar">عربي</span>
       </button>
       
       <!-- Theme Toggle -->
-      <button id="theme-toggle" class="icon-btn" title="Toggle Theme">
-        <span class="moon">🌙</span>
-        <span class="sun">☀️</span>
+      <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
       </button>
     </div>
   </div>
 </header>
 
-<!-- Search Modal -->
-<div id="search-modal" class="search-modal">
-  <div class="search-modal-content">
-    <div class="search-header">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-      <input type="text" id="search-input" placeholder="Search topics, error codes, guidelines..." autocomplete="off">
-      <button id="search-close" class="icon-btn">×</button>
-    </div>
-    <div id="search-results" class="search-results"></div>
-    <div class="search-footer">
-      <span><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span>
-      <span><kbd>Enter</kbd> to select</span>
-      <span><kbd>ESC</kbd> to close</span>
-    </div>
-  </div>
-</div>
 
 
 
-
-  <div class="learn-layout">
+  <div class="learn-layout has-panels">
 
     <!-- Sidebar -->
     <aside class="learn-sidebar" id="sidebar">
@@ -156,7 +141,7 @@
 <div class="table-wrap"><table><thead><tr><th>Component Type</th><th>Sub-type</th><th>Description</th></tr></thead><tbody><tr><td><code>"header"</code></td><td><code>image</code>, <code>video</code>, <code>document</code>, <code>text</code></td><td>Fills the header placeholder</td></tr><tr><td><code>"body"</code></td><td><code>text</code></td><td>Replaces <code>{{1}}</code>, <code>{{2}}</code> sequentially</td></tr><tr><td><code>"button"</code></td><td><code>payload</code>, <code>text</code></td><td>Dynamic URLs or Quick Reply payloads</td></tr></tbody></table></div>
 <h2 id="validation-rules">Validation Rules</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Gets REJECTED</th><th><span class="icon-accept">✅</span> Gets ACCEPTED</th></tr></thead><tbody><tr><td>Variable Match</td><td>Template has 2 vars, you send 1</td><td>Send exactly the number of vars expected</td></tr><tr><td>Language Code</td><td><code>"en-us"</code> or <code>"EN"</code></td><td>Exact match <code>"en_US"</code></td></tr><tr><td>Template Status</td><td>Template is <code>REJECTED</code> or <code>PAUSED</code></td><td>Template is <code>APPROVED</code></td></tr><tr><td>24-Hour Rule</td><td><em>Not applicable for templates</em></td><td>Templates bypass the 24-hour customer service window</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Gets REJECTED</th><th><span class="icon-accept">✅</span> Gets ACCEPTED</th></tr></thead><tbody><tr><td>Variable Match</td><td>Template has 2 vars, you send 1</td><td>Send exactly the number of vars expected</td></tr><tr><td>Language Code</td><td><code>"en-us"</code> or <code>"EN"</code></td><td>Exact match <code>"en_US"</code></td></tr><tr><td>Template Status</td><td>Template is <code class="code-red">REJECTED</code> or <code>PAUSED</code></td><td>Template is <code>APPROVED</code></td></tr><tr><td>24-Hour Rule</td><td><em>Not applicable for templates</em></td><td>Templates bypass the 24-hour customer service window</td></tr></tbody></table></div>
 <h2 id="live-preview-what-it-looks-like">Live Preview — What It Looks Like</h2>
 
 <div class="preview-block preview-accepted"><span class="preview-label preview-label-ok">✅ Correct Usage — Live Preview</span>### ✅ Correct Usage — Sending a Marketing Broadcast
@@ -241,7 +226,7 @@
 <p>        </div></p>
 <p>      </div></p>
 
-<p><strong>Error:</strong> <code>Error 100: Invalid parameter</code> — If <code>order_update</code> was approved with body text "Your order {{1}} is arriving on {{2}}", sending it without the <code>components</code> array will fail validation instantly.</p>
+<p><strong>Error:</strong> <code class="code-red">Error 100: Invalid parameter</code> — If <code>order_update</code> was approved with body text "Your order {{1}} is arriving on {{2}}", sending it without the <code>components</code> array will fail validation instantly.</p>
 
 <h2 id="whatsapp-quality-limits-the-penalty-box">WhatsApp Quality Limits (The Penalty Box)</h2>
 
@@ -252,13 +237,17 @@
 
 <h2 id="seen-v2-implementation-notes">SEEN V2 Implementation Notes</h2>
 <ul><li style="margin-left:8px"><strong>Batching:</strong> WhatsApp API restricts concurrency. For a 100K user campaign, SEEN V2 must implement rate limiting (max 80 requests per second) to avoid HTTP 429 Too Many Requests.</li>
-<li style="margin-left:0px"><strong>Failures:</strong> Not all numbers have WhatsApp. SEEN V2 must gracefully handle <code>Error 131026: Message undeteliverable</code> and mark the contact accordingly so they are skipped in future broadcasts.</li></ul>
+<li style="margin-left:0px"><strong>Failures:</strong> Not all numbers have WhatsApp. SEEN V2 must gracefully handle <code class="code-red">Error 131026: Message undeteliverable</code> and mark the contact accordingly so they are skipped in future broadcasts.</li></ul>
 
 <h2 id="qa-checklist">QA Checklist</h2>
 <ul><li style="margin-left:8px">[ ] Ensure SEEN V2 maps exactly the correct number of variables per component</li>
 <li style="margin-left:0px">[ ] Enforce language code case sensitivity (<code>en_US</code> not <code>en-us</code>)</li>
 <li style="margin-left:0px">[ ] Implement a queue system for large broadcasts to adhere to rate limits</li>
-<li style="margin-left:0px">[ ] Read webhook statuses (<code>sent</code>, <code>delivered</code>, <code>read</code>, <code>failed</code>) to update campaign analytics in real-time</div></li></ul>
+<li style="margin-left:0px">[ ] Read webhook statuses (<code>sent</code>, <code>delivered</code>, <code>read</code>, <code class="code-red">failed</code>) to update campaign analytics in real-time\n\n</li></ul>
+
+<p>\n</p>
+
+<p>\n</div></p>
       </div>
       <div class="topic-body lang-ar"><h1>حملات وبث رسائل WhatsApp</h1>
 
@@ -289,7 +278,7 @@
 <div class="table-wrap"><table><thead><tr><th>نوع المكون</th><th>النوع الفرعي</th><th>الوصف</th></tr></thead><tbody><tr><td><code>"header"</code></td><td><code>image</code>, <code>video</code>, <code>document</code>, <code>text</code></td><td>يملأ العنصر النائب في الترويسة</td></tr><tr><td><code>"body"</code></td><td><code>text</code></td><td>يستبدل <code>{{1}}</code>, <code>{{2}}</code> بالتسلسل</td></tr><tr><td><code>"button"</code></td><td><code>payload</code>, <code>text</code></td><td>الروابط الديناميكية (URLs) أو بيانات الرد السريع (Quick Reply payloads)</td></tr></tbody></table></div>
 <h2 id="قواعد-التحقق">قواعد التحقق</h2>
 
-<div class="table-wrap"><table><thead><tr><th>القاعدة</th><th><span class="icon-reject">❌</span> يتم الرفض</th><th><span class="icon-accept">✅</span> يتم القبول</th></tr></thead><tbody><tr><td>مطابقة المتغيرات</td><td>القالب يحتوي على متغيرين، وتقوم بإرسال 1</td><td>إرسال العدد المتوقع من المتغيرات بالضبط</td></tr><tr><td>رمز اللغة</td><td><code>"en-us"</code> أو <code>"EN"</code></td><td>تطابق تام <code>"en_US"</code></td></tr><tr><td>حالة القالب</td><td>القالب بحالة <code>REJECTED</code> أو <code>PAUSED</code></td><td>القالب بحالة <code>APPROVED</code></td></tr><tr><td>قاعدة الـ 24 ساعة</td><td><em>لا تنطبق على القوالب</em></td><td>تتخطى القوالب نافذة خدمة العملاء البالغة 24 ساعة</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>القاعدة</th><th><span class="icon-reject">❌</span> يتم الرفض</th><th><span class="icon-accept">✅</span> يتم القبول</th></tr></thead><tbody><tr><td>مطابقة المتغيرات</td><td>القالب يحتوي على متغيرين، وتقوم بإرسال 1</td><td>إرسال العدد المتوقع من المتغيرات بالضبط</td></tr><tr><td>رمز اللغة</td><td><code>"en-us"</code> أو <code>"EN"</code></td><td>تطابق تام <code>"en_US"</code></td></tr><tr><td>حالة القالب</td><td>القالب بحالة <code class="code-red">REJECTED</code> أو <code>PAUSED</code></td><td>القالب بحالة <code>APPROVED</code></td></tr><tr><td>قاعدة الـ 24 ساعة</td><td><em>لا تنطبق على القوالب</em></td><td>تتخطى القوالب نافذة خدمة العملاء البالغة 24 ساعة</td></tr></tbody></table></div>
 <h2 id="معاينة-حية-كيف-تبدو">معاينة حية — كيف تبدو</h2>
 
 <div class="preview-block preview-accepted"><span class="preview-label preview-label-ok">✅ Correct Usage — Live Preview</span>### ✅ الاستخدام الصحيح — إرسال بث تسويقي
@@ -374,7 +363,7 @@
 <p>        </div></p>
 <p>      </div></p>
 
-<p><strong>الخطأ:</strong> <code>Error 100: Invalid parameter</code> — إذا تمت الموافقة على <code>order_update</code> بنص "Your order {{1}} is arriving on {{2}}"، فإن إرساله بدون مصفوفة <code>components</code> سيؤدي إلى فشل التحقق على الفور.</p>
+<p><strong>الخطأ:</strong> <code class="code-red">Error 100: Invalid parameter</code> — إذا تمت الموافقة على <code>order_update</code> بنص "Your order {{1}} is arriving on {{2}}"، فإن إرساله بدون مصفوفة <code>components</code> سيؤدي إلى فشل التحقق على الفور.</p>
 
 <h2 id="حدود-جودة-whatsapp-صندوق-العقوبات">حدود جودة WhatsApp (صندوق العقوبات)</h2>
 
@@ -385,13 +374,17 @@
 
 <h2 id="ملاحظات-تنفيذ-seen-v2">ملاحظات تنفيذ SEEN V2</h2>
 <ul><li style="margin-left:8px"><strong>التجميع (Batching):</strong> تقيد واجهة برمجة تطبيقات WhatsApp التزامن. بالنسبة لحملة تضم 100 ألف مستخدم، يجب أن يطبق SEEN V2 تحديد المعدل (بحد أقصى 80 طلباً في الثانية) لتجنب الخطأ HTTP 429 Too Many Requests.</li>
-<li style="margin-left:0px"><strong>الإخفاقات (Failures):</strong> لا تمتلك جميع الأرقام تطبيق WhatsApp. يجب أن يتعامل SEEN V2 بشكل صحيح مع الخطأ <code>Error 131026: Message undeteliverable</code> ويضع علامة على جهة الاتصال وفقاً لذلك حتى يتم تخطيها في عمليات البث المستقبلية.</li></ul>
+<li style="margin-left:0px"><strong>الإخفاقات (Failures):</strong> لا تمتلك جميع الأرقام تطبيق WhatsApp. يجب أن يتعامل SEEN V2 بشكل صحيح مع الخطأ <code class="code-red">Error 131026: Message undeteliverable</code> ويضع علامة على جهة الاتصال وفقاً لذلك حتى يتم تخطيها في عمليات البث المستقبلية.</li></ul>
 
 <h2 id="قائمة-التحقق-من-الجودة-qa">قائمة التحقق من الجودة (QA)</h2>
 <ul><li style="margin-left:8px">[ ] التأكد من أن SEEN V2 يقوم بتعيين العدد الصحيح من المتغيرات بالضبط لكل مكون</li>
 <li style="margin-left:0px">[ ] فرض حساسية حالة الأحرف لرمز اللغة (<code>en_US</code> وليس <code>en-us</code>)</li>
 <li style="margin-left:0px">[ ] تنفيذ نظام طابور (queue) لعمليات البث الكبيرة للالتزام بحدود المعدل (rate limits)</li>
-<li style="margin-left:0px">[ ] قراءة حالات الـ webhook (<code>sent</code>، <code>delivered</code>، <code>read</code>، <code>failed</code>) لتحديث تحليلات الحملة في الوقت الفعلي</div></li></ul></div>
+<li style="margin-left:0px">[ ] قراءة حالات الـ webhook (<code>sent</code>، <code>delivered</code>، <code>read</code>، <code class="code-red">failed</code>) لتحديث تحليلات الحملة في الوقت الفعلي\n\n</li></ul>
+
+<p>\n</p>
+
+<p>\n</div></p></div>
 
       <div class="topic-nav">
         <a class="nav-prev" href="whatsapp-business-profile.html">← WhatsApp Business Profile API</a>
@@ -401,26 +394,143 @@
 
     <!-- Interactive Panels -->
     
+    <div class="learn-right-sidebar">
+      <aside class="interactive-panel lang-en">
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">Comparison</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>Sequential Sending vs Batch Processing</strong></p>
+<ul><li style="margin-left:0px"><strong>Sequential (Looping):</strong> Sending one message at a time. Very slow, blocks the server thread, prone to timeouts.</li>
+<li style="margin-left:0px"><strong>Batch Processing (Async):</strong> Sending requests concurrently using Queues or asynchronous workers. Maximizes throughput.</li></ul>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">Test Your Knowledge</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_en_1_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:right">Question 1 of 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p>To maximize throughput without getting banned, you should:</p></div>
+          <div class="mcq-options">
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] Send 10,000 requests per second blindly.</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="correct" onclick="handleMcqClick(this)">
+              <span class="mcq-text">Throttle requests to match your phone number\'s Tier limit (e.g., 80 msgs/sec for Tier 1) and respect 429 errors.</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] Send messages from a consumer WhatsApp app.</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] Put all phone numbers in a single JSON array and send one request.</span>
+            </label>
+          </div>
+        </div>
+      
+        </div>
+      </div>
+    </aside>
+      <aside class="interactive-panel lang-ar">
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">مقارنة</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>الإرسال المتسلسل مقابل المعالجة الدفعية (Batch)</strong></p>
+<ul><li style="margin-left:0px"><strong>المتسلسل (Sequential):</strong> إرسال رسالة تلو الأخرى. بطيء جداً، يعطل السيرفر، ومعرض لأخطاء الـ Timeout.</li>
+<li style="margin-left:0px"><strong>المعالجة الدفعية (Async):</strong> إرسال الطلبات بشكل متزامن باستخدام طوابير (Queues). يزيد من سرعة الإرسال لأقصى حد.</li></ul>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">اختبر فهمك</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_ar_1_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:left">السؤال 1 من 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p>لزيادة سرعة إرسال الحملات دون التعرض للحظر، يجب عليك:</p></div>
+          <div class="mcq-options">
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] إرسال 10,000 طلب في الثانية بشكل أعمى.</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="correct" onclick="handleMcqClick(this)">
+              <span class="mcq-text">التحكم في سرعة الإرسال (Throttling) لتناسب مستوى رقمك (مثلاً 80 رسالة/ث لـ Tier 1) واحترام أخطاء 429.</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] إرسال الرسائل من تطبيق واتساب العادي.</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] وضع جميع الأرقام في مصفوفة JSON واحدة وإرسال طلب واحد.</span>
+            </label>
+          </div>
+        </div>
+      
+        </div>
+      </div>
+    </aside>
+    </div>
+    
 
   </div>
 
   <script>
 (function(){
   var html=document.documentElement;
-  var theme=localStorage.getItem('theme');
+  var theme=localStorage.getItem('maw-theme');
   if(!theme){
     theme=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
   }
   function applyTheme(t){
     html.setAttribute('data-theme',t);
-    localStorage.setItem('theme',t);
+    localStorage.setItem('maw-theme',t);
   }
   applyTheme(theme);
   
-  var lang=localStorage.getItem('lang')||'en';
+  var lang=localStorage.getItem('maw-lang')||'en';
   function applyLang(l){
     html.setAttribute('data-lang',l);
-    localStorage.setItem('lang',l);
+    localStorage.setItem('maw-lang',l);
   }
   applyLang(lang);
 

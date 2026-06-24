@@ -39,4 +39,18 @@ The pricing model significantly impacts UI design for agent dashboards:
 
 <!-- preview -->
 ✅ Valid: The CRM displays a clear 24-hour countdown timer next to the active chat session.
-❌ Invalid: The agent interface provides no visual indication of the CSW state, increasing the risk of unnecessary template charges.
+❌ Invalid: The agent interface provides no visual indication of the CSW state, increasing the risk of unnecessary template charges.\n\n
+<!-- panel:comparison -->
+**Business-Initiated vs User-Initiated**
+- **Business-Initiated:** When you send a template to start a conversation. Charged based on the template category (Marketing, Utility).
+- **User-Initiated (Service):** When a user messages you first, opening a 24-hour window. Charged at the lower Service conversation rate.
+<!-- endpanel -->
+\n
+<!-- panel:quiz -->
+How many free Service (user-initiated) conversations does a WhatsApp Business account get per month?
+- [ ] 10,000
+- [x] 1,000
+- [ ] 0 (All conversations are paid)
+- [ ] Unlimited
+<!-- endpanel -->
+\n

@@ -33,4 +33,18 @@ Though both platforms use similar API endpoints (`messenger_profile`), their use
 
 <!-- preview -->
 ✅ Valid: Configuring Ice Breakers to help mobile Instagram users start a chat quickly.
-❌ Invalid: Expecting a "Get Started" button to appear on your Instagram Direct Messages entry point.
+❌ Invalid: Expecting a "Get Started" button to appear on your Instagram Direct Messages entry point.\n\n
+<!-- panel:comparison -->
+**Ice Breakers vs Quick Replies**
+- **Ice Breakers:** Shown *before* the user sends their first message to the business. Up to 4 questions.
+- **Quick Replies:** Shown *after* the business sends a message, as suggested responses for the user to tap.
+<!-- endpanel -->
+\n
+<!-- panel:quiz -->
+How many Ice Breakers can you configure for your Instagram Professional account?
+- [ ] Up to 10
+- [ ] Up to 5
+- [x] Up to 4
+- [ ] Unlimited
+<!-- endpanel -->
+\n

@@ -151,4 +151,18 @@ Authorization: Bearer {ACCESS_TOKEN}
 - [ ] Test the ✅ accepted example — confirm interactive message renders in WhatsApp
 - [ ] Test the ❌ rejected example — confirm error 100 for invalid `flow_action`
 - [ ] Verify webhook receives structured payload on flow completion
-- [ ] Test with `flow_token` exactly 64 chars — confirm it works
+- [ ] Test with `flow_token` exactly 64 chars — confirm it works\n\n
+<!-- panel:comparison -->
+**Flows v3 vs Flows v4**
+- **Flows v3:** Basic forms and static layouts. Routing required heavy backend logic.
+- **Flows v4:** Introduces declarative branching, client-side validation, and dynamic UI updates without endpoint calls.
+<!-- endpanel -->
+\n
+<!-- panel:quiz -->
+What is a major feature introduced in WhatsApp Flows v4?
+- [ ] The ability to send videos inside the Flow.
+- [x] Client-side logic and declarative branching using "routing".
+- [ ] Removal of the JSON requirement.
+- [ ] Integration with Instagram.
+<!-- endpanel -->
+\n

@@ -1,4 +1,4 @@
-/* Meta API Watch — Client-Side Logic */
+/* Meta API Explain — Client-Side Logic */
 
 (function () {
   'use strict';

@@ -38,4 +38,18 @@ If you violate the policy, the API returns specific error codes:
 
 <!-- preview -->
 ✅ Valid: Using the `HUMAN_AGENT` tag to reply manually 48 hours after the user's last interaction.
-❌ Invalid: Using the `HUMAN_AGENT` tag for an automated, non-human promotional blast.
+❌ Invalid: Using the `HUMAN_AGENT` tag for an automated, non-human promotional blast.\n\n
+<!-- panel:comparison -->
+**Standard Messaging vs Message Tags**
+- **Standard Window (24h):** Allows promotional and non-promotional content within 24 hours of the user\'s last interaction.
+- **Message Tags:** Allows sending non-promotional updates (e.g. POST_PURCHASE_UPDATE) outside the 24h window.
+<!-- endpanel -->
+\n
+<!-- panel:quiz -->
+Which of the following is ALLOWED outside the 24-hour standard messaging window without a tag?
+- [ ] Sending a discount code.
+- [ ] Sending a daily newsletter.
+- [ ] Asking the user to buy a product.
+- [x] None of the above. You must use a Message Tag or Sponsored Message outside 24h.
+<!-- endpanel -->
+\n

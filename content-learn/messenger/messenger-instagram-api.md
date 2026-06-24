@@ -102,4 +102,18 @@ Messenger and Instagram webhooks share the exact same format and are delivered t
 
 - [ ] Ensure SEEN V2 tracks the 24-hour window timer for every active conversation per user (PSID/IGSID).
 - [ ] Prevent agents or automated broadcasts from sending untagged messages after 24 hours.
-- [ ] Implement support for Instagram Story Mention webhook payloads natively in the Flow Builder.
+- [ ] Implement support for Instagram Story Mention webhook payloads natively in the Flow Builder.\n\n
+<!-- panel:comparison -->
+**Messenger API vs Instagram Messaging API**
+- **Messenger API:** Uses Facebook Page ID. Supports features like generic templates, receipts, and persistent menu.
+- **Instagram Messaging API:** Uses IG Professional Account ID. Supports story replies, ice breakers, and product templates.
+<!-- endpanel -->
+\n
+<!-- panel:quiz -->
+Can you use the exact same payload to send an Interactive Button template on both Messenger and Instagram?
+- [ ] Yes, the APIs are 100% identical.
+- [x] Generally yes for basic buttons, but some advanced templates (like Receipt) are only supported on Messenger.
+- [ ] No, Instagram uses XML instead of JSON.
+- [ ] No, Instagram does not support buttons at all.
+<!-- endpanel -->
+\n

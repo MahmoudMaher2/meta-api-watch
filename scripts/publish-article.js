@@ -322,7 +322,7 @@ function buildIndex(articles) {
   return `<!DOCTYPE html>
 <html lang="en" data-theme="dark" data-lang="en">
 ${buildHead(
-  'Meta API Watch — SEEN V2 Changelog Tracker',
+  'Meta API Explain — SEEN V2 Changelog Tracker',
   'Daily tracker for Meta Developer API changes for SEEN V2.',
   'style.css'
 )}
@@ -421,7 +421,7 @@ function buildWelcome(articles, learnTopics) {
   return `<!DOCTYPE html>
 <html lang="en" data-theme="dark" data-lang="en">
 ${buildHead(
-  'Meta API Watch — SEEN V2 Developer Hub',
+  'Meta API Explain — SEEN V2 Developer Hub',
   'Track every Meta API change. Learn every feature with validation rules. Built for SEEN V2.',
   'style.css'
 )}
@@ -431,7 +431,7 @@ ${buildHead(
 
   <main class="welcome-page">
     <div class="welcome-container">
-      <div class="welcome-badge">&#x1F52D; Meta API Watch</div>
+      <div class="welcome-badge">&#x1F52D; Meta API Explain</div>
       <h1 class="welcome-h1">
         <span data-en="Track Changes." data-ar="تتبّع التغييرات.">Track Changes.</span><br>
         <span data-en="Master the API." data-ar="أتقن الـ API.">Master the API.</span>
@@ -470,7 +470,7 @@ ${buildHead(
 
   <footer class="site-footer">
     <p>
-      Meta API Watch &middot; SEEN V2 &middot;
+      Meta API Explain &middot; SEEN V2 &middot;
       <a href="changelog.html" data-en="Changelog" data-ar="سجل التغييرات">Changelog</a> &middot;
       <a href="learn/index.html" data-en="Learn" data-ar="تعلّم">Learn</a>
     </p>

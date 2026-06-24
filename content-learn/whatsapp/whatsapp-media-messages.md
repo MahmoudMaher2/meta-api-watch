@@ -136,4 +136,18 @@ curl -X POST "https://graph.facebook.com/v19.0/{PHONE_NUMBER_ID}/media" \
 
 - [ ] Ensure user uploads in SEEN V2 are validated against Meta's strict MB limits *before* API dispatch
 - [ ] Implement auto-conversion for common incompatible types (e.g. converting `.gif` to `.mp4`)
-- [ ] Verify that document filenames include the correct extension for WhatsApp to render the appropriate icon
+- [ ] Verify that document filenames include the correct extension for WhatsApp to render the appropriate icon\n\n
+<!-- panel:comparison -->
+**Media ID vs Media Link**
+- **Media ID:** You upload the media to Meta\'s servers first, get an ID, and send using the ID. Faster delivery.
+- **Media Link (URL):** You provide a public URL. Meta downloads it on the fly. Slower, and fails if your server blocks Meta.
+<!-- endpanel -->
+\n
+<!-- panel:quiz -->
+What is the maximum file size for a Video sent via WhatsApp Cloud API?
+- [ ] 5 MB
+- [x] 16 MB
+- [ ] 100 MB
+- [ ] 2 GB
+<!-- endpanel -->
+\n

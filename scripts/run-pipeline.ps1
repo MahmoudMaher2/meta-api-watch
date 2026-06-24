@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Meta API Watch — Daily Pipeline Runner
+    Meta API Explain — Daily Pipeline Runner
     Runs the 5-stage agent pipeline for every enabled source in sources.json.
 
 .DESCRIPTION
@@ -78,7 +78,7 @@ if ($SourceSlug) {
 
 # ── Summary ───────────────────────────────────────────────────────────────────
 Write-Host ""
-Write-Host "🔭  Meta API Watch — Pipeline Runner" -ForegroundColor Cyan
+Write-Host "🔭  Meta API Explain — Pipeline Runner" -ForegroundColor Cyan
 Write-Host "    Date:    $Date"
 Write-Host "    Sources: $($sources.Count) enabled"
 if ($DryRun) { Write-Host "    Mode:    DRY RUN (no files written)" -ForegroundColor Yellow }
@@ -104,7 +104,7 @@ foreach ($source in $sources) {
         Write-Host "🌐 STEP 1 — Fetch & Snapshot" -ForegroundColor Yellow
 
         $fetchPrompt = @"
-You are the Fetch & Snapshot Agent for Meta API Watch.
+You are the Fetch & Snapshot Agent for Meta API Explain.
 
 Task:
 1. Open this URL using the browser tool (real browser rendering — NOT a plain HTTP request):
@@ -243,7 +243,7 @@ audit_corrections: none
 - **Compared against**: [previous snapshot date]
 
 ---
-*Article drafted by Meta API Watch pipeline. Pending self-audit (Step 4).*
+*Article drafted by Meta API Explain pipeline. Pending self-audit (Step 4).*
 
 IMPORTANT rules:
 - Do NOT invent details not present in the diff
@@ -274,7 +274,7 @@ Then report: "DRAFT_SAVED: $draftFile"
     $learnRootDir = Split-Path $ProjectRoot -Parent  # not used, using $learnDir directly
 
     $learnPrompt = @"
-You are the LEARN Auto-generator for Meta API Watch.
+You are the LEARN Auto-generator for Meta API Explain.
 
 Read the draft article below and decide:
   - IF the frontmatter field `category` is exactly "New Feature"
@@ -431,7 +431,7 @@ last_verified: $Date
     $draftContent = if (Test-Path $draftFile) { Get-Content $draftFile -Raw } else { "[DRAFT FILE NOT FOUND]" }
 
     $auditPrompt = @"
-You are the Self-Audit Agent for Meta API Watch. Your job is to verify every factual
+You are the Self-Audit Agent for Meta API Explain. Your job is to verify every factual
 claim in the draft article below against the LIVE source page.
 
 THIS STEP IS MANDATORY. Do NOT skip it. Do NOT assume the draft is correct.

@@ -37,4 +37,18 @@ The presentation of product images within the chat and the Product Detail Pages 
 ## Additional UI Constraints
 
 *   **Catalog Requirement:** You must have a connected Meta product catalog to send these messages.
-*   **Interactive Nature:** These are considered interactive messages and are primarily used within the 24-hour customer service window.
+*   **Interactive Nature:** These are considered interactive messages and are primarily used within the 24-hour customer service window.\n\n
+<!-- panel:comparison -->
+**Single Product vs Multi-Product**
+- **Single Product Message:** Displays one specific item with a large image and description. User can add directly to cart.
+- **Multi-Product Message:** Displays a list of up to 30 items grouped into sections. Great for browsing categories.
+<!-- endpanel -->
+\n
+<!-- panel:quiz -->
+Before sending a catalog message, what MUST be linked to your WhatsApp Business Account?
+- [ ] An Instagram page.
+- [x] A Meta Commerce Manager Catalog.
+- [ ] A Shopify WABA plugin.
+- [ ] A Stripe payment link.
+<!-- endpanel -->
+\n

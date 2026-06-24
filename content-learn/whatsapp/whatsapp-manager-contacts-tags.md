@@ -47,11 +47,11 @@ Tags (sometimes called Labels) are critical for segmenting your audience. By ass
 - **Limit:** While you can create many tags, keeping your tag taxonomy organized is crucial. Use consistent naming conventions.
 
 <!-- panel:quiz -->
-**Question:**
-Can I automatically tag a user based on the message they send me?
-
-**Answer:**
-**Not natively in the UI.** The WhatsApp Manager UI allows manual tagging or bulk-tagging on upload. For automatic tagging based on chat behavior, you must use a Webhook-driven script or a 3rd-party inbox system.
+Can I automatically tag a user based on the message they send me natively in WhatsApp Manager?
+- [ ] Yes, using the built-in auto-rules feature
+- [x] No, not natively. Automatic tagging requires a Webhook-driven script
+- [ ] Yes, but only for verified business accounts
+- [ ] No, it is impossible to tag users based on their messages
 <!-- endpanel -->
 
 ---

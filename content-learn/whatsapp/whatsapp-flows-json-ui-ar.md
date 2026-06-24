@@ -36,4 +36,18 @@ tags: [flows, json, ui, limits, screens, components]
 
 <!-- preview -->
 ✅ Valid: تقسيم عملية تأهيل (Onboarding) مكونة من 20 شاشة إلى 4 تدفقات منفصلة متصلة عبر `flow_ref`.
-❌ Invalid: بناء ملف JSON لتدفق واحد يحتوي على 150 شاشة، مما يؤدي إلى رفض الرفع (Upload Rejection).
+❌ Invalid: بناء ملف JSON لتدفق واحد يحتوي على 150 شاشة، مما يؤدي إلى رفض الرفع (Upload Rejection).\n\n
+<!-- panel:comparison -->
+**إدخال النص مقابل القائمة المنسدلة**
+- **إدخال النص (TextInput):** يسمح بإدخال نص حر. الأفضل للأسماء، العناوين، أو الأرقام الخاصة.
+- **القائمة المنسدلة (Dropdown):** تقيد المستخدم بقائمة خيارات محددة مسبقاً. تمنع الأخطاء الإملائية.
+<!-- endpanel -->
+\n
+<!-- panel:quiz -->
+أي الخصائص التالية مطلوبة (REQUIRED) لكل شاشة داخل الـ Flow JSON؟
+- [ ] "footer"
+- [x] "layout"
+- [ ] "success_action"
+- [ ] "data_exchange"
+<!-- endpanel -->
+\n

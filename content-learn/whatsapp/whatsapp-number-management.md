@@ -45,4 +45,18 @@ Two-step verification provides essential security for API-connected phone number
 
 <!-- preview -->
 ✅ Valid: Setting a 6-digit PIN (e.g., 839201) and associating an IT admin email for recovery.
-❌ Invalid: Attempting to set a 4-digit PIN or trying to disable 2FA via an API endpoint.
+❌ Invalid: Attempting to set a 4-digit PIN or trying to disable 2FA via an API endpoint.\n\n
+<!-- panel:comparison -->
+**WABA vs Phone Number**
+- **WhatsApp Business Account (WABA):** The umbrella container. Holds your payment methods, templates, and multiple phone numbers.
+- **Phone Number:** The actual sender ID. Has its own distinct quality rating, messaging limits, and display name.
+<!-- endpanel -->
+\n
+<!-- panel:quiz -->
+How many phone numbers can a verified WABA host by default without requesting an increase?
+- [ ] 1
+- [ ] 2
+- [x] Up to 20
+- [ ] Unlimited
+<!-- endpanel -->
+\n

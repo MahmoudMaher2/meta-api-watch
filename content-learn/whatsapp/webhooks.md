@@ -282,4 +282,18 @@ Fires when WABA-level changes occur.
 | Status updates | `delivered` / `read` → update message state in UI |
 | Template status | `APPROVED` → unlock template for use in Broadcasts |
 | Deduplication | Store processed `wamid` to avoid double-processing |
-| Signature | Must verify in production — never skip in a real app |
+| Signature | Must verify in production — never skip in a real app |\n\n
+<!-- panel:comparison -->
+**Messages Webhook vs Statuses Webhook**
+- **Messages Event:** Triggered when a user sends an incoming message (text, image, button click) to your business.
+- **Statuses Event:** Triggered when the delivery status of your OUTGOING message changes (sent, delivered, read).
+<!-- endpanel -->
+\n
+<!-- panel:quiz -->
+How do you verify the authenticity of a webhook request from Meta?
+- [ ] Check the IP address of the request.
+- [x] Validate the X-Hub-Signature-256 header using your App Secret.
+- [ ] Send a GET request to Meta API to confirm.
+- [ ] Check for a "verified: true" boolean in the JSON payload.
+<!-- endpanel -->
+\n

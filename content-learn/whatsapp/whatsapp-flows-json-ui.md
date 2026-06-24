@@ -36,4 +36,18 @@ A single Flow is strictly limited to a maximum of **100 screens**.
 
 <!-- preview -->
 ✅ Valid: Splitting a 20-screen onboarding process into 4 separate Flows connected via `flow_ref`.
-❌ Invalid: Building a single JSON Flow file with 150 screens, resulting in an upload rejection.
+❌ Invalid: Building a single JSON Flow file with 150 screens, resulting in an upload rejection.\n\n
+<!-- panel:comparison -->
+**TextInput vs Dropdown**
+- **TextInput:** Allows free-form text entry. Best for names, addresses, or specific IDs.
+- **Dropdown:** Restricts user to a predefined list of options. Prevents typos and parsing errors.
+<!-- endpanel -->
+\n
+<!-- panel:quiz -->
+Which of the following is a REQUIRED property for every screen in the Flow JSON?
+- [ ] "footer"
+- [x] "layout"
+- [ ] "success_action"
+- [ ] "data_exchange"
+<!-- endpanel -->
+\n

@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Sets up a Windows Scheduled Task to run the Meta API Watch pipeline daily.
+    Sets up a Windows Scheduled Task to run the Meta API Explain pipeline daily.
 
 .DESCRIPTION
     Creates a task that runs run-pipeline.ps1 every day at the specified time.
@@ -34,7 +34,7 @@ if (-not (Test-Path $PipelineScript)) {
 }
 
 Write-Host ""
-Write-Host "🔧 Meta API Watch — Scheduled Task Setup" -ForegroundColor Cyan
+Write-Host "🔧 Meta API Explain — Scheduled Task Setup" -ForegroundColor Cyan
 Write-Host "   Task name: $TaskName"
 Write-Host "   Daily at:  $RunAt"
 Write-Host "   Script:    $PipelineScript"
@@ -76,7 +76,7 @@ try {
         -Trigger   $Trigger `
         -Settings  $Settings `
         -Principal $Principal `
-        -Description "Meta API Watch: daily check of Meta Developer Docs for SEEN V2 changelog tracking." `
+        -Description "Meta API Explain: daily check of Meta Developer Docs for SEEN V2 changelog tracking." `
         | Out-Null
 
     Write-Host "✅ Scheduled task '$TaskName' registered successfully!" -ForegroundColor Green

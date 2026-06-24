@@ -31,4 +31,18 @@ When initiating a private reply to a comment, there are strict content constrain
 
 <!-- preview -->
 ✅ Valid: Sending a simple text message saying "Thanks for commenting! How can we help?" as the first reply.
-❌ Invalid: Sending an image of a product discount code as the very first private reply to a comment.
+❌ Invalid: Sending an image of a product discount code as the very first private reply to a comment.\n\n
+<!-- panel:comparison -->
+**Public Comments vs Private Replies**
+- **Public Comments:** Visible to everyone. Great for engagement and general answers. Limited to text and tagging.
+- **Private Replies:** Sent via DM. Ideal for customer support, order details, and collecting user info securely.
+<!-- endpanel -->
+\n
+<!-- panel:quiz -->
+How quickly must a Private Reply be sent after a user comments on an Instagram post?
+- [ ] Within 24 hours
+- [x] Within 7 days
+- [ ] Within 1 hour
+- [ ] There is no time limit
+<!-- endpanel -->
+\n

@@ -178,4 +178,18 @@ These appear as `error_subcode` when creating/editing templates:
 | `132001`, `132006`, `132016` | Alert QA team — template issue |
 | `132000` | Bug — fix parameter count in code |
 | `190` | Refresh access token |
-| `4`, `10` | Alert developer — permission issue |
+| `4`, `10` | Alert developer — permission issue |\n\n
+<!-- panel:comparison -->
+**Client Errors vs Server Errors**
+- **Client Errors (4xx):** Typically caused by invalid input, rate limits, or expired tokens. You must fix the request before retrying.
+- **Server Errors (5xx):** Caused by temporary issues on Meta\'s end. You should retry the request with exponential backoff.
+<!-- endpanel -->
+\n
+<!-- panel:quiz -->
+What should you do if you receive a Rate Limit (131056) error?
+- [ ] Immediately retry the exact same request.
+- [x] Pause sending and implement exponential backoff or wait for the limit window to reset.
+- [ ] Delete the template and recreate it.
+- [ ] Change the phone number.
+<!-- endpanel -->
+\n

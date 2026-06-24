@@ -14,22 +14,22 @@
 
   <header class="site-header">
   <div class="header-inner">
-    <div class="header-logo">
+    <a href="../../index.html" class="header-logo" style="text-decoration: none;">
       <span class="logo-icon">🔭</span>
       <div class="logo-text">
-        <strong>Meta API Watch</strong>
-        <span>SEEN V2 · Developer Hub</span>
+        <div class="site-title">Meta API Explain</div>
+        <div class="site-subtitle">SEEN V2 · Developer Hub</div>
       </div>
-    </div>
+    </a>
     
     <nav class="header-nav">
-      <a href="../../index.html" class="nav-item ">
+      <a href="../../changelog.html" class="nav-tab ">
         <span class="nav-icon">🔔</span>
-        Latest Updates
+        <span class="nav-text" data-en="Latest Updates" data-ar="آخر التحديثات">Latest Updates</span>
       </a>
-      <a href="../../learn/index.html" class="nav-item active">
+      <a href="../../learn/index.html" class="nav-tab active">
         <span class="nav-icon">📚</span>
-        Learn
+        <span class="nav-text" data-en="Learn" data-ar="تعلّم">Learn</span>
       </a>
     </nav>
 
@@ -37,51 +37,36 @@
       <!-- Search Trigger -->
       <button id="search-trigger" class="search-btn" title="Search documentation... (Ctrl+K)">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        <span>Search...</span>
+        <span>Search</span>
         <kbd>/</kbd>
       </button>
 
-      <div class="build-badge">
-        <span class="pulse"></span>
-        LAST BUILD Jun 24, 2026, 11:13 PM 🇪🇬
+      <div class="header-build-time" title="System Status: Up to date">
+        <div class="build-pulse"></div>
+        <span class="build-label">LAST BUILD</span>
+        <span class="build-value">Jun 24, 2026, 11:52 PM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
-      <button id="lang-toggle" class="icon-btn" title="Toggle Language (AR/EN)">
+      <button id="lang-toggle" class="lang-toggle" title="Toggle Language (AR/EN)">
         <span class="lang-en">EN</span>
+        <span class="lang-sep">|</span>
         <span class="lang-ar">عربي</span>
       </button>
       
       <!-- Theme Toggle -->
-      <button id="theme-toggle" class="icon-btn" title="Toggle Theme">
-        <span class="moon">🌙</span>
-        <span class="sun">☀️</span>
+      <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
       </button>
     </div>
   </div>
 </header>
 
-<!-- Search Modal -->
-<div id="search-modal" class="search-modal">
-  <div class="search-modal-content">
-    <div class="search-header">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-      <input type="text" id="search-input" placeholder="Search topics, error codes, guidelines..." autocomplete="off">
-      <button id="search-close" class="icon-btn">×</button>
-    </div>
-    <div id="search-results" class="search-results"></div>
-    <div class="search-footer">
-      <span><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span>
-      <span><kbd>Enter</kbd> to select</span>
-      <span><kbd>ESC</kbd> to close</span>
-    </div>
-  </div>
-</div>
 
 
 
-
-  <div class="learn-layout">
+  <div class="learn-layout has-panels">
 
     <!-- Sidebar -->
     <aside class="learn-sidebar" id="sidebar">
@@ -193,13 +178,13 @@
 
 <h3 id="what-can-be-changed">What CAN be changed</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Field</th><th>Condition</th></tr></thead><tbody><tr><td><code>components</code> (body, header, buttons)</td><td>Always (re-triggers review)</td></tr><tr><td><code>category</code></td><td>Only if template is <code>REJECTED</code> or <code>PAUSED</code></td></tr><tr><td><code>message_send_ttl_seconds</code></td><td>Any state</td></tr><tr><td><code>allow_category_change</code></td><td>Any state</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Condition</th></tr></thead><tbody><tr><td><code>components</code> (body, header, buttons)</td><td>Always (re-triggers review)</td></tr><tr><td><code>category</code></td><td>Only if template is <code class="code-red">REJECTED</code> or <code>PAUSED</code></td></tr><tr><td><code>message_send_ttl_seconds</code></td><td>Any state</td></tr><tr><td><code>allow_category_change</code></td><td>Any state</td></tr></tbody></table></div>
 <h3 id="what-cannot-be-changed-immutable">What CANNOT be changed (Immutable)</h3>
 
 <div class="table-wrap"><table><thead><tr><th>Field</th><th>Workaround</th></tr></thead><tbody><tr><td><code>name</code></td><td>Delete + create new</td></tr><tr><td><code>language</code></td><td>Delete + create new</td></tr></tbody></table></div>
 <h3 id="edit-rate-limits">Edit Rate Limits</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Template state</th><th>Edits allowed</th></tr></thead><tbody><tr><td><code>APPROVED</code></td><td>Max <strong>10 edits per 30 days</strong>, or <strong>1 edit per 24 hours</strong></td></tr><tr><td><code>REJECTED</code></td><td>Unlimited</td></tr><tr><td><code>PAUSED</code></td><td>Unlimited</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>Template state</th><th>Edits allowed</th></tr></thead><tbody><tr><td><code>APPROVED</code></td><td>Max <strong>10 edits per 30 days</strong>, or <strong>1 edit per 24 hours</strong></td></tr><tr><td><code class="code-red">REJECTED</code></td><td>Unlimited</td></tr><tr><td><code>PAUSED</code></td><td>Unlimited</td></tr></tbody></table></div>
 <hr>
 
 <h2 id="delete-rules">DELETE — Rules</h2>
@@ -430,7 +415,7 @@
 
 <h2 id="seen-v2-notes">SEEN V2 — Notes</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Feature</th><th>How SEEN V2 Uses It</th></tr></thead><tbody><tr><td>WhatsApp Templates</td><td>Core of Broadcasts module — all bulk sends</td></tr><tr><td>Category</td><td><code>MARKETING</code> for campaigns, <code>UTILITY</code> for transactional</td></tr><tr><td>Webhooks</td><td><code>message_template_status_update</code> → watch for <code>APPROVED</code>/<code>REJECTED</code></td></tr><tr><td>Rate limits</td><td>Apply per WABA — shared across all SEEN V2 clients on same WABA</td></tr><tr><td>Opt-out</td><td><code>131050</code> must be handled gracefully in Broadcasts</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>Feature</th><th>How SEEN V2 Uses It</th></tr></thead><tbody><tr><td>WhatsApp Templates</td><td>Core of Broadcasts module — all bulk sends</td></tr><tr><td>Category</td><td><code>MARKETING</code> for campaigns, <code>UTILITY</code> for transactional</td></tr><tr><td>Webhooks</td><td><code>message_template_status_update</code> → watch for <code>APPROVED</code>/<code class="code-red">REJECTED</code></td></tr><tr><td>Rate limits</td><td>Apply per WABA — shared across all SEEN V2 clients on same WABA</td></tr><tr><td>Opt-out</td><td><code>131050</code> must be handled gracefully in Broadcasts</td></tr></tbody></table></div>
 <div class="callout callout-info"><strong>QA Note:</strong><p>When testing template creation, always include sample values (`example`) for any template with variables, or the API will reject with a validation error.</p></div>
 
 <hr>
@@ -458,7 +443,7 @@
 
 <h3 id="query-parameters">Query Parameters</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>fields</code></td><td>string</td><td>Comma-separated fields: <code>name,category,status,language,components</code></td></tr><tr><td><code>status</code></td><td>enum</td><td>Filter by: <code>APPROVED</code>, <code>PENDING</code>, <code>REJECTED</code>, <code>PAUSED</code>, <code>DISABLED</code></td></tr><tr><td><code>limit</code></td><td>integer</td><td>Max results per page (default: 100)</td></tr><tr><td><code>after</code></td><td>cursor</td><td>Pagination cursor for next page</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>fields</code></td><td>string</td><td>Comma-separated fields: <code>name,category,status,language,components</code></td></tr><tr><td><code>status</code></td><td>enum</td><td>Filter by: <code>APPROVED</code>, <code>PENDING</code>, <code class="code-red">REJECTED</code>, <code>PAUSED</code>, <code>DISABLED</code></td></tr><tr><td><code>limit</code></td><td>integer</td><td>Max results per page (default: 100)</td></tr><tr><td><code>after</code></td><td>cursor</td><td>Pagination cursor for next page</td></tr></tbody></table></div>
 <h3 id="filter-by-status-example">Filter by Status — Example</h3>
 
 <div class="mac-editor">
@@ -509,14 +494,14 @@
 
 <h3 id="template-statuses">Template Statuses</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Status</th><th>Meaning</th></tr></thead><tbody><tr><td><code>APPROVED</code></td><td>Ready to use — can be sent to customers</td></tr><tr><td><code>PENDING</code></td><td>Under review by Meta (usually within minutes)</td></tr><tr><td><code>REJECTED</code></td><td>Failed review — see rejection reason</td></tr><tr><td><code>PAUSED</code></td><td>Auto-paused due to low quality rating</td></tr><tr><td><code>DISABLED</code></td><td>Permanently disabled after repeated low quality</td></tr><tr><td><code>PENDING_DELETION</code></td><td>Delete requested; delivery attempted for 30 days</td></tr><tr><td><code>LIMIT_EXCEEDED</code></td><td>WABA hit the 250-template limit</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>Status</th><th>Meaning</th></tr></thead><tbody><tr><td><code>APPROVED</code></td><td>Ready to use — can be sent to customers</td></tr><tr><td><code>PENDING</code></td><td>Under review by Meta (usually within minutes)</td></tr><tr><td><code class="code-red">REJECTED</code></td><td>Failed review — see rejection reason</td></tr><tr><td><code>PAUSED</code></td><td>Auto-paused due to low quality rating</td></tr><tr><td><code>DISABLED</code></td><td>Permanently disabled after repeated low quality</td></tr><tr><td><code>PENDING_DELETION</code></td><td>Delete requested; delivery attempted for 30 days</td></tr><tr><td><code>LIMIT_EXCEEDED</code></td><td>WABA hit the 250-template limit</td></tr></tbody></table></div>
 <hr>
 
 <h2 id="edit-limitations">EDIT — Limitations</h2>
 
 <div class="callout callout-info"><strong>Source:</strong><p>[Meta Docs — Edit Templates](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-management/#limitations)</p></div>
 
-<div class="table-wrap"><table><thead><tr><th>Limitation</th><th>Details</th></tr></thead><tbody><tr><td><strong>Allowed statuses</strong></td><td>Only <code>APPROVED</code>, <code>REJECTED</code>, or <code>PAUSED</code> templates can be edited</td></tr><tr><td><strong>Editable fields</strong></td><td>Only: <code>category</code>, <code>components</code>, <code>message_send_ttl_seconds</code></td></tr><tr><td><strong>Cannot isolate components</strong></td><td>All components are replaced together — you must send ALL components in the edit request</td></tr><tr><td><strong>Category of approved</strong></td><td>Cannot change category of an <code>APPROVED</code> template</td></tr><tr><td><strong>Rate limit (approved)</strong></td><td>Max <strong>10 edits in 30 days</strong> OR <strong>1 edit in 24 hours</strong></td></tr><tr><td><strong>Rate limit (rejected/paused)</strong></td><td>Unlimited edits</td></tr><tr><td><strong>After editing</strong></td><td>Template goes back to review automatically; approved unless it fails review</td></tr><tr><td><strong>Name is immutable</strong></td><td>Template name cannot be changed — any <code>name</code> field in edit request is ignored</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>Limitation</th><th>Details</th></tr></thead><tbody><tr><td><strong>Allowed statuses</strong></td><td>Only <code>APPROVED</code>, <code class="code-red">REJECTED</code>, or <code>PAUSED</code> templates can be edited</td></tr><tr><td><strong>Editable fields</strong></td><td>Only: <code>category</code>, <code>components</code>, <code>message_send_ttl_seconds</code></td></tr><tr><td><strong>Cannot isolate components</strong></td><td>All components are replaced together — you must send ALL components in the edit request</td></tr><tr><td><strong>Category of approved</strong></td><td>Cannot change category of an <code>APPROVED</code> template</td></tr><tr><td><strong>Rate limit (approved)</strong></td><td>Max <strong>10 edits in 30 days</strong> OR <strong>1 edit in 24 hours</strong></td></tr><tr><td><strong>Rate limit (rejected/paused)</strong></td><td>Unlimited edits</td></tr><tr><td><strong>After editing</strong></td><td>Template goes back to review automatically; approved unless it fails review</td></tr><tr><td><strong>Name is immutable</strong></td><td>Template name cannot be changed — any <code>name</code> field in edit request is ignored</td></tr></tbody></table></div>
 <h3 id="editable-example-edit-components">✅ Editable Example — Edit components</h3>
 
 <div class="mac-editor">
@@ -691,7 +676,7 @@
 
 <h2 id="template-pausing-quality">Template Pausing & Quality</h2>
 
-<p>Templates are automatically paused when they reach <strong>low quality</strong> (<code>quality_score: RED</code>).</p>
+<p>Templates are automatically paused when they reach <strong>low quality</strong> (<code class="code-red">quality_score: RED</code>).</p>
 
 <h3 id="pause-duration-schedule">Pause Duration Schedule</h3>
 
@@ -891,7 +876,11 @@
 
 <h2 id="template-limits-summary">Template Limits Summary</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Limit</th><th>Value</th></tr></thead><tbody><tr><td>Max templates per WABA</td><td><strong>250</strong> (default)</td></tr><tr><td>Max template name length</td><td><strong>512 characters</strong></td></tr><tr><td>Max body text length</td><td><strong>1024 characters</strong></td></tr><tr><td>Max header text length</td><td><strong>60 characters</strong></td></tr><tr><td>Max footer text length</td><td><strong>60 characters</strong></td></tr><tr><td>Max buttons</td><td><strong>10</strong> (3 quick reply + up to 10 call-to-action)</td></tr><tr><td>Max quick reply buttons</td><td><strong>3</strong></td></tr><tr><td>Max CTA buttons</td><td><strong>2</strong> (1 phone + 1 URL)</td></tr><tr><td>Edit rate (approved templates)</td><td><strong>10 edits / 30 days</strong> OR <strong>1 edit / 24 hours</strong></td></tr><tr><td>Analytics template IDs per call</td><td><strong>10</strong></td></tr><tr><td>Click data retention</td><td><strong>7 days</strong></td></tr><tr><td>Post-deletion name ban</td><td><strong>30 days</strong></td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>Limit</th><th>Value</th></tr></thead><tbody><tr><td>Max templates per WABA</td><td><strong>250</strong> (default)</td></tr><tr><td>Max template name length</td><td><strong>512 characters</strong></td></tr><tr><td>Max body text length</td><td><strong>1024 characters</strong></td></tr><tr><td>Max header text length</td><td><strong>60 characters</strong></td></tr><tr><td>Max footer text length</td><td><strong>60 characters</strong></td></tr><tr><td>Max buttons</td><td><strong>10</strong> (3 quick reply + up to 10 call-to-action)</td></tr><tr><td>Max quick reply buttons</td><td><strong>3</strong></td></tr><tr><td>Max CTA buttons</td><td><strong>2</strong> (1 phone + 1 URL)</td></tr><tr><td>Edit rate (approved templates)</td><td><strong>10 edits / 30 days</strong> OR <strong>1 edit / 24 hours</strong></td></tr><tr><td>Analytics template IDs per call</td><td><strong>10</strong></td></tr><tr><td>Click data retention</td><td><strong>7 days</strong></td></tr><tr><td>Post-deletion name ban</td><td><strong>30 days</strong></td></tr></tbody></table></div>\n\n
+
+<p>\n</p>
+
+<p>\n</p>
       </div>
       <div class="topic-body lang-ar"><h1>قوالب الرسائل</h1>
 
@@ -959,13 +948,13 @@
 
 <h3 id="ما-يمكن-تغييره">ما يمكن تغييره</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Field</th><th>الشرط</th></tr></thead><tbody><tr><td><code>components</code> (body, header, buttons)</td><td>دائمًا (يُعيد تشغيل المراجعة)</td></tr><tr><td><code>category</code></td><td>فقط إذا كان القالب <code>REJECTED</code> أو <code>PAUSED</code></td></tr><tr><td><code>message_send_ttl_seconds</code></td><td>في أي حالة</td></tr><tr><td><code>allow_category_change</code></td><td>في أي حالة</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>الشرط</th></tr></thead><tbody><tr><td><code>components</code> (body, header, buttons)</td><td>دائمًا (يُعيد تشغيل المراجعة)</td></tr><tr><td><code>category</code></td><td>فقط إذا كان القالب <code class="code-red">REJECTED</code> أو <code>PAUSED</code></td></tr><tr><td><code>message_send_ttl_seconds</code></td><td>في أي حالة</td></tr><tr><td><code>allow_category_change</code></td><td>في أي حالة</td></tr></tbody></table></div>
 <h3 id="ما-لا-يمكن-تغييره-ثابت">ما لا يمكن تغييره (ثابت)</h3>
 
 <div class="table-wrap"><table><thead><tr><th>Field</th><th>الحل البديل</th></tr></thead><tbody><tr><td><code>name</code></td><td>حذف + إنشاء جديد</td></tr><tr><td><code>language</code></td><td>حذف + إنشاء جديد</td></tr></tbody></table></div>
 <h3 id="حدود-معدل-التعديل-rate-limits">حدود معدل التعديل (Rate Limits)</h3>
 
-<div class="table-wrap"><table><thead><tr><th>حالة القالب</th><th>التعديلات المسموح بها</th></tr></thead><tbody><tr><td><code>APPROVED</code></td><td>بحد أقصى <strong>10 تعديلات كل 30 يومًا</strong>، أو <strong>تعديل واحد كل 24 ساعة</strong></td></tr><tr><td><code>REJECTED</code></td><td>غير محدود</td></tr><tr><td><code>PAUSED</code></td><td>غير محدود</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>حالة القالب</th><th>التعديلات المسموح بها</th></tr></thead><tbody><tr><td><code>APPROVED</code></td><td>بحد أقصى <strong>10 تعديلات كل 30 يومًا</strong>، أو <strong>تعديل واحد كل 24 ساعة</strong></td></tr><tr><td><code class="code-red">REJECTED</code></td><td>غير محدود</td></tr><tr><td><code>PAUSED</code></td><td>غير محدود</td></tr></tbody></table></div>
 <hr>
 
 <h2 id="delete-القواعد-rules">DELETE — القواعد (Rules)</h2>
@@ -1196,7 +1185,7 @@
 
 <h2 id="seen-v2-ملاحظات">SEEN V2 — ملاحظات</h2>
 
-<div class="table-wrap"><table><thead><tr><th>الميزة</th><th>كيف يستخدمها SEEN V2</th></tr></thead><tbody><tr><td>قوالب WhatsApp</td><td>جوهر وحدة البث (Broadcasts) — كافة عمليات الإرسال الجماعي</td></tr><tr><td>الفئة</td><td><code>MARKETING</code> للحملات، <code>UTILITY</code> للرسائل الخاصة بالمعاملات</td></tr><tr><td>خطافات الويب (Webhooks)</td><td><code>message_template_status_update</code> → المراقبة من أجل <code>APPROVED</code>/<code>REJECTED</code></td></tr><tr><td>حدود المعدل (Rate limits)</td><td>تُطبق لكل WABA — مشتركة بين جميع عملاء SEEN V2 على نفس الـ WABA</td></tr><tr><td>إلغاء الاشتراك (Opt-out)</td><td>يجب التعامل مع <code>131050</code> بسلاسة في وحدة البث</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>الميزة</th><th>كيف يستخدمها SEEN V2</th></tr></thead><tbody><tr><td>قوالب WhatsApp</td><td>جوهر وحدة البث (Broadcasts) — كافة عمليات الإرسال الجماعي</td></tr><tr><td>الفئة</td><td><code>MARKETING</code> للحملات، <code>UTILITY</code> للرسائل الخاصة بالمعاملات</td></tr><tr><td>خطافات الويب (Webhooks)</td><td><code>message_template_status_update</code> → المراقبة من أجل <code>APPROVED</code>/<code class="code-red">REJECTED</code></td></tr><tr><td>حدود المعدل (Rate limits)</td><td>تُطبق لكل WABA — مشتركة بين جميع عملاء SEEN V2 على نفس الـ WABA</td></tr><tr><td>إلغاء الاشتراك (Opt-out)</td><td>يجب التعامل مع <code>131050</code> بسلاسة في وحدة البث</td></tr></tbody></table></div>
 <div class="callout callout-info"><strong>ملاحظة ضمان الجودة (QA):</strong><p>عند اختبار إنشاء قالب، قم دائمًا بتضمين قيم العينة (`example`) لأي قالب يحتوي على متغيرات، وإلا سترفضه واجهة برمجة التطبيقات (API) بخطأ في التحقق.</p></div>
 
 <hr>
@@ -1224,7 +1213,7 @@
 
 <h3 id="معلمات-الاستعلام-query-parameters">معلمات الاستعلام (Query Parameters)</h3>
 
-<div class="table-wrap"><table><thead><tr><th>المعلمة (Parameter)</th><th>Type</th><th>الوصف</th></tr></thead><tbody><tr><td><code>fields</code></td><td>string</td><td>حقول مفصولة بفواصل: <code>name,category,status,language,components</code></td></tr><tr><td><code>status</code></td><td>enum</td><td>التصفية حسب: <code>APPROVED</code>, <code>PENDING</code>, <code>REJECTED</code>, <code>PAUSED</code>, <code>DISABLED</code></td></tr><tr><td><code>limit</code></td><td>integer</td><td>الحد الأقصى للنتائج لكل صفحة (الافتراضي: 100)</td></tr><tr><td><code>after</code></td><td>cursor</td><td>مؤشر (cursor) الترقيم للصفحة التالية</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>المعلمة (Parameter)</th><th>Type</th><th>الوصف</th></tr></thead><tbody><tr><td><code>fields</code></td><td>string</td><td>حقول مفصولة بفواصل: <code>name,category,status,language,components</code></td></tr><tr><td><code>status</code></td><td>enum</td><td>التصفية حسب: <code>APPROVED</code>, <code>PENDING</code>, <code class="code-red">REJECTED</code>, <code>PAUSED</code>, <code>DISABLED</code></td></tr><tr><td><code>limit</code></td><td>integer</td><td>الحد الأقصى للنتائج لكل صفحة (الافتراضي: 100)</td></tr><tr><td><code>after</code></td><td>cursor</td><td>مؤشر (cursor) الترقيم للصفحة التالية</td></tr></tbody></table></div>
 <h3 id="التصفية-حسب-الحالة-مثال">التصفية حسب الحالة — مثال</h3>
 
 <div class="mac-editor">
@@ -1275,14 +1264,14 @@
 
 <h3 id="حالات-القالب">حالات القالب</h3>
 
-<div class="table-wrap"><table><thead><tr><th>الحالة</th><th>المعنى</th></tr></thead><tbody><tr><td><code>APPROVED</code></td><td>جاهز للاستخدام — يمكن إرساله إلى العملاء</td></tr><tr><td><code>PENDING</code></td><td>قيد المراجعة بواسطة Meta (عادةً خلال دقائق)</td></tr><tr><td><code>REJECTED</code></td><td>فشل في المراجعة — راجع سبب الرفض</td></tr><tr><td><code>PAUSED</code></td><td>تم إيقافه مؤقتاً تلقائياً بسبب تقييم جودة منخفض</td></tr><tr><td><code>DISABLED</code></td><td>معطل بشكل دائم بعد انخفاض متكرر في الجودة</td></tr><tr><td><code>PENDING_DELETION</code></td><td>تم طلب الحذف؛ تتم محاولة التسليم لمدة 30 يومًا</td></tr><tr><td><code>LIMIT_EXCEEDED</code></td><td>وصل حساب WABA إلى حد الـ 250 قالب</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>الحالة</th><th>المعنى</th></tr></thead><tbody><tr><td><code>APPROVED</code></td><td>جاهز للاستخدام — يمكن إرساله إلى العملاء</td></tr><tr><td><code>PENDING</code></td><td>قيد المراجعة بواسطة Meta (عادةً خلال دقائق)</td></tr><tr><td><code class="code-red">REJECTED</code></td><td>فشل في المراجعة — راجع سبب الرفض</td></tr><tr><td><code>PAUSED</code></td><td>تم إيقافه مؤقتاً تلقائياً بسبب تقييم جودة منخفض</td></tr><tr><td><code>DISABLED</code></td><td>معطل بشكل دائم بعد انخفاض متكرر في الجودة</td></tr><tr><td><code>PENDING_DELETION</code></td><td>تم طلب الحذف؛ تتم محاولة التسليم لمدة 30 يومًا</td></tr><tr><td><code>LIMIT_EXCEEDED</code></td><td>وصل حساب WABA إلى حد الـ 250 قالب</td></tr></tbody></table></div>
 <hr>
 
 <h2 id="edit-القيود">EDIT — القيود</h2>
 
 <div class="callout callout-info"><strong>المصدر:</strong><p>[مستندات Meta — تعديل القوالب](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-management/#limitations)</p></div>
 
-<div class="table-wrap"><table><thead><tr><th>القيد</th><th>التفاصيل</th></tr></thead><tbody><tr><td><strong>الحالات المسموح بها</strong></td><td>يمكن فقط تعديل القوالب ذات الحالة <code>APPROVED</code>، أو <code>REJECTED</code>، أو <code>PAUSED</code></td></tr><tr><td><strong>الحقول القابلة للتعديل</strong></td><td>فقط: <code>category</code>، <code>components</code>، <code>message_send_ttl_seconds</code></td></tr><tr><td><strong>لا يمكن عزل المكونات</strong></td><td>يتم استبدال جميع المكونات معًا — يجب عليك إرسال جميع المكونات في طلب التعديل</td></tr><tr><td><strong>فئة القوالب المعتمدة</strong></td><td>لا يمكن تغيير فئة قالب في حالة <code>APPROVED</code></td></tr><tr><td><strong>حد المعدل (للمعتمدة)</strong></td><td>بحد أقصى <strong>10 تعديلات في 30 يومًا</strong> أو <strong>تعديل واحد في 24 ساعة</strong></td></tr><tr><td><strong>حد المعدل (للمرفوضة/الموقفة مؤقتًا)</strong></td><td>تعديلات غير محدودة</td></tr><tr><td><strong>بعد التعديل</strong></td><td>يعود القالب للمراجعة تلقائيًا؛ ويتم اعتماده ما لم يفشل في المراجعة</td></tr><tr><td><strong>الاسم ثابت</strong></td><td>لا يمكن تغيير اسم القالب — يتم تجاهل أي حقل <code>name</code> في طلب التعديل</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>القيد</th><th>التفاصيل</th></tr></thead><tbody><tr><td><strong>الحالات المسموح بها</strong></td><td>يمكن فقط تعديل القوالب ذات الحالة <code>APPROVED</code>، أو <code class="code-red">REJECTED</code>، أو <code>PAUSED</code></td></tr><tr><td><strong>الحقول القابلة للتعديل</strong></td><td>فقط: <code>category</code>، <code>components</code>، <code>message_send_ttl_seconds</code></td></tr><tr><td><strong>لا يمكن عزل المكونات</strong></td><td>يتم استبدال جميع المكونات معًا — يجب عليك إرسال جميع المكونات في طلب التعديل</td></tr><tr><td><strong>فئة القوالب المعتمدة</strong></td><td>لا يمكن تغيير فئة قالب في حالة <code>APPROVED</code></td></tr><tr><td><strong>حد المعدل (للمعتمدة)</strong></td><td>بحد أقصى <strong>10 تعديلات في 30 يومًا</strong> أو <strong>تعديل واحد في 24 ساعة</strong></td></tr><tr><td><strong>حد المعدل (للمرفوضة/الموقفة مؤقتًا)</strong></td><td>تعديلات غير محدودة</td></tr><tr><td><strong>بعد التعديل</strong></td><td>يعود القالب للمراجعة تلقائيًا؛ ويتم اعتماده ما لم يفشل في المراجعة</td></tr><tr><td><strong>الاسم ثابت</strong></td><td>لا يمكن تغيير اسم القالب — يتم تجاهل أي حقل <code>name</code> في طلب التعديل</td></tr></tbody></table></div>
 <h3 id="مثال-قابل-للتعديل-تعديل-المكونات">✅ مثال قابل للتعديل — تعديل المكونات</h3>
 
 <div class="mac-editor">
@@ -1457,7 +1446,7 @@
 
 <h2 id="الإيقاف-المؤقت-للقوالب-والجودة">الإيقاف المؤقت للقوالب والجودة</h2>
 
-<p>يتم إيقاف القوالب مؤقتًا بشكل تلقائي عندما تصل إلى <strong>جودة منخفضة</strong> (<code>quality_score: RED</code>).</p>
+<p>يتم إيقاف القوالب مؤقتًا بشكل تلقائي عندما تصل إلى <strong>جودة منخفضة</strong> (<code class="code-red">quality_score: RED</code>).</p>
 
 <h3 id="جدول-مدة-الإيقاف-المؤقت">جدول مدة الإيقاف المؤقت</h3>
 
@@ -1657,7 +1646,11 @@
 
 <h2 id="ملخص-حدود-القوالب">ملخص حدود القوالب</h2>
 
-<div class="table-wrap"><table><thead><tr><th>الحد</th><th>القيمة</th></tr></thead><tbody><tr><td>الحد الأقصى للقوالب لكل WABA</td><td><strong>250</strong> (الافتراضي)</td></tr><tr><td>الحد الأقصى لطول اسم القالب</td><td><strong>512 حرفًا</strong></td></tr><tr><td>الحد الأقصى لطول النص (body)</td><td><strong>1024 حرفًا</strong></td></tr><tr><td>الحد الأقصى لطول الرأس (header)</td><td><strong>60 حرفًا</strong></td></tr><tr><td>الحد الأقصى لطول التذييل (footer)</td><td><strong>60 حرفًا</strong></td></tr><tr><td>الحد الأقصى للأزرار</td><td><strong>10</strong> (3 رد سريع + ما يصل إلى 10 دعوة لاتخاذ إجراء)</td></tr><tr><td>الحد الأقصى لأزرار الرد السريع</td><td><strong>3</strong></td></tr><tr><td>الحد الأقصى لأزرار الدعوة لاتخاذ إجراء (CTA)</td><td><strong>2</strong> (1 هاتف + 1 رابط)</td></tr><tr><td>معدل التعديل (القوالب المعتمدة)</td><td><strong>10 تعديلات / 30 يومًا</strong> أو <strong>تعديل واحد / 24 ساعة</strong></td></tr><tr><td>معرفات قوالب التحليلات لكل استدعاء</td><td><strong>10</strong></td></tr><tr><td>الاحتفاظ ببيانات النقر</td><td><strong>7 أيام</strong></td></tr><tr><td>حظر الاسم بعد الحذف</td><td><strong>30 يومًا</strong></td></tr></tbody></table></div></div>
+<div class="table-wrap"><table><thead><tr><th>الحد</th><th>القيمة</th></tr></thead><tbody><tr><td>الحد الأقصى للقوالب لكل WABA</td><td><strong>250</strong> (الافتراضي)</td></tr><tr><td>الحد الأقصى لطول اسم القالب</td><td><strong>512 حرفًا</strong></td></tr><tr><td>الحد الأقصى لطول النص (body)</td><td><strong>1024 حرفًا</strong></td></tr><tr><td>الحد الأقصى لطول الرأس (header)</td><td><strong>60 حرفًا</strong></td></tr><tr><td>الحد الأقصى لطول التذييل (footer)</td><td><strong>60 حرفًا</strong></td></tr><tr><td>الحد الأقصى للأزرار</td><td><strong>10</strong> (3 رد سريع + ما يصل إلى 10 دعوة لاتخاذ إجراء)</td></tr><tr><td>الحد الأقصى لأزرار الرد السريع</td><td><strong>3</strong></td></tr><tr><td>الحد الأقصى لأزرار الدعوة لاتخاذ إجراء (CTA)</td><td><strong>2</strong> (1 هاتف + 1 رابط)</td></tr><tr><td>معدل التعديل (القوالب المعتمدة)</td><td><strong>10 تعديلات / 30 يومًا</strong> أو <strong>تعديل واحد / 24 ساعة</strong></td></tr><tr><td>معرفات قوالب التحليلات لكل استدعاء</td><td><strong>10</strong></td></tr><tr><td>الاحتفاظ ببيانات النقر</td><td><strong>7 أيام</strong></td></tr><tr><td>حظر الاسم بعد الحذف</td><td><strong>30 يومًا</strong></td></tr></tbody></table></div>\n\n
+
+<p>\n</p>
+
+<p>\n</p></div>
 
       <div class="topic-nav">
         
@@ -1667,26 +1660,143 @@
 
     <!-- Interactive Panels -->
     
+    <div class="learn-right-sidebar">
+      <aside class="interactive-panel lang-en">
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">Comparison</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>Marketing Templates vs Utility Templates</strong></p>
+<ul><li style="margin-left:0px"><strong>Marketing:</strong> Used for promotions, offers, newsletters. Highest cost per conversation.</li>
+<li style="margin-left:0px"><strong>Utility:</strong> Used for specific agreed-upon updates like shipping alerts, account updates. Lower cost.</li></ul>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">Test Your Knowledge</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_en_1_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:right">Question 1 of 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p>What status does a template get when it is first submitted but under review?</p></div>
+          <div class="mcq-options">
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] APPROVED</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="correct" onclick="handleMcqClick(this)">
+              <span class="mcq-text">PENDING</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] REJECTED</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] PAUSED</span>
+            </label>
+          </div>
+        </div>
+      
+        </div>
+      </div>
+    </aside>
+      <aside class="interactive-panel lang-ar">
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">مقارنة</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>قوالب التسويق مقابل قوالب المنفعة</strong></p>
+<ul><li style="margin-left:0px"><strong>التسويق (Marketing):</strong> تُستخدم للعروض الترويجية والنشرات. تكلفتها هي الأعلى لكل محادثة.</li>
+<li style="margin-left:0px"><strong>المنفعة (Utility):</strong> تُستخدم لتحديثات محددة متفق عليها مثل تنبيهات الشحن. تكلفتها أقل.</li></ul>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">اختبر فهمك</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_ar_1_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:left">السؤال 1 من 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p>ما هي حالة القالب عند إرساله للمراجعة لأول مرة؟</p></div>
+          <div class="mcq-options">
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] APPROVED (موافق عليه)</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="correct" onclick="handleMcqClick(this)">
+              <span class="mcq-text">PENDING (قيد الانتظار)</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] REJECTED (مرفوض)</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] PAUSED (متوقف مؤقتاً)</span>
+            </label>
+          </div>
+        </div>
+      
+        </div>
+      </div>
+    </aside>
+    </div>
+    
 
   </div>
 
   <script>
 (function(){
   var html=document.documentElement;
-  var theme=localStorage.getItem('theme');
+  var theme=localStorage.getItem('maw-theme');
   if(!theme){
     theme=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
   }
   function applyTheme(t){
     html.setAttribute('data-theme',t);
-    localStorage.setItem('theme',t);
+    localStorage.setItem('maw-theme',t);
   }
   applyTheme(theme);
   
-  var lang=localStorage.getItem('lang')||'en';
+  var lang=localStorage.getItem('maw-lang')||'en';
   function applyLang(l){
     html.setAttribute('data-lang',l);
-    localStorage.setItem('lang',l);
+    localStorage.setItem('maw-lang',l);
   }
   applyLang(lang);
 

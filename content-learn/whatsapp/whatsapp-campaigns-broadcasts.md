@@ -133,4 +133,18 @@ When executing massive campaigns, Meta monitors user feedback. If users block or
 - [ ] Ensure SEEN V2 maps exactly the correct number of variables per component
 - [ ] Enforce language code case sensitivity (`en_US` not `en-us`)
 - [ ] Implement a queue system for large broadcasts to adhere to rate limits
-- [ ] Read webhook statuses (`sent`, `delivered`, `read`, `failed`) to update campaign analytics in real-time
+- [ ] Read webhook statuses (`sent`, `delivered`, `read`, `failed`) to update campaign analytics in real-time\n\n
+<!-- panel:comparison -->
+**Sequential Sending vs Batch Processing**
+- **Sequential (Looping):** Sending one message at a time. Very slow, blocks the server thread, prone to timeouts.
+- **Batch Processing (Async):** Sending requests concurrently using Queues or asynchronous workers. Maximizes throughput.
+<!-- endpanel -->
+\n
+<!-- panel:quiz -->
+To maximize throughput without getting banned, you should:
+- [ ] Send 10,000 requests per second blindly.
+- [x] Throttle requests to match your phone number\'s Tier limit (e.g., 80 msgs/sec for Tier 1) and respect 429 errors.
+- [ ] Send messages from a consumer WhatsApp app.
+- [ ] Put all phone numbers in a single JSON array and send one request.
+<!-- endpanel -->
+\n

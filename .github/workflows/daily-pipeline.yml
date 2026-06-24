@@ -1,4 +1,4 @@
-name: Daily Meta API Watch Pipeline
+name: Daily Meta API Explain Pipeline
 
 on:
   schedule:
@@ -46,5 +46,5 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               title: `🚨 Meta API Changes Detected (${new Date().toISOString().slice(0,10)})`,
-              body: `The daily GitHub Actions cron job detected changes in the following sources:\n\n**${changed}**\n\n### Next Steps:\n1. Pull the latest changes: \`git pull origin main\`\n2. Run the pipeline locally to draft the changelog articles using Antigravity:\n   \`\`\`powershell\n   .\\scripts\\run-pipeline.ps1\n   \`\`\`\n\n_This issue was generated automatically by the Meta API Watch pipeline._`
+              body: `The daily GitHub Actions cron job detected changes in the following sources:\n\n**${changed}**\n\n### Next Steps:\n1. Pull the latest changes: \`git pull origin main\`\n2. Run the pipeline locally to draft the changelog articles using Antigravity:\n   \`\`\`powershell\n   .\\scripts\\run-pipeline.ps1\n   \`\`\`\n\n_This issue was generated automatically by the Meta API Explain pipeline._`
             });

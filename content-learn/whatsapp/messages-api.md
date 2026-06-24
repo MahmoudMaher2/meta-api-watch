@@ -327,4 +327,18 @@ Save the `messages[0].id` — you'll need it to correlate with status webhooks.
 | Customer replies | Handle `messages` webhook, parse by `type` |
 | Reply/context | Set `context.message_id` to quote user's message |
 | Media messages | Store `media.id` from webhook — don't re-download from URL (expires) |
-| Status tracking | Store `messages[0].id` and track statuses in webhook |
+| Status tracking | Store `messages[0].id` and track statuses in webhook |\n\n
+<!-- panel:comparison -->
+**Text Messages vs Template Messages**
+- **Text Messages (Free-form):** Can only be sent if a 24-hour customer service window is open.
+- **Template Messages:** Can be sent at any time, even outside the 24-hour window, to initiate a business conversation.
+<!-- endpanel -->
+\n
+<!-- panel:quiz -->
+Which property is REQUIRED when sending a message to a user\'s phone number via the Cloud API?
+- [ ] "recipient_type": "individual"
+- [x] "to": "<phone_number>"
+- [ ] "messaging_product": "whatsapp"
+- [ ] All of the above
+<!-- endpanel -->
+\n

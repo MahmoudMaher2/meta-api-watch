@@ -14,22 +14,22 @@
 
   <header class="site-header">
   <div class="header-inner">
-    <div class="header-logo">
+    <a href="../../index.html" class="header-logo" style="text-decoration: none;">
       <span class="logo-icon">🔭</span>
       <div class="logo-text">
-        <strong>Meta API Watch</strong>
-        <span>SEEN V2 · Developer Hub</span>
+        <div class="site-title">Meta API Explain</div>
+        <div class="site-subtitle">SEEN V2 · Developer Hub</div>
       </div>
-    </div>
+    </a>
     
     <nav class="header-nav">
-      <a href="../../index.html" class="nav-item ">
+      <a href="../../changelog.html" class="nav-tab ">
         <span class="nav-icon">🔔</span>
-        Latest Updates
+        <span class="nav-text" data-en="Latest Updates" data-ar="آخر التحديثات">Latest Updates</span>
       </a>
-      <a href="../../learn/index.html" class="nav-item active">
+      <a href="../../learn/index.html" class="nav-tab active">
         <span class="nav-icon">📚</span>
-        Learn
+        <span class="nav-text" data-en="Learn" data-ar="تعلّم">Learn</span>
       </a>
     </nav>
 
@@ -37,51 +37,36 @@
       <!-- Search Trigger -->
       <button id="search-trigger" class="search-btn" title="Search documentation... (Ctrl+K)">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        <span>Search...</span>
+        <span>Search</span>
         <kbd>/</kbd>
       </button>
 
-      <div class="build-badge">
-        <span class="pulse"></span>
-        LAST BUILD Jun 24, 2026, 11:13 PM 🇪🇬
+      <div class="header-build-time" title="System Status: Up to date">
+        <div class="build-pulse"></div>
+        <span class="build-label">LAST BUILD</span>
+        <span class="build-value">Jun 24, 2026, 11:52 PM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
-      <button id="lang-toggle" class="icon-btn" title="Toggle Language (AR/EN)">
+      <button id="lang-toggle" class="lang-toggle" title="Toggle Language (AR/EN)">
         <span class="lang-en">EN</span>
+        <span class="lang-sep">|</span>
         <span class="lang-ar">عربي</span>
       </button>
       
       <!-- Theme Toggle -->
-      <button id="theme-toggle" class="icon-btn" title="Toggle Theme">
-        <span class="moon">🌙</span>
-        <span class="sun">☀️</span>
+      <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
       </button>
     </div>
   </div>
 </header>
 
-<!-- Search Modal -->
-<div id="search-modal" class="search-modal">
-  <div class="search-modal-content">
-    <div class="search-header">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-      <input type="text" id="search-input" placeholder="Search topics, error codes, guidelines..." autocomplete="off">
-      <button id="search-close" class="icon-btn">×</button>
-    </div>
-    <div id="search-results" class="search-results"></div>
-    <div class="search-footer">
-      <span><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span>
-      <span><kbd>Enter</kbd> to select</span>
-      <span><kbd>ESC</kbd> to close</span>
-    </div>
-  </div>
-</div>
 
 
 
-
-  <div class="learn-layout">
+  <div class="learn-layout has-panels">
 
     <!-- Sidebar -->
     <aside class="learn-sidebar" id="sidebar">
@@ -239,7 +224,7 @@
 <p>        </div></p>
 <p>      </div></p>
 
-<p><strong>Error:</strong> <code>Error 100: Invalid parameter</code> — Maximum of 3 buttons allowed. For 4+ options, use a <code>list</code> message instead.</p>
+<p><strong>Error:</strong> <code class="code-red">Error 100: Invalid parameter</code> — Maximum of 3 buttons allowed. For 4+ options, use a <code>list</code> message instead.</p>
 
 <h2 id="webhooks-receiving-the-response">Webhooks (Receiving the Response)</h2>
 
@@ -290,7 +275,11 @@
 <li style="margin-left:0px">[ ] Verify list rows do not exceed 10 across all sections combined</li>
 <li style="margin-left:0px">[ ] Verify row titles do not exceed 24 characters</li>
 <li style="margin-left:0px">[ ] Ensure <code>action.button</code> (for lists) is under 20 characters</li>
-<li style="margin-left:0px">[ ] Map webhook <code>interactive.*.id</code> accurately to SEEN V2 Flow Builder triggers</div></li></ul>
+<li style="margin-left:0px">[ ] Map webhook <code>interactive.*.id</code> accurately to SEEN V2 Flow Builder triggers\n\n</li></ul>
+
+<p>\n</p>
+
+<p>\n</div></p>
       </div>
       <div class="topic-body lang-ar"><h1>رسائل واتساب التفاعلية</h1>
 
@@ -404,7 +393,7 @@
 <p>        </div></p>
 <p>      </div></p>
 
-<p><strong>الخطأ:</strong> <code>Error 100: Invalid parameter</code> — يُسمح بحد أقصى 3 أزرار. لـ 4 خيارات أو أكثر، استخدم رسالة القائمة <code>list</code> بدلاً من ذلك.</p>
+<p><strong>الخطأ:</strong> <code class="code-red">Error 100: Invalid parameter</code> — يُسمح بحد أقصى 3 أزرار. لـ 4 خيارات أو أكثر، استخدم رسالة القائمة <code>list</code> بدلاً من ذلك.</p>
 
 <h2 id="الـ-webhooks-استلام-الرد">الـ Webhooks (استلام الرد)</h2>
 
@@ -455,7 +444,11 @@
 <li style="margin-left:0px">[ ] التحقق من أن صفوف القائمة لا تتجاوز 10 صفوف إجمالاً في جميع الأقسام</li>
 <li style="margin-left:0px">[ ] التحقق من أن عناوين الصفوف لا تتجاوز 24 حرفاً</li>
 <li style="margin-left:0px">[ ] التأكد من أن <code>action.button</code> (للقوائم) يقل عن 20 حرفاً</li>
-<li style="margin-left:0px">[ ] تعيين <code>interactive.*.id</code> الخاص بالـ webhook بدقة إلى مشغلات منشئ التدفق (Flow Builder triggers) في SEEN V2</div></li></ul></div>
+<li style="margin-left:0px">[ ] تعيين <code>interactive.*.id</code> الخاص بالـ webhook بدقة إلى مشغلات منشئ التدفق (Flow Builder triggers) في SEEN V2\n\n</li></ul>
+
+<p>\n</p>
+
+<p>\n</div></p></div>
 
       <div class="topic-nav">
         <a class="nav-prev" href="whatsapp-flows-v4.html">← WhatsApp Flows v4 — Interactive Forms</a>
@@ -465,26 +458,143 @@
 
     <!-- Interactive Panels -->
     
+    <div class="learn-right-sidebar">
+      <aside class="interactive-panel lang-en">
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">Comparison</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>Reply Buttons vs List Messages</strong></p>
+<ul><li style="margin-left:0px"><strong>Reply Buttons:</strong> Maximum 3 buttons. Fast, highly visible 1-tap options.</li>
+<li style="margin-left:0px"><strong>List Messages:</strong> Maximum 10 rows. Opens a bottom sheet. Ideal for menus, store locations, or long selections.</li></ul>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">Test Your Knowledge</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_en_1_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:right">Question 1 of 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p>What happens if you try to send an Interactive Message with 4 Reply Buttons?</p></div>
+          <div class="mcq-options">
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] WhatsApp automatically converts them into a List.</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="correct" onclick="handleMcqClick(this)">
+              <span class="mcq-text">The API request fails with a validation error.</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] Only the first 3 buttons are shown.</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] It sends successfully.</span>
+            </label>
+          </div>
+        </div>
+      
+        </div>
+      </div>
+    </aside>
+      <aside class="interactive-panel lang-ar">
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">مقارنة</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>أزرار الرد مقابل رسائل القوائم</strong></p>
+<ul><li style="margin-left:0px"><strong>أزرار الرد (Reply Buttons):</strong> بحد أقصى 3 أزرار. سريعة، وواضحة جداً وتتطلب ضغطة واحدة.</li>
+<li style="margin-left:0px"><strong>رسائل القوائم (List Messages):</strong> بحد أقصى 10 صفوف. تفتح نافذة سفلية. مثالية لقوائم الطعام أو فروع المتاجر.</li></ul>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">اختبر فهمك</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_ar_1_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:left">السؤال 1 من 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p>ماذا يحدث إذا حاولت إرسال رسالة تفاعلية تحتوي على 4 أزرار رد (Reply Buttons)؟</p></div>
+          <div class="mcq-options">
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] يقوم واتساب بتحويلها تلقائياً إلى قائمة (List).</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="correct" onclick="handleMcqClick(this)">
+              <span class="mcq-text">يفشل طلب الـ API بخطأ في التحقق (Validation Error).</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] تظهر الأزرار الثلاثة الأولى فقط.</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] يتم الإرسال بنجاح.</span>
+            </label>
+          </div>
+        </div>
+      
+        </div>
+      </div>
+    </aside>
+    </div>
+    
 
   </div>
 
   <script>
 (function(){
   var html=document.documentElement;
-  var theme=localStorage.getItem('theme');
+  var theme=localStorage.getItem('maw-theme');
   if(!theme){
     theme=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
   }
   function applyTheme(t){
     html.setAttribute('data-theme',t);
-    localStorage.setItem('theme',t);
+    localStorage.setItem('maw-theme',t);
   }
   applyTheme(theme);
   
-  var lang=localStorage.getItem('lang')||'en';
+  var lang=localStorage.getItem('maw-lang')||'en';
   function applyLang(l){
     html.setAttribute('data-lang',l);
-    localStorage.setItem('lang',l);
+    localStorage.setItem('maw-lang',l);
   }
   applyLang(lang);
 

@@ -36,4 +36,18 @@ To create valid visual distinctions, developers must build custom indicators:
 
 <!-- preview -->
 ✅ Valid: Only the app that currently holds Thread Control sending a message to the user.
-❌ Invalid: The Primary Receiver (Bot) attempting to send automated replies while the Secondary Receiver (Human) holds Thread Control. (The API will block the bot's messages).
+❌ Invalid: The Primary Receiver (Bot) attempting to send automated replies while the Secondary Receiver (Human) holds Thread Control. (The API will block the bot's messages).\n\n
+<!-- panel:comparison -->
+**Primary Receiver vs Secondary Receiver**
+- **Primary Receiver:** The default app that receives messages and controls the thread initially (usually a bot).
+- **Secondary Receiver:** An app that only listens passively until the thread is explicitly passed to it (e.g. live chat agent).
+<!-- endpanel -->
+\n
+<!-- panel:quiz -->
+Which API method is used to give thread control to another app?
+- [ ] take_thread_control
+- [x] pass_thread_control
+- [ ] request_thread_control
+- [ ] transfer_thread
+<!-- endpanel -->
+\n

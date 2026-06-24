@@ -33,4 +33,18 @@ You have the option to disable the user's text composer (`composer_input_disable
 
 <!-- preview -->
 ✅ Valid: A menu item titled "Customer Support" (16 characters).
-❌ Invalid: A menu item titled "Contact Our Customer Support Team Now" (37 characters - Exceeds the 30 character limit).
+❌ Invalid: A menu item titled "Contact Our Customer Support Team Now" (37 characters - Exceeds the 30 character limit).\n\n
+<!-- panel:comparison -->
+**Persistent Menu vs Ice Breakers**
+- **Persistent Menu:** Always visible as a hamburger icon inside the chat. Useful for general navigation (Help, Settings).
+- **Ice Breakers:** Only visible BEFORE the user sends their first message. Useful for onboarding new users.
+<!-- endpanel -->
+\n
+<!-- panel:quiz -->
+What is the maximum number of top-level items you can add to a Messenger Persistent Menu?
+- [x] 3 items
+- [ ] 5 items
+- [ ] 10 items
+- [ ] Unlimited
+<!-- endpanel -->
+\n

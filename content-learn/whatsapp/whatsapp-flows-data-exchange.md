@@ -37,4 +37,18 @@ Your data exchange endpoint must process and return a response within **10 secon
 
 <!-- preview -->
 ✅ Valid: The endpoint implements proper error handling and returns a specific, mapped error screen state if a requested account ID is not found.
-❌ Invalid: The endpoint relies on HTTP 500 errors without encrypted fallback payloads when validation fails.
+❌ Invalid: The endpoint relies on HTTP 500 errors without encrypted fallback payloads when validation fails.\n\n
+<!-- panel:comparison -->
+**INIT Event vs DATA_EXCHANGE Event**
+- **INIT (Initialization):** Triggered when the Flow is opened. Used to fetch initial dynamic data (e.g., list of stores).
+- **DATA_EXCHANGE:** Triggered when the user submits a screen or taps a button to fetch new data mid-flow.
+<!-- endpanel -->
+\n
+<!-- panel:quiz -->
+What happens if your Data Exchange Endpoint takes more than 10 seconds to respond?
+- [ ] The user receives a WhatsApp message with the delay.
+- [x] The Flow times out and displays an error to the user.
+- [ ] WhatsApp automatically retries 5 times.
+- [ ] The Flow continues normally without data.
+<!-- endpanel -->
+\n

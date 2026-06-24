@@ -1,4 +1,4 @@
-# Deploy Meta API Watch to GitHub Pages
+# Deploy Meta API Explain to GitHub Pages
 # Triggers: on every push to main (after local analysis + git push)
 
 name: Deploy to GitHub Pages

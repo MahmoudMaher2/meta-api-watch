@@ -37,11 +37,11 @@ When you click "Send" on a Broadcast, Meta handles the rate limiting automatical
 - Your limits are determined by the phone number's quality rating and usage history. You can view your current limit in the WhatsApp Manager Overview.
 
 <!-- panel:quiz -->
-**Question:**
 If I schedule a broadcast for tomorrow, which time zone does it use?
-
-**Answer:**
-The broadcast scheduler uses the **local time zone** configured in your Meta Business account settings. Always double-check the timezone label next to the time picker!
+- [ ] Pacific Time (PT) always
+- [ ] Coordinated Universal Time (UTC) strictly
+- [x] The local time zone configured in your Meta Business account settings
+- [ ] The customer's device time zone
 <!-- endpanel -->
 
 ---

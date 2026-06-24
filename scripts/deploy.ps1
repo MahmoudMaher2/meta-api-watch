@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Meta API Watch — Deploy to GitHub Pages
+    Meta API Explain — Deploy to GitHub Pages
     Commits all changes and pushes to main → triggers GitHub Actions → live on Pages.
 
 .DESCRIPTION
@@ -29,7 +29,7 @@ $ContentDir  = Join-Path $ProjectRoot "content\changelog"
 
 # ── Check git status ──────────────────────────────────────────────────────────
 Write-Host ""
-Write-Host "🚀 Meta API Watch — Deploy" -ForegroundColor Cyan
+Write-Host "🚀 Meta API Explain — Deploy" -ForegroundColor Cyan
 
 $status = git -C $ProjectRoot status --short 2>&1
 if (-not $status) {
@@ -87,14 +87,14 @@ if ($LASTEXITCODE -ne 0) {
     Write-Host ""
     Write-Host "❌ git push failed." -ForegroundColor Red
     Write-Host "   Make sure you've set the remote origin first:"
-    Write-Host "   git remote add origin https://github.com/YOUR_USERNAME/meta-api-watch.git"
-    Write-Host "   git remote add origin https://github.com/MahmoudMaher2/meta-api-watch.git"
+    Write-Host "   git remote add origin https://github.com/YOUR_USERNAME/meta-api-explain.git"
+    Write-Host "   git remote add origin https://github.com/MahmoudMaher2/meta-api-explain.git"
     Write-Host "   Then run this script again."
     exit 1
 }
 
 Write-Host ""
 Write-Host "✅ Deployed! GitHub Actions will now build and publish the site." -ForegroundColor Green
-Write-Host "   Live at: https://mahmoudmaher2.github.io/meta-api-watch/"
-Write-Host "   Actions: https://github.com/MahmoudMaher2/meta-api-watch/actions"
+Write-Host "   Live at: https://mahmoudmaher2.github.io/meta-api-explain/"
+Write-Host "   Actions: https://github.com/MahmoudMaher2/meta-api-explain/actions"
 Write-Host ""

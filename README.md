@@ -1,9 +1,9 @@
-# 🔭 Meta API Watch
+# 🔭 Meta API Explain
 
 > Daily tracker for Meta Developer API changes relevant to **SEEN V2**.  
 > Runs locally via Antigravity → publishes to GitHub Pages automatically.
 
-**Live site:** https://mahmoudmaher2.github.io/meta-api-watch/
+**Live site:** https://mahmoudmaher2.github.io/meta-api-explain/
 
 ---
 
@@ -34,7 +34,7 @@
 Open Antigravity and paste the exact prompt below:
 
 ```text
-Run the Meta API Watch pipeline.
+Run the Meta API Explain pipeline.
 
 Step 1: Check status by running `node scripts/status.js`.
 Step 2: Fetch today's snapshot using the browser tool for:
@@ -48,7 +48,7 @@ Step 4: For any CHANGES_FOUND, draft an article.
 Step 5: Publish and rebuild by running `node scripts/publish-article.js --rebuild-only`.
 Step 6: Deploy by running `node scripts/deploy.ps1`.
 
-Working directory: c:\My Projects\Neop-Projects\Seen\Meta-updates\meta-api-watch
+Working directory: c:\My Projects\Neop-Projects\Seen\Meta-updates\meta-api-explain
 ```
 
 ### 2. How the Pipeline Operates
@@ -73,15 +73,15 @@ Antigravity handles all the heavy lifting automatically. You just review the dra
 
 ### Step 1: Create GitHub repo
 
-1. Go to github.com → New repository → name it `meta-api-watch`
+1. Go to github.com → New repository → name it `meta-api-explain`
 2. Set to **Public**
 3. Do NOT initialize with README (we already have one)
 
 ### Step 2: Connect local repo
 
 ```powershell
-cd "c:\My Projects\Neop-Projects\Seen\Meta-updates\meta-api-watch"
-git remote add origin https://github.com/MahmoudMaher2/meta-api-watch.git
+cd "c:\My Projects\Neop-Projects\Seen\Meta-updates\meta-api-explain"
+git remote add origin https://github.com/MahmoudMaher2/meta-api-explain.git
 git branch -M main
 git push -u origin main
 ```
@@ -95,14 +95,14 @@ git push -u origin main
 ### Step 4: Verify deployment
 
 Push triggers the Actions workflow → site goes live at:  
-`https://mahmoudmaher2.github.io/meta-api-watch/`
+`https://mahmoudmaher2.github.io/meta-api-explain/`
 
 ---
 
 ## Project Structure
 
 ```
-meta-api-watch/
+meta-api-explain/
 ├── .github/workflows/
 │   └── deploy.yml            ← GitHub Actions: deploys site/ to Pages on push
 ├── sources.json              ← Sources config (enable/disable per phase)
