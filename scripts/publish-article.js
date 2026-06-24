@@ -144,11 +144,13 @@ function buildIndex(articles) {
   const buildDate = new Date();
   const buildDateISO = buildDate.toISOString();
   const buildDateDisplay = buildDate.toLocaleDateString('en-GB', {
-    year: 'numeric', month: 'short', day: 'numeric'
+    year: 'numeric', month: 'short', day: 'numeric',
+    timeZone: 'Africa/Cairo'
   });
   const buildTimeDisplay = buildDate.toLocaleTimeString('en-GB', {
-    hour: '2-digit', minute: '2-digit', hour12: false
-  });
+    hour: '2-digit', minute: '2-digit', hour12: false,
+    timeZone: 'Africa/Cairo'
+  }) + ' (Cairo)';
 
   return `<!DOCTYPE html>
 <html lang="en" data-theme="dark">
