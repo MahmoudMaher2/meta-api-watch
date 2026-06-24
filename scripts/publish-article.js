@@ -126,6 +126,78 @@ function getSection(body, heading) {
 // Unique card ID
 let _cardIdx = 0;
 
+// ── Arabic summary generator ──────────────────────────────────────────────────
+const CATEGORY_AR = {
+  'New Feature':           'ميزة جديدة',
+  'Bug Fix/Clarification': 'إصلاح أو توضيح',
+  'Breaking Change':       'تغيير جذري ⚠️',
+  'Deprecation':           'إيقاف دعم',
+  'Enhancement':           'تحسين',
+  'New API':               'واجهة برمجية جديدة',
+  'Documentation':         'تحديث توثيق',
+};
+const MODULE_AR = {
+  'WhatsApp Templates':      'قوالب واتساب',
+  'Webhooks':                'ويب هوكس',
+  'Broadcasts':              'البث الجماعي',
+  'Conversations':           'المحادثات',
+  'Contacts':                'جهات الاتصال',
+  'Analytics':               'التحليلات',
+  'Channel Integration/OAuth': 'تكامل القناة',
+  'Messages API':            'API الرسائل',
+  'Flows':                   'التدفقات',
+  'Commerce':                'التجارة الإلكترونية',
+  'Business Management':     'إدارة الأعمال',
+  'Phone Numbers':           'أرقام الهاتف',
+  'Media':                   'الوسائط',
+  'Reactions':               'ردود الفعل',
+  'QR Codes':                'رموز QR',
+};
+
+function generateArabicSummary(meta) {
+  const rawText = (meta.summary_short || meta.title || '')
+    .replace(/^,\s*\*[^*]+\*\s*/g, '').trim();
+  const modules = Array.isArray(meta.sv2_modules) ? meta.sv2_modules
+    : (meta.sv2_modules ? meta.sv2_modules.split(',').map(s=>s.trim()) : []);
+  const catText = CATEGORY_AR[meta.category] || meta.category || '';
+  const modAr   = modules.map(m => MODULE_AR[m] || m).join(' و ');
+  const area    = modAr || 'Meta API';
+
+  if (/added.*new.*field|new.*field.*added/i.test(rawText))
+    return `تمت إضافة حقل جديد في ${area}. (${catText})`;
+  if (/added.*new.*parameter|new.*parameter/i.test(rawText))
+    return `تمت إضافة معامل جديد في ${area}. (${catText})`;
+  if (/added.*support|support.*added/i.test(rawText))
+    return `تمت إضافة دعم لميزة جديدة في ${area}. (${catText})`;
+  if (/added.*feature|new.*feature/i.test(rawText))
+    return `تمت إضافة ميزة جديدة في ${area}. (${catText})`;
+  if (/^Added/i.test(rawText))
+    return `تمت إضافة تحديث في ${area}. (${catText})`;
+  if (/updated.*api|api.*updated/i.test(rawText))
+    return `تم تحديث واجهة API الخاصة بـ ${area}. (${catText})`;
+  if (/^Updated/i.test(rawText))
+    return `تم تحديث ${area}. (${catText})`;
+  if (/Clarified/i.test(rawText))
+    return `تم توضيح معلومات في توثيق ${area}. (${catText})`;
+  if (/Corrected/i.test(rawText))
+    return `تم تصحيح معلومات في ${area}. (${catText})`;
+  if (/Deprecated/i.test(rawText))
+    return `تم إيقاف دعم ميزة في ${area}.`;
+  if (/Removed/i.test(rawText))
+    return `تمت إزالة ميزة من ${area}. (${catText})`;
+  if (/Fixed/i.test(rawText))
+    return `تم إصلاح خطأ في ${area}. (${catText})`;
+  if (/Introduced/i.test(rawText))
+    return `تم تقديم ميزة جديدة في ${area}. (${catText})`;
+  if (/New guide|guide for/i.test(rawText))
+    return `دليل جديد لاستخدام ${area}. (${catText})`;
+  if (/webhook/i.test(rawText))
+    return `تحديث في ويب هوكس ${area}. (${catText})`;
+  if (/template/i.test(rawText))
+    return `تحديث في قوالب ${area}. (${catText})`;
+  return `${catText} في موديول ${area}.`;
+}
+
 // ── Article card HTML ─────────────────────────────────────────────────────────
 function articleCard(article) {
   const m = article.meta;
@@ -165,9 +237,13 @@ function articleCard(article) {
       ${categoryBadge(m.category)}
     </div>
 
-    <h2 class="card-title">${escHtml(m.title || '')}</h2>
+    <h2 class="card-title"
+        data-en="${escHtml(m.title || '')}"
+        data-ar="${escHtml(generateArabicSummary(m))}">${escHtml(m.title || '')}</h2>
     <div class="card-badges">${modules.map(moduleBadge).join('')}</div>
-    <p class="card-summary">${escHtml(m.summary_short || whatChanged.slice(0, 180))}</p>
+    <p class="card-summary"
+       data-en="${escHtml((m.summary_short || whatChanged).slice(0,180))}"
+       data-ar="${escHtml(generateArabicSummary(m))}">${escHtml((m.summary_short || whatChanged).slice(0,180))}</p>
 
     <!-- Expandable detail panel -->
     <div class="card-details" id="${detId}" aria-hidden="true">
@@ -236,8 +312,8 @@ function buildIndex(articles) {
     year: 'numeric', month: 'short', day: 'numeric',
     timeZone: 'Africa/Cairo'
   });
-  const buildTimeDisplay = buildDate.toLocaleTimeString('en-GB', {
-    hour: '2-digit', minute: '2-digit', hour12: false,
+  const buildTimeDisplay = buildDate.toLocaleTimeString('en-US', {
+    hour: 'numeric', minute: '2-digit', hour12: true,
     timeZone: 'Africa/Cairo'
   }) + ' (Cairo)';
 
@@ -383,8 +459,8 @@ function buildWelcome(articles, learnTopics) {
   const buildDate = new Date().toLocaleDateString('en-GB', {
     year:'numeric', month:'short', day:'numeric', timeZone:'Africa/Cairo'
   });
-  const buildTime = new Date().toLocaleTimeString('en-GB', {
-    hour:'2-digit', minute:'2-digit', hour12:false, timeZone:'Africa/Cairo'
+  const buildTime = new Date().toLocaleTimeString('en-US', {
+    hour:'numeric', minute:'2-digit', hour12:true, timeZone:'Africa/Cairo'
   });
 
   const PLATFORM_COLORS = {
@@ -414,7 +490,9 @@ function buildWelcome(articles, learnTopics) {
       </div>
       <h3 class="w-card-title">${escHtml((m.title || '').slice(0, 80))}</h3>
       <div class="w-card-mods">${modHtml}</div>
-      <p class="w-card-snippet">${escHtml((m.summary_short || '').slice(0, 120))}</p>
+      <p class="w-card-snippet"
+         data-en="${escHtml((m.summary_short||'').replace(/^,\s*\*[^*]+\*\s*/g,'').slice(0,120))}"
+         data-ar="${escHtml(generateArabicSummary(m))}">${escHtml((m.summary_short||'').replace(/^,\s*\*[^*]+\*\s*/g,'').slice(0,120))}</p>
       <span class="w-card-arrow">→</span>
     </a>`;
   }).join('');
