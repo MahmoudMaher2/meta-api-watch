@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>"WhatsApp Manager: Message Templates UI" — Meta Docs Learn</title>
+  <meta name="description" content="Learn "WhatsApp Manager: Message Templates UI" in whatsapp: validation rules, error codes, examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+  <div class="header-inner">
+    <div class="header-logo">
+      <span class="logo-icon">🔭</span>
+      <div class="logo-text">
+        <strong>Meta API Watch</strong>
+        <span>SEEN V2 · Developer Hub</span>
+      </div>
+    </div>
+    
+    <nav class="header-nav">
+      <a href="../../index.html" class="nav-item ">
+        <span class="nav-icon">🔔</span>
+        Latest Updates
+      </a>
+      <a href="../../learn/index.html" class="nav-item active">
+        <span class="nav-icon">📚</span>
+        Learn
+      </a>
+    </nav>
+
+    <div class="header-actions">
+      <!-- Search Trigger -->
+      <button id="search-trigger" class="search-btn" title="Search documentation... (Ctrl+K)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span>Search...</span>
+        <kbd>/</kbd>
+      </button>
+
+      <div class="build-badge">
+        <span class="pulse"></span>
+        LAST BUILD Jun 24, 2026, 11:13 PM 🇪🇬
+      </div>
+      
+      <!-- Language Toggle -->
+      <button id="lang-toggle" class="icon-btn" title="Toggle Language (AR/EN)">
+        <span class="lang-en">EN</span>
+        <span class="lang-ar">عربي</span>
+      </button>
+      
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" class="icon-btn" title="Toggle Theme">
+        <span class="moon">🌙</span>
+        <span class="sun">☀️</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Search Modal -->
+<div id="search-modal" class="search-modal">
+  <div class="search-modal-content">
+    <div class="search-header">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="search-input" placeholder="Search topics, error codes, guidelines..." autocomplete="off">
+      <button id="search-close" class="icon-btn">×</button>
+    </div>
+    <div id="search-results" class="search-results"></div>
+    <div class="search-footer">
+      <span><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span>
+      <span><kbd>Enter</kbd> to select</span>
+      <span><kbd>ESC</kbd> to close</span>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <div class="learn-layout has-panels">
+
+    <!-- Sidebar -->
+    <aside class="learn-sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label" data-en="On this page" data-ar="على هذه الصفحة">On this page</span>
+        
+    <div class="lang-en">
+      <ul class="toc-list"><li class="toc-top"><a href="#1-creating-a-template-in-the-ui">1. Creating a Template in the UI</a></li><li class="toc-sub"><a href="#the-configuration-steps">The Configuration Steps:</a></li><li class="toc-sub"><a href="#submission-and-samples">Submission and Samples</a></li><li class="toc-top"><a href="#2-statuses-and-quality-ratings">2. Statuses and Quality Ratings</a></li><li class="toc-sub"><a href="#template-statuses">Template Statuses:</a></li><li class="toc-sub"><a href="#template-pausing-workflow">Template Pausing Workflow:</a></li><li class="toc-top"><a href="#3-best-practices-for-the-ui">3. Best Practices for the UI</a></li></ul>
+    </div>
+    
+    <div class="lang-ar">
+      <ul class="toc-list"><li class="toc-top"><a href="#1-إنشاء-قالب-من-خلال-الواجهة">1. إنشاء قالب من خلال الواجهة</a></li><li class="toc-sub"><a href="#خطوات-الإعداد">خطوات الإعداد:</a></li><li class="toc-sub"><a href="#تقديم-العينات-samples">تقديم العينات (Samples)</a></li><li class="toc-top"><a href="#2-الحالات-وتقييم-الجودة-statuses-quality">2. الحالات وتقييم الجودة (Statuses & Quality)</a></li><li class="toc-sub"><a href="#حالات-القالب">حالات القالب:</a></li><li class="toc-sub"><a href="#آلية-إيقاف-القوالب-template-pausing">آلية إيقاف القوالب (Template Pausing):</a></li><li class="toc-top"><a href="#3-أفضل-الممارسات-لاستخدام-الواجهة">3. أفضل الممارسات لاستخدام الواجهة</a></li></ul>
+    </div>
+  
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Source</span>
+        <a href="" target="_blank" rel="noopener" class="source-link">
+          📄 Meta Developer Docs ↗
+        </a>
+        
+      </div>
+      
+    </aside>
+
+    <!-- Main Content -->
+    <main class="learn-content" id="main-content">
+      <div class="topic-breadcrumb">
+        <a href="../index.html">Learn</a>
+        <span>›</span>
+        <span style="color:#a78bfa">whatsapp</span>
+        <span>›</span>
+        <span>"WhatsApp Manager: Message Templates UI"</span>
+      </div>
+
+      <div class="topic-hero">
+        <div class="topic-hero-badges">
+          <span class="platform-badge" style="background:#1a1a24;color:#a78bfa;border-color:#4c1d95">whatsapp</span>
+          
+        </div>
+        <h1 class="topic-title" data-en=""WhatsApp Manager: Message Templates UI"" data-ar=""مدير واتساب: واجهة قوالب الرسائل (Message Templates UI)"">"WhatsApp Manager: Message Templates UI"</h1>
+        <p class="topic-meta"><span data-en=""whatsapp"" data-ar=""whatsapp"">"whatsapp"</span> · <span data-en="Last verified:" data-ar="آخر مراجعة:">Last verified:</span> N/A</p>
+      </div>
+
+      <div class="topic-body lang-en">
+        <h1>Message Templates UI in WhatsApp Manager</h1>
+
+<p>The <strong>Message Templates Library</strong> inside the WhatsApp Manager (<code>/whatsapp_manager/message_templates</code>) is the central hub for creating, editing, and monitoring the templates you use to start business-initiated conversations with your customers.</p>
+
+<p>While developers can manage templates entirely via the Cloud API, the visual interface provides a user-friendly way for non-technical teams to craft messages, add interactive elements, and track approval statuses.</p>
+
+<h2 id="1-creating-a-template-in-the-ui">1. Creating a Template in the UI</h2>
+
+<p>To create a new template, click the <strong>"Create template"</strong> button in the top right corner of the Message Templates page.</p>
+
+<h3 id="the-configuration-steps">The Configuration Steps:</h3>
+<p>1. <strong>Category:</strong> You must define the template as <code>Marketing</code>, <code>Utility</code>, or <code>Authentication</code>. Meta uses this categorization for billing and quality monitoring.</p>
+<p>2. <strong>Name and Language:</strong> Template names must be lowercase and contain only letters, numbers, and underscores (e.g., <code>seasonal_promo_01</code>).</p>
+<p>3. <strong>Building the Message:</strong></p>
+<ul><li style="margin-left:24px"><strong>Header (Optional):</strong> Can be Text, Image, Video, Document, or Location.</li>
+<li style="margin-left:24px"><strong>Body (Required):</strong> The main text of your message. You can include variables (e.g., <code>Hello {{1}}!</code>) to be replaced with dynamic content at send-time.</li>
+<li style="margin-left:24px"><strong>Footer (Optional):</strong> A short line of text at the bottom.</li>
+<li style="margin-left:24px"><strong>Buttons (Optional):</strong> Add Quick Replies, Call-to-Action (URLs/Phone Numbers), or advanced buttons like MPM (Multi-Product Messages) and WhatsApp Flows.</li></ul>
+
+<h3 id="submission-and-samples">Submission and Samples</h3>
+<p>When you include variables (<code>{{1}}</code>) or dynamic media, Meta highly recommends providing <strong>Sample Content</strong>. This means showing the reviewers exactly what the variable will look like (e.g., putting "John" in the sample box for <code>{{1}}</code>). Templates with realistic samples are approved much faster.</p>
+
+<hr>
+
+<h2 id="2-statuses-and-quality-ratings">2. Statuses and Quality Ratings</h2>
+
+<p>Every template in your library has an associated Status and a Quality Rating.</p>
+
+<h3 id="template-statuses">Template Statuses:</h3>
+<ul><li style="margin-left:0px"><strong>Pending:</strong> The template is currently under review by Meta's AI or manual reviewers (usually takes a few minutes, but can take up to 24 hours).</li>
+<li style="margin-left:0px"><strong>Approved:</strong> The template is ready to be sent to customers.</li>
+<li style="margin-left:0px"><strong>Rejected:</strong> The template violates WhatsApp policies (e.g., promotional content in a Utility template, or prohibited goods).</li>
+<li style="margin-left:0px"><strong>Paused:</strong> If a template receives too much negative feedback from users (blocks or spam reports), Meta will automatically pause it.</li></ul>
+
+<h3 id="template-pausing-workflow">Template Pausing Workflow:</h3>
+<p>If a template is paused, you cannot send it to new customers. </p>
+<p>1. The pause initially lasts for <strong>3 hours</strong>.</p>
+<p>2. After 3 hours, it unpauses automatically.</p>
+<p>3. If negative feedback continues, it will be paused for <strong>6 hours</strong>.</p>
+<p>4. Continued abuse leads to permanent disabling of the template.</p>
+
+<hr>
+
+<h2 id="3-best-practices-for-the-ui">3. Best Practices for the UI</h2>
+<ul><li style="margin-left:8px"><strong>Search and Filter:</strong> As your library grows, use the filter bar to sort by Category, Language, or Status. This is especially helpful for finding and deleting old, unused <code>REJECTED</code> templates.</li>
+<li style="margin-left:0px"><strong>Duplication:</strong> Instead of building complex templates from scratch (like Flow templates or Carousel templates), use the "Duplicate" icon next to an existing approved template to save time.</li>
+<li style="margin-left:0px"><strong>Deletion:</strong> Meta enforces a global limit of <strong>250 templates per WABA</strong> (WhatsApp Business Account). Regularly delete old seasonal templates (e.g., <code>black_friday_2023</code>) to free up space for new ones.</li></ul>
+
+
+      </div>
+      <div class="topic-body lang-ar"><h1>واجهة قوالب الرسائل في مدير واتساب</h1>
+
+<p>تعتبر <strong>مكتبة قوالب الرسائل (Message Templates Library)</strong> الموجودة داخل واجهة مدير واتساب (<code>/whatsapp_manager/message_templates</code>) هي المركز الأساسي لإنشاء، تعديل، ومراقبة القوالب التي تستخدمها لبدء محادثات مع عملائك.</p>
+
+<p>ورغم أن المطورين يمكنهم إدارة القوالب بالكامل برمجياً عبر الـ Cloud API، إلا أن الواجهة الرسومية (UI) توفر طريقة سهلة جداً للفرق غير التقنية لتصميم الرسائل، إضافة الأزرار التفاعلية، وتتبع حالات الموافقة (Approval Statuses).</p>
+
+<h2 id="1-إنشاء-قالب-من-خلال-الواجهة">1. إنشاء قالب من خلال الواجهة</h2>
+
+<p>لإنشاء قالب جديد، اضغط على زر <strong>"إنشاء قالب" (Create template)</strong> في الزاوية العلوية اليمنى من صفحة قوالب الرسائل.</p>
+
+<h3 id="خطوات-الإعداد">خطوات الإعداد:</h3>
+<p>1. <strong>الفئة (Category):</strong> يجب عليك تحديد فئة القالب كـ <code>تسويق (Marketing)</code>، <code>خدمة (Utility)</code>، أو <code>مصادقة (Authentication)</code>. تستخدم ميتا هذا التصنيف لحساب التكلفة ومراقبة الجودة.</p>
+<p>2. <strong>الاسم واللغة:</strong> يجب أن تكون أسماء القوالب بأحرف إنجليزية صغيرة (lowercase) وتحتوي فقط على أحرف، أرقام، وشرطات سفلية (مثال: <code>seasonal_promo_01</code>).</p>
+<p>3. <strong>بناء الرسالة:</strong></p>
+<ul><li style="margin-left:24px"><strong>الترويسة (Header) - اختياري:</strong> يمكن أن تكون نصاً، صورة، فيديو، مستند، أو موقع جغرافي.</li>
+<li style="margin-left:24px"><strong>المحتوى (Body) - إلزامي:</strong> النص الأساسي لرسالتك. يمكنك تضمين متغيرات (مثال: <code>أهلاً {{1}}!</code>) ليتم استبدالها ببيانات حقيقية عند الإرسال.</li>
+<li style="margin-left:24px"><strong>التذييل (Footer) - اختياري:</strong> سطر نصي قصير يظهر بخط باهت أسفل الرسالة.</li>
+<li style="margin-left:24px"><strong>الأزرار (Buttons) - اختياري:</strong> إضافة ردود سريعة (Quick Replies)، أزرار اتخاذ إجراء (روابط/أرقام هواتف)، أو أزرار متقدمة مثل رسائل المنتجات المتعددة و WhatsApp Flows.</li></ul>
+
+<h3 id="تقديم-العينات-samples">تقديم العينات (Samples)</h3>
+<p>عند تضمينك لمتغيرات (<code>{{1}}</code>) أو وسائط ديناميكية، توصي ميتا وبشدة بتوفير <strong>عينة محتوى (Sample Content)</strong>. هذا يعني أن تُظهر لفريق المراجعة كيف سيبدو المتغير في الواقع (مثلاً، وضع اسم "أحمد" في مربع العينة الخاص بـ <code>{{1}}</code>). القوالب التي تحتوي على عينات واقعية يتم الموافقة عليها بشكل أسرع بكثير.</p>
+
+<hr>
+
+<h2 id="2-الحالات-وتقييم-الجودة-statuses-quality">2. الحالات وتقييم الجودة (Statuses & Quality)</h2>
+
+<p>كل قالب في مكتبتك له "حالة" (Status) و "تقييم جودة" (Quality Rating) مرتبطان به.</p>
+
+<h3 id="حالات-القالب">حالات القالب:</h3>
+<ul><li style="margin-left:0px"><strong>قيد المراجعة (Pending):</strong> القالب يخضع حالياً للمراجعة من قبل الذكاء الاصطناعي لميتا أو المراجعين البشريين (عادة ما يستغرق بضع دقائق، لكن قد يمتد إلى 24 ساعة).</li>
+<li style="margin-left:0px"><strong>تمت الموافقة (Approved):</strong> القالب جاهز للإرسال للعملاء.</li>
+<li style="margin-left:0px"><strong>مرفوض (Rejected):</strong> القالب ينتهك سياسات واتساب (مثلاً: وجود محتوى ترويجي داخل قالب من فئة Utility).</li>
+<li style="margin-left:0px"><strong>موقوف مؤقتاً (Paused):</strong> إذا تلقى قالب معين الكثير من ردود الفعل السلبية من المستخدمين (حظر أو تبليغ كـ Spam)، ستقوم ميتا بإيقافه تلقائياً.</li></ul>
+
+<h3 id="آلية-إيقاف-القوالب-template-pausing">آلية إيقاف القوالب (Template Pausing):</h3>
+<p>إذا تم إيقاف قالب، فلن تتمكن من إرساله لعملاء جدد.</p>
+<p>1. الإيقاف المبدئي يستمر لمدة <strong>3 ساعات</strong>.</p>
+<p>2. بعد 3 ساعات، يعود للعمل تلقائياً.</p>
+<p>3. إذا استمرت ردود الفعل السلبية، سيتم إيقافه لمدة <strong>6 ساعات</strong>.</p>
+<p>4. الاستمرار في الانتهاكات يؤدي إلى تعطيل القالب نهائياً (Disabled).</p>
+
+<hr>
+
+<h2 id="3-أفضل-الممارسات-لاستخدام-الواجهة">3. أفضل الممارسات لاستخدام الواجهة</h2>
+<ul><li style="margin-left:8px"><strong>البحث والفلترة:</strong> مع تزايد عدد قوالبك، استخدم شريط التصفية (Filter) للترتيب حسب الفئة، اللغة، أو الحالة. هذا مفيد جداً للعثور على القوالب الـ <code>REJECTED</code> القديمة وحذفها.</li>
+<li style="margin-left:0px"><strong>النسخ (Duplication):</strong> بدلاً من بناء قوالب معقدة من الصفر (مثل قوالب الـ Flows أو القوالب الدوارة Carousel)، استخدم أيقونة "التكرار" (Duplicate) بجوار قالب معتمد موجود لتوفير الوقت.</li>
+<li style="margin-left:0px"><strong>الحذف:</strong> تفرض ميتا حداً أقصى يبلغ <strong>250 قالباً لكل حساب (WABA)</strong>. قم بانتظام بحذف القوالب الموسمية القديمة (مثل <code>ramadan_offers_2023</code>) لإخلاء مساحة للقوالب الجديدة.</li></ul>
+
+</div>
+
+      <div class="topic-nav">
+        <a class="nav-prev" href="whatsapp-manager-contacts-tags.html">← "WhatsApp Manager: Contacts & Tags UI"</a>
+        <a class="nav-next" href="whatsapp-number-management.html">"WhatsApp Number Management: Account Limits and Validations" →</a>
+      </div>
+    </main>
+
+    <!-- Interactive Panels -->
+    
+    <div class="learn-right-sidebar">
+      <aside class="interactive-panel lang-en">
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">Test Your Knowledge</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_en_0_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:right">Question 1 of 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p><strong>Question:</strong></p><p>Can I edit the text of a template after it has been approved?</p><p><strong>Answer:</strong></p><p><strong>Yes!</strong> Meta now allows you to edit approved templates up to <strong>10 times in a 30-day window</strong>. Once edited, the template enters the review process again, but the previous version remains active until the new one is approved.</p></div>
+          <div class="mcq-options"></div>
+        </div>
+      
+        </div>
+      </div>
+    
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">Comparison</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>Template Pausing vs. Phone Number Pausing</strong></p>
+<ul><li style="margin-left:0px"><strong>Template Pausing:</strong> Only affects one specific template that is performing poorly. Other templates can still be sent.</li>
+<li style="margin-left:0px"><strong>Phone Number Pausing/Restricted:</strong> Affects your entire WhatsApp Business Account. Usually happens if your overall Phone Number Quality drops to "Red" (Low).</li></ul>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-example">
+        <div class="panel-header">
+          <span class="panel-icon">💡</span>
+          <span class="panel-title">Examples</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>Fixing a Rejected Template:</strong></p>
+<p>If your template is rejected, click on it to see the rejection reason. </p>
+<p><strong>Common Fix:</strong> You categorized a message announcing a new feature as <code>Utility</code>. Meta's AI rejected it because announcements are considered <code>Marketing</code>. </p>
+<p><strong>Solution:</strong> Edit the template, change the category dropdown from Utility to Marketing, provide a sample, and resubmit.</p>
+        </div>
+      </div>
+    </aside>
+      <aside class="interactive-panel lang-ar">
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">اختبر فهمك</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_ar_0_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:left">السؤال 1 من 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p><strong>سؤال:</strong></p><p>هل يمكنني تعديل نص القالب بعد الموافقة عليه؟</p><p><strong>إجابة:</strong></p><p><strong>نعم!</strong> تسمح لك ميتا الآن بتعديل القوالب المعتمدة حتى <strong>10 مرات خلال 30 يوماً</strong>. بمجرد التعديل، يدخل القالب في عملية المراجعة مرة أخرى، ولكن تظل النسخة القديمة فعالة حتى تتم الموافقة على النسخة الجديدة.</p></div>
+          <div class="mcq-options"></div>
+        </div>
+      
+        </div>
+      </div>
+    
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">مقارنة</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>إيقاف القالب مقابل تقييد رقم الهاتف</strong></p>
+<ul><li style="margin-left:0px"><strong>إيقاف القالب (Template Pausing):</strong> يؤثر فقط على هذا القالب المحدد الذي يزعج العملاء. يمكنك الاستمرار في إرسال قوالب أخرى.</li>
+<li style="margin-left:0px"><strong>تقييد رقم الهاتف (Number Restricted):</strong> يؤثر على حساب واتساب أعمالك بالكامل. يحدث هذا عادة إذا انخفضت الجودة العامة لرقم الهاتف إلى "أحمر" (Low Quality).</li></ul>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-example">
+        <div class="panel-header">
+          <span class="panel-icon">💡</span>
+          <span class="panel-title">أمثلة</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>إصلاح قالب مرفوض:</strong></p>
+<p>إذا رُفض قالبك، اضغط عليه لمعرفة سبب الرفض.</p>
+<p><strong>الخطأ الشائع:</strong> قمت بتصنيف رسالة تعلن عن ميزة جديدة في تطبيقك كـ <code>Utility</code> (خدمة). الذكاء الاصطناعي رفضها لأن الإعلانات تعتبر <code>Marketing</code> (تسويق).</p>
+<p><strong>الحل:</strong> قم بتعديل القالب، غيّر التصنيف من Utility إلى Marketing، أدخل العينات، وأعد الإرسال.</p>
+        </div>
+      </div>
+    </aside>
+    </div>
+    
+
+  </div>
+
+  <script>
+(function(){
+  var html=document.documentElement;
+  var theme=localStorage.getItem('theme');
+  if(!theme){
+    theme=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
+  }
+  function applyTheme(t){
+    html.setAttribute('data-theme',t);
+    localStorage.setItem('theme',t);
+  }
+  applyTheme(theme);
+  
+  var lang=localStorage.getItem('lang')||'en';
+  function applyLang(l){
+    html.setAttribute('data-lang',l);
+    localStorage.setItem('lang',l);
+  }
+  applyLang(lang);
+
+  function wireButtons(){
+    var thBtn=document.getElementById('theme-toggle');
+    if(thBtn) thBtn.addEventListener('click',function(){
+      applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+    });
+    var lgBtn=document.getElementById('lang-toggle');
+    if(lgBtn) lgBtn.addEventListener('click',function(){
+      applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
+    });
+    
+  }
+
+  // Global handler for interactive MCQ quizzes
+  window.handleMcqClick = function(radio) {
+    var container = radio.closest('.mcq-options');
+    var labels = container.querySelectorAll('.mcq-option');
+    var widget = radio.closest('.mcq-widget');
+    var progressFill = widget.querySelector('.mcq-progress-bar-fill');
+    var progressPct = widget.querySelector('.mcq-pct');
+    
+    // Lock all inputs & show correct/wrong
+    labels.forEach(function(l) {
+      var inp = l.querySelector('input');
+      inp.disabled = true;
+      if (inp.value === 'correct') {
+        l.classList.add('correct');
+      } else if (inp === radio && inp.value === 'wrong') {
+        l.classList.add('wrong');
+      }
+    });
+    
+    // Update progress bar
+    if(progressFill) progressFill.style.width = '100%';
+    if(progressPct) progressPct.innerText = '100%';
+  };
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',wireButtons);
+  } else {
+    wireButtons();
+  }
+})();
+</script>
+<script>var _SEARCH_BASE_='../../';</script>
+<script src="../../search.js"></script>
+<!-- Syntax Highlighting (PrismJS) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+
+</body>
+</html>

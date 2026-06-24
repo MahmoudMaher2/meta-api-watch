@@ -54,8 +54,26 @@ function md2html(text) {
   text = processPreviewBlocks(text);
   return text
     // Code blocks (must come before inline code)
-    .replace(/```(\w+)?\n([\s\S]*?)```/g, (_, lang, code) =>
-      `<pre class="code-block"><code class="lang-${lang || 'text'}">${escHtml(code.trim())}</code></pre>`)
+    .replace(/```(\w+)?\n([\s\S]*?)```/g, (_, lang, code) => {
+      const language = lang || 'text';
+      return `<div class="mac-editor">
+        <div class="mac-editor-header">
+          <div class="mac-editor-dots">
+            <span class="dot close"></span>
+            <span class="dot minimize"></span>
+            <span class="dot maximize"></span>
+          </div>
+          <div class="mac-editor-lang">SEEN V2 — ${language.toUpperCase()} Snippet</div>
+        </div>
+        <div class="mac-editor-body">
+          <pre class="code-block language-${language}"><code class="language-${language}">${escHtml(code.trim())}</code></pre>
+        </div>
+        <div class="mac-editor-footer">
+          <div class="mac-editor-desc">Use this code snippet directly in your project.</div>
+          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button>
+        </div>
+      </div>`;
+    })
     // Tables
     .replace(/\|(.+)\|\n\|[-| :]+\|\n((?:\|.+\|\n?)+)/g, (_, header, rows) => {
       const ths = header.split('|').filter(c => c.trim()).map(c => `<th>${inlineHtml(c.trim())}</th>`).join('');
@@ -167,24 +185,137 @@ function getAllTopics() {
   return topics;
 }
 
+// ── Interactive Panels Parser ──────────────────────────────────────────────────
+function extractPanels(text) {
+  const panels = [];
+  let mainText = text;
+  
+  const regex = /<!--\s*panel:([a-zA-Z0-9_-]+)\s*-->([\s\S]*?)<!--\s*endpanel\s*-->/g;
+  
+  mainText = text.replace(regex, (match, type, content) => {
+    panels.push({ type: type.trim().toLowerCase(), content: content.trim() });
+    return ''; // Remove from main text
+  });
+  
+  return { mainText, panels };
+}
+
+function getPanelTitle(type, lang) {
+  const dict = {
+    'comparison': { en: 'Comparison', ar: 'مقارنة' },
+    'quiz': { en: 'Test Your Knowledge', ar: 'اختبر فهمك' },
+    'example': { en: 'Examples', ar: 'أمثلة' },
+    'note': { en: 'Note', ar: 'ملاحظة' }
+  };
+  const map = dict[type] || { en: type, ar: type };
+  return lang === 'ar' ? map.ar : map.en;
+}
+
+function renderPanels(panels, lang) {
+  if (!panels || panels.length === 0) return '';
+  const html = panels.map((p, idx) => {
+    const title = getPanelTitle(p.type, lang);
+    let icon = '📌';
+    if (p.type === 'comparison') icon = '⚖️';
+    if (p.type === 'quiz') icon = '🧠';
+    if (p.type === 'example') icon = '💡';
+    
+    let bodyHtml = md2html(p.content);
+    
+    if (p.type === 'quiz') {
+      const lines = p.content.split('\n');
+      let questionHtml = '';
+      let optionsHtml = '';
+      const quizId = 'q_' + lang + '_' + idx;
+      
+      lines.forEach(line => {
+        const trimmed = line.trim();
+        if (trimmed.startsWith('- [x]')) {
+          const optText = trimmed.replace('- [x]', '').trim();
+          optionsHtml += `
+            <label class="mcq-option">
+              <input type="radio" name="${quizId}" value="correct" onclick="handleMcqClick(this)">
+              <span class="mcq-text">${inlineHtml(optText)}</span>
+            </label>
+          `;
+        } else if (trimmed.startsWith('- ')) {
+          const optText = trimmed.replace('- ', '').trim();
+          optionsHtml += `
+            <label class="mcq-option">
+              <input type="radio" name="${quizId}" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">${inlineHtml(optText)}</span>
+            </label>
+          `;
+        } else if (trimmed.length > 0) {
+          questionHtml += `<p>${inlineHtml(trimmed)}</p>`;
+        }
+      });
+      
+      const progressText = lang === 'ar' ? 'السؤال 1 من 1' : 'Question 1 of 1';
+      
+      bodyHtml = `
+        <div class="mcq-widget" id="${quizId}_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:${lang==='ar'?'left':'right'}">${progressText}</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question">${questionHtml}</div>
+          <div class="mcq-options">${optionsHtml}</div>
+        </div>
+      `;
+    }
+
+    return `
+      <div class="panel-card panel-${p.type}">
+        <div class="panel-header">
+          <span class="panel-icon">${icon}</span>
+          <span class="panel-title">${title}</span>
+        </div>
+        <div class="panel-body">
+          ${bodyHtml}
+        </div>
+      </div>
+    `;
+  }).join('');
+  return `<aside class="interactive-panel lang-${lang}">${html}</aside>`;
+}
+
 // ── Build a single topic page ─────────────────────────────────────────────────
 function buildTopicPage(topic, allTopics) {
   const pc = PLATFORM_COLORS[topic.platform] || PLATFORM_COLORS['Common'];
-  const content = md2html(topic.body);
-  const content_ar = topic.body_ar ? md2html(topic.body_ar) : '';
+  
+  const extEn = extractPanels(topic.body);
+  const content = md2html(extEn.mainText);
+  
+  let content_ar = '';
+  let extAr = { mainText: '', panels: [] };
+  if (topic.body_ar) {
+    extAr = extractPanels(topic.body_ar);
+    content_ar = md2html(extAr.mainText);
+  }
+
+  const hasPanels = extEn.panels.length > 0 || extAr.panels.length > 0;
+  const panelsHtmlEn = renderPanels(extEn.panels, 'en');
+  const panelsHtmlAr = renderPanels(extAr.panels, 'ar');
+
   const lastBuildLabel = new Date().toLocaleString('en-US', {
     month: 'short', day: 'numeric', year: 'numeric',
     hour: 'numeric', minute: '2-digit', hour12: true,
     timeZone: 'Africa/Cairo'
-  }) + ' ðŸ‡ªðŸ‡¬';
+  }) + ' 🇪🇬';
   
   // Extract TOC from headings
-  const headingsEn = [...topic.body.matchAll(/^#{2,3}\s(.+)$/gm)].map(m => ({
+  const headingsEn = [...extEn.mainText.matchAll(/^#{2,3}\s(.+)$/gm)].map(m => ({
     level: m[0].startsWith('###') ? 3 : 2,
     text: m[1],
     id: slugH(m[1])
   }));
-  const headingsAr = topic.body_ar ? [...topic.body_ar.matchAll(/^#{2,3}\s(.+)$/gm)].map(m => ({
+  const headingsAr = topic.body_ar ? [...extAr.mainText.matchAll(/^#{2,3}\s(.+)$/gm)].map(m => ({
     level: m[0].startsWith('###') ? 3 : 2,
     text: m[1],
     id: slugH(m[1])
@@ -226,12 +357,12 @@ ${buildHead(
 
 
 
-  <div class="learn-layout">
+  <div class="learn-layout${hasPanels ? ' has-panels' : ''}">
 
     <!-- Sidebar -->
     <aside class="learn-sidebar" id="sidebar">
       <div class="sidebar-section">
-        <span class="sidebar-label" data-en="On this page" data-ar="Ø¹Ù„Ù‰ Ù‡Ø°Ù‡ Ø§Ù„ØµÙ Ø­Ø©">On this page</span>
+        <span class="sidebar-label" data-en="On this page" data-ar="على هذه الصفحة">On this page</span>
         ${tocHtml}
       </div>
       <div class="sidebar-section">
@@ -260,7 +391,7 @@ ${buildHead(
           ${newBadgeHero}
         </div>
         <h1 class="topic-title" data-en="${topic.title}" data-ar="${topic.title_ar}">${topic.title}</h1>
-        <p class="topic-meta"><span data-en="${topic.category}" data-ar="${topic.category}">${topic.category}</span> Â· <span data-en="Last verified:" data-ar="Ø¢Ø®Ø± Ù…Ø±Ø§Ø¬Ø¹Ø©:">Last verified:</span> ${topic.last_verified || 'N/A'}</p>
+        <p class="topic-meta"><span data-en="${topic.category}" data-ar="${topic.category}">${topic.category}</span> · <span data-en="Last verified:" data-ar="آخر مراجعة:">Last verified:</span> ${topic.last_verified || 'N/A'}</p>
       </div>
 
       <div class="topic-body lang-en">
@@ -273,6 +404,14 @@ ${buildHead(
         ${nextLink}
       </div>
     </main>
+
+    <!-- Interactive Panels -->
+    ${hasPanels ? `
+    <div class="learn-right-sidebar">
+      ${panelsHtmlEn}
+      ${panelsHtmlAr}
+    </div>
+    ` : ''}
 
   </div>
 

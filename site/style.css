@@ -75,7 +75,7 @@ body {
 }
 
 .header-inner {
-  max-width:   1280px;
+  max-width:   100%;
   margin:      0 auto;
   display:     flex;
   align-items: center;
@@ -967,9 +967,12 @@ select:hover, select:focus { border-color: var(--accent); }
   display:   grid;
   grid-template-columns: 240px 1fr;
   gap:       0;
-  max-width: 1280px;
+  max-width: 100%; /* Fully fluid */
   margin:    0 auto;
   min-height: calc(100vh - 60px);
+}
+.learn-layout.has-panels {
+  grid-template-columns: 260px 1fr 380px; /* Give sidebars a bit more room, middle flexes */
 }
 
 /* Sidebar */
@@ -1060,14 +1063,20 @@ select:hover, select:focus { border-color: var(--accent); }
 .topic-body li { font-size: .9rem; color: var(--text-muted); margin-bottom: 6px; line-height: 1.6; }
 .topic-body strong { color: var(--text); font-weight: 600; }
 .topic-body em    { color: var(--accent2); font-style: normal; }
-.topic-body code  {
-  background:    var(--bg3);
-  border:        1px solid var(--border);
-  border-radius: 4px;
-  padding:       1px 5px;
+.topic-body code, .table-wrap code {
+  background:    rgba(245, 158, 11, 0.1); /* light orange bg */
+  color:         #fbbf24; /* vibrant orange text for dark mode */
+  border:        1px solid rgba(245, 158, 11, 0.2);
+  border-radius: 5px;
+  padding:       2px 6px;
   font-family:   'JetBrains Mono', monospace;
-  font-size:     .85em;
-  color:         var(--accent2);
+  font-size:     0.88em;
+  font-weight:   500;
+}
+[data-theme="light"] .topic-body code, [data-theme="light"] .table-wrap code {
+  background:    rgba(245, 158, 11, 0.08);
+  color:         #d97706; /* darker orange for light mode */
+  border-color:  rgba(245, 158, 11, 0.2);
 }
 .topic-body a { color: var(--accent2); text-decoration: underline; }
 .topic-body a:hover { color: var(--text); }
@@ -1155,11 +1164,87 @@ blockquote {
 [data-lang="ar"] .learn-sidebar { border-right: none; border-left: 1px solid var(--border); }
 [data-lang="ar"] .toc-sub > a { padding-left: 0; padding-right: 20px; }
 
+/* ╔════════════════════════════════════════════════════════════╗
+   ║  INTERACTIVE PANELS (Right Sidebar)                       ║
+   ╚════════════════════════════════════════════════════════════╝ */
+.learn-right-sidebar {
+  border-left: 1px solid var(--border);
+  padding: 24px 20px;
+  background: var(--bg2);
+}
+[data-lang="ar"] .learn-right-sidebar {
+  border-left: none;
+  border-right: 1px solid var(--border);
+}
+.interactive-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: sticky;
+  top: 84px;
+}
+.panel-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.panel-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg3);
+  font-weight: 700;
+  font-size: .85rem;
+  color: var(--text);
+}
+.panel-icon { font-size: 1.1rem; }
+.panel-body {
+  padding: 16px;
+  font-size: .85rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+.panel-body p { margin-bottom: 10px; }
+.panel-body ul { margin-left: 16px; margin-bottom: 10px; }
+[data-lang="ar"] .panel-body ul { margin-left: 0; margin-right: 16px; }
+.panel-body code {
+  background:    rgba(245, 158, 11, 0.1);
+  color:         #fbbf24;
+  border:        1px solid rgba(245, 158, 11, 0.2);
+  border-radius: 5px;
+  padding:       2px 6px;
+  font-family:   'JetBrains Mono', monospace;
+  font-size:     0.88em;
+  font-weight:   500;
+}
+[data-theme="light"] .panel-body code {
+  background:    rgba(245, 158, 11, 0.08);
+  color:         #d97706;
+  border-color:  rgba(245, 158, 11, 0.2);
+}
+
+/* Card variants */
+.panel-comparison .panel-header { background: rgba(99,102,241,.08); border-bottom-color: rgba(99,102,241,.2); color: var(--accent2); }
+.panel-quiz .panel-header       { background: rgba(217,119,6,.08); border-bottom-color: rgba(217,119,6,.2); color: #fbbf24; }
+.panel-example .panel-header    { background: rgba(34,197,94,.08); border-bottom-color: rgba(34,197,94,.2); color: #4ade80; }
+
 /* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 1150px) {
+  .learn-layout.has-panels { grid-template-columns: 240px 1fr; }
+  .learn-right-sidebar { grid-column: 2; border-left: none; border-top: 1px solid var(--border); padding: 40px; }
+  [data-lang="ar"] .learn-right-sidebar { border-right: none; }
+  .interactive-panel { position: static; }
+}
+
 @media (max-width: 900px) {
-  .learn-layout { grid-template-columns: 1fr; }
+  .learn-layout, .learn-layout.has-panels { grid-template-columns: 1fr; }
   .learn-sidebar { display: none; }
   .learn-content { padding: 24px 20px 48px; }
+  .learn-right-sidebar { grid-column: 1; padding: 24px 20px; }
 }
 @media (max-width: 768px) {
   .cards-grid { grid-template-columns: 1fr; }
@@ -1688,3 +1773,187 @@ html[data-lang="en"] .lang-ar { display: none !important; }
 html[data-lang="ar"] .lang-en { display: none !important; }
 html[data-lang="ar"] .topic-body.lang-ar { direction: rtl; text-align: right; }
 
+/* ╔════════════════════════════════════════════════════════════╗
+   ║  INTERACTIVE WIDGETS (COMPARISON & MCQ QUIZ)              ║
+   ╚════════════════════════════════════════════════════════════╝ */
+
+/* Comparison Widget */
+.panel-comparison .panel-body ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.panel-comparison .panel-body li {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 0;
+  transition: background 0.2s;
+}
+.panel-comparison .panel-body li:hover {
+  background: rgba(255,255,255,0.06);
+}
+.panel-comparison .panel-body li strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+/* MCQ Widget */
+.mcq-widget {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.mcq-progress {
+  font-size: 0.8rem;
+  color: #a1a1aa;
+}
+.mcq-progress-text {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.mcq-progress-bar-bg {
+  height: 4px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.mcq-progress-bar-fill {
+  height: 100%;
+  background: var(--pc-text, #4ade80);
+  transition: width 0.4s ease;
+}
+
+.mcq-question {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.mcq-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.mcq-option {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: rgba(255,255,255,0.02);
+}
+.mcq-option:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.3);
+}
+.mcq-option input[type="radio"] {
+  margin: 0 12px 0 0;
+  accent-color: var(--pc-text, #4ade80);
+}
+[data-lang="ar"] .mcq-option input[type="radio"] {
+  margin: 0 0 0 12px;
+}
+.mcq-option.correct {
+  background: rgba(34,197,94,0.1) !important;
+  border-color: #22c55e !important;
+}
+.mcq-option.wrong {
+  background: rgba(239,68,68,0.1) !important;
+  border-color: #ef4444 !important;
+  opacity: 0.6;
+}/* ╔════════════════════════════════════════════════════════════╗
+   ║  MAC-STYLE CODE EDITOR                                    ║
+   ╚════════════════════════════════════════════════════════════╝ */
+.mac-editor {
+  background: #1a1816; /* Dark brownish black to match Claude */
+  border-radius: 8px;
+  margin: 24px 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  direction: ltr; /* Always LTR for code */
+}
+[data-theme="light"] .mac-editor {
+  background: #1a1816; /* Always dark like the terminal */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+.mac-editor-header {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  /* no background to let the main bg show through, or just same bg */
+}
+.mac-editor-dots {
+  display: flex;
+  gap: 8px;
+  margin-right: 16px;
+}
+.mac-editor-dots .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.mac-editor-dots .dot.close { background: #ff5f56; }
+.mac-editor-dots .dot.minimize { background: #ffbd2e; }
+.mac-editor-dots .dot.maximize { background: #27c93f; }
+
+.mac-editor-lang {
+  color: #a1a1aa;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  flex: 1;
+}
+
+.mac-editor-body {
+  min-height: 120px; /* give it some space like a terminal */
+}
+.mac-editor pre {
+  margin: 0;
+  padding: 0 16px 16px 16px;
+  background: transparent !important;
+  border: none;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+.mac-editor code {
+  font-family: var(--font-mono);
+  color: #e2e8f0;
+  background: transparent !important;
+}
+
+.mac-editor-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.mac-editor-desc {
+  color: #a1a1aa;
+  font-size: 0.85rem;
+  font-family: var(--font-sans);
+}
+.mac-editor-copy {
+  background: #d97706; /* Orange color matching screenshot */
+  border: none;
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.mac-editor-copy:hover {
+  background: #f59e0b;
+}

@@ -8,63 +8,76 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
 </head>
 <body>
 
   <header class="site-header">
   <div class="header-inner">
-
-    <a href="../../index.html" class="header-logo" aria-label="Meta API Watch Home">
+    <div class="header-logo">
       <span class="logo-icon">🔭</span>
       <div class="logo-text">
-        <span class="site-title">Meta API Watch</span>
-        <span class="site-subtitle"
-              data-en="SEEN V2 · Developer Hub"
-              data-ar="SEEN V2 · مركز المطورين">SEEN V2 · Developer Hub</span>
+        <strong>Meta API Watch</strong>
+        <span>SEEN V2 · Developer Hub</span>
       </div>
-    </a>
-
-    <nav class="header-nav" role="navigation" aria-label="Main navigation">
-      <a href="../../changelog.html"
-         class="nav-tab"
-         >
-        <span data-en="🔔 Latest Updates" data-ar="🔔 آخر التحديثات">🔔 Latest Updates</span>
+    </div>
+    
+    <nav class="header-nav">
+      <a href="../../index.html" class="nav-item ">
+        <span class="nav-icon">🔔</span>
+        Latest Updates
       </a>
-      <a href="../../learn/index.html"
-         class="nav-tab active"
-         aria-current="page">
-        <span data-en="📚 Learn" data-ar="📚 تعلّم">📚 Learn</span>
+      <a href="../../learn/index.html" class="nav-item active">
+        <span class="nav-icon">📚</span>
+        Learn
       </a>
     </nav>
 
-    <button id="search-trigger" aria-label="Search">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-      </svg>
-      <span class="search-trigger-label" data-en="Search..." data-ar="ابحث...">Search...</span>
-      <span class="search-trigger-shortcut">/</span>
-    </button>
-
-    <div class="header-build-time" title="Last site build 🇪🇬">
-        <span class="build-icon">🕐</span>
-        <span class="build-label" data-en="Last Build" data-ar="آخر تحديث">Last Build</span>
-        <span class="build-value">Jun 24, 2026, 10:53 PM ðŸ‡ªðŸ‡¬</span>
-      </div>
-
     <div class="header-actions">
-      <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+      <!-- Search Trigger -->
+      <button id="search-trigger" class="search-btn" title="Search documentation... (Ctrl+K)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span>Search...</span>
+        <kbd>/</kbd>
+      </button>
+
+      <div class="build-badge">
+        <span class="pulse"></span>
+        LAST BUILD Jun 24, 2026, 11:13 PM 🇪🇬
+      </div>
+      
+      <!-- Language Toggle -->
+      <button id="lang-toggle" class="icon-btn" title="Toggle Language (AR/EN)">
         <span class="lang-en">EN</span>
-        <span class="lang-sep" aria-hidden="true">·</span>
         <span class="lang-ar">عربي</span>
       </button>
-      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
-        <span class="icon-sun">☀️</span>
-        <span class="icon-moon">🌙</span>
+      
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" class="icon-btn" title="Toggle Theme">
+        <span class="moon">🌙</span>
+        <span class="sun">☀️</span>
       </button>
     </div>
-
   </div>
 </header>
+
+<!-- Search Modal -->
+<div id="search-modal" class="search-modal">
+  <div class="search-modal-content">
+    <div class="search-header">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="search-input" placeholder="Search topics, error codes, guidelines..." autocomplete="off">
+      <button id="search-close" class="icon-btn">×</button>
+    </div>
+    <div id="search-results" class="search-results"></div>
+    <div class="search-footer">
+      <span><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span>
+      <span><kbd>Enter</kbd> to select</span>
+      <span><kbd>ESC</kbd> to close</span>
+    </div>
+  </div>
+</div>
+
 
 
 
@@ -73,7 +86,7 @@
     <!-- Sidebar -->
     <aside class="learn-sidebar" id="sidebar">
       <div class="sidebar-section">
-        <span class="sidebar-label" data-en="On this page" data-ar="Ø¹Ù„Ù‰ Ù‡Ø°Ù‡ Ø§Ù„ØµÙ Ø­Ø©">On this page</span>
+        <span class="sidebar-label" data-en="On this page" data-ar="على هذه الصفحة">On this page</span>
         
     <div class="lang-en">
       <ul class="toc-list"><li class="toc-top"><a href="#setup-requirements">Setup Requirements</a></li><li class="toc-top"><a href="#verification-flow-one-time-setup">Verification Flow (One-Time Setup)</a></li><li class="toc-sub"><a href="#correct-response">✅ Correct Response</a></li><li class="toc-sub"><a href="#wrong-responses">❌ Wrong Responses</a></li><li class="toc-top"><a href="#signature-verification">Signature Verification</a></li><li class="toc-top"><a href="#webhook-fields-subscription">Webhook Fields — Subscription</a></li><li class="toc-top"><a href="#webhook-event-types">Webhook Event Types</a></li><li class="toc-sub"><a href="#messages-inbound-messages">`messages` — Inbound Messages</a></li><li class="toc-sub"><a href="#message-types-in-webhook">Message Types in Webhook</a></li><li class="toc-sub"><a href="#statuses-message-status-updates">`statuses` — Message Status Updates</a></li><li class="toc-sub"><a href="#status-flow">Status Flow</a></li><li class="toc-sub"><a href="#messagetemplatestatusupdate">`message_template_status_update`</a></li><li class="toc-sub"><a href="#accountupdate">`account_update`</a></li><li class="toc-top"><a href="#validation-rules">Validation Rules</a></li><li class="toc-top"><a href="#error-codes-in-status-webhooks">Error Codes in Status Webhooks</a></li><li class="toc-top"><a href="#seen-v2-notes">SEEN V2 Notes</a></li></ul>
@@ -110,7 +123,7 @@
           
         </div>
         <h1 class="topic-title" data-en="WhatsApp Webhooks" data-ar="خطافات الويب (Webhooks) الخاصة بـ WhatsApp">WhatsApp Webhooks</h1>
-        <p class="topic-meta"><span data-en="Webhooks" data-ar="Webhooks">Webhooks</span> Â· <span data-en="Last verified:" data-ar="Ø¢Ø®Ø± Ù…Ø±Ø§Ø¬Ø¹Ø©:">Last verified:</span> 2026-06-24</p>
+        <p class="topic-meta"><span data-en="Webhooks" data-ar="Webhooks">Webhooks</span> · <span data-en="Last verified:" data-ar="آخر مراجعة:">Last verified:</span> 2026-06-24</p>
       </div>
 
       <div class="topic-body lang-en">
@@ -127,15 +140,47 @@
 
 <p>When you save the webhook URL in your App Dashboard, Meta sends a <code>GET</code> request:</p>
 
-<pre class="code-block"><code class="lang-http">GET https://your-server.com/webhook
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — HTTP Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-http"><code class="language-http">GET https://your-server.com/webhook</p>
 <p>  ?hub.mode=subscribe</p>
 <p>  &amp;hub.verify_token=YOUR_TOKEN</p>
 <p>  &amp;hub.challenge=CHALLENGE_STRING</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="correct-response">✅ Correct Response</h3>
 
-<pre class="code-block"><code class="lang-http">HTTP 200
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — HTTP Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-http"><code class="language-http">HTTP 200</p>
 <p>Body: CHALLENGE_STRING</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="wrong-responses">❌ Wrong Responses</h3>
 
@@ -146,7 +191,17 @@
 
 <p>Every webhook POST includes the header <code>X-Hub-Signature-256</code>. You <strong>must</strong> validate it to confirm the payload is from Meta:</p>
 
-<pre class="code-block"><code class="lang-javascript">// ✅ Correct signature validation
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JAVASCRIPT Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-javascript"><code class="language-javascript">// <span class="icon-accept">✅</span> Correct signature validation</p>
 <p>const crypto = require('crypto');</p>
 
 <p>function verifySignature(payload, signature, appSecret) {</p>
@@ -159,6 +214,12 @@
 <p>    Buffer.from(expected)</p>
 <p>  );</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <div class="callout callout-warn"><span>⚠️</span><p>Use the raw request body for HMAC calculation — NOT `JSON.stringify(req.body)`. Body parsers may reformat the JSON.</p></div>
 
@@ -168,7 +229,17 @@
 
 <p>Subscribe to fields in your App Dashboard or via API:</p>
 
-<pre class="code-block"><code class="lang-json">POST /v21.0/{phone-number-id}/subscribed_apps
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">POST /v21.0/{phone-number-id}/subscribed_apps</p>
 <p>{</p>
 <p>  "subscribed_fields": [</p>
 <p>    "messages",</p>
@@ -177,6 +248,12 @@
 <p>    "account_update"</p>
 <p>  ]</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <hr>
 
@@ -188,7 +265,17 @@
 
 <p><strong>Payload structure:</strong></p>
 
-<pre class="code-block"><code class="lang-json">{
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
 <p>  "object": "whatsapp_business_account",</p>
 <p>  "entry": [{</p>
 <p>    "id": "WABA_ID",</p>
@@ -212,6 +299,12 @@
 <p>    }]</p>
 <p>  }]</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="message-types-in-webhook">Message Types in Webhook</h3>
 
@@ -222,7 +315,17 @@
 
 <p>Fires when a message you sent changes status.</p>
 
-<pre class="code-block"><code class="lang-json">{
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
 <p>  "statuses": [{</p>
 <p>    "id": "wamid.xxx",</p>
 <p>    "status": "delivered",</p>
@@ -239,12 +342,34 @@
 <p>    }</p>
 <p>  }]</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="status-flow">Status Flow</h3>
 
-<pre class="code-block"><code class="lang-text">sent → delivered → read
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — TEXT Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-text"><code class="language-text">sent → delivered → read</p>
 <p>           ↓</p>
 <p>         failed (if undeliverable)</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <div class="table-wrap"><table><thead><tr><th>Status</th><th>Meaning</th></tr></thead><tbody><tr><td><code>sent</code></td><td>Message sent from Meta servers</td></tr><tr><td><code>delivered</code></td><td>Received on user's device</td></tr><tr><td><code>read</code></td><td>User opened the message</td></tr><tr><td><code>failed</code></td><td>Delivery failed — check <code>errors[]</code></td></tr><tr><td><code>deleted</code></td><td>User deleted the message</td></tr><tr><td><code>played</code></td><td>Voice message was played</td></tr></tbody></table></div>
 <hr>
@@ -253,7 +378,17 @@
 
 <p>Fires when a template's review status changes.</p>
 
-<pre class="code-block"><code class="lang-json">{
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
 <p>  "value": {</p>
 <p>    "event": "APPROVED",</p>
 <p>    "message_template_id": 123456,</p>
@@ -262,6 +397,12 @@
 <p>    "reason": null</p>
 <p>  }</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <div class="table-wrap"><table><thead><tr><th>Event</th><th>Meaning</th></tr></thead><tbody><tr><td><code>APPROVED</code></td><td>Template is ready to use</td></tr><tr><td><code>REJECTED</code></td><td>Template failed Meta's review — <code>reason</code> field explains why</td></tr><tr><td><code>FLAGGED</code></td><td>Quality concerns — may be paused soon</td></tr><tr><td><code>PAUSED</code></td><td>Template paused due to low quality</td></tr><tr><td><code>DISABLED</code></td><td>Template permanently disabled</td></tr><tr><td><code>REINSTATED</code></td><td>Template re-approved after appeal</td></tr></tbody></table></div>
 <hr>
@@ -270,13 +411,29 @@
 
 <p>Fires when WABA-level changes occur.</p>
 
-<pre class="code-block"><code class="lang-json">{
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
 <p>  "value": {</p>
 <p>    "phone_number": "15550000000",</p>
 <p>    "event": "ACCOUNT_UPDATE",</p>
 <p>    "banner_type": "BUSINESS_INITIATED_DISABLED"</p>
 <p>  }</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <div class="table-wrap"><table><thead><tr><th>Event</th><th>Meaning</th></tr></thead><tbody><tr><td><code>PHONE_NUMBER_NAME_UPDATE</code></td><td>Display name approved/rejected</td></tr><tr><td><code>PHONE_NUMBER_QUALITY_UPDATE</code></td><td>Quality score change</td></tr><tr><td><code>PHONE_NUMBER_BANNED</code></td><td>Number banned</td></tr><tr><td><code>ACCOUNT_VIOLATION</code></td><td>Policy violation flagged</td></tr><tr><td><code>PARTNER_REMOVED</code></td><td>Business disconnected from BSP</td></tr></tbody></table></div>
 <hr>
@@ -308,15 +465,47 @@
 
 <p>عندما تقوم بحفظ رابط خطاف الويب في لوحة تحكم التطبيق الخاص بك، ترسل Meta طلب <code>GET</code>:</p>
 
-<pre class="code-block"><code class="lang-http">GET https://your-server.com/webhook
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — HTTP Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-http"><code class="language-http">GET https://your-server.com/webhook</p>
 <p>  ?hub.mode=subscribe</p>
 <p>  &amp;hub.verify_token=YOUR_TOKEN</p>
 <p>  &amp;hub.challenge=CHALLENGE_STRING</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="الاستجابة-الصحيحة">✅ الاستجابة الصحيحة</h3>
 
-<pre class="code-block"><code class="lang-http">HTTP 200
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — HTTP Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-http"><code class="language-http">HTTP 200</p>
 <p>Body: CHALLENGE_STRING</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="الاستجابات-الخاطئة">❌ الاستجابات الخاطئة</h3>
 
@@ -327,7 +516,17 @@
 
 <p>كل طلب POST لخطاف الويب يتضمن الترويسة <code>X-Hub-Signature-256</code>. <strong>يجب</strong> عليك التحقق منها لتأكيد أن الحمولة واردة من Meta:</p>
 
-<pre class="code-block"><code class="lang-javascript">// ✅ Correct signature validation
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JAVASCRIPT Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-javascript"><code class="language-javascript">// <span class="icon-accept">✅</span> Correct signature validation</p>
 <p>const crypto = require('crypto');</p>
 
 <p>function verifySignature(payload, signature, appSecret) {</p>
@@ -340,6 +539,12 @@
 <p>    Buffer.from(expected)</p>
 <p>  );</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <div class="callout callout-warn"><span>⚠️</span><p>استخدم محتوى الطلب الخام (raw request body) لحساب HMAC — وليس `JSON.stringify(req.body)`. قد تقوم أدوات تحليل المحتوى (body parsers) بإعادة تنسيق JSON.</p></div>
 
@@ -349,7 +554,17 @@
 
 <p>اشترك في الحقول من خلال لوحة تحكم التطبيق الخاص بك أو عبر واجهة برمجة التطبيقات (API):</p>
 
-<pre class="code-block"><code class="lang-json">POST /v21.0/{phone-number-id}/subscribed_apps
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">POST /v21.0/{phone-number-id}/subscribed_apps</p>
 <p>{</p>
 <p>  "subscribed_fields": [</p>
 <p>    "messages",</p>
@@ -358,6 +573,12 @@
 <p>    "account_update"</p>
 <p>  ]</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <hr>
 
@@ -369,7 +590,17 @@
 
 <p><strong>هيكل الحمولة:</strong></p>
 
-<pre class="code-block"><code class="lang-json">{
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
 <p>  "object": "whatsapp_business_account",</p>
 <p>  "entry": [{</p>
 <p>    "id": "WABA_ID",</p>
@@ -393,6 +624,12 @@
 <p>    }]</p>
 <p>  }]</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="أنواع-الرسائل-في-خطاف-الويب">أنواع الرسائل في خطاف الويب</h3>
 
@@ -403,7 +640,17 @@
 
 <p>يتم تشغيله عندما تتغير حالة رسالة قمت بإرسالها.</p>
 
-<pre class="code-block"><code class="lang-json">{
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
 <p>  "statuses": [{</p>
 <p>    "id": "wamid.xxx",</p>
 <p>    "status": "delivered",</p>
@@ -420,12 +667,34 @@
 <p>    }</p>
 <p>  }]</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="مسار-الحالة">مسار الحالة</h3>
 
-<pre class="code-block"><code class="lang-text">sent → delivered → read
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — TEXT Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-text"><code class="language-text">sent → delivered → read</p>
 <p>           ↓</p>
 <p>         failed (if undeliverable)</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <div class="table-wrap"><table><thead><tr><th>الحالة</th><th>المعنى</th></tr></thead><tbody><tr><td><code>sent</code></td><td>تم إرسال الرسالة من خوادم Meta</td></tr><tr><td><code>delivered</code></td><td>تم الاستلام على جهاز المستخدم</td></tr><tr><td><code>read</code></td><td>قام المستخدم بفتح الرسالة</td></tr><tr><td><code>failed</code></td><td>فشل التسليم — تحقق من <code>errors[]</code></td></tr><tr><td><code>deleted</code></td><td>قام المستخدم بحذف الرسالة</td></tr><tr><td><code>played</code></td><td>تم تشغيل الرسالة الصوتية</td></tr></tbody></table></div>
 <hr>
@@ -434,7 +703,17 @@
 
 <p>يتم تشغيله عندما تتغير حالة مراجعة قالب.</p>
 
-<pre class="code-block"><code class="lang-json">{
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
 <p>  "value": {</p>
 <p>    "event": "APPROVED",</p>
 <p>    "message_template_id": 123456,</p>
@@ -443,6 +722,12 @@
 <p>    "reason": null</p>
 <p>  }</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <div class="table-wrap"><table><thead><tr><th>الحدث</th><th>المعنى</th></tr></thead><tbody><tr><td><code>APPROVED</code></td><td>القالب جاهز للاستخدام</td></tr><tr><td><code>REJECTED</code></td><td>فشل القالب في مراجعة Meta — حقل <code>reason</code> يوضح السبب</td></tr><tr><td><code>FLAGGED</code></td><td>مخاوف تتعلق بالجودة — قد يتم إيقافه مؤقتًا قريبًا</td></tr><tr><td><code>PAUSED</code></td><td>تم إيقاف القالب مؤقتًا بسبب انخفاض الجودة</td></tr><tr><td><code>DISABLED</code></td><td>تم تعطيل القالب بشكل دائم</td></tr><tr><td><code>REINSTATED</code></td><td>تمت إعادة الموافقة على القالب بعد تقديم التماس (appeal)</td></tr></tbody></table></div>
 <hr>
@@ -451,13 +736,29 @@
 
 <p>يتم تشغيله عند حدوث تغييرات على مستوى حساب واتساب للأعمال (WABA).</p>
 
-<pre class="code-block"><code class="lang-json">{
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
 <p>  "value": {</p>
 <p>    "phone_number": "15550000000",</p>
 <p>    "event": "ACCOUNT_UPDATE",</p>
 <p>    "banner_type": "BUSINESS_INITIATED_DISABLED"</p>
 <p>  }</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <div class="table-wrap"><table><thead><tr><th>الحدث</th><th>المعنى</th></tr></thead><tbody><tr><td><code>PHONE_NUMBER_NAME_UPDATE</code></td><td>تمت الموافقة على/رفض اسم العرض</td></tr><tr><td><code>PHONE_NUMBER_QUALITY_UPDATE</code></td><td>تغيير في درجة الجودة</td></tr><tr><td><code>PHONE_NUMBER_BANNED</code></td><td>تم حظر الرقم</td></tr><tr><td><code>ACCOUNT_VIOLATION</code></td><td>تم الإبلاغ عن انتهاك للسياسة</td></tr><tr><td><code>PARTNER_REMOVED</code></td><td>تم فصل النشاط التجاري عن مزود حلول الأعمال (BSP)</td></tr></tbody></table></div>
 <hr>
@@ -482,34 +783,31 @@
       </div>
     </main>
 
+    <!-- Interactive Panels -->
+    
+
   </div>
 
   <script>
 (function(){
-  var html=document.documentElement,TK='maw-theme',LK='maw-lang';
-
-  // ── Theme ────────────────────────────────────────────────
-  function applyTheme(t){html.setAttribute('data-theme',t);localStorage.setItem(TK,t);}
-  applyTheme(localStorage.getItem(TK)||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));
-
-  // ── Language ─────────────────────────────────────────────
+  var html=document.documentElement;
+  var theme=localStorage.getItem('theme');
+  if(!theme){
+    theme=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
+  }
+  function applyTheme(t){
+    html.setAttribute('data-theme',t);
+    localStorage.setItem('theme',t);
+  }
+  applyTheme(theme);
+  
+  var lang=localStorage.getItem('lang')||'en';
   function applyLang(l){
     html.setAttribute('data-lang',l);
-    html.setAttribute('lang',l==='ar'?'ar':'en');
-    html.setAttribute('dir',l==='ar'?'rtl':'ltr');
-    localStorage.setItem(LK,l);
-    document.querySelectorAll('[data-en][data-ar]').forEach(function(el){
-      var val = el.getAttribute(l==='ar'?'data-ar':'data-en');
-      if (el.tagName==='INPUT' || el.tagName==='TEXTAREA') {
-        el.placeholder = val;
-      } else {
-        el.innerHTML = val;
-      }
-    });
+    localStorage.setItem('lang',l);
   }
-  applyLang(localStorage.getItem(LK)||'en');
+  applyLang(lang);
 
-  // Wire up buttons after DOM is ready
   function wireButtons(){
     var thBtn=document.getElementById('theme-toggle');
     if(thBtn) thBtn.addEventListener('click',function(){
@@ -522,6 +820,30 @@
     
   }
 
+  // Global handler for interactive MCQ quizzes
+  window.handleMcqClick = function(radio) {
+    var container = radio.closest('.mcq-options');
+    var labels = container.querySelectorAll('.mcq-option');
+    var widget = radio.closest('.mcq-widget');
+    var progressFill = widget.querySelector('.mcq-progress-bar-fill');
+    var progressPct = widget.querySelector('.mcq-pct');
+    
+    // Lock all inputs & show correct/wrong
+    labels.forEach(function(l) {
+      var inp = l.querySelector('input');
+      inp.disabled = true;
+      if (inp.value === 'correct') {
+        l.classList.add('correct');
+      } else if (inp === radio && inp.value === 'wrong') {
+        l.classList.add('wrong');
+      }
+    });
+    
+    // Update progress bar
+    if(progressFill) progressFill.style.width = '100%';
+    if(progressPct) progressPct.innerText = '100%';
+  };
+
   if(document.readyState==='loading'){
     document.addEventListener('DOMContentLoaded',wireButtons);
   } else {
@@ -531,5 +853,12 @@
 </script>
 <script>var _SEARCH_BASE_='../../';</script>
 <script src="../../search.js"></script>
+<!-- Syntax Highlighting (PrismJS) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+
 </body>
 </html>

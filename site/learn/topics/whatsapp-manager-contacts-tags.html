@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>"WhatsApp Manager: Contacts & Tags UI" — Meta Docs Learn</title>
+  <meta name="description" content="Learn "WhatsApp Manager: Contacts & Tags UI" in whatsapp: validation rules, error codes, examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+  <div class="header-inner">
+    <div class="header-logo">
+      <span class="logo-icon">🔭</span>
+      <div class="logo-text">
+        <strong>Meta API Watch</strong>
+        <span>SEEN V2 · Developer Hub</span>
+      </div>
+    </div>
+    
+    <nav class="header-nav">
+      <a href="../../index.html" class="nav-item ">
+        <span class="nav-icon">🔔</span>
+        Latest Updates
+      </a>
+      <a href="../../learn/index.html" class="nav-item active">
+        <span class="nav-icon">📚</span>
+        Learn
+      </a>
+    </nav>
+
+    <div class="header-actions">
+      <!-- Search Trigger -->
+      <button id="search-trigger" class="search-btn" title="Search documentation... (Ctrl+K)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span>Search...</span>
+        <kbd>/</kbd>
+      </button>
+
+      <div class="build-badge">
+        <span class="pulse"></span>
+        LAST BUILD Jun 24, 2026, 11:13 PM 🇪🇬
+      </div>
+      
+      <!-- Language Toggle -->
+      <button id="lang-toggle" class="icon-btn" title="Toggle Language (AR/EN)">
+        <span class="lang-en">EN</span>
+        <span class="lang-ar">عربي</span>
+      </button>
+      
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" class="icon-btn" title="Toggle Theme">
+        <span class="moon">🌙</span>
+        <span class="sun">☀️</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Search Modal -->
+<div id="search-modal" class="search-modal">
+  <div class="search-modal-content">
+    <div class="search-header">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="search-input" placeholder="Search topics, error codes, guidelines..." autocomplete="off">
+      <button id="search-close" class="icon-btn">×</button>
+    </div>
+    <div id="search-results" class="search-results"></div>
+    <div class="search-footer">
+      <span><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span>
+      <span><kbd>Enter</kbd> to select</span>
+      <span><kbd>ESC</kbd> to close</span>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <div class="learn-layout has-panels">
+
+    <!-- Sidebar -->
+    <aside class="learn-sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label" data-en="On this page" data-ar="على هذه الصفحة">On this page</span>
+        
+    <div class="lang-en">
+      <ul class="toc-list"><li class="toc-top"><a href="#1-managing-contacts">1. Managing Contacts</a></li><li class="toc-sub"><a href="#adding-contacts">Adding Contacts</a></li><li class="toc-sub"><a href="#data-formatting-constraints">Data formatting constraints:</a></li><li class="toc-top"><a href="#2-organizing-with-tags-labels">2. Organizing with Tags (Labels)</a></li><li class="toc-sub"><a href="#creating-and-applying-tags">Creating and Applying Tags</a></li><li class="toc-sub"><a href="#limitations-and-best-practices">Limitations and Best Practices</a></li><li class="toc-top"><a href="#3-opt-in-and-compliance">3. Opt-in and Compliance</a></li></ul>
+    </div>
+    
+    <div class="lang-ar">
+      <ul class="toc-list"><li class="toc-top"><a href="#1-إدارة-جهات-الاتصال-contacts">1. إدارة جهات الاتصال (Contacts)</a></li><li class="toc-sub"><a href="#إضافة-جهات-الاتصال">إضافة جهات الاتصال</a></li><li class="toc-sub"><a href="#قيود-تنسيق-البيانات">قيود تنسيق البيانات:</a></li><li class="toc-top"><a href="#2-التنظيم-باستخدام-التصنيفات-tags">2. التنظيم باستخدام التصنيفات (Tags)</a></li><li class="toc-sub"><a href="#إنشاء-وتطبيق-التصنيفات">إنشاء وتطبيق التصنيفات</a></li><li class="toc-sub"><a href="#قيود-وأفضل-الممارسات">قيود وأفضل الممارسات</a></li><li class="toc-top"><a href="#3-الموافقة-opt-in-والالتزام-بالقواعد">3. الموافقة (Opt-in) والالتزام بالقواعد</a></li></ul>
+    </div>
+  
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Source</span>
+        <a href="" target="_blank" rel="noopener" class="source-link">
+          📄 Meta Developer Docs ↗
+        </a>
+        
+      </div>
+      
+    </aside>
+
+    <!-- Main Content -->
+    <main class="learn-content" id="main-content">
+      <div class="topic-breadcrumb">
+        <a href="../index.html">Learn</a>
+        <span>›</span>
+        <span style="color:#a78bfa">whatsapp</span>
+        <span>›</span>
+        <span>"WhatsApp Manager: Contacts & Tags UI"</span>
+      </div>
+
+      <div class="topic-hero">
+        <div class="topic-hero-badges">
+          <span class="platform-badge" style="background:#1a1a24;color:#a78bfa;border-color:#4c1d95">whatsapp</span>
+          
+        </div>
+        <h1 class="topic-title" data-en=""WhatsApp Manager: Contacts & Tags UI"" data-ar=""مدير واتساب: جهات الاتصال والتصنيفات (Contacts & Tags)"">"WhatsApp Manager: Contacts & Tags UI"</h1>
+        <p class="topic-meta"><span data-en=""whatsapp"" data-ar=""whatsapp"">"whatsapp"</span> · <span data-en="Last verified:" data-ar="آخر مراجعة:">Last verified:</span> N/A</p>
+      </div>
+
+      <div class="topic-body lang-en">
+        <h1>Contacts & Tags in WhatsApp Manager</h1>
+
+<p>Traditionally, businesses using the WhatsApp Cloud API had to build their own CRM or purchase third-party inbox software to store contacts and organize chats. Meta has recently bridged this gap by introducing <strong>Native Contacts and Tags Management</strong> directly inside the WhatsApp Manager (Meta Business Suite).</p>
+
+<p>This empowers businesses to manage their audience, upload contact lists, and segment users without writing a single line of code.</p>
+
+<h2 id="1-managing-contacts">1. Managing Contacts</h2>
+
+<p>You can access the Contacts section by navigating to <strong>WhatsApp Manager > Contacts</strong> from the left-hand sidebar. This acts as your native address book.</p>
+
+<h3 id="adding-contacts">Adding Contacts</h3>
+<p>There are two primary ways to add contacts:</p>
+<p>1. <strong>Manual Entry:</strong> Adding a single contact by entering their Name, Phone Number, and Country Code.</p>
+<p>2. <strong>Bulk Import:</strong> Uploading a CSV or Excel file containing your customer list. </p>
+
+<h3 id="data-formatting-constraints">Data formatting constraints:</h3>
+<ul><li style="margin-left:0px"><strong>Phone Numbers:</strong> Must include the country code without any <code>+</code>, <code>00</code>, or spaces (e.g., <code>201012345678</code>).</li>
+<li style="margin-left:0px"><strong>File Size limit:</strong> Meta generally limits bulk imports to files containing no more than <strong>50,000 contacts per upload</strong>.</li>
+<li style="margin-left:0px"><strong>Duplicates:</strong> The system automatically deduplicates based on the phone number.</li></ul>
+
+<hr>
+
+<h2 id="2-organizing-with-tags-labels">2. Organizing with Tags (Labels)</h2>
+
+<p>Tags (sometimes called Labels) are critical for segmenting your audience. By assigning tags to contacts, you can later send highly targeted Broadcasts (Campaigns) to specific groups rather than blasting your entire list.</p>
+
+<h3 id="creating-and-applying-tags">Creating and Applying Tags</h3>
+<ul><li style="margin-left:0px"><strong>During Import:</strong> When uploading a CSV, you can assign a universal Tag to all contacts in that specific file (e.g., <code>Q3_Leads_2026</code>).</li>
+<li style="margin-left:0px"><strong>Manual Assignment:</strong> You can edit any individual contact in the list and assign them multiple tags.</li></ul>
+
+<h3 id="limitations-and-best-practices">Limitations and Best Practices</h3>
+<ul><li style="margin-left:0px"><strong>Tag Names:</strong> Keep tag names short, descriptive, and avoid special characters.</li>
+<li style="margin-left:0px"><strong>Limit:</strong> While you can create many tags, keeping your tag taxonomy organized is crucial. Use consistent naming conventions.</li></ul>
+
+<hr>
+
+<h2 id="3-opt-in-and-compliance">3. Opt-in and Compliance</h2>
+
+<p>Even though Meta provides the UI to upload contacts, <strong>you are still strictly bound by the Opt-in Policy.</strong></p>
+
+<p>1. <strong>Explicit Consent:</strong> You must have explicit, opt-in consent from every contact you upload to the WhatsApp Manager. Uploading purchased lists will likely result in a high block rate from users.</p>
+<p>2. <strong>Quality Rating:</strong> If you upload a poor-quality list and users block you or report your messages as spam, your Phone Number Quality Rating will drop to "Red" (Low Quality), and your messaging limits may be severely restricted.</p>
+<p>3. <strong>Opt-out Handling:</strong> If a user replies with "STOP" or "UNSUBSCRIBE", you must manually remove them from your active tags or delete them from the Contacts UI if you are not using an automated API flow to manage opt-outs.</p>
+
+
+      </div>
+      <div class="topic-body lang-ar"><h1>جهات الاتصال والتصنيفات في مدير واتساب</h1>
+
+<p>في الماضي، كانت الشركات التي تستخدم (WhatsApp Cloud API) مضطرة لبناء نظام الـ CRM الخاص بها أو شراء برنامج خدمة عملاء (Inbox) لتخزين جهات الاتصال وتنظيم المحادثات. مؤخراً، قامت Meta بسد هذه الفجوة عبر تقديم <strong>نظام مدمج لإدارة جهات الاتصال والتصنيفات</strong> مباشرة داخل واجهة مدير واتساب (WhatsApp Manager).</p>
+
+<p>هذا النظام يُمكّن الشركات من إدارة جمهورها، رفع قوائم العملاء، وتقسيمهم إلى فئات دون كتابة سطر كود واحد.</p>
+
+<h2 id="1-إدارة-جهات-الاتصال-contacts">1. إدارة جهات الاتصال (Contacts)</h2>
+
+<p>يمكنك الوصول إلى قسم جهات الاتصال عبر التوجه إلى <strong>WhatsApp Manager > Contacts</strong> من القائمة الجانبية. تعمل هذه الصفحة كدفتر عناوين مدمج خاص بعملك.</p>
+
+<h3 id="إضافة-جهات-الاتصال">إضافة جهات الاتصال</h3>
+<p>هناك طريقتان أساسيتان لإضافة جهات الاتصال:</p>
+<p>1. <strong>الإدخال اليدوي:</strong> إضافة جهة اتصال واحدة عن طريق إدخال الاسم، رقم الهاتف، وكود الدولة.</p>
+<p>2. <strong>الرفع الجماعي (Bulk Import):</strong> رفع ملف CSV أو Excel يحتوي على قائمة عملائك كاملة.</p>
+
+<h3 id="قيود-تنسيق-البيانات">قيود تنسيق البيانات:</h3>
+<ul><li style="margin-left:0px"><strong>أرقام الهواتف:</strong> يجب أن تتضمن كود الدولة بدون علامة <code>+</code> أو <code>00</code> أو مسافات (مثال: <code>201012345678</code>).</li>
+<li style="margin-left:0px"><strong>حجم الملف:</strong> تضع ميتا حداً أقصى للملف الواحد بحيث لا يتجاوز <strong>50,000 جهة اتصال في الرفعة الواحدة</strong>.</li>
+<li style="margin-left:0px"><strong>التكرار (Duplicates):</strong> يقوم النظام تلقائياً بدمج جهات الاتصال المكررة بناءً على رقم الهاتف.</li></ul>
+
+<hr>
+
+<h2 id="2-التنظيم-باستخدام-التصنيفات-tags">2. التنظيم باستخدام التصنيفات (Tags)</h2>
+
+<p>التصنيفات (أو العلامات) مهمة جداً لتقسيم جمهورك. من خلال ربط جهات الاتصال بتصنيفات، يمكنك لاحقاً إرسال رسائل جماعية (Broadcasts) موجهة بدقة لفئة معينة بدلاً من إرسال رسالة عشوائية لكل القائمة.</p>
+
+<h3 id="إنشاء-وتطبيق-التصنيفات">إنشاء وتطبيق التصنيفات</h3>
+<ul><li style="margin-left:0px"><strong>أثناء الرفع:</strong> عند رفع ملف CSV، يمكنك تعيين تصنيف موحد يطبق على كل من في الملف (مثلاً: <code>عملاء_محتملين_2026</code>).</li>
+<li style="margin-left:0px"><strong>التعيين اليدوي:</strong> يمكنك تعديل أي جهة اتصال في القائمة وإضافة عدة تصنيفات لها.</li></ul>
+
+<h3 id="قيود-وأفضل-الممارسات">قيود وأفضل الممارسات</h3>
+<ul><li style="margin-left:0px"><strong>أسماء التصنيفات:</strong> اجعل أسماء التصنيفات قصيرة، واضحة، وتجنب الرموز المعقدة.</li>
+<li style="margin-left:0px"><strong>الحدود:</strong> رغم أنه يمكنك إنشاء العديد من التصنيفات، إلا أن الحفاظ على نظام تسمية موحد أمر حاسم لعدم تشتت فريق التسويق.</li></ul>
+
+<hr>
+
+<h2 id="3-الموافقة-opt-in-والالتزام-بالقواعد">3. الموافقة (Opt-in) والالتزام بالقواعد</h2>
+
+<p>حتى مع وجود أداة لرفع الأرقام، <strong>أنت لا تزال ملزماً بشكل صارم بسياسة الموافقة المسبقة (Opt-in Policy).</strong></p>
+
+<p>1. <strong>الموافقة الصريحة:</strong> يجب أن تحصل على موافقة صريحة من كل جهة اتصال تقوم برفعها. رفع قوائم أرقام مشتراة سيؤدي بلا شك إلى معدل حظر (Block Rate) مرتفع جداً.</p>
+<p>2. <strong>تقييم الجودة (Quality Rating):</strong> إذا قمت برفع قائمة بجودة رديئة وقام المستخدمون بحظرك أو التبليغ عن رسائلك كـ Spam، سينخفض تقييم رقمك إلى "أحمر" (Low Quality)، وسيتم تقييد حدود إرسالك بشدة.</p>
+<p>3. <strong>التعامل مع إلغاء الاشتراك (Opt-out):</strong> إذا رد العميل بكلمة "توقف" أو "UNSUBSCRIBE"، يجب عليك يدوياً إزالة التصنيفات الخاصة به أو حذفه من القائمة إذا كنت لا تستخدم نظام API آلي لمعالجة الإلغاء.</p>
+
+</div>
+
+      <div class="topic-nav">
+        <a class="nav-prev" href="whatsapp-manager-broadcasts.html">← "WhatsApp Manager: Broadcasts (Campaigns)"</a>
+        <a class="nav-next" href="whatsapp-manager-templates-ui.html">"WhatsApp Manager: Message Templates UI" →</a>
+      </div>
+    </main>
+
+    <!-- Interactive Panels -->
+    
+    <div class="learn-right-sidebar">
+      <aside class="interactive-panel lang-en">
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">Comparison</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>UI Contacts vs. API Contacts</strong></p>
+<ul><li style="margin-left:0px"><strong>WhatsApp Manager UI:</strong> Great for marketing teams who have a static list of opted-in customers to send a broadcast.</li>
+<li style="margin-left:0px"><strong>API Management:</strong> Essential for dynamic systems where a user signs up on your website and is instantly added to your database programmatically.</li></ul>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">Test Your Knowledge</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_en_1_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:right">Question 1 of 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p><strong>Question:</strong></p><p>Can I automatically tag a user based on the message they send me?</p><p><strong>Answer:</strong></p><p><strong>Not natively in the UI.</strong> The WhatsApp Manager UI allows manual tagging or bulk-tagging on upload. For automatic tagging based on chat behavior, you must use a Webhook-driven script or a 3rd-party inbox system.</p></div>
+          <div class="mcq-options"></div>
+        </div>
+      
+        </div>
+      </div>
+    
+      <div class="panel-card panel-example">
+        <div class="panel-header">
+          <span class="panel-icon">💡</span>
+          <span class="panel-title">Examples</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>Effective Tagging Strategy:</strong></p>
+<p>1. <code>Lead_Website</code> (Source)</p>
+<p>2. <code>VIP_Customer</code> (Status)</p>
+<p>3. <code>Interested_In_Shoes</code> (Product Preference)</p>
+<p><em>By combining these tags, you can send a highly relevant discount offer only to VIPs interested in shoes.</em></p>
+        </div>
+      </div>
+    </aside>
+      <aside class="interactive-panel lang-ar">
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">مقارنة</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>واجهة المستخدم مقابل الـ API</strong></p>
+<ul><li style="margin-left:0px"><strong>واجهة WhatsApp Manager:</strong> ممتازة لفرق التسويق التي تمتلك قائمة ثابتة من العملاء الموافقين وتريد إرسال حملة لهم.</li>
+<li style="margin-left:0px"><strong>إدارة الـ API:</strong> ضرورية للأنظمة الديناميكية، حيث يسجل العميل في موقعك فيتم إضافته إلى قاعدة البيانات برمجياً وبشكل فوري.</li></ul>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">اختبر فهمك</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_ar_1_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:left">السؤال 1 من 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p><strong>سؤال:</strong></p><p>هل يمكنني تصنيف العميل تلقائياً بناءً على الرسالة التي يرسلها لي؟</p><p><strong>إجابة:</strong></p><p><strong>ليس من خلال الواجهة مباشرة.</strong> واجهة WhatsApp Manager تتيح التصنيف اليدوي أو الجماعي عند الرفع فقط. للتصنيف الآلي بناءً على سلوك العميل في المحادثة، يجب عليك استخدام سكريبت يعتمد على الـ Webhooks أو نظام خارجي للردود الآلية.</p></div>
+          <div class="mcq-options"></div>
+        </div>
+      
+        </div>
+      </div>
+    
+      <div class="panel-card panel-example">
+        <div class="panel-header">
+          <span class="panel-icon">💡</span>
+          <span class="panel-title">أمثلة</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>استراتيجية تصنيف فعالة:</strong></p>
+<p>1. <code>Lead_Website</code> (المصدر)</p>
+<p>2. <code>VIP_Customer</code> (حالة العميل)</p>
+<p>3. <code>Interested_In_Shoes</code> (الاهتمام بالمنتج)</p>
+<p><em>بدمج هذه التصنيفات، يمكنك إرسال عرض خصم حصري جداً فقط لعملاء الـ VIP المهتمين بالأحذية.</em></p>
+        </div>
+      </div>
+    </aside>
+    </div>
+    
+
+  </div>
+
+  <script>
+(function(){
+  var html=document.documentElement;
+  var theme=localStorage.getItem('theme');
+  if(!theme){
+    theme=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
+  }
+  function applyTheme(t){
+    html.setAttribute('data-theme',t);
+    localStorage.setItem('theme',t);
+  }
+  applyTheme(theme);
+  
+  var lang=localStorage.getItem('lang')||'en';
+  function applyLang(l){
+    html.setAttribute('data-lang',l);
+    localStorage.setItem('lang',l);
+  }
+  applyLang(lang);
+
+  function wireButtons(){
+    var thBtn=document.getElementById('theme-toggle');
+    if(thBtn) thBtn.addEventListener('click',function(){
+      applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+    });
+    var lgBtn=document.getElementById('lang-toggle');
+    if(lgBtn) lgBtn.addEventListener('click',function(){
+      applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
+    });
+    
+  }
+
+  // Global handler for interactive MCQ quizzes
+  window.handleMcqClick = function(radio) {
+    var container = radio.closest('.mcq-options');
+    var labels = container.querySelectorAll('.mcq-option');
+    var widget = radio.closest('.mcq-widget');
+    var progressFill = widget.querySelector('.mcq-progress-bar-fill');
+    var progressPct = widget.querySelector('.mcq-pct');
+    
+    // Lock all inputs & show correct/wrong
+    labels.forEach(function(l) {
+      var inp = l.querySelector('input');
+      inp.disabled = true;
+      if (inp.value === 'correct') {
+        l.classList.add('correct');
+      } else if (inp === radio && inp.value === 'wrong') {
+        l.classList.add('wrong');
+      }
+    });
+    
+    // Update progress bar
+    if(progressFill) progressFill.style.width = '100%';
+    if(progressPct) progressPct.innerText = '100%';
+  };
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',wireButtons);
+  } else {
+    wireButtons();
+  }
+})();
+</script>
+<script>var _SEARCH_BASE_='../../';</script>
+<script src="../../search.js"></script>
+<!-- Syntax Highlighting (PrismJS) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+
+</body>
+</html>

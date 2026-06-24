@@ -8,63 +8,76 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
 </head>
 <body>
 
   <header class="site-header">
   <div class="header-inner">
-
-    <a href="../../index.html" class="header-logo" aria-label="Meta API Watch Home">
+    <div class="header-logo">
       <span class="logo-icon">🔭</span>
       <div class="logo-text">
-        <span class="site-title">Meta API Watch</span>
-        <span class="site-subtitle"
-              data-en="SEEN V2 · Developer Hub"
-              data-ar="SEEN V2 · مركز المطورين">SEEN V2 · Developer Hub</span>
+        <strong>Meta API Watch</strong>
+        <span>SEEN V2 · Developer Hub</span>
       </div>
-    </a>
-
-    <nav class="header-nav" role="navigation" aria-label="Main navigation">
-      <a href="../../changelog.html"
-         class="nav-tab"
-         >
-        <span data-en="🔔 Latest Updates" data-ar="🔔 آخر التحديثات">🔔 Latest Updates</span>
+    </div>
+    
+    <nav class="header-nav">
+      <a href="../../index.html" class="nav-item ">
+        <span class="nav-icon">🔔</span>
+        Latest Updates
       </a>
-      <a href="../../learn/index.html"
-         class="nav-tab active"
-         aria-current="page">
-        <span data-en="📚 Learn" data-ar="📚 تعلّم">📚 Learn</span>
+      <a href="../../learn/index.html" class="nav-item active">
+        <span class="nav-icon">📚</span>
+        Learn
       </a>
     </nav>
 
-    <button id="search-trigger" aria-label="Search">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-      </svg>
-      <span class="search-trigger-label" data-en="Search..." data-ar="ابحث...">Search...</span>
-      <span class="search-trigger-shortcut">/</span>
-    </button>
-
-    <div class="header-build-time" title="Last site build 🇪🇬">
-        <span class="build-icon">🕐</span>
-        <span class="build-label" data-en="Last Build" data-ar="آخر تحديث">Last Build</span>
-        <span class="build-value">Jun 24, 2026, 10:53 PM ðŸ‡ªðŸ‡¬</span>
-      </div>
-
     <div class="header-actions">
-      <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+      <!-- Search Trigger -->
+      <button id="search-trigger" class="search-btn" title="Search documentation... (Ctrl+K)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span>Search...</span>
+        <kbd>/</kbd>
+      </button>
+
+      <div class="build-badge">
+        <span class="pulse"></span>
+        LAST BUILD Jun 24, 2026, 11:13 PM 🇪🇬
+      </div>
+      
+      <!-- Language Toggle -->
+      <button id="lang-toggle" class="icon-btn" title="Toggle Language (AR/EN)">
         <span class="lang-en">EN</span>
-        <span class="lang-sep" aria-hidden="true">·</span>
         <span class="lang-ar">عربي</span>
       </button>
-      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
-        <span class="icon-sun">☀️</span>
-        <span class="icon-moon">🌙</span>
+      
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" class="icon-btn" title="Toggle Theme">
+        <span class="moon">🌙</span>
+        <span class="sun">☀️</span>
       </button>
     </div>
-
   </div>
 </header>
+
+<!-- Search Modal -->
+<div id="search-modal" class="search-modal">
+  <div class="search-modal-content">
+    <div class="search-header">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="search-input" placeholder="Search topics, error codes, guidelines..." autocomplete="off">
+      <button id="search-close" class="icon-btn">×</button>
+    </div>
+    <div id="search-results" class="search-results"></div>
+    <div class="search-footer">
+      <span><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span>
+      <span><kbd>Enter</kbd> to select</span>
+      <span><kbd>ESC</kbd> to close</span>
+    </div>
+  </div>
+</div>
+
 
 
 
@@ -73,7 +86,7 @@
     <!-- Sidebar -->
     <aside class="learn-sidebar" id="sidebar">
       <div class="sidebar-section">
-        <span class="sidebar-label" data-en="On this page" data-ar="Ø¹Ù„Ù‰ Ù‡Ø°Ù‡ Ø§Ù„ØµÙ Ø­Ø©">On this page</span>
+        <span class="sidebar-label" data-en="On this page" data-ar="على هذه الصفحة">On this page</span>
         
     <div class="lang-en">
       <ul class="toc-list"><li class="toc-top"><a href="#endpoints">Endpoints</a></li><li class="toc-top"><a href="#create-parameters">CREATE — Parameters</a></li><li class="toc-sub"><a href="#required">Required</a></li><li class="toc-sub"><a href="#optional">Optional</a></li><li class="toc-top"><a href="#create-validation-rules">CREATE — Validation Rules</a></li><li class="toc-top"><a href="#components-detail-limits">Components — Detail & Limits</a></li><li class="toc-sub"><a href="#header-optional">HEADER (optional)</a></li><li class="toc-sub"><a href="#body-required">BODY (required)</a></li><li class="toc-sub"><a href="#footer-optional">FOOTER (optional)</a></li><li class="toc-sub"><a href="#buttons-optional">BUTTONS (optional)</a></li><li class="toc-top"><a href="#edit-rules">EDIT — Rules</a></li><li class="toc-sub"><a href="#what-can-be-changed">What CAN be changed</a></li><li class="toc-sub"><a href="#what-cannot-be-changed-immutable">What CANNOT be changed (Immutable)</a></li><li class="toc-sub"><a href="#edit-rate-limits">Edit Rate Limits</a></li><li class="toc-top"><a href="#delete-rules">DELETE — Rules</a></li><li class="toc-sub"><a href="#delete-restrictions">Delete Restrictions</a></li><li class="toc-top"><a href="#error-codes-reference">Error Codes Reference</a></li><li class="toc-sub"><a href="#creation-validation-errors">Creation / Validation Errors</a></li><li class="toc-sub"><a href="#send-time-errors-when-sending-a-template-message">Send-time Errors (when sending a template message)</a></li><li class="toc-top"><a href="#code-examples">Code Examples</a></li><li class="toc-sub"><a href="#valid-create-a-utility-template">✅ Valid: Create a UTILITY template</a></li><li class="toc-sub"><a href="#rejected-name-with-uppercase-letters">❌ Rejected: Name with uppercase letters</a></li><li class="toc-sub"><a href="#rejected-body-starts-with-a-variable-dangling">❌ Rejected: Body starts with a variable (dangling)</a></li><li class="toc-sub"><a href="#rejected-footer-has-a-variable">❌ Rejected: Footer has a variable</a></li><li class="toc-sub"><a href="#valid-edit-a-rejected-template-change-body">✅ Valid: Edit a rejected template (change body)</a></li><li class="toc-sub"><a href="#rejected-trying-to-change-template-name-immutable">❌ Rejected: Trying to change template name (immutable)</a></li><li class="toc-top"><a href="#seen-v2-notes">SEEN V2 — Notes</a></li><li class="toc-top"><a href="#get-list-templates">GET — List Templates</a></li><li class="toc-sub"><a href="#query-parameters">Query Parameters</a></li><li class="toc-sub"><a href="#filter-by-status-example">Filter by Status — Example</a></li><li class="toc-sub"><a href="#template-statuses">Template Statuses</a></li><li class="toc-top"><a href="#edit-limitations">EDIT — Limitations</a></li><li class="toc-sub"><a href="#editable-example-edit-components">✅ Editable Example — Edit components</a></li><li class="toc-sub"><a href="#edit-category-only">✅ Edit Category Only</a></li><li class="toc-top"><a href="#delete-limitations-methods">DELETE — Limitations & Methods</a></li><li class="toc-sub"><a href="#method-1-delete-by-name-all-languages">Method 1 — Delete by Name (all languages)</a></li><li class="toc-sub"><a href="#method-2-delete-by-id-specific-language-only">Method 2 — Delete by ID (specific language only)</a></li><li class="toc-sub"><a href="#method-3-delete-multiple-by-ids-max-100-per-request">Method 3 — Delete multiple by IDs (max 100 per request)</a></li><li class="toc-top"><a href="#template-pausing-quality">Template Pausing & Quality</a></li><li class="toc-sub"><a href="#pause-duration-schedule">Pause Duration Schedule</a></li><li class="toc-sub"><a href="#pause-notifications">Pause Notifications</a></li><li class="toc-sub"><a href="#webhook-payload-status-change">Webhook Payload (status change)</a></li><li class="toc-sub"><a href="#unpausing">Unpausing</a></li><li class="toc-sub"><a href="#filing-an-appeal-rejecteddisabled-template">Filing an Appeal (rejected/disabled template)</a></li><li class="toc-top"><a href="#template-error-codes">Template Error Codes</a></li><li class="toc-sub"><a href="#creation-errors">Creation Errors</a></li><li class="toc-sub"><a href="#send-time-errors">Send-Time Errors</a></li><li class="toc-sub"><a href="#analytics-errors">Analytics Errors</a></li><li class="toc-top"><a href="#template-analytics">Template Analytics</a></li><li class="toc-sub"><a href="#enable-analytics">Enable Analytics</a></li><li class="toc-sub"><a href="#get-analytics">Get Analytics</a></li><li class="toc-sub"><a href="#analytics-parameters">Analytics Parameters</a></li><li class="toc-sub"><a href="#analytics-response-example">Analytics Response Example</a></li><li class="toc-sub"><a href="#analytics-limitations">Analytics Limitations</a></li><li class="toc-sub"><a href="#opt-out-of-click-tracking-per-template">Opt Out of Click Tracking (per template)</a></li><li class="toc-top"><a href="#archive-auto-delete">Archive & Auto-Delete</a></li><li class="toc-top"><a href="#template-limits-summary">Template Limits Summary</a></li></ul>
@@ -110,7 +123,7 @@
           
         </div>
         <h1 class="topic-title" data-en="Message Templates" data-ar="قوالب الرسائل">Message Templates</h1>
-        <p class="topic-meta"><span data-en="Core API" data-ar="Core API">Core API</span> Â· <span data-en="Last verified:" data-ar="Ø¢Ø®Ø± Ù…Ø±Ø§Ø¬Ø¹Ø©:">Last verified:</span> 2026-06-24</p>
+        <p class="topic-meta"><span data-en="Core API" data-ar="Core API">Core API</span> · <span data-en="Last verified:" data-ar="آخر مراجعة:">Last verified:</span> 2026-06-24</p>
       </div>
 
       <div class="topic-body lang-en">
@@ -160,7 +173,23 @@
 
 <h2 id="edit-rules">EDIT — Rules</h2>
 
-<pre class="code-block"><code class="lang-text">POST /{version}/{template-id}</code></pre>
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — TEXT Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-text"><code class="language-text">POST /{version}/{template-id}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="what-can-be-changed">What CAN be changed</h3>
 
@@ -175,7 +204,23 @@
 
 <h2 id="delete-rules">DELETE — Rules</h2>
 
-<pre class="code-block"><code class="lang-text">DELETE /{version}/{waba-id}/message_templates</code></pre>
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — TEXT Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-text"><code class="language-text">DELETE /{version}/{waba-id}/message_templates</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <div class="table-wrap"><table><thead><tr><th>Param</th><th>Effect</th></tr></thead><tbody><tr><td><code>name</code> only</td><td>Deletes <strong>all</strong> languages of that template</td></tr><tr><td><code>name</code> + <code>hsm_id</code></td><td>Deletes <strong>one specific</strong> language</td></tr><tr><td><code>hsm_ids</code> (array)</td><td>Deletes up to <strong>100</strong> templates at once — if any ID is invalid, <strong>entire request fails</strong></td></tr></tbody></table></div>
 <h3 id="delete-restrictions">Delete Restrictions</h3>
@@ -197,7 +242,17 @@
 
 <h3 id="valid-create-a-utility-template">✅ Valid: Create a UTILITY template</h3>
 
-<pre class="code-block"><code class="lang-json">POST /v21.0/{WABA_ID}/message_templates
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">POST /v21.0/{WABA_ID}/message_templates</p>
 
 <p>{</p>
 <p>  "name": "order_shipped",</p>
@@ -234,35 +289,99 @@
 <p>    }</p>
 <p>  ]</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="rejected-name-with-uppercase-letters">❌ Rejected: Name with uppercase letters</h3>
 
-<pre class="code-block"><code class="lang-json">{
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
 <p>  "name": "Order_Shipped",  ← ERROR: uppercase 'O' and 'S'</p>
 <p>  "language": "en_US",</p>
 <p>  "category": "UTILITY"</p>
 <p>}</p>
 <p>// Error 100: Parameter name must match ^[a-z0-9_]+$</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="rejected-body-starts-with-a-variable-dangling">❌ Rejected: Body starts with a variable (dangling)</h3>
 
-<pre class="code-block"><code class="lang-json">{
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
 <p>  "type": "BODY",</p>
 <p>  "text": "{{1}} has placed an order."  ← ERROR: starts with variable</p>
 <p>}</p>
 <p>// Error 2388299: Leading or trailing parameters not allowed</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="rejected-footer-has-a-variable">❌ Rejected: Footer has a variable</h3>
 
-<pre class="code-block"><code class="lang-json">{
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
 <p>  "type": "FOOTER",</p>
 <p>  "text": "Order ID: {{1}}"  ← ERROR: variables not allowed in footer</p>
 <p>}</p>
 <p>// Error 2388073: Message footer format is incorrect</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="valid-edit-a-rejected-template-change-body">✅ Valid: Edit a rejected template (change body)</h3>
 
-<pre class="code-block"><code class="lang-json">POST /v21.0/{TEMPLATE_ID}
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">POST /v21.0/{TEMPLATE_ID}</p>
 
 <p>{</p>
 <p>  "components": [</p>
@@ -275,15 +394,37 @@
 <p>    }</p>
 <p>  ]</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="rejected-trying-to-change-template-name-immutable">❌ Rejected: Trying to change template name (immutable)</h3>
 
-<pre class="code-block"><code class="lang-json">POST /v21.0/{TEMPLATE_ID}
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">POST /v21.0/{TEMPLATE_ID}</p>
 
 <p>{</p>
 <p>  "name": "new_name"  ← ERROR: name is immutable</p>
 <p>}</p>
 <p>// Field is silently ignored or returns error — name cannot change</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <hr>
 
@@ -296,18 +437,60 @@
 
 <h2 id="get-list-templates">GET — List Templates</h2>
 
-<pre class="code-block"><code class="lang-http">GET /v23.0/{waba-id}/message_templates
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — HTTP Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-http"><code class="language-http">GET /v23.0/{waba-id}/message_templates</p>
 <p>Authorization: Bearer {token}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
 <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>fields</code></td><td>string</td><td>Comma-separated fields: <code>name,category,status,language,components</code></td></tr><tr><td><code>status</code></td><td>enum</td><td>Filter by: <code>APPROVED</code>, <code>PENDING</code>, <code>REJECTED</code>, <code>PAUSED</code>, <code>DISABLED</code></td></tr><tr><td><code>limit</code></td><td>integer</td><td>Max results per page (default: 100)</td></tr><tr><td><code>after</code></td><td>cursor</td><td>Pagination cursor for next page</td></tr></tbody></table></div>
 <h3 id="filter-by-status-example">Filter by Status — Example</h3>
 
-<pre class="code-block"><code class="lang-bash"># Get only APPROVED templates
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-bash"><code class="language-bash"># Get only APPROVED templates</p>
 <p>GET /v23.0/{waba-id}/message_templates?fields=name,category,status&amp;status=APPROVED</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
-<pre class="code-block"><code class="lang-json">{
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
 <p>  "data": [</p>
 <p>    { "name": "order_confirmation",  "category": "UTILITY",    "status": "APPROVED", "id": "1387372356726668" },</p>
 <p>    { "name": "summer_campaign",     "category": "MARKETING",  "status": "APPROVED", "id": "1304694804498707" }</p>
@@ -317,6 +500,12 @@
 <p>    "next": "https://graph.facebook.com/v23.0/..."</p>
 <p>  }</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="template-statuses">Template Statuses</h3>
 
@@ -330,7 +519,17 @@
 <div class="table-wrap"><table><thead><tr><th>Limitation</th><th>Details</th></tr></thead><tbody><tr><td><strong>Allowed statuses</strong></td><td>Only <code>APPROVED</code>, <code>REJECTED</code>, or <code>PAUSED</code> templates can be edited</td></tr><tr><td><strong>Editable fields</strong></td><td>Only: <code>category</code>, <code>components</code>, <code>message_send_ttl_seconds</code></td></tr><tr><td><strong>Cannot isolate components</strong></td><td>All components are replaced together — you must send ALL components in the edit request</td></tr><tr><td><strong>Category of approved</strong></td><td>Cannot change category of an <code>APPROVED</code> template</td></tr><tr><td><strong>Rate limit (approved)</strong></td><td>Max <strong>10 edits in 30 days</strong> OR <strong>1 edit in 24 hours</strong></td></tr><tr><td><strong>Rate limit (rejected/paused)</strong></td><td>Unlimited edits</td></tr><tr><td><strong>After editing</strong></td><td>Template goes back to review automatically; approved unless it fails review</td></tr><tr><td><strong>Name is immutable</strong></td><td>Template name cannot be changed — any <code>name</code> field in edit request is ignored</td></tr></tbody></table></div>
 <h3 id="editable-example-edit-components">✅ Editable Example — Edit components</h3>
 
-<pre class="code-block"><code class="lang-bash">POST /v23.0/{template-id}
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-bash"><code class="language-bash">POST /v23.0/{template-id}</p>
 <p>Content-Type: application/json</p>
 <p>Authorization: Bearer {token}</p>
 
@@ -349,15 +548,53 @@
 <p>    }</p>
 <p>  ]</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="edit-category-only">✅ Edit Category Only</h3>
 
-<pre class="code-block"><code class="lang-bash">POST /v23.0/{template-id}
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-bash"><code class="language-bash">POST /v23.0/{template-id}</p>
 
 <p>{ "category": "MARKETING" }</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <p>Response:</p>
-<pre class="code-block"><code class="lang-json">{ "success": true }</code></pre>
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{ "success": true }</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <hr>
 
@@ -368,23 +605,87 @@
 <div class="table-wrap"><table><thead><tr><th>Limitation</th><th>Details</th></tr></thead><tbody><tr><td><strong>Sent but not delivered</strong></td><td>Status becomes <code>PENDING_DELETION</code> — delivery retried for 30 days</td></tr><tr><td><strong>30-day ban</strong></td><td>After deleting an <code>APPROVED</code> template, cannot create a new template with the <strong>same name for 30 days</strong></td></tr><tr><td><strong>Cannot delete disabled</strong></td><td>Templates with <code>DISABLED</code> status cannot be deleted</td></tr><tr><td><strong>Permission required</strong></td><td><code>whatsapp_business_management</code> permission on the access token</td></tr></tbody></table></div>
 <h3 id="method-1-delete-by-name-all-languages">Method 1 — Delete by Name (all languages)</h3>
 
-<pre class="code-block"><code class="lang-bash">DELETE /v23.0/{waba-id}/message_templates?name=order_confirmation
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-bash"><code class="language-bash">DELETE /v23.0/{waba-id}/message_templates?name=order_confirmation</p>
 <p>Authorization: Bearer {token}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <p><span class="icon-warn">⚠️</span> Deletes <strong>all language versions</strong> of this template name.</p>
 
 <h3 id="method-2-delete-by-id-specific-language-only">Method 2 — Delete by ID (specific language only)</h3>
 
-<pre class="code-block"><code class="lang-bash">DELETE /v23.0/{waba-id}/message_templates?hsm_id=1407680676729941&amp;name=order_confirmation
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-bash"><code class="language-bash">DELETE /v23.0/{waba-id}/message_templates?hsm_id=1407680676729941&amp;name=order_confirmation</p>
 <p>Authorization: Bearer {token}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="method-3-delete-multiple-by-ids-max-100-per-request">Method 3 — Delete multiple by IDs (max 100 per request)</h3>
 
-<pre class="code-block"><code class="lang-bash">DELETE /v23.0/{waba-id}/message_templates?hsm_ids=[1387372356726668,1304694804498707]
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-bash"><code class="language-bash">DELETE /v23.0/{waba-id}/message_templates?hsm_ids=[1387372356726668,1304694804498707]</p>
 <p>Authorization: Bearer {token}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <p>Response for all delete methods:</p>
-<pre class="code-block"><code class="lang-json">{ "success": true }</code></pre>
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{ "success": true }</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <hr>
 
@@ -404,7 +705,17 @@
 
 <h3 id="webhook-payload-status-change">Webhook Payload (status change)</h3>
 
-<pre class="code-block"><code class="lang-json">{
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
 <p>  "entry": [{</p>
 <p>    "changes": [{</p>
 <p>      "field": "message_template_status_update",</p>
@@ -418,6 +729,12 @@
 <p>    }]</p>
 <p>  }]</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="unpausing">Unpausing</h3>
 
@@ -452,24 +769,66 @@
 
 <h3 id="enable-analytics">Enable Analytics</h3>
 
-<pre class="code-block"><code class="lang-bash">POST /{waba-id}?is_enabled_for_insights=true
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-bash"><code class="language-bash">POST /{waba-id}?is_enabled_for_insights=true</p>
 <p>Authorization: Bearer {token}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="get-analytics">Get Analytics</h3>
 
-<pre class="code-block"><code class="lang-bash">GET /v23.0/{waba-id}/template_analytics
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-bash"><code class="language-bash">GET /v23.0/{waba-id}/template_analytics</p>
 <p>  ?start=1718064000</p>
 <p>  &amp;end=1718150400</p>
 <p>  &amp;granularity=DAILY</p>
 <p>  &amp;template_ids=[1421988012088524,2632273056924580]</p>
 <p>  &amp;metric_types=SENT,DELIVERED,READ,CLICKED,COST</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="analytics-parameters">Analytics Parameters</h3>
 
 <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Required</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>start</code></td><td><span class="icon-accept">✅</span></td><td>UNIX timestamp</td><td>Start of date range</td></tr><tr><td><code>end</code></td><td><span class="icon-accept">✅</span></td><td>UNIX timestamp</td><td>End of date range</td></tr><tr><td><code>granularity</code></td><td><span class="icon-accept">✅</span></td><td>enum</td><td>Must be <code>DAILY</code></td></tr><tr><td><code>template_ids</code></td><td><span class="icon-accept">✅</span></td><td>array</td><td>Array of template IDs — <strong>max 10</strong></td></tr><tr><td><code>metric_types</code></td><td><span class="icon-reject">❌</span></td><td>array</td><td><code>SENT</code>, <code>DELIVERED</code>, <code>READ</code>, <code>CLICKED</code>, <code>COST</code></td></tr></tbody></table></div>
 <h3 id="analytics-response-example">Analytics Response Example</h3>
 
-<pre class="code-block"><code class="lang-json">{
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
 <p>  "data": [{</p>
 <p>    "granularity": "DAILY",</p>
 <p>    "product_type": "cloud_api",</p>
@@ -490,13 +849,35 @@
 <p>    }]</p>
 <p>  }]</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="analytics-limitations">Analytics Limitations</h3>
 
 <div class="table-wrap"><table><thead><tr><th>Limitation</th><th>Details</th></tr></thead><tbody><tr><td><strong>Data retention</strong></td><td>Read and click data only available for <strong>7 days</strong> from send; after that, counters reset to 0</td></tr><tr><td><strong>Button clicks</strong></td><td>Only available for <code>MARKETING</code> and <code>UTILITY</code> templates</td></tr><tr><td><strong>Excluded regions</strong></td><td>WABAs in EU, Japan, or with phone numbers from these regions are <strong>not supported</strong></td></tr><tr><td><strong>Max templates per request</strong></td><td>10 template IDs per analytics call</td></tr></tbody></table></div>
 <h3 id="opt-out-of-click-tracking-per-template">Opt Out of Click Tracking (per template)</h3>
 
-<pre class="code-block"><code class="lang-bash">POST /{template-id}?cta_url_link_tracking_opted_out=true&amp;category=MARKETING</code></pre>
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-bash"><code class="language-bash">POST /{template-id}?cta_url_link_tracking_opted_out=true&amp;category=MARKETING</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <hr>
 
@@ -558,7 +939,23 @@
 
 <h2 id="edit-القواعد-rules">EDIT — القواعد (Rules)</h2>
 
-<pre class="code-block"><code class="lang-text">POST /{version}/{template-id}</code></pre>
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — TEXT Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-text"><code class="language-text">POST /{version}/{template-id}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="ما-يمكن-تغييره">ما يمكن تغييره</h3>
 
@@ -573,7 +970,23 @@
 
 <h2 id="delete-القواعد-rules">DELETE — القواعد (Rules)</h2>
 
-<pre class="code-block"><code class="lang-text">DELETE /{version}/{waba-id}/message_templates</code></pre>
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — TEXT Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-text"><code class="language-text">DELETE /{version}/{waba-id}/message_templates</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <div class="table-wrap"><table><thead><tr><th>المعلمة (Param)</th><th>التأثير</th></tr></thead><tbody><tr><td><code>name</code> فقط</td><td>يحذف <strong>جميع</strong> لغات ذلك القالب</td></tr><tr><td><code>name</code> + <code>hsm_id</code></td><td>يحذف لغة <strong>واحدة محددة</strong></td></tr><tr><td><code>hsm_ids</code> (مصفوفة)</td><td>يحذف ما يصل إلى <strong>100</strong> قالب في المرة الواحدة — إذا كان أي معرّف (ID) غير صالح، <strong>يفشل الطلب بالكامل</strong></td></tr></tbody></table></div>
 <h3 id="قيود-الحذف">قيود الحذف</h3>
@@ -595,7 +1008,17 @@
 
 <h3 id="صالح-إنشاء-قالب-utility">✅ صالح: إنشاء قالب UTILITY</h3>
 
-<pre class="code-block"><code class="lang-json">POST /v21.0/{WABA_ID}/message_templates
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">POST /v21.0/{WABA_ID}/message_templates</p>
 
 <p>{</p>
 <p>  "name": "order_shipped",</p>
@@ -632,35 +1055,99 @@
 <p>    }</p>
 <p>  ]</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="مرفوض-اسم-بأحرف-كبيرة">❌ مرفوض: اسم بأحرف كبيرة</h3>
 
-<pre class="code-block"><code class="lang-json">{
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
 <p>  "name": "Order_Shipped",  ← ERROR: uppercase 'O' and 'S'</p>
 <p>  "language": "en_US",</p>
 <p>  "category": "UTILITY"</p>
 <p>}</p>
 <p>// Error 100: Parameter name must match ^[a-z0-9_]+$</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="مرفوض-النص-يبدأ-بمتغير-معلق">❌ مرفوض: النص يبدأ بمتغير (معلق)</h3>
 
-<pre class="code-block"><code class="lang-json">{
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
 <p>  "type": "BODY",</p>
 <p>  "text": "{{1}} has placed an order."  ← ERROR: starts with variable</p>
 <p>}</p>
 <p>// Error 2388299: Leading or trailing parameters not allowed</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="مرفوض-التذييل-يحتوي-على-متغير">❌ مرفوض: التذييل يحتوي على متغير</h3>
 
-<pre class="code-block"><code class="lang-json">{
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
 <p>  "type": "FOOTER",</p>
 <p>  "text": "Order ID: {{1}}"  ← ERROR: variables not allowed in footer</p>
 <p>}</p>
 <p>// Error 2388073: Message footer format is incorrect</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="صالح-تعديل-قالب-مرفوض-تغيير-النص">✅ صالح: تعديل قالب مرفوض (تغيير النص)</h3>
 
-<pre class="code-block"><code class="lang-json">POST /v21.0/{TEMPLATE_ID}
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">POST /v21.0/{TEMPLATE_ID}</p>
 
 <p>{</p>
 <p>  "components": [</p>
@@ -673,15 +1160,37 @@
 <p>    }</p>
 <p>  ]</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="مرفوض-محاولة-تغيير-اسم-القالب-ثابت">❌ مرفوض: محاولة تغيير اسم القالب (ثابت)</h3>
 
-<pre class="code-block"><code class="lang-json">POST /v21.0/{TEMPLATE_ID}
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">POST /v21.0/{TEMPLATE_ID}</p>
 
 <p>{</p>
 <p>  "name": "new_name"  ← ERROR: name is immutable</p>
 <p>}</p>
 <p>// Field is silently ignored or returns error — name cannot change</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <hr>
 
@@ -694,18 +1203,60 @@
 
 <h2 id="get-سرد-القوالب">GET — سرد القوالب</h2>
 
-<pre class="code-block"><code class="lang-http">GET /v23.0/{waba-id}/message_templates
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — HTTP Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-http"><code class="language-http">GET /v23.0/{waba-id}/message_templates</p>
 <p>Authorization: Bearer {token}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="معلمات-الاستعلام-query-parameters">معلمات الاستعلام (Query Parameters)</h3>
 
 <div class="table-wrap"><table><thead><tr><th>المعلمة (Parameter)</th><th>Type</th><th>الوصف</th></tr></thead><tbody><tr><td><code>fields</code></td><td>string</td><td>حقول مفصولة بفواصل: <code>name,category,status,language,components</code></td></tr><tr><td><code>status</code></td><td>enum</td><td>التصفية حسب: <code>APPROVED</code>, <code>PENDING</code>, <code>REJECTED</code>, <code>PAUSED</code>, <code>DISABLED</code></td></tr><tr><td><code>limit</code></td><td>integer</td><td>الحد الأقصى للنتائج لكل صفحة (الافتراضي: 100)</td></tr><tr><td><code>after</code></td><td>cursor</td><td>مؤشر (cursor) الترقيم للصفحة التالية</td></tr></tbody></table></div>
 <h3 id="التصفية-حسب-الحالة-مثال">التصفية حسب الحالة — مثال</h3>
 
-<pre class="code-block"><code class="lang-bash"># Get only APPROVED templates
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-bash"><code class="language-bash"># Get only APPROVED templates</p>
 <p>GET /v23.0/{waba-id}/message_templates?fields=name,category,status&amp;status=APPROVED</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
-<pre class="code-block"><code class="lang-json">{
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
 <p>  "data": [</p>
 <p>    { "name": "order_confirmation",  "category": "UTILITY",    "status": "APPROVED", "id": "1387372356726668" },</p>
 <p>    { "name": "summer_campaign",     "category": "MARKETING",  "status": "APPROVED", "id": "1304694804498707" }</p>
@@ -715,6 +1266,12 @@
 <p>    "next": "https://graph.facebook.com/v23.0/..."</p>
 <p>  }</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="حالات-القالب">حالات القالب</h3>
 
@@ -728,7 +1285,17 @@
 <div class="table-wrap"><table><thead><tr><th>القيد</th><th>التفاصيل</th></tr></thead><tbody><tr><td><strong>الحالات المسموح بها</strong></td><td>يمكن فقط تعديل القوالب ذات الحالة <code>APPROVED</code>، أو <code>REJECTED</code>، أو <code>PAUSED</code></td></tr><tr><td><strong>الحقول القابلة للتعديل</strong></td><td>فقط: <code>category</code>، <code>components</code>، <code>message_send_ttl_seconds</code></td></tr><tr><td><strong>لا يمكن عزل المكونات</strong></td><td>يتم استبدال جميع المكونات معًا — يجب عليك إرسال جميع المكونات في طلب التعديل</td></tr><tr><td><strong>فئة القوالب المعتمدة</strong></td><td>لا يمكن تغيير فئة قالب في حالة <code>APPROVED</code></td></tr><tr><td><strong>حد المعدل (للمعتمدة)</strong></td><td>بحد أقصى <strong>10 تعديلات في 30 يومًا</strong> أو <strong>تعديل واحد في 24 ساعة</strong></td></tr><tr><td><strong>حد المعدل (للمرفوضة/الموقفة مؤقتًا)</strong></td><td>تعديلات غير محدودة</td></tr><tr><td><strong>بعد التعديل</strong></td><td>يعود القالب للمراجعة تلقائيًا؛ ويتم اعتماده ما لم يفشل في المراجعة</td></tr><tr><td><strong>الاسم ثابت</strong></td><td>لا يمكن تغيير اسم القالب — يتم تجاهل أي حقل <code>name</code> في طلب التعديل</td></tr></tbody></table></div>
 <h3 id="مثال-قابل-للتعديل-تعديل-المكونات">✅ مثال قابل للتعديل — تعديل المكونات</h3>
 
-<pre class="code-block"><code class="lang-bash">POST /v23.0/{template-id}
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-bash"><code class="language-bash">POST /v23.0/{template-id}</p>
 <p>Content-Type: application/json</p>
 <p>Authorization: Bearer {token}</p>
 
@@ -747,15 +1314,53 @@
 <p>    }</p>
 <p>  ]</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="تعديل-الفئة-فقط">✅ تعديل الفئة فقط</h3>
 
-<pre class="code-block"><code class="lang-bash">POST /v23.0/{template-id}
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-bash"><code class="language-bash">POST /v23.0/{template-id}</p>
 
 <p>{ "category": "MARKETING" }</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <p>الاستجابة:</p>
-<pre class="code-block"><code class="lang-json">{ "success": true }</code></pre>
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{ "success": true }</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <hr>
 
@@ -766,23 +1371,87 @@
 <div class="table-wrap"><table><thead><tr><th>القيد</th><th>التفاصيل</th></tr></thead><tbody><tr><td><strong>تم الإرسال ولكن لم يتم التسليم</strong></td><td>تصبح الحالة <code>PENDING_DELETION</code> — ويُعاد محاولة التسليم لمدة 30 يومًا</td></tr><tr><td><strong>حظر لمدة 30 يومًا</strong></td><td>بعد حذف قالب <code>APPROVED</code>، لا يمكن إنشاء قالب جديد يحمل <strong>نفس الاسم لمدة 30 يومًا</strong></td></tr><tr><td><strong>لا يمكن حذف المعطلة</strong></td><td>لا يمكن حذف القوالب ذات الحالة <code>DISABLED</code></td></tr><tr><td><strong>إذن مطلوب</strong></td><td>إذن <code>whatsapp_business_management</code> على رمز الوصول (access token)</td></tr></tbody></table></div>
 <h3 id="الطريقة-1-الحذف-بالاسم-جميع-اللغات">الطريقة 1 — الحذف بالاسم (جميع اللغات)</h3>
 
-<pre class="code-block"><code class="lang-bash">DELETE /v23.0/{waba-id}/message_templates?name=order_confirmation
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-bash"><code class="language-bash">DELETE /v23.0/{waba-id}/message_templates?name=order_confirmation</p>
 <p>Authorization: Bearer {token}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <p><span class="icon-warn">⚠️</span> يحذف <strong>جميع إصدارات اللغات</strong> لاسم القالب هذا.</p>
 
 <h3 id="الطريقة-2-الحذف-بالمعرف-id-لغة-محددة-فقط">الطريقة 2 — الحذف بالمعرف ID (لغة محددة فقط)</h3>
 
-<pre class="code-block"><code class="lang-bash">DELETE /v23.0/{waba-id}/message_templates?hsm_id=1407680676729941&amp;name=order_confirmation
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-bash"><code class="language-bash">DELETE /v23.0/{waba-id}/message_templates?hsm_id=1407680676729941&amp;name=order_confirmation</p>
 <p>Authorization: Bearer {token}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="الطريقة-3-حذف-متعدد-بواسطة-المعرفات-ids-بحد-أقصى-100-لكل-طلب">الطريقة 3 — حذف متعدد بواسطة المعرفات IDs (بحد أقصى 100 لكل طلب)</h3>
 
-<pre class="code-block"><code class="lang-bash">DELETE /v23.0/{waba-id}/message_templates?hsm_ids=[1387372356726668,1304694804498707]
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-bash"><code class="language-bash">DELETE /v23.0/{waba-id}/message_templates?hsm_ids=[1387372356726668,1304694804498707]</p>
 <p>Authorization: Bearer {token}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <p>الاستجابة لجميع طرق الحذف:</p>
-<pre class="code-block"><code class="lang-json">{ "success": true }</code></pre>
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{ "success": true }</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <hr>
 
@@ -802,7 +1471,17 @@
 
 <h3 id="حمولة-خطاف-الويب-تغيير-الحالة---payload">حمولة خطاف الويب (تغيير الحالة - Payload)</h3>
 
-<pre class="code-block"><code class="lang-json">{
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
 <p>  "entry": [{</p>
 <p>    "changes": [{</p>
 <p>      "field": "message_template_status_update",</p>
@@ -816,6 +1495,12 @@
 <p>    }]</p>
 <p>  }]</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="إلغاء-الإيقاف-المؤقت">إلغاء الإيقاف المؤقت</h3>
 
@@ -850,24 +1535,66 @@
 
 <h3 id="تفعيل-التحليلات">تفعيل التحليلات</h3>
 
-<pre class="code-block"><code class="lang-bash">POST /{waba-id}?is_enabled_for_insights=true
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-bash"><code class="language-bash">POST /{waba-id}?is_enabled_for_insights=true</p>
 <p>Authorization: Bearer {token}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="الحصول-على-التحليلات">الحصول على التحليلات</h3>
 
-<pre class="code-block"><code class="lang-bash">GET /v23.0/{waba-id}/template_analytics
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-bash"><code class="language-bash">GET /v23.0/{waba-id}/template_analytics</p>
 <p>  ?start=1718064000</p>
 <p>  &amp;end=1718150400</p>
 <p>  &amp;granularity=DAILY</p>
 <p>  &amp;template_ids=[1421988012088524,2632273056924580]</p>
 <p>  &amp;metric_types=SENT,DELIVERED,READ,CLICKED,COST</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="معلمات-التحليلات">معلمات التحليلات</h3>
 
 <div class="table-wrap"><table><thead><tr><th>المعلمة (Parameter)</th><th>مطلوب</th><th>Type</th><th>الوصف</th></tr></thead><tbody><tr><td><code>start</code></td><td><span class="icon-accept">✅</span></td><td>طابع زمني (UNIX timestamp)</td><td>بداية النطاق الزمني</td></tr><tr><td><code>end</code></td><td><span class="icon-accept">✅</span></td><td>طابع زمني (UNIX timestamp)</td><td>نهاية النطاق الزمني</td></tr><tr><td><code>granularity</code></td><td><span class="icon-accept">✅</span></td><td>enum</td><td>يجب أن تكون <code>DAILY</code></td></tr><tr><td><code>template_ids</code></td><td><span class="icon-accept">✅</span></td><td>array</td><td>مصفوفة من معرفات القوالب (IDs) — <strong>بحد أقصى 10</strong></td></tr><tr><td><code>metric_types</code></td><td><span class="icon-reject">❌</span></td><td>array</td><td><code>SENT</code>, <code>DELIVERED</code>, <code>READ</code>, <code>CLICKED</code>, <code>COST</code></td></tr></tbody></table></div>
 <h3 id="مثال-على-استجابة-التحليلات">مثال على استجابة التحليلات</h3>
 
-<pre class="code-block"><code class="lang-json">{
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
 <p>  "data": [{</p>
 <p>    "granularity": "DAILY",</p>
 <p>    "product_type": "cloud_api",</p>
@@ -888,13 +1615,35 @@
 <p>    }]</p>
 <p>  }]</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="قيود-التحليلات">قيود التحليلات</h3>
 
 <div class="table-wrap"><table><thead><tr><th>القيد</th><th>التفاصيل</th></tr></thead><tbody><tr><td><strong>الاحتفاظ بالبيانات</strong></td><td>بيانات القراءة والنقر متاحة فقط لمدة <strong>7 أيام</strong> من تاريخ الإرسال؛ بعد ذلك، يتم تصفير العدادات</td></tr><tr><td><strong>نقرات الأزرار</strong></td><td>متاحة فقط لقوالب <code>MARKETING</code> و <code>UTILITY</code></td></tr><tr><td><strong>المناطق المستثناة</strong></td><td>حسابات WABA في الاتحاد الأوروبي، واليابان، أو التي تمتلك أرقام هواتف من هذه المناطق <strong>غير مدعومة</strong></td></tr><tr><td><strong>الحد الأقصى للقوالب لكل طلب</strong></td><td>10 معرفات (IDs) قوالب لكل استدعاء للتحليلات</td></tr></tbody></table></div>
 <h3 id="إلغاء-الاشتراك-في-تتبع-النقرات-لكل-قالب">إلغاء الاشتراك في تتبع النقرات (لكل قالب)</h3>
 
-<pre class="code-block"><code class="lang-bash">POST /{template-id}?cta_url_link_tracking_opted_out=true&amp;category=MARKETING</code></pre>
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-bash"><code class="language-bash">POST /{template-id}?cta_url_link_tracking_opted_out=true&amp;category=MARKETING</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <hr>
 
@@ -916,34 +1665,31 @@
       </div>
     </main>
 
+    <!-- Interactive Panels -->
+    
+
   </div>
 
   <script>
 (function(){
-  var html=document.documentElement,TK='maw-theme',LK='maw-lang';
-
-  // ── Theme ────────────────────────────────────────────────
-  function applyTheme(t){html.setAttribute('data-theme',t);localStorage.setItem(TK,t);}
-  applyTheme(localStorage.getItem(TK)||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));
-
-  // ── Language ─────────────────────────────────────────────
+  var html=document.documentElement;
+  var theme=localStorage.getItem('theme');
+  if(!theme){
+    theme=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
+  }
+  function applyTheme(t){
+    html.setAttribute('data-theme',t);
+    localStorage.setItem('theme',t);
+  }
+  applyTheme(theme);
+  
+  var lang=localStorage.getItem('lang')||'en';
   function applyLang(l){
     html.setAttribute('data-lang',l);
-    html.setAttribute('lang',l==='ar'?'ar':'en');
-    html.setAttribute('dir',l==='ar'?'rtl':'ltr');
-    localStorage.setItem(LK,l);
-    document.querySelectorAll('[data-en][data-ar]').forEach(function(el){
-      var val = el.getAttribute(l==='ar'?'data-ar':'data-en');
-      if (el.tagName==='INPUT' || el.tagName==='TEXTAREA') {
-        el.placeholder = val;
-      } else {
-        el.innerHTML = val;
-      }
-    });
+    localStorage.setItem('lang',l);
   }
-  applyLang(localStorage.getItem(LK)||'en');
+  applyLang(lang);
 
-  // Wire up buttons after DOM is ready
   function wireButtons(){
     var thBtn=document.getElementById('theme-toggle');
     if(thBtn) thBtn.addEventListener('click',function(){
@@ -956,6 +1702,30 @@
     
   }
 
+  // Global handler for interactive MCQ quizzes
+  window.handleMcqClick = function(radio) {
+    var container = radio.closest('.mcq-options');
+    var labels = container.querySelectorAll('.mcq-option');
+    var widget = radio.closest('.mcq-widget');
+    var progressFill = widget.querySelector('.mcq-progress-bar-fill');
+    var progressPct = widget.querySelector('.mcq-pct');
+    
+    // Lock all inputs & show correct/wrong
+    labels.forEach(function(l) {
+      var inp = l.querySelector('input');
+      inp.disabled = true;
+      if (inp.value === 'correct') {
+        l.classList.add('correct');
+      } else if (inp === radio && inp.value === 'wrong') {
+        l.classList.add('wrong');
+      }
+    });
+    
+    // Update progress bar
+    if(progressFill) progressFill.style.width = '100%';
+    if(progressPct) progressPct.innerText = '100%';
+  };
+
   if(document.readyState==='loading'){
     document.addEventListener('DOMContentLoaded',wireButtons);
   } else {
@@ -965,5 +1735,12 @@
 </script>
 <script>var _SEARCH_BASE_='../../';</script>
 <script src="../../search.js"></script>
+<!-- Syntax Highlighting (PrismJS) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+
 </body>
 </html>

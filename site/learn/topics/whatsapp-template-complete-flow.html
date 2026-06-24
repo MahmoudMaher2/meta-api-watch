@@ -8,72 +8,85 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
 </head>
 <body>
 
   <header class="site-header">
   <div class="header-inner">
-
-    <a href="../../index.html" class="header-logo" aria-label="Meta API Watch Home">
+    <div class="header-logo">
       <span class="logo-icon">🔭</span>
       <div class="logo-text">
-        <span class="site-title">Meta API Watch</span>
-        <span class="site-subtitle"
-              data-en="SEEN V2 · Developer Hub"
-              data-ar="SEEN V2 · مركز المطورين">SEEN V2 · Developer Hub</span>
+        <strong>Meta API Watch</strong>
+        <span>SEEN V2 · Developer Hub</span>
       </div>
-    </a>
-
-    <nav class="header-nav" role="navigation" aria-label="Main navigation">
-      <a href="../../changelog.html"
-         class="nav-tab"
-         >
-        <span data-en="🔔 Latest Updates" data-ar="🔔 آخر التحديثات">🔔 Latest Updates</span>
+    </div>
+    
+    <nav class="header-nav">
+      <a href="../../index.html" class="nav-item ">
+        <span class="nav-icon">🔔</span>
+        Latest Updates
       </a>
-      <a href="../../learn/index.html"
-         class="nav-tab active"
-         aria-current="page">
-        <span data-en="📚 Learn" data-ar="📚 تعلّم">📚 Learn</span>
+      <a href="../../learn/index.html" class="nav-item active">
+        <span class="nav-icon">📚</span>
+        Learn
       </a>
     </nav>
 
-    <button id="search-trigger" aria-label="Search">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-      </svg>
-      <span class="search-trigger-label" data-en="Search..." data-ar="ابحث...">Search...</span>
-      <span class="search-trigger-shortcut">/</span>
-    </button>
-
-    <div class="header-build-time" title="Last site build 🇪🇬">
-        <span class="build-icon">🕐</span>
-        <span class="build-label" data-en="Last Build" data-ar="آخر تحديث">Last Build</span>
-        <span class="build-value">Jun 24, 2026, 10:53 PM ðŸ‡ªðŸ‡¬</span>
-      </div>
-
     <div class="header-actions">
-      <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+      <!-- Search Trigger -->
+      <button id="search-trigger" class="search-btn" title="Search documentation... (Ctrl+K)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span>Search...</span>
+        <kbd>/</kbd>
+      </button>
+
+      <div class="build-badge">
+        <span class="pulse"></span>
+        LAST BUILD Jun 24, 2026, 11:13 PM 🇪🇬
+      </div>
+      
+      <!-- Language Toggle -->
+      <button id="lang-toggle" class="icon-btn" title="Toggle Language (AR/EN)">
         <span class="lang-en">EN</span>
-        <span class="lang-sep" aria-hidden="true">·</span>
         <span class="lang-ar">عربي</span>
       </button>
-      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
-        <span class="icon-sun">☀️</span>
-        <span class="icon-moon">🌙</span>
+      
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" class="icon-btn" title="Toggle Theme">
+        <span class="moon">🌙</span>
+        <span class="sun">☀️</span>
       </button>
     </div>
-
   </div>
 </header>
 
+<!-- Search Modal -->
+<div id="search-modal" class="search-modal">
+  <div class="search-modal-content">
+    <div class="search-header">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="search-input" placeholder="Search topics, error codes, guidelines..." autocomplete="off">
+      <button id="search-close" class="icon-btn">×</button>
+    </div>
+    <div id="search-results" class="search-results"></div>
+    <div class="search-footer">
+      <span><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span>
+      <span><kbd>Enter</kbd> to select</span>
+      <span><kbd>ESC</kbd> to close</span>
+    </div>
+  </div>
+</div>
 
 
-  <div class="learn-layout">
+
+
+  <div class="learn-layout has-panels">
 
     <!-- Sidebar -->
     <aside class="learn-sidebar" id="sidebar">
       <div class="sidebar-section">
-        <span class="sidebar-label" data-en="On this page" data-ar="Ø¹Ù„Ù‰ Ù‡Ø°Ù‡ Ø§Ù„ØµÙ Ø­Ø©">On this page</span>
+        <span class="sidebar-label" data-en="On this page" data-ar="على هذه الصفحة">On this page</span>
         
     <div class="lang-en">
       <ul class="toc-list"><li class="toc-top"><a href="#1-api-structure-json-payload">1. API Structure (JSON Payload)</a></li><li class="toc-sub"><a href="#key-parameters">Key Parameters:</a></li><li class="toc-top"><a href="#2-ui-limitations-validations">2. UI Limitations & Validations</a></li><li class="toc-top"><a href="#3-best-practices-for-developers">3. Best Practices for Developers</a></li></ul>
@@ -110,7 +123,7 @@
           
         </div>
         <h1 class="topic-title" data-en=""[NEW] WhatsApp Templates: Complete Flow Button"" data-ar=""[جديد] قوالب واتساب: زر إكمال التدفق (Complete Flow)"">"[NEW] WhatsApp Templates: Complete Flow Button"</h1>
-        <p class="topic-meta"><span data-en=""whatsapp"" data-ar=""whatsapp"">"whatsapp"</span> Â· <span data-en="Last verified:" data-ar="Ø¢Ø®Ø± Ù…Ø±Ø§Ø¬Ø¹Ø©:">Last verified:</span> N/A</p>
+        <p class="topic-meta"><span data-en=""whatsapp"" data-ar=""whatsapp"">"whatsapp"</span> · <span data-en="Last verified:" data-ar="آخر مراجعة:">Last verified:</span> N/A</p>
       </div>
 
       <div class="topic-body lang-en">
@@ -124,7 +137,17 @@
 
 <p>To attach a Complete Flow button to a template via the Meta Graph API, you must define the button type as <code>FLOW</code> within the template's <code>components</code> array.</p>
 
-<pre class="code-block"><code class="lang-json">{
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
 <p>  "name": "booking_flow_template",</p>
 <p>  "language": "en_US",</p>
 <p>  "category": "UTILITY",</p>
@@ -147,6 +170,12 @@
 <p>    }</p>
 <p>  ]</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="key-parameters">Key Parameters:</h3>
 <ul><li style="margin-left:0px"><code>type</code>: Must be strictly <code>FLOW</code>.</li>
@@ -175,6 +204,8 @@
 <h2 id="3-best-practices-for-developers">3. Best Practices for Developers</h2>
 <p>1. <strong>Testing:</strong> Always create a duplicate Flow in <code>DRAFT</code> state for testing. You cannot test the template API submission with a Draft flow, so you must publish a v1 of your flow just to get the template approved, then iterate using the Endpoint for dynamic data.</p>
 <p>2. <strong>Fallback:</strong> Consider what happens if the user's WhatsApp version is outdated and does not support Flows. Meta automatically displays an "Update WhatsApp" message, but it is good practice to follow up if the flow is not completed within 24 hours.</p>
+
+
       </div>
       <div class="topic-body lang-ar"><h1>زر إكمال التدفق (Complete Flow) في قوالب واتساب</h1>
 
@@ -186,7 +217,17 @@
 
 <p>لإرفاق زر إكمال التدفق في قالب عبر Meta Graph API، يجب تحديد نوع الزر كـ <code>FLOW</code> بداخل مصفوفة الـ <code>components</code> الخاصة بالقالب.</p>
 
-<pre class="code-block"><code class="lang-json">{
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
 <p>  "name": "booking_flow_template",</p>
 <p>  "language": "en_US",</p>
 <p>  "category": "UTILITY",</p>
@@ -209,6 +250,12 @@
 <p>    }</p>
 <p>  ]</p>
 <p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
 
 <h3 id="المعطيات-الأساسية-key-parameters">المعطيات الأساسية (Key Parameters):</h3>
 <ul><li style="margin-left:0px"><code>type</code>: يجب أن يكون حصراً <code>FLOW</code>.</li>
@@ -236,7 +283,9 @@
 
 <h2 id="3-أفضل-الممارسات-للمطورين">3. أفضل الممارسات للمطورين</h2>
 <p>1. <strong>الاختبار (Testing):</strong> قم دائماً بإنشاء نسخة مسودة (DRAFT) مكررة من الـ Flow لاختبارها. لا يمكنك اختبار إرسال قالب عبر الـ API باستخدام مسودة، لذا يجب نشر إصدار أولي (v1) من الـ Flow الخاص بك لمجرد الحصول على موافقة القالب، ثم استمر في التعديل باستخدام الـ Endpoint للبيانات الديناميكية.</p>
-<p>2. <strong>البدائل (Fallback):</strong> فكّر دائماً فيما سيحدث إذا كان إصدار واتساب الخاص بالمستخدم قديماً ولا يدعم خاصية Flows. تقوم Meta تلقائياً بعرض رسالة "يرجى تحديث واتساب"، ولكن من الجيد برمجياً متابعة المستخدم برسالة عادية إذا لم يكمل الـ Flow خلال 24 ساعة.</p></div>
+<p>2. <strong>البدائل (Fallback):</strong> فكّر دائماً فيما سيحدث إذا كان إصدار واتساب الخاص بالمستخدم قديماً ولا يدعم خاصية Flows. تقوم Meta تلقائياً بعرض رسالة "يرجى تحديث واتساب"، ولكن من الجيد برمجياً متابعة المستخدم برسالة عادية إذا لم يكمل الـ Flow خلال 24 ساعة.</p>
+
+</div>
 
       <div class="topic-nav">
         <a class="nav-prev" href="whatsapp-product-catalog-messages.html">← "WhatsApp Product Catalog Messages: UI Limits and Validations"</a>
@@ -244,34 +293,136 @@
       </div>
     </main>
 
+    <!-- Interactive Panels -->
+    
+    <div class="learn-right-sidebar">
+      <aside class="interactive-panel lang-en">
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">Comparison</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>Flow Button vs. Web URL Button</strong></p>
+<ul><li style="margin-left:0px"><strong>Flow Button:</strong> Keeps the user inside WhatsApp, loads instantly, and can securely use WhatsApp's native data.</li>
+<li style="margin-left:0px"><strong>Web URL Button:</strong> Opens the external browser, might have loading delays, and breaks the conversational experience.</li></ul>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">Test Your Knowledge</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_en_1_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:right">Question 1 of 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p><strong>Question:</strong></p><p>Can you add multiple \<code>FLOW\</code> buttons in a single template?</p><p><strong>Answer:</strong></p><p>No, Meta only allows <strong>ONE</strong> \<code>FLOW\</code> button per template message.</p></div>
+          <div class="mcq-options"></div>
+        </div>
+      
+        </div>
+      </div>
+    
+      <div class="panel-card panel-example">
+        <div class="panel-header">
+          <span class="panel-icon">💡</span>
+          <span class="panel-title">Examples</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>Use Cases for Flows:</strong></p>
+<ul><li style="margin-left:0px">Appointment Bookings</li>
+<li style="margin-left:0px">Customer Satisfaction Surveys</li>
+<li style="margin-left:0px">Lead Generation Forms</li>
+<li style="margin-left:0px">Event Registrations</li></ul>
+        </div>
+      </div>
+    </aside>
+      <aside class="interactive-panel lang-ar">
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">مقارنة</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>زر الـ Flow مقابل زر الرابط الخارجي (Web URL)</strong></p>
+<ul><li style="margin-left:0px"><strong>زر Flow:</strong> يُبقي المستخدم داخل واتساب، يفتح فوراً، ويحافظ على تجربة المحادثة.</li>
+<li style="margin-left:0px"><strong>زر الرابط:</strong> يفتح المتصفح الخارجي، قد يكون بطيئاً، ويخرج المستخدم من التطبيق.</li></ul>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">اختبر فهمك</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_ar_1_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:left">السؤال 1 من 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p><strong>سؤال:</strong></p><p>هل يمكنك إضافة أكثر من زر \<code>FLOW\</code> في قالب واحد؟</p><p><strong>إجابة:</strong></p><p>لا، تسمح ميتا بزر \<code>FLOW\</code> <strong>واحد فقط</strong> لكل قالب رسالة.</p></div>
+          <div class="mcq-options"></div>
+        </div>
+      
+        </div>
+      </div>
+    
+      <div class="panel-card panel-example">
+        <div class="panel-header">
+          <span class="panel-icon">💡</span>
+          <span class="panel-title">أمثلة</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>أشهر الاستخدامات (Use Cases):</strong></p>
+<ul><li style="margin-left:0px">حجز المواعيد</li>
+<li style="margin-left:0px">استبيانات رضا العملاء</li>
+<li style="margin-left:0px">استمارات جمع بيانات العملاء المحتملين (Lead Gen)</li>
+<li style="margin-left:0px">التسجيل في الفعاليات</li></ul>
+        </div>
+      </div>
+    </aside>
+    </div>
+    
+
   </div>
 
   <script>
 (function(){
-  var html=document.documentElement,TK='maw-theme',LK='maw-lang';
-
-  // ── Theme ────────────────────────────────────────────────
-  function applyTheme(t){html.setAttribute('data-theme',t);localStorage.setItem(TK,t);}
-  applyTheme(localStorage.getItem(TK)||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));
-
-  // ── Language ─────────────────────────────────────────────
+  var html=document.documentElement;
+  var theme=localStorage.getItem('theme');
+  if(!theme){
+    theme=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
+  }
+  function applyTheme(t){
+    html.setAttribute('data-theme',t);
+    localStorage.setItem('theme',t);
+  }
+  applyTheme(theme);
+  
+  var lang=localStorage.getItem('lang')||'en';
   function applyLang(l){
     html.setAttribute('data-lang',l);
-    html.setAttribute('lang',l==='ar'?'ar':'en');
-    html.setAttribute('dir',l==='ar'?'rtl':'ltr');
-    localStorage.setItem(LK,l);
-    document.querySelectorAll('[data-en][data-ar]').forEach(function(el){
-      var val = el.getAttribute(l==='ar'?'data-ar':'data-en');
-      if (el.tagName==='INPUT' || el.tagName==='TEXTAREA') {
-        el.placeholder = val;
-      } else {
-        el.innerHTML = val;
-      }
-    });
+    localStorage.setItem('lang',l);
   }
-  applyLang(localStorage.getItem(LK)||'en');
+  applyLang(lang);
 
-  // Wire up buttons after DOM is ready
   function wireButtons(){
     var thBtn=document.getElementById('theme-toggle');
     if(thBtn) thBtn.addEventListener('click',function(){
@@ -284,6 +435,30 @@
     
   }
 
+  // Global handler for interactive MCQ quizzes
+  window.handleMcqClick = function(radio) {
+    var container = radio.closest('.mcq-options');
+    var labels = container.querySelectorAll('.mcq-option');
+    var widget = radio.closest('.mcq-widget');
+    var progressFill = widget.querySelector('.mcq-progress-bar-fill');
+    var progressPct = widget.querySelector('.mcq-pct');
+    
+    // Lock all inputs & show correct/wrong
+    labels.forEach(function(l) {
+      var inp = l.querySelector('input');
+      inp.disabled = true;
+      if (inp.value === 'correct') {
+        l.classList.add('correct');
+      } else if (inp === radio && inp.value === 'wrong') {
+        l.classList.add('wrong');
+      }
+    });
+    
+    // Update progress bar
+    if(progressFill) progressFill.style.width = '100%';
+    if(progressPct) progressPct.innerText = '100%';
+  };
+
   if(document.readyState==='loading'){
     document.addEventListener('DOMContentLoaded',wireButtons);
   } else {
@@ -293,5 +468,12 @@
 </script>
 <script>var _SEARCH_BASE_='../../';</script>
 <script src="../../search.js"></script>
+<!-- Syntax Highlighting (PrismJS) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+
 </body>
 </html>

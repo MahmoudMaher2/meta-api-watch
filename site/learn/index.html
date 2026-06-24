@@ -8,63 +8,76 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
 </head>
 <body>
 
   <header class="site-header">
   <div class="header-inner">
-
-    <a href="../index.html" class="header-logo" aria-label="Meta API Watch Home">
+    <div class="header-logo">
       <span class="logo-icon">🔭</span>
       <div class="logo-text">
-        <span class="site-title">Meta API Watch</span>
-        <span class="site-subtitle"
-              data-en="SEEN V2 · Developer Hub"
-              data-ar="SEEN V2 · مركز المطورين">SEEN V2 · Developer Hub</span>
+        <strong>Meta API Watch</strong>
+        <span>SEEN V2 · Developer Hub</span>
       </div>
-    </a>
-
-    <nav class="header-nav" role="navigation" aria-label="Main navigation">
-      <a href="../changelog.html"
-         class="nav-tab"
-         >
-        <span data-en="🔔 Latest Updates" data-ar="🔔 آخر التحديثات">🔔 Latest Updates</span>
+    </div>
+    
+    <nav class="header-nav">
+      <a href="../index.html" class="nav-item ">
+        <span class="nav-icon">🔔</span>
+        Latest Updates
       </a>
-      <a href="../learn/index.html"
-         class="nav-tab active"
-         aria-current="page">
-        <span data-en="📚 Learn" data-ar="📚 تعلّم">📚 Learn</span>
+      <a href="../learn/index.html" class="nav-item active">
+        <span class="nav-icon">📚</span>
+        Learn
       </a>
     </nav>
 
-    <button id="search-trigger" aria-label="Search">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-      </svg>
-      <span class="search-trigger-label" data-en="Search..." data-ar="ابحث...">Search...</span>
-      <span class="search-trigger-shortcut">/</span>
-    </button>
-
-    <div class="header-build-time" title="Last site build 🇪🇬">
-        <span class="build-icon">🕐</span>
-        <span class="build-label" data-en="Last Build" data-ar="آخر تحديث">Last Build</span>
-        <span class="build-value">24 Jun 2026 · 10:53 PM 🇪🇬</span>
-      </div>
-
     <div class="header-actions">
-      <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+      <!-- Search Trigger -->
+      <button id="search-trigger" class="search-btn" title="Search documentation... (Ctrl+K)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span>Search...</span>
+        <kbd>/</kbd>
+      </button>
+
+      <div class="build-badge">
+        <span class="pulse"></span>
+        LAST BUILD 24 Jun 2026 · 11:13 PM 🇪🇬
+      </div>
+      
+      <!-- Language Toggle -->
+      <button id="lang-toggle" class="icon-btn" title="Toggle Language (AR/EN)">
         <span class="lang-en">EN</span>
-        <span class="lang-sep" aria-hidden="true">·</span>
         <span class="lang-ar">عربي</span>
       </button>
-      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
-        <span class="icon-sun">☀️</span>
-        <span class="icon-moon">🌙</span>
+      
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" class="icon-btn" title="Toggle Theme">
+        <span class="moon">🌙</span>
+        <span class="sun">☀️</span>
       </button>
     </div>
-
   </div>
 </header>
+
+<!-- Search Modal -->
+<div id="search-modal" class="search-modal">
+  <div class="search-modal-content">
+    <div class="search-header">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="search-input" placeholder="Search topics, error codes, guidelines..." autocomplete="off">
+      <button id="search-close" class="icon-btn">×</button>
+    </div>
+    <div id="search-results" class="search-results"></div>
+    <div class="search-footer">
+      <span><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span>
+      <span><kbd>Enter</kbd> to select</span>
+      <span><kbd>ESC</kbd> to close</span>
+    </div>
+  </div>
+</div>
+
 
   <main class="learn-home">
     <div class="learn-hero">
@@ -81,7 +94,7 @@
         <div class="learn-stat">
           <div class="learn-stat-icon">📚</div>
           <div class="learn-stat-content">
-            <span class="learn-stat-num">24</span>
+            <span class="learn-stat-num">27</span>
             <span class="learn-stat-label" data-en="topics" data-ar="موضوعاً">topics</span>
           </div>
         </div>
@@ -496,6 +509,54 @@
         <span class="topic-card-arrow">→</span>
       </a>
       <a class="topic-card" 
+         href="topics/whatsapp-manager-broadcasts.html"
+         data-platform="whatsapp"
+         data-category=""whatsapp""
+         data-search-text="&quot;whatsapp manager: broadcasts (campaigns)&quot; &quot;whatsapp&quot; whatsapp # broadcasts in whatsapp manager  the **broadcasts** feature in the whatsapp manager ui is a game-changer for businesses using the cloud api. previously, sending a marketing campaign required an api integration to iterate through a list of numbers and fire the `messages` endpoint. now, meta provides">
+        <div class="topic-card-header">
+          <span class="topic-card-icon">📖</span>
+          <div style="display:flex;align-items:center;gap:6px">
+            <span class="topic-card-platform" style="color:#a78bfa" data-en="whatsapp" data-ar="whatsapp">whatsapp</span>
+            
+          </div>
+        </div>
+        <h3 class="topic-card-title">"WhatsApp Manager: Broadcasts (Campaigns)"</h3>
+        <p class="topic-card-category" data-en=""whatsapp"" data-ar=""whatsapp"">"whatsapp"</p>
+        <span class="topic-card-arrow">→</span>
+      </a>
+      <a class="topic-card" 
+         href="topics/whatsapp-manager-contacts-tags.html"
+         data-platform="whatsapp"
+         data-category=""whatsapp""
+         data-search-text="&quot;whatsapp manager: contacts & tags ui&quot; &quot;whatsapp&quot; whatsapp # contacts & tags in whatsapp manager  traditionally, businesses using the whatsapp cloud api had to build their own crm or purchase third-party inbox software to store contacts and organize chats. meta has recently bridged this gap by introducing **native contacts and tags management** directly ins">
+        <div class="topic-card-header">
+          <span class="topic-card-icon">📖</span>
+          <div style="display:flex;align-items:center;gap:6px">
+            <span class="topic-card-platform" style="color:#a78bfa" data-en="whatsapp" data-ar="whatsapp">whatsapp</span>
+            
+          </div>
+        </div>
+        <h3 class="topic-card-title">"WhatsApp Manager: Contacts & Tags UI"</h3>
+        <p class="topic-card-category" data-en=""whatsapp"" data-ar=""whatsapp"">"whatsapp"</p>
+        <span class="topic-card-arrow">→</span>
+      </a>
+      <a class="topic-card" 
+         href="topics/whatsapp-manager-templates-ui.html"
+         data-platform="whatsapp"
+         data-category=""whatsapp""
+         data-search-text="&quot;whatsapp manager: message templates ui&quot; &quot;whatsapp&quot; whatsapp # message templates ui in whatsapp manager  the **message templates library** inside the whatsapp manager (`/whatsapp_manager/message_templates`) is the central hub for creating, editing, and monitoring the templates you use to start business-initiated conversations with your customers.  while devel">
+        <div class="topic-card-header">
+          <span class="topic-card-icon">📖</span>
+          <div style="display:flex;align-items:center;gap:6px">
+            <span class="topic-card-platform" style="color:#a78bfa" data-en="whatsapp" data-ar="whatsapp">whatsapp</span>
+            
+          </div>
+        </div>
+        <h3 class="topic-card-title">"WhatsApp Manager: Message Templates UI"</h3>
+        <p class="topic-card-category" data-en=""whatsapp"" data-ar=""whatsapp"">"whatsapp"</p>
+        <span class="topic-card-arrow">→</span>
+      </a>
+      <a class="topic-card" 
          href="topics/whatsapp-number-management.html"
          data-platform="whatsapp"
          data-category=""whatsapp""
@@ -559,30 +620,24 @@
 
   <script>
 (function(){
-  var html=document.documentElement,TK='maw-theme',LK='maw-lang';
-
-  // ── Theme ────────────────────────────────────────────────
-  function applyTheme(t){html.setAttribute('data-theme',t);localStorage.setItem(TK,t);}
-  applyTheme(localStorage.getItem(TK)||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));
-
-  // ── Language ─────────────────────────────────────────────
+  var html=document.documentElement;
+  var theme=localStorage.getItem('theme');
+  if(!theme){
+    theme=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
+  }
+  function applyTheme(t){
+    html.setAttribute('data-theme',t);
+    localStorage.setItem('theme',t);
+  }
+  applyTheme(theme);
+  
+  var lang=localStorage.getItem('lang')||'en';
   function applyLang(l){
     html.setAttribute('data-lang',l);
-    html.setAttribute('lang',l==='ar'?'ar':'en');
-    html.setAttribute('dir',l==='ar'?'rtl':'ltr');
-    localStorage.setItem(LK,l);
-    document.querySelectorAll('[data-en][data-ar]').forEach(function(el){
-      var val = el.getAttribute(l==='ar'?'data-ar':'data-en');
-      if (el.tagName==='INPUT' || el.tagName==='TEXTAREA') {
-        el.placeholder = val;
-      } else {
-        el.innerHTML = val;
-      }
-    });
+    localStorage.setItem('lang',l);
   }
-  applyLang(localStorage.getItem(LK)||'en');
+  applyLang(lang);
 
-  // Wire up buttons after DOM is ready
   function wireButtons(){
     var thBtn=document.getElementById('theme-toggle');
     if(thBtn) thBtn.addEventListener('click',function(){
@@ -685,6 +740,30 @@
   
   }
 
+  // Global handler for interactive MCQ quizzes
+  window.handleMcqClick = function(radio) {
+    var container = radio.closest('.mcq-options');
+    var labels = container.querySelectorAll('.mcq-option');
+    var widget = radio.closest('.mcq-widget');
+    var progressFill = widget.querySelector('.mcq-progress-bar-fill');
+    var progressPct = widget.querySelector('.mcq-pct');
+    
+    // Lock all inputs & show correct/wrong
+    labels.forEach(function(l) {
+      var inp = l.querySelector('input');
+      inp.disabled = true;
+      if (inp.value === 'correct') {
+        l.classList.add('correct');
+      } else if (inp === radio && inp.value === 'wrong') {
+        l.classList.add('wrong');
+      }
+    });
+    
+    // Update progress bar
+    if(progressFill) progressFill.style.width = '100%';
+    if(progressPct) progressPct.innerText = '100%';
+  };
+
   if(document.readyState==='loading'){
     document.addEventListener('DOMContentLoaded',wireButtons);
   } else {
@@ -694,5 +773,12 @@
 </script>
 <script>var _SEARCH_BASE_='../';</script>
 <script src="../search.js"></script>
+<!-- Syntax Highlighting (PrismJS) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+
 </body>
 </html>

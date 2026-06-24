@@ -69,3 +69,25 @@ When designing a template with a `FLOW` button, you must strictly adhere to Meta
 ## 3. Best Practices for Developers
 1. **Testing:** Always create a duplicate Flow in `DRAFT` state for testing. You cannot test the template API submission with a Draft flow, so you must publish a v1 of your flow just to get the template approved, then iterate using the Endpoint for dynamic data.
 2. **Fallback:** Consider what happens if the user's WhatsApp version is outdated and does not support Flows. Meta automatically displays an "Update WhatsApp" message, but it is good practice to follow up if the flow is not completed within 24 hours.
+
+<!-- panel:comparison -->
+**Flow Button vs. Web URL Button**
+- **Flow Button:** Keeps the user inside WhatsApp, loads instantly, and can securely use WhatsApp's native data.
+- **Web URL Button:** Opens the external browser, might have loading delays, and breaks the conversational experience.
+<!-- endpanel -->
+
+<!-- panel:quiz -->
+**Question:**
+Can you add multiple \`FLOW\` buttons in a single template?
+
+**Answer:**
+No, Meta only allows **ONE** \`FLOW\` button per template message.
+<!-- endpanel -->
+
+<!-- panel:example -->
+**Use Cases for Flows:**
+- Appointment Bookings
+- Customer Satisfaction Surveys
+- Lead Generation Forms
+- Event Registrations
+<!-- endpanel -->

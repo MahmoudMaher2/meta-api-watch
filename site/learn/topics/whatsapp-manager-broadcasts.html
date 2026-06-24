@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>"WhatsApp Manager: Broadcasts (Campaigns)" — Meta Docs Learn</title>
+  <meta name="description" content="Learn "WhatsApp Manager: Broadcasts (Campaigns)" in whatsapp: validation rules, error codes, examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+  <div class="header-inner">
+    <div class="header-logo">
+      <span class="logo-icon">🔭</span>
+      <div class="logo-text">
+        <strong>Meta API Watch</strong>
+        <span>SEEN V2 · Developer Hub</span>
+      </div>
+    </div>
+    
+    <nav class="header-nav">
+      <a href="../../index.html" class="nav-item ">
+        <span class="nav-icon">🔔</span>
+        Latest Updates
+      </a>
+      <a href="../../learn/index.html" class="nav-item active">
+        <span class="nav-icon">📚</span>
+        Learn
+      </a>
+    </nav>
+
+    <div class="header-actions">
+      <!-- Search Trigger -->
+      <button id="search-trigger" class="search-btn" title="Search documentation... (Ctrl+K)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span>Search...</span>
+        <kbd>/</kbd>
+      </button>
+
+      <div class="build-badge">
+        <span class="pulse"></span>
+        LAST BUILD Jun 24, 2026, 11:13 PM 🇪🇬
+      </div>
+      
+      <!-- Language Toggle -->
+      <button id="lang-toggle" class="icon-btn" title="Toggle Language (AR/EN)">
+        <span class="lang-en">EN</span>
+        <span class="lang-ar">عربي</span>
+      </button>
+      
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" class="icon-btn" title="Toggle Theme">
+        <span class="moon">🌙</span>
+        <span class="sun">☀️</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Search Modal -->
+<div id="search-modal" class="search-modal">
+  <div class="search-modal-content">
+    <div class="search-header">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="search-input" placeholder="Search topics, error codes, guidelines..." autocomplete="off">
+      <button id="search-close" class="icon-btn">×</button>
+    </div>
+    <div id="search-results" class="search-results"></div>
+    <div class="search-footer">
+      <span><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span>
+      <span><kbd>Enter</kbd> to select</span>
+      <span><kbd>ESC</kbd> to close</span>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <div class="learn-layout has-panels">
+
+    <!-- Sidebar -->
+    <aside class="learn-sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label" data-en="On this page" data-ar="على هذه الصفحة">On this page</span>
+        
+    <div class="lang-en">
+      <ul class="toc-list"><li class="toc-top"><a href="#1-creating-a-broadcast">1. Creating a Broadcast</a></li><li class="toc-sub"><a href="#the-3-step-process">The 3-Step Process:</a></li><li class="toc-top"><a href="#2-limits-and-rate-limiting">2. Limits and Rate Limiting</a></li><li class="toc-top"><a href="#3-tracking-broadcast-performance">3. Tracking Broadcast Performance</a></li><li class="toc-sub"><a href="#key-metrics">Key Metrics:</a></li><li class="toc-sub"><a href="#common-failure-reasons">Common Failure Reasons:</a></li></ul>
+    </div>
+    
+    <div class="lang-ar">
+      <ul class="toc-list"><li class="toc-top"><a href="#1-إنشاء-رسالة-جماعية-broadcast">1. إنشاء رسالة جماعية (Broadcast)</a></li><li class="toc-sub"><a href="#العملية-تتكون-من-3-خطوات">العملية تتكون من 3 خطوات:</a></li><li class="toc-top"><a href="#2-الحدود-وتقييد-الإرسال-rate-limiting">2. الحدود وتقييد الإرسال (Rate Limiting)</a></li><li class="toc-top"><a href="#3-تتبع-أداء-الحملة-broadcast-performance">3. تتبع أداء الحملة (Broadcast Performance)</a></li><li class="toc-sub"><a href="#المقاييس-الأساسية-key-metrics">المقاييس الأساسية (Key Metrics):</a></li><li class="toc-sub"><a href="#الأسباب-الشائعة-للفشل-common-failure-reasons">الأسباب الشائعة للفشل (Common Failure Reasons):</a></li></ul>
+    </div>
+  
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Source</span>
+        <a href="" target="_blank" rel="noopener" class="source-link">
+          📄 Meta Developer Docs ↗
+        </a>
+        
+      </div>
+      
+    </aside>
+
+    <!-- Main Content -->
+    <main class="learn-content" id="main-content">
+      <div class="topic-breadcrumb">
+        <a href="../index.html">Learn</a>
+        <span>›</span>
+        <span style="color:#a78bfa">whatsapp</span>
+        <span>›</span>
+        <span>"WhatsApp Manager: Broadcasts (Campaigns)"</span>
+      </div>
+
+      <div class="topic-hero">
+        <div class="topic-hero-badges">
+          <span class="platform-badge" style="background:#1a1a24;color:#a78bfa;border-color:#4c1d95">whatsapp</span>
+          
+        </div>
+        <h1 class="topic-title" data-en=""WhatsApp Manager: Broadcasts (Campaigns)"" data-ar=""مدير واتساب: الرسائل الجماعية (Broadcasts)"">"WhatsApp Manager: Broadcasts (Campaigns)"</h1>
+        <p class="topic-meta"><span data-en=""whatsapp"" data-ar=""whatsapp"">"whatsapp"</span> · <span data-en="Last verified:" data-ar="آخر مراجعة:">Last verified:</span> N/A</p>
+      </div>
+
+      <div class="topic-body lang-en">
+        <h1>Broadcasts in WhatsApp Manager</h1>
+
+<p>The <strong>Broadcasts</strong> feature in the WhatsApp Manager UI is a game-changer for businesses using the Cloud API. Previously, sending a marketing campaign required an API integration to iterate through a list of numbers and fire the <code>messages</code> endpoint. Now, Meta provides a built-in Campaign Builder.</p>
+
+<p>This allows marketing teams to send mass communications (newsletters, promotions, alerts) directly from the Meta Business Suite.</p>
+
+<h2 id="1-creating-a-broadcast">1. Creating a Broadcast</h2>
+
+<p>To start a campaign, navigate to <strong>WhatsApp Manager > Broadcasts</strong> and click on "Create Broadcast."</p>
+
+<h3 id="the-3-step-process">The 3-Step Process:</h3>
+<p>1. <strong>Choose a Template:</strong> You must select a pre-approved Message Template. You cannot send free-form text in a broadcast. If your template contains variables (e.g., <code>{{1}}</code>), you will be prompted to map these variables later.</p>
+<p>2. <strong>Select the Audience:</strong> Here, you use the Tags (Labels) you created in the Contacts section. You can choose to send the broadcast to all contacts with a specific tag (e.g., <code>VIP_Customers</code>).</p>
+<p>3. <strong>Review & Send:</strong> You can choose to send the broadcast <strong>Immediately</strong> or <strong>Schedule</strong> it for a later date and time.</p>
+
+<hr>
+
+<h2 id="2-limits-and-rate-limiting">2. Limits and Rate Limiting</h2>
+
+<p>When you click "Send" on a Broadcast, Meta handles the rate limiting automatically. However, you must still be aware of your <strong>Messaging Tier Limit</strong>.</p>
+<ul><li style="margin-left:8px">If you are in Tier 1 (1,000 unique users/day) and you try to send a broadcast to a Tag containing 5,000 contacts, Meta will throttle or reject the messages that exceed your daily limit.</li>
+<li style="margin-left:0px">Your limits are determined by the phone number's quality rating and usage history. You can view your current limit in the WhatsApp Manager Overview.</li></ul>
+
+<hr>
+
+<h2 id="3-tracking-broadcast-performance">3. Tracking Broadcast Performance</h2>
+
+<p>Once a broadcast is sent, you can view its performance metrics directly in the Broadcasts tab.</p>
+
+<h3 id="key-metrics">Key Metrics:</h3>
+<ul><li style="margin-left:0px"><strong>Sent:</strong> The number of messages successfully dispatched by Meta.</li>
+<li style="margin-left:0px"><strong>Delivered:</strong> The number of messages that reached the user's phone. (A large gap between Sent and Delivered might mean numbers are no longer active on WhatsApp).</li>
+<li style="margin-left:0px"><strong>Read:</strong> The number of users who opened the message (Note: this depends on the user's read receipt privacy settings).</li>
+<li style="margin-left:0px"><strong>Failed:</strong> The number of messages that failed to send.</li></ul>
+
+<h3 id="common-failure-reasons">Common Failure Reasons:</h3>
+<ul><li style="margin-left:0px"><strong>User Blocked:</strong> The user previously blocked your business number.</li>
+<li style="margin-left:0px"><strong>Opt-out:</strong> The user is no longer opted-in.</li>
+<li style="margin-left:0px"><strong>Limit Exceeded:</strong> You hit your daily messaging limit mid-campaign.</li></ul>
+
+
+      </div>
+      <div class="topic-body lang-ar"><h1>الرسائل الجماعية في مدير واتساب</h1>
+
+<p>ميزة <strong>الرسائل الجماعية (Broadcasts)</strong> في واجهة مدير واتساب (WhatsApp Manager) تعتبر نقلة نوعية للشركات التي تستخدم الـ Cloud API. في السابق، كان إرسال حملة تسويقية يتطلب ربطاً برمجياً (API Integration) لبرمجة كود يمر على قائمة الأرقام ويرسل الرسائل تباعاً. الآن، توفر ميتا أداة مدمجة لإنشاء الحملات (Campaign Builder).</p>
+
+<p>هذا يتيح لفرق التسويق إرسال رسائل جماعية (نشرات إخبارية، عروض ترويجية، تنبيهات) مباشرة من داخل الـ Meta Business Suite.</p>
+
+<h2 id="1-إنشاء-رسالة-جماعية-broadcast">1. إنشاء رسالة جماعية (Broadcast)</h2>
+
+<p>لبدء حملة جديدة، توجه إلى <strong>WhatsApp Manager > Broadcasts</strong> واضغط على "إنشاء رسالة جماعية" (Create Broadcast).</p>
+
+<h3 id="العملية-تتكون-من-3-خطوات">العملية تتكون من 3 خطوات:</h3>
+<p>1. <strong>اختيار القالب (Template):</strong> يجب عليك اختيار قالب رسالة تمت الموافقة عليه مسبقاً. لا يمكنك إرسال نصوص حرة (Free-form text) في رسالة جماعية. إذا كان القالب يحتوي على متغيرات (مثل <code>{{1}}</code>)، سيُطلب منك تحديد قيم هذه المتغيرات لاحقاً.</p>
+<p>2. <strong>تحديد الجمهور (Audience):</strong> هنا تستخدم "التصنيفات" (Tags) التي قمت بإنشائها في قسم جهات الاتصال. يمكنك اختيار إرسال الرسالة إلى جميع جهات الاتصال التي تحمل تصنيفاً معيناً (مثل <code>VIP_Customers</code>).</p>
+<p>3. <strong>المراجعة والإرسال:</strong> يمكنك اختيار إرسال الحملة <strong>فوراً (Immediately)</strong> أو <strong>جدولتها (Schedule)</strong> لتاريخ ووقت لاحق.</p>
+
+<hr>
+
+<h2 id="2-الحدود-وتقييد-الإرسال-rate-limiting">2. الحدود وتقييد الإرسال (Rate Limiting)</h2>
+
+<p>عندما تضغط على "إرسال" لحملتك، تقوم ميتا بالتعامل مع سرعة الإرسال (Rate limiting) تلقائياً. ومع ذلك، يجب أن تكون على دراية بـ <strong>حدود الإرسال اليومية (Messaging Tier Limit)</strong> الخاصة برقمك.</p>
+<ul><li style="margin-left:8px">إذا كنت في المستوى الأول (Tier 1 - حد 1,000 مستخدم فريد/يومياً) وحاولت إرسال رسالة جماعية إلى تصنيف يحتوي على 5,000 جهة اتصال، ستقوم ميتا برفض أو تقييد الرسائل التي تتجاوز حدك اليومي.</li>
+<li style="margin-left:0px">يتم تحديد حدود الإرسال الخاصة بك بناءً على جودة رقم الهاتف (Quality Rating) وتاريخ الاستخدام. يمكنك رؤية الحد الحالي الخاص بك في صفحة الـ Overview في مدير واتساب.</li></ul>
+
+<hr>
+
+<h2 id="3-تتبع-أداء-الحملة-broadcast-performance">3. تتبع أداء الحملة (Broadcast Performance)</h2>
+
+<p>بمجرد إرسال الحملة، يمكنك عرض مقاييس الأداء الخاصة بها مباشرة في علامة التبويب Broadcasts.</p>
+
+<h3 id="المقاييس-الأساسية-key-metrics">المقاييس الأساسية (Key Metrics):</h3>
+<ul><li style="margin-left:0px"><strong>تم الإرسال (Sent):</strong> عدد الرسائل التي تم إرسالها بنجاح من خوادم ميتا.</li>
+<li style="margin-left:0px"><strong>تم التسليم (Delivered):</strong> عدد الرسائل التي وصلت فعلياً إلى هاتف المستخدم. (الفجوة الكبيرة بين الإرسال والتسليم قد تعني أن الأرقام لم تعد فعالة على واتساب).</li>
+<li style="margin-left:0px"><strong>تمت القراءة (Read):</strong> عدد المستخدمين الذين فتحوا الرسالة (ملاحظة: هذا يعتمد على إعدادات خصوصية مؤشرات القراءة لدى المستخدم).</li>
+<li style="margin-left:0px"><strong>فشل (Failed):</strong> عدد الرسائل التي فشل إرسالها.</li></ul>
+
+<h3 id="الأسباب-الشائعة-للفشل-common-failure-reasons">الأسباب الشائعة للفشل (Common Failure Reasons):</h3>
+<ul><li style="margin-left:0px"><strong>حظر من المستخدم (User Blocked):</strong> قام المستخدم بحظر رقم نشاطك التجاري مسبقاً.</li>
+<li style="margin-left:0px"><strong>إلغاء الاشتراك (Opt-out):</strong> ألغى العميل اشتراكه في استلام رسائلك.</li>
+<li style="margin-left:0px"><strong>تجاوز الحد (Limit Exceeded):</strong> وصلت للحد الأقصى اليومي للرسائل أثناء سير الحملة.</li></ul>
+
+</div>
+
+      <div class="topic-nav">
+        <a class="nav-prev" href="whatsapp-flows-json-ui.html">← WhatsApp Flows JSON UI Limits & Validation</a>
+        <a class="nav-next" href="whatsapp-manager-contacts-tags.html">"WhatsApp Manager: Contacts & Tags UI" →</a>
+      </div>
+    </main>
+
+    <!-- Interactive Panels -->
+    
+    <div class="learn-right-sidebar">
+      <aside class="interactive-panel lang-en">
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">Comparison</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>Broadcasts UI vs. API Campaigns</strong></p>
+<ul><li style="margin-left:0px"><strong>Broadcasts UI:</strong> Visual, easy to use, and perfect for one-off scheduled campaigns. However, it lacks advanced variable mapping (like dynamically pulling user names from an external database).</li>
+<li style="margin-left:0px"><strong>API Campaigns:</strong> Requires development but allows for highly personalized templates, dynamic product recommendations, and automated triggering (e.g., abandoned cart campaigns).</li></ul>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">Test Your Knowledge</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_en_1_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:right">Question 1 of 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p><strong>Question:</strong></p><p>If I schedule a broadcast for tomorrow, which time zone does it use?</p><p><strong>Answer:</strong></p><p>The broadcast scheduler uses the <strong>local time zone</strong> configured in your Meta Business account settings. Always double-check the timezone label next to the time picker!</p></div>
+          <div class="mcq-options"></div>
+        </div>
+      
+        </div>
+      </div>
+    
+      <div class="panel-card panel-example">
+        <div class="panel-header">
+          <span class="panel-icon">💡</span>
+          <span class="panel-title">Examples</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>Campaign Example:</strong></p>
+<p><strong>Goal:</strong> Promote a Weekend Flash Sale.</p>
+<p>1. <strong>Template:</strong> Select an approved <code>MARKETING</code> template with an image and a "Shop Now" button.</p>
+<p>2. <strong>Audience:</strong> Select the <code>Newsletter_Subscribers</code> tag.</p>
+<p>3. <strong>Schedule:</strong> Schedule for Friday at 10:00 AM.</p>
+<p>4. <strong>Analysis:</strong> Check back on Monday to see the <em>Read</em> rate and compare it against the clicks on your website.</p>
+        </div>
+      </div>
+    </aside>
+      <aside class="interactive-panel lang-ar">
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">مقارنة</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>واجهة الحملات مقابل إرسال الحملات برمجياً (API)</strong></p>
+<ul><li style="margin-left:0px"><strong>واجهة الحملات (Broadcasts UI):</strong> بصرية، سهلة الاستخدام، ومثالية للحملات المجدولة لمرة واحدة. لكنها تفتقر إلى إمكانية الربط الديناميكي المتقدم (مثل سحب اسم كل مستخدم من قاعدة بيانات خارجية ووضعه في الرسالة).</li>
+<li style="margin-left:0px"><strong>الحملات البرمجية (API Campaigns):</strong> تتطلب برمجة لكنها تسمح بقوالب مخصصة جداً، اقتراحات منتجات ديناميكية، وإرسال آلي بناءً على أحداث معينة (مثل حملة استرجاع سلة المتروكات Abandoned Cart).</li></ul>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">اختبر فهمك</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_ar_1_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:left">السؤال 1 من 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p><strong>سؤال:</strong></p><p>إذا قمت بجدولة حملة لغدٍ، أي منطقة زمنية (Time zone) سيستخدمها النظام؟</p><p><strong>إجابة:</strong></p><p>تستخدم أداة الجدولة <strong>المنطقة الزمنية المحلية</strong> المحددة في إعدادات حساب Meta Business الخاص بك. تأكد دائماً من مراجعة اسم المنطقة الزمنية المكتوب بجوار منتقي الوقت!</p></div>
+          <div class="mcq-options"></div>
+        </div>
+      
+        </div>
+      </div>
+    
+      <div class="panel-card panel-example">
+        <div class="panel-header">
+          <span class="panel-icon">💡</span>
+          <span class="panel-title">أمثلة</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>مثال على حملة تسويقية:</strong></p>
+<p><strong>الهدف:</strong> الترويج لتخفيضات نهاية الأسبوع الفورية (Flash Sale).</p>
+<p>1. <strong>القالب:</strong> اختيار قالب نوعه <code>MARKETING</code> يحتوي على صورة وزر "تسوق الآن".</p>
+<p>2. <strong>الجمهور:</strong> اختيار تصنيف <code>Newsletter_Subscribers</code>.</p>
+<p>3. <strong>الجدولة:</strong> الجدولة يوم الجمعة الساعة 10:00 صباحاً.</p>
+<p>4. <strong>التحليل:</strong> العودة يوم الاثنين للتحقق من نسبة <strong>القراءة (Read rate)</strong> ومقارنتها بنسبة النقرات على الرابط في موقعك.</p>
+        </div>
+      </div>
+    </aside>
+    </div>
+    
+
+  </div>
+
+  <script>
+(function(){
+  var html=document.documentElement;
+  var theme=localStorage.getItem('theme');
+  if(!theme){
+    theme=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
+  }
+  function applyTheme(t){
+    html.setAttribute('data-theme',t);
+    localStorage.setItem('theme',t);
+  }
+  applyTheme(theme);
+  
+  var lang=localStorage.getItem('lang')||'en';
+  function applyLang(l){
+    html.setAttribute('data-lang',l);
+    localStorage.setItem('lang',l);
+  }
+  applyLang(lang);
+
+  function wireButtons(){
+    var thBtn=document.getElementById('theme-toggle');
+    if(thBtn) thBtn.addEventListener('click',function(){
+      applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+    });
+    var lgBtn=document.getElementById('lang-toggle');
+    if(lgBtn) lgBtn.addEventListener('click',function(){
+      applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
+    });
+    
+  }
+
+  // Global handler for interactive MCQ quizzes
+  window.handleMcqClick = function(radio) {
+    var container = radio.closest('.mcq-options');
+    var labels = container.querySelectorAll('.mcq-option');
+    var widget = radio.closest('.mcq-widget');
+    var progressFill = widget.querySelector('.mcq-progress-bar-fill');
+    var progressPct = widget.querySelector('.mcq-pct');
+    
+    // Lock all inputs & show correct/wrong
+    labels.forEach(function(l) {
+      var inp = l.querySelector('input');
+      inp.disabled = true;
+      if (inp.value === 'correct') {
+        l.classList.add('correct');
+      } else if (inp === radio && inp.value === 'wrong') {
+        l.classList.add('wrong');
+      }
+    });
+    
+    // Update progress bar
+    if(progressFill) progressFill.style.width = '100%';
+    if(progressPct) progressPct.innerText = '100%';
+  };
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',wireButtons);
+  } else {
+    wireButtons();
+  }
+})();
+</script>
+<script>var _SEARCH_BASE_='../../';</script>
+<script src="../../search.js"></script>
+<!-- Syntax Highlighting (PrismJS) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+
+</body>
+</html>
