@@ -1,4 +1,5 @@
 ---
+date: 2026-06-24
 slug: whatsapp-quality-limits
 title: جودة واتساب (Quality) وحدود المراسلة
 platform: WhatsApp

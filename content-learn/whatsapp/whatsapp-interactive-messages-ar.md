@@ -1,4 +1,5 @@
 ---
+date: 2026-06-24
 slug: whatsapp-interactive-messages
 title: رسائل واتساب التفاعلية (الأزرار والقوائم)
 platform: WhatsApp

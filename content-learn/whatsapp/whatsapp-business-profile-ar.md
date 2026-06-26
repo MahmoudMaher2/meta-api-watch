@@ -1,4 +1,5 @@
 ---
+date: 2026-06-24
 slug: whatsapp-business-profile
 title: واجهة برمجة تطبيقات ملف الأعمال في واتساب
 platform: WhatsApp

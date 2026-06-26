@@ -1,4 +1,5 @@
 ---
+date: 2026-06-24
 slug: whatsapp-media-messages
 title: رسائل الوسائط في واتساب (الصور، الفيديو، المستندات)
 platform: WhatsApp

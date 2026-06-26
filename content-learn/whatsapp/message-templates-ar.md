@@ -1,4 +1,5 @@
 ---
+date: 2026-06-24
 title: قوالب الرسائل
 slug: whatsapp-message-templates
 platform: WhatsApp

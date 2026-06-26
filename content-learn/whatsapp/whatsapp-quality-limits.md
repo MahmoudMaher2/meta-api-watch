@@ -1,4 +1,5 @@
 ---
+date: 2026-06-24
 slug: whatsapp-quality-limits
 title: WhatsApp Quality Rating & Messaging Limits
 platform: WhatsApp

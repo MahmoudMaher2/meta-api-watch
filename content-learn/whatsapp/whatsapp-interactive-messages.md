@@ -1,4 +1,5 @@
 ---
+date: 2026-06-24
 slug: whatsapp-interactive-messages
 title: WhatsApp Interactive Messages (Buttons & Lists)
 platform: WhatsApp

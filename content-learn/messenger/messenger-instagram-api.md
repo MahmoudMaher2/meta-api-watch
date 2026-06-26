@@ -1,4 +1,5 @@
 ---
+date: 2026-06-24
 slug: messenger-instagram-api
 title: Messenger & Instagram Messaging API
 platform: Messenger

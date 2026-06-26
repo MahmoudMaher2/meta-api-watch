@@ -1,4 +1,5 @@
 ---
+date: 2026-06-24
 title: خطافات الويب (Webhooks) الخاصة بـ WhatsApp
 slug: whatsapp-webhooks
 platform: WhatsApp

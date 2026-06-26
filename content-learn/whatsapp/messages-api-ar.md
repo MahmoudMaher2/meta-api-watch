@@ -1,4 +1,5 @@
 ---
+date: 2026-06-24
 title: واجهة برمجة تطبيقات الرسائل (إرسال الرسائل)
 slug: whatsapp-messages-api
 platform: WhatsApp

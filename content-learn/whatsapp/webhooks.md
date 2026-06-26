@@ -1,4 +1,5 @@
 ---
+date: 2026-06-24
 title: WhatsApp Webhooks
 slug: whatsapp-webhooks
 platform: WhatsApp

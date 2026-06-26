@@ -1,4 +1,5 @@
 ---
+date: 2026-06-24
 slug: whatsapp-flows-v4
 title: WhatsApp Flows v4 — نماذج تفاعلية
 platform: WhatsApp

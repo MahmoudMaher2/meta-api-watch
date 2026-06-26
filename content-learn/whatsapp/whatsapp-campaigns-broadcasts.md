@@ -1,4 +1,5 @@
 ---
+date: 2026-06-24
 slug: whatsapp-campaigns-broadcasts
 title: WhatsApp Campaigns & Broadcasts
 platform: WhatsApp

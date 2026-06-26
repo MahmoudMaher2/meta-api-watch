@@ -1,4 +1,5 @@
 ---
+date: 2026-06-24
 slug: messenger-instagram-api
 title: واجهة برمجة تطبيقات المراسلة لـ Messenger و Instagram
 platform: Messenger

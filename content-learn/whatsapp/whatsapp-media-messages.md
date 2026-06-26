@@ -1,4 +1,5 @@
 ---
+date: 2026-06-24
 slug: whatsapp-media-messages
 title: WhatsApp Media Messages (Images, Video, Docs)
 platform: WhatsApp

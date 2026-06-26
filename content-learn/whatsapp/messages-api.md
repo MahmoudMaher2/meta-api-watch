@@ -1,4 +1,5 @@
 ---
+date: 2026-06-24
 title: Messages API (Send Messages)
 slug: whatsapp-messages-api
 platform: WhatsApp
