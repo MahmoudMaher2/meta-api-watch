@@ -184,6 +184,7 @@ function getAllTopics() {
           isNew: meta.new === 'true' || meta.new === true,
           newSince: meta.new_since || '',
           changelogArticle: meta.changelog_article || '',
+          date: meta.date ? String(meta.date).replace(/"/g, '').trim() : '',
           meta, body, meta_ar, body_ar
         });
       }
@@ -459,6 +460,14 @@ function escSearchText(text) {
     .replace(/\\/g, '\\\\');
 }
 
+function formatTopicDate(dateStr) {
+  if (!dateStr) return '';
+  const m = String(dateStr).trim().match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (!m) return dateStr;
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return `${months[parseInt(m[2],10)-1]} ${parseInt(m[3],10)}, ${m[1]}`;
+}
+
 // ── Build home index ──────────────────────────────────────────────────────────
 function buildIndex(topics) {
   const grouped = {};
@@ -490,7 +499,10 @@ function buildIndex(topics) {
           </div>
         </div>
         <h3 class="topic-card-title">${t.title}</h3>
-        <p class="topic-card-category" data-en="${t.category}" data-ar="${translateCategory(t.category)}">${t.category}</p>
+        <div class="topic-card-footer">
+          <p class="topic-card-category" data-en="${t.category}" data-ar="${translateCategory(t.category)}">${t.category}</p>
+          ${t.date ? `<span class="topic-card-date">🗓 ${formatTopicDate(t.date)}</span>` : ''}
+        </div>
         <span class="topic-card-arrow">→</span>
       </a>`;
     }).join('');

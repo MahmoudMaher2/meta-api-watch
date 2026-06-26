@@ -44,7 +44,7 @@
       <div class="header-build-time" title="System Status: Up to date">
         <div class="build-pulse"></div>
         <span class="build-label">LAST BUILD</span>
-        <span class="build-value">Jun 26, 2026, 4:09 PM 🇪🇬</span>
+        <span class="build-value">Jun 26, 2026, 4:18 PM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
@@ -122,34 +122,27 @@
 
 <p>When a Facebook Page violates Meta's messaging policies or is flagged for suspicious activity, Meta may temporarily restrict that Page from sending messages. Any attempt to send a message via the Messenger Send API while the restriction is active will fail with:</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "error": {</p>
 <p>    "message": "Pages temporarily restricted from sending messages",</p>
 <p>    "type": "OAuthException",</p>
 <p>    "code": 10,</p>
 <p>    "error_subcode": 1893063</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h2 id="error-details">Error Details</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td><strong>Error Code</strong></td><td><code>10</code></td></tr><tr><td><strong>Subcode</strong></td><td><code>1893063</code></td></tr><tr><td><strong>Type</strong></td><td><code>OAuthException</code></td></tr><tr><td><strong>Cause</strong></td><td>Page is temporarily restricted by Meta</td></tr><tr><td><strong>Retryable?</strong></td><td>No — must wait for restriction to be lifted</td></tr></tbody></table></div>
+<p>| Field | Value |</p>
+<p>|---|---|</p>
+<p>| <strong>Error Code</strong> | <code>10</code> |</p>
+<p>| <strong>Subcode</strong> | <code>1893063</code> |</p>
+<p>| <strong>Type</strong> | <code>OAuthException</code> |</p>
+<p>| <strong>Cause</strong> | Page is temporarily restricted by Meta |</p>
+<p>| <strong>Retryable?</strong> | No — must wait for restriction to be lifted |</p>
+
 <h2 id="how-to-handle-it-in-your-code">How to Handle It in Your Code</h2>
 
 <p>When receiving this error, your integration should:</p>
@@ -168,6 +161,8 @@
 <p><span class="icon-reject">❌</span> Bad: Drop messages silently without alerting the team.</p>
 
 
+
+
       </div>
       <div class="topic-body lang-ar"><h1>رمز خطأ Messenger 10–1893063: الصفحات المقيّدة مؤقتاً من الإرسال</h1>
 
@@ -179,34 +174,27 @@
 
 <p>عندما تنتهك صفحة Facebook سياسات المراسلة الخاصة بـ Meta، أو يُبلَّغ عنها بسبب نشاط مشبوه، قد تقيّد Meta تلك الصفحة مؤقتاً من إرسال الرسائل. أي محاولة لإرسال رسالة عبر Messenger Send API أثناء سريان القيد ستفشل بالخطأ التالي:</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "error": {</p>
 <p>    "message": "Pages temporarily restricted from sending messages",</p>
 <p>    "type": "OAuthException",</p>
 <p>    "code": 10,</p>
 <p>    "error_subcode": 1893063</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h2 id="تفاصيل-الخطأ">تفاصيل الخطأ</h2>
 
-<div class="table-wrap"><table><thead><tr><th>الحقل</th><th>القيمة</th></tr></thead><tbody><tr><td><strong>رمز الخطأ</strong></td><td><code>10</code></td></tr><tr><td><strong>الرمز الفرعي</strong></td><td><code>1893063</code></td></tr><tr><td><strong>النوع</strong></td><td><code>OAuthException</code></td></tr><tr><td><strong>السبب</strong></td><td>الصفحة مقيّدة مؤقتاً من قِبل Meta</td></tr><tr><td><strong>هل يمكن إعادة المحاولة؟</strong></td><td>لا — يجب الانتظار حتى رفع القيد</td></tr></tbody></table></div>
+<p>| الحقل | القيمة |</p>
+<p>|---|---|</p>
+<p>| <strong>رمز الخطأ</strong> | <code>10</code> |</p>
+<p>| <strong>الرمز الفرعي</strong> | <code>1893063</code> |</p>
+<p>| <strong>النوع</strong> | <code>OAuthException</code> |</p>
+<p>| <strong>السبب</strong> | الصفحة مقيّدة مؤقتاً من قِبل Meta |</p>
+<p>| <strong>هل يمكن إعادة المحاولة؟</strong> | لا — يجب الانتظار حتى رفع القيد |</p>
+
 <h2 id="كيفية-معالجة-هذا-الخطأ-في-الكود">كيفية معالجة هذا الخطأ في الكود</h2>
 
 <p>عند استقبال هذا الخطأ، يجب على تكاملك:</p>
@@ -223,6 +211,8 @@
 <p><!-- preview --></p>
 <p><span class="icon-accept">✅</span> جيد: تخزين الرسائل الفاشلة لإعادة المحاولة بعد رفع القيد.</p>
 <p><span class="icon-reject">❌</span> سيئ: إسقاط الرسائل بصمت دون تنبيه الفريق.</p>
+
+
 
 </div>
 
@@ -242,9 +232,7 @@
           <span class="panel-title">Comparison</span>
         </div>
         <div class="panel-body">
-          <p><strong>Generic Error Code 10 vs Subcode 1893063</strong></p>
-<ul><li style="margin-left:0px"><strong>Code 10 (general):</strong> Permission error — your app may be missing a required permission. Check app permissions.</li>
-<li style="margin-left:0px"><strong>Code 10, Subcode 1893063:</strong> Page restriction — the Page itself is temporarily blocked by Meta from sending. No code fix needed.</li></ul>
+          <p><strong>Generic Error Code 10 vs Subcode 1893063</strong></p><ul><li style="margin-left:8px"><strong>Code 10 (general):</strong> Permission error — your app may be missing a required permission. Check app permissions.</li><li style="margin-left:8px"><strong>Code 10, Subcode 1893063:</strong> Page restriction — the Page itself is temporarily blocked by Meta from sending. No code fix needed.</li></ul>
         </div>
       </div>
     
@@ -299,9 +287,7 @@
           <span class="panel-title">مقارنة</span>
         </div>
         <div class="panel-body">
-          <p><strong>رمز الخطأ العام 10 مقابل الرمز الفرعي 1893063</strong></p>
-<ul><li style="margin-left:0px"><strong>الرمز 10 (عام):</strong> خطأ في الصلاحيات — قد يفتقر تطبيقك إلى صلاحية مطلوبة. تحقق من صلاحيات التطبيق.</li>
-<li style="margin-left:0px"><strong>الرمز 10، الرمز الفرعي 1893063:</strong> قيد على الصفحة — الصفحة نفسها محظورة مؤقتاً من قِبل Meta. لا يتطلب إصلاح الكود.</li></ul>
+          <p><strong>رمز الخطأ العام 10 مقابل الرمز الفرعي 1893063</strong></p><ul><li style="margin-left:8px"><strong>الرمز 10 (عام):</strong> خطأ في الصلاحيات — قد يفتقر تطبيقك إلى صلاحية مطلوبة. تحقق من صلاحيات التطبيق.</li><li style="margin-left:8px"><strong>الرمز 10، الرمز الفرعي 1893063:</strong> قيد على الصفحة — الصفحة نفسها محظورة مؤقتاً من قِبل Meta. لا يتطلب إصلاح الكود.</li></ul>
         </div>
       </div>
     

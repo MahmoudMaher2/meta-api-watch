@@ -44,7 +44,7 @@
       <div class="header-build-time" title="System Status: Up to date">
         <div class="build-pulse"></div>
         <span class="build-label">LAST BUILD</span>
-        <span class="build-value">26 Jun 2026 · 4:09 PM 🇪🇬</span>
+        <span class="build-value">26 Jun 2026 · 4:18 PM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
@@ -74,7 +74,7 @@
         <select id="filter-category">
           <option value=""
                   data-en="All categories" data-ar="جميع الفئات">All categories</option>
-          <option value="Bug Fix/Clarification">Bug Fix/Clarification</option><option value="New Feature">New Feature</option><option value="Deprecation">Deprecation</option><option value="Pricing/Rate Limit">Pricing/Rate Limit</option><option value="Policy/Compliance">Policy/Compliance</option><option value="Breaking Change">Breaking Change</option>
+          <option value="New Feature">New Feature</option><option value="Bug Fix/Clarification">Bug Fix/Clarification</option><option value="Deprecation">Deprecation</option><option value="Pricing/Rate Limit">Pricing/Rate Limit</option><option value="Policy/Compliance">Policy/Compliance</option><option value="Breaking Change">Breaking Change</option>
         </select>
       </div>
       <div class="filter-group">
@@ -83,7 +83,7 @@
         <select id="filter-module">
           <option value=""
                   data-en="All modules" data-ar="جميع الموديولات">All modules</option>
-          <option value="Messenger">Messenger</option><option value="RBAC">RBAC</option><option value="Webhooks">Webhooks</option><option value="WhatsApp Templates">WhatsApp Templates</option><option value="Channel Integration/OAuth">Channel Integration/OAuth</option><option value="Broadcasts">Broadcasts</option><option value="Instagram Messaging">Instagram Messaging</option><option value="Billing">Billing</option>
+          <option value="Webhooks">Webhooks</option><option value="WhatsApp Templates">WhatsApp Templates</option><option value="Channel Integration/OAuth">Channel Integration/OAuth</option><option value="Broadcasts">Broadcasts</option><option value="Instagram Messaging">Instagram Messaging</option><option value="Messenger">Messenger</option><option value="RBAC">RBAC</option><option value="Billing">Billing</option>
         </select>
       </div>
       <button id="clear-filters" class="btn-clear"
@@ -99,57 +99,31 @@
     <div class="cards-grid" id="cards-grid">
       <article class="card"
     id="card-0"
-    data-date="2026-06-26"
-    data-category="Bug Fix/Clarification"
-    data-modules="Messenger,RBAC">
+    data-date=""
+    data-category=""
+    data-modules="">
 
     <div class="card-header">
-      <time class="card-date">26 Jun 2026</time>
-      <span class="badge cat-badge" style="background:#0d2d2d;color:#67e8f9;border-color:#0e7490">Bug Fix/Clarification</span>
+      <time class="card-date"></time>
+      <span class="badge cat-badge" style="background:#1a1a1a;color:#aaa;border-color:#333"></span>
     </div>
 
     <h2 class="card-title"
-        data-en=""Messenger Error Code 10–1893063: Pages Temporarily Restricted from Sending Messages""
-        data-ar="إصلاح أو توضيح في موديول Messenger و RBAC.">"Messenger Error Code 10–1893063: Pages Temporarily Restricted from Sending Messages"</h2>
-    <div class="card-badges"><span class="badge mod-badge" style="border-color:#0084ff;color:#0084ff">Messenger</span><span class="badge mod-badge" style="border-color:#8b5cf6;color:#8b5cf6">RBAC</span></div>
+        data-en=""
+        data-ar=" في موديول Meta API."></h2>
+    <div class="card-badges"></div>
     <p class="card-summary"
-       data-en=""Meta added error code 10–1893063 to the Messenger Platform error codes reference for Pages that are temporarily restricted from sending messages.""
-       data-ar="إصلاح أو توضيح في موديول Messenger و RBAC.">"Meta added error code 10–1893063 to the Messenger Platform error codes reference for Pages that are temporarily restricted from sending messages."</p>
+       data-en=""
+       data-ar=" في موديول Meta API."></p>
 
     <!-- Expandable detail panel -->
     <div class="card-details" id="det-card-0" aria-hidden="true">
 
-      <div class="detail-section detail-changed">
-        <h4 class="detail-label">
-          <span class="detail-icon">📌</span>
-          <span data-en="What Changed" data-ar="ما الذي تغيّر">What Changed</span>
-        </h4>
-        <p>On **June 25, 2026**, Meta updated the Messenger Platform [common error codes reference](https://developers.facebook.com/docs/messenger-platform/reference/send-api/error-codes) to add **error code `10 – 1893063`**, which is returned when a **Page is temporarily restricted from sending messages**.
+      
 
-This is a documentation update that surfaces a previously undocumented platform behavior: when Meta enforces a temporary messaging restriction on a Page, API calls to the Send API will now fail with this specific error code.</p>
-      </div>
+      
 
-      <div class="detail-section detail-impact">
-        <h4 class="detail-label">
-          <span class="detail-icon">🎯</span>
-          <span data-en="Impact on SEEN V2" data-ar="التأثير على SEEN V2">Impact on SEEN V2</span>
-        </h4>
-        <p>If SEEN V2's Messenger integration does not currently handle error code `10` with subcode `1893063`, messages may silently fail or be misclassified as generic API errors during a Page restriction period. Developers should:
-
-1. **Add explicit handling** for subcode `1893063` in Messenger error handling code
-2. **Alert operations teams** when this error is received — it indicates a Meta-enforced restriction, not a code bug
-3. **Avoid retry storms** — retrying a temporarily restricted Page will not help; wait for the restriction to be lifted</p>
-      </div>
-
-      <div class="detail-section detail-qa">
-        <h4 class="detail-label">
-          <span class="detail-icon">✅</span>
-          <span data-en="Suggested QA Action" data-ar="إجراء QA المقترح">Suggested QA Action</span>
-        </h4>
-        <p>- Search the SEEN V2 codebase for Messenger Send API error handling
-- Verify that error code `10` + subcode `1893063` is handled gracefully (e.g., logged, operation team alerted, retry suppressed)
-- Test the error path using a Page in a restricted state (or mock the API response)</p>
-      </div>
+      
 
       
     </div>
@@ -163,7 +137,7 @@ This is a documentation update that surfaces a previously undocumented platform 
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
       </button>
-      <a class="card-source" href="https://developers.facebook.com/docs/messenger-platform/changelog#june-26-2026" target="_blank" rel="noopener">
+      <a class="card-source" href="" target="_blank" rel="noopener">
         📄 <span data-en="View in Changelog" data-ar="رابط في سجل التغييرات">View in Changelog</span> ↗
       </a>
     </div>
@@ -7217,7 +7191,7 @@ This is a documentation update that surfaces a previously undocumented platform 
       <a href="https://antigravity.dev" target="_blank" rel="noopener">Antigravity</a> ·
       <span data-en="Sources:" data-ar="المصادر:">Sources:</span>
       <a href="https://developers.facebook.com/docs" target="_blank" rel="noopener">Meta for Developers</a> ·
-      <time datetime="2026-06-26T13:09:29.802Z">26 Jun 2026 4:09 PM 🇪🇬</time>
+      <time datetime="2026-06-26T13:18:50.002Z">26 Jun 2026 4:18 PM 🇪🇬</time>
     </p>
   </footer>
 
