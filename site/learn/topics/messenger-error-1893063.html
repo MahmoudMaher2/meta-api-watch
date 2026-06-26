@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Instagram Story Replies Automation — Meta Docs Learn</title>
-  <meta name="description" content="Learn Instagram Story Replies Automation in messenger: validation rules, error codes, examples." />
+  <title>"Messenger Error Code 10–1893063: Pages Temporarily Restricted" — Meta Docs Learn</title>
+  <meta name="description" content="Learn "Messenger Error Code 10–1893063: Pages Temporarily Restricted" in messenger: validation rules, error codes, examples." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../style.css" />
@@ -74,11 +74,11 @@
         <span class="sidebar-label" data-en="On this page" data-ar="على هذه الصفحة">On this page</span>
         
     <div class="lang-en">
-      <ul class="toc-list"><li class="toc-top"><a href="#ui-limitations-24-hour-constraints">UI Limitations & 24-Hour Constraints</a></li><li class="toc-top"><a href="#media-fetching-limitations">Media Fetching Limitations</a></li><li class="toc-top"><a href="#api-payload-structure">API Payload Structure</a></li></ul>
+      <ul class="toc-list"><li class="toc-top"><a href="#what-is-this-error">What Is This Error?</a></li><li class="toc-top"><a href="#error-details">Error Details</a></li><li class="toc-top"><a href="#how-to-handle-it-in-your-code">How to Handle It in Your Code</a></li></ul>
     </div>
     
     <div class="lang-ar">
-      <ul class="toc-list"><li class="toc-top"><a href="#قيود-واجهة-المستخدم-وقيود-الـ-24-ساعة">قيود واجهة المستخدم وقيود الـ 24 ساعة</a></li><li class="toc-top"><a href="#قيود-جلب-الوسائط">قيود جلب الوسائط</a></li><li class="toc-top"><a href="#هيكل-الاستجابة-api-payload">هيكل الاستجابة (API Payload)</a></li></ul>
+      <ul class="toc-list"><li class="toc-top"><a href="#ما-هو-هذا-الخطأ">ما هو هذا الخطأ؟</a></li><li class="toc-top"><a href="#تفاصيل-الخطأ">تفاصيل الخطأ</a></li><li class="toc-top"><a href="#كيفية-معالجة-هذا-الخطأ-في-الكود">كيفية معالجة هذا الخطأ في الكود</a></li></ul>
     </div>
   
       </div>
@@ -99,7 +99,7 @@
         <span>›</span>
         <span style="color:#a78bfa">messenger</span>
         <span>›</span>
-        <span>Instagram Story Replies Automation</span>
+        <span>"Messenger Error Code 10–1893063: Pages Temporarily Restricted"</span>
       </div>
 
       <div class="topic-hero">
@@ -107,34 +107,20 @@
           <span class="platform-badge" style="background:#1a1a24;color:#a78bfa;border-color:#4c1d95">messenger</span>
           
         </div>
-        <h1 class="topic-title" data-en="Instagram Story Replies Automation" data-ar="أتمتة الردود على قصص إنستغرام">Instagram Story Replies Automation</h1>
-        <p class="topic-meta"><span data-en="messenger" data-ar="messenger">messenger</span> · <span data-en="Last verified:" data-ar="آخر مراجعة:">Last verified:</span> N/A</p>
+        <h1 class="topic-title" data-en=""Messenger Error Code 10–1893063: Pages Temporarily Restricted"" data-ar=""رمز خطأ Messenger 10–1893063: الصفحات المقيّدة مؤقتاً"">"Messenger Error Code 10–1893063: Pages Temporarily Restricted"</h1>
+        <p class="topic-meta"><span data-en=""messenger"" data-ar=""messenger"">"messenger"</span> · <span data-en="Last verified:" data-ar="آخر مراجعة:">Last verified:</span> N/A</p>
       </div>
 
       <div class="topic-body lang-en">
-        <h1>Instagram Story Replies Automation</h1>
+        <h1>Messenger Error Code 10–1893063: Pages Temporarily Restricted</h1>
 
-<p>Automating replies to Instagram Stories using the Instagram Graph API is a powerful way to engage with your audience. However, developers must navigate strict API constraints, specifically regarding messaging windows and media access.</p>
+<div class="callout callout-info"><strong>NEW</strong><p>— Added to the Messenger Platform error codes reference on June 25, 2026.</p></div>
 
-<h2 id="ui-limitations-24-hour-constraints">UI Limitations & 24-Hour Constraints</h2>
+<p>Meta has officially documented <strong>error code <code>10 – 1893063</code></strong> in the Messenger Platform error codes reference. This error is returned by the Send API when a <strong>Page is temporarily restricted from sending messages</strong> by Meta.</p>
 
-<p>The most critical limitation when dealing with story replies is the <strong>24-hour messaging window</strong>.</p>
-<ul><li style="margin-left:8px"><strong>The Messaging Window:</strong> When a user replies to your Instagram Story, they initiate a conversation, which opens a 24-hour messaging window. You can only send automated messages within this period.</li>
-<li style="margin-left:0px"><strong>Media Expiration:</strong> Stories are ephemeral. The <code>IG Media</code> object representing the story is only accessible via the API for 24 hours. After this, any attempt to fetch the story media or insights will fail.</li></ul>
+<h2 id="what-is-this-error">What Is This Error?</h2>
 
-<p><!-- preview --></p>
-<p><span class="icon-accept">✅</span> Valid: Sending an automated welcome message immediately after a user replies to your story.</p>
-<p><span class="icon-reject">❌</span> Invalid: Attempting to send an automated promotional message 48 hours after the user's last interaction.</p>
-
-<h2 id="media-fetching-limitations">Media Fetching Limitations</h2>
-
-<p>When a webhook notification for a story reply is received, the payload includes a reference to the story media. However, there are limitations:</p>
-<ul><li style="margin-left:0px">If you need to analyze the media (e.g., download the image or video), you must do so within the 24-hour window.</li>
-<li style="margin-left:0px">The API will not return data for expired stories, even if you have the Media ID.</li></ul>
-
-<h2 id="api-payload-structure">API Payload Structure</h2>
-
-<p>The webhook payload for a story reply typically contains a <code>story</code> object nested within the message data.</p>
+<p>When a Facebook Page violates Meta's messaging policies or is flagged for suspicious activity, Meta may temporarily restrict that Page from sending messages. Any attempt to send a message via the Messenger Send API while the restriction is active will fail with:</p>
 
 <div class="mac-editor">
 <p>        <div class="mac-editor-header"></p>
@@ -147,31 +133,12 @@
 <p>        </div></p>
 <p>        <div class="mac-editor-body"></p>
 <p>          <pre class="code-block language-json"><code class="language-json">{</p>
-<p>  "object": "instagram",</p>
-<p>  "entry": [</p>
-<p>    {</p>
-<p>      "id": "&lt;IG_ACCOUNT_ID&gt;",</p>
-<p>      "time": 1600000000,</p>
-<p>      "messaging": [</p>
-<p>        {</p>
-<p>          "sender": { "id": "&lt;IGSID&gt;" },</p>
-<p>          "recipient": { "id": "&lt;IG_ACCOUNT_ID&gt;" },</p>
-<p>          "timestamp": 1600000000,</p>
-<p>          "message": {</p>
-<p>            "mid": "&lt;MESSAGE_ID&gt;",</p>
-<p>            "text": "Love this!",</p>
-<p>            "reply_to": {</p>
-<p>              "mid": "&lt;STORY_MESSAGE_ID&gt;",</p>
-<p>              "story": {</p>
-<p>                "url": "&lt;STORY_MEDIA_URL&gt;",</p>
-<p>                "id": "&lt;STORY_MEDIA_ID&gt;"</p>
-<p>              }</p>
-<p>            }</p>
-<p>          }</p>
-<p>        }</p>
-<p>      ]</p>
-<p>    }</p>
-<p>  ]</p>
+<p>  "error": {</p>
+<p>    "message": "Pages temporarily restricted from sending messages",</p>
+<p>    "type": "OAuthException",</p>
+<p>    "code": 10,</p>
+<p>    "error_subcode": 1893063</p>
+<p>  }</p>
 <p>}</code></pre></p>
 <p>        </div></p>
 <p>        <div class="mac-editor-footer"></p>
@@ -179,37 +146,38 @@
 <p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
 <p>        </div></p>
 <p>      </div></p>
+
+<h2 id="error-details">Error Details</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td><strong>Error Code</strong></td><td><code>10</code></td></tr><tr><td><strong>Subcode</strong></td><td><code>1893063</code></td></tr><tr><td><strong>Type</strong></td><td><code>OAuthException</code></td></tr><tr><td><strong>Cause</strong></td><td>Page is temporarily restricted by Meta</td></tr><tr><td><strong>Retryable?</strong></td><td>No — must wait for restriction to be lifted</td></tr></tbody></table></div>
+<h2 id="how-to-handle-it-in-your-code">How to Handle It in Your Code</h2>
+
+<p>When receiving this error, your integration should:</p>
+
+<p>1. <strong>Log it as a platform restriction</strong>, not a code error</p>
+<p>2. <strong>Alert your operations team</strong> immediately</p>
+<p>3. <strong>Do NOT retry</strong> — retrying won't help while the restriction is active</p>
+<p>4. <strong>Monitor</strong> for the restriction to be lifted before resuming sending</p>
+
 <p><!-- preview --></p>
-<p><span class="icon-accept">✅</span> Valid: Extracting the <code>story.url</code> within the first few minutes to log the interaction.</p>
-<p><span class="icon-reject">❌</span> Invalid: Trying to query the Graph API for <code><STORY_MEDIA_ID></code> two days later.\n\n</p>
+<p><span class="icon-accept">✅</span> Good: Catch error code 10 + subcode 1893063 → log as "Page restricted", alert team, suppress retries.</p>
+<p><span class="icon-reject">❌</span> Bad: Treat it as a generic error and retry immediately → wastes rate limit quota and delays detection.</p>
 
-<p>\n</p>
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Good: Store failed messages to retry after restriction is lifted.</p>
+<p><span class="icon-reject">❌</span> Bad: Drop messages silently without alerting the team.</p>
 
-<p>\n</p>
+
       </div>
-      <div class="topic-body lang-ar"><h1>أتمتة الردود على قصص إنستغرام</h1>
+      <div class="topic-body lang-ar"><h1>رمز خطأ Messenger 10–1893063: الصفحات المقيّدة مؤقتاً من الإرسال</h1>
 
-<p>تعد أتمتة الردود على قصص إنستغرام باستخدام Instagram Graph API طريقة فعالة للتفاعل مع جمهورك. ومع ذلك، يجب على المطورين التعامل مع قيود صارمة لواجهة برمجة التطبيقات، خاصة فيما يتعلق بنوافذ المراسلة والوصول إلى الوسائط.</p>
+<div class="callout callout-info"><strong>جديد</strong><p>— تمت إضافته إلى مرجع رموز أخطاء منصة Messenger في 25 يونيو 2026.</p></div>
 
-<h2 id="قيود-واجهة-المستخدم-وقيود-الـ-24-ساعة">قيود واجهة المستخدم وقيود الـ 24 ساعة</h2>
+<p>وثّقت Meta رسمياً <strong>رمز الخطأ <code>10 – 1893063</code></strong> في مرجع رموز أخطاء منصة Messenger. يُعاد هذا الخطأ من واجهة Send API عندما <strong>تكون صفحة Facebook مقيّدة مؤقتاً من إرسال الرسائل</strong> من قِبل Meta.</p>
 
-<p>القيود الأكثر أهمية عند التعامل مع الردود على القصص هي <strong>نافذة المراسلة التي تبلغ 24 ساعة</strong>.</p>
-<ul><li style="margin-left:8px"><strong>نافذة المراسلة:</strong> عندما يرد مستخدم على قصتك في إنستغرام، فإنه يبدأ محادثة، مما يفتح نافذة مراسلة مدتها 24 ساعة. يمكنك إرسال رسائل آلية فقط خلال هذه الفترة.</li>
-<li style="margin-left:0px"><strong>انتهاء صلاحية الوسائط:</strong> القصص مؤقتة بطبيعتها. يمكن الوصول إلى كائن <code>IG Media</code> الذي يمثل القصة عبر واجهة برمجة التطبيقات لمدة 24 ساعة فقط. بعد ذلك، ستفشل أي محاولة لجلب وسائط القصة أو الرؤى الخاصة بها.</li></ul>
+<h2 id="ما-هو-هذا-الخطأ">ما هو هذا الخطأ؟</h2>
 
-<p><!-- preview --></p>
-<p><span class="icon-accept">✅</span> Valid: إرسال رسالة ترحيب آلية فور رد المستخدم على قصتك.</p>
-<p><span class="icon-reject">❌</span> Invalid: محاولة إرسال رسالة ترويجية آلية بعد 48 ساعة من آخر تفاعل للمستخدم.</p>
-
-<h2 id="قيود-جلب-الوسائط">قيود جلب الوسائط</h2>
-
-<p>عندما تتلقى إشعار Webhook لرد على قصة، تتضمن البيانات إشارة إلى وسائط القصة. ومع ذلك، هناك قيود:</p>
-<ul><li style="margin-left:0px">إذا كنت بحاجة إلى تحليل الوسائط (مثل تنزيل الصورة أو الفيديو)، فيجب عليك القيام بذلك خلال نافذة الـ 24 ساعة.</li>
-<li style="margin-left:0px">لن تُرجع واجهة برمجة التطبيقات بيانات للقصص منتهية الصلاحية، حتى لو كان لديك معرّف الوسائط (Media ID).</li></ul>
-
-<h2 id="هيكل-الاستجابة-api-payload">هيكل الاستجابة (API Payload)</h2>
-
-<p>عادةً ما تحتوي بيانات Webhook لرد القصة على كائن <code>story</code> متداخل داخل بيانات الرسالة.</p>
+<p>عندما تنتهك صفحة Facebook سياسات المراسلة الخاصة بـ Meta، أو يُبلَّغ عنها بسبب نشاط مشبوه، قد تقيّد Meta تلك الصفحة مؤقتاً من إرسال الرسائل. أي محاولة لإرسال رسالة عبر Messenger Send API أثناء سريان القيد ستفشل بالخطأ التالي:</p>
 
 <div class="mac-editor">
 <p>        <div class="mac-editor-header"></p>
@@ -222,31 +190,12 @@
 <p>        </div></p>
 <p>        <div class="mac-editor-body"></p>
 <p>          <pre class="code-block language-json"><code class="language-json">{</p>
-<p>  "object": "instagram",</p>
-<p>  "entry": [</p>
-<p>    {</p>
-<p>      "id": "&lt;IG_ACCOUNT_ID&gt;",</p>
-<p>      "time": 1600000000,</p>
-<p>      "messaging": [</p>
-<p>        {</p>
-<p>          "sender": { "id": "&lt;IGSID&gt;" },</p>
-<p>          "recipient": { "id": "&lt;IG_ACCOUNT_ID&gt;" },</p>
-<p>          "timestamp": 1600000000,</p>
-<p>          "message": {</p>
-<p>            "mid": "&lt;MESSAGE_ID&gt;",</p>
-<p>            "text": "Love this!",</p>
-<p>            "reply_to": {</p>
-<p>              "mid": "&lt;STORY_MESSAGE_ID&gt;",</p>
-<p>              "story": {</p>
-<p>                "url": "&lt;STORY_MEDIA_URL&gt;",</p>
-<p>                "id": "&lt;STORY_MEDIA_ID&gt;"</p>
-<p>              }</p>
-<p>            }</p>
-<p>          }</p>
-<p>        }</p>
-<p>      ]</p>
-<p>    }</p>
-<p>  ]</p>
+<p>  "error": {</p>
+<p>    "message": "Pages temporarily restricted from sending messages",</p>
+<p>    "type": "OAuthException",</p>
+<p>    "code": 10,</p>
+<p>    "error_subcode": 1893063</p>
+<p>  }</p>
 <p>}</code></pre></p>
 <p>        </div></p>
 <p>        <div class="mac-editor-footer"></p>
@@ -254,17 +203,32 @@
 <p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
 <p>        </div></p>
 <p>      </div></p>
+
+<h2 id="تفاصيل-الخطأ">تفاصيل الخطأ</h2>
+
+<div class="table-wrap"><table><thead><tr><th>الحقل</th><th>القيمة</th></tr></thead><tbody><tr><td><strong>رمز الخطأ</strong></td><td><code>10</code></td></tr><tr><td><strong>الرمز الفرعي</strong></td><td><code>1893063</code></td></tr><tr><td><strong>النوع</strong></td><td><code>OAuthException</code></td></tr><tr><td><strong>السبب</strong></td><td>الصفحة مقيّدة مؤقتاً من قِبل Meta</td></tr><tr><td><strong>هل يمكن إعادة المحاولة؟</strong></td><td>لا — يجب الانتظار حتى رفع القيد</td></tr></tbody></table></div>
+<h2 id="كيفية-معالجة-هذا-الخطأ-في-الكود">كيفية معالجة هذا الخطأ في الكود</h2>
+
+<p>عند استقبال هذا الخطأ، يجب على تكاملك:</p>
+
+<p>1. <strong>تسجيله كقيد من المنصة</strong>، وليس كخطأ في الكود</p>
+<p>2. <strong>تنبيه فريق العمليات</strong> فوراً</p>
+<p>3. <strong>عدم إعادة المحاولة</strong> — إعادة المحاولة لن تُجدي نفعاً أثناء القيد</p>
+<p>4. <strong>المراقبة</strong> حتى رفع القيد قبل استئناف الإرسال</p>
+
 <p><!-- preview --></p>
-<p><span class="icon-accept">✅</span> Valid: استخراج <code>story.url</code> في الدقائق الأولى لتسجيل التفاعل.</p>
-<p><span class="icon-reject">❌</span> Invalid: محاولة الاستعلام عن واجهة برمجة التطبيقات للحصول على <code><STORY_MEDIA_ID></code> بعد يومين.\n\n</p>
+<p><span class="icon-accept">✅</span> جيد: التقاط رمز الخطأ 10 + الرمز الفرعي 1893063 → التسجيل كـ "صفحة مقيّدة"، تنبيه الفريق، إيقاف إعادة المحاولة.</p>
+<p><span class="icon-reject">❌</span> سيئ: معالجته كخطأ عام وإعادة المحاولة فوراً → يُهدر حصة الحد المسموح وتأخير الكشف.</p>
 
-<p>\n</p>
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> جيد: تخزين الرسائل الفاشلة لإعادة المحاولة بعد رفع القيد.</p>
+<p><span class="icon-reject">❌</span> سيئ: إسقاط الرسائل بصمت دون تنبيه الفريق.</p>
 
-<p>\n</p></div>
+</div>
 
       <div class="topic-nav">
-        <a class="nav-prev" href="instagram-ice-breakers.html">← Instagram Ice Breakers Constraints</a>
-        <a class="nav-next" href="messenger-24-hour-policy.html">"Messenger 24-Hour Policy & Message Tags" →</a>
+        <a class="nav-prev" href="messenger-24-hour-policy.html">← "Messenger 24-Hour Policy & Message Tags"</a>
+        <a class="nav-next" href="messenger-handover-protocol.html">"Messenger Handover Protocol & Thread Control" →</a>
       </div>
     </main>
 
@@ -278,9 +242,9 @@
           <span class="panel-title">Comparison</span>
         </div>
         <div class="panel-body">
-          <p><strong>Story Mentions vs Story Replies</strong></p>
-<ul><li style="margin-left:0px"><strong>Story Mentions:</strong> Triggered when a user tags your IG account in their own story. You receive a webhook event.</li>
-<li style="margin-left:0px"><strong>Story Replies:</strong> Triggered when a user swipes up and replies to your published story. Handled as a standard message.</li></ul>
+          <p><strong>Generic Error Code 10 vs Subcode 1893063</strong></p>
+<ul><li style="margin-left:0px"><strong>Code 10 (general):</strong> Permission error — your app may be missing a required permission. Check app permissions.</li>
+<li style="margin-left:0px"><strong>Code 10, Subcode 1893063:</strong> Page restriction — the Page itself is temporarily blocked by Meta from sending. No code fix needed.</li></ul>
         </div>
       </div>
     
@@ -301,26 +265,26 @@
               <div class="mcq-progress-bar-fill" style="width: 0%"></div>
             </div>
           </div>
-          <div class="mcq-question"><p>What happens when a user replies to your Instagram Story?</p></div>
+          <div class="mcq-question"><p>What should you do when you receive error code 10 with subcode 1893063?</p></div>
           <div class="mcq-options">
             <label class="mcq-option">
               <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
-              <span class="mcq-text">[ ] You receive an email notification.</span>
+              <span class="mcq-text">[ ] Retry the message immediately.</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] Check and re-grant app permissions.</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] Assume the user blocked the Page.</span>
             </label>
           
             <label class="mcq-option">
               <input type="radio" name="q_en_1" value="correct" onclick="handleMcqClick(this)">
-              <span class="mcq-text">You receive a webhook event and a 24-hour messaging window opens.</span>
-            </label>
-          
-            <label class="mcq-option">
-              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
-              <span class="mcq-text">[ ] You can only reply with an automated template.</span>
-            </label>
-          
-            <label class="mcq-option">
-              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
-              <span class="mcq-text">[ ] Story replies cannot be handled by the API.</span>
+              <span class="mcq-text">Alert your operations team and suppress retries until the Page restriction is lifted.</span>
             </label>
           </div>
         </div>
@@ -335,9 +299,9 @@
           <span class="panel-title">مقارنة</span>
         </div>
         <div class="panel-body">
-          <p><strong>الإشارات في القصة (Mentions) مقابل الردود على القصة (Replies)</strong></p>
-<ul><li style="margin-left:0px"><strong>الإشارة (Mentions):</strong> تحدث عندما يذكرك مستخدم في قصته الخاصة (Tag). تتلقى إشعار Webhook بذلك.</li>
-<li style="margin-left:0px"><strong>الردود (Replies):</strong> تحدث عندما يرفع المستخدم الشاشة للرد على قصتك. تُعامل كرسالة عادية.</li></ul>
+          <p><strong>رمز الخطأ العام 10 مقابل الرمز الفرعي 1893063</strong></p>
+<ul><li style="margin-left:0px"><strong>الرمز 10 (عام):</strong> خطأ في الصلاحيات — قد يفتقر تطبيقك إلى صلاحية مطلوبة. تحقق من صلاحيات التطبيق.</li>
+<li style="margin-left:0px"><strong>الرمز 10، الرمز الفرعي 1893063:</strong> قيد على الصفحة — الصفحة نفسها محظورة مؤقتاً من قِبل Meta. لا يتطلب إصلاح الكود.</li></ul>
         </div>
       </div>
     
@@ -358,26 +322,26 @@
               <div class="mcq-progress-bar-fill" style="width: 0%"></div>
             </div>
           </div>
-          <div class="mcq-question"><p>ماذا يحدث عندما يرد مستخدم على قصة (Story) خاصة بنشاطك التجاري على إنستغرام؟</p></div>
+          <div class="mcq-question"><p>ماذا يجب أن تفعل عند استقبال رمز الخطأ 10 مع الرمز الفرعي 1893063؟</p></div>
           <div class="mcq-options">
             <label class="mcq-option">
               <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
-              <span class="mcq-text">[ ] تتلقى إشعاراً عبر البريد الإلكتروني.</span>
+              <span class="mcq-text">[ ] إعادة إرسال الرسالة فوراً.</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] مراجعة وإعادة منح صلاحيات التطبيق.</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] افتراض أن المستخدم حظر الصفحة.</span>
             </label>
           
             <label class="mcq-option">
               <input type="radio" name="q_ar_1" value="correct" onclick="handleMcqClick(this)">
-              <span class="mcq-text">تتلقى Webhook وتُفتح نافذة مراسلة مدتها 24 ساعة.</span>
-            </label>
-          
-            <label class="mcq-option">
-              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
-              <span class="mcq-text">[ ] يمكنك الرد فقط باستخدام قالب جاهز.</span>
-            </label>
-          
-            <label class="mcq-option">
-              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
-              <span class="mcq-text">[ ] لا يمكن معالجة الردود على القصص عبر الـ API.</span>
+              <span class="mcq-text">تنبيه فريق العمليات وإيقاف إعادة المحاولة حتى رفع قيد الصفحة.</span>
             </label>
           </div>
         </div>

@@ -44,7 +44,7 @@
       <div class="header-build-time" title="System Status: Up to date">
         <div class="build-pulse"></div>
         <span class="build-label">LAST BUILD</span>
-        <span class="build-value">24 Jun 2026 · 11:52 PM 🇪🇬</span>
+        <span class="build-value">26 Jun 2026 · 4:09 PM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
@@ -74,7 +74,7 @@
         <select id="filter-category">
           <option value=""
                   data-en="All categories" data-ar="جميع الفئات">All categories</option>
-          <option value="New Feature">New Feature</option><option value="Bug Fix/Clarification">Bug Fix/Clarification</option><option value="Deprecation">Deprecation</option><option value="Pricing/Rate Limit">Pricing/Rate Limit</option><option value="Policy/Compliance">Policy/Compliance</option><option value="Breaking Change">Breaking Change</option>
+          <option value="Bug Fix/Clarification">Bug Fix/Clarification</option><option value="New Feature">New Feature</option><option value="Deprecation">Deprecation</option><option value="Pricing/Rate Limit">Pricing/Rate Limit</option><option value="Policy/Compliance">Policy/Compliance</option><option value="Breaking Change">Breaking Change</option>
         </select>
       </div>
       <div class="filter-group">
@@ -83,13 +83,13 @@
         <select id="filter-module">
           <option value=""
                   data-en="All modules" data-ar="جميع الموديولات">All modules</option>
-          <option value="Webhooks">Webhooks</option><option value="WhatsApp Templates">WhatsApp Templates</option><option value="Channel Integration/OAuth">Channel Integration/OAuth</option><option value="Broadcasts">Broadcasts</option><option value="Instagram Messaging">Instagram Messaging</option><option value="Messenger">Messenger</option><option value="RBAC">RBAC</option><option value="Billing">Billing</option>
+          <option value="Messenger">Messenger</option><option value="RBAC">RBAC</option><option value="Webhooks">Webhooks</option><option value="WhatsApp Templates">WhatsApp Templates</option><option value="Channel Integration/OAuth">Channel Integration/OAuth</option><option value="Broadcasts">Broadcasts</option><option value="Instagram Messaging">Instagram Messaging</option><option value="Billing">Billing</option>
         </select>
       </div>
       <button id="clear-filters" class="btn-clear"
               data-en="Clear filters" data-ar="مسح الفلاتر">Clear filters</button>
       <div class="filter-results">
-        <span id="filtered-count">110</span>
+        <span id="filtered-count">111</span>
         <span data-en="results" data-ar="نتيجة">results</span>
       </div>
     </div>
@@ -99,6 +99,78 @@
     <div class="cards-grid" id="cards-grid">
       <article class="card"
     id="card-0"
+    data-date="2026-06-26"
+    data-category="Bug Fix/Clarification"
+    data-modules="Messenger,RBAC">
+
+    <div class="card-header">
+      <time class="card-date">26 Jun 2026</time>
+      <span class="badge cat-badge" style="background:#0d2d2d;color:#67e8f9;border-color:#0e7490">Bug Fix/Clarification</span>
+    </div>
+
+    <h2 class="card-title"
+        data-en=""Messenger Error Code 10–1893063: Pages Temporarily Restricted from Sending Messages""
+        data-ar="إصلاح أو توضيح في موديول Messenger و RBAC.">"Messenger Error Code 10–1893063: Pages Temporarily Restricted from Sending Messages"</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#0084ff;color:#0084ff">Messenger</span><span class="badge mod-badge" style="border-color:#8b5cf6;color:#8b5cf6">RBAC</span></div>
+    <p class="card-summary"
+       data-en=""Meta added error code 10–1893063 to the Messenger Platform error codes reference for Pages that are temporarily restricted from sending messages.""
+       data-ar="إصلاح أو توضيح في موديول Messenger و RBAC.">"Meta added error code 10–1893063 to the Messenger Platform error codes reference for Pages that are temporarily restricted from sending messages."</p>
+
+    <!-- Expandable detail panel -->
+    <div class="card-details" id="det-card-0" aria-hidden="true">
+
+      <div class="detail-section detail-changed">
+        <h4 class="detail-label">
+          <span class="detail-icon">📌</span>
+          <span data-en="What Changed" data-ar="ما الذي تغيّر">What Changed</span>
+        </h4>
+        <p>On **June 25, 2026**, Meta updated the Messenger Platform [common error codes reference](https://developers.facebook.com/docs/messenger-platform/reference/send-api/error-codes) to add **error code `10 – 1893063`**, which is returned when a **Page is temporarily restricted from sending messages**.
+
+This is a documentation update that surfaces a previously undocumented platform behavior: when Meta enforces a temporary messaging restriction on a Page, API calls to the Send API will now fail with this specific error code.</p>
+      </div>
+
+      <div class="detail-section detail-impact">
+        <h4 class="detail-label">
+          <span class="detail-icon">🎯</span>
+          <span data-en="Impact on SEEN V2" data-ar="التأثير على SEEN V2">Impact on SEEN V2</span>
+        </h4>
+        <p>If SEEN V2's Messenger integration does not currently handle error code `10` with subcode `1893063`, messages may silently fail or be misclassified as generic API errors during a Page restriction period. Developers should:
+
+1. **Add explicit handling** for subcode `1893063` in Messenger error handling code
+2. **Alert operations teams** when this error is received — it indicates a Meta-enforced restriction, not a code bug
+3. **Avoid retry storms** — retrying a temporarily restricted Page will not help; wait for the restriction to be lifted</p>
+      </div>
+
+      <div class="detail-section detail-qa">
+        <h4 class="detail-label">
+          <span class="detail-icon">✅</span>
+          <span data-en="Suggested QA Action" data-ar="إجراء QA المقترح">Suggested QA Action</span>
+        </h4>
+        <p>- Search the SEEN V2 codebase for Messenger Send API error handling
+- Verify that error code `10` + subcode `1893063` is handled gracefully (e.g., logged, operation team alerted, retry suppressed)
+- Test the error path using a Page in a restricted state (or mock the API response)</p>
+      </div>
+
+      
+    </div>
+
+    <div class="card-footer">
+      <button class="btn-expand"
+        data-det="det-card-0"
+        aria-expanded="false"
+        aria-controls="det-card-0">
+        <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
+        <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
+        <span class="expand-chevron">▾</span>
+      </button>
+      <a class="card-source" href="https://developers.facebook.com/docs/messenger-platform/changelog#june-26-2026" target="_blank" rel="noopener">
+        📄 <span data-en="View in Changelog" data-ar="رابط في سجل التغييرات">View in Changelog</span> ↗
+      </a>
+    </div>
+  </article>
+
+<article class="card"
+    id="card-1"
     data-date="2026-06-11"
     data-category="New Feature"
     data-modules="Webhooks">
@@ -117,7 +189,7 @@
        data-ar="تم تحديث ويب هوكس. (ميزة جديدة)">, *Webhooks*  Updated the Business-scoped user IDs page. Added from_user_id and from_parent_user_id to the coexistence edit and revoke messa</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-0" aria-hidden="true">
+    <div class="card-details" id="det-card-1" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -148,9 +220,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-0"
+        data-det="det-card-1"
         aria-expanded="false"
-        aria-controls="det-card-0">
+        aria-controls="det-card-1">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -162,7 +234,7 @@
   </article>
 
 <article class="card"
-    id="card-1"
+    id="card-2"
     data-date="2026-06-10"
     data-category="Bug Fix/Clarification"
     data-modules="WhatsApp Templates,Channel Integration/OAuth">
@@ -181,7 +253,7 @@
        data-ar="تم تصحيح معلومات في قوالب واتساب و تكامل القناة. (إصلاح أو توضيح)">* Corrected the Terms of Service URL required in the policy.tos field when you create your first signup with the In-App Signup API. The appr</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-1" aria-hidden="true">
+    <div class="card-details" id="det-card-2" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -212,9 +284,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-1"
+        data-det="det-card-2"
         aria-expanded="false"
-        aria-controls="det-card-1">
+        aria-controls="det-card-2">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -226,7 +298,7 @@
   </article>
 
 <article class="card"
-    id="card-2"
+    id="card-3"
     data-date="2026-06-09"
     data-category="Bug Fix/Clarification"
     data-modules="WhatsApp Templates">
@@ -245,7 +317,7 @@
        data-ar="تم تحديث قوالب واتساب. (إصلاح أو توضيح)">Updated the Business-scoped user IDs doc to document the optional transfer_action request parameter (none, force_transfer) on the set-userna</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-2" aria-hidden="true">
+    <div class="card-details" id="det-card-3" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -276,9 +348,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-2"
+        data-det="det-card-3"
         aria-expanded="false"
-        aria-controls="det-card-2">
+        aria-controls="det-card-3">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -290,7 +362,7 @@
   </article>
 
 <article class="card"
-    id="card-3"
+    id="card-4"
     data-date="2026-06-03"
     data-category="New Feature"
     data-modules="WhatsApp Templates">
@@ -309,7 +381,7 @@
        data-ar="تم توضيح معلومات في توثيق قوالب واتساب. (ميزة جديدة)">* Clarified the Business phone numbers documentation: deleting a business phone number isn’t supported via the API. Use WhatsApp Manager⁠ to</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-3" aria-hidden="true">
+    <div class="card-details" id="det-card-4" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -340,9 +412,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-3"
+        data-det="det-card-4"
         aria-expanded="false"
-        aria-controls="det-card-3">
+        aria-controls="det-card-4">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -354,7 +426,7 @@
   </article>
 
 <article class="card"
-    id="card-4"
+    id="card-5"
     data-date="2026-06-02"
     data-category="Bug Fix/Clarification"
     data-modules="Channel Integration/OAuth">
@@ -373,7 +445,7 @@
        data-ar="تمت إضافة تحديث في تكامل القناة. (إصلاح أو توضيح)">Added In-App Signup, a new guide for creating opt-in deep links that WhatsApp users click to subscribe to your messages. The guide covers cr</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-4" aria-hidden="true">
+    <div class="card-details" id="det-card-5" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -404,9 +476,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-4"
+        data-det="det-card-5"
         aria-expanded="false"
-        aria-controls="det-card-4">
+        aria-controls="det-card-5">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -418,7 +490,7 @@
   </article>
 
 <article class="card"
-    id="card-5"
+    id="card-6"
     data-date="2026-06-01"
     data-category="New Feature"
     data-modules="WhatsApp Templates">
@@ -437,7 +509,7 @@
        data-ar="تم تحديث واجهة API الخاصة بـ قوالب واتساب. (ميزة جديدة)">, *Message Templates*  Updated the Message Templates API to return detailed response objects when archiving or unarchiving templates, instea</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-5" aria-hidden="true">
+    <div class="card-details" id="det-card-6" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -468,9 +540,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-5"
+        data-det="det-card-6"
         aria-expanded="false"
-        aria-controls="det-card-5">
+        aria-controls="det-card-6">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -482,7 +554,7 @@
   </article>
 
 <article class="card"
-    id="card-6"
+    id="card-7"
     data-date="2026-05-31"
     data-category="Deprecation"
     data-modules="WhatsApp Templates,Broadcasts,Channel Integration/OAuth,Webhooks,Instagram Messaging,Messenger,RBAC">
@@ -501,7 +573,7 @@
        data-ar="إيقاف دعم في موديول قوالب واتساب و البث الجماعي و تكامل القناة و ويب هوكس و Instagram Messaging و Messenger و RBAC.">### Sticker API for Messenger Platform  New endpoints:  - GET /sticker_packs — List available sticker packs with name, description, preview</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-6" aria-hidden="true">
+    <div class="card-details" id="det-card-7" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -532,9 +604,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-6"
+        data-det="det-card-7"
         aria-expanded="false"
-        aria-controls="det-card-6">
+        aria-controls="det-card-7">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -546,7 +618,7 @@
   </article>
 
 <article class="card"
-    id="card-7"
+    id="card-8"
     data-date="2026-05-28"
     data-category="New Feature"
     data-modules="Webhooks">
@@ -565,7 +637,7 @@
        data-ar="تمت إضافة تحديث في ويب هوكس. (ميزة جديدة)">, *Webhooks*  Added voicemail configuration and webhooks to the Configure Call Settings page. Voicemail is in alpha — early integration part</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-7" aria-hidden="true">
+    <div class="card-details" id="det-card-8" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -596,9 +668,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-7"
+        data-det="det-card-8"
         aria-expanded="false"
-        aria-controls="det-card-7">
+        aria-controls="det-card-8">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -610,7 +682,7 @@
   </article>
 
 <article class="card"
-    id="card-8"
+    id="card-9"
     data-date="2026-05-27"
     data-category="New Feature"
     data-modules="Webhooks">
@@ -629,7 +701,7 @@
        data-ar="تم تحديث واجهة API الخاصة بـ ويب هوكس. (ميزة جديدة)">, *Webhooks*  Updated the Calling API reference page. Added BSUID and username fields to calling webhooks: to_user_id, to_parent_user_id, an</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-8" aria-hidden="true">
+    <div class="card-details" id="det-card-9" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -660,9 +732,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-8"
+        data-det="det-card-9"
         aria-expanded="false"
-        aria-controls="det-card-8">
+        aria-controls="det-card-9">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -674,7 +746,7 @@
   </article>
 
 <article class="card"
-    id="card-9"
+    id="card-10"
     data-date="2026-05-26"
     data-category="Pricing/Rate Limit"
     data-modules="Billing">
@@ -693,7 +765,7 @@
        data-ar="تمت إضافة تحديث في Billing. (Pricing/Rate Limit)">, *Pricing*  Added an ISO Country Code column to the country calling codes table on the pricing page. The new column displays ISO 3166 Alpha</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-9" aria-hidden="true">
+    <div class="card-details" id="det-card-10" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -724,9 +796,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-9"
+        data-det="det-card-10"
         aria-expanded="false"
-        aria-controls="det-card-9">
+        aria-controls="det-card-10">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -738,7 +810,7 @@
   </article>
 
 <article class="card"
-    id="card-10"
+    id="card-11"
     data-date="2026-05-25"
     data-category="Pricing/Rate Limit"
     data-modules="Billing">
@@ -757,7 +829,7 @@
        data-ar="تم تحديث واجهة API الخاصة بـ Billing. (Pricing/Rate Limit)">, *Pricing*  Updated the Calling API Pricing page with upcoming rate cards effective July 1, 2026 across 16 currencies.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-10" aria-hidden="true">
+    <div class="card-details" id="det-card-11" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -788,9 +860,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-10"
+        data-det="det-card-11"
         aria-expanded="false"
-        aria-controls="det-card-10">
+        aria-controls="det-card-11">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -802,7 +874,7 @@
   </article>
 
 <article class="card"
-    id="card-11"
+    id="card-12"
     data-date="2026-05-17"
     data-category="New Feature"
     data-modules="Channel Integration/OAuth">
@@ -821,7 +893,7 @@
        data-ar="تمت إضافة تحديث في تكامل القناة. (ميزة جديدة)">Added Reconnect offboarded coexistence clients, a new guide for coexistence partners. When a coexistence client re-registers their WhatsApp</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-11" aria-hidden="true">
+    <div class="card-details" id="det-card-12" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -852,9 +924,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-11"
+        data-det="det-card-12"
         aria-expanded="false"
-        aria-controls="det-card-11">
+        aria-controls="det-card-12">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -866,7 +938,7 @@
   </article>
 
 <article class="card"
-    id="card-12"
+    id="card-13"
     data-date="2026-05-13"
     data-category="New Feature"
     data-modules="WhatsApp Templates">
@@ -885,7 +957,7 @@
        data-ar="تم تحديث واجهة API الخاصة بـ قوالب واتساب. (ميزة جديدة)">, *Groups API*  Updated mark messages as read documentation. Businesses can now mark group messages as read using the same Messages API endp</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-12" aria-hidden="true">
+    <div class="card-details" id="det-card-13" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -916,9 +988,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-12"
+        data-det="det-card-13"
         aria-expanded="false"
-        aria-controls="det-card-12">
+        aria-controls="det-card-13">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -930,7 +1002,7 @@
   </article>
 
 <article class="card"
-    id="card-13"
+    id="card-14"
     data-date="2026-05-12"
     data-category="New Feature"
     data-modules="WhatsApp Templates">
@@ -949,7 +1021,7 @@
        data-ar="تحديث في قوالب قوالب واتساب. (ميزة جديدة)">Effective June 15, 2026, Keyboard suggestions will be enabled by default for all authentication templates. On iOS 26 and later, WhatsApp use</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-13" aria-hidden="true">
+    <div class="card-details" id="det-card-14" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -980,9 +1052,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-13"
+        data-det="det-card-14"
         aria-expanded="false"
-        aria-controls="det-card-13">
+        aria-controls="det-card-14">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -994,7 +1066,7 @@
   </article>
 
 <article class="card"
-    id="card-14"
+    id="card-15"
     data-date="2026-05-11"
     data-category="Pricing/Rate Limit"
     data-modules="WhatsApp Templates,Billing">
@@ -1013,7 +1085,7 @@
        data-ar="تم تحديث قوالب واتساب و Billing. (Pricing/Rate Limit)">, *Pricing*  Updated the AI Providers pricing policy page. Effective May 13, 2026, Meta will no longer charge “AI Providers” for non-templat</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-14" aria-hidden="true">
+    <div class="card-details" id="det-card-15" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -1044,9 +1116,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-14"
+        data-det="det-card-15"
         aria-expanded="false"
-        aria-controls="det-card-14">
+        aria-controls="det-card-15">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -1058,7 +1130,7 @@
   </article>
 
 <article class="card"
-    id="card-15"
+    id="card-16"
     data-date="2026-04-29"
     data-category="New Feature"
     data-modules="WhatsApp Templates">
@@ -1077,7 +1149,7 @@
        data-ar="تمت إضافة دعم لميزة جديدة في قوالب واتساب. (ميزة جديدة)">Added new timezone IDs reference documentation listing all supported timezone identifiers for the WhatsApp Business Platform.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-15" aria-hidden="true">
+    <div class="card-details" id="det-card-16" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -1108,9 +1180,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-15"
+        data-det="det-card-16"
         aria-expanded="false"
-        aria-controls="det-card-15">
+        aria-controls="det-card-16">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -1122,7 +1194,7 @@
   </article>
 
 <article class="card"
-    id="card-16"
+    id="card-17"
     data-date="2026-04-20"
     data-category="New Feature"
     data-modules="Broadcasts">
@@ -1141,7 +1213,7 @@
        data-ar="ميزة جديدة في موديول البث الجماعي.">Automatic creative optimizations are now disabled by default at the WhatsApp Business Account level. You can opt in via the API or directly</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-16" aria-hidden="true">
+    <div class="card-details" id="det-card-17" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -1172,9 +1244,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-16"
+        data-det="det-card-17"
         aria-expanded="false"
-        aria-controls="det-card-16">
+        aria-controls="det-card-17">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -1186,7 +1258,7 @@
   </article>
 
 <article class="card"
-    id="card-17"
+    id="card-18"
     data-date="2026-04-19"
     data-category="Deprecation"
     data-modules="Channel Integration/OAuth,Webhooks">
@@ -1205,7 +1277,7 @@
        data-ar="تمت إزالة ميزة من تكامل القناة و ويب هوكس. (إيقاف دعم)">, *Webhooks*  The account_update webhook’s PARTNER_REMOVED event disconnection_info object now supports three additional reason values when</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-17" aria-hidden="true">
+    <div class="card-details" id="det-card-18" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -1236,9 +1308,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-17"
+        data-det="det-card-18"
         aria-expanded="false"
-        aria-controls="det-card-17">
+        aria-controls="det-card-18">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -1250,7 +1322,7 @@
   </article>
 
 <article class="card"
-    id="card-18"
+    id="card-19"
     data-date="2026-04-16"
     data-category="Bug Fix/Clarification"
     data-modules="WhatsApp Templates">
@@ -1269,7 +1341,7 @@
        data-ar="تمت إضافة تحديث في قوالب واتساب. (إصلاح أو توضيح)">Added new error code 131064. The API returns this error when a WhatsApp Business account has exceeded its messaging limit due to template cl</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-18" aria-hidden="true">
+    <div class="card-details" id="det-card-19" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -1300,9 +1372,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-18"
+        data-det="det-card-19"
         aria-expanded="false"
-        aria-controls="det-card-18">
+        aria-controls="det-card-19">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -1314,7 +1386,7 @@
   </article>
 
 <article class="card"
-    id="card-19"
+    id="card-20"
     data-date="2026-04-14"
     data-category="New Feature"
     data-modules="Channel Integration/OAuth">
@@ -1333,7 +1405,7 @@
        data-ar="ميزة جديدة في موديول تكامل القناة.">, *Embedded Signup*  WhatsApp Business app phone numbers from Nigeria and South Africa are now supported when onboarding WhatsApp Business a</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-19" aria-hidden="true">
+    <div class="card-details" id="det-card-20" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -1364,9 +1436,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-19"
+        data-det="det-card-20"
         aria-expanded="false"
-        aria-controls="det-card-19">
+        aria-controls="det-card-20">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -1378,7 +1450,7 @@
   </article>
 
 <article class="card"
-    id="card-20"
+    id="card-21"
     data-date="2026-04-02"
     data-category="Deprecation"
     data-modules="Channel Integration/OAuth,Webhooks">
@@ -1397,7 +1469,7 @@
        data-ar="تمت إزالة ميزة من تكامل القناة و ويب هوكس. (إيقاف دعم)">, *Webhooks*  The account_update webhook’s PARTNER_REMOVED event now includes a disconnection_info object when your client was using both th</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-20" aria-hidden="true">
+    <div class="card-details" id="det-card-21" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -1428,9 +1500,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-20"
+        data-det="det-card-21"
         aria-expanded="false"
-        aria-controls="det-card-20">
+        aria-controls="det-card-21">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -1442,7 +1514,7 @@
   </article>
 
 <article class="card"
-    id="card-21"
+    id="card-22"
     data-date="2026-03-31"
     data-category="Pricing/Rate Limit"
     data-modules="Billing">
@@ -1461,7 +1533,7 @@
        data-ar="تم تحديث Billing. (Pricing/Rate Limit)">, *Pricing*  Updated per-message rate cards with rate changes for Saudi Arabia, India, Pakistan, and Turkey. Introduced 8 new billing curren</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-21" aria-hidden="true">
+    <div class="card-details" id="det-card-22" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -1492,9 +1564,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-21"
+        data-det="det-card-22"
         aria-expanded="false"
-        aria-controls="det-card-21">
+        aria-controls="det-card-22">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -1506,7 +1578,7 @@
   </article>
 
 <article class="card"
-    id="card-22"
+    id="card-23"
     data-date="2026-03-26"
     data-category="Deprecation"
     data-modules="Webhooks">
@@ -1525,7 +1597,7 @@
        data-ar="تمت إزالة ميزة من ويب هوكس. (إيقاف دعم)">, *Conversational Components*  Removed the request_welcome webhook and welcome message feature from conversational components. This feature</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-22" aria-hidden="true">
+    <div class="card-details" id="det-card-23" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -1556,9 +1628,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-22"
+        data-det="det-card-23"
         aria-expanded="false"
-        aria-controls="det-card-22">
+        aria-controls="det-card-23">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -1570,7 +1642,7 @@
   </article>
 
 <article class="card"
-    id="card-23"
+    id="card-24"
     data-date="2026-03-01"
     data-category="Pricing/Rate Limit"
     data-modules="Broadcasts,Billing">
@@ -1589,7 +1661,7 @@
        data-ar="Pricing/Rate Limit في موديول البث الجماعي و Billing.">, *Marketing Messages API for WhatsApp*, *Pricing*  Argentina (ARS), Australia (AUD), Chile (CLP), Colombia (COP), Euro (EUR), India (INR),</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-23" aria-hidden="true">
+    <div class="card-details" id="det-card-24" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -1620,9 +1692,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-23"
+        data-det="det-card-24"
         aria-expanded="false"
-        aria-controls="det-card-23">
+        aria-controls="det-card-24">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -1634,7 +1706,7 @@
   </article>
 
 <article class="card"
-    id="card-24"
+    id="card-25"
     data-date="2026-02-18"
     data-category="New Feature"
     data-modules="Webhooks">
@@ -1653,7 +1725,7 @@
        data-ar="تمت إضافة دعم لميزة جديدة في ويب هوكس. (ميزة جديدة)">Added new unsupported message types in the unsupported messages webhook.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-24" aria-hidden="true">
+    <div class="card-details" id="det-card-25" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -1684,9 +1756,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-24"
+        data-det="det-card-25"
         aria-expanded="false"
-        aria-controls="det-card-24">
+        aria-controls="det-card-25">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -1698,7 +1770,7 @@
   </article>
 
 <article class="card"
-    id="card-25"
+    id="card-26"
     data-date="2026-02-18"
     data-category="New Feature"
     data-modules="WhatsApp Templates,Broadcasts">
@@ -1717,7 +1789,7 @@
        data-ar="تمت إضافة تحديث في قوالب واتساب و البث الجماعي. (ميزة جديدة)">Added a new Automatic Creative Optimization type: Auto promotion tag.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-25" aria-hidden="true">
+    <div class="card-details" id="det-card-26" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -1748,9 +1820,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-25"
+        data-det="det-card-26"
         aria-expanded="false"
-        aria-controls="det-card-25">
+        aria-controls="det-card-26">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -1762,7 +1834,7 @@
   </article>
 
 <article class="card"
-    id="card-26"
+    id="card-27"
     data-date="2026-02-03"
     data-category="New Feature"
     data-modules="Channel Integration/OAuth,Webhooks">
@@ -1781,7 +1853,7 @@
        data-ar="تمت إضافة تحديث في تكامل القناة و ويب هوكس. (ميزة جديدة)">Added account_offboarded and account_reconnected webhooks for Coexistence.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-26" aria-hidden="true">
+    <div class="card-details" id="det-card-27" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -1812,9 +1884,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-26"
+        data-det="det-card-27"
         aria-expanded="false"
-        aria-controls="det-card-26">
+        aria-controls="det-card-27">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -1826,7 +1898,7 @@
   </article>
 
 <article class="card"
-    id="card-27"
+    id="card-28"
     data-date="2026-02-02"
     data-category="New Feature"
     data-modules="WhatsApp Templates">
@@ -1845,7 +1917,7 @@
        data-ar="ميزة جديدة في موديول قوالب واتساب.">Cloud API Groups are now available to all businesses with an Official Business Account.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-27" aria-hidden="true">
+    <div class="card-details" id="det-card-28" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -1876,9 +1948,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-27"
+        data-det="det-card-28"
         aria-expanded="false"
-        aria-controls="det-card-27">
+        aria-controls="det-card-28">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -1890,7 +1962,7 @@
   </article>
 
 <article class="card"
-    id="card-28"
+    id="card-29"
     data-date="2026-01-28"
     data-category="New Feature"
     data-modules="Broadcasts">
@@ -1909,7 +1981,7 @@
        data-ar="ميزة جديدة في موديول البث الجماعي.">Multi-solution conversations are now available for Marketing Messages API for WhatsApp.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-28" aria-hidden="true">
+    <div class="card-details" id="det-card-29" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -1940,9 +2012,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-28"
+        data-det="det-card-29"
         aria-expanded="false"
-        aria-controls="det-card-28">
+        aria-controls="det-card-29">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -1954,7 +2026,7 @@
   </article>
 
 <article class="card"
-    id="card-29"
+    id="card-30"
     data-date="2026-01-27"
     data-category="New Feature"
     data-modules="WhatsApp Templates">
@@ -1973,7 +2045,7 @@
        data-ar="ميزة جديدة في موديول قوالب واتساب.">Effective February 16, 2026, in countries where Meta is legally required to support AI Providers, Meta will charge AI Providers for non-temp</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-29" aria-hidden="true">
+    <div class="card-details" id="det-card-30" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -2004,9 +2076,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-29"
+        data-det="det-card-30"
         aria-expanded="false"
-        aria-controls="det-card-29">
+        aria-controls="det-card-30">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -2018,7 +2090,7 @@
   </article>
 
 <article class="card"
-    id="card-30"
+    id="card-31"
     data-date="2025-12-17"
     data-category="New Feature"
     data-modules="WhatsApp Templates">
@@ -2037,7 +2109,7 @@
        data-ar="تمت إضافة تحديث في قوالب واتساب. (ميزة جديدة)">Added hsm_ids field to DELETE WhatsApp Business Account &gt; Message Templates endpoint. Accepts an array of up to 100 template IDs to delete i</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-30" aria-hidden="true">
+    <div class="card-details" id="det-card-31" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -2068,9 +2140,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-30"
+        data-det="det-card-31"
         aria-expanded="false"
-        aria-controls="det-card-30">
+        aria-controls="det-card-31">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -2082,7 +2154,7 @@
   </article>
 
 <article class="card"
-    id="card-31"
+    id="card-32"
     data-date="2025-12-07"
     data-category="New Feature"
     data-modules="WhatsApp Templates,Broadcasts">
@@ -2101,7 +2173,7 @@
        data-ar="تمت إضافة تحديث في قوالب واتساب و البث الجماعي. (ميزة جديدة)">Added business portfolio pacing, a new template message delivery batching mechanism that allows time to gather feedback on any template sent</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-31" aria-hidden="true">
+    <div class="card-details" id="det-card-32" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -2132,9 +2204,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-31"
+        data-det="det-card-32"
         aria-expanded="false"
-        aria-controls="det-card-31">
+        aria-controls="det-card-32">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -2146,7 +2218,7 @@
   </article>
 
 <article class="card"
-    id="card-32"
+    id="card-33"
     data-date="2025-12-03"
     data-category="New Feature"
     data-modules="Broadcasts">
@@ -2165,7 +2237,7 @@
        data-ar="ميزة جديدة في موديول البث الجماعي.">Businesses that use Marketing Messages API for WhatsApp can now view metrics for quick replies.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-32" aria-hidden="true">
+    <div class="card-details" id="det-card-33" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -2196,9 +2268,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-32"
+        data-det="det-card-33"
         aria-expanded="false"
-        aria-controls="det-card-32">
+        aria-controls="det-card-33">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -2210,7 +2282,7 @@
   </article>
 
 <article class="card"
-    id="card-33"
+    id="card-34"
     data-date="2025-12-02"
     data-category="New Feature"
     data-modules="WhatsApp Templates">
@@ -2229,7 +2301,7 @@
        data-ar="تحديث في قوالب قوالب واتساب. (ميزة جديدة)">Coupon code templates now support codes with up to 20 characters, instead of 15.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-33" aria-hidden="true">
+    <div class="card-details" id="det-card-34" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -2260,9 +2332,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-33"
+        data-det="det-card-34"
         aria-expanded="false"
-        aria-controls="det-card-33">
+        aria-controls="det-card-34">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -2274,7 +2346,7 @@
   </article>
 
 <article class="card"
-    id="card-34"
+    id="card-35"
     data-date="2025-11-30"
     data-category="New Feature"
     data-modules="WhatsApp Templates">
@@ -2293,7 +2365,7 @@
        data-ar="تمت إضافة تحديث في قوالب واتساب. (ميزة جديدة)">Added No Storage, an alternative Local Storage configuration. With No Storage, in-transit data is kept for a shorter period of time, and at-</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-34" aria-hidden="true">
+    <div class="card-details" id="det-card-35" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -2324,9 +2396,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-34"
+        data-det="det-card-35"
         aria-expanded="false"
-        aria-controls="det-card-34">
+        aria-controls="det-card-35">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -2338,7 +2410,7 @@
   </article>
 
 <article class="card"
-    id="card-35"
+    id="card-36"
     data-date="2025-11-25"
     data-category="New Feature"
     data-modules="WhatsApp Templates,Channel Integration/OAuth,RBAC">
@@ -2357,7 +2429,7 @@
        data-ar="ميزة جديدة في موديول قوالب واتساب و تكامل القناة و RBAC.">ss-messaging/whatsapp/embedded-signup/overview#how-it-works) indicating users may experience a new completion flow for all versions. A new V</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-35" aria-hidden="true">
+    <div class="card-details" id="det-card-36" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -2388,9 +2460,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-35"
+        data-det="det-card-36"
         aria-expanded="false"
-        aria-controls="det-card-35">
+        aria-controls="det-card-36">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -2402,7 +2474,7 @@
   </article>
 
 <article class="card"
-    id="card-36"
+    id="card-37"
     data-date="2025-11-24"
     data-category="New Feature"
     data-modules="Channel Integration/OAuth">
@@ -2421,7 +2493,7 @@
        data-ar="ميزة جديدة في موديول تكامل القناة.">* Edit messages * Revoke messages</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-36" aria-hidden="true">
+    <div class="card-details" id="det-card-37" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -2452,9 +2524,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-36"
+        data-det="det-card-37"
         aria-expanded="false"
-        aria-controls="det-card-36">
+        aria-controls="det-card-37">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -2466,7 +2538,7 @@
   </article>
 
 <article class="card"
-    id="card-37"
+    id="card-38"
     data-date="2025-11-18"
     data-category="New Feature"
     data-modules="Broadcasts">
@@ -2485,7 +2557,7 @@
        data-ar="ميزة جديدة في موديول البث الجماعي.">Marketing Messages API for WhatsApp (formerly known as Marketing Messages Lite API) is now generally available.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-37" aria-hidden="true">
+    <div class="card-details" id="det-card-38" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -2516,9 +2588,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-37"
+        data-det="det-card-38"
         aria-expanded="false"
-        aria-controls="det-card-37">
+        aria-controls="det-card-38">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -2530,7 +2602,7 @@
   </article>
 
 <article class="card"
-    id="card-38"
+    id="card-39"
     data-date="2025-11-10"
     data-category="New Feature"
     data-modules="Channel Integration/OAuth">
@@ -2549,7 +2621,7 @@
        data-ar="ميزة جديدة في موديول تكامل القناة.">#### WhatsApp Flows Endpoints Security Enhancements (Data API Version 4.0)  * To further protect user interactions and ensure requests are g</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-38" aria-hidden="true">
+    <div class="card-details" id="det-card-39" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -2580,9 +2652,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-38"
+        data-det="det-card-39"
         aria-expanded="false"
-        aria-controls="det-card-38">
+        aria-controls="det-card-39">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -2594,7 +2666,7 @@
   </article>
 
 <article class="card"
-    id="card-39"
+    id="card-40"
     data-date="2025-11-02"
     data-category="New Feature"
     data-modules="Webhooks">
@@ -2613,70 +2685,6 @@
        data-ar="تمت إضافة تحديث في ويب هوكس. (ميزة جديدة)">Added new played status message webhook which indicates when a voice messge is played by the Whatsapp user.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-39" aria-hidden="true">
-
-      <div class="detail-section detail-changed">
-        <h4 class="detail-label">
-          <span class="detail-icon">📌</span>
-          <span data-en="What Changed" data-ar="ما الذي تغيّر">What Changed</span>
-        </h4>
-        <p>Added new played status message webhook which indicates when a voice messge is played by the Whatsapp user.</p>
-      </div>
-
-      <div class="detail-section detail-impact">
-        <h4 class="detail-label">
-          <span class="detail-icon">🎯</span>
-          <span data-en="Impact on SEEN V2" data-ar="التأثير على SEEN V2">Impact on SEEN V2</span>
-        </h4>
-        <p>Monitor Webhooks integration for any behavioural impact.</p>
-      </div>
-
-      <div class="detail-section detail-qa">
-        <h4 class="detail-label">
-          <span class="detail-icon">✅</span>
-          <span data-en="Suggested QA Action" data-ar="إجراء QA المقترح">Suggested QA Action</span>
-        </h4>
-        <p>Informational — no immediate action required. Monitor in future test runs.</p>
-      </div>
-
-      
-    </div>
-
-    <div class="card-footer">
-      <button class="btn-expand"
-        data-det="det-card-39"
-        aria-expanded="false"
-        aria-controls="det-card-39">
-        <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
-        <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
-        <span class="expand-chevron">▾</span>
-      </button>
-      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog#november-2-2025" target="_blank" rel="noopener">
-        📄 <span data-en="View in Changelog" data-ar="رابط في سجل التغييرات">View in Changelog</span> ↗
-      </a>
-    </div>
-  </article>
-
-<article class="card"
-    id="card-40"
-    data-date="2025-11-02"
-    data-category="New Feature"
-    data-modules="Webhooks">
-
-    <div class="card-header">
-      <time class="card-date">2 Nov 2025</time>
-      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
-    </div>
-
-    <h2 class="card-title"
-        data-en="* Updated the unsupported messages webhook by adding details about the actual message type"
-        data-ar="تمت إضافة دعم لميزة جديدة في ويب هوكس. (ميزة جديدة)">* Updated the unsupported messages webhook by adding details about the actual message type</h2>
-    <div class="card-badges"><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span></div>
-    <p class="card-summary"
-       data-en="* Updated the unsupported messages webhook by adding details about the actual message type. * Added new played status messages webhook statu"
-       data-ar="تمت إضافة دعم لميزة جديدة في ويب هوكس. (ميزة جديدة)">* Updated the unsupported messages webhook by adding details about the actual message type. * Added new played status messages webhook statu</p>
-
-    <!-- Expandable detail panel -->
     <div class="card-details" id="det-card-40" aria-hidden="true">
 
       <div class="detail-section detail-changed">
@@ -2684,7 +2692,7 @@
           <span class="detail-icon">📌</span>
           <span data-en="What Changed" data-ar="ما الذي تغيّر">What Changed</span>
         </h4>
-        <p>* Updated the unsupported messages webhook by adding details about the actual message type. * Added new played status messages webhook status value, which indicates when a voice message is played by the Whatsapp user.</p>
+        <p>Added new played status message webhook which indicates when a voice messge is played by the Whatsapp user.</p>
       </div>
 
       <div class="detail-section detail-impact">
@@ -2723,6 +2731,70 @@
 
 <article class="card"
     id="card-41"
+    data-date="2025-11-02"
+    data-category="New Feature"
+    data-modules="Webhooks">
+
+    <div class="card-header">
+      <time class="card-date">2 Nov 2025</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+
+    <h2 class="card-title"
+        data-en="* Updated the unsupported messages webhook by adding details about the actual message type"
+        data-ar="تمت إضافة دعم لميزة جديدة في ويب هوكس. (ميزة جديدة)">* Updated the unsupported messages webhook by adding details about the actual message type</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span></div>
+    <p class="card-summary"
+       data-en="* Updated the unsupported messages webhook by adding details about the actual message type. * Added new played status messages webhook statu"
+       data-ar="تمت إضافة دعم لميزة جديدة في ويب هوكس. (ميزة جديدة)">* Updated the unsupported messages webhook by adding details about the actual message type. * Added new played status messages webhook statu</p>
+
+    <!-- Expandable detail panel -->
+    <div class="card-details" id="det-card-41" aria-hidden="true">
+
+      <div class="detail-section detail-changed">
+        <h4 class="detail-label">
+          <span class="detail-icon">📌</span>
+          <span data-en="What Changed" data-ar="ما الذي تغيّر">What Changed</span>
+        </h4>
+        <p>* Updated the unsupported messages webhook by adding details about the actual message type. * Added new played status messages webhook status value, which indicates when a voice message is played by the Whatsapp user.</p>
+      </div>
+
+      <div class="detail-section detail-impact">
+        <h4 class="detail-label">
+          <span class="detail-icon">🎯</span>
+          <span data-en="Impact on SEEN V2" data-ar="التأثير على SEEN V2">Impact on SEEN V2</span>
+        </h4>
+        <p>Monitor Webhooks integration for any behavioural impact.</p>
+      </div>
+
+      <div class="detail-section detail-qa">
+        <h4 class="detail-label">
+          <span class="detail-icon">✅</span>
+          <span data-en="Suggested QA Action" data-ar="إجراء QA المقترح">Suggested QA Action</span>
+        </h4>
+        <p>Informational — no immediate action required. Monitor in future test runs.</p>
+      </div>
+
+      
+    </div>
+
+    <div class="card-footer">
+      <button class="btn-expand"
+        data-det="det-card-41"
+        aria-expanded="false"
+        aria-controls="det-card-41">
+        <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
+        <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
+        <span class="expand-chevron">▾</span>
+      </button>
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog#november-2-2025" target="_blank" rel="noopener">
+        📄 <span data-en="View in Changelog" data-ar="رابط في سجل التغييرات">View in Changelog</span> ↗
+      </a>
+    </div>
+  </article>
+
+<article class="card"
+    id="card-42"
     data-date="2025-10-30"
     data-category="New Feature"
     data-modules="Broadcasts">
@@ -2741,7 +2813,7 @@
        data-ar="ميزة جديدة في موديول البث الجماعي.">* Added two new Automatic Creative Optimization types: product extensions and text formatting optimization. * Launched a new endpoint to sup</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-41" aria-hidden="true">
+    <div class="card-details" id="det-card-42" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -2772,9 +2844,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-41"
+        data-det="det-card-42"
         aria-expanded="false"
-        aria-controls="det-card-41">
+        aria-controls="det-card-42">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -2786,7 +2858,7 @@
   </article>
 
 <article class="card"
-    id="card-42"
+    id="card-43"
     data-date="2025-10-22"
     data-category="New Feature"
     data-modules="Channel Integration/OAuth">
@@ -2805,7 +2877,7 @@
        data-ar="ميزة جديدة في موديول تكامل القناة.">* Australia * Japan * Philippines * Russia * South Korea * Turkey * European Economic Area (EEA) * European Union (EU) * United Kingdom (UK)</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-42" aria-hidden="true">
+    <div class="card-details" id="det-card-43" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -2836,9 +2908,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-42"
+        data-det="det-card-43"
         aria-expanded="false"
-        aria-controls="det-card-42">
+        aria-controls="det-card-43">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -2850,7 +2922,7 @@
   </article>
 
 <article class="card"
-    id="card-43"
+    id="card-44"
     data-date="2025-10-19"
     data-category="New Feature"
     data-modules="Webhooks">
@@ -2869,7 +2941,7 @@
        data-ar="تحديث في ويب هوكس ويب هوكس. (ميزة جديدة)">Ad click IDs will not be included in incoming text messages webhooks payloads describing an incoming message that originated from a WhatsApp</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-43" aria-hidden="true">
+    <div class="card-details" id="det-card-44" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -2900,9 +2972,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-43"
+        data-det="det-card-44"
         aria-expanded="false"
-        aria-controls="det-card-43">
+        aria-controls="det-card-44">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -2914,7 +2986,7 @@
   </article>
 
 <article class="card"
-    id="card-44"
+    id="card-45"
     data-date="2025-10-19"
     data-category="New Feature"
     data-modules="WhatsApp Templates,Broadcasts">
@@ -2933,7 +3005,7 @@
        data-ar="تحديث في قوالب قوالب واتساب و البث الجماعي. (ميزة جديدة)">* Offsite conversion metrics is now available in WhatsApp Business Manager and in the Template Analytics API. * Added two new Automatic Crea</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-44" aria-hidden="true">
+    <div class="card-details" id="det-card-45" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -2964,9 +3036,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-44"
+        data-det="det-card-45"
         aria-expanded="false"
-        aria-controls="det-card-44">
+        aria-controls="det-card-45">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -2978,7 +3050,7 @@
   </article>
 
 <article class="card"
-    id="card-45"
+    id="card-46"
     data-date="2025-10-16"
     data-category="Policy/Compliance"
     data-modules="Broadcasts,Channel Integration/OAuth">
@@ -2997,7 +3069,7 @@
        data-ar="تمت إضافة تحديث في البث الجماعي و تكامل القناة. (Policy/Compliance)">Added marketing_messages_onboarding_status and owner_business_info fields to check Terms of Service and Intent request status for business m</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-45" aria-hidden="true">
+    <div class="card-details" id="det-card-46" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -3028,9 +3100,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-45"
+        data-det="det-card-46"
         aria-expanded="false"
-        aria-controls="det-card-45">
+        aria-controls="det-card-46">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -3042,7 +3114,7 @@
   </article>
 
 <article class="card"
-    id="card-46"
+    id="card-47"
     data-date="2025-10-15"
     data-category="New Feature"
     data-modules="Webhooks">
@@ -3061,7 +3133,7 @@
        data-ar="تحديث في ويب هوكس ويب هوكس. (ميزة جديدة)">* Incoming media messages webhooks (image messages, video messages, etc.) now include the incoming media asset’s media URL, which is assigne</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-46" aria-hidden="true">
+    <div class="card-details" id="det-card-47" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -3092,9 +3164,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-46"
+        data-det="det-card-47"
         aria-expanded="false"
-        aria-controls="det-card-46">
+        aria-controls="det-card-47">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -3106,7 +3178,7 @@
   </article>
 
 <article class="card"
-    id="card-47"
+    id="card-48"
     data-date="2025-10-13"
     data-category="Policy/Compliance"
     data-modules="WhatsApp Templates,Broadcasts">
@@ -3125,7 +3197,7 @@
        data-ar="Policy/Compliance في موديول قوالب واتساب و البث الجماعي.">The product_policy field is now 100% rolled out for businesses customers.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-47" aria-hidden="true">
+    <div class="card-details" id="det-card-48" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -3156,9 +3228,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-47"
+        data-det="det-card-48"
         aria-expanded="false"
-        aria-controls="det-card-47">
+        aria-controls="det-card-48">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -3170,7 +3242,7 @@
   </article>
 
 <article class="card"
-    id="card-48"
+    id="card-49"
     data-date="2025-10-07"
     data-category="New Feature"
     data-modules="Channel Integration/OAuth">
@@ -3189,7 +3261,7 @@
        data-ar="تم تحديث تكامل القناة. (ميزة جديدة)">Updated the onboarding page with an onboarding video tutorial.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-48" aria-hidden="true">
+    <div class="card-details" id="det-card-49" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -3220,9 +3292,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-48"
+        data-det="det-card-49"
         aria-expanded="false"
-        aria-controls="det-card-48">
+        aria-controls="det-card-49">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -3234,7 +3306,7 @@
   </article>
 
 <article class="card"
-    id="card-49"
+    id="card-50"
     data-date="2025-10-07"
     data-category="Pricing/Rate Limit"
     data-modules="WhatsApp Templates,Broadcasts,Channel Integration/OAuth,Webhooks,Billing">
@@ -3253,7 +3325,7 @@
        data-ar="Pricing/Rate Limit في موديول قوالب واتساب و البث الجماعي و تكامل القناة و ويب هوكس و Billing.">* Messaging limits are now business portfolio-based instead of business phone number-based, and the initial increase via scaling path is now</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-49" aria-hidden="true">
+    <div class="card-details" id="det-card-50" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -3284,9 +3356,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-49"
+        data-det="det-card-50"
         aria-expanded="false"
-        aria-controls="det-card-49">
+        aria-controls="det-card-50">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -3298,7 +3370,7 @@
   </article>
 
 <article class="card"
-    id="card-50"
+    id="card-51"
     data-date="2025-10-05"
     data-category="New Feature"
     data-modules="WhatsApp Templates">
@@ -3317,7 +3389,7 @@
        data-ar="ميزة جديدة في موديول قوالب واتساب.">Introducing WhatsApp Groups API, which enables programmatic creation and management of groups on WhatsApp.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-50" aria-hidden="true">
+    <div class="card-details" id="det-card-51" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -3348,9 +3420,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-50"
+        data-det="det-card-51"
         aria-expanded="false"
-        aria-controls="det-card-50">
+        aria-controls="det-card-51">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -3362,7 +3434,7 @@
   </article>
 
 <article class="card"
-    id="card-51"
+    id="card-52"
     data-date="2025-10-02"
     data-category="New Feature"
     data-modules="RBAC">
@@ -3381,7 +3453,7 @@
        data-ar="ميزة جديدة في موديول RBAC.">Access verification is no longer required to become a Tech Provider.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-51" aria-hidden="true">
+    <div class="card-details" id="det-card-52" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -3412,9 +3484,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-51"
+        data-det="det-card-52"
         aria-expanded="false"
-        aria-controls="det-card-51">
+        aria-controls="det-card-52">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -3426,7 +3498,7 @@
   </article>
 
 <article class="card"
-    id="card-52"
+    id="card-53"
     data-date="2025-09-30"
     data-category="New Feature"
     data-modules="Broadcasts">
@@ -3445,7 +3517,7 @@
        data-ar="تم تحديث البث الجماعي. (ميزة جديدة)">Updated the support page with new troubleshooting guides.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-52" aria-hidden="true">
+    <div class="card-details" id="det-card-53" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -3476,9 +3548,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-52"
+        data-det="det-card-53"
         aria-expanded="false"
-        aria-controls="det-card-52">
+        aria-controls="det-card-53">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -3490,7 +3562,7 @@
   </article>
 
 <article class="card"
-    id="card-53"
+    id="card-54"
     data-date="2025-09-30"
     data-category="Pricing/Rate Limit"
     data-modules="Broadcasts,Billing">
@@ -3509,7 +3581,7 @@
        data-ar="Pricing/Rate Limit في موديول البث الجماعي و Billing.">* Increased marketing message rates for United Arab Emirates. * Increased utility and authentication message rates for Colombia. * Decreased</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-53" aria-hidden="true">
+    <div class="card-details" id="det-card-54" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -3540,9 +3612,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-53"
+        data-det="det-card-54"
         aria-expanded="false"
-        aria-controls="det-card-53">
+        aria-controls="det-card-54">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -3554,7 +3626,7 @@
   </article>
 
 <article class="card"
-    id="card-54"
+    id="card-55"
     data-date="2025-09-28"
     data-category="New Feature"
     data-modules="Broadcasts,Channel Integration/OAuth">
@@ -3573,7 +3645,7 @@
        data-ar="تمت إضافة تحديث في البث الجماعي و تكامل القناة. (ميزة جديدة)">Added a Coexistence onboarding guide to MM Lite. Whatsapp Business users can now onboard with their existing WhatsApp Business app account a</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-54" aria-hidden="true">
+    <div class="card-details" id="det-card-55" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -3604,9 +3676,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-54"
+        data-det="det-card-55"
         aria-expanded="false"
-        aria-controls="det-card-54">
+        aria-controls="det-card-55">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -3618,7 +3690,7 @@
   </article>
 
 <article class="card"
-    id="card-55"
+    id="card-56"
     data-date="2025-09-23"
     data-category="New Feature"
     data-modules="Webhooks">
@@ -3637,7 +3709,7 @@
        data-ar="تمت إضافة تحديث في ويب هوكس. (ميزة جديدة)">Added note in the media document when retrieving a media from a media ID received via webhook, the media ID will only be available to downlo</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-55" aria-hidden="true">
+    <div class="card-details" id="det-card-56" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -3668,9 +3740,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-55"
+        data-det="det-card-56"
         aria-expanded="false"
-        aria-controls="det-card-55">
+        aria-controls="det-card-56">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -3682,7 +3754,7 @@
   </article>
 
 <article class="card"
-    id="card-56"
+    id="card-57"
     data-date="2025-09-09"
     data-category="New Feature"
     data-modules="WhatsApp Templates">
@@ -3701,7 +3773,7 @@
        data-ar="ميزة جديدة في موديول قوالب واتساب.">#### Flow JSON Validation Updates  #### Validation for routing model and data model in Flow JSON  * The Flow’s routing model's improved vali</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-56" aria-hidden="true">
+    <div class="card-details" id="det-card-57" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -3732,9 +3804,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-56"
+        data-det="det-card-57"
         aria-expanded="false"
-        aria-controls="det-card-56">
+        aria-controls="det-card-57">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -3746,7 +3818,7 @@
   </article>
 
 <article class="card"
-    id="card-57"
+    id="card-58"
     data-date="2025-09-07"
     data-category="New Feature"
     data-modules="RBAC">
@@ -3765,7 +3837,7 @@
        data-ar="ميزة جديدة في موديول RBAC.">* Updated v3 document to display an example of the v3 syntax. * Added Call Permissions Request type under interactive objects for messages.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-57" aria-hidden="true">
+    <div class="card-details" id="det-card-58" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -3796,9 +3868,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-57"
+        data-det="det-card-58"
         aria-expanded="false"
-        aria-controls="det-card-57">
+        aria-controls="det-card-58">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -3810,7 +3882,7 @@
   </article>
 
 <article class="card"
-    id="card-58"
+    id="card-59"
     data-date="2025-09-02"
     data-category="Deprecation"
     data-modules="WhatsApp Templates,Broadcasts,Channel Integration/OAuth,Webhooks">
@@ -3829,7 +3901,7 @@
        data-ar="تحديث في ويب هوكس قوالب واتساب و البث الجماعي و تكامل القناة و ويب هوكس. (إيقاف دعم)">* On September 8th, 2025, we’re launching a new “MM Lite ToS signed” webhook, which will be sent whenever a business signs the MM Lite ToS v</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-58" aria-hidden="true">
+    <div class="card-details" id="det-card-59" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -3860,9 +3932,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-58"
+        data-det="det-card-59"
         aria-expanded="false"
-        aria-controls="det-card-58">
+        aria-controls="det-card-59">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -3874,7 +3946,7 @@
   </article>
 
 <article class="card"
-    id="card-59"
+    id="card-60"
     data-date="2025-08-26"
     data-category="New Feature"
     data-modules="Channel Integration/OAuth,RBAC">
@@ -3893,7 +3965,7 @@
        data-ar="تمت إضافة تحديث في تكامل القناة و RBAC. (ميزة جديدة)">Added Call Permissions Request type under interactive objects for messages.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-59" aria-hidden="true">
+    <div class="card-details" id="det-card-60" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -3924,9 +3996,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-59"
+        data-det="det-card-60"
         aria-expanded="false"
-        aria-controls="det-card-59">
+        aria-controls="det-card-60">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -3938,7 +4010,7 @@
   </article>
 
 <article class="card"
-    id="card-60"
+    id="card-61"
     data-date="2025-08-21"
     data-category="New Feature"
     data-modules="Broadcasts">
@@ -3957,7 +4029,7 @@
        data-ar="ميزة جديدة في موديول البث الجماعي.">mDYHTbyXZJzkQksdk4_8InC49MK8eNfCyoA3Z0agfULu2ZPhCQzLi7FbtShb70qLD3284SBtir-5PvfFVa7V6BsjcCZpq3pTM9j1hDc_l1xgDFrHyAV6221ZFcKA), providing vis</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-60" aria-hidden="true">
+    <div class="card-details" id="det-card-61" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -3988,9 +4060,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-60"
+        data-det="det-card-61"
         aria-expanded="false"
-        aria-controls="det-card-60">
+        aria-controls="det-card-61">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -4002,7 +4074,7 @@
   </article>
 
 <article class="card"
-    id="card-61"
+    id="card-62"
     data-date="2025-08-13"
     data-category="New Feature"
     data-modules="Channel Integration/OAuth">
@@ -4021,7 +4093,7 @@
        data-ar="ميزة جديدة في موديول تكامل القناة.">In September we are simplifying the Embedded Signup flow across all versions. You can preview the simplified flow by configuring Embedded Si</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-61" aria-hidden="true">
+    <div class="card-details" id="det-card-62" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -4052,9 +4124,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-61"
+        data-det="det-card-62"
         aria-expanded="false"
-        aria-controls="det-card-61">
+        aria-controls="det-card-62">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -4066,7 +4138,7 @@
   </article>
 
 <article class="card"
-    id="card-62"
+    id="card-63"
     data-date="2025-08-11"
     data-category="New Feature"
     data-modules="Broadcasts,Channel Integration/OAuth,Webhooks,RBAC">
@@ -4085,7 +4157,7 @@
        data-ar="تمت إضافة تحديث في البث الجماعي و تكامل القناة و ويب هوكس و RBAC. (ميزة جديدة)">Added AD_ACCOUNT_LINKED event to the account_update webhook, which triggers when a WABA has onboarded to MM LITE through Embedded Signup or</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-62" aria-hidden="true">
+    <div class="card-details" id="det-card-63" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -4116,9 +4188,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-62"
+        data-det="det-card-63"
         aria-expanded="false"
-        aria-controls="det-card-62">
+        aria-controls="det-card-63">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -4130,7 +4202,7 @@
   </article>
 
 <article class="card"
-    id="card-63"
+    id="card-64"
     data-date="2025-08-10"
     data-category="New Feature"
     data-modules="WhatsApp Templates">
@@ -4149,7 +4221,7 @@
        data-ar="تمت إضافة تحديث في قوالب واتساب. (ميزة جديدة)">Added Welcome Message Sequences, which allow you to populate a set of pre-defined text and FAQs or a prefilled message, that can appear in a</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-63" aria-hidden="true">
+    <div class="card-details" id="det-card-64" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -4180,9 +4252,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-63"
+        data-det="det-card-64"
         aria-expanded="false"
-        aria-controls="det-card-63">
+        aria-controls="det-card-64">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -4194,7 +4266,7 @@
   </article>
 
 <article class="card"
-    id="card-64"
+    id="card-65"
     data-date="2025-08-05"
     data-category="New Feature"
     data-modules="Broadcasts">
@@ -4213,7 +4285,7 @@
        data-ar="تمت إضافة تحديث في البث الجماعي. (ميزة جديدة)">Added a image background generation field for automatic creative optimization.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-64" aria-hidden="true">
+    <div class="card-details" id="det-card-65" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -4244,9 +4316,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-64"
+        data-det="det-card-65"
         aria-expanded="false"
-        aria-controls="det-card-64">
+        aria-controls="det-card-65">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -4258,7 +4330,7 @@
   </article>
 
 <article class="card"
-    id="card-65"
+    id="card-66"
     data-date="2025-08-03"
     data-category="New Feature"
     data-modules="RBAC">
@@ -4277,7 +4349,7 @@
        data-ar="تمت إضافة تحديث في RBAC. (ميزة جديدة)">Added new whatsapp_business_manage_events permission to log events.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-65" aria-hidden="true">
+    <div class="card-details" id="det-card-66" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -4308,9 +4380,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-65"
+        data-det="det-card-66"
         aria-expanded="false"
-        aria-controls="det-card-65">
+        aria-controls="det-card-66">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -4322,7 +4394,7 @@
   </article>
 
 <article class="card"
-    id="card-66"
+    id="card-67"
     data-date="2025-07-29"
     data-category="New Feature"
     data-modules="WhatsApp Templates">
@@ -4341,7 +4413,7 @@
        data-ar="تحديث في قوالب قوالب واتساب. (ميزة جديدة)">Changed the Media Card Carousel Template requirements so that card body text is no longer mandatory.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-66" aria-hidden="true">
+    <div class="card-details" id="det-card-67" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -4372,9 +4444,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-66"
+        data-det="det-card-67"
         aria-expanded="false"
-        aria-controls="det-card-66">
+        aria-controls="det-card-67">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -4386,7 +4458,7 @@
   </article>
 
 <article class="card"
-    id="card-67"
+    id="card-68"
     data-date="2025-07-24"
     data-category="New Feature"
     data-modules="WhatsApp Templates">
@@ -4405,7 +4477,7 @@
        data-ar="تمت إضافة تحديث في قوالب واتساب. (ميزة جديدة)">Added the Tap target title URL override message template.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-67" aria-hidden="true">
+    <div class="card-details" id="det-card-68" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -4436,9 +4508,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-67"
+        data-det="det-card-68"
         aria-expanded="false"
-        aria-controls="det-card-67">
+        aria-controls="det-card-68">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -4450,7 +4522,7 @@
   </article>
 
 <article class="card"
-    id="card-68"
+    id="card-69"
     data-date="2025-07-24"
     data-category="New Feature"
     data-modules="WhatsApp Templates,Broadcasts">
@@ -4469,7 +4541,7 @@
        data-ar="تحديث في قوالب قوالب واتساب و البث الجماعي. (ميزة جديدة)">* Updated references to “Mobile App ID” to “Meta App ID” when creating a template to avoid confusion. * Added a Template-to-ad-syncing guide</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-68" aria-hidden="true">
+    <div class="card-details" id="det-card-69" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -4500,9 +4572,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-68"
+        data-det="det-card-69"
         aria-expanded="false"
-        aria-controls="det-card-68">
+        aria-controls="det-card-69">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -4514,7 +4586,7 @@
   </article>
 
 <article class="card"
-    id="card-69"
+    id="card-70"
     data-date="2025-07-21"
     data-category="New Feature"
     data-modules="Broadcasts">
@@ -4533,7 +4605,7 @@
        data-ar="ميزة جديدة في موديول البث الجماعي.">Local Storage is now available for MM Lite. If you have already enabled Local Storage for the Cloud API, your existing settings are automati</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-69" aria-hidden="true">
+    <div class="card-details" id="det-card-70" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -4564,9 +4636,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-69"
+        data-det="det-card-70"
         aria-expanded="false"
-        aria-controls="det-card-69">
+        aria-controls="det-card-70">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -4578,7 +4650,7 @@
   </article>
 
 <article class="card"
-    id="card-70"
+    id="card-71"
     data-date="2025-07-15"
     data-category="New Feature"
     data-modules="Broadcasts,RBAC">
@@ -4597,7 +4669,7 @@
        data-ar="ميزة جديدة في موديول البث الجماعي و RBAC.">* Meta Business Suite⁠: Navigate to the Business Settings to view users with Full Control access. * API: GET /&lt;WHATSAPP_BUSINESS_ACCOUNT_ID&gt;</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-70" aria-hidden="true">
+    <div class="card-details" id="det-card-71" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -4628,9 +4700,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-70"
+        data-det="det-card-71"
         aria-expanded="false"
-        aria-controls="det-card-70">
+        aria-controls="det-card-71">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -4642,7 +4714,7 @@
   </article>
 
 <article class="card"
-    id="card-71"
+    id="card-72"
     data-date="2025-07-14"
     data-category="New Feature"
     data-modules="WhatsApp Templates">
@@ -4661,7 +4733,7 @@
        data-ar="ميزة جديدة في موديول قوالب واتساب.">WhatsApp Business Calling API now available.  Multi-solution Conversations is now available in open beta  Multi-solution Conversations enabl</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-71" aria-hidden="true">
+    <div class="card-details" id="det-card-72" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -4692,9 +4764,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-71"
+        data-det="det-card-72"
         aria-expanded="false"
-        aria-controls="det-card-71">
+        aria-controls="det-card-72">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -4706,7 +4778,7 @@
   </article>
 
 <article class="card"
-    id="card-72"
+    id="card-73"
     data-date="2025-07-14"
     data-category="Deprecation"
     data-modules="WhatsApp Templates,Broadcasts,Channel Integration/OAuth">
@@ -4725,7 +4797,7 @@
        data-ar="إيقاف دعم في موديول قوالب واتساب و البث الجماعي و تكامل القناة.">* Added marketing_messages_onboarding_status field which provides more granular eligibility status data. The field will be a replacement for</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-72" aria-hidden="true">
+    <div class="card-details" id="det-card-73" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -4756,9 +4828,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-72"
+        data-det="det-card-73"
         aria-expanded="false"
-        aria-controls="det-card-72">
+        aria-controls="det-card-73">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -4770,7 +4842,7 @@
   </article>
 
 <article class="card"
-    id="card-73"
+    id="card-74"
     data-date="2025-07-07"
     data-category="New Feature"
     data-modules="WhatsApp Templates">
@@ -4789,7 +4861,7 @@
        data-ar="ميزة جديدة في موديول قوالب واتساب.">#### Component updates  #### Validation for nested expressions in Flow JSON actions  * Nested expressions used in actions are now validated</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-73" aria-hidden="true">
+    <div class="card-details" id="det-card-74" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -4820,9 +4892,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-73"
+        data-det="det-card-74"
         aria-expanded="false"
-        aria-controls="det-card-73">
+        aria-controls="det-card-74">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -4834,7 +4906,7 @@
   </article>
 
 <article class="card"
-    id="card-74"
+    id="card-75"
     data-date="2025-07-06"
     data-category="New Feature"
     data-modules="Webhooks">
@@ -4853,7 +4925,7 @@
        data-ar="تمت إضافة تحديث في ويب هوكس. (ميزة جديدة)">Added PROFILE_PICTURE_LOST as a new alert_type to account_alerts webhooks, to notify you when a business phone number’s business profile pho</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-74" aria-hidden="true">
+    <div class="card-details" id="det-card-75" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -4884,9 +4956,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-74"
+        data-det="det-card-75"
         aria-expanded="false"
-        aria-controls="det-card-74">
+        aria-controls="det-card-75">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -4898,7 +4970,7 @@
   </article>
 
 <article class="card"
-    id="card-75"
+    id="card-76"
     data-date="2025-06-30"
     data-category="Pricing/Rate Limit"
     data-modules="Broadcasts,Billing">
@@ -4917,70 +4989,6 @@
        data-ar="Pricing/Rate Limit في موديول البث الجماعي و Billing.">Per-message pricing now applies to MM Lite API! See Pricing on the WhatsApp Business Platform to learn more.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-75" aria-hidden="true">
-
-      <div class="detail-section detail-changed">
-        <h4 class="detail-label">
-          <span class="detail-icon">📌</span>
-          <span data-en="What Changed" data-ar="ما الذي تغيّر">What Changed</span>
-        </h4>
-        <p>Per-message pricing now applies to MM Lite API! See Pricing on the WhatsApp Business Platform to learn more.</p>
-      </div>
-
-      <div class="detail-section detail-impact">
-        <h4 class="detail-label">
-          <span class="detail-icon">🎯</span>
-          <span data-en="Impact on SEEN V2" data-ar="التأثير على SEEN V2">Impact on SEEN V2</span>
-        </h4>
-        <p>Billing module may need to reflect updated rates. Verify cost assumptions in Broadcasts for affected markets.</p>
-      </div>
-
-      <div class="detail-section detail-qa">
-        <h4 class="detail-label">
-          <span class="detail-icon">✅</span>
-          <span data-en="Suggested QA Action" data-ar="إجراء QA المقترح">Suggested QA Action</span>
-        </h4>
-        <p>Verify rate card assumptions in Billing module test cases.</p>
-      </div>
-
-      
-    </div>
-
-    <div class="card-footer">
-      <button class="btn-expand"
-        data-det="det-card-75"
-        aria-expanded="false"
-        aria-controls="det-card-75">
-        <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
-        <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
-        <span class="expand-chevron">▾</span>
-      </button>
-      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog#june-30-2025" target="_blank" rel="noopener">
-        📄 <span data-en="View in Changelog" data-ar="رابط في سجل التغييرات">View in Changelog</span> ↗
-      </a>
-    </div>
-  </article>
-
-<article class="card"
-    id="card-76"
-    data-date="2025-06-30"
-    data-category="Pricing/Rate Limit"
-    data-modules="Billing">
-
-    <div class="card-header">
-      <time class="card-date">30 Jun 2025</time>
-      <span class="badge cat-badge" style="background:#2d1a3d;color:#c084fc;border-color:#6b21a8">Pricing/Rate Limit</span>
-    </div>
-
-    <h2 class="card-title"
-        data-en="Per-message pricing is now live"
-        data-ar="Pricing/Rate Limit في موديول Billing.">Per-message pricing is now live</h2>
-    <div class="card-badges"><span class="badge mod-badge" style="border-color:#10b981;color:#10b981">Billing</span></div>
-    <p class="card-summary"
-       data-en="Per-message pricing is now live."
-       data-ar="Pricing/Rate Limit في موديول Billing.">Per-message pricing is now live.</p>
-
-    <!-- Expandable detail panel -->
     <div class="card-details" id="det-card-76" aria-hidden="true">
 
       <div class="detail-section detail-changed">
@@ -4988,7 +4996,7 @@
           <span class="detail-icon">📌</span>
           <span data-en="What Changed" data-ar="ما الذي تغيّر">What Changed</span>
         </h4>
-        <p>Per-message pricing is now live.</p>
+        <p>Per-message pricing now applies to MM Lite API! See Pricing on the WhatsApp Business Platform to learn more.</p>
       </div>
 
       <div class="detail-section detail-impact">
@@ -5027,6 +5035,70 @@
 
 <article class="card"
     id="card-77"
+    data-date="2025-06-30"
+    data-category="Pricing/Rate Limit"
+    data-modules="Billing">
+
+    <div class="card-header">
+      <time class="card-date">30 Jun 2025</time>
+      <span class="badge cat-badge" style="background:#2d1a3d;color:#c084fc;border-color:#6b21a8">Pricing/Rate Limit</span>
+    </div>
+
+    <h2 class="card-title"
+        data-en="Per-message pricing is now live"
+        data-ar="Pricing/Rate Limit في موديول Billing.">Per-message pricing is now live</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#10b981;color:#10b981">Billing</span></div>
+    <p class="card-summary"
+       data-en="Per-message pricing is now live."
+       data-ar="Pricing/Rate Limit في موديول Billing.">Per-message pricing is now live.</p>
+
+    <!-- Expandable detail panel -->
+    <div class="card-details" id="det-card-77" aria-hidden="true">
+
+      <div class="detail-section detail-changed">
+        <h4 class="detail-label">
+          <span class="detail-icon">📌</span>
+          <span data-en="What Changed" data-ar="ما الذي تغيّر">What Changed</span>
+        </h4>
+        <p>Per-message pricing is now live.</p>
+      </div>
+
+      <div class="detail-section detail-impact">
+        <h4 class="detail-label">
+          <span class="detail-icon">🎯</span>
+          <span data-en="Impact on SEEN V2" data-ar="التأثير على SEEN V2">Impact on SEEN V2</span>
+        </h4>
+        <p>Billing module may need to reflect updated rates. Verify cost assumptions in Broadcasts for affected markets.</p>
+      </div>
+
+      <div class="detail-section detail-qa">
+        <h4 class="detail-label">
+          <span class="detail-icon">✅</span>
+          <span data-en="Suggested QA Action" data-ar="إجراء QA المقترح">Suggested QA Action</span>
+        </h4>
+        <p>Verify rate card assumptions in Billing module test cases.</p>
+      </div>
+
+      
+    </div>
+
+    <div class="card-footer">
+      <button class="btn-expand"
+        data-det="det-card-77"
+        aria-expanded="false"
+        aria-controls="det-card-77">
+        <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
+        <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
+        <span class="expand-chevron">▾</span>
+      </button>
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog#june-30-2025" target="_blank" rel="noopener">
+        📄 <span data-en="View in Changelog" data-ar="رابط في سجل التغييرات">View in Changelog</span> ↗
+      </a>
+    </div>
+  </article>
+
+<article class="card"
+    id="card-78"
     data-date="2025-06-23"
     data-category="New Feature"
     data-modules="WhatsApp Templates,Broadcasts">
@@ -5045,7 +5117,7 @@
        data-ar="تمت إضافة تحديث في قوالب واتساب و البث الجماعي. (ميزة جديدة)">Added text overlays and image animation Automatic Creative Optimizations. Like other optimizations, these are enabled by default on all temp</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-77" aria-hidden="true">
+    <div class="card-details" id="det-card-78" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -5076,9 +5148,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-77"
+        data-det="det-card-78"
         aria-expanded="false"
-        aria-controls="det-card-77">
+        aria-controls="det-card-78">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -5090,7 +5162,7 @@
   </article>
 
 <article class="card"
-    id="card-78"
+    id="card-79"
     data-date="2025-06-19"
     data-category="New Feature"
     data-modules="Broadcasts,RBAC">
@@ -5109,7 +5181,7 @@
        data-ar="ميزة جديدة في موديول البث الجماعي و RBAC.">Businesses in Russia who were previously unable to send messages via MM Lite API can now do so. Note that these businesses will not have acc</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-78" aria-hidden="true">
+    <div class="card-details" id="det-card-79" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -5140,9 +5212,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-78"
+        data-det="det-card-79"
         aria-expanded="false"
-        aria-controls="det-card-78">
+        aria-controls="det-card-79">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -5154,7 +5226,7 @@
   </article>
 
 <article class="card"
-    id="card-79"
+    id="card-80"
     data-date="2025-06-17"
     data-category="New Feature"
     data-modules="Channel Integration/OAuth">
@@ -5173,7 +5245,7 @@
        data-ar="ميزة جديدة في موديول تكامل القناة.">Solution Partners can now claim sandbox accounts.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-79" aria-hidden="true">
+    <div class="card-details" id="det-card-80" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -5204,9 +5276,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-79"
+        data-det="det-card-80"
         aria-expanded="false"
-        aria-controls="det-card-79">
+        aria-controls="det-card-80">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -5218,7 +5290,7 @@
   </article>
 
 <article class="card"
-    id="card-80"
+    id="card-81"
     data-date="2025-06-12"
     data-category="New Feature"
     data-modules="WhatsApp Templates">
@@ -5237,7 +5309,7 @@
        data-ar="ميزة جديدة في موديول قوالب واتساب.">You can now request Official Business Account status via API and edit your display name via API. Before you could only do this using WhatsAp</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-80" aria-hidden="true">
+    <div class="card-details" id="det-card-81" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -5268,9 +5340,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-80"
+        data-det="det-card-81"
         aria-expanded="false"
-        aria-controls="det-card-80">
+        aria-controls="det-card-81">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -5282,7 +5354,7 @@
   </article>
 
 <article class="card"
-    id="card-81"
+    id="card-82"
     data-date="2025-06-09"
     data-category="New Feature"
     data-modules="Broadcasts">
@@ -5301,7 +5373,7 @@
        data-ar="ميزة جديدة في موديول البث الجماعي.">* marketing_messages_read_rate_benchmark * marketing_messages_click_rate_benchmark</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-81" aria-hidden="true">
+    <div class="card-details" id="det-card-82" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -5332,9 +5404,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-81"
+        data-det="det-card-82"
         aria-expanded="false"
-        aria-controls="det-card-81">
+        aria-controls="det-card-82">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -5346,7 +5418,7 @@
   </article>
 
 <article class="card"
-    id="card-82"
+    id="card-83"
     data-date="2025-06-09"
     data-category="New Feature"
     data-modules="WhatsApp Templates">
@@ -5365,7 +5437,7 @@
        data-ar="ميزة جديدة في موديول قوالب واتساب.">#### Component Updates  #### Update to the ChipsSelector component  * We are updating the ChipsSelector component to align its behaviour wit</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-82" aria-hidden="true">
+    <div class="card-details" id="det-card-83" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -5396,9 +5468,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-82"
+        data-det="det-card-83"
         aria-expanded="false"
-        aria-controls="det-card-82">
+        aria-controls="det-card-83">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -5410,7 +5482,7 @@
   </article>
 
 <article class="card"
-    id="card-83"
+    id="card-84"
     data-date="2025-06-04"
     data-category="New Feature"
     data-modules="Channel Integration/OAuth,Webhooks">
@@ -5429,7 +5501,7 @@
        data-ar="تحديث في ويب هوكس تكامل القناة و ويب هوكس. (ميزة جديدة)">To be notified of these events, you can subscribe to the new new automatic_events webhook, and optionally, report them via Conversions API.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-83" aria-hidden="true">
+    <div class="card-details" id="det-card-84" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -5460,9 +5532,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-83"
+        data-det="det-card-84"
         aria-expanded="false"
-        aria-controls="det-card-83">
+        aria-controls="det-card-84">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -5474,7 +5546,7 @@
   </article>
 
 <article class="card"
-    id="card-84"
+    id="card-85"
     data-date="2025-06-03"
     data-category="New Feature"
     data-modules="Webhooks">
@@ -5493,7 +5565,7 @@
        data-ar="تحديث في ويب هوكس ويب هوكس. (ميزة جديدة)">A phone_number_quality_update webhook with event set to THROUGHPUT_UPGRADE and current_limit set to TIER_UNLIMITED will now be triggered if</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-84" aria-hidden="true">
+    <div class="card-details" id="det-card-85" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -5524,9 +5596,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-84"
+        data-det="det-card-85"
         aria-expanded="false"
-        aria-controls="det-card-84">
+        aria-controls="det-card-85">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -5538,7 +5610,7 @@
   </article>
 
 <article class="card"
-    id="card-85"
+    id="card-86"
     data-date="2025-05-28"
     data-category="New Feature"
     data-modules="Broadcasts,Channel Integration/OAuth,RBAC">
@@ -5557,7 +5629,7 @@
        data-ar="تم تقديم ميزة جديدة في البث الجماعي و تكامل القناة و RBAC. (ميزة جديدة)">Version 3 is now available. As part of this release, we have introduced versioning that will align with Graph API’s release cadence. The fol</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-85" aria-hidden="true">
+    <div class="card-details" id="det-card-86" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -5588,9 +5660,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-85"
+        data-det="det-card-86"
         aria-expanded="false"
-        aria-controls="det-card-85">
+        aria-controls="det-card-86">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -5602,7 +5674,7 @@
   </article>
 
 <article class="card"
-    id="card-86"
+    id="card-87"
     data-date="2025-05-22"
     data-category="New Feature"
     data-modules="Broadcasts">
@@ -5621,7 +5693,7 @@
        data-ar="تمت إضافة دعم لميزة جديدة في البث الجماعي. (ميزة جديدة)">Added Android deep link support.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-86" aria-hidden="true">
+    <div class="card-details" id="det-card-87" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -5652,9 +5724,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-86"
+        data-det="det-card-87"
         aria-expanded="false"
-        aria-controls="det-card-86">
+        aria-controls="det-card-87">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -5666,7 +5738,7 @@
   </article>
 
 <article class="card"
-    id="card-87"
+    id="card-88"
     data-date="2025-05-20"
     data-category="New Feature"
     data-modules="WhatsApp Templates,Broadcasts">
@@ -5685,7 +5757,7 @@
        data-ar="تمت إضافة تحديث في قوالب واتساب و البث الجماعي. (ميزة جديدة)">Added an Error messages section to  WhatsApp Manager that shows a summary of errors encountered by your templates within a given period of t</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-87" aria-hidden="true">
+    <div class="card-details" id="det-card-88" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -5716,9 +5788,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-87"
+        data-det="det-card-88"
         aria-expanded="false"
-        aria-controls="det-card-87">
+        aria-controls="det-card-88">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -5730,7 +5802,7 @@
   </article>
 
 <article class="card"
-    id="card-88"
+    id="card-89"
     data-date="2025-05-19"
     data-category="New Feature"
     data-modules="Broadcasts">
@@ -5749,7 +5821,7 @@
        data-ar="ميزة جديدة في موديول البث الجماعي.">* 134100 * 134101 * 134102 * 134103</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-88" aria-hidden="true">
+    <div class="card-details" id="det-card-89" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -5780,9 +5852,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-88"
+        data-det="det-card-89"
         aria-expanded="false"
-        aria-controls="det-card-88">
+        aria-controls="det-card-89">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -5794,7 +5866,7 @@
   </article>
 
 <article class="card"
-    id="card-89"
+    id="card-90"
     data-date="2025-05-04"
     data-category="New Feature"
     data-modules="Channel Integration/OAuth">
@@ -5813,7 +5885,7 @@
        data-ar="ميزة جديدة في موديول تكامل القناة.">Solution providers can now onboard WhatsApp Business app users  who have a WhatsApp Business app phone number with an India country dialing</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-89" aria-hidden="true">
+    <div class="card-details" id="det-card-90" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -5844,9 +5916,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-89"
+        data-det="det-card-90"
         aria-expanded="false"
-        aria-controls="det-card-89">
+        aria-controls="det-card-90">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -5858,7 +5930,7 @@
   </article>
 
 <article class="card"
-    id="card-90"
+    id="card-91"
     data-date="2025-04-15"
     data-category="New Feature"
     data-modules="Broadcasts,Webhooks,RBAC">
@@ -5877,7 +5949,7 @@
        data-ar="تحديث في ويب هوكس البث الجماعي و ويب هوكس و RBAC. (ميزة جديدة)">We are offering a limited roll-out of webhook access to click events on marketing messages sent using MM Lite. Read the “Tracking click even</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-90" aria-hidden="true">
+    <div class="card-details" id="det-card-91" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -5908,9 +5980,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-90"
+        data-det="det-card-91"
         aria-expanded="false"
-        aria-controls="det-card-90">
+        aria-controls="det-card-91">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -5922,7 +5994,7 @@
   </article>
 
 <article class="card"
-    id="card-91"
+    id="card-92"
     data-date="2025-04-10"
     data-category="New Feature"
     data-modules="Broadcasts,RBAC">
@@ -5941,7 +6013,7 @@
        data-ar="ميزة جديدة في موديول البث الجماعي و RBAC.">Please reach out to your partner, if you would like to be included in early access to this feature.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-91" aria-hidden="true">
+    <div class="card-details" id="det-card-92" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -5972,9 +6044,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-91"
+        data-det="det-card-92"
         aria-expanded="false"
-        aria-controls="det-card-91">
+        aria-controls="det-card-92">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -5986,7 +6058,7 @@
   </article>
 
 <article class="card"
-    id="card-92"
+    id="card-93"
     data-date="2025-04-08"
     data-category="New Feature"
     data-modules="WhatsApp Templates">
@@ -6005,7 +6077,7 @@
        data-ar="تحديث في قوالب قوالب واتساب. (ميزة جديدة)">We no longer support the allow_category_change property during template creation. Previously, if set to true in a template creation request,</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-92" aria-hidden="true">
+    <div class="card-details" id="det-card-93" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -6036,9 +6108,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-92"
+        data-det="det-card-93"
         aria-expanded="false"
-        aria-controls="det-card-92">
+        aria-controls="det-card-93">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -6050,7 +6122,7 @@
   </article>
 
 <article class="card"
-    id="card-93"
+    id="card-94"
     data-date="2025-04-07"
     data-category="New Feature"
     data-modules="WhatsApp Templates">
@@ -6069,70 +6141,6 @@
        data-ar="تمت إضافة تحديث في قوالب واتساب. (ميزة جديدة)">Added typing indicators so you can let WhatsApp users know that you are preparing a response.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-93" aria-hidden="true">
-
-      <div class="detail-section detail-changed">
-        <h4 class="detail-label">
-          <span class="detail-icon">📌</span>
-          <span data-en="What Changed" data-ar="ما الذي تغيّر">What Changed</span>
-        </h4>
-        <p>Added typing indicators so you can let WhatsApp users know that you are preparing a response.</p>
-      </div>
-
-      <div class="detail-section detail-impact">
-        <h4 class="detail-label">
-          <span class="detail-icon">🎯</span>
-          <span data-en="Impact on SEEN V2" data-ar="التأثير على SEEN V2">Impact on SEEN V2</span>
-        </h4>
-        <p>Monitor WhatsApp Templates integration for any behavioural impact.</p>
-      </div>
-
-      <div class="detail-section detail-qa">
-        <h4 class="detail-label">
-          <span class="detail-icon">✅</span>
-          <span data-en="Suggested QA Action" data-ar="إجراء QA المقترح">Suggested QA Action</span>
-        </h4>
-        <p>Informational — no immediate action required. Monitor in future test runs.</p>
-      </div>
-
-      
-    </div>
-
-    <div class="card-footer">
-      <button class="btn-expand"
-        data-det="det-card-93"
-        aria-expanded="false"
-        aria-controls="det-card-93">
-        <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
-        <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
-        <span class="expand-chevron">▾</span>
-      </button>
-      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog#april-7-2025" target="_blank" rel="noopener">
-        📄 <span data-en="View in Changelog" data-ar="رابط في سجل التغييرات">View in Changelog</span> ↗
-      </a>
-    </div>
-  </article>
-
-<article class="card"
-    id="card-94"
-    data-date="2025-04-07"
-    data-category="New Feature"
-    data-modules="WhatsApp Templates">
-
-    <div class="card-header">
-      <time class="card-date">7 Apr 2025</time>
-      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
-    </div>
-
-    <h2 class="card-title"
-        data-en="#### Message template updates  #### Flows can now be sent with other buttons in message te"
-        data-ar="تحديث في قوالب قوالب واتساب. (ميزة جديدة)">#### Message template updates  #### Flows can now be sent with other buttons in message te</h2>
-    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
-    <p class="card-summary"
-       data-en="#### Message template updates  #### Flows can now be sent with other buttons in message templates  * You can now send message templates with"
-       data-ar="تحديث في قوالب قوالب واتساب. (ميزة جديدة)">#### Message template updates  #### Flows can now be sent with other buttons in message templates  * You can now send message templates with</p>
-
-    <!-- Expandable detail panel -->
     <div class="card-details" id="det-card-94" aria-hidden="true">
 
       <div class="detail-section detail-changed">
@@ -6140,7 +6148,7 @@
           <span class="detail-icon">📌</span>
           <span data-en="What Changed" data-ar="ما الذي تغيّر">What Changed</span>
         </h4>
-        <p>#### Message template updates  #### Flows can now be sent with other buttons in message templates  * You can now send message templates with a Flow and other types of buttons as part of the same message. * An icon can now be selected for different types of Flows, and a default icon will be displayed if none is selected. This will not affect templates that have already been sent. * You can create m</p>
+        <p>Added typing indicators so you can let WhatsApp users know that you are preparing a response.</p>
       </div>
 
       <div class="detail-section detail-impact">
@@ -6179,22 +6187,22 @@
 
 <article class="card"
     id="card-95"
-    data-date="2025-04-01"
+    data-date="2025-04-07"
     data-category="New Feature"
     data-modules="WhatsApp Templates">
 
     <div class="card-header">
-      <time class="card-date">1 Apr 2025</time>
+      <time class="card-date">7 Apr 2025</time>
       <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
     </div>
 
     <h2 class="card-title"
-        data-en="tsapp/whatsapp-business-accounts#share-your-waba-with-a-solution-provider) WhatsApp Busine"
-        data-ar="ميزة جديدة في موديول قوالب واتساب.">tsapp/whatsapp-business-accounts#share-your-waba-with-a-solution-provider) WhatsApp Busine</h2>
+        data-en="#### Message template updates  #### Flows can now be sent with other buttons in message te"
+        data-ar="تحديث في قوالب قوالب واتساب. (ميزة جديدة)">#### Message template updates  #### Flows can now be sent with other buttons in message te</h2>
     <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
     <p class="card-summary"
-       data-en="tsapp/whatsapp-business-accounts#share-your-waba-with-a-solution-provider) WhatsApp Business Accounts using WhatsApp Manager."
-       data-ar="ميزة جديدة في موديول قوالب واتساب.">tsapp/whatsapp-business-accounts#share-your-waba-with-a-solution-provider) WhatsApp Business Accounts using WhatsApp Manager.</p>
+       data-en="#### Message template updates  #### Flows can now be sent with other buttons in message templates  * You can now send message templates with"
+       data-ar="تحديث في قوالب قوالب واتساب. (ميزة جديدة)">#### Message template updates  #### Flows can now be sent with other buttons in message templates  * You can now send message templates with</p>
 
     <!-- Expandable detail panel -->
     <div class="card-details" id="det-card-95" aria-hidden="true">
@@ -6204,7 +6212,7 @@
           <span class="detail-icon">📌</span>
           <span data-en="What Changed" data-ar="ما الذي تغيّر">What Changed</span>
         </h4>
-        <p>tsapp/whatsapp-business-accounts#share-your-waba-with-a-solution-provider) WhatsApp Business Accounts using WhatsApp Manager.</p>
+        <p>#### Message template updates  #### Flows can now be sent with other buttons in message templates  * You can now send message templates with a Flow and other types of buttons as part of the same message. * An icon can now be selected for different types of Flows, and a default icon will be displayed if none is selected. This will not affect templates that have already been sent. * You can create m</p>
       </div>
 
       <div class="detail-section detail-impact">
@@ -6235,7 +6243,7 @@
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
       </button>
-      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog#april-1-2025" target="_blank" rel="noopener">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog#april-7-2025" target="_blank" rel="noopener">
         📄 <span data-en="View in Changelog" data-ar="رابط في سجل التغييرات">View in Changelog</span> ↗
       </a>
     </div>
@@ -6243,6 +6251,70 @@
 
 <article class="card"
     id="card-96"
+    data-date="2025-04-01"
+    data-category="New Feature"
+    data-modules="WhatsApp Templates">
+
+    <div class="card-header">
+      <time class="card-date">1 Apr 2025</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
+    </div>
+
+    <h2 class="card-title"
+        data-en="tsapp/whatsapp-business-accounts#share-your-waba-with-a-solution-provider) WhatsApp Busine"
+        data-ar="ميزة جديدة في موديول قوالب واتساب.">tsapp/whatsapp-business-accounts#share-your-waba-with-a-solution-provider) WhatsApp Busine</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#25D366;color:#25D366">WhatsApp Templates</span></div>
+    <p class="card-summary"
+       data-en="tsapp/whatsapp-business-accounts#share-your-waba-with-a-solution-provider) WhatsApp Business Accounts using WhatsApp Manager."
+       data-ar="ميزة جديدة في موديول قوالب واتساب.">tsapp/whatsapp-business-accounts#share-your-waba-with-a-solution-provider) WhatsApp Business Accounts using WhatsApp Manager.</p>
+
+    <!-- Expandable detail panel -->
+    <div class="card-details" id="det-card-96" aria-hidden="true">
+
+      <div class="detail-section detail-changed">
+        <h4 class="detail-label">
+          <span class="detail-icon">📌</span>
+          <span data-en="What Changed" data-ar="ما الذي تغيّر">What Changed</span>
+        </h4>
+        <p>tsapp/whatsapp-business-accounts#share-your-waba-with-a-solution-provider) WhatsApp Business Accounts using WhatsApp Manager.</p>
+      </div>
+
+      <div class="detail-section detail-impact">
+        <h4 class="detail-label">
+          <span class="detail-icon">🎯</span>
+          <span data-en="Impact on SEEN V2" data-ar="التأثير على SEEN V2">Impact on SEEN V2</span>
+        </h4>
+        <p>Monitor WhatsApp Templates integration for any behavioural impact.</p>
+      </div>
+
+      <div class="detail-section detail-qa">
+        <h4 class="detail-label">
+          <span class="detail-icon">✅</span>
+          <span data-en="Suggested QA Action" data-ar="إجراء QA المقترح">Suggested QA Action</span>
+        </h4>
+        <p>Informational — no immediate action required. Monitor in future test runs.</p>
+      </div>
+
+      
+    </div>
+
+    <div class="card-footer">
+      <button class="btn-expand"
+        data-det="det-card-96"
+        aria-expanded="false"
+        aria-controls="det-card-96">
+        <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
+        <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
+        <span class="expand-chevron">▾</span>
+      </button>
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog#april-1-2025" target="_blank" rel="noopener">
+        📄 <span data-en="View in Changelog" data-ar="رابط في سجل التغييرات">View in Changelog</span> ↗
+      </a>
+    </div>
+  </article>
+
+<article class="card"
+    id="card-97"
     data-date="2025-03-31"
     data-category="Pricing/Rate Limit"
     data-modules="Billing">
@@ -6261,7 +6333,7 @@
        data-ar="Pricing/Rate Limit في موديول Billing.">Lowered authentication-international pricing rates for Egypt, Nigeria, Pakistan, and South Africa.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-96" aria-hidden="true">
+    <div class="card-details" id="det-card-97" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -6292,9 +6364,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-96"
+        data-det="det-card-97"
         aria-expanded="false"
-        aria-controls="det-card-96">
+        aria-controls="det-card-97">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -6306,7 +6378,7 @@
   </article>
 
 <article class="card"
-    id="card-97"
+    id="card-98"
     data-date="2025-03-31"
     data-category="New Feature"
     data-modules="Broadcasts,Channel Integration/OAuth">
@@ -6325,7 +6397,7 @@
        data-ar="ميزة جديدة في موديول البث الجماعي و تكامل القناة.">* Self-signup for all partners and businesses. All businesses and solution providers (including Solution Partners, Tech Providers and Tech P</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-97" aria-hidden="true">
+    <div class="card-details" id="det-card-98" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -6356,9 +6428,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-97"
+        data-det="det-card-98"
         aria-expanded="false"
-        aria-controls="det-card-97">
+        aria-controls="det-card-98">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -6370,7 +6442,7 @@
   </article>
 
 <article class="card"
-    id="card-98"
+    id="card-99"
     data-date="2025-03-30"
     data-category="New Feature"
     data-modules="Billing">
@@ -6389,7 +6461,7 @@
        data-ar="ميزة جديدة في موديول Billing.">Payments API for business portfolios with Singapore addresses is no longer available.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-98" aria-hidden="true">
+    <div class="card-details" id="det-card-99" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -6420,9 +6492,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-98"
+        data-det="det-card-99"
         aria-expanded="false"
-        aria-controls="det-card-98">
+        aria-controls="det-card-99">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -6434,7 +6506,7 @@
   </article>
 
 <article class="card"
-    id="card-99"
+    id="card-100"
     data-date="2025-03-26"
     data-category="New Feature"
     data-modules="WhatsApp Templates,Broadcasts">
@@ -6453,7 +6525,7 @@
        data-ar="تحديث في قوالب قوالب واتساب و البث الجماعي. (ميزة جديدة)">Key Updates:  * Character limits for the body component will vary based on the template format and tag * The number of emojis allowed in the</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-99" aria-hidden="true">
+    <div class="card-details" id="det-card-100" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -6484,9 +6556,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-99"
+        data-det="det-card-100"
         aria-expanded="false"
-        aria-controls="det-card-99">
+        aria-controls="det-card-100">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -6498,7 +6570,7 @@
   </article>
 
 <article class="card"
-    id="card-100"
+    id="card-101"
     data-date="2025-03-19"
     data-category="Deprecation"
     data-modules="WhatsApp Templates">
@@ -6517,7 +6589,7 @@
        data-ar="تمت إضافة تحديث في قوالب واتساب. (إيقاف دعم)">Added partner-initiated WABA creation to replace the On-Behalf-Of (“OBO”) account ownership model, which is being deprecated. Starting Septe</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-100" aria-hidden="true">
+    <div class="card-details" id="det-card-101" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -6548,9 +6620,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-100"
+        data-det="det-card-101"
         aria-expanded="false"
-        aria-controls="det-card-100">
+        aria-controls="det-card-101">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -6562,7 +6634,7 @@
   </article>
 
 <article class="card"
-    id="card-101"
+    id="card-102"
     data-date="2025-03-10"
     data-category="Breaking Change"
     data-modules="WhatsApp Templates">
@@ -6581,7 +6653,7 @@
        data-ar="تغيير جذري ⚠️ في موديول قوالب واتساب.">#### Component updates (Flow JSON Version 7.0)  #### New property “label-variant” on TextArea and TextInput  * You can now utilize the *labe</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-101" aria-hidden="true">
+    <div class="card-details" id="det-card-102" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -6612,9 +6684,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-101"
+        data-det="det-card-102"
         aria-expanded="false"
-        aria-controls="det-card-101">
+        aria-controls="det-card-102">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -6626,7 +6698,7 @@
   </article>
 
 <article class="card"
-    id="card-102"
+    id="card-103"
     data-date="2025-02-26"
     data-category="New Feature"
     data-modules="Broadcasts">
@@ -6645,7 +6717,7 @@
        data-ar="ميزة جديدة في موديول البث الجماعي.">* Marketing Messages Lite API * Conversions API * Marketing API  Note that these tiles only appear for products that you are eligible to use</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-102" aria-hidden="true">
+    <div class="card-details" id="det-card-103" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -6676,9 +6748,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-102"
+        data-det="det-card-103"
         aria-expanded="false"
-        aria-controls="det-card-102">
+        aria-controls="det-card-103">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -6690,7 +6762,7 @@
   </article>
 
 <article class="card"
-    id="card-103"
+    id="card-104"
     data-date="2025-02-13"
     data-category="New Feature"
     data-modules="WhatsApp Templates">
@@ -6709,7 +6781,7 @@
        data-ar="تحديث في قوالب قوالب واتساب. (ميزة جديدة)">* Added GET /&lt;WABA_ID&gt;/template_groups * Added POST /&lt;WABA_ID&gt;/template_groups * Added GET /&lt;WABA_ID&gt;/template_group_analytics * Added GET /</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-103" aria-hidden="true">
+    <div class="card-details" id="det-card-104" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -6740,9 +6812,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-103"
+        data-det="det-card-104"
         aria-expanded="false"
-        aria-controls="det-card-103">
+        aria-controls="det-card-104">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -6754,7 +6826,7 @@
   </article>
 
 <article class="card"
-    id="card-104"
+    id="card-105"
     data-date="2025-02-10"
     data-category="New Feature"
     data-modules="Channel Integration/OAuth">
@@ -6773,7 +6845,7 @@
        data-ar="تمت إضافة تحديث في تكامل القناة. (ميزة جديدة)">Added ability for solution providers to onboard WhatsApp Business app users via Embedded Signup (aka “Coexistence”).</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-104" aria-hidden="true">
+    <div class="card-details" id="det-card-105" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -6804,9 +6876,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-104"
+        data-det="det-card-105"
         aria-expanded="false"
-        aria-controls="det-card-104">
+        aria-controls="det-card-105">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -6818,7 +6890,7 @@
   </article>
 
 <article class="card"
-    id="card-105"
+    id="card-106"
     data-date="2025-01-31"
     data-category="Pricing/Rate Limit"
     data-modules="Billing">
@@ -6837,7 +6909,7 @@
        data-ar="Pricing/Rate Limit في موديول Billing.">* Lowered authentication pricing rates for Egypt, Malaysia, Nigeria, Pakistan, Saudi Arabia, South Africa, and the United Arab Emirates. * A</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-105" aria-hidden="true">
+    <div class="card-details" id="det-card-106" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -6868,9 +6940,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-105"
+        data-det="det-card-106"
         aria-expanded="false"
-        aria-controls="det-card-105">
+        aria-controls="det-card-106">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -6882,7 +6954,7 @@
   </article>
 
 <article class="card"
-    id="card-106"
+    id="card-107"
     data-date="2025-01-22"
     data-category="New Feature"
     data-modules="Channel Integration/OAuth">
@@ -6901,7 +6973,7 @@
        data-ar="تمت إضافة تحديث في تكامل القناة. (ميزة جديدة)">Added ability for business customers of solution providers to claim “555” business phone numbers when onboarding via Embedded Signup.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-106" aria-hidden="true">
+    <div class="card-details" id="det-card-107" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -6932,9 +7004,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-106"
+        data-det="det-card-107"
         aria-expanded="false"
-        aria-controls="det-card-106">
+        aria-controls="det-card-107">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -6946,7 +7018,7 @@
   </article>
 
 <article class="card"
-    id="card-107"
+    id="card-108"
     data-date="2025-01-15"
     data-category="New Feature"
     data-modules="WhatsApp Templates">
@@ -6965,7 +7037,7 @@
        data-ar="تمت إضافة تحديث في قوالب واتساب. (ميزة جديدة)">Added the Block API giving businesses the ability to manage unwanted spam by blocking or unblocking specific customer phone numbers.</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-107" aria-hidden="true">
+    <div class="card-details" id="det-card-108" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -6996,9 +7068,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-107"
+        data-det="det-card-108"
         aria-expanded="false"
-        aria-controls="det-card-107">
+        aria-controls="det-card-108">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -7010,7 +7082,7 @@
   </article>
 
 <article class="card"
-    id="card-108"
+    id="card-109"
     data-date="2025-01-13"
     data-category="New Feature"
     data-modules="WhatsApp Templates">
@@ -7029,7 +7101,7 @@
        data-ar="ميزة جديدة في موديول قوالب واتساب.">#### Component updates (Flow JSON version 6.3)  #### Chips selector component  * The Chips Selector component simplifies tasks, such as sele</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-108" aria-hidden="true">
+    <div class="card-details" id="det-card-109" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -7060,9 +7132,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-108"
+        data-det="det-card-109"
         aria-expanded="false"
-        aria-controls="det-card-108">
+        aria-controls="det-card-109">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -7074,7 +7146,7 @@
   </article>
 
 <article class="card"
-    id="card-109"
+    id="card-110"
     data-date="2025-01-06"
     data-category="New Feature"
     data-modules="Channel Integration/OAuth">
@@ -7093,7 +7165,7 @@
        data-ar="ميزة جديدة في موديول تكامل القناة.">* Added ability to migrate business customers off of Multi-Partner Solutions via Embedded Signup and via Meta Business Suite. Both methods s</p>
 
     <!-- Expandable detail panel -->
-    <div class="card-details" id="det-card-109" aria-hidden="true">
+    <div class="card-details" id="det-card-110" aria-hidden="true">
 
       <div class="detail-section detail-changed">
         <h4 class="detail-label">
@@ -7124,9 +7196,9 @@
 
     <div class="card-footer">
       <button class="btn-expand"
-        data-det="det-card-109"
+        data-det="det-card-110"
         aria-expanded="false"
-        aria-controls="det-card-109">
+        aria-controls="det-card-110">
         <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
@@ -7145,7 +7217,7 @@
       <a href="https://antigravity.dev" target="_blank" rel="noopener">Antigravity</a> ·
       <span data-en="Sources:" data-ar="المصادر:">Sources:</span>
       <a href="https://developers.facebook.com/docs" target="_blank" rel="noopener">Meta for Developers</a> ·
-      <time datetime="2026-06-24T20:52:37.631Z">24 Jun 2026 11:52 PM 🇪🇬</time>
+      <time datetime="2026-06-26T13:09:29.802Z">26 Jun 2026 4:09 PM 🇪🇬</time>
     </p>
   </footer>
 
