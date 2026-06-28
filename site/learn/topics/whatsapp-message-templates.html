@@ -44,7 +44,7 @@
       <div class="header-build-time" title="System Status: Up to date">
         <div class="build-pulse"></div>
         <span class="build-label">LAST BUILD</span>
-        <span class="build-value">Jun 26, 2026, 4:25 PM 🇪🇬</span>
+        <span class="build-value">Jun 28, 2026, 5:03 PM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
@@ -118,38 +118,98 @@
 
 <h2 id="endpoints">Endpoints</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Method</th><th>Endpoint</th><th>Purpose</th></tr></thead><tbody><tr><td><code>POST</code></td><td><code>/{version}/{waba-id}/message_templates</code></td><td>Create a template</td></tr><tr><td><code>GET</code></td><td><code>/{version}/{waba-id}/message_templates</code></td><td>List templates</td></tr><tr><td><code>GET</code></td><td><code>/{version}/{template-id}</code></td><td>Get template details</td></tr><tr><td><code>POST</code></td><td><code>/{version}/{template-id}</code></td><td>Edit a template</td></tr><tr><td><code>DELETE</code></td><td><code>/{version}/{waba-id}/message_templates</code></td><td>Delete template(s)</td></tr></tbody></table></div>
+<p>| Method | Endpoint | Purpose |</p>
+<p>|--------|----------|---------|</p>
+<p>| <code>POST</code> | <code>/{version}/{waba-id}/message_templates</code> | Create a template |</p>
+<p>| <code>GET</code> | <code>/{version}/{waba-id}/message_templates</code> | List templates |</p>
+<p>| <code>GET</code> | <code>/{version}/{template-id}</code> | Get template details |</p>
+<p>| <code>POST</code> | <code>/{version}/{template-id}</code> | Edit a template |</p>
+<p>| <code>DELETE</code> | <code>/{version}/{waba-id}/message_templates</code> | Delete template(s) |</p>
+
 <hr>
 
 <h2 id="create-parameters">CREATE — Parameters</h2>
 
 <h3 id="required">Required</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Field</th><th>Type</th><th>Valid Values</th><th>Notes</th></tr></thead><tbody><tr><td><code>name</code></td><td>string</td><td><code>^[a-z0-9_]+$</code></td><td>Max 512 chars. Lowercase, digits, underscores <strong>only</strong></td></tr><tr><td><code>language</code></td><td>string</td><td><code>en_US</code>, <code>ar</code>, <code>en</code>, ...</td><td>ISO 639 language code with optional locale</td></tr><tr><td><code>category</code></td><td>enum</td><td><code>MARKETING</code> \</td><td><code>UTILITY</code> \</td><td><code>AUTHENTICATION</code></td><td>Controls pricing and allowed content</td></tr></tbody></table></div>
+<p>| Field | Type | Valid Values | Notes |</p>
+<p>|-------|------|-------------|-------|</p>
+<p>| <code>name</code> | string | <code>^[a-z0-9_]+$</code> | Max 512 chars. Lowercase, digits, underscores <strong>only</strong> |</p>
+<p>| <code>language</code> | string | <code>en_US</code>, <code>ar</code>, <code>en</code>, ... | ISO 639 language code with optional locale |</p>
+<p>| <code>category</code> | enum | <code>MARKETING</code> \| <code>UTILITY</code> \| <code>AUTHENTICATION</code> | Controls pricing and allowed content |</p>
+
 <h3 id="optional">Optional</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Field</th><th>Type</th><th>Default</th><th>Notes</th></tr></thead><tbody><tr><td><code>components</code></td><td>array</td><td>—</td><td>Header, body, footer, buttons</td></tr><tr><td><code>parameter_format</code></td><td>enum</td><td><code>POSITIONAL</code></td><td><code>POSITIONAL</code> (<code>{{1}}</code>) or <code>NAMED</code> (<code>{{name}}</code>)</td></tr><tr><td><code>allow_category_change</code></td><td>boolean</td><td><code>false</code></td><td>Let Meta reassign category during review</td></tr><tr><td><code>message_send_ttl_seconds</code></td><td>integer</td><td>—</td><td>Authentication templates only</td></tr><tr><td><code>sub_category</code></td><td>string</td><td>—</td><td>Utility template sub-categories</td></tr><tr><td><code>cta_url_link_tracking_opted_out</code></td><td>boolean</td><td><code>false</code></td><td>Opt out of URL tracking</td></tr><tr><td><code>library_template_name</code></td><td>string</td><td>—</td><td>Clone from Meta's template library</td></tr></tbody></table></div>
+<p>| Field | Type | Default | Notes |</p>
+<p>|-------|------|---------|-------|</p>
+<p>| <code>components</code> | array | — | Header, body, footer, buttons |</p>
+<p>| <code>parameter_format</code> | enum | <code>POSITIONAL</code> | <code>POSITIONAL</code> (<code>{{1}}</code>) or <code>NAMED</code> (<code>{{name}}</code>) |</p>
+<p>| <code>allow_category_change</code> | boolean | <code>false</code> | Let Meta reassign category during review |</p>
+<p>| <code>message_send_ttl_seconds</code> | integer | — | Authentication templates only |</p>
+<p>| <code>sub_category</code> | string | — | Utility template sub-categories |</p>
+<p>| <code>cta_url_link_tracking_opted_out</code> | boolean | <code>false</code> | Opt out of URL tracking |</p>
+<p>| <code>library_template_name</code> | string | — | Clone from Meta's template library |</p>
+
 <hr>
 
 <h2 id="create-validation-rules">CREATE — Validation Rules</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Gets REJECTED</th><th><span class="icon-accept">✅</span> Gets ACCEPTED</th></tr></thead><tbody><tr><td><strong>Name format</strong></td><td><code>Hello World</code>, <code>hello-world</code>, <code>hello#world</code></td><td><code>hello_world</code>, <code>order_update_2</code></td></tr><tr><td><strong>Name length</strong></td><td>More than 512 characters</td><td>512 characters or fewer</td></tr><tr><td><strong>Category value</strong></td><td><code>TRANSACTIONAL</code>, <code>OTP</code> (old values)</td><td><code>MARKETING</code>, <code>UTILITY</code>, <code>AUTHENTICATION</code></td></tr><tr><td><strong>Duplicate body</strong></td><td>Same body+footer text as existing template in same WABA+language</td><td>Any unique body (AUTHENTICATION exempt)</td></tr><tr><td><strong>Variable format (positional)</strong></td><td><code>{1}</code>, <code>%1</code>, <code>[[1]]</code>, <code>{{ 1 }}</code></td><td><code>{{1}}</code>, <code>{{2}}</code></td></tr><tr><td><strong>Variable format (named)</strong></td><td><code>{name}</code>, <code>%name%</code></td><td><code>{{customer_name}}</code></td></tr><tr><td><strong>Variable characters</strong></td><td><code>{{name#}}</code>, <code>{{price$}}</code>, <code>{{id%}}</code></td><td><code>{{name}}</code>, <code>{{order_id}}</code></td></tr><tr><td><strong>Variable sequence</strong></td><td><code>{{1}}</code>, <code>{{2}}</code>, <code>{{5}}</code> (gap)</td><td><code>{{1}}</code>, <code>{{2}}</code>, <code>{{3}}</code></td></tr><tr><td><strong>Dangling variables</strong></td><td>Starting/ending body with <code>{{1}}</code> only</td><td>Variable surrounded by text on both sides</td></tr><tr><td><strong>Variable density</strong></td><td>Too many <code>{{n}}</code> relative to actual text words</td><td>Reasonable ratio of text to variables</td></tr><tr><td><strong>Sample values</strong></td><td>Template with variables but no <code>example</code> field</td><td><code>"example": { "body_text": [["John"]] }</code></td></tr><tr><td><strong>Policy</strong></td><td>Requesting credit card numbers, national IDs, passwords</td><td>Functional business content</td></tr></tbody></table></div>
+<p>| Rule | <span class="icon-reject">❌</span> Gets REJECTED | <span class="icon-accept">✅</span> Gets ACCEPTED |</p>
+<p>|------|-----------------|-----------------|</p>
+<p>| <strong>Name format</strong> | <code>Hello World</code>, <code>hello-world</code>, <code>hello#world</code> | <code>hello_world</code>, <code>order_update_2</code> |</p>
+<p>| <strong>Name length</strong> | More than 512 characters | 512 characters or fewer |</p>
+<p>| <strong>Category value</strong> | <code>TRANSACTIONAL</code>, <code>OTP</code> (old values) | <code>MARKETING</code>, <code>UTILITY</code>, <code>AUTHENTICATION</code> |</p>
+<p>| <strong>Duplicate body</strong> | Same body+footer text as existing template in same WABA+language | Any unique body (AUTHENTICATION exempt) |</p>
+<p>| <strong>Variable format (positional)</strong> | <code>{1}</code>, <code>%1</code>, <code>[[1]]</code>, <code>{{ 1 }}</code> | <code>{{1}}</code>, <code>{{2}}</code> |</p>
+<p>| <strong>Variable format (named)</strong> | <code>{name}</code>, <code>%name%</code> | <code>{{customer_name}}</code> |</p>
+<p>| <strong>Variable characters</strong> | <code>{{name#}}</code>, <code>{{price$}}</code>, <code>{{id%}}</code> | <code>{{name}}</code>, <code>{{order_id}}</code> |</p>
+<p>| <strong>Variable sequence</strong> | <code>{{1}}</code>, <code>{{2}}</code>, <code>{{5}}</code> (gap) | <code>{{1}}</code>, <code>{{2}}</code>, <code>{{3}}</code> |</p>
+<p>| <strong>Dangling variables</strong> | Starting/ending body with <code>{{1}}</code> only | Variable surrounded by text on both sides |</p>
+<p>| <strong>Variable density</strong> | Too many <code>{{n}}</code> relative to actual text words | Reasonable ratio of text to variables |</p>
+<p>| <strong>Sample values</strong> | Template with variables but no <code>example</code> field | <code>"example": { "body_text": [["John"]] }</code> |</p>
+<p>| <strong>Policy</strong> | Requesting credit card numbers, national IDs, passwords | Functional business content |</p>
+
 <hr>
 
 <h2 id="components-detail-limits">Components — Detail & Limits</h2>
 
 <h3 id="header-optional">HEADER (optional)</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Format</th><th>Limit</th><th>Notes</th></tr></thead><tbody><tr><td>TEXT</td><td>Max 60 chars</td><td>Supports <strong>1 variable</strong> max. Requires sample.</td></tr><tr><td>IMAGE</td><td>—</td><td>Needs <code>header_handle</code> (upload first)</td></tr><tr><td>VIDEO</td><td>—</td><td>Needs <code>header_handle</code></td></tr><tr><td>DOCUMENT</td><td>—</td><td>Needs <code>header_handle</code></td></tr><tr><td>GIF</td><td>Max 3.5 MB</td><td>Actually MP4 format under the hood</td></tr><tr><td>LOCATION</td><td>—</td><td>UTILITY and MARKETING only</td></tr></tbody></table></div>
+<p>| Format | Limit | Notes |</p>
+<p>|--------|-------|-------|</p>
+<p>| TEXT | Max 60 chars | Supports <strong>1 variable</strong> max. Requires sample. |</p>
+<p>| IMAGE | — | Needs <code>header_handle</code> (upload first) |</p>
+<p>| VIDEO | — | Needs <code>header_handle</code> |</p>
+<p>| DOCUMENT | — | Needs <code>header_handle</code> |</p>
+<p>| GIF | Max 3.5 MB | Actually MP4 format under the hood |</p>
+<p>| LOCATION | — | UTILITY and MARKETING only |</p>
+
 <h3 id="body-required">BODY (required)</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Property</th><th>Limit</th></tr></thead><tbody><tr><td>Max characters</td><td><strong>1024</strong></td></tr><tr><td>Variables</td><td>Multiple allowed</td></tr><tr><td>Markdown</td><td><strong>Not</strong> supported</td></tr><tr><td>Requires sample</td><td>Yes, when variables present</td></tr></tbody></table></div>
+<p>| Property | Limit |</p>
+<p>|----------|-------|</p>
+<p>| Max characters | <strong>1024</strong> |</p>
+<p>| Variables | Multiple allowed |</p>
+<p>| Markdown | <strong>Not</strong> supported |</p>
+<p>| Requires sample | Yes, when variables present |</p>
+
 <h3 id="footer-optional">FOOTER (optional)</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody><tr><td>Max characters</td><td><strong>60</strong></td></tr><tr><td>Variables</td><td><span class="icon-reject">❌</span> Not allowed</td></tr><tr><td>Format</td><td>Text only</td></tr></tbody></table></div>
+<p>| Property | Value |</p>
+<p>|----------|-------|</p>
+<p>| Max characters | <strong>60</strong> |</p>
+<p>| Variables | <span class="icon-reject">❌</span> Not allowed |</p>
+<p>| Format | Text only |</p>
+
 <h3 id="buttons-optional">BUTTONS (optional)</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Type</th><th>Max per template</th><th>Limit per button</th><th>Notes</th></tr></thead><tbody><tr><td><code>QUICK_REPLY</code></td><td>10</td><td>Text: 25 chars</td><td>Must be grouped (all first or all last)</td></tr><tr><td><code>URL</code></td><td>2</td><td>Text: 25 chars, URL: 2000 chars</td><td>1 variable at URL end only</td></tr><tr><td><code>PHONE_NUMBER</code></td><td>1</td><td>Text: 25 chars, number: 20 chars</td><td>—</td></tr><tr><td><code>COPY_CODE</code></td><td>1</td><td>Code: 20 chars</td><td>—</td></tr></tbody></table></div>
+<p>| Type | Max per template | Limit per button | Notes |</p>
+<p>|------|-----------------|-----------------|-------|</p>
+<p>| <code>QUICK_REPLY</code> | 10 | Text: 25 chars | Must be grouped (all first or all last) |</p>
+<p>| <code>URL</code> | 2 | Text: 25 chars, URL: 2000 chars | 1 variable at URL end only |</p>
+<p>| <code>PHONE_NUMBER</code> | 1 | Text: 25 chars, number: 20 chars | — |</p>
+<p>| <code>COPY_CODE</code> | 1 | Code: 20 chars | — |</p>
+
 <div class="callout callout-warn"><span>⚠️</span><p>Templates with 4+ buttons, or Quick Reply buttons mixed with other types, are **hidden on WhatsApp Desktop**. Visible on mobile only.</p></div>
 
 <div class="callout callout-info"><strong>UI rule:</strong><p>When total buttons > 3, only the first 2 show — rest hidden under "See all options."</p></div>
@@ -158,86 +218,102 @@
 
 <h2 id="edit-rules">EDIT — Rules</h2>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — TEXT Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-text"><code class="language-text">POST /{version}/{template-id}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```</p>
+<p>POST /{version}/{template-id}</p>
+<p>```</p>
 
 <h3 id="what-can-be-changed">What CAN be changed</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Field</th><th>Condition</th></tr></thead><tbody><tr><td><code>components</code> (body, header, buttons)</td><td>Always (re-triggers review)</td></tr><tr><td><code>category</code></td><td>Only if template is <code class="code-red">REJECTED</code> or <code>PAUSED</code></td></tr><tr><td><code>message_send_ttl_seconds</code></td><td>Any state</td></tr><tr><td><code>allow_category_change</code></td><td>Any state</td></tr></tbody></table></div>
+<p>| Field | Condition |</p>
+<p>|-------|-----------|</p>
+<p>| <code>components</code> (body, header, buttons) | Always (re-triggers review) |</p>
+<p>| <code>category</code> | Only if template is <code class="code-red">REJECTED</code> or <code>PAUSED</code> |</p>
+<p>| <code>message_send_ttl_seconds</code> | Any state |</p>
+<p>| <code>allow_category_change</code> | Any state |</p>
+
 <h3 id="what-cannot-be-changed-immutable">What CANNOT be changed (Immutable)</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Field</th><th>Workaround</th></tr></thead><tbody><tr><td><code>name</code></td><td>Delete + create new</td></tr><tr><td><code>language</code></td><td>Delete + create new</td></tr></tbody></table></div>
+<p>| Field | Workaround |</p>
+<p>|-------|-----------|</p>
+<p>| <code>name</code> | Delete + create new |</p>
+<p>| <code>language</code> | Delete + create new |</p>
+
 <h3 id="edit-rate-limits">Edit Rate Limits</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Template state</th><th>Edits allowed</th></tr></thead><tbody><tr><td><code>APPROVED</code></td><td>Max <strong>10 edits per 30 days</strong>, or <strong>1 edit per 24 hours</strong></td></tr><tr><td><code class="code-red">REJECTED</code></td><td>Unlimited</td></tr><tr><td><code>PAUSED</code></td><td>Unlimited</td></tr></tbody></table></div>
+<p>| Template state | Edits allowed |</p>
+<p>|---------------|--------------|</p>
+<p>| <code>APPROVED</code> | Max <strong>10 edits per 30 days</strong>, or <strong>1 edit per 24 hours</strong> |</p>
+<p>| <code class="code-red">REJECTED</code> | Unlimited |</p>
+<p>| <code>PAUSED</code> | Unlimited |</p>
+
 <hr>
 
 <h2 id="delete-rules">DELETE — Rules</h2>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — TEXT Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-text"><code class="language-text">DELETE /{version}/{waba-id}/message_templates</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```</p>
+<p>DELETE /{version}/{waba-id}/message_templates</p>
+<p>```</p>
 
-<div class="table-wrap"><table><thead><tr><th>Param</th><th>Effect</th></tr></thead><tbody><tr><td><code>name</code> only</td><td>Deletes <strong>all</strong> languages of that template</td></tr><tr><td><code>name</code> + <code>hsm_id</code></td><td>Deletes <strong>one specific</strong> language</td></tr><tr><td><code>hsm_ids</code> (array)</td><td>Deletes up to <strong>100</strong> templates at once — if any ID is invalid, <strong>entire request fails</strong></td></tr></tbody></table></div>
+<p>| Param | Effect |</p>
+<p>|-------|--------|</p>
+<p>| <code>name</code> only | Deletes <strong>all</strong> languages of that template |</p>
+<p>| <code>name</code> + <code>hsm_id</code> | Deletes <strong>one specific</strong> language |</p>
+<p>| <code>hsm_ids</code> (array) | Deletes up to <strong>100</strong> templates at once — if any ID is invalid, <strong>entire request fails</strong> |</p>
+
 <h3 id="delete-restrictions">Delete Restrictions</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Condition</th><th>Result</th></tr></thead><tbody><tr><td>Template is <code>DISABLED</code></td><td><span class="icon-reject">❌</span> Cannot delete</td></tr><tr><td>Template was <code>APPROVED</code></td><td>Name <strong>blocked for 30 days</strong> from reuse</td></tr><tr><td>Template in transit when deleted</td><td>Status becomes <code>PENDING_DELETION</code>, delivery retried for 30 days</td></tr><tr><td>Missing <code>whatsapp_business_management</code> permission</td><td>Error code <code>200</code></td></tr></tbody></table></div>
+<p>| Condition | Result |</p>
+<p>|-----------|--------|</p>
+<p>| Template is <code>DISABLED</code> | <span class="icon-reject">❌</span> Cannot delete |</p>
+<p>| Template was <code>APPROVED</code> | Name <strong>blocked for 30 days</strong> from reuse |</p>
+<p>| Template in transit when deleted | Status becomes <code>PENDING_DELETION</code>, delivery retried for 30 days |</p>
+<p>| Missing <code>whatsapp_business_management</code> permission | Error code <code>200</code> |</p>
+
 <hr>
 
 <h2 id="error-codes-reference">Error Codes Reference</h2>
 
 <h3 id="creation-validation-errors">Creation / Validation Errors</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Code</th><th>Subcode</th><th>Error</th><th>What triggered it</th><th>Fix</th></tr></thead><tbody><tr><td><code>100</code></td><td>—</td><td>Invalid parameter</td><td>Name contains uppercase/special chars, invalid category</td><td>Use <code>^[a-z0-9_]+$</code> names</td></tr><tr><td><code>100</code></td><td><code>2388024</code></td><td>Duplicate name</td><td>Same name+language already exists in this WABA</td><td>Use a different name</td></tr><tr><td><code>2388040</code></td><td>—</td><td>Character limit exceeded</td><td>Body > 1024, header > 60, footer > 60</td><td>Shorten field</td></tr><tr><td><code>2388047</code></td><td>—</td><td>Header format incorrect</td><td>Invalid header structure</td><td>Check header component format</td></tr><tr><td><code>2388072</code></td><td>—</td><td>Body format incorrect</td><td>Bad variable syntax or structure</td><td>Check <code>{{n}}</code> format</td></tr><tr><td><code>2388073</code></td><td>—</td><td>Footer format incorrect</td><td>Footer has variables</td><td>Remove variables from footer</td></tr><tr><td><code>2388293</code></td><td>—</td><td>Words/parameters ratio exceeded</td><td>Too many variables for text length</td><td>Add more text around variables</td></tr><tr><td><code>2388299</code></td><td>—</td><td>Dangling parameter</td><td>Template starts or ends with a variable</td><td>Wrap variable with text</td></tr><tr><td><code>2388019</code></td><td>—</td><td>Template limit exceeded</td><td>WABA has too many templates</td><td>Delete unused templates</td></tr></tbody></table></div>
+<p>| Code | Subcode | Error | What triggered it | Fix |</p>
+<p>|------|---------|-------|-------------------|-----|</p>
+<p>| <code>100</code> | — | Invalid parameter | Name contains uppercase/special chars, invalid category | Use <code>^[a-z0-9_]+$</code> names |</p>
+<p>| <code>100</code> | <code>2388024</code> | Duplicate name | Same name+language already exists in this WABA | Use a different name |</p>
+<p>| <code>2388040</code> | — | Character limit exceeded | Body > 1024, header > 60, footer > 60 | Shorten field |</p>
+<p>| <code>2388047</code> | — | Header format incorrect | Invalid header structure | Check header component format |</p>
+<p>| <code>2388072</code> | — | Body format incorrect | Bad variable syntax or structure | Check <code>{{n}}</code> format |</p>
+<p>| <code>2388073</code> | — | Footer format incorrect | Footer has variables | Remove variables from footer |</p>
+<p>| <code>2388293</code> | — | Words/parameters ratio exceeded | Too many variables for text length | Add more text around variables |</p>
+<p>| <code>2388299</code> | — | Dangling parameter | Template starts or ends with a variable | Wrap variable with text |</p>
+<p>| <code>2388019</code> | — | Template limit exceeded | WABA has too many templates | Delete unused templates |</p>
+
 <h3 id="send-time-errors-when-sending-a-template-message">Send-time Errors (when sending a template message)</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Code</th><th>Error</th><th>What triggered it</th><th>Fix</th></tr></thead><tbody><tr><td><code>132000</code></td><td>Parameter count mismatch</td><td>Request has different variable count than template</td><td>Match variables exactly</td></tr><tr><td><code>132001</code></td><td>Template not found or not approved</td><td>Wrong slug, wrong language, or still in review</td><td>Verify name/language/status</td></tr><tr><td><code>132005</code></td><td>Translated text too long</td><td>—</td><td>Shorten text</td></tr><tr><td><code>132007</code></td><td>Policy violation</td><td>Template content violates WhatsApp policy</td><td>Review template content</td></tr><tr><td><code>132012</code></td><td>Variable format incorrect</td><td>Malformed variable values in send request</td><td>Fix parameter format</td></tr><tr><td><code>132015</code></td><td>Template paused</td><td>Low quality score</td><td>Improve template relevance</td></tr><tr><td><code>132016</code></td><td>Template disabled</td><td>Paused too many times</td><td>Create a new template</td></tr><tr><td><code>132018</code></td><td>Template validation error</td><td>Variables in request don't match template</td><td>Check parameter structure</td></tr><tr><td><code>134101</code></td><td>Template still syncing</td><td>Just created/edited, not propagated yet</td><td>Wait up to 10 minutes</td></tr><tr><td><code>134102</code></td><td>Template unavailable (ad sync failed)</td><td>Ad link failed</td><td>Check Meta Ad account link</td></tr><tr><td><code>131049</code></td><td>Message blocked (per-user limit)</td><td>User reached marketing template limit</td><td>Normal — user-enforced limit</td></tr><tr><td><code>131050</code></td><td>User opted out</td><td>User unsubscribed from marketing</td><td>Respect opt-out</td></tr><tr><td><code>131063</code></td><td>Marketing templates disabled</td><td>WABA disabled marketing</td><td>Contact Meta support</td></tr><tr><td><code>131064</code></td><td>Account messaging limit</td><td>Template classification violations</td><td>Review template categories</td></tr></tbody></table></div>
+<p>| Code | Error | What triggered it | Fix |</p>
+<p>|------|-------|-------------------|-----|</p>
+<p>| <code>132000</code> | Parameter count mismatch | Request has different variable count than template | Match variables exactly |</p>
+<p>| <code>132001</code> | Template not found or not approved | Wrong slug, wrong language, or still in review | Verify name/language/status |</p>
+<p>| <code>132005</code> | Translated text too long | — | Shorten text |</p>
+<p>| <code>132007</code> | Policy violation | Template content violates WhatsApp policy | Review template content |</p>
+<p>| <code>132012</code> | Variable format incorrect | Malformed variable values in send request | Fix parameter format |</p>
+<p>| <code>132015</code> | Template paused | Low quality score | Improve template relevance |</p>
+<p>| <code>132016</code> | Template disabled | Paused too many times | Create a new template |</p>
+<p>| <code>132018</code> | Template validation error | Variables in request don't match template | Check parameter structure |</p>
+<p>| <code>134101</code> | Template still syncing | Just created/edited, not propagated yet | Wait up to 10 minutes |</p>
+<p>| <code>134102</code> | Template unavailable (ad sync failed) | Ad link failed | Check Meta Ad account link |</p>
+<p>| <code>131049</code> | Message blocked (per-user limit) | User reached marketing template limit | Normal — user-enforced limit |</p>
+<p>| <code>131050</code> | User opted out | User unsubscribed from marketing | Respect opt-out |</p>
+<p>| <code>131063</code> | Marketing templates disabled | WABA disabled marketing | Contact Meta support |</p>
+<p>| <code>131064</code> | Account messaging limit | Template classification violations | Review template categories |</p>
+
 <hr>
 
 <h2 id="code-examples">Code Examples</h2>
 
 <h3 id="valid-create-a-utility-template">✅ Valid: Create a UTILITY template</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">POST /v21.0/{WABA_ID}/message_templates</p>
+<p>```json</p>
+<p>POST /v21.0/{WABA_ID}/message_templates</p>
 
 <p>{</p>
 <p>  "name": "order_shipped",</p>
@@ -273,100 +349,44 @@
 <p>      ]</p>
 <p>    }</p>
 <p>  ]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h3 id="rejected-name-with-uppercase-letters">❌ Rejected: Name with uppercase letters</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "name": "Order_Shipped",  ← ERROR: uppercase 'O' and 'S'</p>
 <p>  "language": "en_US",</p>
 <p>  "category": "UTILITY"</p>
 <p>}</p>
-<p>// Error 100: Parameter name must match ^[a-z0-9_]+$</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>// Error 100: Parameter name must match ^[a-z0-9_]+$</p>
+<p>```</p>
 
 <h3 id="rejected-body-starts-with-a-variable-dangling">❌ Rejected: Body starts with a variable (dangling)</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "type": "BODY",</p>
 <p>  "text": "{{1}} has placed an order."  ← ERROR: starts with variable</p>
 <p>}</p>
-<p>// Error 2388299: Leading or trailing parameters not allowed</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>// Error 2388299: Leading or trailing parameters not allowed</p>
+<p>```</p>
 
 <h3 id="rejected-footer-has-a-variable">❌ Rejected: Footer has a variable</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "type": "FOOTER",</p>
 <p>  "text": "Order ID: {{1}}"  ← ERROR: variables not allowed in footer</p>
 <p>}</p>
-<p>// Error 2388073: Message footer format is incorrect</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>// Error 2388073: Message footer format is incorrect</p>
+<p>```</p>
 
 <h3 id="valid-edit-a-rejected-template-change-body">✅ Valid: Edit a rejected template (change body)</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">POST /v21.0/{TEMPLATE_ID}</p>
+<p>```json</p>
+<p>POST /v21.0/{TEMPLATE_ID}</p>
 
 <p>{</p>
 <p>  "components": [</p>
@@ -378,104 +398,61 @@
 <p>      }</p>
 <p>    }</p>
 <p>  ]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h3 id="rejected-trying-to-change-template-name-immutable">❌ Rejected: Trying to change template name (immutable)</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">POST /v21.0/{TEMPLATE_ID}</p>
+<p>```json</p>
+<p>POST /v21.0/{TEMPLATE_ID}</p>
 
 <p>{</p>
 <p>  "name": "new_name"  ← ERROR: name is immutable</p>
 <p>}</p>
-<p>// Field is silently ignored or returns error — name cannot change</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>// Field is silently ignored or returns error — name cannot change</p>
+<p>```</p>
 
 <hr>
 
 <h2 id="seen-v2-notes">SEEN V2 — Notes</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Feature</th><th>How SEEN V2 Uses It</th></tr></thead><tbody><tr><td>WhatsApp Templates</td><td>Core of Broadcasts module — all bulk sends</td></tr><tr><td>Category</td><td><code>MARKETING</code> for campaigns, <code>UTILITY</code> for transactional</td></tr><tr><td>Webhooks</td><td><code>message_template_status_update</code> → watch for <code>APPROVED</code>/<code class="code-red">REJECTED</code></td></tr><tr><td>Rate limits</td><td>Apply per WABA — shared across all SEEN V2 clients on same WABA</td></tr><tr><td>Opt-out</td><td><code>131050</code> must be handled gracefully in Broadcasts</td></tr></tbody></table></div>
+<p>| Feature | How SEEN V2 Uses It |</p>
+<p>|---------|---------------------|</p>
+<p>| WhatsApp Templates | Core of Broadcasts module — all bulk sends |</p>
+<p>| Category | <code>MARKETING</code> for campaigns, <code>UTILITY</code> for transactional |</p>
+<p>| Webhooks | <code>message_template_status_update</code> → watch for <code>APPROVED</code>/<code class="code-red">REJECTED</code> |</p>
+<p>| Rate limits | Apply per WABA — shared across all SEEN V2 clients on same WABA |</p>
+<p>| Opt-out | <code>131050</code> must be handled gracefully in Broadcasts |</p>
+
 <div class="callout callout-info"><strong>QA Note:</strong><p>When testing template creation, always include sample values (`example`) for any template with variables, or the API will reject with a validation error.</p></div>
 
 <hr>
 
 <h2 id="get-list-templates">GET — List Templates</h2>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — HTTP Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-http"><code class="language-http">GET /v23.0/{waba-id}/message_templates</p>
-<p>Authorization: Bearer {token}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```http</p>
+<p>GET /v23.0/{waba-id}/message_templates</p>
+<p>Authorization: Bearer {token}</p>
+<p>```</p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>fields</code></td><td>string</td><td>Comma-separated fields: <code>name,category,status,language,components</code></td></tr><tr><td><code>status</code></td><td>enum</td><td>Filter by: <code>APPROVED</code>, <code>PENDING</code>, <code class="code-red">REJECTED</code>, <code>PAUSED</code>, <code>DISABLED</code></td></tr><tr><td><code>limit</code></td><td>integer</td><td>Max results per page (default: 100)</td></tr><tr><td><code>after</code></td><td>cursor</td><td>Pagination cursor for next page</td></tr></tbody></table></div>
+<p>| Parameter | Type | Description |</p>
+<p>|-----------|------|-------------|</p>
+<p>| <code>fields</code> | string | Comma-separated fields: <code>name,category,status,language,components</code> |</p>
+<p>| <code>status</code> | enum | Filter by: <code>APPROVED</code>, <code>PENDING</code>, <code class="code-red">REJECTED</code>, <code>PAUSED</code>, <code>DISABLED</code> |</p>
+<p>| <code>limit</code> | integer | Max results per page (default: 100) |</p>
+<p>| <code>after</code> | cursor | Pagination cursor for next page |</p>
+
 <h3 id="filter-by-status-example">Filter by Status — Example</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-bash"><code class="language-bash"># Get only APPROVED templates</p>
-<p>GET /v23.0/{waba-id}/message_templates?fields=name,category,status&amp;status=APPROVED</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```bash</p>
+<h1>Get only APPROVED templates</h1>
+<p>GET /v23.0/{waba-id}/message_templates?fields=name,category,status&status=APPROVED</p>
+<p>```</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "data": [</p>
 <p>    { "name": "order_confirmation",  "category": "UTILITY",    "status": "APPROVED", "id": "1387372356726668" },</p>
 <p>    { "name": "summer_campaign",     "category": "MARKETING",  "status": "APPROVED", "id": "1304694804498707" }</p>
@@ -484,37 +461,42 @@
 <p>    "cursors": { "before": "QVFIU...", "after": "QVFIU..." },</p>
 <p>    "next": "https://graph.facebook.com/v23.0/..."</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h3 id="template-statuses">Template Statuses</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Status</th><th>Meaning</th></tr></thead><tbody><tr><td><code>APPROVED</code></td><td>Ready to use — can be sent to customers</td></tr><tr><td><code>PENDING</code></td><td>Under review by Meta (usually within minutes)</td></tr><tr><td><code class="code-red">REJECTED</code></td><td>Failed review — see rejection reason</td></tr><tr><td><code>PAUSED</code></td><td>Auto-paused due to low quality rating</td></tr><tr><td><code>DISABLED</code></td><td>Permanently disabled after repeated low quality</td></tr><tr><td><code>PENDING_DELETION</code></td><td>Delete requested; delivery attempted for 30 days</td></tr><tr><td><code>LIMIT_EXCEEDED</code></td><td>WABA hit the 250-template limit</td></tr></tbody></table></div>
+<p>| Status | Meaning |</p>
+<p>|--------|---------|</p>
+<p>| <code>APPROVED</code> | Ready to use — can be sent to customers |</p>
+<p>| <code>PENDING</code> | Under review by Meta (usually within minutes) |</p>
+<p>| <code class="code-red">REJECTED</code> | Failed review — see rejection reason |</p>
+<p>| <code>PAUSED</code> | Auto-paused due to low quality rating |</p>
+<p>| <code>DISABLED</code> | Permanently disabled after repeated low quality |</p>
+<p>| <code>PENDING_DELETION</code> | Delete requested; delivery attempted for 30 days |</p>
+<p>| <code>LIMIT_EXCEEDED</code> | WABA hit the 250-template limit |</p>
+
 <hr>
 
 <h2 id="edit-limitations">EDIT — Limitations</h2>
 
 <div class="callout callout-info"><strong>Source:</strong><p>[Meta Docs — Edit Templates](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-management/#limitations)</p></div>
 
-<div class="table-wrap"><table><thead><tr><th>Limitation</th><th>Details</th></tr></thead><tbody><tr><td><strong>Allowed statuses</strong></td><td>Only <code>APPROVED</code>, <code class="code-red">REJECTED</code>, or <code>PAUSED</code> templates can be edited</td></tr><tr><td><strong>Editable fields</strong></td><td>Only: <code>category</code>, <code>components</code>, <code>message_send_ttl_seconds</code></td></tr><tr><td><strong>Cannot isolate components</strong></td><td>All components are replaced together — you must send ALL components in the edit request</td></tr><tr><td><strong>Category of approved</strong></td><td>Cannot change category of an <code>APPROVED</code> template</td></tr><tr><td><strong>Rate limit (approved)</strong></td><td>Max <strong>10 edits in 30 days</strong> OR <strong>1 edit in 24 hours</strong></td></tr><tr><td><strong>Rate limit (rejected/paused)</strong></td><td>Unlimited edits</td></tr><tr><td><strong>After editing</strong></td><td>Template goes back to review automatically; approved unless it fails review</td></tr><tr><td><strong>Name is immutable</strong></td><td>Template name cannot be changed — any <code>name</code> field in edit request is ignored</td></tr></tbody></table></div>
+<p>| Limitation | Details |</p>
+<p>|-----------|---------|</p>
+<p>| <strong>Allowed statuses</strong> | Only <code>APPROVED</code>, <code class="code-red">REJECTED</code>, or <code>PAUSED</code> templates can be edited |</p>
+<p>| <strong>Editable fields</strong> | Only: <code>category</code>, <code>components</code>, <code>message_send_ttl_seconds</code> |</p>
+<p>| <strong>Cannot isolate components</strong> | All components are replaced together — you must send ALL components in the edit request |</p>
+<p>| <strong>Category of approved</strong> | Cannot change category of an <code>APPROVED</code> template |</p>
+<p>| <strong>Rate limit (approved)</strong> | Max <strong>10 edits in 30 days</strong> OR <strong>1 edit in 24 hours</strong> |</p>
+<p>| <strong>Rate limit (rejected/paused)</strong> | Unlimited edits |</p>
+<p>| <strong>After editing</strong> | Template goes back to review automatically; approved unless it fails review |</p>
+<p>| <strong>Name is immutable</strong> | Template name cannot be changed — any <code>name</code> field in edit request is ignored |</p>
+
 <h3 id="editable-example-edit-components">✅ Editable Example — Edit components</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-bash"><code class="language-bash">POST /v23.0/{template-id}</p>
+<p>```bash</p>
+<p>POST /v23.0/{template-id}</p>
 <p>Content-Type: application/json</p>
 <p>Authorization: Bearer {token}</p>
 
@@ -532,54 +514,21 @@
 <p>      "example": { "body_text": [["the end of April", "25OFF", "25%"]] }</p>
 <p>    }</p>
 <p>  ]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h3 id="edit-category-only">✅ Edit Category Only</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-bash"><code class="language-bash">POST /v23.0/{template-id}</p>
+<p>```bash</p>
+<p>POST /v23.0/{template-id}</p>
 
-<p>{ "category": "MARKETING" }</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>{ "category": "MARKETING" }</p>
+<p>```</p>
 
 <p>Response:</p>
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{ "success": true }</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```json</p>
+<p>{ "success": true }</p>
+<p>```</p>
 
 <hr>
 
@@ -587,90 +536,40 @@
 
 <div class="callout callout-info"><strong>Source:</strong><p>[Meta Docs — Delete Templates](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-management/#delete-templates)</p></div>
 
-<div class="table-wrap"><table><thead><tr><th>Limitation</th><th>Details</th></tr></thead><tbody><tr><td><strong>Sent but not delivered</strong></td><td>Status becomes <code>PENDING_DELETION</code> — delivery retried for 30 days</td></tr><tr><td><strong>30-day ban</strong></td><td>After deleting an <code>APPROVED</code> template, cannot create a new template with the <strong>same name for 30 days</strong></td></tr><tr><td><strong>Cannot delete disabled</strong></td><td>Templates with <code>DISABLED</code> status cannot be deleted</td></tr><tr><td><strong>Permission required</strong></td><td><code>whatsapp_business_management</code> permission on the access token</td></tr></tbody></table></div>
+<p>| Limitation | Details |</p>
+<p>|-----------|---------|</p>
+<p>| <strong>Sent but not delivered</strong> | Status becomes <code>PENDING_DELETION</code> — delivery retried for 30 days |</p>
+<p>| <strong>30-day ban</strong> | After deleting an <code>APPROVED</code> template, cannot create a new template with the <strong>same name for 30 days</strong> |</p>
+<p>| <strong>Cannot delete disabled</strong> | Templates with <code>DISABLED</code> status cannot be deleted |</p>
+<p>| <strong>Permission required</strong> | <code>whatsapp_business_management</code> permission on the access token |</p>
+
 <h3 id="method-1-delete-by-name-all-languages">Method 1 — Delete by Name (all languages)</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-bash"><code class="language-bash">DELETE /v23.0/{waba-id}/message_templates?name=order_confirmation</p>
-<p>Authorization: Bearer {token}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```bash</p>
+<p>DELETE /v23.0/{waba-id}/message_templates?name=order_confirmation</p>
+<p>Authorization: Bearer {token}</p>
+<p>```</p>
 
 <p><span class="icon-warn">⚠️</span> Deletes <strong>all language versions</strong> of this template name.</p>
 
 <h3 id="method-2-delete-by-id-specific-language-only">Method 2 — Delete by ID (specific language only)</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-bash"><code class="language-bash">DELETE /v23.0/{waba-id}/message_templates?hsm_id=1407680676729941&amp;name=order_confirmation</p>
-<p>Authorization: Bearer {token}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```bash</p>
+<p>DELETE /v23.0/{waba-id}/message_templates?hsm_id=1407680676729941&name=order_confirmation</p>
+<p>Authorization: Bearer {token}</p>
+<p>```</p>
 
 <h3 id="method-3-delete-multiple-by-ids-max-100-per-request">Method 3 — Delete multiple by IDs (max 100 per request)</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-bash"><code class="language-bash">DELETE /v23.0/{waba-id}/message_templates?hsm_ids=[1387372356726668,1304694804498707]</p>
-<p>Authorization: Bearer {token}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```bash</p>
+<p>DELETE /v23.0/{waba-id}/message_templates?hsm_ids=[1387372356726668,1304694804498707]</p>
+<p>Authorization: Bearer {token}</p>
+<p>```</p>
 
 <p>Response for all delete methods:</p>
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{ "success": true }</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```json</p>
+<p>{ "success": true }</p>
+<p>```</p>
 
 <hr>
 
@@ -680,27 +579,20 @@
 
 <h3 id="pause-duration-schedule">Pause Duration Schedule</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Instance</th><th>Pause Duration</th></tr></thead><tbody><tr><td>1st time</td><td>3 hours</td></tr><tr><td>2nd time</td><td>6 hours</td></tr><tr><td>3rd time</td><td><strong>Permanently disabled</strong></td></tr></tbody></table></div>
+<p>| Instance | Pause Duration |</p>
+<p>|----------|---------------|</p>
+<p>| 1st time | 3 hours |</p>
+<p>| 2nd time | 6 hours |</p>
+<p>| 3rd time | <strong>Permanently disabled</strong> |</p>
+
 <h3 id="pause-notifications">Pause Notifications</h3>
 
-<p>You are notified via:</p>
-<ul><li style="margin-left:0px">WhatsApp Manager notifications</li>
-<li style="margin-left:0px">Email</li>
-<li style="margin-left:0px"><code>message_template_status_update</code> webhook</li></ul>
+<p>You are notified via:</p><ul><li style="margin-left:8px">WhatsApp Manager notifications</li><li style="margin-left:8px">Email</li><li style="margin-left:8px"><code>message_template_status_update</code> webhook</li></ul>
 
 <h3 id="webhook-payload-status-change">Webhook Payload (status change)</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "entry": [{</p>
 <p>    "changes": [{</p>
 <p>      "field": "message_template_status_update",</p>
@@ -713,17 +605,17 @@
 <p>      }</p>
 <p>    }]</p>
 <p>  }]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h3 id="unpausing">Unpausing</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Method</th><th>How</th></tr></thead><tbody><tr><td><strong>Auto</strong></td><td>Template unpauses automatically after the pause duration</td></tr><tr><td><strong>Manual (API)</strong></td><td><code>POST /{template-id}/unpause</code></td></tr><tr><td><strong>Manual (UI)</strong></td><td>Click "manually unpause it" in WhatsApp Manager</td></tr></tbody></table></div>
+<p>| Method | How |</p>
+<p>|--------|-----|</p>
+<p>| <strong>Auto</strong> | Template unpauses automatically after the pause duration |</p>
+<p>| <strong>Manual (API)</strong> | <code>POST /{template-id}/unpause</code> |</p>
+<p>| <strong>Manual (UI)</strong> | Click "manually unpause it" in WhatsApp Manager |</p>
+
 <blockquote><p>After auto-unpause, quality rating is **reset** based on the most recent customer feedback.</p></blockquote>
 
 <h3 id="filing-an-appeal-rejecteddisabled-template">Filing an Appeal (rejected/disabled template)</h3>
@@ -739,13 +631,33 @@
 
 <h3 id="creation-errors">Creation Errors</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Error Code</th><th>Subcode</th><th>Message</th><th>Fix</th></tr></thead><tbody><tr><td><code>100</code></td><td>—</td><td>Invalid name format</td><td>Use only lowercase letters, digits, underscores</td></tr><tr><td><code>100</code></td><td><code>2388024</code></td><td>Content in This Language Already Exists</td><td>Template with same name+language already exists in WABA</td></tr><tr><td><code>132018</code></td><td>—</td><td>Parameter format mismatch at send time</td><td>Mismatch between template parameters and send-time values (v23.0+)</td></tr><tr><td><code>2388040</code></td><td>—</td><td>Character limit exceeded</td><td>Reduce content in the flagged field</td></tr><tr><td><code>2388047</code></td><td>—</td><td>Message header format incorrect</td><td>Fix header formatting</td></tr><tr><td><code>2388072</code></td><td>—</td><td>Message body format incorrect</td><td>Fix body formatting</td></tr><tr><td><code>2388073</code></td><td>—</td><td>Message footer format incorrect</td><td>Fix footer formatting</td></tr><tr><td><code>2388293</code></td><td>—</td><td>Parameters/words ratio exceeds limit</td><td>Too many variables for text length — reduce variables or increase text</td></tr><tr><td><code>2388299</code></td><td>—</td><td>Leading/trailing parameters not allowed</td><td>Don't start or end template text with a variable <code>{{1}}</code></td></tr></tbody></table></div>
+<p>| Error Code | Subcode | Message | Fix |</p>
+<p>|-----------|---------|---------|-----|</p>
+<p>| <code>100</code> | — | Invalid name format | Use only lowercase letters, digits, underscores |</p>
+<p>| <code>100</code> | <code>2388024</code> | Content in This Language Already Exists | Template with same name+language already exists in WABA |</p>
+<p>| <code>132018</code> | — | Parameter format mismatch at send time | Mismatch between template parameters and send-time values (v23.0+) |</p>
+<p>| <code>2388040</code> | — | Character limit exceeded | Reduce content in the flagged field |</p>
+<p>| <code>2388047</code> | — | Message header format incorrect | Fix header formatting |</p>
+<p>| <code>2388072</code> | — | Message body format incorrect | Fix body formatting |</p>
+<p>| <code>2388073</code> | — | Message footer format incorrect | Fix footer formatting |</p>
+<p>| <code>2388293</code> | — | Parameters/words ratio exceeds limit | Too many variables for text length — reduce variables or increase text |</p>
+<p>| <code>2388299</code> | — | Leading/trailing parameters not allowed | Don't start or end template text with a variable <code>{{1}}</code> |</p>
+
 <h3 id="send-time-errors">Send-Time Errors</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Error Code</th><th>Subcode</th><th>Message</th><th>Fix</th></tr></thead><tbody><tr><td><code>2388019</code></td><td>—</td><td>Message Template Limit Exceeded</td><td>WABA hit 250-template limit — delete unused templates</td></tr><tr><td><code>131050</code></td><td>—</td><td>Message failed to send (user opted out)</td><td>Respect opt-out; don't retry to this recipient</td></tr></tbody></table></div>
+<p>| Error Code | Subcode | Message | Fix |</p>
+<p>|-----------|---------|---------|-----|</p>
+<p>| <code>2388019</code> | — | Message Template Limit Exceeded | WABA hit 250-template limit — delete unused templates |</p>
+<p>| <code>131050</code> | — | Message failed to send (user opted out) | Respect opt-out; don't retry to this recipient |</p>
+
 <h3 id="analytics-errors">Analytics Errors</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Error Code</th><th>Message</th><th>Fix</th></tr></thead><tbody><tr><td><code>200005</code></td><td>Template insights unavailable</td><td>Feature not yet enabled on WABA</td></tr><tr><td><code>200006</code></td><td>Cannot disable template insights</td><td>Analytics cannot be disabled once enabled</td></tr><tr><td><code>200007</code></td><td>Template insights not enabled</td><td>Enable via WABA settings first</td></tr></tbody></table></div>
+<p>| Error Code | Message | Fix |</p>
+<p>|-----------|---------|-----|</p>
+<p>| <code>200005</code> | Template insights unavailable | Feature not yet enabled on WABA |</p>
+<p>| <code>200006</code> | Cannot disable template insights | Analytics cannot be disabled once enabled |</p>
+<p>| <code>200007</code> | Template insights not enabled | Enable via WABA settings first |</p>
+
 <hr>
 
 <h2 id="template-analytics">Template Analytics</h2>
@@ -754,66 +666,36 @@
 
 <h3 id="enable-analytics">Enable Analytics</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-bash"><code class="language-bash">POST /{waba-id}?is_enabled_for_insights=true</p>
-<p>Authorization: Bearer {token}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```bash</p>
+<p>POST /{waba-id}?is_enabled_for_insights=true</p>
+<p>Authorization: Bearer {token}</p>
+<p>```</p>
 
 <h3 id="get-analytics">Get Analytics</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-bash"><code class="language-bash">GET /v23.0/{waba-id}/template_analytics</p>
+<p>```bash</p>
+<p>GET /v23.0/{waba-id}/template_analytics</p>
 <p>  ?start=1718064000</p>
-<p>  &amp;end=1718150400</p>
-<p>  &amp;granularity=DAILY</p>
-<p>  &amp;template_ids=[1421988012088524,2632273056924580]</p>
-<p>  &amp;metric_types=SENT,DELIVERED,READ,CLICKED,COST</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>  &end=1718150400</p>
+<p>  &granularity=DAILY</p>
+<p>  &template_ids=[1421988012088524,2632273056924580]</p>
+<p>  &metric_types=SENT,DELIVERED,READ,CLICKED,COST</p>
+<p>```</p>
 
 <h3 id="analytics-parameters">Analytics Parameters</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Required</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>start</code></td><td><span class="icon-accept">✅</span></td><td>UNIX timestamp</td><td>Start of date range</td></tr><tr><td><code>end</code></td><td><span class="icon-accept">✅</span></td><td>UNIX timestamp</td><td>End of date range</td></tr><tr><td><code>granularity</code></td><td><span class="icon-accept">✅</span></td><td>enum</td><td>Must be <code>DAILY</code></td></tr><tr><td><code>template_ids</code></td><td><span class="icon-accept">✅</span></td><td>array</td><td>Array of template IDs — <strong>max 10</strong></td></tr><tr><td><code>metric_types</code></td><td><span class="icon-reject">❌</span></td><td>array</td><td><code>SENT</code>, <code>DELIVERED</code>, <code>READ</code>, <code>CLICKED</code>, <code>COST</code></td></tr></tbody></table></div>
+<p>| Parameter | Required | Type | Description |</p>
+<p>|-----------|----------|------|-------------|</p>
+<p>| <code>start</code> | <span class="icon-accept">✅</span> | UNIX timestamp | Start of date range |</p>
+<p>| <code>end</code> | <span class="icon-accept">✅</span> | UNIX timestamp | End of date range |</p>
+<p>| <code>granularity</code> | <span class="icon-accept">✅</span> | enum | Must be <code>DAILY</code> |</p>
+<p>| <code>template_ids</code> | <span class="icon-accept">✅</span> | array | Array of template IDs — <strong>max 10</strong> |</p>
+<p>| <code>metric_types</code> | <span class="icon-reject">❌</span> | array | <code>SENT</code>, <code>DELIVERED</code>, <code>READ</code>, <code>CLICKED</code>, <code>COST</code> |</p>
+
 <h3 id="analytics-response-example">Analytics Response Example</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "data": [{</p>
 <p>    "granularity": "DAILY",</p>
 <p>    "product_type": "cloud_api",</p>
@@ -833,50 +715,48 @@
 <p>      ]</p>
 <p>    }]</p>
 <p>  }]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h3 id="analytics-limitations">Analytics Limitations</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Limitation</th><th>Details</th></tr></thead><tbody><tr><td><strong>Data retention</strong></td><td>Read and click data only available for <strong>7 days</strong> from send; after that, counters reset to 0</td></tr><tr><td><strong>Button clicks</strong></td><td>Only available for <code>MARKETING</code> and <code>UTILITY</code> templates</td></tr><tr><td><strong>Excluded regions</strong></td><td>WABAs in EU, Japan, or with phone numbers from these regions are <strong>not supported</strong></td></tr><tr><td><strong>Max templates per request</strong></td><td>10 template IDs per analytics call</td></tr></tbody></table></div>
+<p>| Limitation | Details |</p>
+<p>|-----------|---------|</p>
+<p>| <strong>Data retention</strong> | Read and click data only available for <strong>7 days</strong> from send; after that, counters reset to 0 |</p>
+<p>| <strong>Button clicks</strong> | Only available for <code>MARKETING</code> and <code>UTILITY</code> templates |</p>
+<p>| <strong>Excluded regions</strong> | WABAs in EU, Japan, or with phone numbers from these regions are <strong>not supported</strong> |</p>
+<p>| <strong>Max templates per request</strong> | 10 template IDs per analytics call |</p>
+
 <h3 id="opt-out-of-click-tracking-per-template">Opt Out of Click Tracking (per template)</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-bash"><code class="language-bash">POST /{template-id}?cta_url_link_tracking_opted_out=true&amp;category=MARKETING</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```bash</p>
+<p>POST /{template-id}?cta_url_link_tracking_opted_out=true&category=MARKETING</p>
+<p>```</p>
 
 <hr>
 
 <h2 id="archive-auto-delete">Archive & Auto-Delete</h2>
 
-<p>Templates inactive for <strong>12+ months</strong> are automatically archived and <strong>scheduled for deletion after 28 days</strong>.</p>
-<ul><li style="margin-left:8px">You can manually archive or unarchive templates in bulk via API</li>
-<li style="margin-left:0px">Archived templates count toward the 250-template limit until deleted</li></ul>
+<p>Templates inactive for <strong>12+ months</strong> are automatically archived and <strong>scheduled for deletion after 28 days</strong>.</p><ul><li style="margin-left:24px">You can manually archive or unarchive templates in bulk via API</li><li style="margin-left:8px">Archived templates count toward the 250-template limit until deleted</li></ul>
 
 <hr>
 
 <h2 id="template-limits-summary">Template Limits Summary</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Limit</th><th>Value</th></tr></thead><tbody><tr><td>Max templates per WABA</td><td><strong>250</strong> (default)</td></tr><tr><td>Max template name length</td><td><strong>512 characters</strong></td></tr><tr><td>Max body text length</td><td><strong>1024 characters</strong></td></tr><tr><td>Max header text length</td><td><strong>60 characters</strong></td></tr><tr><td>Max footer text length</td><td><strong>60 characters</strong></td></tr><tr><td>Max buttons</td><td><strong>10</strong> (3 quick reply + up to 10 call-to-action)</td></tr><tr><td>Max quick reply buttons</td><td><strong>3</strong></td></tr><tr><td>Max CTA buttons</td><td><strong>2</strong> (1 phone + 1 URL)</td></tr><tr><td>Edit rate (approved templates)</td><td><strong>10 edits / 30 days</strong> OR <strong>1 edit / 24 hours</strong></td></tr><tr><td>Analytics template IDs per call</td><td><strong>10</strong></td></tr><tr><td>Click data retention</td><td><strong>7 days</strong></td></tr><tr><td>Post-deletion name ban</td><td><strong>30 days</strong></td></tr></tbody></table></div>\n\n
+<p>| Limit | Value |</p>
+<p>|-------|-------|</p>
+<p>| Max templates per WABA | <strong>250</strong> (default) |</p>
+<p>| Max template name length | <strong>512 characters</strong> |</p>
+<p>| Max body text length | <strong>1024 characters</strong> |</p>
+<p>| Max header text length | <strong>60 characters</strong> |</p>
+<p>| Max footer text length | <strong>60 characters</strong> |</p>
+<p>| Max buttons | <strong>10</strong> (3 quick reply + up to 10 call-to-action) |</p>
+<p>| Max quick reply buttons | <strong>3</strong> |</p>
+<p>| Max CTA buttons | <strong>2</strong> (1 phone + 1 URL) |</p>
+<p>| Edit rate (approved templates) | <strong>10 edits / 30 days</strong> OR <strong>1 edit / 24 hours</strong> |</p>
+<p>| Analytics template IDs per call | <strong>10</strong> |</p>
+<p>| Click data retention | <strong>7 days</strong> |</p>
+<p>| Post-deletion name ban | <strong>30 days</strong> |\n\n</p>
 
 <p>\n</p>
 
@@ -888,38 +768,98 @@
 
 <h2 id="نقاط-النهاية-endpoints">نقاط النهاية (Endpoints)</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Method</th><th>Endpoint</th><th>الغرض</th></tr></thead><tbody><tr><td><code>POST</code></td><td><code>/{version}/{waba-id}/message_templates</code></td><td>إنشاء قالب</td></tr><tr><td><code>GET</code></td><td><code>/{version}/{waba-id}/message_templates</code></td><td>سرد القوالب</td></tr><tr><td><code>GET</code></td><td><code>/{version}/{template-id}</code></td><td>الحصول على تفاصيل القالب</td></tr><tr><td><code>POST</code></td><td><code>/{version}/{template-id}</code></td><td>تعديل قالب</td></tr><tr><td><code>DELETE</code></td><td><code>/{version}/{waba-id}/message_templates</code></td><td>حذف قالب (أو قوالب)</td></tr></tbody></table></div>
+<p>| Method | Endpoint | الغرض |</p>
+<p>|--------|----------|---------|</p>
+<p>| <code>POST</code> | <code>/{version}/{waba-id}/message_templates</code> | إنشاء قالب |</p>
+<p>| <code>GET</code> | <code>/{version}/{waba-id}/message_templates</code> | سرد القوالب |</p>
+<p>| <code>GET</code> | <code>/{version}/{template-id}</code> | الحصول على تفاصيل القالب |</p>
+<p>| <code>POST</code> | <code>/{version}/{template-id}</code> | تعديل قالب |</p>
+<p>| <code>DELETE</code> | <code>/{version}/{waba-id}/message_templates</code> | حذف قالب (أو قوالب) |</p>
+
 <hr>
 
 <h2 id="create-المعلمات-parameters">CREATE — المعلمات (Parameters)</h2>
 
 <h3 id="مطلوبة">مطلوبة</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Field</th><th>Type</th><th>Valid Values</th><th>ملاحظات</th></tr></thead><tbody><tr><td><code>name</code></td><td>string</td><td><code>^[a-z0-9_]+$</code></td><td>بحد أقصى 512 حرفًا. أحرف صغيرة، أرقام، وشرطات سفلية <strong>فقط</strong></td></tr><tr><td><code>language</code></td><td>string</td><td><code>en_US</code>, <code>ar</code>, <code>en</code>, ...</td><td>رمز اللغة ISO 639 مع إعدادات محلية اختيارية</td></tr><tr><td><code>category</code></td><td>enum</td><td><code>MARKETING</code> \</td><td><code>UTILITY</code> \</td><td><code>AUTHENTICATION</code></td><td>يتحكم في التسعير والمحتوى المسموح به</td></tr></tbody></table></div>
+<p>| Field | Type | Valid Values | ملاحظات |</p>
+<p>|-------|------|-------------|-------|</p>
+<p>| <code>name</code> | string | <code>^[a-z0-9_]+$</code> | بحد أقصى 512 حرفًا. أحرف صغيرة، أرقام، وشرطات سفلية <strong>فقط</strong> |</p>
+<p>| <code>language</code> | string | <code>en_US</code>, <code>ar</code>, <code>en</code>, ... | رمز اللغة ISO 639 مع إعدادات محلية اختيارية |</p>
+<p>| <code>category</code> | enum | <code>MARKETING</code> \| <code>UTILITY</code> \| <code>AUTHENTICATION</code> | يتحكم في التسعير والمحتوى المسموح به |</p>
+
 <h3 id="اختيارية">اختيارية</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Field</th><th>Type</th><th>Default</th><th>ملاحظات</th></tr></thead><tbody><tr><td><code>components</code></td><td>array</td><td>—</td><td>الرأس، النص، التذييل، الأزرار</td></tr><tr><td><code>parameter_format</code></td><td>enum</td><td><code>POSITIONAL</code></td><td><code>POSITIONAL</code> (<code>{{1}}</code>) أو <code>NAMED</code> (<code>{{name}}</code>)</td></tr><tr><td><code>allow_category_change</code></td><td>boolean</td><td><code>false</code></td><td>السماح لـ Meta بإعادة تعيين الفئة أثناء المراجعة</td></tr><tr><td><code>message_send_ttl_seconds</code></td><td>integer</td><td>—</td><td>قوالب المصادقة فقط</td></tr><tr><td><code>sub_category</code></td><td>string</td><td>—</td><td>الفئات الفرعية لقوالب الخدمات</td></tr><tr><td><code>cta_url_link_tracking_opted_out</code></td><td>boolean</td><td><code>false</code></td><td>إلغاء الاشتراك في تتبع الرابط (URL)</td></tr><tr><td><code>library_template_name</code></td><td>string</td><td>—</td><td>استنساخ من مكتبة قوالب Meta</td></tr></tbody></table></div>
+<p>| Field | Type | Default | ملاحظات |</p>
+<p>|-------|------|---------|-------|</p>
+<p>| <code>components</code> | array | — | الرأس، النص، التذييل، الأزرار |</p>
+<p>| <code>parameter_format</code> | enum | <code>POSITIONAL</code> | <code>POSITIONAL</code> (<code>{{1}}</code>) أو <code>NAMED</code> (<code>{{name}}</code>) |</p>
+<p>| <code>allow_category_change</code> | boolean | <code>false</code> | السماح لـ Meta بإعادة تعيين الفئة أثناء المراجعة |</p>
+<p>| <code>message_send_ttl_seconds</code> | integer | — | قوالب المصادقة فقط |</p>
+<p>| <code>sub_category</code> | string | — | الفئات الفرعية لقوالب الخدمات |</p>
+<p>| <code>cta_url_link_tracking_opted_out</code> | boolean | <code>false</code> | إلغاء الاشتراك في تتبع الرابط (URL) |</p>
+<p>| <code>library_template_name</code> | string | — | استنساخ من مكتبة قوالب Meta |</p>
+
 <hr>
 
 <h2 id="create-قواعد-التحقق-validation-rules">CREATE — قواعد التحقق (Validation Rules)</h2>
 
-<div class="table-wrap"><table><thead><tr><th>القاعدة</th><th><span class="icon-reject">❌</span> يتم الرفض</th><th><span class="icon-accept">✅</span> يتم القبول</th></tr></thead><tbody><tr><td><strong>تنسيق الاسم</strong></td><td><code>Hello World</code>, <code>hello-world</code>, <code>hello#world</code></td><td><code>hello_world</code>, <code>order_update_2</code></td></tr><tr><td><strong>طول الاسم</strong></td><td>أكثر من 512 حرفًا</td><td>512 حرفًا أو أقل</td></tr><tr><td><strong>قيمة الفئة</strong></td><td><code>TRANSACTIONAL</code>, <code>OTP</code> (قيم قديمة)</td><td><code>MARKETING</code>, <code>UTILITY</code>, <code>AUTHENTICATION</code></td></tr><tr><td><strong>نص متكرر</strong></td><td>نفس نص الرسالة+التذييل مثل قالب موجود في نفس حساب WABA+اللغة</td><td>أي نص فريد (تُستثنى قوالب المصادقة <code>AUTHENTICATION</code>)</td></tr><tr><td><strong>تنسيق المتغير (موضعي)</strong></td><td><code>{1}</code>, <code>%1</code>, <code>[[1]]</code>, <code>{{ 1 }}</code></td><td><code>{{1}}</code>, <code>{{2}}</code></td></tr><tr><td><strong>تنسيق المتغير (مسمى)</strong></td><td><code>{name}</code>, <code>%name%</code></td><td><code>{{customer_name}}</code></td></tr><tr><td><strong>أحرف المتغير</strong></td><td><code>{{name#}}</code>, <code>{{price$}}</code>, <code>{{id%}}</code></td><td><code>{{name}}</code>, <code>{{order_id}}</code></td></tr><tr><td><strong>تسلسل المتغيرات</strong></td><td><code>{{1}}</code>, <code>{{2}}</code>, <code>{{5}}</code> (فجوة)</td><td><code>{{1}}</code>, <code>{{2}}</code>, <code>{{3}}</code></td></tr><tr><td><strong>متغيرات معلقة</strong></td><td>بدء/إنهاء النص بـ <code>{{1}}</code> فقط</td><td>متغير محاط بنص من كلا الجانبين</td></tr><tr><td><strong>كثافة المتغيرات</strong></td><td>عدد كبير جداً من <code>{{n}}</code> مقارنة بكلمات النص الفعلية</td><td>نسبة معقولة من النص إلى المتغيرات</td></tr><tr><td><strong>قيم العينة</strong></td><td>قالب بمتغيرات ولكن بدون حقل <code>example</code></td><td><code>"example": { "body_text": [["John"]] }</code></td></tr><tr><td><strong>السياسة</strong></td><td>طلب أرقام بطاقات الائتمان، الهويات الوطنية، كلمات المرور</td><td>محتوى وظيفي خاص بالعمل</td></tr></tbody></table></div>
+<p>| القاعدة | <span class="icon-reject">❌</span> يتم الرفض | <span class="icon-accept">✅</span> يتم القبول |</p>
+<p>|------|-----------------|-----------------|</p>
+<p>| <strong>تنسيق الاسم</strong> | <code>Hello World</code>, <code>hello-world</code>, <code>hello#world</code> | <code>hello_world</code>, <code>order_update_2</code> |</p>
+<p>| <strong>طول الاسم</strong> | أكثر من 512 حرفًا | 512 حرفًا أو أقل |</p>
+<p>| <strong>قيمة الفئة</strong> | <code>TRANSACTIONAL</code>, <code>OTP</code> (قيم قديمة) | <code>MARKETING</code>, <code>UTILITY</code>, <code>AUTHENTICATION</code> |</p>
+<p>| <strong>نص متكرر</strong> | نفس نص الرسالة+التذييل مثل قالب موجود في نفس حساب WABA+اللغة | أي نص فريد (تُستثنى قوالب المصادقة <code>AUTHENTICATION</code>) |</p>
+<p>| <strong>تنسيق المتغير (موضعي)</strong> | <code>{1}</code>, <code>%1</code>, <code>[[1]]</code>, <code>{{ 1 }}</code> | <code>{{1}}</code>, <code>{{2}}</code> |</p>
+<p>| <strong>تنسيق المتغير (مسمى)</strong> | <code>{name}</code>, <code>%name%</code> | <code>{{customer_name}}</code> |</p>
+<p>| <strong>أحرف المتغير</strong> | <code>{{name#}}</code>, <code>{{price$}}</code>, <code>{{id%}}</code> | <code>{{name}}</code>, <code>{{order_id}}</code> |</p>
+<p>| <strong>تسلسل المتغيرات</strong> | <code>{{1}}</code>, <code>{{2}}</code>, <code>{{5}}</code> (فجوة) | <code>{{1}}</code>, <code>{{2}}</code>, <code>{{3}}</code> |</p>
+<p>| <strong>متغيرات معلقة</strong> | بدء/إنهاء النص بـ <code>{{1}}</code> فقط | متغير محاط بنص من كلا الجانبين |</p>
+<p>| <strong>كثافة المتغيرات</strong> | عدد كبير جداً من <code>{{n}}</code> مقارنة بكلمات النص الفعلية | نسبة معقولة من النص إلى المتغيرات |</p>
+<p>| <strong>قيم العينة</strong> | قالب بمتغيرات ولكن بدون حقل <code>example</code> | <code>"example": { "body_text": [["John"]] }</code> |</p>
+<p>| <strong>السياسة</strong> | طلب أرقام بطاقات الائتمان، الهويات الوطنية، كلمات المرور | محتوى وظيفي خاص بالعمل |</p>
+
 <hr>
 
 <h2 id="المكونات-التفاصيل-والحدود-components">المكونات — التفاصيل والحدود (Components)</h2>
 
 <h3 id="header-الرأس---اختياري">HEADER (الرأس - اختياري)</h3>
 
-<div class="table-wrap"><table><thead><tr><th>التنسيق</th><th>الحد</th><th>ملاحظات</th></tr></thead><tbody><tr><td>TEXT</td><td>بحد أقصى 60 حرفًا</td><td>يدعم <strong>متغير واحد</strong> كحد أقصى. يتطلب عينة.</td></tr><tr><td>IMAGE</td><td>—</td><td>يحتاج إلى <code>header_handle</code> (يُرفع أولاً)</td></tr><tr><td>VIDEO</td><td>—</td><td>يحتاج إلى <code>header_handle</code></td></tr><tr><td>DOCUMENT</td><td>—</td><td>يحتاج إلى <code>header_handle</code></td></tr><tr><td>GIF</td><td>بحد أقصى 3.5 MB</td><td>في الواقع هو تنسيق MP4 في الخلفية</td></tr><tr><td>LOCATION</td><td>—</td><td>فقط في فئات <code>UTILITY</code> و <code>MARKETING</code></td></tr></tbody></table></div>
+<p>| التنسيق | الحد | ملاحظات |</p>
+<p>|--------|-------|-------|</p>
+<p>| TEXT | بحد أقصى 60 حرفًا | يدعم <strong>متغير واحد</strong> كحد أقصى. يتطلب عينة. |</p>
+<p>| IMAGE | — | يحتاج إلى <code>header_handle</code> (يُرفع أولاً) |</p>
+<p>| VIDEO | — | يحتاج إلى <code>header_handle</code> |</p>
+<p>| DOCUMENT | — | يحتاج إلى <code>header_handle</code> |</p>
+<p>| GIF | بحد أقصى 3.5 MB | في الواقع هو تنسيق MP4 في الخلفية |</p>
+<p>| LOCATION | — | فقط في فئات <code>UTILITY</code> و <code>MARKETING</code> |</p>
+
 <h3 id="body-النص---مطلوب">BODY (النص - مطلوب)</h3>
 
-<div class="table-wrap"><table><thead><tr><th>الخاصية</th><th>الحد</th></tr></thead><tbody><tr><td>الحد الأقصى للأحرف</td><td><strong>1024</strong></td></tr><tr><td>المتغيرات</td><td>يُسمح بمتغيرات متعددة</td></tr><tr><td>ماركداون (Markdown)</td><td><strong>غير</strong> مدعوم</td></tr><tr><td>يتطلب عينة</td><td>نعم، عند وجود متغيرات</td></tr></tbody></table></div>
+<p>| الخاصية | الحد |</p>
+<p>|----------|-------|</p>
+<p>| الحد الأقصى للأحرف | <strong>1024</strong> |</p>
+<p>| المتغيرات | يُسمح بمتغيرات متعددة |</p>
+<p>| ماركداون (Markdown) | <strong>غير</strong> مدعوم |</p>
+<p>| يتطلب عينة | نعم، عند وجود متغيرات |</p>
+
 <h3 id="footer-التذييل---اختياري">FOOTER (التذييل - اختياري)</h3>
 
-<div class="table-wrap"><table><thead><tr><th>الخاصية</th><th>القيمة</th></tr></thead><tbody><tr><td>الحد الأقصى للأحرف</td><td><strong>60</strong></td></tr><tr><td>المتغيرات</td><td><span class="icon-reject">❌</span> غير مسموح</td></tr><tr><td>التنسيق</td><td>نص فقط</td></tr></tbody></table></div>
+<p>| الخاصية | القيمة |</p>
+<p>|----------|-------|</p>
+<p>| الحد الأقصى للأحرف | <strong>60</strong> |</p>
+<p>| المتغيرات | <span class="icon-reject">❌</span> غير مسموح |</p>
+<p>| التنسيق | نص فقط |</p>
+
 <h3 id="buttons-الأزرار---اختيارية">BUTTONS (الأزرار - اختيارية)</h3>
 
-<div class="table-wrap"><table><thead><tr><th>النوع</th><th>الحد الأقصى لكل قالب</th><th>الحد لكل زر</th><th>ملاحظات</th></tr></thead><tbody><tr><td><code>QUICK_REPLY</code></td><td>10</td><td>النص: 25 حرفًا</td><td>يجب تجميعها (الكل في البداية أو الكل في النهاية)</td></tr><tr><td><code>URL</code></td><td>2</td><td>النص: 25 حرفًا، الرابط: 2000 حرف</td><td>متغير واحد في نهاية الرابط (URL) فقط</td></tr><tr><td><code>PHONE_NUMBER</code></td><td>1</td><td>النص: 25 حرفًا، الرقم: 20 حرفًا</td><td>—</td></tr><tr><td><code>COPY_CODE</code></td><td>1</td><td>الرمز: 20 حرفًا</td><td>—</td></tr></tbody></table></div>
+<p>| النوع | الحد الأقصى لكل قالب | الحد لكل زر | ملاحظات |</p>
+<p>|------|-----------------|-----------------|-------|</p>
+<p>| <code>QUICK_REPLY</code> | 10 | النص: 25 حرفًا | يجب تجميعها (الكل في البداية أو الكل في النهاية) |</p>
+<p>| <code>URL</code> | 2 | النص: 25 حرفًا، الرابط: 2000 حرف | متغير واحد في نهاية الرابط (URL) فقط |</p>
+<p>| <code>PHONE_NUMBER</code> | 1 | النص: 25 حرفًا، الرقم: 20 حرفًا | — |</p>
+<p>| <code>COPY_CODE</code> | 1 | الرمز: 20 حرفًا | — |</p>
+
 <div class="callout callout-warn"><span>⚠️</span><p>القوالب التي تحتوي على 4 أزرار أو أكثر، أو أزرار الرد السريع المختلطة مع أنواع أخرى، تكون **مخفية على تطبيق WhatsApp لسطح المكتب**. تظهر على الجوال فقط.</p></div>
 
 <div class="callout callout-info"><strong>قاعدة واجهة المستخدم (UI):</strong><p>عندما يكون إجمالي عدد الأزرار > 3، يظهر أول زرين فقط — ويتم إخفاء الباقي ضمن "رؤية جميع الخيارات".</p></div>
@@ -928,86 +868,102 @@
 
 <h2 id="edit-القواعد-rules">EDIT — القواعد (Rules)</h2>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — TEXT Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-text"><code class="language-text">POST /{version}/{template-id}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```</p>
+<p>POST /{version}/{template-id}</p>
+<p>```</p>
 
 <h3 id="ما-يمكن-تغييره">ما يمكن تغييره</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Field</th><th>الشرط</th></tr></thead><tbody><tr><td><code>components</code> (body, header, buttons)</td><td>دائمًا (يُعيد تشغيل المراجعة)</td></tr><tr><td><code>category</code></td><td>فقط إذا كان القالب <code class="code-red">REJECTED</code> أو <code>PAUSED</code></td></tr><tr><td><code>message_send_ttl_seconds</code></td><td>في أي حالة</td></tr><tr><td><code>allow_category_change</code></td><td>في أي حالة</td></tr></tbody></table></div>
+<p>| Field | الشرط |</p>
+<p>|-------|-----------|</p>
+<p>| <code>components</code> (body, header, buttons) | دائمًا (يُعيد تشغيل المراجعة) |</p>
+<p>| <code>category</code> | فقط إذا كان القالب <code class="code-red">REJECTED</code> أو <code>PAUSED</code> |</p>
+<p>| <code>message_send_ttl_seconds</code> | في أي حالة |</p>
+<p>| <code>allow_category_change</code> | في أي حالة |</p>
+
 <h3 id="ما-لا-يمكن-تغييره-ثابت">ما لا يمكن تغييره (ثابت)</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Field</th><th>الحل البديل</th></tr></thead><tbody><tr><td><code>name</code></td><td>حذف + إنشاء جديد</td></tr><tr><td><code>language</code></td><td>حذف + إنشاء جديد</td></tr></tbody></table></div>
+<p>| Field | الحل البديل |</p>
+<p>|-------|-----------|</p>
+<p>| <code>name</code> | حذف + إنشاء جديد |</p>
+<p>| <code>language</code> | حذف + إنشاء جديد |</p>
+
 <h3 id="حدود-معدل-التعديل-rate-limits">حدود معدل التعديل (Rate Limits)</h3>
 
-<div class="table-wrap"><table><thead><tr><th>حالة القالب</th><th>التعديلات المسموح بها</th></tr></thead><tbody><tr><td><code>APPROVED</code></td><td>بحد أقصى <strong>10 تعديلات كل 30 يومًا</strong>، أو <strong>تعديل واحد كل 24 ساعة</strong></td></tr><tr><td><code class="code-red">REJECTED</code></td><td>غير محدود</td></tr><tr><td><code>PAUSED</code></td><td>غير محدود</td></tr></tbody></table></div>
+<p>| حالة القالب | التعديلات المسموح بها |</p>
+<p>|---------------|--------------|</p>
+<p>| <code>APPROVED</code> | بحد أقصى <strong>10 تعديلات كل 30 يومًا</strong>، أو <strong>تعديل واحد كل 24 ساعة</strong> |</p>
+<p>| <code class="code-red">REJECTED</code> | غير محدود |</p>
+<p>| <code>PAUSED</code> | غير محدود |</p>
+
 <hr>
 
 <h2 id="delete-القواعد-rules">DELETE — القواعد (Rules)</h2>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — TEXT Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-text"><code class="language-text">DELETE /{version}/{waba-id}/message_templates</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```</p>
+<p>DELETE /{version}/{waba-id}/message_templates</p>
+<p>```</p>
 
-<div class="table-wrap"><table><thead><tr><th>المعلمة (Param)</th><th>التأثير</th></tr></thead><tbody><tr><td><code>name</code> فقط</td><td>يحذف <strong>جميع</strong> لغات ذلك القالب</td></tr><tr><td><code>name</code> + <code>hsm_id</code></td><td>يحذف لغة <strong>واحدة محددة</strong></td></tr><tr><td><code>hsm_ids</code> (مصفوفة)</td><td>يحذف ما يصل إلى <strong>100</strong> قالب في المرة الواحدة — إذا كان أي معرّف (ID) غير صالح، <strong>يفشل الطلب بالكامل</strong></td></tr></tbody></table></div>
+<p>| المعلمة (Param) | التأثير |</p>
+<p>|-------|--------|</p>
+<p>| <code>name</code> فقط | يحذف <strong>جميع</strong> لغات ذلك القالب |</p>
+<p>| <code>name</code> + <code>hsm_id</code> | يحذف لغة <strong>واحدة محددة</strong> |</p>
+<p>| <code>hsm_ids</code> (مصفوفة) | يحذف ما يصل إلى <strong>100</strong> قالب في المرة الواحدة — إذا كان أي معرّف (ID) غير صالح، <strong>يفشل الطلب بالكامل</strong> |</p>
+
 <h3 id="قيود-الحذف">قيود الحذف</h3>
 
-<div class="table-wrap"><table><thead><tr><th>الشرط</th><th>النتيجة</th></tr></thead><tbody><tr><td>القالب في حالة <code>DISABLED</code></td><td><span class="icon-reject">❌</span> لا يمكن حذفه</td></tr><tr><td>القالب كان معتمدًا (<code>APPROVED</code>)</td><td>يتم <strong>حظر الاسم لمدة 30 يومًا</strong> من إعادة الاستخدام</td></tr><tr><td>القالب قيد الإرسال عند حذفه</td><td>تصبح الحالة <code>PENDING_DELETION</code>، ويُعاد محاولة التسليم لمدة 30 يومًا</td></tr><tr><td>عدم وجود إذن <code>whatsapp_business_management</code></td><td>رمز الخطأ <code>200</code></td></tr></tbody></table></div>
+<p>| الشرط | النتيجة |</p>
+<p>|-----------|--------|</p>
+<p>| القالب في حالة <code>DISABLED</code> | <span class="icon-reject">❌</span> لا يمكن حذفه |</p>
+<p>| القالب كان معتمدًا (<code>APPROVED</code>) | يتم <strong>حظر الاسم لمدة 30 يومًا</strong> من إعادة الاستخدام |</p>
+<p>| القالب قيد الإرسال عند حذفه | تصبح الحالة <code>PENDING_DELETION</code>، ويُعاد محاولة التسليم لمدة 30 يومًا |</p>
+<p>| عدم وجود إذن <code>whatsapp_business_management</code> | رمز الخطأ <code>200</code> |</p>
+
 <hr>
 
 <h2 id="مرجع-رموز-الأخطاء-error-codes">مرجع رموز الأخطاء (Error Codes)</h2>
 
 <h3 id="أخطاء-الإنشاء-التحقق">أخطاء الإنشاء / التحقق</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Code</th><th>Subcode</th><th>الخطأ</th><th>ما الذي تسبب فيه</th><th>الحل</th></tr></thead><tbody><tr><td><code>100</code></td><td>—</td><td>معلمة غير صالحة</td><td>الاسم يحتوي على أحرف كبيرة/خاصة، أو فئة غير صالحة</td><td>استخدم أسماء بتنسيق <code>^[a-z0-9_]+$</code></td></tr><tr><td><code>100</code></td><td><code>2388024</code></td><td>اسم مكرر</td><td>نفس الاسم+اللغة موجود بالفعل في هذا الـ WABA</td><td>استخدم اسمًا مختلفًا</td></tr><tr><td><code>2388040</code></td><td>—</td><td>تم تجاوز الحد الأقصى للأحرف</td><td>النص > 1024، الرأس > 60، التذييل > 60</td><td>اختصر الحقل</td></tr><tr><td><code>2388047</code></td><td>—</td><td>تنسيق الرأس غير صحيح</td><td>بنية الرأس غير صالحة</td><td>تحقق من تنسيق مكون الرأس</td></tr><tr><td><code>2388072</code></td><td>—</td><td>تنسيق النص غير صحيح</td><td>صيغة أو بنية المتغير سيئة</td><td>تحقق من تنسيق <code>{{n}}</code></td></tr><tr><td><code>2388073</code></td><td>—</td><td>تنسيق التذييل غير صحيح</td><td>التذييل يحتوي على متغيرات</td><td>قم بإزالة المتغيرات من التذييل</td></tr><tr><td><code>2388293</code></td><td>—</td><td>تم تجاوز نسبة الكلمات/المعلمات</td><td>متغيرات كثيرة جداً مقارنة بطول النص</td><td>أضف المزيد من النص حول المتغيرات</td></tr><tr><td><code>2388299</code></td><td>—</td><td>معلمة معلقة</td><td>يبدأ القالب أو ينتهي بمتغير</td><td>أحط المتغير بنص</td></tr><tr><td><code>2388019</code></td><td>—</td><td>تم تجاوز حد القوالب</td><td>يحتوي حساب WABA على قوالب أكثر من اللازم</td><td>احذف القوالب غير المستخدمة</td></tr></tbody></table></div>
+<p>| Code | Subcode | الخطأ | ما الذي تسبب فيه | الحل |</p>
+<p>|------|---------|-------|-------------------|-----|</p>
+<p>| <code>100</code> | — | معلمة غير صالحة | الاسم يحتوي على أحرف كبيرة/خاصة، أو فئة غير صالحة | استخدم أسماء بتنسيق <code>^[a-z0-9_]+$</code> |</p>
+<p>| <code>100</code> | <code>2388024</code> | اسم مكرر | نفس الاسم+اللغة موجود بالفعل في هذا الـ WABA | استخدم اسمًا مختلفًا |</p>
+<p>| <code>2388040</code> | — | تم تجاوز الحد الأقصى للأحرف | النص > 1024، الرأس > 60، التذييل > 60 | اختصر الحقل |</p>
+<p>| <code>2388047</code> | — | تنسيق الرأس غير صحيح | بنية الرأس غير صالحة | تحقق من تنسيق مكون الرأس |</p>
+<p>| <code>2388072</code> | — | تنسيق النص غير صحيح | صيغة أو بنية المتغير سيئة | تحقق من تنسيق <code>{{n}}</code> |</p>
+<p>| <code>2388073</code> | — | تنسيق التذييل غير صحيح | التذييل يحتوي على متغيرات | قم بإزالة المتغيرات من التذييل |</p>
+<p>| <code>2388293</code> | — | تم تجاوز نسبة الكلمات/المعلمات | متغيرات كثيرة جداً مقارنة بطول النص | أضف المزيد من النص حول المتغيرات |</p>
+<p>| <code>2388299</code> | — | معلمة معلقة | يبدأ القالب أو ينتهي بمتغير | أحط المتغير بنص |</p>
+<p>| <code>2388019</code> | — | تم تجاوز حد القوالب | يحتوي حساب WABA على قوالب أكثر من اللازم | احذف القوالب غير المستخدمة |</p>
+
 <h3 id="أخطاء-وقت-الإرسال-عند-إرسال-رسالة-قالب">أخطاء وقت الإرسال (عند إرسال رسالة قالب)</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Code</th><th>الخطأ</th><th>ما الذي تسبب فيه</th><th>الحل</th></tr></thead><tbody><tr><td><code>132000</code></td><td>عدم تطابق عدد المعلمات</td><td>الطلب يحتوي على عدد متغيرات مختلف عن القالب</td><td>طابق المتغيرات بشكل دقيق</td></tr><tr><td><code>132001</code></td><td>القالب غير موجود أو غير معتمد</td><td>اسم (slug) خاطئ، أو لغة خاطئة، أو لا يزال قيد المراجعة</td><td>تحقق من الاسم/اللغة/الحالة</td></tr><tr><td><code>132005</code></td><td>النص المترجم طويل جداً</td><td>—</td><td>اختصر النص</td></tr><tr><td><code>132007</code></td><td>انتهاك السياسة</td><td>محتوى القالب ينتهك سياسة WhatsApp</td><td>راجع محتوى القالب</td></tr><tr><td><code>132012</code></td><td>تنسيق المتغير غير صحيح</td><td>قيم متغيرات مشوهة في طلب الإرسال</td><td>أصلح تنسيق المعلمة</td></tr><tr><td><code>132015</code></td><td>تم إيقاف القالب مؤقتاً</td><td>درجة جودة منخفضة</td><td>حسّن صلة القالب بالموضوع</td></tr><tr><td><code>132016</code></td><td>تم تعطيل القالب</td><td>تم إيقافه مؤقتاً مرات كثيرة جداً</td><td>أنشئ قالبًا جديدًا</td></tr><tr><td><code>132018</code></td><td>خطأ في التحقق من القالب</td><td>المتغيرات في الطلب لا تتطابق مع القالب</td><td>تحقق من بنية المعلمة</td></tr><tr><td><code>134101</code></td><td>القالب لا يزال قيد المزامنة</td><td>تم إنشاؤه/تعديله للتو، ولم يتم نشره بعد</td><td>انتظر حتى 10 دقائق</td></tr><tr><td><code>134102</code></td><td>القالب غير متاح (فشلت مزامنة الإعلان)</td><td>فشل رابط الإعلان</td><td>تحقق من ربط حساب إعلانات Meta</td></tr><tr><td><code>131049</code></td><td>تم حظر الرسالة (حد لكل مستخدم)</td><td>وصل المستخدم إلى حد القوالب التسويقية</td><td>طبيعي — حد يفرضه المستخدم</td></tr><tr><td><code>131050</code></td><td>قام المستخدم بإلغاء الاشتراك</td><td>قام المستخدم بإلغاء الاشتراك من الرسائل التسويقية</td><td>احترم إلغاء الاشتراك</td></tr><tr><td><code>131063</code></td><td>تم تعطيل القوالب التسويقية</td><td>قام WABA بتعطيل الرسائل التسويقية</td><td>تواصل مع دعم Meta</td></tr><tr><td><code>131064</code></td><td>حد مراسلة الحساب</td><td>انتهاكات تصنيف القوالب</td><td>راجع فئات القوالب</td></tr></tbody></table></div>
+<p>| Code | الخطأ | ما الذي تسبب فيه | الحل |</p>
+<p>|------|-------|-------------------|-----|</p>
+<p>| <code>132000</code> | عدم تطابق عدد المعلمات | الطلب يحتوي على عدد متغيرات مختلف عن القالب | طابق المتغيرات بشكل دقيق |</p>
+<p>| <code>132001</code> | القالب غير موجود أو غير معتمد | اسم (slug) خاطئ، أو لغة خاطئة، أو لا يزال قيد المراجعة | تحقق من الاسم/اللغة/الحالة |</p>
+<p>| <code>132005</code> | النص المترجم طويل جداً | — | اختصر النص |</p>
+<p>| <code>132007</code> | انتهاك السياسة | محتوى القالب ينتهك سياسة WhatsApp | راجع محتوى القالب |</p>
+<p>| <code>132012</code> | تنسيق المتغير غير صحيح | قيم متغيرات مشوهة في طلب الإرسال | أصلح تنسيق المعلمة |</p>
+<p>| <code>132015</code> | تم إيقاف القالب مؤقتاً | درجة جودة منخفضة | حسّن صلة القالب بالموضوع |</p>
+<p>| <code>132016</code> | تم تعطيل القالب | تم إيقافه مؤقتاً مرات كثيرة جداً | أنشئ قالبًا جديدًا |</p>
+<p>| <code>132018</code> | خطأ في التحقق من القالب | المتغيرات في الطلب لا تتطابق مع القالب | تحقق من بنية المعلمة |</p>
+<p>| <code>134101</code> | القالب لا يزال قيد المزامنة | تم إنشاؤه/تعديله للتو، ولم يتم نشره بعد | انتظر حتى 10 دقائق |</p>
+<p>| <code>134102</code> | القالب غير متاح (فشلت مزامنة الإعلان) | فشل رابط الإعلان | تحقق من ربط حساب إعلانات Meta |</p>
+<p>| <code>131049</code> | تم حظر الرسالة (حد لكل مستخدم) | وصل المستخدم إلى حد القوالب التسويقية | طبيعي — حد يفرضه المستخدم |</p>
+<p>| <code>131050</code> | قام المستخدم بإلغاء الاشتراك | قام المستخدم بإلغاء الاشتراك من الرسائل التسويقية | احترم إلغاء الاشتراك |</p>
+<p>| <code>131063</code> | تم تعطيل القوالب التسويقية | قام WABA بتعطيل الرسائل التسويقية | تواصل مع دعم Meta |</p>
+<p>| <code>131064</code> | حد مراسلة الحساب | انتهاكات تصنيف القوالب | راجع فئات القوالب |</p>
+
 <hr>
 
 <h2 id="أمثلة-التعليمات-البرمجية">أمثلة التعليمات البرمجية</h2>
 
 <h3 id="صالح-إنشاء-قالب-utility">✅ صالح: إنشاء قالب UTILITY</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">POST /v21.0/{WABA_ID}/message_templates</p>
+<p>```json</p>
+<p>POST /v21.0/{WABA_ID}/message_templates</p>
 
 <p>{</p>
 <p>  "name": "order_shipped",</p>
@@ -1043,100 +999,44 @@
 <p>      ]</p>
 <p>    }</p>
 <p>  ]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h3 id="مرفوض-اسم-بأحرف-كبيرة">❌ مرفوض: اسم بأحرف كبيرة</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "name": "Order_Shipped",  ← ERROR: uppercase 'O' and 'S'</p>
 <p>  "language": "en_US",</p>
 <p>  "category": "UTILITY"</p>
 <p>}</p>
-<p>// Error 100: Parameter name must match ^[a-z0-9_]+$</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>// Error 100: Parameter name must match ^[a-z0-9_]+$</p>
+<p>```</p>
 
 <h3 id="مرفوض-النص-يبدأ-بمتغير-معلق">❌ مرفوض: النص يبدأ بمتغير (معلق)</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "type": "BODY",</p>
 <p>  "text": "{{1}} has placed an order."  ← ERROR: starts with variable</p>
 <p>}</p>
-<p>// Error 2388299: Leading or trailing parameters not allowed</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>// Error 2388299: Leading or trailing parameters not allowed</p>
+<p>```</p>
 
 <h3 id="مرفوض-التذييل-يحتوي-على-متغير">❌ مرفوض: التذييل يحتوي على متغير</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "type": "FOOTER",</p>
 <p>  "text": "Order ID: {{1}}"  ← ERROR: variables not allowed in footer</p>
 <p>}</p>
-<p>// Error 2388073: Message footer format is incorrect</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>// Error 2388073: Message footer format is incorrect</p>
+<p>```</p>
 
 <h3 id="صالح-تعديل-قالب-مرفوض-تغيير-النص">✅ صالح: تعديل قالب مرفوض (تغيير النص)</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">POST /v21.0/{TEMPLATE_ID}</p>
+<p>```json</p>
+<p>POST /v21.0/{TEMPLATE_ID}</p>
 
 <p>{</p>
 <p>  "components": [</p>
@@ -1148,104 +1048,61 @@
 <p>      }</p>
 <p>    }</p>
 <p>  ]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h3 id="مرفوض-محاولة-تغيير-اسم-القالب-ثابت">❌ مرفوض: محاولة تغيير اسم القالب (ثابت)</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">POST /v21.0/{TEMPLATE_ID}</p>
+<p>```json</p>
+<p>POST /v21.0/{TEMPLATE_ID}</p>
 
 <p>{</p>
 <p>  "name": "new_name"  ← ERROR: name is immutable</p>
 <p>}</p>
-<p>// Field is silently ignored or returns error — name cannot change</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>// Field is silently ignored or returns error — name cannot change</p>
+<p>```</p>
 
 <hr>
 
 <h2 id="seen-v2-ملاحظات">SEEN V2 — ملاحظات</h2>
 
-<div class="table-wrap"><table><thead><tr><th>الميزة</th><th>كيف يستخدمها SEEN V2</th></tr></thead><tbody><tr><td>قوالب WhatsApp</td><td>جوهر وحدة البث (Broadcasts) — كافة عمليات الإرسال الجماعي</td></tr><tr><td>الفئة</td><td><code>MARKETING</code> للحملات، <code>UTILITY</code> للرسائل الخاصة بالمعاملات</td></tr><tr><td>خطافات الويب (Webhooks)</td><td><code>message_template_status_update</code> → المراقبة من أجل <code>APPROVED</code>/<code class="code-red">REJECTED</code></td></tr><tr><td>حدود المعدل (Rate limits)</td><td>تُطبق لكل WABA — مشتركة بين جميع عملاء SEEN V2 على نفس الـ WABA</td></tr><tr><td>إلغاء الاشتراك (Opt-out)</td><td>يجب التعامل مع <code>131050</code> بسلاسة في وحدة البث</td></tr></tbody></table></div>
+<p>| الميزة | كيف يستخدمها SEEN V2 |</p>
+<p>|---------|---------------------|</p>
+<p>| قوالب WhatsApp | جوهر وحدة البث (Broadcasts) — كافة عمليات الإرسال الجماعي |</p>
+<p>| الفئة | <code>MARKETING</code> للحملات، <code>UTILITY</code> للرسائل الخاصة بالمعاملات |</p>
+<p>| خطافات الويب (Webhooks) | <code>message_template_status_update</code> → المراقبة من أجل <code>APPROVED</code>/<code class="code-red">REJECTED</code> |</p>
+<p>| حدود المعدل (Rate limits) | تُطبق لكل WABA — مشتركة بين جميع عملاء SEEN V2 على نفس الـ WABA |</p>
+<p>| إلغاء الاشتراك (Opt-out) | يجب التعامل مع <code>131050</code> بسلاسة في وحدة البث |</p>
+
 <div class="callout callout-info"><strong>ملاحظة ضمان الجودة (QA):</strong><p>عند اختبار إنشاء قالب، قم دائمًا بتضمين قيم العينة (`example`) لأي قالب يحتوي على متغيرات، وإلا سترفضه واجهة برمجة التطبيقات (API) بخطأ في التحقق.</p></div>
 
 <hr>
 
 <h2 id="get-سرد-القوالب">GET — سرد القوالب</h2>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — HTTP Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-http"><code class="language-http">GET /v23.0/{waba-id}/message_templates</p>
-<p>Authorization: Bearer {token}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```http</p>
+<p>GET /v23.0/{waba-id}/message_templates</p>
+<p>Authorization: Bearer {token}</p>
+<p>```</p>
 
 <h3 id="معلمات-الاستعلام-query-parameters">معلمات الاستعلام (Query Parameters)</h3>
 
-<div class="table-wrap"><table><thead><tr><th>المعلمة (Parameter)</th><th>Type</th><th>الوصف</th></tr></thead><tbody><tr><td><code>fields</code></td><td>string</td><td>حقول مفصولة بفواصل: <code>name,category,status,language,components</code></td></tr><tr><td><code>status</code></td><td>enum</td><td>التصفية حسب: <code>APPROVED</code>, <code>PENDING</code>, <code class="code-red">REJECTED</code>, <code>PAUSED</code>, <code>DISABLED</code></td></tr><tr><td><code>limit</code></td><td>integer</td><td>الحد الأقصى للنتائج لكل صفحة (الافتراضي: 100)</td></tr><tr><td><code>after</code></td><td>cursor</td><td>مؤشر (cursor) الترقيم للصفحة التالية</td></tr></tbody></table></div>
+<p>| المعلمة (Parameter) | Type | الوصف |</p>
+<p>|-----------|------|-------------|</p>
+<p>| <code>fields</code> | string | حقول مفصولة بفواصل: <code>name,category,status,language,components</code> |</p>
+<p>| <code>status</code> | enum | التصفية حسب: <code>APPROVED</code>, <code>PENDING</code>, <code class="code-red">REJECTED</code>, <code>PAUSED</code>, <code>DISABLED</code> |</p>
+<p>| <code>limit</code> | integer | الحد الأقصى للنتائج لكل صفحة (الافتراضي: 100) |</p>
+<p>| <code>after</code> | cursor | مؤشر (cursor) الترقيم للصفحة التالية |</p>
+
 <h3 id="التصفية-حسب-الحالة-مثال">التصفية حسب الحالة — مثال</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-bash"><code class="language-bash"># Get only APPROVED templates</p>
-<p>GET /v23.0/{waba-id}/message_templates?fields=name,category,status&amp;status=APPROVED</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```bash</p>
+<h1>Get only APPROVED templates</h1>
+<p>GET /v23.0/{waba-id}/message_templates?fields=name,category,status&status=APPROVED</p>
+<p>```</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "data": [</p>
 <p>    { "name": "order_confirmation",  "category": "UTILITY",    "status": "APPROVED", "id": "1387372356726668" },</p>
 <p>    { "name": "summer_campaign",     "category": "MARKETING",  "status": "APPROVED", "id": "1304694804498707" }</p>
@@ -1254,37 +1111,42 @@
 <p>    "cursors": { "before": "QVFIU...", "after": "QVFIU..." },</p>
 <p>    "next": "https://graph.facebook.com/v23.0/..."</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h3 id="حالات-القالب">حالات القالب</h3>
 
-<div class="table-wrap"><table><thead><tr><th>الحالة</th><th>المعنى</th></tr></thead><tbody><tr><td><code>APPROVED</code></td><td>جاهز للاستخدام — يمكن إرساله إلى العملاء</td></tr><tr><td><code>PENDING</code></td><td>قيد المراجعة بواسطة Meta (عادةً خلال دقائق)</td></tr><tr><td><code class="code-red">REJECTED</code></td><td>فشل في المراجعة — راجع سبب الرفض</td></tr><tr><td><code>PAUSED</code></td><td>تم إيقافه مؤقتاً تلقائياً بسبب تقييم جودة منخفض</td></tr><tr><td><code>DISABLED</code></td><td>معطل بشكل دائم بعد انخفاض متكرر في الجودة</td></tr><tr><td><code>PENDING_DELETION</code></td><td>تم طلب الحذف؛ تتم محاولة التسليم لمدة 30 يومًا</td></tr><tr><td><code>LIMIT_EXCEEDED</code></td><td>وصل حساب WABA إلى حد الـ 250 قالب</td></tr></tbody></table></div>
+<p>| الحالة | المعنى |</p>
+<p>|--------|---------|</p>
+<p>| <code>APPROVED</code> | جاهز للاستخدام — يمكن إرساله إلى العملاء |</p>
+<p>| <code>PENDING</code> | قيد المراجعة بواسطة Meta (عادةً خلال دقائق) |</p>
+<p>| <code class="code-red">REJECTED</code> | فشل في المراجعة — راجع سبب الرفض |</p>
+<p>| <code>PAUSED</code> | تم إيقافه مؤقتاً تلقائياً بسبب تقييم جودة منخفض |</p>
+<p>| <code>DISABLED</code> | معطل بشكل دائم بعد انخفاض متكرر في الجودة |</p>
+<p>| <code>PENDING_DELETION</code> | تم طلب الحذف؛ تتم محاولة التسليم لمدة 30 يومًا |</p>
+<p>| <code>LIMIT_EXCEEDED</code> | وصل حساب WABA إلى حد الـ 250 قالب |</p>
+
 <hr>
 
 <h2 id="edit-القيود">EDIT — القيود</h2>
 
 <div class="callout callout-info"><strong>المصدر:</strong><p>[مستندات Meta — تعديل القوالب](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-management/#limitations)</p></div>
 
-<div class="table-wrap"><table><thead><tr><th>القيد</th><th>التفاصيل</th></tr></thead><tbody><tr><td><strong>الحالات المسموح بها</strong></td><td>يمكن فقط تعديل القوالب ذات الحالة <code>APPROVED</code>، أو <code class="code-red">REJECTED</code>، أو <code>PAUSED</code></td></tr><tr><td><strong>الحقول القابلة للتعديل</strong></td><td>فقط: <code>category</code>، <code>components</code>، <code>message_send_ttl_seconds</code></td></tr><tr><td><strong>لا يمكن عزل المكونات</strong></td><td>يتم استبدال جميع المكونات معًا — يجب عليك إرسال جميع المكونات في طلب التعديل</td></tr><tr><td><strong>فئة القوالب المعتمدة</strong></td><td>لا يمكن تغيير فئة قالب في حالة <code>APPROVED</code></td></tr><tr><td><strong>حد المعدل (للمعتمدة)</strong></td><td>بحد أقصى <strong>10 تعديلات في 30 يومًا</strong> أو <strong>تعديل واحد في 24 ساعة</strong></td></tr><tr><td><strong>حد المعدل (للمرفوضة/الموقفة مؤقتًا)</strong></td><td>تعديلات غير محدودة</td></tr><tr><td><strong>بعد التعديل</strong></td><td>يعود القالب للمراجعة تلقائيًا؛ ويتم اعتماده ما لم يفشل في المراجعة</td></tr><tr><td><strong>الاسم ثابت</strong></td><td>لا يمكن تغيير اسم القالب — يتم تجاهل أي حقل <code>name</code> في طلب التعديل</td></tr></tbody></table></div>
+<p>| القيد | التفاصيل |</p>
+<p>|-----------|---------|</p>
+<p>| <strong>الحالات المسموح بها</strong> | يمكن فقط تعديل القوالب ذات الحالة <code>APPROVED</code>، أو <code class="code-red">REJECTED</code>، أو <code>PAUSED</code> |</p>
+<p>| <strong>الحقول القابلة للتعديل</strong> | فقط: <code>category</code>، <code>components</code>، <code>message_send_ttl_seconds</code> |</p>
+<p>| <strong>لا يمكن عزل المكونات</strong> | يتم استبدال جميع المكونات معًا — يجب عليك إرسال جميع المكونات في طلب التعديل |</p>
+<p>| <strong>فئة القوالب المعتمدة</strong> | لا يمكن تغيير فئة قالب في حالة <code>APPROVED</code> |</p>
+<p>| <strong>حد المعدل (للمعتمدة)</strong> | بحد أقصى <strong>10 تعديلات في 30 يومًا</strong> أو <strong>تعديل واحد في 24 ساعة</strong> |</p>
+<p>| <strong>حد المعدل (للمرفوضة/الموقفة مؤقتًا)</strong> | تعديلات غير محدودة |</p>
+<p>| <strong>بعد التعديل</strong> | يعود القالب للمراجعة تلقائيًا؛ ويتم اعتماده ما لم يفشل في المراجعة |</p>
+<p>| <strong>الاسم ثابت</strong> | لا يمكن تغيير اسم القالب — يتم تجاهل أي حقل <code>name</code> في طلب التعديل |</p>
+
 <h3 id="مثال-قابل-للتعديل-تعديل-المكونات">✅ مثال قابل للتعديل — تعديل المكونات</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-bash"><code class="language-bash">POST /v23.0/{template-id}</p>
+<p>```bash</p>
+<p>POST /v23.0/{template-id}</p>
 <p>Content-Type: application/json</p>
 <p>Authorization: Bearer {token}</p>
 
@@ -1302,54 +1164,21 @@
 <p>      "example": { "body_text": [["the end of April", "25OFF", "25%"]] }</p>
 <p>    }</p>
 <p>  ]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h3 id="تعديل-الفئة-فقط">✅ تعديل الفئة فقط</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-bash"><code class="language-bash">POST /v23.0/{template-id}</p>
+<p>```bash</p>
+<p>POST /v23.0/{template-id}</p>
 
-<p>{ "category": "MARKETING" }</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>{ "category": "MARKETING" }</p>
+<p>```</p>
 
 <p>الاستجابة:</p>
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{ "success": true }</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```json</p>
+<p>{ "success": true }</p>
+<p>```</p>
 
 <hr>
 
@@ -1357,90 +1186,40 @@
 
 <div class="callout callout-info"><strong>المصدر:</strong><p>[مستندات Meta — حذف القوالب](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-management/#delete-templates)</p></div>
 
-<div class="table-wrap"><table><thead><tr><th>القيد</th><th>التفاصيل</th></tr></thead><tbody><tr><td><strong>تم الإرسال ولكن لم يتم التسليم</strong></td><td>تصبح الحالة <code>PENDING_DELETION</code> — ويُعاد محاولة التسليم لمدة 30 يومًا</td></tr><tr><td><strong>حظر لمدة 30 يومًا</strong></td><td>بعد حذف قالب <code>APPROVED</code>، لا يمكن إنشاء قالب جديد يحمل <strong>نفس الاسم لمدة 30 يومًا</strong></td></tr><tr><td><strong>لا يمكن حذف المعطلة</strong></td><td>لا يمكن حذف القوالب ذات الحالة <code>DISABLED</code></td></tr><tr><td><strong>إذن مطلوب</strong></td><td>إذن <code>whatsapp_business_management</code> على رمز الوصول (access token)</td></tr></tbody></table></div>
+<p>| القيد | التفاصيل |</p>
+<p>|-----------|---------|</p>
+<p>| <strong>تم الإرسال ولكن لم يتم التسليم</strong> | تصبح الحالة <code>PENDING_DELETION</code> — ويُعاد محاولة التسليم لمدة 30 يومًا |</p>
+<p>| <strong>حظر لمدة 30 يومًا</strong> | بعد حذف قالب <code>APPROVED</code>، لا يمكن إنشاء قالب جديد يحمل <strong>نفس الاسم لمدة 30 يومًا</strong> |</p>
+<p>| <strong>لا يمكن حذف المعطلة</strong> | لا يمكن حذف القوالب ذات الحالة <code>DISABLED</code> |</p>
+<p>| <strong>إذن مطلوب</strong> | إذن <code>whatsapp_business_management</code> على رمز الوصول (access token) |</p>
+
 <h3 id="الطريقة-1-الحذف-بالاسم-جميع-اللغات">الطريقة 1 — الحذف بالاسم (جميع اللغات)</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-bash"><code class="language-bash">DELETE /v23.0/{waba-id}/message_templates?name=order_confirmation</p>
-<p>Authorization: Bearer {token}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```bash</p>
+<p>DELETE /v23.0/{waba-id}/message_templates?name=order_confirmation</p>
+<p>Authorization: Bearer {token}</p>
+<p>```</p>
 
 <p><span class="icon-warn">⚠️</span> يحذف <strong>جميع إصدارات اللغات</strong> لاسم القالب هذا.</p>
 
 <h3 id="الطريقة-2-الحذف-بالمعرف-id-لغة-محددة-فقط">الطريقة 2 — الحذف بالمعرف ID (لغة محددة فقط)</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-bash"><code class="language-bash">DELETE /v23.0/{waba-id}/message_templates?hsm_id=1407680676729941&amp;name=order_confirmation</p>
-<p>Authorization: Bearer {token}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```bash</p>
+<p>DELETE /v23.0/{waba-id}/message_templates?hsm_id=1407680676729941&name=order_confirmation</p>
+<p>Authorization: Bearer {token}</p>
+<p>```</p>
 
 <h3 id="الطريقة-3-حذف-متعدد-بواسطة-المعرفات-ids-بحد-أقصى-100-لكل-طلب">الطريقة 3 — حذف متعدد بواسطة المعرفات IDs (بحد أقصى 100 لكل طلب)</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-bash"><code class="language-bash">DELETE /v23.0/{waba-id}/message_templates?hsm_ids=[1387372356726668,1304694804498707]</p>
-<p>Authorization: Bearer {token}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```bash</p>
+<p>DELETE /v23.0/{waba-id}/message_templates?hsm_ids=[1387372356726668,1304694804498707]</p>
+<p>Authorization: Bearer {token}</p>
+<p>```</p>
 
 <p>الاستجابة لجميع طرق الحذف:</p>
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{ "success": true }</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```json</p>
+<p>{ "success": true }</p>
+<p>```</p>
 
 <hr>
 
@@ -1450,27 +1229,20 @@
 
 <h3 id="جدول-مدة-الإيقاف-المؤقت">جدول مدة الإيقاف المؤقت</h3>
 
-<div class="table-wrap"><table><thead><tr><th>الحالة (Instance)</th><th>مدة الإيقاف المؤقت</th></tr></thead><tbody><tr><td>المرة الأولى</td><td>3 ساعات</td></tr><tr><td>المرة الثانية</td><td>6 ساعات</td></tr><tr><td>المرة الثالثة</td><td><strong>معطل بشكل دائم</strong></td></tr></tbody></table></div>
+<p>| الحالة (Instance) | مدة الإيقاف المؤقت |</p>
+<p>|----------|---------------|</p>
+<p>| المرة الأولى | 3 ساعات |</p>
+<p>| المرة الثانية | 6 ساعات |</p>
+<p>| المرة الثالثة | <strong>معطل بشكل دائم</strong> |</p>
+
 <h3 id="إشعارات-الإيقاف-المؤقت">إشعارات الإيقاف المؤقت</h3>
 
-<p>يتم إشعارك عبر:</p>
-<ul><li style="margin-left:0px">إشعارات مدير واتساب (WhatsApp Manager)</li>
-<li style="margin-left:0px">البريد الإلكتروني</li>
-<li style="margin-left:0px">خطاف الويب <code>message_template_status_update</code></li></ul>
+<p>يتم إشعارك عبر:</p><ul><li style="margin-left:8px">إشعارات مدير واتساب (WhatsApp Manager)</li><li style="margin-left:8px">البريد الإلكتروني</li><li style="margin-left:8px">خطاف الويب <code>message_template_status_update</code></li></ul>
 
 <h3 id="حمولة-خطاف-الويب-تغيير-الحالة---payload">حمولة خطاف الويب (تغيير الحالة - Payload)</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "entry": [{</p>
 <p>    "changes": [{</p>
 <p>      "field": "message_template_status_update",</p>
@@ -1483,17 +1255,17 @@
 <p>      }</p>
 <p>    }]</p>
 <p>  }]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h3 id="إلغاء-الإيقاف-المؤقت">إلغاء الإيقاف المؤقت</h3>
 
-<div class="table-wrap"><table><thead><tr><th>الطريقة</th><th>الكيفية</th></tr></thead><tbody><tr><td><strong>تلقائي</strong></td><td>يتم إلغاء الإيقاف المؤقت للقالب تلقائيًا بعد انتهاء مدة الإيقاف</td></tr><tr><td><strong>يدوي (API)</strong></td><td><code>POST /{template-id}/unpause</code></td></tr><tr><td><strong>يدوي (واجهة المستخدم)</strong></td><td>انقر على "manually unpause it" (إلغاء الإيقاف المؤقت يدويًا) في WhatsApp Manager</td></tr></tbody></table></div>
+<p>| الطريقة | الكيفية |</p>
+<p>|--------|-----|</p>
+<p>| <strong>تلقائي</strong> | يتم إلغاء الإيقاف المؤقت للقالب تلقائيًا بعد انتهاء مدة الإيقاف |</p>
+<p>| <strong>يدوي (API)</strong> | <code>POST /{template-id}/unpause</code> |</p>
+<p>| <strong>يدوي (واجهة المستخدم)</strong> | انقر على "manually unpause it" (إلغاء الإيقاف المؤقت يدويًا) في WhatsApp Manager |</p>
+
 <blockquote><p>بعد الإلغاء التلقائي للإيقاف المؤقت، تتم **إعادة تعيين** تقييم الجودة بناءً على أحدث ملاحظات العملاء.</p></blockquote>
 
 <h3 id="تقديم-التماس-قالب-مرفوضمعطل">تقديم التماس (قالب مرفوض/معطل)</h3>
@@ -1509,13 +1281,33 @@
 
 <h3 id="أخطاء-الإنشاء">أخطاء الإنشاء</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Error Code</th><th>Subcode</th><th>الرسالة</th><th>الحل</th></tr></thead><tbody><tr><td><code>100</code></td><td>—</td><td>تنسيق اسم غير صالح</td><td>استخدم فقط الأحرف الصغيرة، الأرقام، الشرطات السفلية</td></tr><tr><td><code>100</code></td><td><code>2388024</code></td><td>المحتوى بهذه اللغة موجود بالفعل</td><td>قالب بنفس الاسم+اللغة موجود بالفعل في WABA</td></tr><tr><td><code>132018</code></td><td>—</td><td>عدم تطابق تنسيق المعلمة وقت الإرسال</td><td>عدم تطابق بين معلمات القالب والقيم وقت الإرسال (v23.0+)</td></tr><tr><td><code>2388040</code></td><td>—</td><td>تم تجاوز الحد الأقصى للأحرف</td><td>قلل المحتوى في الحقل المحدد</td></tr><tr><td><code>2388047</code></td><td>—</td><td>تنسيق رأس الرسالة غير صحيح</td><td>أصلح تنسيق الرأس</td></tr><tr><td><code>2388072</code></td><td>—</td><td>تنسيق نص الرسالة غير صحيح</td><td>أصلح تنسيق النص</td></tr><tr><td><code>2388073</code></td><td>—</td><td>تنسيق تذييل الرسالة غير صحيح</td><td>أصلح تنسيق التذييل</td></tr><tr><td><code>2388293</code></td><td>—</td><td>نسبة المعلمات/الكلمات تتجاوز الحد</td><td>عدد كبير جداً من المتغيرات بالنسبة لطول النص — قلل المتغيرات أو زِد النص</td></tr><tr><td><code>2388299</code></td><td>—</td><td>لا يُسمح بوجود معلمات في البداية/النهاية</td><td>لا تبدأ أو تنهِ نص القالب بمتغير <code>{{1}}</code></td></tr></tbody></table></div>
+<p>| Error Code | Subcode | الرسالة | الحل |</p>
+<p>|-----------|---------|---------|-----|</p>
+<p>| <code>100</code> | — | تنسيق اسم غير صالح | استخدم فقط الأحرف الصغيرة، الأرقام، الشرطات السفلية |</p>
+<p>| <code>100</code> | <code>2388024</code> | المحتوى بهذه اللغة موجود بالفعل | قالب بنفس الاسم+اللغة موجود بالفعل في WABA |</p>
+<p>| <code>132018</code> | — | عدم تطابق تنسيق المعلمة وقت الإرسال | عدم تطابق بين معلمات القالب والقيم وقت الإرسال (v23.0+) |</p>
+<p>| <code>2388040</code> | — | تم تجاوز الحد الأقصى للأحرف | قلل المحتوى في الحقل المحدد |</p>
+<p>| <code>2388047</code> | — | تنسيق رأس الرسالة غير صحيح | أصلح تنسيق الرأس |</p>
+<p>| <code>2388072</code> | — | تنسيق نص الرسالة غير صحيح | أصلح تنسيق النص |</p>
+<p>| <code>2388073</code> | — | تنسيق تذييل الرسالة غير صحيح | أصلح تنسيق التذييل |</p>
+<p>| <code>2388293</code> | — | نسبة المعلمات/الكلمات تتجاوز الحد | عدد كبير جداً من المتغيرات بالنسبة لطول النص — قلل المتغيرات أو زِد النص |</p>
+<p>| <code>2388299</code> | — | لا يُسمح بوجود معلمات في البداية/النهاية | لا تبدأ أو تنهِ نص القالب بمتغير <code>{{1}}</code> |</p>
+
 <h3 id="أخطاء-وقت-الإرسال">أخطاء وقت الإرسال</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Error Code</th><th>Subcode</th><th>الرسالة</th><th>الحل</th></tr></thead><tbody><tr><td><code>2388019</code></td><td>—</td><td>تم تجاوز حد قوالب الرسائل</td><td>وصل WABA إلى حد 250 قالب — احذف القوالب غير المستخدمة</td></tr><tr><td><code>131050</code></td><td>—</td><td>فشل إرسال الرسالة (ألغى المستخدم الاشتراك)</td><td>احترم إلغاء الاشتراك؛ لا تحاول الإرسال مجدداً إلى هذا المستلم</td></tr></tbody></table></div>
+<p>| Error Code | Subcode | الرسالة | الحل |</p>
+<p>|-----------|---------|---------|-----|</p>
+<p>| <code>2388019</code> | — | تم تجاوز حد قوالب الرسائل | وصل WABA إلى حد 250 قالب — احذف القوالب غير المستخدمة |</p>
+<p>| <code>131050</code> | — | فشل إرسال الرسالة (ألغى المستخدم الاشتراك) | احترم إلغاء الاشتراك؛ لا تحاول الإرسال مجدداً إلى هذا المستلم |</p>
+
 <h3 id="أخطاء-التحليلات-analytics">أخطاء التحليلات (Analytics)</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Error Code</th><th>الرسالة</th><th>الحل</th></tr></thead><tbody><tr><td><code>200005</code></td><td>رؤى القالب غير متاحة</td><td>الميزة لم يتم تفعيلها بعد في حساب WABA</td></tr><tr><td><code>200006</code></td><td>لا يمكن تعطيل رؤى القالب</td><td>لا يمكن تعطيل التحليلات بمجرد تفعيلها</td></tr><tr><td><code>200007</code></td><td>رؤى القالب غير مفعلة</td><td>قم بتفعيلها عبر إعدادات WABA أولاً</td></tr></tbody></table></div>
+<p>| Error Code | الرسالة | الحل |</p>
+<p>|-----------|---------|-----|</p>
+<p>| <code>200005</code> | رؤى القالب غير متاحة | الميزة لم يتم تفعيلها بعد في حساب WABA |</p>
+<p>| <code>200006</code> | لا يمكن تعطيل رؤى القالب | لا يمكن تعطيل التحليلات بمجرد تفعيلها |</p>
+<p>| <code>200007</code> | رؤى القالب غير مفعلة | قم بتفعيلها عبر إعدادات WABA أولاً |</p>
+
 <hr>
 
 <h2 id="تحليلات-القالب-template-analytics">تحليلات القالب (Template Analytics)</h2>
@@ -1524,66 +1316,36 @@
 
 <h3 id="تفعيل-التحليلات">تفعيل التحليلات</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-bash"><code class="language-bash">POST /{waba-id}?is_enabled_for_insights=true</p>
-<p>Authorization: Bearer {token}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```bash</p>
+<p>POST /{waba-id}?is_enabled_for_insights=true</p>
+<p>Authorization: Bearer {token}</p>
+<p>```</p>
 
 <h3 id="الحصول-على-التحليلات">الحصول على التحليلات</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-bash"><code class="language-bash">GET /v23.0/{waba-id}/template_analytics</p>
+<p>```bash</p>
+<p>GET /v23.0/{waba-id}/template_analytics</p>
 <p>  ?start=1718064000</p>
-<p>  &amp;end=1718150400</p>
-<p>  &amp;granularity=DAILY</p>
-<p>  &amp;template_ids=[1421988012088524,2632273056924580]</p>
-<p>  &amp;metric_types=SENT,DELIVERED,READ,CLICKED,COST</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>  &end=1718150400</p>
+<p>  &granularity=DAILY</p>
+<p>  &template_ids=[1421988012088524,2632273056924580]</p>
+<p>  &metric_types=SENT,DELIVERED,READ,CLICKED,COST</p>
+<p>```</p>
 
 <h3 id="معلمات-التحليلات">معلمات التحليلات</h3>
 
-<div class="table-wrap"><table><thead><tr><th>المعلمة (Parameter)</th><th>مطلوب</th><th>Type</th><th>الوصف</th></tr></thead><tbody><tr><td><code>start</code></td><td><span class="icon-accept">✅</span></td><td>طابع زمني (UNIX timestamp)</td><td>بداية النطاق الزمني</td></tr><tr><td><code>end</code></td><td><span class="icon-accept">✅</span></td><td>طابع زمني (UNIX timestamp)</td><td>نهاية النطاق الزمني</td></tr><tr><td><code>granularity</code></td><td><span class="icon-accept">✅</span></td><td>enum</td><td>يجب أن تكون <code>DAILY</code></td></tr><tr><td><code>template_ids</code></td><td><span class="icon-accept">✅</span></td><td>array</td><td>مصفوفة من معرفات القوالب (IDs) — <strong>بحد أقصى 10</strong></td></tr><tr><td><code>metric_types</code></td><td><span class="icon-reject">❌</span></td><td>array</td><td><code>SENT</code>, <code>DELIVERED</code>, <code>READ</code>, <code>CLICKED</code>, <code>COST</code></td></tr></tbody></table></div>
+<p>| المعلمة (Parameter) | مطلوب | Type | الوصف |</p>
+<p>|-----------|----------|------|-------------|</p>
+<p>| <code>start</code> | <span class="icon-accept">✅</span> | طابع زمني (UNIX timestamp) | بداية النطاق الزمني |</p>
+<p>| <code>end</code> | <span class="icon-accept">✅</span> | طابع زمني (UNIX timestamp) | نهاية النطاق الزمني |</p>
+<p>| <code>granularity</code> | <span class="icon-accept">✅</span> | enum | يجب أن تكون <code>DAILY</code> |</p>
+<p>| <code>template_ids</code> | <span class="icon-accept">✅</span> | array | مصفوفة من معرفات القوالب (IDs) — <strong>بحد أقصى 10</strong> |</p>
+<p>| <code>metric_types</code> | <span class="icon-reject">❌</span> | array | <code>SENT</code>, <code>DELIVERED</code>, <code>READ</code>, <code>CLICKED</code>, <code>COST</code> |</p>
+
 <h3 id="مثال-على-استجابة-التحليلات">مثال على استجابة التحليلات</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "data": [{</p>
 <p>    "granularity": "DAILY",</p>
 <p>    "product_type": "cloud_api",</p>
@@ -1603,50 +1365,48 @@
 <p>      ]</p>
 <p>    }]</p>
 <p>  }]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h3 id="قيود-التحليلات">قيود التحليلات</h3>
 
-<div class="table-wrap"><table><thead><tr><th>القيد</th><th>التفاصيل</th></tr></thead><tbody><tr><td><strong>الاحتفاظ بالبيانات</strong></td><td>بيانات القراءة والنقر متاحة فقط لمدة <strong>7 أيام</strong> من تاريخ الإرسال؛ بعد ذلك، يتم تصفير العدادات</td></tr><tr><td><strong>نقرات الأزرار</strong></td><td>متاحة فقط لقوالب <code>MARKETING</code> و <code>UTILITY</code></td></tr><tr><td><strong>المناطق المستثناة</strong></td><td>حسابات WABA في الاتحاد الأوروبي، واليابان، أو التي تمتلك أرقام هواتف من هذه المناطق <strong>غير مدعومة</strong></td></tr><tr><td><strong>الحد الأقصى للقوالب لكل طلب</strong></td><td>10 معرفات (IDs) قوالب لكل استدعاء للتحليلات</td></tr></tbody></table></div>
+<p>| القيد | التفاصيل |</p>
+<p>|-----------|---------|</p>
+<p>| <strong>الاحتفاظ بالبيانات</strong> | بيانات القراءة والنقر متاحة فقط لمدة <strong>7 أيام</strong> من تاريخ الإرسال؛ بعد ذلك، يتم تصفير العدادات |</p>
+<p>| <strong>نقرات الأزرار</strong> | متاحة فقط لقوالب <code>MARKETING</code> و <code>UTILITY</code> |</p>
+<p>| <strong>المناطق المستثناة</strong> | حسابات WABA في الاتحاد الأوروبي، واليابان، أو التي تمتلك أرقام هواتف من هذه المناطق <strong>غير مدعومة</strong> |</p>
+<p>| <strong>الحد الأقصى للقوالب لكل طلب</strong> | 10 معرفات (IDs) قوالب لكل استدعاء للتحليلات |</p>
+
 <h3 id="إلغاء-الاشتراك-في-تتبع-النقرات-لكل-قالب">إلغاء الاشتراك في تتبع النقرات (لكل قالب)</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-bash"><code class="language-bash">POST /{template-id}?cta_url_link_tracking_opted_out=true&amp;category=MARKETING</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```bash</p>
+<p>POST /{template-id}?cta_url_link_tracking_opted_out=true&category=MARKETING</p>
+<p>```</p>
 
 <hr>
 
 <h2 id="الأرشفة-والحذف-التلقائي">الأرشفة والحذف التلقائي</h2>
 
-<p>القوالب غير النشطة لمدة <strong>12+ شهرًا</strong> تتم أرشفتها تلقائيًا وتُجدول <strong>للحذف بعد 28 يومًا</strong>.</p>
-<ul><li style="margin-left:8px">يمكنك أرشفة القوالب أو إلغاء أرشفتها يدويًا بشكل جماعي عبر واجهة برمجة التطبيقات (API)</li>
-<li style="margin-left:0px">تُحسب القوالب المؤرشفة ضمن حد الـ 250 قالبًا حتى يتم حذفها</li></ul>
+<p>القوالب غير النشطة لمدة <strong>12+ شهرًا</strong> تتم أرشفتها تلقائيًا وتُجدول <strong>للحذف بعد 28 يومًا</strong>.</p><ul><li style="margin-left:24px">يمكنك أرشفة القوالب أو إلغاء أرشفتها يدويًا بشكل جماعي عبر واجهة برمجة التطبيقات (API)</li><li style="margin-left:8px">تُحسب القوالب المؤرشفة ضمن حد الـ 250 قالبًا حتى يتم حذفها</li></ul>
 
 <hr>
 
 <h2 id="ملخص-حدود-القوالب">ملخص حدود القوالب</h2>
 
-<div class="table-wrap"><table><thead><tr><th>الحد</th><th>القيمة</th></tr></thead><tbody><tr><td>الحد الأقصى للقوالب لكل WABA</td><td><strong>250</strong> (الافتراضي)</td></tr><tr><td>الحد الأقصى لطول اسم القالب</td><td><strong>512 حرفًا</strong></td></tr><tr><td>الحد الأقصى لطول النص (body)</td><td><strong>1024 حرفًا</strong></td></tr><tr><td>الحد الأقصى لطول الرأس (header)</td><td><strong>60 حرفًا</strong></td></tr><tr><td>الحد الأقصى لطول التذييل (footer)</td><td><strong>60 حرفًا</strong></td></tr><tr><td>الحد الأقصى للأزرار</td><td><strong>10</strong> (3 رد سريع + ما يصل إلى 10 دعوة لاتخاذ إجراء)</td></tr><tr><td>الحد الأقصى لأزرار الرد السريع</td><td><strong>3</strong></td></tr><tr><td>الحد الأقصى لأزرار الدعوة لاتخاذ إجراء (CTA)</td><td><strong>2</strong> (1 هاتف + 1 رابط)</td></tr><tr><td>معدل التعديل (القوالب المعتمدة)</td><td><strong>10 تعديلات / 30 يومًا</strong> أو <strong>تعديل واحد / 24 ساعة</strong></td></tr><tr><td>معرفات قوالب التحليلات لكل استدعاء</td><td><strong>10</strong></td></tr><tr><td>الاحتفاظ ببيانات النقر</td><td><strong>7 أيام</strong></td></tr><tr><td>حظر الاسم بعد الحذف</td><td><strong>30 يومًا</strong></td></tr></tbody></table></div>\n\n
+<p>| الحد | القيمة |</p>
+<p>|-------|-------|</p>
+<p>| الحد الأقصى للقوالب لكل WABA | <strong>250</strong> (الافتراضي) |</p>
+<p>| الحد الأقصى لطول اسم القالب | <strong>512 حرفًا</strong> |</p>
+<p>| الحد الأقصى لطول النص (body) | <strong>1024 حرفًا</strong> |</p>
+<p>| الحد الأقصى لطول الرأس (header) | <strong>60 حرفًا</strong> |</p>
+<p>| الحد الأقصى لطول التذييل (footer) | <strong>60 حرفًا</strong> |</p>
+<p>| الحد الأقصى للأزرار | <strong>10</strong> (3 رد سريع + ما يصل إلى 10 دعوة لاتخاذ إجراء) |</p>
+<p>| الحد الأقصى لأزرار الرد السريع | <strong>3</strong> |</p>
+<p>| الحد الأقصى لأزرار الدعوة لاتخاذ إجراء (CTA) | <strong>2</strong> (1 هاتف + 1 رابط) |</p>
+<p>| معدل التعديل (القوالب المعتمدة) | <strong>10 تعديلات / 30 يومًا</strong> أو <strong>تعديل واحد / 24 ساعة</strong> |</p>
+<p>| معرفات قوالب التحليلات لكل استدعاء | <strong>10</strong> |</p>
+<p>| الاحتفاظ ببيانات النقر | <strong>7 أيام</strong> |</p>
+<p>| حظر الاسم بعد الحذف | <strong>30 يومًا</strong> |\n\n</p>
 
 <p>\n</p>
 
@@ -1668,9 +1428,7 @@
           <span class="panel-title">Comparison</span>
         </div>
         <div class="panel-body">
-          <p><strong>Marketing Templates vs Utility Templates</strong></p>
-<ul><li style="margin-left:0px"><strong>Marketing:</strong> Used for promotions, offers, newsletters. Highest cost per conversation.</li>
-<li style="margin-left:0px"><strong>Utility:</strong> Used for specific agreed-upon updates like shipping alerts, account updates. Lower cost.</li></ul>
+          <p><strong>Marketing Templates vs Utility Templates</strong></p><ul><li style="margin-left:8px"><strong>Marketing:</strong> Used for promotions, offers, newsletters. Highest cost per conversation.</li><li style="margin-left:8px"><strong>Utility:</strong> Used for specific agreed-upon updates like shipping alerts, account updates. Lower cost.</li></ul>
         </div>
       </div>
     
@@ -1725,9 +1483,7 @@
           <span class="panel-title">مقارنة</span>
         </div>
         <div class="panel-body">
-          <p><strong>قوالب التسويق مقابل قوالب المنفعة</strong></p>
-<ul><li style="margin-left:0px"><strong>التسويق (Marketing):</strong> تُستخدم للعروض الترويجية والنشرات. تكلفتها هي الأعلى لكل محادثة.</li>
-<li style="margin-left:0px"><strong>المنفعة (Utility):</strong> تُستخدم لتحديثات محددة متفق عليها مثل تنبيهات الشحن. تكلفتها أقل.</li></ul>
+          <p><strong>قوالب التسويق مقابل قوالب المنفعة</strong></p><ul><li style="margin-left:8px"><strong>التسويق (Marketing):</strong> تُستخدم للعروض الترويجية والنشرات. تكلفتها هي الأعلى لكل محادثة.</li><li style="margin-left:8px"><strong>المنفعة (Utility):</strong> تُستخدم لتحديثات محددة متفق عليها مثل تنبيهات الشحن. تكلفتها أقل.</li></ul>
         </div>
       </div>
     

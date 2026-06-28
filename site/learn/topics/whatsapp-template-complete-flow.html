@@ -44,7 +44,7 @@
       <div class="header-build-time" title="System Status: Up to date">
         <div class="build-pulse"></div>
         <span class="build-label">LAST BUILD</span>
-        <span class="build-value">Jun 26, 2026, 4:25 PM 🇪🇬</span>
+        <span class="build-value">Jun 28, 2026, 5:03 PM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
@@ -122,17 +122,8 @@
 
 <p>To attach a Complete Flow button to a template via the Meta Graph API, you must define the button type as <code>FLOW</code> within the template's <code>components</code> array.</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "name": "booking_flow_template",</p>
 <p>  "language": "en_US",</p>
 <p>  "category": "UTILITY",</p>
@@ -154,20 +145,10 @@
 <p>      ]</p>
 <p>    }</p>
 <p>  ]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
-<h3 id="key-parameters">Key Parameters:</h3>
-<ul><li style="margin-left:0px"><code>type</code>: Must be strictly <code>FLOW</code>.</li>
-<li style="margin-left:0px"><code>text</code>: The label displayed on the button to the user.</li>
-<li style="margin-left:0px"><code>flow_id</code>: The unique ID of the WhatsApp Flow.</li>
-<li style="margin-left:0px"><code>flow_action</code>: The action to take when tapped. Usually <code>navigate</code>.</li>
-<li style="margin-left:0px"><code>navigate_screen</code>: The ID of the specific screen inside the Flow JSON that should open first.</li></ul>
+<h3 id="key-parameters">Key Parameters:</h3><ul><li style="margin-left:8px"><code>type</code>: Must be strictly <code>FLOW</code>.</li><li style="margin-left:8px"><code>text</code>: The label displayed on the button to the user.</li><li style="margin-left:8px"><code>flow_id</code>: The unique ID of the WhatsApp Flow.</li><li style="margin-left:8px"><code>flow_action</code>: The action to take when tapped. Usually <code>navigate</code>.</li><li style="margin-left:8px"><code>navigate_screen</code>: The ID of the specific screen inside the Flow JSON that should open first.</li></ul>
 
 <hr>
 
@@ -176,19 +157,17 @@
 <p>When designing a template with a <code>FLOW</code> button, you must strictly adhere to Meta's UI constraints to prevent template rejection or runtime errors.</p>
 
 <p><!-- preview --></p>
-<p><span class="icon-accept">✅</span> Valid</p>
-<ul><li style="margin-left:0px">The <code>text</code> label on the FLOW button must not exceed <strong>25 characters</strong>.</li>
-<li style="margin-left:0px">The Flow referenced by <code>flow_id</code> must be in a <strong>PUBLISHED</strong> state. A template cannot be approved if it links to a Draft flow.</li>
-<li style="margin-left:0px">You can mix a <code>FLOW</code> button with other quick reply buttons, but you can only have <strong>ONE</strong> <code>FLOW</code> button per template.</li></ul>
+<p><span class="icon-accept">✅</span> Valid</p><ul><li style="margin-left:8px">The <code>text</code> label on the FLOW button must not exceed <strong>25 characters</strong>.</li><li style="margin-left:8px">The Flow referenced by <code>flow_id</code> must be in a <strong>PUBLISHED</strong> state. A template cannot be approved if it links to a Draft flow.</li><li style="margin-left:8px">You can mix a <code>FLOW</code> button with other quick reply buttons, but you can only have <strong>ONE</strong> <code>FLOW</code> button per template.</li></ul>
 
-<p><span class="icon-reject">❌</span> Invalid</p>
-<ul><li style="margin-left:0px">Attempting to pass dynamic variables <code>{{1}}</code> inside the FLOW button's <code>navigate_screen</code> parameter. Screen names must be hardcoded at the template creation time.</li>
-<li style="margin-left:0px">Adding two <code>FLOW</code> buttons to the same template.</li>
-<li style="margin-left:0px">Attempting to link to a <code>flow_id</code> that belongs to a different WhatsApp Business Account (WABA).</li></ul>
+<p><span class="icon-reject">❌</span> Invalid</p><ul><li style="margin-left:8px">Attempting to pass dynamic variables <code>{{1}}</code> inside the FLOW button's <code>navigate_screen</code> parameter. Screen names must be hardcoded at the template creation time.</li><li style="margin-left:8px">Adding two <code>FLOW</code> buttons to the same template.</li><li style="margin-left:8px">Attempting to link to a <code>flow_id</code> that belongs to a different WhatsApp Business Account (WABA).</li></ul>
 
 <h2 id="3-best-practices-for-developers">3. Best Practices for Developers</h2>
 <p>1. <strong>Testing:</strong> Always create a duplicate Flow in <code>DRAFT</code> state for testing. You cannot test the template API submission with a Draft flow, so you must publish a v1 of your flow just to get the template approved, then iterate using the Endpoint for dynamic data.</p>
 <p>2. <strong>Fallback:</strong> Consider what happens if the user's WhatsApp version is outdated and does not support Flows. Meta automatically displays an "Update WhatsApp" message, but it is good practice to follow up if the flow is not completed within 24 hours.</p>
+
+
+
+
 
 
       </div>
@@ -202,17 +181,8 @@
 
 <p>لإرفاق زر إكمال التدفق في قالب عبر Meta Graph API، يجب تحديد نوع الزر كـ <code>FLOW</code> بداخل مصفوفة الـ <code>components</code> الخاصة بالقالب.</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "name": "booking_flow_template",</p>
 <p>  "language": "en_US",</p>
 <p>  "category": "UTILITY",</p>
@@ -234,20 +204,10 @@
 <p>      ]</p>
 <p>    }</p>
 <p>  ]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
-<h3 id="المعطيات-الأساسية-key-parameters">المعطيات الأساسية (Key Parameters):</h3>
-<ul><li style="margin-left:0px"><code>type</code>: يجب أن يكون حصراً <code>FLOW</code>.</li>
-<li style="margin-left:0px"><code>text</code>: النص أو التسمية التي تظهر على الزر للمستخدم.</li>
-<li style="margin-left:0px"><code>flow_id</code>: المعرف الفريد (ID) الخاص بـ WhatsApp Flow.</li>
-<li style="margin-left:0px"><code>flow_action</code>: الإجراء الذي سيتم عند الضغط على الزر. عادةً يكون <code>navigate</code>.</li>
-<li style="margin-left:0px"><code>navigate_screen</code>: معرّف (ID) الشاشة المحددة داخل الـ Flow JSON والتي يجب أن تفتح أولاً.</li></ul>
+<h3 id="المعطيات-الأساسية-key-parameters">المعطيات الأساسية (Key Parameters):</h3><ul><li style="margin-left:8px"><code>type</code>: يجب أن يكون حصراً <code>FLOW</code>.</li><li style="margin-left:8px"><code>text</code>: النص أو التسمية التي تظهر على الزر للمستخدم.</li><li style="margin-left:8px"><code>flow_id</code>: المعرف الفريد (ID) الخاص بـ WhatsApp Flow.</li><li style="margin-left:8px"><code>flow_action</code>: الإجراء الذي سيتم عند الضغط على الزر. عادةً يكون <code>navigate</code>.</li><li style="margin-left:8px"><code>navigate_screen</code>: معرّف (ID) الشاشة المحددة داخل الـ Flow JSON والتي يجب أن تفتح أولاً.</li></ul>
 
 <hr>
 
@@ -256,19 +216,17 @@
 <p>عند تصميم قالب يحتوي على زر <code>FLOW</code>، يجب عليك الالتزام التام بالقيود الصارمة التي تفرضها Meta لتجنب رفض القالب أو حدوث أخطاء وقت التشغيل (Runtime Errors).</p>
 
 <p><!-- preview --></p>
-<p><span class="icon-accept">✅</span> صحيح (Valid)</p>
-<ul><li style="margin-left:0px">النص <code>text</code> الموجود على زر الـ FLOW يجب ألا يتجاوز <strong>25 حرفاً</strong>.</li>
-<li style="margin-left:0px">الـ Flow المرتبط بـ <code>flow_id</code> يجب أن يكون في حالة <strong>المنشور (PUBLISHED)</strong>. لا يمكن الموافقة على قالب إذا كان يربط بـ Flow في حالة المسودة (Draft).</li>
-<li style="margin-left:0px">يمكنك دمج زر <code>FLOW</code> مع أزرار ردود سريعة أخرى، ولكن يُسمح لك بوضع زر <code>FLOW</code> <strong>واحد فقط</strong> في كل قالب.</li></ul>
+<p><span class="icon-accept">✅</span> صحيح (Valid)</p><ul><li style="margin-left:8px">النص <code>text</code> الموجود على زر الـ FLOW يجب ألا يتجاوز <strong>25 حرفاً</strong>.</li><li style="margin-left:8px">الـ Flow المرتبط بـ <code>flow_id</code> يجب أن يكون في حالة <strong>المنشور (PUBLISHED)</strong>. لا يمكن الموافقة على قالب إذا كان يربط بـ Flow في حالة المسودة (Draft).</li><li style="margin-left:8px">يمكنك دمج زر <code>FLOW</code> مع أزرار ردود سريعة أخرى، ولكن يُسمح لك بوضع زر <code>FLOW</code> <strong>واحد فقط</strong> في كل قالب.</li></ul>
 
-<p><span class="icon-reject">❌</span> خاطئ (Invalid)</p>
-<ul><li style="margin-left:0px">محاولة تمرير متغيرات ديناميكية مثل <code>{{1}}</code> بداخل معطى <code>navigate_screen</code> الخاص بزر الـ FLOW. أسماء الشاشات يجب أن تكون ثابتة ومكتوبة يدوياً (Hardcoded) في وقت إنشاء القالب.</li>
-<li style="margin-left:0px">إضافة زريّ <code>FLOW</code> إلى نفس القالب.</li>
-<li style="margin-left:0px">محاولة الربط بـ <code>flow_id</code> ينتمي إلى حساب أعمال واتساب (WABA) مختلف.</li></ul>
+<p><span class="icon-reject">❌</span> خاطئ (Invalid)</p><ul><li style="margin-left:8px">محاولة تمرير متغيرات ديناميكية مثل <code>{{1}}</code> بداخل معطى <code>navigate_screen</code> الخاص بزر الـ FLOW. أسماء الشاشات يجب أن تكون ثابتة ومكتوبة يدوياً (Hardcoded) في وقت إنشاء القالب.</li><li style="margin-left:8px">إضافة زريّ <code>FLOW</code> إلى نفس القالب.</li><li style="margin-left:8px">محاولة الربط بـ <code>flow_id</code> ينتمي إلى حساب أعمال واتساب (WABA) مختلف.</li></ul>
 
 <h2 id="3-أفضل-الممارسات-للمطورين">3. أفضل الممارسات للمطورين</h2>
 <p>1. <strong>الاختبار (Testing):</strong> قم دائماً بإنشاء نسخة مسودة (DRAFT) مكررة من الـ Flow لاختبارها. لا يمكنك اختبار إرسال قالب عبر الـ API باستخدام مسودة، لذا يجب نشر إصدار أولي (v1) من الـ Flow الخاص بك لمجرد الحصول على موافقة القالب، ثم استمر في التعديل باستخدام الـ Endpoint للبيانات الديناميكية.</p>
 <p>2. <strong>البدائل (Fallback):</strong> فكّر دائماً فيما سيحدث إذا كان إصدار واتساب الخاص بالمستخدم قديماً ولا يدعم خاصية Flows. تقوم Meta تلقائياً بعرض رسالة "يرجى تحديث واتساب"، ولكن من الجيد برمجياً متابعة المستخدم برسالة عادية إذا لم يكمل الـ Flow خلال 24 ساعة.</p>
+
+
+
+
 
 </div>
 
@@ -288,9 +246,7 @@
           <span class="panel-title">Comparison</span>
         </div>
         <div class="panel-body">
-          <p><strong>Flow Button vs. Web URL Button</strong></p>
-<ul><li style="margin-left:0px"><strong>Flow Button:</strong> Keeps the user inside WhatsApp, loads instantly, and can securely use WhatsApp's native data.</li>
-<li style="margin-left:0px"><strong>Web URL Button:</strong> Opens the external browser, might have loading delays, and breaks the conversational experience.</li></ul>
+          <p><strong>Flow Button vs. Web URL Button</strong></p><ul><li style="margin-left:8px"><strong>Flow Button:</strong> Keeps the user inside WhatsApp, loads instantly, and can securely use WhatsApp's native data.</li><li style="margin-left:8px"><strong>Web URL Button:</strong> Opens the external browser, might have loading delays, and breaks the conversational experience.</li></ul>
         </div>
       </div>
     
@@ -324,11 +280,7 @@
           <span class="panel-title">Examples</span>
         </div>
         <div class="panel-body">
-          <p><strong>Use Cases for Flows:</strong></p>
-<ul><li style="margin-left:0px">Appointment Bookings</li>
-<li style="margin-left:0px">Customer Satisfaction Surveys</li>
-<li style="margin-left:0px">Lead Generation Forms</li>
-<li style="margin-left:0px">Event Registrations</li></ul>
+          <p><strong>Use Cases for Flows:</strong></p><ul><li style="margin-left:8px">Appointment Bookings</li><li style="margin-left:8px">Customer Satisfaction Surveys</li><li style="margin-left:8px">Lead Generation Forms</li><li style="margin-left:8px">Event Registrations</li></ul>
         </div>
       </div>
     </aside>
@@ -339,9 +291,7 @@
           <span class="panel-title">مقارنة</span>
         </div>
         <div class="panel-body">
-          <p><strong>زر الـ Flow مقابل زر الرابط الخارجي (Web URL)</strong></p>
-<ul><li style="margin-left:0px"><strong>زر Flow:</strong> يُبقي المستخدم داخل واتساب، يفتح فوراً، ويحافظ على تجربة المحادثة.</li>
-<li style="margin-left:0px"><strong>زر الرابط:</strong> يفتح المتصفح الخارجي، قد يكون بطيئاً، ويخرج المستخدم من التطبيق.</li></ul>
+          <p><strong>زر الـ Flow مقابل زر الرابط الخارجي (Web URL)</strong></p><ul><li style="margin-left:8px"><strong>زر Flow:</strong> يُبقي المستخدم داخل واتساب، يفتح فوراً، ويحافظ على تجربة المحادثة.</li><li style="margin-left:8px"><strong>زر الرابط:</strong> يفتح المتصفح الخارجي، قد يكون بطيئاً، ويخرج المستخدم من التطبيق.</li></ul>
         </div>
       </div>
     
@@ -375,11 +325,7 @@
           <span class="panel-title">أمثلة</span>
         </div>
         <div class="panel-body">
-          <p><strong>أشهر الاستخدامات (Use Cases):</strong></p>
-<ul><li style="margin-left:0px">حجز المواعيد</li>
-<li style="margin-left:0px">استبيانات رضا العملاء</li>
-<li style="margin-left:0px">استمارات جمع بيانات العملاء المحتملين (Lead Gen)</li>
-<li style="margin-left:0px">التسجيل في الفعاليات</li></ul>
+          <p><strong>أشهر الاستخدامات (Use Cases):</strong></p><ul><li style="margin-left:8px">حجز المواعيد</li><li style="margin-left:8px">استبيانات رضا العملاء</li><li style="margin-left:8px">استمارات جمع بيانات العملاء المحتملين (Lead Gen)</li><li style="margin-left:8px">التسجيل في الفعاليات</li></ul>
         </div>
       </div>
     </aside>

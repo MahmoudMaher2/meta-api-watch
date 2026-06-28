@@ -44,7 +44,7 @@
       <div class="header-build-time" title="System Status: Up to date">
         <div class="build-pulse"></div>
         <span class="build-label">LAST BUILD</span>
-        <span class="build-value">Jun 26, 2026, 4:25 PM 🇪🇬</span>
+        <span class="build-value">Jun 28, 2026, 5:03 PM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
@@ -118,46 +118,31 @@
 
 <h2 id="endpoint">Endpoint</h2>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — HTTP Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-http"><code class="language-http">POST /v21.0/{phone-number-id}/messages</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```http</p>
+<p>POST /v21.0/{phone-number-id}/messages</p>
+<p>```</p>
 
 <hr>
 
 <h2 id="base-parameters-all-requests">Base Parameters (All Requests)</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Valid Values</th></tr></thead><tbody><tr><td><code>messaging_product</code></td><td>string</td><td><span class="icon-accept">✅</span></td><td><code>"whatsapp"</code></td></tr><tr><td><code>recipient_type</code></td><td>string</td><td><span class="icon-reject">❌</span></td><td><code>"individual"</code> (default) or <code>"group"</code></td></tr><tr><td><code>to</code></td><td>string</td><td><span class="icon-accept">✅</span></td><td>Phone number with country code (no <code>+</code>) or group ID</td></tr><tr><td><code>type</code></td><td>string</td><td><span class="icon-accept">✅</span></td><td><code>text</code>, <code>image</code>, <code>video</code>, <code>audio</code>, <code>document</code>, <code>sticker</code>, <code>location</code>, <code>contacts</code>, <code>interactive</code>, <code>template</code>, <code>reaction</code></td></tr><tr><td><code>context</code></td><td>object</td><td><span class="icon-reject">❌</span></td><td><code>{ "message_id": "wamid.xxx" }</code> — quotes/replies</td></tr><tr><td><code>biz_opaque_callback_data</code></td><td>string</td><td><span class="icon-reject">❌</span></td><td>Max 512 chars — returned in status webhook</td></tr></tbody></table></div>
+<p>| Field | Type | Required | Valid Values |</p>
+<p>|-------|------|----------|-------------|</p>
+<p>| <code>messaging_product</code> | string | <span class="icon-accept">✅</span> | <code>"whatsapp"</code> |</p>
+<p>| <code>recipient_type</code> | string | <span class="icon-reject">❌</span> | <code>"individual"</code> (default) or <code>"group"</code> |</p>
+<p>| <code>to</code> | string | <span class="icon-accept">✅</span> | Phone number with country code (no <code>+</code>) or group ID |</p>
+<p>| <code>type</code> | string | <span class="icon-accept">✅</span> | <code>text</code>, <code>image</code>, <code>video</code>, <code>audio</code>, <code>document</code>, <code>sticker</code>, <code>location</code>, <code>contacts</code>, <code>interactive</code>, <code>template</code>, <code>reaction</code> |</p>
+<p>| <code>context</code> | object | <span class="icon-reject">❌</span> | <code>{ "message_id": "wamid.xxx" }</code> — quotes/replies |</p>
+<p>| <code>biz_opaque_callback_data</code> | string | <span class="icon-reject">❌</span> | Max 512 chars — returned in status webhook |</p>
+
 <hr>
 
 <h2 id="message-types-parameters-validation">Message Types — Parameters & Validation</h2>
 
 <h3 id="text">TEXT</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "messaging_product": "whatsapp",</p>
 <p>  "to": "15551234567",</p>
 <p>  "type": "text",</p>
@@ -165,35 +150,30 @@
 <p>    "body": "Hello, how can I help you?",</p>
 <p>    "preview_url": false</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
-<div class="table-wrap"><table><thead><tr><th>Field</th><th>Limit</th><th>Notes</th></tr></thead><tbody><tr><td><code>text.body</code></td><td>Max <strong>4096</strong> chars</td><td>Supports <em>italics</em>, <strong>bold</strong>, <del>strikethrough</del>, <code>monospace</code></td></tr><tr><td><code>text.preview_url</code></td><td>boolean</td><td><code>true</code> = show link preview</td></tr></tbody></table></div>
+<p>| Field | Limit | Notes |</p>
+<p>|-------|-------|-------|</p>
+<p>| <code>text.body</code> | Max <strong>4096</strong> chars | Supports <em>italics</em>, <strong>bold</strong>, <del>strikethrough</del>, <code>monospace</code> |</p>
+<p>| <code>text.preview_url</code> | boolean | <code>true</code> = show link preview |</p>
+
 <h3 id="validation-rules-for-text">Validation Rules for TEXT</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Rejected</th><th><span class="icon-accept">✅</span> Accepted</th></tr></thead><tbody><tr><td>Body length</td><td>> 4096 chars</td><td>≤ 4096 chars</td></tr><tr><td>Sending to non-customer</td><td>Business-initiated without open window and no template</td><td>Send template instead</td></tr><tr><td>HTML tags</td><td><code><b>text</b></code></td><td><code><em>text</em></code> (WhatsApp markdown)</td></tr></tbody></table></div>
+<p>| Rule | <span class="icon-reject">❌</span> Rejected | <span class="icon-accept">✅</span> Accepted |</p>
+<p>|------|------------|------------|</p>
+<p>| Body length | > 4096 chars | ≤ 4096 chars |</p>
+<p>| Sending to non-customer | Business-initiated without open window and no template | Send template instead |</p>
+<p>| HTML tags | <code><b>text</b></code> | <code><em>text</em></code> (WhatsApp markdown) |</p>
+
 <hr>
 
 <h3 id="image-video-audio-document">IMAGE / VIDEO / AUDIO / DOCUMENT</h3>
 
 <p>Media can be sent by <code>id</code> (uploaded to Meta) or <code>link</code> (direct URL):</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">// <span class="icon-accept">✅</span> By URL</p>
+<p>```json</p>
+<p>// <span class="icon-accept">✅</span> By URL</p>
 <p>{</p>
 <p>  "type": "image",</p>
 <p>  "image": {</p>
@@ -209,35 +189,36 @@
 <p>    "id": "MEDIA_ID",</p>
 <p>    "caption": "Caption here"</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h3 id="media-limits">Media Limits</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Type</th><th>Max Size</th><th>Accepted Formats</th></tr></thead><tbody><tr><td>Image</td><td><strong>5 MB</strong></td><td>JPEG, PNG</td></tr><tr><td>Video</td><td><strong>16 MB</strong></td><td>MP4, 3GPP</td></tr><tr><td>Audio</td><td><strong>16 MB</strong></td><td>AAC, MP4, MPEG, AMR, OGG</td></tr><tr><td>Document</td><td><strong>100 MB</strong></td><td>PDF, Word, Excel, PowerPoint, text</td></tr><tr><td>Sticker</td><td><strong>500 KB</strong></td><td>WebP (static), WebP animated</td></tr></tbody></table></div>
+<p>| Type | Max Size | Accepted Formats |</p>
+<p>|------|---------|-----------------|</p>
+<p>| Image | <strong>5 MB</strong> | JPEG, PNG |</p>
+<p>| Video | <strong>16 MB</strong> | MP4, 3GPP |</p>
+<p>| Audio | <strong>16 MB</strong> | AAC, MP4, MPEG, AMR, OGG |</p>
+<p>| Document | <strong>100 MB</strong> | PDF, Word, Excel, PowerPoint, text |</p>
+<p>| Sticker | <strong>500 KB</strong> | WebP (static), WebP animated |</p>
+
 <h3 id="media-validation-rules">Media Validation Rules</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Rejected</th><th><span class="icon-accept">✅</span> Accepted</th></tr></thead><tbody><tr><td>Image format</td><td>GIF, BMP, TIFF</td><td>JPEG, PNG</td></tr><tr><td>Video format</td><td>AVI, MOV, WMV</td><td>MP4, 3GPP</td></tr><tr><td>Media by URL</td><td>Private/auth-required URL</td><td>Publicly accessible HTTPS URL</td></tr><tr><td>Caption on audio</td><td>Adding <code>caption</code> to audio</td><td>Audio has no caption support</td></tr><tr><td>Caption on sticker</td><td>Adding <code>caption</code> to sticker</td><td>Sticker has no caption support</td></tr><tr><td><code>id</code> and <code>link</code> together</td><td>Both fields in same object</td><td>Use one or the other</td></tr></tbody></table></div>
+<p>| Rule | <span class="icon-reject">❌</span> Rejected | <span class="icon-accept">✅</span> Accepted |</p>
+<p>|------|------------|------------|</p>
+<p>| Image format | GIF, BMP, TIFF | JPEG, PNG |</p>
+<p>| Video format | AVI, MOV, WMV | MP4, 3GPP |</p>
+<p>| Media by URL | Private/auth-required URL | Publicly accessible HTTPS URL |</p>
+<p>| Caption on audio | Adding <code>caption</code> to audio | Audio has no caption support |</p>
+<p>| Caption on sticker | Adding <code>caption</code> to sticker | Sticker has no caption support |</p>
+<p>| <code>id</code> and <code>link</code> together | Both fields in same object | Use one or the other |</p>
+
 <hr>
 
 <h3 id="interactive-list-messages">INTERACTIVE — List Messages</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "type": "interactive",</p>
 <p>  "interactive": {</p>
 <p>    "type": "list",</p>
@@ -257,30 +238,29 @@
 <p>      ]</p>
 <p>    }</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h3 id="interactive-list-limits">Interactive List Limits</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Element</th><th>Limit</th></tr></thead><tbody><tr><td>Sections</td><td>Max <strong>10</strong></td></tr><tr><td>Rows per section</td><td>Max <strong>10</strong></td></tr><tr><td>Total rows</td><td>Max <strong>10</strong></td></tr><tr><td>Button text</td><td>Max <strong>20</strong> chars</td></tr><tr><td>Section title</td><td>Max <strong>24</strong> chars</td></tr><tr><td>Row title</td><td>Max <strong>24</strong> chars</td></tr><tr><td>Row description</td><td>Max <strong>72</strong> chars</td></tr><tr><td>Row ID</td><td>Max <strong>200</strong> chars</td></tr><tr><td>Header text</td><td>Max <strong>60</strong> chars</td></tr><tr><td>Body text</td><td>Max <strong>4096</strong> chars</td></tr><tr><td>Footer text</td><td>Max <strong>60</strong> chars</td></tr></tbody></table></div>
+<p>| Element | Limit |</p>
+<p>|---------|-------|</p>
+<p>| Sections | Max <strong>10</strong> |</p>
+<p>| Rows per section | Max <strong>10</strong> |</p>
+<p>| Total rows | Max <strong>10</strong> |</p>
+<p>| Button text | Max <strong>20</strong> chars |</p>
+<p>| Section title | Max <strong>24</strong> chars |</p>
+<p>| Row title | Max <strong>24</strong> chars |</p>
+<p>| Row description | Max <strong>72</strong> chars |</p>
+<p>| Row ID | Max <strong>200</strong> chars |</p>
+<p>| Header text | Max <strong>60</strong> chars |</p>
+<p>| Body text | Max <strong>4096</strong> chars |</p>
+<p>| Footer text | Max <strong>60</strong> chars |</p>
+
 <h3 id="interactive-reply-buttons">INTERACTIVE — Reply Buttons</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "type": "interactive",</p>
 <p>  "interactive": {</p>
 <p>    "type": "button",</p>
@@ -292,30 +272,21 @@
 <p>      ]</p>
 <p>    }</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
-<div class="table-wrap"><table><thead><tr><th>Element</th><th>Limit</th></tr></thead><tbody><tr><td>Max buttons</td><td><strong>3</strong></td></tr><tr><td>Button title</td><td>Max <strong>20</strong> chars</td></tr><tr><td>Button ID</td><td>Max <strong>256</strong> chars, must be unique</td></tr></tbody></table></div>
+<p>| Element | Limit |</p>
+<p>|---------|-------|</p>
+<p>| Max buttons | <strong>3</strong> |</p>
+<p>| Button title | Max <strong>20</strong> chars |</p>
+<p>| Button ID | Max <strong>256</strong> chars, must be unique |</p>
+
 <hr>
 
 <h3 id="template">TEMPLATE</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "type": "template",</p>
 <p>  "template": {</p>
 <p>    "name": "order_shipped",</p>
@@ -344,61 +315,46 @@
 <p>      }</p>
 <p>    ]</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h3 id="template-send-validation">Template Send Validation</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Rejected</th><th><span class="icon-accept">✅</span> Accepted</th></tr></thead><tbody><tr><td>Variable count</td><td>Wrong number of <code>parameters</code></td><td>Exact count matching template definition</td></tr><tr><td>Language code</td><td><code>"en"</code> for <code>en_US</code> template</td><td><code>"en_US"</code> exactly</td></tr><tr><td>Template status</td><td>Sending <code class="code-red">REJECTED</code> or <code>PAUSED</code> template</td><td><code>APPROVED</code> templates only</td></tr><tr><td>Variable type</td><td><code>text</code> param for image header</td><td><code>image</code> or <code>video</code> param for media header</td></tr><tr><td>Button index</td><td>Wrong <code>index</code> for button order</td><td><code>"0"</code> for first, <code>"1"</code> for second button</td></tr><tr><td>Empty parameter</td><td><code>"text": ""</code></td><td>Non-empty string</td></tr></tbody></table></div>
+<p>| Rule | <span class="icon-reject">❌</span> Rejected | <span class="icon-accept">✅</span> Accepted |</p>
+<p>|------|------------|------------|</p>
+<p>| Variable count | Wrong number of <code>parameters</code> | Exact count matching template definition |</p>
+<p>| Language code | <code>"en"</code> for <code>en_US</code> template | <code>"en_US"</code> exactly |</p>
+<p>| Template status | Sending <code class="code-red">REJECTED</code> or <code>PAUSED</code> template | <code>APPROVED</code> templates only |</p>
+<p>| Variable type | <code>text</code> param for image header | <code>image</code> or <code>video</code> param for media header |</p>
+<p>| Button index | Wrong <code>index</code> for button order | <code>"0"</code> for first, <code>"1"</code> for second button |</p>
+<p>| Empty parameter | <code>"text": ""</code> | Non-empty string |</p>
+
 <hr>
 
 <h3 id="reaction">REACTION</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "type": "reaction",</p>
 <p>  "reaction": {</p>
 <p>    "message_id": "wamid.xxx",</p>
 <p>    "emoji": "❤️"</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
-<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Rejected</th><th><span class="icon-accept">✅</span> Accepted</th></tr></thead><tbody><tr><td>Emoji</td><td>Non-emoji text, multiple emojis</td><td>Single emoji character</td></tr><tr><td>Remove reaction</td><td>Omitting <code>emoji</code></td><td><code>"emoji": ""</code></td></tr><tr><td>Target message</td><td>Message from another WABA</td><td>Message in same conversation</td></tr></tbody></table></div>
+<p>| Rule | <span class="icon-reject">❌</span> Rejected | <span class="icon-accept">✅</span> Accepted |</p>
+<p>|------|------------|------------|</p>
+<p>| Emoji | Non-emoji text, multiple emojis | Single emoji character |</p>
+<p>| Remove reaction | Omitting <code>emoji</code> | <code>"emoji": ""</code> |</p>
+<p>| Target message | Message from another WABA | Message in same conversation |</p>
+
 <hr>
 
 <h3 id="location">LOCATION</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "type": "location",</p>
 <p>  "location": {</p>
 <p>    "latitude": 30.0444,</p>
@@ -406,49 +362,40 @@
 <p>    "name": "Cairo, Egypt",</p>
 <p>    "address": "Cairo, Egypt"</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <hr>
 
 <h2 id="messaging-windows-when-you-can-send">Messaging Windows (When You Can Send)</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Window Type</th><th>Duration</th><th>What you can send</th></tr></thead><tbody><tr><td><strong>Customer Service</strong></td><td>24h from last user message</td><td>Any message type</td></tr><tr><td><strong>Free Entry Point</strong></td><td>72h from Click-to-WhatsApp ad</td><td>Any message type (free)</td></tr><tr><td><strong>Outside window</strong></td><td>After 24h of silence</td><td>Templates only</td></tr></tbody></table></div>
+<p>| Window Type | Duration | What you can send |</p>
+<p>|-------------|----------|-------------------|</p>
+<p>| <strong>Customer Service</strong> | 24h from last user message | Any message type |</p>
+<p>| <strong>Free Entry Point</strong> | 72h from Click-to-WhatsApp ad | Any message type (free) |</p>
+<p>| <strong>Outside window</strong> | After 24h of silence | Templates only |</p>
+
 <hr>
 
 <h2 id="rate-limits">Rate Limits</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Limit</th><th>Value</th></tr></thead><tbody><tr><td>Messages per second (per phone number)</td><td><strong>80 messages/sec</strong></td></tr><tr><td>Template messages to same user</td><td><strong>Marketing templates</strong>: per-user limit enforced by Meta</td></tr><tr><td>Phone number tier</td><td>Scales with usage: 1K → 10K → 100K → unlimited/day</td></tr></tbody></table></div>
+<p>| Limit | Value |</p>
+<p>|-------|-------|</p>
+<p>| Messages per second (per phone number) | <strong>80 messages/sec</strong> |</p>
+<p>| Template messages to same user | <strong>Marketing templates</strong>: per-user limit enforced by Meta |</p>
+<p>| Phone number tier | Scales with usage: 1K → 10K → 100K → unlimited/day |</p>
+
 <hr>
 
 <h2 id="response-success">Response (Success)</h2>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "messaging_product": "whatsapp",</p>
 <p>  "contacts": [{ "input": "15551234567", "wa_id": "15551234567" }],</p>
 <p>  "messages": [{ "id": "wamid.HBgNMTU1NTEyMzQ1Njc..." }]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p>Save the <code>messages[0].id</code> — you'll need it to correlate with status webhooks.</p>
 
@@ -456,12 +403,35 @@
 
 <h2 id="error-codes-reference">Error Codes Reference</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Code</th><th>Error</th><th>Cause</th><th>Fix</th></tr></thead><tbody><tr><td><code>100</code></td><td>Invalid parameter</td><td>Wrong field value or format</td><td>Check payload structure</td></tr><tr><td><code>131000</code></td><td>Generic error</td><td>Various</td><td>Check full error message</td></tr><tr><td><code>131005</code></td><td>Permission denied</td><td>Token lacks permission</td><td>Grant <code>whatsapp_business_messaging</code></td></tr><tr><td><code>131008</code></td><td>Required parameter missing</td><td>Missing <code>to</code>, <code>type</code>, etc.</td><td>Add missing field</td></tr><tr><td><code>131009</code></td><td>Parameter value not valid</td><td>Invalid phone, invalid media</td><td>Validate input</td></tr><tr><td><code>131021</code></td><td>Invalid recipient</td><td>Phone number not on WhatsApp</td><td>Verify number</td></tr><tr><td><code>131026</code></td><td>Message undeliverable</td><td>User unreachable</td><td>No action — log and move on</td></tr><tr><td><code>131047</code></td><td>Re-engagement required</td><td>No open window</td><td>Send template</td></tr><tr><td><code>131048</code></td><td>Spam rate limit</td><td>Too many messages</td><td>Back off</td></tr><tr><td><code>131049</code></td><td>Marketing limit</td><td>User reached limit</td><td>Respect the limit</td></tr><tr><td><code>131050</code></td><td>User opted out</td><td>User unsubscribed</td><td>Respect opt-out</td></tr><tr><td><code>131051</code></td><td>Unsupported type</td><td>Can't send this type</td><td>Use different type</td></tr><tr><td><code>130429</code></td><td>Rate limit hit</td><td>Sending too fast</td><td>Throttle to 80/sec</td></tr><tr><td><code>132000</code></td><td>Template param count wrong</td><td>Wrong number of variables</td><td>Fix parameters array</td></tr><tr><td><code>132001</code></td><td>Template not found/approved</td><td>Wrong name/language</td><td>Use approved template</td></tr></tbody></table></div>
+<p>| Code | Error | Cause | Fix |</p>
+<p>|------|-------|-------|-----|</p>
+<p>| <code>100</code> | Invalid parameter | Wrong field value or format | Check payload structure |</p>
+<p>| <code>131000</code> | Generic error | Various | Check full error message |</p>
+<p>| <code>131005</code> | Permission denied | Token lacks permission | Grant <code>whatsapp_business_messaging</code> |</p>
+<p>| <code>131008</code> | Required parameter missing | Missing <code>to</code>, <code>type</code>, etc. | Add missing field |</p>
+<p>| <code>131009</code> | Parameter value not valid | Invalid phone, invalid media | Validate input |</p>
+<p>| <code>131021</code> | Invalid recipient | Phone number not on WhatsApp | Verify number |</p>
+<p>| <code>131026</code> | Message undeliverable | User unreachable | No action — log and move on |</p>
+<p>| <code>131047</code> | Re-engagement required | No open window | Send template |</p>
+<p>| <code>131048</code> | Spam rate limit | Too many messages | Back off |</p>
+<p>| <code>131049</code> | Marketing limit | User reached limit | Respect the limit |</p>
+<p>| <code>131050</code> | User opted out | User unsubscribed | Respect opt-out |</p>
+<p>| <code>131051</code> | Unsupported type | Can't send this type | Use different type |</p>
+<p>| <code>130429</code> | Rate limit hit | Sending too fast | Throttle to 80/sec |</p>
+<p>| <code>132000</code> | Template param count wrong | Wrong number of variables | Fix parameters array |</p>
+<p>| <code>132001</code> | Template not found/approved | Wrong name/language | Use approved template |</p>
+
 <hr>
 
 <h2 id="seen-v2-notes">SEEN V2 Notes</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Feature</th><th>Notes</th></tr></thead><tbody><tr><td>Broadcasts</td><td>Use <code>template</code> type. Always pass exact parameter count.</td></tr><tr><td>Customer replies</td><td>Handle <code>messages</code> webhook, parse by <code>type</code></td></tr><tr><td>Reply/context</td><td>Set <code>context.message_id</code> to quote user's message</td></tr><tr><td>Media messages</td><td>Store <code>media.id</code> from webhook — don't re-download from URL (expires)</td></tr><tr><td>Status tracking</td><td>Store <code>messages[0].id</code> and track statuses in webhook</td></tr></tbody></table></div>\n\n
+<p>| Feature | Notes |</p>
+<p>|---------|-------|</p>
+<p>| Broadcasts | Use <code>template</code> type. Always pass exact parameter count. |</p>
+<p>| Customer replies | Handle <code>messages</code> webhook, parse by <code>type</code> |</p>
+<p>| Reply/context | Set <code>context.message_id</code> to quote user's message |</p>
+<p>| Media messages | Store <code>media.id</code> from webhook — don't re-download from URL (expires) |</p>
+<p>| Status tracking | Store <code>messages[0].id</code> and track statuses in webhook |\n\n</p>
 
 <p>\n</p>
 
@@ -473,46 +443,31 @@
 
 <h2 id="نقطة-النهاية-endpoint">نقطة النهاية (Endpoint)</h2>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — HTTP Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-http"><code class="language-http">POST /v21.0/{phone-number-id}/messages</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```http</p>
+<p>POST /v21.0/{phone-number-id}/messages</p>
+<p>```</p>
 
 <hr>
 
 <h2 id="المعلمات-الأساسية-جميع-الطلبات">المعلمات الأساسية (جميع الطلبات)</h2>
 
-<div class="table-wrap"><table><thead><tr><th>الحقل</th><th>النوع</th><th>مطلوب</th><th>القيم الصالحة</th></tr></thead><tbody><tr><td><code>messaging_product</code></td><td>string</td><td><span class="icon-accept">✅</span></td><td><code>"whatsapp"</code></td></tr><tr><td><code>recipient_type</code></td><td>string</td><td><span class="icon-reject">❌</span></td><td><code>"individual"</code> (الافتراضي) أو <code>"group"</code></td></tr><tr><td><code>to</code></td><td>string</td><td><span class="icon-accept">✅</span></td><td>رقم الهاتف مع رمز الدولة (بدون <code>+</code>) أو معرّف المجموعة (group ID)</td></tr><tr><td><code>type</code></td><td>string</td><td><span class="icon-accept">✅</span></td><td><code>text</code>, <code>image</code>, <code>video</code>, <code>audio</code>, <code>document</code>, <code>sticker</code>, <code>location</code>, <code>contacts</code>, <code>interactive</code>, <code>template</code>, <code>reaction</code></td></tr><tr><td><code>context</code></td><td>object</td><td><span class="icon-reject">❌</span></td><td><code>{ "message_id": "wamid.xxx" }</code> — الاقتباسات/الردود</td></tr><tr><td><code>biz_opaque_callback_data</code></td><td>string</td><td><span class="icon-reject">❌</span></td><td>بحد أقصى 512 حرفًا — يتم إرجاعها في خطاف الويب للحالة (status webhook)</td></tr></tbody></table></div>
+<p>| الحقل | النوع | مطلوب | القيم الصالحة |</p>
+<p>|-------|------|----------|-------------|</p>
+<p>| <code>messaging_product</code> | string | <span class="icon-accept">✅</span> | <code>"whatsapp"</code> |</p>
+<p>| <code>recipient_type</code> | string | <span class="icon-reject">❌</span> | <code>"individual"</code> (الافتراضي) أو <code>"group"</code> |</p>
+<p>| <code>to</code> | string | <span class="icon-accept">✅</span> | رقم الهاتف مع رمز الدولة (بدون <code>+</code>) أو معرّف المجموعة (group ID) |</p>
+<p>| <code>type</code> | string | <span class="icon-accept">✅</span> | <code>text</code>, <code>image</code>, <code>video</code>, <code>audio</code>, <code>document</code>, <code>sticker</code>, <code>location</code>, <code>contacts</code>, <code>interactive</code>, <code>template</code>, <code>reaction</code> |</p>
+<p>| <code>context</code> | object | <span class="icon-reject">❌</span> | <code>{ "message_id": "wamid.xxx" }</code> — الاقتباسات/الردود |</p>
+<p>| <code>biz_opaque_callback_data</code> | string | <span class="icon-reject">❌</span> | بحد أقصى 512 حرفًا — يتم إرجاعها في خطاف الويب للحالة (status webhook) |</p>
+
 <hr>
 
 <h2 id="أنواع-الرسائل-المعلمات-والتحقق-من-الصحة">أنواع الرسائل — المعلمات والتحقق من الصحة</h2>
 
 <h3 id="text-نص">TEXT (نص)</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "messaging_product": "whatsapp",</p>
 <p>  "to": "15551234567",</p>
 <p>  "type": "text",</p>
@@ -520,35 +475,30 @@
 <p>    "body": "Hello, how can I help you?",</p>
 <p>    "preview_url": false</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
-<div class="table-wrap"><table><thead><tr><th>الحقل</th><th>الحد</th><th>ملاحظات</th></tr></thead><tbody><tr><td><code>text.body</code></td><td>بحد أقصى <strong>4096</strong> حرفًا</td><td>يدعم <em>المائل</em>، <strong>العريض</strong>، <del>يتوسطه خط</del>، <code>أحادي المسافة</code></td></tr><tr><td><code>text.preview_url</code></td><td>boolean</td><td><code>true</code> = عرض معاينة الرابط</td></tr></tbody></table></div>
+<p>| الحقل | الحد | ملاحظات |</p>
+<p>|-------|-------|-------|</p>
+<p>| <code>text.body</code> | بحد أقصى <strong>4096</strong> حرفًا | يدعم <em>المائل</em>، <strong>العريض</strong>، <del>يتوسطه خط</del>، <code>أحادي المسافة</code> |</p>
+<p>| <code>text.preview_url</code> | boolean | <code>true</code> = عرض معاينة الرابط |</p>
+
 <h3 id="قواعد-التحقق-من-صحة-النص-text">قواعد التحقق من صحة النص (TEXT)</h3>
 
-<div class="table-wrap"><table><thead><tr><th>القاعدة</th><th><span class="icon-reject">❌</span> مرفوض</th><th><span class="icon-accept">✅</span> مقبول</th></tr></thead><tbody><tr><td>طول النص</td><td>> 4096 حرفًا</td><td>≤ 4096 حرفًا</td></tr><tr><td>الإرسال لغير العملاء</td><td>بمبادرة من النشاط التجاري بدون نافذة مفتوحة وبدون قالب</td><td>إرسال قالب بدلاً من ذلك</td></tr><tr><td>علامات HTML</td><td><code><b>text</b></code></td><td><code><em>text</em></code> (تنسيق ماركداون لـ WhatsApp)</td></tr></tbody></table></div>
+<p>| القاعدة | <span class="icon-reject">❌</span> مرفوض | <span class="icon-accept">✅</span> مقبول |</p>
+<p>|------|------------|------------|</p>
+<p>| طول النص | > 4096 حرفًا | ≤ 4096 حرفًا |</p>
+<p>| الإرسال لغير العملاء | بمبادرة من النشاط التجاري بدون نافذة مفتوحة وبدون قالب | إرسال قالب بدلاً من ذلك |</p>
+<p>| علامات HTML | <code><b>text</b></code> | <code><em>text</em></code> (تنسيق ماركداون لـ WhatsApp) |</p>
+
 <hr>
 
 <h3 id="image-video-audio-document-صورة-فيديو-صوت-مستند">IMAGE / VIDEO / AUDIO / DOCUMENT (صورة / فيديو / صوت / مستند)</h3>
 
 <p>يمكن إرسال الوسائط باستخدام <code>id</code> (مرفوعة إلى Meta) أو <code>link</code> (رابط مباشر):</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">// <span class="icon-accept">✅</span> By URL</p>
+<p>```json</p>
+<p>// <span class="icon-accept">✅</span> By URL</p>
 <p>{</p>
 <p>  "type": "image",</p>
 <p>  "image": {</p>
@@ -564,35 +514,36 @@
 <p>    "id": "MEDIA_ID",</p>
 <p>    "caption": "Caption here"</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h3 id="حدود-الوسائط">حدود الوسائط</h3>
 
-<div class="table-wrap"><table><thead><tr><th>النوع</th><th>الحد الأقصى للحجم</th><th>التنسيقات المقبولة</th></tr></thead><tbody><tr><td>صورة (Image)</td><td><strong>5 ميغابايت</strong></td><td>JPEG, PNG</td></tr><tr><td>فيديو (Video)</td><td><strong>16 ميغابايت</strong></td><td>MP4, 3GPP</td></tr><tr><td>صوت (Audio)</td><td><strong>16 ميغابايت</strong></td><td>AAC, MP4, MPEG, AMR, OGG</td></tr><tr><td>مستند (Document)</td><td><strong>100 ميغابايت</strong></td><td>PDF، Word، Excel، PowerPoint، text</td></tr><tr><td>ملصق (Sticker)</td><td><strong>500 كيلوبايت</strong></td><td>WebP (ثابت)، WebP متحرك</td></tr></tbody></table></div>
+<p>| النوع | الحد الأقصى للحجم | التنسيقات المقبولة |</p>
+<p>|------|---------|-----------------|</p>
+<p>| صورة (Image) | <strong>5 ميغابايت</strong> | JPEG, PNG |</p>
+<p>| فيديو (Video) | <strong>16 ميغابايت</strong> | MP4, 3GPP |</p>
+<p>| صوت (Audio) | <strong>16 ميغابايت</strong> | AAC, MP4, MPEG, AMR, OGG |</p>
+<p>| مستند (Document) | <strong>100 ميغابايت</strong> | PDF، Word، Excel، PowerPoint، text |</p>
+<p>| ملصق (Sticker) | <strong>500 كيلوبايت</strong> | WebP (ثابت)، WebP متحرك |</p>
+
 <h3 id="قواعد-التحقق-من-صحة-الوسائط">قواعد التحقق من صحة الوسائط</h3>
 
-<div class="table-wrap"><table><thead><tr><th>القاعدة</th><th><span class="icon-reject">❌</span> مرفوض</th><th><span class="icon-accept">✅</span> مقبول</th></tr></thead><tbody><tr><td>تنسيق الصورة</td><td>GIF، BMP، TIFF</td><td>JPEG، PNG</td></tr><tr><td>تنسيق الفيديو</td><td>AVI، MOV، WMV</td><td>MP4، 3GPP</td></tr><tr><td>الوسائط بالرابط</td><td>رابط خاص/يتطلب المصادقة</td><td>رابط HTTPS يمكن الوصول إليه للعامة</td></tr><tr><td>التسمية التوضيحية للصوت</td><td>إضافة <code>caption</code> للصوت</td><td>الصوت لا يدعم التسميات التوضيحية</td></tr><tr><td>التسمية التوضيحية للملصق</td><td>إضافة <code>caption</code> للملصق</td><td>الملصق لا يدعم التسميات التوضيحية</td></tr><tr><td><code>id</code> و <code>link</code> معًا</td><td>إدراج كلا الحقلين في نفس الكائن</td><td>استخدم أحدهما</td></tr></tbody></table></div>
+<p>| القاعدة | <span class="icon-reject">❌</span> مرفوض | <span class="icon-accept">✅</span> مقبول |</p>
+<p>|------|------------|------------|</p>
+<p>| تنسيق الصورة | GIF، BMP، TIFF | JPEG، PNG |</p>
+<p>| تنسيق الفيديو | AVI، MOV، WMV | MP4، 3GPP |</p>
+<p>| الوسائط بالرابط | رابط خاص/يتطلب المصادقة | رابط HTTPS يمكن الوصول إليه للعامة |</p>
+<p>| التسمية التوضيحية للصوت | إضافة <code>caption</code> للصوت | الصوت لا يدعم التسميات التوضيحية |</p>
+<p>| التسمية التوضيحية للملصق | إضافة <code>caption</code> للملصق | الملصق لا يدعم التسميات التوضيحية |</p>
+<p>| <code>id</code> و <code>link</code> معًا | إدراج كلا الحقلين في نفس الكائن | استخدم أحدهما |</p>
+
 <hr>
 
 <h3 id="التفاعلية-interactive-رسائل-القوائم">التفاعلية (INTERACTIVE) — رسائل القوائم</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "type": "interactive",</p>
 <p>  "interactive": {</p>
 <p>    "type": "list",</p>
@@ -612,30 +563,29 @@
 <p>      ]</p>
 <p>    }</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h3 id="حدود-القائمة-التفاعلية">حدود القائمة التفاعلية</h3>
 
-<div class="table-wrap"><table><thead><tr><th>العنصر</th><th>الحد</th></tr></thead><tbody><tr><td>الأقسام (Sections)</td><td>بحد أقصى <strong>10</strong></td></tr><tr><td>الصفوف لكل قسم</td><td>بحد أقصى <strong>10</strong></td></tr><tr><td>إجمالي الصفوف</td><td>بحد أقصى <strong>10</strong></td></tr><tr><td>نص الزر</td><td>بحد أقصى <strong>20</strong> حرفًا</td></tr><tr><td>عنوان القسم</td><td>بحد أقصى <strong>24</strong> حرفًا</td></tr><tr><td>عنوان الصف</td><td>بحد أقصى <strong>24</strong> حرفًا</td></tr><tr><td>وصف الصف</td><td>بحد أقصى <strong>72</strong> حرفًا</td></tr><tr><td>معرّف الصف (Row ID)</td><td>بحد أقصى <strong>200</strong> حرف</td></tr><tr><td>نص الرأس (Header)</td><td>بحد أقصى <strong>60</strong> حرفًا</td></tr><tr><td>نص المتن (Body)</td><td>بحد أقصى <strong>4096</strong> حرفًا</td></tr><tr><td>نص التذييل (Footer)</td><td>بحد أقصى <strong>60</strong> حرفًا</td></tr></tbody></table></div>
+<p>| العنصر | الحد |</p>
+<p>|---------|-------|</p>
+<p>| الأقسام (Sections) | بحد أقصى <strong>10</strong> |</p>
+<p>| الصفوف لكل قسم | بحد أقصى <strong>10</strong> |</p>
+<p>| إجمالي الصفوف | بحد أقصى <strong>10</strong> |</p>
+<p>| نص الزر | بحد أقصى <strong>20</strong> حرفًا |</p>
+<p>| عنوان القسم | بحد أقصى <strong>24</strong> حرفًا |</p>
+<p>| عنوان الصف | بحد أقصى <strong>24</strong> حرفًا |</p>
+<p>| وصف الصف | بحد أقصى <strong>72</strong> حرفًا |</p>
+<p>| معرّف الصف (Row ID) | بحد أقصى <strong>200</strong> حرف |</p>
+<p>| نص الرأس (Header) | بحد أقصى <strong>60</strong> حرفًا |</p>
+<p>| نص المتن (Body) | بحد أقصى <strong>4096</strong> حرفًا |</p>
+<p>| نص التذييل (Footer) | بحد أقصى <strong>60</strong> حرفًا |</p>
+
 <h3 id="التفاعلية-interactive-أزرار-الرد">التفاعلية (INTERACTIVE) — أزرار الرد</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "type": "interactive",</p>
 <p>  "interactive": {</p>
 <p>    "type": "button",</p>
@@ -647,30 +597,21 @@
 <p>      ]</p>
 <p>    }</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
-<div class="table-wrap"><table><thead><tr><th>العنصر</th><th>الحد</th></tr></thead><tbody><tr><td>الحد الأقصى للأزرار</td><td><strong>3</strong></td></tr><tr><td>عنوان الزر</td><td>بحد أقصى <strong>20</strong> حرفًا</td></tr><tr><td>معرّف الزر (Button ID)</td><td>بحد أقصى <strong>256</strong> حرفًا، ويجب أن يكون فريدًا</td></tr></tbody></table></div>
+<p>| العنصر | الحد |</p>
+<p>|---------|-------|</p>
+<p>| الحد الأقصى للأزرار | <strong>3</strong> |</p>
+<p>| عنوان الزر | بحد أقصى <strong>20</strong> حرفًا |</p>
+<p>| معرّف الزر (Button ID) | بحد أقصى <strong>256</strong> حرفًا، ويجب أن يكون فريدًا |</p>
+
 <hr>
 
 <h3 id="القوالب-template">القوالب (TEMPLATE)</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "type": "template",</p>
 <p>  "template": {</p>
 <p>    "name": "order_shipped",</p>
@@ -699,61 +640,46 @@
 <p>      }</p>
 <p>    ]</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h3 id="التحقق-من-صحة-إرسال-القالب">التحقق من صحة إرسال القالب</h3>
 
-<div class="table-wrap"><table><thead><tr><th>القاعدة</th><th><span class="icon-reject">❌</span> مرفوض</th><th><span class="icon-accept">✅</span> مقبول</th></tr></thead><tbody><tr><td>عدد المتغيرات</td><td>عدد خاطئ من الـ <code>parameters</code></td><td>عدد دقيق يطابق تعريف القالب</td></tr><tr><td>رمز اللغة</td><td><code>"en"</code> لقالب <code>en_US</code></td><td><code>"en_US"</code> بالضبط</td></tr><tr><td>حالة القالب</td><td>إرسال قالب بحالة <code class="code-red">REJECTED</code> أو <code>PAUSED</code></td><td>القوالب بحالة <code>APPROVED</code> فقط</td></tr><tr><td>نوع المتغير</td><td>معلمة <code>text</code> لرأس الصورة</td><td>معلمة <code>image</code> أو <code>video</code> لرأس الوسائط</td></tr><tr><td>فهرس الزر</td><td><code>index</code> خاطئ لترتيب الزر</td><td><code>"0"</code> للأول، <code>"1"</code> للزر الثاني</td></tr><tr><td>معلمة فارغة</td><td><code>"text": ""</code></td><td>سلسلة نصية غير فارغة</td></tr></tbody></table></div>
+<p>| القاعدة | <span class="icon-reject">❌</span> مرفوض | <span class="icon-accept">✅</span> مقبول |</p>
+<p>|------|------------|------------|</p>
+<p>| عدد المتغيرات | عدد خاطئ من الـ <code>parameters</code> | عدد دقيق يطابق تعريف القالب |</p>
+<p>| رمز اللغة | <code>"en"</code> لقالب <code>en_US</code> | <code>"en_US"</code> بالضبط |</p>
+<p>| حالة القالب | إرسال قالب بحالة <code class="code-red">REJECTED</code> أو <code>PAUSED</code> | القوالب بحالة <code>APPROVED</code> فقط |</p>
+<p>| نوع المتغير | معلمة <code>text</code> لرأس الصورة | معلمة <code>image</code> أو <code>video</code> لرأس الوسائط |</p>
+<p>| فهرس الزر | <code>index</code> خاطئ لترتيب الزر | <code>"0"</code> للأول، <code>"1"</code> للزر الثاني |</p>
+<p>| معلمة فارغة | <code>"text": ""</code> | سلسلة نصية غير فارغة |</p>
+
 <hr>
 
 <h3 id="التفاعل-reaction">التفاعل (REACTION)</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "type": "reaction",</p>
 <p>  "reaction": {</p>
 <p>    "message_id": "wamid.xxx",</p>
 <p>    "emoji": "❤️"</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
-<div class="table-wrap"><table><thead><tr><th>القاعدة</th><th><span class="icon-reject">❌</span> مرفوض</th><th><span class="icon-accept">✅</span> مقبول</th></tr></thead><tbody><tr><td>الرمز التعبيري (Emoji)</td><td>نص ليس رمزًا تعبيريًا، عدة رموز تعبيرية</td><td>رمز تعبيري واحد فقط</td></tr><tr><td>إزالة التفاعل</td><td>حذف <code>emoji</code></td><td><code>"emoji": ""</code></td></tr><tr><td>الرسالة المستهدفة</td><td>رسالة من حساب واتساب للأعمال (WABA) آخر</td><td>رسالة في نفس المحادثة</td></tr></tbody></table></div>
+<p>| القاعدة | <span class="icon-reject">❌</span> مرفوض | <span class="icon-accept">✅</span> مقبول |</p>
+<p>|------|------------|------------|</p>
+<p>| الرمز التعبيري (Emoji) | نص ليس رمزًا تعبيريًا، عدة رموز تعبيرية | رمز تعبيري واحد فقط |</p>
+<p>| إزالة التفاعل | حذف <code>emoji</code> | <code>"emoji": ""</code> |</p>
+<p>| الرسالة المستهدفة | رسالة من حساب واتساب للأعمال (WABA) آخر | رسالة في نفس المحادثة |</p>
+
 <hr>
 
 <h3 id="الموقع-الجغرافي-location">الموقع الجغرافي (LOCATION)</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "type": "location",</p>
 <p>  "location": {</p>
 <p>    "latitude": 30.0444,</p>
@@ -761,49 +687,40 @@
 <p>    "name": "Cairo, Egypt",</p>
 <p>    "address": "Cairo, Egypt"</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <hr>
 
 <h2 id="نوافذ-المراسلة-متى-يمكنك-الإرسال">نوافذ المراسلة (متى يمكنك الإرسال)</h2>
 
-<div class="table-wrap"><table><thead><tr><th>نوع النافذة</th><th>المدة</th><th>ما يمكنك إرساله</th></tr></thead><tbody><tr><td><strong>خدمة العملاء</strong></td><td>24 ساعة من آخر رسالة للمستخدم</td><td>أي نوع من الرسائل</td></tr><tr><td><strong>نقطة دخول مجانية</strong></td><td>72 ساعة من إعلان النقر للوصول إلى WhatsApp</td><td>أي نوع من الرسائل (مجانًا)</td></tr><tr><td><strong>خارج النافذة</strong></td><td>بعد 24 ساعة من عدم الاستجابة</td><td>القوالب فقط</td></tr></tbody></table></div>
+<p>| نوع النافذة | المدة | ما يمكنك إرساله |</p>
+<p>|-------------|----------|-------------------|</p>
+<p>| <strong>خدمة العملاء</strong> | 24 ساعة من آخر رسالة للمستخدم | أي نوع من الرسائل |</p>
+<p>| <strong>نقطة دخول مجانية</strong> | 72 ساعة من إعلان النقر للوصول إلى WhatsApp | أي نوع من الرسائل (مجانًا) |</p>
+<p>| <strong>خارج النافذة</strong> | بعد 24 ساعة من عدم الاستجابة | القوالب فقط |</p>
+
 <hr>
 
 <h2 id="حدود-المعدل">حدود المعدل</h2>
 
-<div class="table-wrap"><table><thead><tr><th>الحد</th><th>القيمة</th></tr></thead><tbody><tr><td>الرسائل في الثانية (لكل رقم هاتف)</td><td><strong>80 رسالة/ثانية</strong></td></tr><tr><td>رسائل القوالب لنفس المستخدم</td><td><strong>القوالب التسويقية</strong>: حد لكل مستخدم يُفرض بواسطة Meta</td></tr><tr><td>فئة رقم الهاتف</td><td>تتسع مع الاستخدام: 1 ألف ← 10 آلاف ← 100 ألف ← غير محدود/يوم</td></tr></tbody></table></div>
+<p>| الحد | القيمة |</p>
+<p>|-------|-------|</p>
+<p>| الرسائل في الثانية (لكل رقم هاتف) | <strong>80 رسالة/ثانية</strong> |</p>
+<p>| رسائل القوالب لنفس المستخدم | <strong>القوالب التسويقية</strong>: حد لكل مستخدم يُفرض بواسطة Meta |</p>
+<p>| فئة رقم الهاتف | تتسع مع الاستخدام: 1 ألف ← 10 آلاف ← 100 ألف ← غير محدود/يوم |</p>
+
 <hr>
 
 <h2 id="الاستجابة-النجاح">الاستجابة (النجاح)</h2>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "messaging_product": "whatsapp",</p>
 <p>  "contacts": [{ "input": "15551234567", "wa_id": "15551234567" }],</p>
 <p>  "messages": [{ "id": "wamid.HBgNMTU1NTEyMzQ1Njc..." }]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p>احفظ <code>messages[0].id</code> — ستحتاج إليه لربطه بخطافات الويب (webhooks) الخاصة بالحالة.</p>
 
@@ -811,12 +728,35 @@
 
 <h2 id="مرجع-رموز-الخطأ">مرجع رموز الخطأ</h2>
 
-<div class="table-wrap"><table><thead><tr><th>الرمز</th><th>الخطأ</th><th>السبب</th><th>الإصلاح</th></tr></thead><tbody><tr><td><code>100</code></td><td>معلمة غير صالحة</td><td>قيمة أو تنسيق حقل خاطئ</td><td>تحقق من هيكل البيانات المرسلة (payload)</td></tr><tr><td><code>131000</code></td><td>خطأ عام</td><td>أسباب مختلفة</td><td>تحقق من رسالة الخطأ الكاملة</td></tr><tr><td><code>131005</code></td><td>تم رفض الإذن</td><td>الرمز المميز (Token) يفتقر إلى الإذن</td><td>منح إذن <code>whatsapp_business_messaging</code></td></tr><tr><td><code>131008</code></td><td>معلمة مطلوبة مفقودة</td><td>غياب <code>to</code> أو <code>type</code> أو ما إلى ذلك</td><td>إضافة الحقل المفقود</td></tr><tr><td><code>131009</code></td><td>قيمة المعلمة غير صالحة</td><td>هاتف غير صالح، وسائط غير صالحة</td><td>تحقق من صحة المدخلات</td></tr><tr><td><code>131021</code></td><td>مستلم غير صالح</td><td>رقم الهاتف غير موجود على WhatsApp</td><td>تحقق من الرقم</td></tr><tr><td><code>131026</code></td><td>تعذر تسليم الرسالة</td><td>لا يمكن الوصول إلى المستخدم</td><td>لا يوجد إجراء — قم بالتسجيل وانتقل للخطوة التالية</td></tr><tr><td><code>131047</code></td><td>إعادة التفاعل مطلوبة</td><td>لا توجد نافذة مفتوحة</td><td>إرسال قالب</td></tr><tr><td><code>131048</code></td><td>حد معدل البريد العشوائي (Spam)</td><td>إرسال رسائل أكثر من اللازم</td><td>تراجع وقلل من الإرسال</td></tr><tr><td><code>131049</code></td><td>حد التسويق</td><td>وصل المستخدم إلى الحد الأقصى</td><td>التزم بالحد الأقصى</td></tr><tr><td><code>131050</code></td><td>المستخدم ألغى الاشتراك</td><td>ألغى المستخدم اشتراكه</td><td>احترم إلغاء الاشتراك</td></tr><tr><td><code>131051</code></td><td>نوع غير مدعوم</td><td>لا يمكن إرسال هذا النوع</td><td>استخدم نوعًا مختلفًا</td></tr><tr><td><code>130429</code></td><td>تم الوصول إلى حد المعدل</td><td>الإرسال بسرعة كبيرة</td><td>قلل الإرسال إلى 80/ثانية</td></tr><tr><td><code>132000</code></td><td>عدد معلمات القالب خاطئ</td><td>عدد المتغيرات خاطئ</td><td>أصلح مصفوفة المعلمات</td></tr><tr><td><code>132001</code></td><td>القالب غير موجود/غير معتمد</td><td>اسم/لغة خاطئة</td><td>استخدم قالبًا معتمدًا</td></tr></tbody></table></div>
+<p>| الرمز | الخطأ | السبب | الإصلاح |</p>
+<p>|------|-------|-------|-----|</p>
+<p>| <code>100</code> | معلمة غير صالحة | قيمة أو تنسيق حقل خاطئ | تحقق من هيكل البيانات المرسلة (payload) |</p>
+<p>| <code>131000</code> | خطأ عام | أسباب مختلفة | تحقق من رسالة الخطأ الكاملة |</p>
+<p>| <code>131005</code> | تم رفض الإذن | الرمز المميز (Token) يفتقر إلى الإذن | منح إذن <code>whatsapp_business_messaging</code> |</p>
+<p>| <code>131008</code> | معلمة مطلوبة مفقودة | غياب <code>to</code> أو <code>type</code> أو ما إلى ذلك | إضافة الحقل المفقود |</p>
+<p>| <code>131009</code> | قيمة المعلمة غير صالحة | هاتف غير صالح، وسائط غير صالحة | تحقق من صحة المدخلات |</p>
+<p>| <code>131021</code> | مستلم غير صالح | رقم الهاتف غير موجود على WhatsApp | تحقق من الرقم |</p>
+<p>| <code>131026</code> | تعذر تسليم الرسالة | لا يمكن الوصول إلى المستخدم | لا يوجد إجراء — قم بالتسجيل وانتقل للخطوة التالية |</p>
+<p>| <code>131047</code> | إعادة التفاعل مطلوبة | لا توجد نافذة مفتوحة | إرسال قالب |</p>
+<p>| <code>131048</code> | حد معدل البريد العشوائي (Spam) | إرسال رسائل أكثر من اللازم | تراجع وقلل من الإرسال |</p>
+<p>| <code>131049</code> | حد التسويق | وصل المستخدم إلى الحد الأقصى | التزم بالحد الأقصى |</p>
+<p>| <code>131050</code> | المستخدم ألغى الاشتراك | ألغى المستخدم اشتراكه | احترم إلغاء الاشتراك |</p>
+<p>| <code>131051</code> | نوع غير مدعوم | لا يمكن إرسال هذا النوع | استخدم نوعًا مختلفًا |</p>
+<p>| <code>130429</code> | تم الوصول إلى حد المعدل | الإرسال بسرعة كبيرة | قلل الإرسال إلى 80/ثانية |</p>
+<p>| <code>132000</code> | عدد معلمات القالب خاطئ | عدد المتغيرات خاطئ | أصلح مصفوفة المعلمات |</p>
+<p>| <code>132001</code> | القالب غير موجود/غير معتمد | اسم/لغة خاطئة | استخدم قالبًا معتمدًا |</p>
+
 <hr>
 
 <h2 id="ملاحظات-seen-v2">ملاحظات SEEN V2</h2>
 
-<div class="table-wrap"><table><thead><tr><th>الميزة</th><th>ملاحظات</th></tr></thead><tbody><tr><td>البث (Broadcasts)</td><td>استخدم نوع <code>template</code>. قم دائمًا بتمرير العدد الدقيق للمعلمات.</td></tr><tr><td>ردود العملاء</td><td>تعامل مع خطاف الويب <code>messages</code>، وقم بتحليلها حسب النوع <code>type</code></td></tr><tr><td>الرد/السياق</td><td>قم بتعيين <code>context.message_id</code> لاقتباس رسالة المستخدم</td></tr><tr><td>رسائل الوسائط</td><td>قم بتخزين <code>media.id</code> من خطاف الويب — لا تقم بإعادة تنزيلها من الرابط (لأنه تنتهي صلاحيته)</td></tr><tr><td>تتبع الحالة</td><td>قم بتخزين <code>messages[0].id</code> وتتبع الحالات في خطاف الويب</td></tr></tbody></table></div>\n\n
+<p>| الميزة | ملاحظات |</p>
+<p>|---------|-------|</p>
+<p>| البث (Broadcasts) | استخدم نوع <code>template</code>. قم دائمًا بتمرير العدد الدقيق للمعلمات. |</p>
+<p>| ردود العملاء | تعامل مع خطاف الويب <code>messages</code>، وقم بتحليلها حسب النوع <code>type</code> |</p>
+<p>| الرد/السياق | قم بتعيين <code>context.message_id</code> لاقتباس رسالة المستخدم |</p>
+<p>| رسائل الوسائط | قم بتخزين <code>media.id</code> من خطاف الويب — لا تقم بإعادة تنزيلها من الرابط (لأنه تنتهي صلاحيته) |</p>
+<p>| تتبع الحالة | قم بتخزين <code>messages[0].id</code> وتتبع الحالات في خطاف الويب |\n\n</p>
 
 <p>\n</p>
 
@@ -838,9 +778,7 @@
           <span class="panel-title">Comparison</span>
         </div>
         <div class="panel-body">
-          <p><strong>Text Messages vs Template Messages</strong></p>
-<ul><li style="margin-left:0px"><strong>Text Messages (Free-form):</strong> Can only be sent if a 24-hour customer service window is open.</li>
-<li style="margin-left:0px"><strong>Template Messages:</strong> Can be sent at any time, even outside the 24-hour window, to initiate a business conversation.</li></ul>
+          <p><strong>Text Messages vs Template Messages</strong></p><ul><li style="margin-left:8px"><strong>Text Messages (Free-form):</strong> Can only be sent if a 24-hour customer service window is open.</li><li style="margin-left:8px"><strong>Template Messages:</strong> Can be sent at any time, even outside the 24-hour window, to initiate a business conversation.</li></ul>
         </div>
       </div>
     
@@ -895,9 +833,7 @@
           <span class="panel-title">مقارنة</span>
         </div>
         <div class="panel-body">
-          <p><strong>الرسائل النصية مقابل رسائل القوالب</strong></p>
-<ul><li style="margin-left:0px"><strong>الرسائل النصية الحرة:</strong> يمكن إرسالها فقط إذا كانت نافذة خدمة العملاء (24 ساعة) مفتوحة.</li>
-<li style="margin-left:0px"><strong>رسائل القوالب (Templates):</strong> يمكن إرسالها في أي وقت لبدء محادثة تجارية، حتى خارج نافذة الـ 24 ساعة.</li></ul>
+          <p><strong>الرسائل النصية مقابل رسائل القوالب</strong></p><ul><li style="margin-left:8px"><strong>الرسائل النصية الحرة:</strong> يمكن إرسالها فقط إذا كانت نافذة خدمة العملاء (24 ساعة) مفتوحة.</li><li style="margin-left:8px"><strong>رسائل القوالب (Templates):</strong> يمكن إرسالها في أي وقت لبدء محادثة تجارية، حتى خارج نافذة الـ 24 ساعة.</li></ul>
         </div>
       </div>
     

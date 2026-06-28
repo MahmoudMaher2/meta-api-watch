@@ -44,7 +44,7 @@
       <div class="header-build-time" title="System Status: Up to date">
         <div class="build-pulse"></div>
         <span class="build-label">LAST BUILD</span>
-        <span class="build-value">Jun 26, 2026, 4:25 PM 🇪🇬</span>
+        <span class="build-value">Jun 28, 2026, 5:03 PM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
@@ -118,75 +118,51 @@
 
 <h2 id="setup-requirements">Setup Requirements</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Requirement</th><th>Value</th></tr></thead><tbody><tr><td>Callback URL</td><td>HTTPS only (no HTTP)</td></tr><tr><td>Verification token</td><td>Any static string you define</td></tr><tr><td>Response time</td><td>Must respond <code>200 OK</code> within <strong>5 seconds</strong></td></tr><tr><td>Signature header</td><td><code>X-Hub-Signature-256</code> — HMAC-SHA256 of payload</td></tr><tr><td>Retry policy</td><td>Meta retries failed deliveries for up to <strong>30 days</strong></td></tr></tbody></table></div>
+<p>| Requirement | Value |</p>
+<p>|------------|-------|</p>
+<p>| Callback URL | HTTPS only (no HTTP) |</p>
+<p>| Verification token | Any static string you define |</p>
+<p>| Response time | Must respond <code>200 OK</code> within <strong>5 seconds</strong> |</p>
+<p>| Signature header | <code>X-Hub-Signature-256</code> — HMAC-SHA256 of payload |</p>
+<p>| Retry policy | Meta retries failed deliveries for up to <strong>30 days</strong> |</p>
+
 <hr>
 
 <h2 id="verification-flow-one-time-setup">Verification Flow (One-Time Setup)</h2>
 
 <p>When you save the webhook URL in your App Dashboard, Meta sends a <code>GET</code> request:</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — HTTP Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-http"><code class="language-http">GET https://your-server.com/webhook</p>
+<p>```http</p>
+<p>GET https://your-server.com/webhook</p>
 <p>  ?hub.mode=subscribe</p>
-<p>  &amp;hub.verify_token=YOUR_TOKEN</p>
-<p>  &amp;hub.challenge=CHALLENGE_STRING</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>  &hub.verify_token=YOUR_TOKEN</p>
+<p>  &hub.challenge=CHALLENGE_STRING</p>
+<p>```</p>
 
 <h3 id="correct-response">✅ Correct Response</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — HTTP Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-http"><code class="language-http">HTTP 200</p>
-<p>Body: CHALLENGE_STRING</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```http</p>
+<p>HTTP 200</p>
+<p>Body: CHALLENGE_STRING</p>
+<p>```</p>
 
 <h3 id="wrong-responses">❌ Wrong Responses</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Response</th><th>Result</th></tr></thead><tbody><tr><td>Return anything other than the challenge</td><td>Verification fails</td></tr><tr><td>Return <code>200</code> with wrong body</td><td>Verification fails</td></tr><tr><td>Return <code>4xx</code> or <code>5xx</code></td><td>Verification fails</td></tr><tr><td>Take more than 5 seconds</td><td>Timeout — verification fails</td></tr></tbody></table></div>
+<p>| Response | Result |</p>
+<p>|---------|--------|</p>
+<p>| Return anything other than the challenge | Verification fails |</p>
+<p>| Return <code>200</code> with wrong body | Verification fails |</p>
+<p>| Return <code>4xx</code> or <code>5xx</code> | Verification fails |</p>
+<p>| Take more than 5 seconds | Timeout — verification fails |</p>
+
 <hr>
 
 <h2 id="signature-verification">Signature Verification</h2>
 
 <p>Every webhook POST includes the header <code>X-Hub-Signature-256</code>. You <strong>must</strong> validate it to confirm the payload is from Meta:</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JAVASCRIPT Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-javascript"><code class="language-javascript">// <span class="icon-accept">✅</span> Correct signature validation</p>
+<p>```javascript</p>
+<p>// <span class="icon-accept">✅</span> Correct signature validation</p>
 <p>const crypto = require('crypto');</p>
 
 <p>function verifySignature(payload, signature, appSecret) {</p>
@@ -198,13 +174,8 @@
 <p>    Buffer.from(signature),</p>
 <p>    Buffer.from(expected)</p>
 <p>  );</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <div class="callout callout-warn"><span>⚠️</span><p>Use the raw request body for HMAC calculation — NOT `JSON.stringify(req.body)`. Body parsers may reformat the JSON.</p></div>
 
@@ -214,17 +185,8 @@
 
 <p>Subscribe to fields in your App Dashboard or via API:</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">POST /v21.0/{phone-number-id}/subscribed_apps</p>
+<p>```json</p>
+<p>POST /v21.0/{phone-number-id}/subscribed_apps</p>
 <p>{</p>
 <p>  "subscribed_fields": [</p>
 <p>    "messages",</p>
@@ -232,13 +194,8 @@
 <p>    "phone_number_name_update",</p>
 <p>    "account_update"</p>
 <p>  ]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <hr>
 
@@ -250,17 +207,8 @@
 
 <p><strong>Payload structure:</strong></p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "object": "whatsapp_business_account",</p>
 <p>  "entry": [{</p>
 <p>    "id": "WABA_ID",</p>
@@ -283,34 +231,37 @@
 <p>      "field": "messages"</p>
 <p>    }]</p>
 <p>  }]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h3 id="message-types-in-webhook">Message Types in Webhook</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Type</th><th>Description</th><th>Key fields</th></tr></thead><tbody><tr><td><code>text</code></td><td>Plain text message</td><td><code>text.body</code></td></tr><tr><td><code>image</code></td><td>Image (JPEG/PNG)</td><td><code>image.id</code>, <code>image.mime_type</code>, <code>image.url</code></td></tr><tr><td><code>video</code></td><td>Video (MP4)</td><td><code>video.id</code>, <code>video.url</code></td></tr><tr><td><code>audio</code></td><td>Audio/voice message</td><td><code>audio.id</code>, <code>audio.voice</code> (bool)</td></tr><tr><td><code>document</code></td><td>File attachment</td><td><code>document.id</code>, <code>document.filename</code></td></tr><tr><td><code>sticker</code></td><td>WhatsApp sticker</td><td><code>sticker.id</code>, <code>sticker.animated</code></td></tr><tr><td><code>location</code></td><td>GPS coordinates</td><td><code>location.latitude</code>, <code>location.longitude</code></td></tr><tr><td><code>contacts</code></td><td>vCard contact</td><td><code>contacts[].name</code>, <code>contacts[].phones</code></td></tr><tr><td><code>button</code></td><td>Quick reply tapped</td><td><code>button.text</code>, <code>button.payload</code></td></tr><tr><td><code>interactive</code></td><td>List/button reply</td><td><code>interactive.type</code>, <code>interactive.list_reply</code></td></tr><tr><td><code>reaction</code></td><td>Emoji reaction</td><td><code>reaction.message_id</code>, <code>reaction.emoji</code></td></tr><tr><td><code>order</code></td><td>Product order</td><td><code>order.catalog_id</code>, <code>order.product_items</code></td></tr><tr><td><code>referral</code></td><td>Click-to-WhatsApp ad</td><td><code>referral.source_type</code>, <code>referral.source_id</code></td></tr><tr><td><code>unsupported</code></td><td>Unsupported type</td><td><code>errors[].code</code></td></tr><tr><td><code>system</code></td><td>System event (number change)</td><td><code>system.type</code>, <code>system.identity</code></td></tr></tbody></table></div>
+<p>| Type | Description | Key fields |</p>
+<p>|------|-------------|-----------|</p>
+<p>| <code>text</code> | Plain text message | <code>text.body</code> |</p>
+<p>| <code>image</code> | Image (JPEG/PNG) | <code>image.id</code>, <code>image.mime_type</code>, <code>image.url</code> |</p>
+<p>| <code>video</code> | Video (MP4) | <code>video.id</code>, <code>video.url</code> |</p>
+<p>| <code>audio</code> | Audio/voice message | <code>audio.id</code>, <code>audio.voice</code> (bool) |</p>
+<p>| <code>document</code> | File attachment | <code>document.id</code>, <code>document.filename</code> |</p>
+<p>| <code>sticker</code> | WhatsApp sticker | <code>sticker.id</code>, <code>sticker.animated</code> |</p>
+<p>| <code>location</code> | GPS coordinates | <code>location.latitude</code>, <code>location.longitude</code> |</p>
+<p>| <code>contacts</code> | vCard contact | <code>contacts[].name</code>, <code>contacts[].phones</code> |</p>
+<p>| <code>button</code> | Quick reply tapped | <code>button.text</code>, <code>button.payload</code> |</p>
+<p>| <code>interactive</code> | List/button reply | <code>interactive.type</code>, <code>interactive.list_reply</code> |</p>
+<p>| <code>reaction</code> | Emoji reaction | <code>reaction.message_id</code>, <code>reaction.emoji</code> |</p>
+<p>| <code>order</code> | Product order | <code>order.catalog_id</code>, <code>order.product_items</code> |</p>
+<p>| <code>referral</code> | Click-to-WhatsApp ad | <code>referral.source_type</code>, <code>referral.source_id</code> |</p>
+<p>| <code>unsupported</code> | Unsupported type | <code>errors[].code</code> |</p>
+<p>| <code>system</code> | System event (number change) | <code>system.type</code>, <code>system.identity</code> |</p>
+
 <hr>
 
 <h3 id="statuses-message-status-updates">`statuses` — Message Status Updates</h3>
 
 <p>Fires when a message you sent changes status.</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "statuses": [{</p>
 <p>    "id": "wamid.xxx",</p>
 <p>    "status": "delivered",</p>
@@ -326,54 +277,34 @@
 <p>      "category": "utility"</p>
 <p>    }</p>
 <p>  }]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h3 id="status-flow">Status Flow</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — TEXT Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-text"><code class="language-text">sent → delivered → read</p>
+<p>```</p>
+<p>sent → delivered → read</p>
 <p>           ↓</p>
-<p>         failed (if undeliverable)</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>         failed (if undeliverable)</p>
+<p>```</p>
 
-<div class="table-wrap"><table><thead><tr><th>Status</th><th>Meaning</th></tr></thead><tbody><tr><td><code>sent</code></td><td>Message sent from Meta servers</td></tr><tr><td><code>delivered</code></td><td>Received on user's device</td></tr><tr><td><code>read</code></td><td>User opened the message</td></tr><tr><td><code class="code-red">failed</code></td><td>Delivery failed — check <code>errors[]</code></td></tr><tr><td><code>deleted</code></td><td>User deleted the message</td></tr><tr><td><code>played</code></td><td>Voice message was played</td></tr></tbody></table></div>
+<p>| Status | Meaning |</p>
+<p>|--------|---------|</p>
+<p>| <code>sent</code> | Message sent from Meta servers |</p>
+<p>| <code>delivered</code> | Received on user's device |</p>
+<p>| <code>read</code> | User opened the message |</p>
+<p>| <code class="code-red">failed</code> | Delivery failed — check <code>errors[]</code> |</p>
+<p>| <code>deleted</code> | User deleted the message |</p>
+<p>| <code>played</code> | Voice message was played |</p>
+
 <hr>
 
 <h3 id="messagetemplatestatusupdate">`message_template_status_update`</h3>
 
 <p>Fires when a template's review status changes.</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "value": {</p>
 <p>    "event": "APPROVED",</p>
 <p>    "message_template_id": 123456,</p>
@@ -381,61 +312,81 @@
 <p>    "message_template_language": "en_US",</p>
 <p>    "reason": null</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
-<div class="table-wrap"><table><thead><tr><th>Event</th><th>Meaning</th></tr></thead><tbody><tr><td><code>APPROVED</code></td><td>Template is ready to use</td></tr><tr><td><code class="code-red">REJECTED</code></td><td>Template failed Meta's review — <code>reason</code> field explains why</td></tr><tr><td><code>FLAGGED</code></td><td>Quality concerns — may be paused soon</td></tr><tr><td><code>PAUSED</code></td><td>Template paused due to low quality</td></tr><tr><td><code>DISABLED</code></td><td>Template permanently disabled</td></tr><tr><td><code>REINSTATED</code></td><td>Template re-approved after appeal</td></tr></tbody></table></div>
+<p>| Event | Meaning |</p>
+<p>|-------|---------|</p>
+<p>| <code>APPROVED</code> | Template is ready to use |</p>
+<p>| <code class="code-red">REJECTED</code> | Template failed Meta's review — <code>reason</code> field explains why |</p>
+<p>| <code>FLAGGED</code> | Quality concerns — may be paused soon |</p>
+<p>| <code>PAUSED</code> | Template paused due to low quality |</p>
+<p>| <code>DISABLED</code> | Template permanently disabled |</p>
+<p>| <code>REINSTATED</code> | Template re-approved after appeal |</p>
+
 <hr>
 
 <h3 id="accountupdate">`account_update`</h3>
 
 <p>Fires when WABA-level changes occur.</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "value": {</p>
 <p>    "phone_number": "15550000000",</p>
 <p>    "event": "ACCOUNT_UPDATE",</p>
 <p>    "banner_type": "BUSINESS_INITIATED_DISABLED"</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
-<div class="table-wrap"><table><thead><tr><th>Event</th><th>Meaning</th></tr></thead><tbody><tr><td><code>PHONE_NUMBER_NAME_UPDATE</code></td><td>Display name approved/rejected</td></tr><tr><td><code>PHONE_NUMBER_QUALITY_UPDATE</code></td><td>Quality score change</td></tr><tr><td><code>PHONE_NUMBER_BANNED</code></td><td>Number banned</td></tr><tr><td><code>ACCOUNT_VIOLATION</code></td><td>Policy violation flagged</td></tr><tr><td><code>PARTNER_REMOVED</code></td><td>Business disconnected from BSP</td></tr></tbody></table></div>
+<p>| Event | Meaning |</p>
+<p>|-------|---------|</p>
+<p>| <code>PHONE_NUMBER_NAME_UPDATE</code> | Display name approved/rejected |</p>
+<p>| <code>PHONE_NUMBER_QUALITY_UPDATE</code> | Quality score change |</p>
+<p>| <code>PHONE_NUMBER_BANNED</code> | Number banned |</p>
+<p>| <code>ACCOUNT_VIOLATION</code> | Policy violation flagged |</p>
+<p>| <code>PARTNER_REMOVED</code> | Business disconnected from BSP |</p>
+
 <hr>
 
 <h2 id="validation-rules">Validation Rules</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Rejected</th><th><span class="icon-accept">✅</span> Accepted</th></tr></thead><tbody><tr><td><strong>Response time</strong></td><td>> 5 seconds</td><td>< 5 seconds</td></tr><tr><td><strong>Response code</strong></td><td><code>4xx</code>, <code>5xx</code>, or timeout</td><td><code>200</code></td></tr><tr><td><strong>Signature check</strong></td><td>Wrong or missing</td><td>Valid <code>X-Hub-Signature-256</code></td></tr><tr><td><strong>Callback URL</strong></td><td><code>http://</code></td><td><code>https://</code></td></tr><tr><td><strong>Deduplication</strong></td><td>Processing same <code>id</code> twice (causes bugs)</td><td>Check <code>message.id</code> before processing</td></tr><tr><td><strong>Ordering</strong></td><td>Assuming messages arrive in order</td><td>Messages can arrive out of order</td></tr></tbody></table></div>
+<p>| Rule | <span class="icon-reject">❌</span> Rejected | <span class="icon-accept">✅</span> Accepted |</p>
+<p>|------|------------|------------|</p>
+<p>| <strong>Response time</strong> | > 5 seconds | < 5 seconds |</p>
+<p>| <strong>Response code</strong> | <code>4xx</code>, <code>5xx</code>, or timeout | <code>200</code> |</p>
+<p>| <strong>Signature check</strong> | Wrong or missing | Valid <code>X-Hub-Signature-256</code> |</p>
+<p>| <strong>Callback URL</strong> | <code>http://</code> | <code>https://</code> |</p>
+<p>| <strong>Deduplication</strong> | Processing same <code>id</code> twice (causes bugs) | Check <code>message.id</code> before processing |</p>
+<p>| <strong>Ordering</strong> | Assuming messages arrive in order | Messages can arrive out of order |</p>
+
 <hr>
 
 <h2 id="error-codes-in-status-webhooks">Error Codes in Status Webhooks</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Code</th><th>Error</th><th>Fix</th></tr></thead><tbody><tr><td><code>131026</code></td><td>Message undeliverable</td><td>User may be offline or number invalid</td></tr><tr><td><code>131047</code></td><td>Re-engagement message</td><td>Cannot message user — no open window</td></tr><tr><td><code>131048</code></td><td>Spam rate limit</td><td>Too many messages to this user</td></tr><tr><td><code>131051</code></td><td>Unsupported message type</td><td>Don't send this type to this user</td></tr><tr><td><code>131052</code></td><td>Media download error</td><td>Media expired or inaccessible</td></tr><tr><td><code>131053</code></td><td>Media upload error</td><td>Problem with uploaded media</td></tr><tr><td><code>130429</code></td><td>Rate limit exceeded</td><td>Throttle your sending rate</td></tr><tr><td><code>131000</code></td><td>Generic send error</td><td>Check payload</td></tr></tbody></table></div>
+<p>| Code | Error | Fix |</p>
+<p>|------|-------|-----|</p>
+<p>| <code>131026</code> | Message undeliverable | User may be offline or number invalid |</p>
+<p>| <code>131047</code> | Re-engagement message | Cannot message user — no open window |</p>
+<p>| <code>131048</code> | Spam rate limit | Too many messages to this user |</p>
+<p>| <code>131051</code> | Unsupported message type | Don't send this type to this user |</p>
+<p>| <code>131052</code> | Media download error | Media expired or inaccessible |</p>
+<p>| <code>131053</code> | Media upload error | Problem with uploaded media |</p>
+<p>| <code>130429</code> | Rate limit exceeded | Throttle your sending rate |</p>
+<p>| <code>131000</code> | Generic send error | Check payload |</p>
+
 <hr>
 
 <h2 id="seen-v2-notes">SEEN V2 Notes</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Feature</th><th>Notes</th></tr></thead><tbody><tr><td>Inbound messages</td><td>Route to the right SEEN V2 conversation thread</td></tr><tr><td>Status updates</td><td><code>delivered</code> / <code>read</code> → update message state in UI</td></tr><tr><td>Template status</td><td><code>APPROVED</code> → unlock template for use in Broadcasts</td></tr><tr><td>Deduplication</td><td>Store processed <code>wamid</code> to avoid double-processing</td></tr><tr><td>Signature</td><td>Must verify in production — never skip in a real app</td></tr></tbody></table></div>\n\n
+<p>| Feature | Notes |</p>
+<p>|---------|-------|</p>
+<p>| Inbound messages | Route to the right SEEN V2 conversation thread |</p>
+<p>| Status updates | <code>delivered</code> / <code>read</code> → update message state in UI |</p>
+<p>| Template status | <code>APPROVED</code> → unlock template for use in Broadcasts |</p>
+<p>| Deduplication | Store processed <code>wamid</code> to avoid double-processing |</p>
+<p>| Signature | Must verify in production — never skip in a real app |\n\n</p>
 
 <p>\n</p>
 
@@ -447,75 +398,51 @@
 
 <h2 id="متطلبات-الإعداد">متطلبات الإعداد</h2>
 
-<div class="table-wrap"><table><thead><tr><th>المتطلب</th><th>القيمة</th></tr></thead><tbody><tr><td>رابط الاستدعاء (Callback URL)</td><td>HTTPS فقط (لا يُسمح بـ HTTP)</td></tr><tr><td>رمز التحقق (Verification token)</td><td>أي سلسلة نصية ثابتة تقوم بتحديدها</td></tr><tr><td>وقت الاستجابة</td><td>يجب الرد بـ <code>200 OK</code> في غضون <strong>5 ثوانٍ</strong></td></tr><tr><td>ترويسة التوقيع (Signature header)</td><td><code>X-Hub-Signature-256</code> — خوارزمية HMAC-SHA256 للحمولة (payload)</td></tr><tr><td>سياسة إعادة المحاولة</td><td>تعيد Meta محاولة عمليات التسليم الفاشلة لمدة تصل إلى <strong>30 يومًا</strong></td></tr></tbody></table></div>
+<p>| المتطلب | القيمة |</p>
+<p>|------------|-------|</p>
+<p>| رابط الاستدعاء (Callback URL) | HTTPS فقط (لا يُسمح بـ HTTP) |</p>
+<p>| رمز التحقق (Verification token) | أي سلسلة نصية ثابتة تقوم بتحديدها |</p>
+<p>| وقت الاستجابة | يجب الرد بـ <code>200 OK</code> في غضون <strong>5 ثوانٍ</strong> |</p>
+<p>| ترويسة التوقيع (Signature header) | <code>X-Hub-Signature-256</code> — خوارزمية HMAC-SHA256 للحمولة (payload) |</p>
+<p>| سياسة إعادة المحاولة | تعيد Meta محاولة عمليات التسليم الفاشلة لمدة تصل إلى <strong>30 يومًا</strong> |</p>
+
 <hr>
 
 <h2 id="مسار-التحقق-إعداد-لمرة-واحدة">مسار التحقق (إعداد لمرة واحدة)</h2>
 
 <p>عندما تقوم بحفظ رابط خطاف الويب في لوحة تحكم التطبيق الخاص بك، ترسل Meta طلب <code>GET</code>:</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — HTTP Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-http"><code class="language-http">GET https://your-server.com/webhook</p>
+<p>```http</p>
+<p>GET https://your-server.com/webhook</p>
 <p>  ?hub.mode=subscribe</p>
-<p>  &amp;hub.verify_token=YOUR_TOKEN</p>
-<p>  &amp;hub.challenge=CHALLENGE_STRING</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>  &hub.verify_token=YOUR_TOKEN</p>
+<p>  &hub.challenge=CHALLENGE_STRING</p>
+<p>```</p>
 
 <h3 id="الاستجابة-الصحيحة">✅ الاستجابة الصحيحة</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — HTTP Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-http"><code class="language-http">HTTP 200</p>
-<p>Body: CHALLENGE_STRING</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>```http</p>
+<p>HTTP 200</p>
+<p>Body: CHALLENGE_STRING</p>
+<p>```</p>
 
 <h3 id="الاستجابات-الخاطئة">❌ الاستجابات الخاطئة</h3>
 
-<div class="table-wrap"><table><thead><tr><th>الاستجابة</th><th>النتيجة</th></tr></thead><tbody><tr><td>إرجاع أي شيء بخلاف التحدي (challenge)</td><td>فشل التحقق</td></tr><tr><td>إرجاع <code>200</code> مع محتوى غير صحيح</td><td>فشل التحقق</td></tr><tr><td>إرجاع <code>4xx</code> أو <code>5xx</code></td><td>فشل التحقق</td></tr><tr><td>استغراق أكثر من 5 ثوانٍ</td><td>انتهاء المهلة (Timeout) — فشل التحقق</td></tr></tbody></table></div>
+<p>| الاستجابة | النتيجة |</p>
+<p>|---------|--------|</p>
+<p>| إرجاع أي شيء بخلاف التحدي (challenge) | فشل التحقق |</p>
+<p>| إرجاع <code>200</code> مع محتوى غير صحيح | فشل التحقق |</p>
+<p>| إرجاع <code>4xx</code> أو <code>5xx</code> | فشل التحقق |</p>
+<p>| استغراق أكثر من 5 ثوانٍ | انتهاء المهلة (Timeout) — فشل التحقق |</p>
+
 <hr>
 
 <h2 id="التحقق-من-التوقيع">التحقق من التوقيع</h2>
 
 <p>كل طلب POST لخطاف الويب يتضمن الترويسة <code>X-Hub-Signature-256</code>. <strong>يجب</strong> عليك التحقق منها لتأكيد أن الحمولة واردة من Meta:</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JAVASCRIPT Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-javascript"><code class="language-javascript">// <span class="icon-accept">✅</span> Correct signature validation</p>
+<p>```javascript</p>
+<p>// <span class="icon-accept">✅</span> Correct signature validation</p>
 <p>const crypto = require('crypto');</p>
 
 <p>function verifySignature(payload, signature, appSecret) {</p>
@@ -527,13 +454,8 @@
 <p>    Buffer.from(signature),</p>
 <p>    Buffer.from(expected)</p>
 <p>  );</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <div class="callout callout-warn"><span>⚠️</span><p>استخدم محتوى الطلب الخام (raw request body) لحساب HMAC — وليس `JSON.stringify(req.body)`. قد تقوم أدوات تحليل المحتوى (body parsers) بإعادة تنسيق JSON.</p></div>
 
@@ -543,17 +465,8 @@
 
 <p>اشترك في الحقول من خلال لوحة تحكم التطبيق الخاص بك أو عبر واجهة برمجة التطبيقات (API):</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">POST /v21.0/{phone-number-id}/subscribed_apps</p>
+<p>```json</p>
+<p>POST /v21.0/{phone-number-id}/subscribed_apps</p>
 <p>{</p>
 <p>  "subscribed_fields": [</p>
 <p>    "messages",</p>
@@ -561,13 +474,8 @@
 <p>    "phone_number_name_update",</p>
 <p>    "account_update"</p>
 <p>  ]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <hr>
 
@@ -579,17 +487,8 @@
 
 <p><strong>هيكل الحمولة:</strong></p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "object": "whatsapp_business_account",</p>
 <p>  "entry": [{</p>
 <p>    "id": "WABA_ID",</p>
@@ -612,34 +511,37 @@
 <p>      "field": "messages"</p>
 <p>    }]</p>
 <p>  }]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h3 id="أنواع-الرسائل-في-خطاف-الويب">أنواع الرسائل في خطاف الويب</h3>
 
-<div class="table-wrap"><table><thead><tr><th>النوع</th><th>الوصف</th><th>الحقول الأساسية</th></tr></thead><tbody><tr><td><code>text</code></td><td>رسالة نصية عادية</td><td><code>text.body</code></td></tr><tr><td><code>image</code></td><td>صورة (JPEG/PNG)</td><td><code>image.id</code>, <code>image.mime_type</code>, <code>image.url</code></td></tr><tr><td><code>video</code></td><td>فيديو (MP4)</td><td><code>video.id</code>, <code>video.url</code></td></tr><tr><td><code>audio</code></td><td>رسالة صوتية/صوت</td><td><code>audio.id</code>, <code>audio.voice</code> (bool)</td></tr><tr><td><code>document</code></td><td>ملف مرفق</td><td><code>document.id</code>, <code>document.filename</code></td></tr><tr><td><code>sticker</code></td><td>ملصق WhatsApp</td><td><code>sticker.id</code>, <code>sticker.animated</code></td></tr><tr><td><code>location</code></td><td>إحداثيات GPS</td><td><code>location.latitude</code>, <code>location.longitude</code></td></tr><tr><td><code>contacts</code></td><td>جهة اتصال vCard</td><td><code>contacts[].name</code>, <code>contacts[].phones</code></td></tr><tr><td><code>button</code></td><td>تم النقر على رد سريع</td><td><code>button.text</code>, <code>button.payload</code></td></tr><tr><td><code>interactive</code></td><td>رد قائمة/زر</td><td><code>interactive.type</code>, <code>interactive.list_reply</code></td></tr><tr><td><code>reaction</code></td><td>تفاعل برمز تعبيري (Emoji)</td><td><code>reaction.message_id</code>, <code>reaction.emoji</code></td></tr><tr><td><code>order</code></td><td>طلب منتج</td><td><code>order.catalog_id</code>, <code>order.product_items</code></td></tr><tr><td><code>referral</code></td><td>إعلان النقر للمراسلة على WhatsApp</td><td><code>referral.source_type</code>, <code>referral.source_id</code></td></tr><tr><td><code>unsupported</code></td><td>نوع غير مدعوم</td><td><code>errors[].code</code></td></tr><tr><td><code>system</code></td><td>حدث نظام (تغيير الرقم)</td><td><code>system.type</code>, <code>system.identity</code></td></tr></tbody></table></div>
+<p>| النوع | الوصف | الحقول الأساسية |</p>
+<p>|------|-------------|-----------|</p>
+<p>| <code>text</code> | رسالة نصية عادية | <code>text.body</code> |</p>
+<p>| <code>image</code> | صورة (JPEG/PNG) | <code>image.id</code>, <code>image.mime_type</code>, <code>image.url</code> |</p>
+<p>| <code>video</code> | فيديو (MP4) | <code>video.id</code>, <code>video.url</code> |</p>
+<p>| <code>audio</code> | رسالة صوتية/صوت | <code>audio.id</code>, <code>audio.voice</code> (bool) |</p>
+<p>| <code>document</code> | ملف مرفق | <code>document.id</code>, <code>document.filename</code> |</p>
+<p>| <code>sticker</code> | ملصق WhatsApp | <code>sticker.id</code>, <code>sticker.animated</code> |</p>
+<p>| <code>location</code> | إحداثيات GPS | <code>location.latitude</code>, <code>location.longitude</code> |</p>
+<p>| <code>contacts</code> | جهة اتصال vCard | <code>contacts[].name</code>, <code>contacts[].phones</code> |</p>
+<p>| <code>button</code> | تم النقر على رد سريع | <code>button.text</code>, <code>button.payload</code> |</p>
+<p>| <code>interactive</code> | رد قائمة/زر | <code>interactive.type</code>, <code>interactive.list_reply</code> |</p>
+<p>| <code>reaction</code> | تفاعل برمز تعبيري (Emoji) | <code>reaction.message_id</code>, <code>reaction.emoji</code> |</p>
+<p>| <code>order</code> | طلب منتج | <code>order.catalog_id</code>, <code>order.product_items</code> |</p>
+<p>| <code>referral</code> | إعلان النقر للمراسلة على WhatsApp | <code>referral.source_type</code>, <code>referral.source_id</code> |</p>
+<p>| <code>unsupported</code> | نوع غير مدعوم | <code>errors[].code</code> |</p>
+<p>| <code>system</code> | حدث نظام (تغيير الرقم) | <code>system.type</code>, <code>system.identity</code> |</p>
+
 <hr>
 
 <h3 id="statuses-تحديثات-حالة-الرسائل">`statuses` — تحديثات حالة الرسائل</h3>
 
 <p>يتم تشغيله عندما تتغير حالة رسالة قمت بإرسالها.</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "statuses": [{</p>
 <p>    "id": "wamid.xxx",</p>
 <p>    "status": "delivered",</p>
@@ -655,54 +557,34 @@
 <p>      "category": "utility"</p>
 <p>    }</p>
 <p>  }]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h3 id="مسار-الحالة">مسار الحالة</h3>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — TEXT Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-text"><code class="language-text">sent → delivered → read</p>
+<p>```</p>
+<p>sent → delivered → read</p>
 <p>           ↓</p>
-<p>         failed (if undeliverable)</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>         failed (if undeliverable)</p>
+<p>```</p>
 
-<div class="table-wrap"><table><thead><tr><th>الحالة</th><th>المعنى</th></tr></thead><tbody><tr><td><code>sent</code></td><td>تم إرسال الرسالة من خوادم Meta</td></tr><tr><td><code>delivered</code></td><td>تم الاستلام على جهاز المستخدم</td></tr><tr><td><code>read</code></td><td>قام المستخدم بفتح الرسالة</td></tr><tr><td><code class="code-red">failed</code></td><td>فشل التسليم — تحقق من <code>errors[]</code></td></tr><tr><td><code>deleted</code></td><td>قام المستخدم بحذف الرسالة</td></tr><tr><td><code>played</code></td><td>تم تشغيل الرسالة الصوتية</td></tr></tbody></table></div>
+<p>| الحالة | المعنى |</p>
+<p>|--------|---------|</p>
+<p>| <code>sent</code> | تم إرسال الرسالة من خوادم Meta |</p>
+<p>| <code>delivered</code> | تم الاستلام على جهاز المستخدم |</p>
+<p>| <code>read</code> | قام المستخدم بفتح الرسالة |</p>
+<p>| <code class="code-red">failed</code> | فشل التسليم — تحقق من <code>errors[]</code> |</p>
+<p>| <code>deleted</code> | قام المستخدم بحذف الرسالة |</p>
+<p>| <code>played</code> | تم تشغيل الرسالة الصوتية |</p>
+
 <hr>
 
 <h3 id="messagetemplatestatusupdate">`message_template_status_update`</h3>
 
 <p>يتم تشغيله عندما تتغير حالة مراجعة قالب.</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "value": {</p>
 <p>    "event": "APPROVED",</p>
 <p>    "message_template_id": 123456,</p>
@@ -710,61 +592,81 @@
 <p>    "message_template_language": "en_US",</p>
 <p>    "reason": null</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
-<div class="table-wrap"><table><thead><tr><th>الحدث</th><th>المعنى</th></tr></thead><tbody><tr><td><code>APPROVED</code></td><td>القالب جاهز للاستخدام</td></tr><tr><td><code class="code-red">REJECTED</code></td><td>فشل القالب في مراجعة Meta — حقل <code>reason</code> يوضح السبب</td></tr><tr><td><code>FLAGGED</code></td><td>مخاوف تتعلق بالجودة — قد يتم إيقافه مؤقتًا قريبًا</td></tr><tr><td><code>PAUSED</code></td><td>تم إيقاف القالب مؤقتًا بسبب انخفاض الجودة</td></tr><tr><td><code>DISABLED</code></td><td>تم تعطيل القالب بشكل دائم</td></tr><tr><td><code>REINSTATED</code></td><td>تمت إعادة الموافقة على القالب بعد تقديم التماس (appeal)</td></tr></tbody></table></div>
+<p>| الحدث | المعنى |</p>
+<p>|-------|---------|</p>
+<p>| <code>APPROVED</code> | القالب جاهز للاستخدام |</p>
+<p>| <code class="code-red">REJECTED</code> | فشل القالب في مراجعة Meta — حقل <code>reason</code> يوضح السبب |</p>
+<p>| <code>FLAGGED</code> | مخاوف تتعلق بالجودة — قد يتم إيقافه مؤقتًا قريبًا |</p>
+<p>| <code>PAUSED</code> | تم إيقاف القالب مؤقتًا بسبب انخفاض الجودة |</p>
+<p>| <code>DISABLED</code> | تم تعطيل القالب بشكل دائم |</p>
+<p>| <code>REINSTATED</code> | تمت إعادة الموافقة على القالب بعد تقديم التماس (appeal) |</p>
+
 <hr>
 
 <h3 id="accountupdate">`account_update`</h3>
 
 <p>يتم تشغيله عند حدوث تغييرات على مستوى حساب واتساب للأعمال (WABA).</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "value": {</p>
 <p>    "phone_number": "15550000000",</p>
 <p>    "event": "ACCOUNT_UPDATE",</p>
 <p>    "banner_type": "BUSINESS_INITIATED_DISABLED"</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
-<div class="table-wrap"><table><thead><tr><th>الحدث</th><th>المعنى</th></tr></thead><tbody><tr><td><code>PHONE_NUMBER_NAME_UPDATE</code></td><td>تمت الموافقة على/رفض اسم العرض</td></tr><tr><td><code>PHONE_NUMBER_QUALITY_UPDATE</code></td><td>تغيير في درجة الجودة</td></tr><tr><td><code>PHONE_NUMBER_BANNED</code></td><td>تم حظر الرقم</td></tr><tr><td><code>ACCOUNT_VIOLATION</code></td><td>تم الإبلاغ عن انتهاك للسياسة</td></tr><tr><td><code>PARTNER_REMOVED</code></td><td>تم فصل النشاط التجاري عن مزود حلول الأعمال (BSP)</td></tr></tbody></table></div>
+<p>| الحدث | المعنى |</p>
+<p>|-------|---------|</p>
+<p>| <code>PHONE_NUMBER_NAME_UPDATE</code> | تمت الموافقة على/رفض اسم العرض |</p>
+<p>| <code>PHONE_NUMBER_QUALITY_UPDATE</code> | تغيير في درجة الجودة |</p>
+<p>| <code>PHONE_NUMBER_BANNED</code> | تم حظر الرقم |</p>
+<p>| <code>ACCOUNT_VIOLATION</code> | تم الإبلاغ عن انتهاك للسياسة |</p>
+<p>| <code>PARTNER_REMOVED</code> | تم فصل النشاط التجاري عن مزود حلول الأعمال (BSP) |</p>
+
 <hr>
 
 <h2 id="قواعد-التحقق">قواعد التحقق</h2>
 
-<div class="table-wrap"><table><thead><tr><th>القاعدة</th><th><span class="icon-reject">❌</span> مرفوض</th><th><span class="icon-accept">✅</span> مقبول</th></tr></thead><tbody><tr><td><strong>وقت الاستجابة (Response time)</strong></td><td>> 5 ثوانٍ</td><td>< 5 ثوانٍ</td></tr><tr><td><strong>رمز الاستجابة (Response code)</strong></td><td><code>4xx</code>، <code>5xx</code>، أو انتهاء المهلة</td><td><code>200</code></td></tr><tr><td><strong>التحقق من التوقيع (Signature check)</strong></td><td>خاطئ أو مفقود</td><td><code>X-Hub-Signature-256</code> صالح</td></tr><tr><td><strong>رابط الاستدعاء (Callback URL)</strong></td><td><code>http://</code></td><td><code>https://</code></td></tr><tr><td><strong>إزالة التكرار (Deduplication)</strong></td><td>معالجة نفس المعرف <code>id</code> مرتين (يسبب أخطاء)</td><td>التحقق من <code>message.id</code> قبل المعالجة</td></tr><tr><td><strong>الترتيب (Ordering)</strong></td><td>افتراض وصول الرسائل بالترتيب</td><td>يمكن أن تصل الرسائل في غير ترتيبها</td></tr></tbody></table></div>
+<p>| القاعدة | <span class="icon-reject">❌</span> مرفوض | <span class="icon-accept">✅</span> مقبول |</p>
+<p>|------|------------|------------|</p>
+<p>| <strong>وقت الاستجابة (Response time)</strong> | > 5 ثوانٍ | < 5 ثوانٍ |</p>
+<p>| <strong>رمز الاستجابة (Response code)</strong> | <code>4xx</code>، <code>5xx</code>، أو انتهاء المهلة | <code>200</code> |</p>
+<p>| <strong>التحقق من التوقيع (Signature check)</strong> | خاطئ أو مفقود | <code>X-Hub-Signature-256</code> صالح |</p>
+<p>| <strong>رابط الاستدعاء (Callback URL)</strong> | <code>http://</code> | <code>https://</code> |</p>
+<p>| <strong>إزالة التكرار (Deduplication)</strong> | معالجة نفس المعرف <code>id</code> مرتين (يسبب أخطاء) | التحقق من <code>message.id</code> قبل المعالجة |</p>
+<p>| <strong>الترتيب (Ordering)</strong> | افتراض وصول الرسائل بالترتيب | يمكن أن تصل الرسائل في غير ترتيبها |</p>
+
 <hr>
 
 <h2 id="رموز-الأخطاء-في-خطافات-ويب-الحالة">رموز الأخطاء في خطافات ويب الحالة</h2>
 
-<div class="table-wrap"><table><thead><tr><th>الرمز</th><th>الخطأ</th><th>الحل</th></tr></thead><tbody><tr><td><code>131026</code></td><td>تعذر تسليم الرسالة</td><td>قد يكون المستخدم غير متصل أو الرقم غير صالح</td></tr><tr><td><code>131047</code></td><td>رسالة إعادة التفاعل</td><td>لا يمكن مراسلة المستخدم — لا توجد نافذة مفتوحة</td></tr><tr><td><code>131048</code></td><td>حد معدل البريد العشوائي (Spam rate limit)</td><td>عدد كبير جداً من الرسائل لهذا المستخدم</td></tr><tr><td><code>131051</code></td><td>نوع رسالة غير مدعوم</td><td>لا ترسل هذا النوع إلى هذا المستخدم</td></tr><tr><td><code>131052</code></td><td>خطأ في تنزيل الوسائط</td><td>الوسائط منتهية الصلاحية أو لا يمكن الوصول إليها</td></tr><tr><td><code>131053</code></td><td>خطأ في رفع الوسائط</td><td>مشكلة في الوسائط المرفوعة</td></tr><tr><td><code>130429</code></td><td>تم تجاوز حد المعدل</td><td>قم بتقليل معدل الإرسال الخاص بك</td></tr><tr><td><code>131000</code></td><td>خطأ عام في الإرسال</td><td>تحقق من الحمولة (payload)</td></tr></tbody></table></div>
+<p>| الرمز | الخطأ | الحل |</p>
+<p>|------|-------|-----|</p>
+<p>| <code>131026</code> | تعذر تسليم الرسالة | قد يكون المستخدم غير متصل أو الرقم غير صالح |</p>
+<p>| <code>131047</code> | رسالة إعادة التفاعل | لا يمكن مراسلة المستخدم — لا توجد نافذة مفتوحة |</p>
+<p>| <code>131048</code> | حد معدل البريد العشوائي (Spam rate limit) | عدد كبير جداً من الرسائل لهذا المستخدم |</p>
+<p>| <code>131051</code> | نوع رسالة غير مدعوم | لا ترسل هذا النوع إلى هذا المستخدم |</p>
+<p>| <code>131052</code> | خطأ في تنزيل الوسائط | الوسائط منتهية الصلاحية أو لا يمكن الوصول إليها |</p>
+<p>| <code>131053</code> | خطأ في رفع الوسائط | مشكلة في الوسائط المرفوعة |</p>
+<p>| <code>130429</code> | تم تجاوز حد المعدل | قم بتقليل معدل الإرسال الخاص بك |</p>
+<p>| <code>131000</code> | خطأ عام في الإرسال | تحقق من الحمولة (payload) |</p>
+
 <hr>
 
 <h2 id="ملاحظات-حول-seen-v2">ملاحظات حول SEEN V2</h2>
 
-<div class="table-wrap"><table><thead><tr><th>الميزة</th><th>الملاحظات</th></tr></thead><tbody><tr><td>الرسائل الواردة</td><td>توجيهها إلى سلسلة محادثة SEEN V2 الصحيحة</td></tr><tr><td>تحديثات الحالة</td><td><code>delivered</code> / <code>read</code> ← تحديث حالة الرسالة في واجهة المستخدم (UI)</td></tr><tr><td>حالة القالب</td><td><code>APPROVED</code> ← إلغاء قفل القالب للاستخدام في رسائل البث (Broadcasts)</td></tr><tr><td>إزالة التكرار</td><td>تخزين <code>wamid</code> المُعالج لتجنب المعالجة المزدوجة</td></tr><tr><td>التوقيع</td><td>يجب التحقق منه في بيئة الإنتاج — لا تتخطاه أبدًا في تطبيق حقيقي</td></tr></tbody></table></div>\n\n
+<p>| الميزة | الملاحظات |</p>
+<p>|---------|-------|</p>
+<p>| الرسائل الواردة | توجيهها إلى سلسلة محادثة SEEN V2 الصحيحة |</p>
+<p>| تحديثات الحالة | <code>delivered</code> / <code>read</code> ← تحديث حالة الرسالة في واجهة المستخدم (UI) |</p>
+<p>| حالة القالب | <code>APPROVED</code> ← إلغاء قفل القالب للاستخدام في رسائل البث (Broadcasts) |</p>
+<p>| إزالة التكرار | تخزين <code>wamid</code> المُعالج لتجنب المعالجة المزدوجة |</p>
+<p>| التوقيع | يجب التحقق منه في بيئة الإنتاج — لا تتخطاه أبدًا في تطبيق حقيقي |\n\n</p>
 
 <p>\n</p>
 
@@ -786,9 +688,7 @@
           <span class="panel-title">Comparison</span>
         </div>
         <div class="panel-body">
-          <p><strong>Messages Webhook vs Statuses Webhook</strong></p>
-<ul><li style="margin-left:0px"><strong>Messages Event:</strong> Triggered when a user sends an incoming message (text, image, button click) to your business.</li>
-<li style="margin-left:0px"><strong>Statuses Event:</strong> Triggered when the delivery status of your OUTGOING message changes (sent, delivered, read).</li></ul>
+          <p><strong>Messages Webhook vs Statuses Webhook</strong></p><ul><li style="margin-left:8px"><strong>Messages Event:</strong> Triggered when a user sends an incoming message (text, image, button click) to your business.</li><li style="margin-left:8px"><strong>Statuses Event:</strong> Triggered when the delivery status of your OUTGOING message changes (sent, delivered, read).</li></ul>
         </div>
       </div>
     
@@ -843,9 +743,7 @@
           <span class="panel-title">مقارنة</span>
         </div>
         <div class="panel-body">
-          <p><strong>حدث Messages مقابل حدث Statuses</strong></p>
-<ul><li style="margin-left:0px"><strong>حدث الرسائل (Messages):</strong> يتم تشغيله عندما يرسل المستخدم رسالة واردة (نص، صورة، ضغط زر) لنشاطك التجاري.</li>
-<li style="margin-left:0px"><strong>حدث الحالات (Statuses):</strong> يتم تشغيله عندما تتغير حالة تسليم رسالتك الصادرة (تم الإرسال، تم التسليم، مقروءة).</li></ul>
+          <p><strong>حدث Messages مقابل حدث Statuses</strong></p><ul><li style="margin-left:8px"><strong>حدث الرسائل (Messages):</strong> يتم تشغيله عندما يرسل المستخدم رسالة واردة (نص، صورة، ضغط زر) لنشاطك التجاري.</li><li style="margin-left:8px"><strong>حدث الحالات (Statuses):</strong> يتم تشغيله عندما تتغير حالة تسليم رسالتك الصادرة (تم الإرسال، تم التسليم، مقروءة).</li></ul>
         </div>
       </div>
     

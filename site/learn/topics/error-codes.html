@@ -44,7 +44,7 @@
       <div class="header-build-time" title="System Status: Up to date">
         <div class="build-pulse"></div>
         <span class="build-label">LAST BUILD</span>
-        <span class="build-value">Jun 26, 2026, 4:25 PM 🇪🇬</span>
+        <span class="build-value">Jun 28, 2026, 5:03 PM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
@@ -118,17 +118,8 @@
 
 <h2 id="error-response-structure">Error Response Structure</h2>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "error": {</p>
 <p>    "message": "Invalid parameter",</p>
 <p>    "type": "OAuthException",</p>
@@ -140,61 +131,158 @@
 <p>    },</p>
 <p>    "fbtrace_id": "AbCd1234..."</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
-<div class="table-wrap"><table><thead><tr><th>Field</th><th>Meaning</th></tr></thead><tbody><tr><td><code>code</code></td><td>Top-level error category</td></tr><tr><td><code class="code-red">error_subcode</code></td><td>Specific sub-error within category</td></tr><tr><td><code class="code-red">error_data.details</code></td><td>Human-readable explanation</td></tr><tr><td><code>fbtrace_id</code></td><td>Use this when contacting Meta Support</td></tr></tbody></table></div>
+<p>| Field | Meaning |</p>
+<p>|-------|---------|</p>
+<p>| <code>code</code> | Top-level error category |</p>
+<p>| <code class="code-red">error_subcode</code> | Specific sub-error within category |</p>
+<p>| <code class="code-red">error_data.details</code> | Human-readable explanation |</p>
+<p>| <code>fbtrace_id</code> | Use this when contacting Meta Support |</p>
+
 <hr>
 
 <h2 id="top-level-error-codes">Top-Level Error Codes</h2>
 
 <h3 id="graph-api-general-errors">Graph API General Errors</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Code</th><th>Name</th><th>Common Cause</th></tr></thead><tbody><tr><td><code>1</code></td><td>Unknown error</td><td>Temporary Meta issue — retry</td></tr><tr><td><code>2</code></td><td>Service temporarily unavailable</td><td>Meta outage — retry with backoff</td></tr><tr><td><code>4</code></td><td>Application request limit reached</td><td>Rate limit exceeded</td></tr><tr><td><code>10</code></td><td>Permission denied</td><td>App lacks required permission</td></tr><tr><td><code>100</code></td><td>Invalid parameter</td><td>Wrong value format or missing field</td></tr><tr><td><code>190</code></td><td>Invalid/expired access token</td><td>Token expired or revoked</td></tr><tr><td><code>200</code></td><td>Requires permission</td><td>Missing Facebook/Meta permission</td></tr></tbody></table></div>
+<p>| Code | Name | Common Cause |</p>
+<p>|------|------|-------------|</p>
+<p>| <code>1</code> | Unknown error | Temporary Meta issue — retry |</p>
+<p>| <code>2</code> | Service temporarily unavailable | Meta outage — retry with backoff |</p>
+<p>| <code>4</code> | Application request limit reached | Rate limit exceeded |</p>
+<p>| <code>10</code> | Permission denied | App lacks required permission |</p>
+<p>| <code>100</code> | Invalid parameter | Wrong value format or missing field |</p>
+<p>| <code>190</code> | Invalid/expired access token | Token expired or revoked |</p>
+<p>| <code>200</code> | Requires permission | Missing Facebook/Meta permission |</p>
+
 <hr>
 
 <h2 id="whatsapp-specific-error-codes-13xxxx">WhatsApp-Specific Error Codes (13xxxx)</h2>
 
 <h3 id="130xxx-throttling-rate-limits">130xxx — Throttling & Rate Limits</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Code</th><th>Error</th><th>Cause</th><th>Fix</th></tr></thead><tbody><tr><td><code>130429</code></td><td>Rate limit hit</td><td>Sending > 80 msg/sec</td><td>Reduce to 80/sec</td></tr><tr><td><code>130472</code></td><td>User message limit reached</td><td>Individual user limit</td><td>Back off for this user</td></tr></tbody></table></div>
+<p>| Code | Error | Cause | Fix |</p>
+<p>|------|-------|-------|-----|</p>
+<p>| <code>130429</code> | Rate limit hit | Sending > 80 msg/sec | Reduce to 80/sec |</p>
+<p>| <code>130472</code> | User message limit reached | Individual user limit | Back off for this user |</p>
+
 <h3 id="131xxx-message-send-errors">131xxx — Message Send Errors</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Code</th><th>Error</th><th>Cause</th><th>Fix</th></tr></thead><tbody><tr><td><code>131000</code></td><td>Sending failure</td><td>Generic error</td><td>Check <code>details</code> for specifics</td></tr><tr><td><code>131005</code></td><td>Permission denied</td><td>Missing <code>whatsapp_business_messaging</code></td><td>Grant permission in app review</td></tr><tr><td><code>131008</code></td><td>Required parameter missing</td><td>Missing <code>to</code>, <code>type</code>, etc.</td><td>Add missing field</td></tr><tr><td><code>131009</code></td><td>Parameter not valid</td><td>Bad phone number, invalid media</td><td>Validate before sending</td></tr><tr><td><code>131016</code></td><td>Service unavailable</td><td>WhatsApp Cloud API down</td><td>Retry with exponential backoff</td></tr><tr><td><code>131021</code></td><td>Recipient not valid</td><td>Number not registered on WhatsApp</td><td>Verify number first</td></tr><tr><td><code>131026</code></td><td>Message undeliverable</td><td>User unreachable or blocked</td><td>Log and skip</td></tr><tr><td><code>131042</code></td><td>Business eligibility — payments</td><td>Not enabled for payments</td><td>Enable payments for WABA</td></tr><tr><td><code>131045</code></td><td>Incorrect certificate</td><td>SSL issue</td><td>Fix SSL configuration</td></tr><tr><td><code>131047</code></td><td>Re-engagement required</td><td>No 24h window open</td><td>Send a template</td></tr><tr><td><code>131048</code></td><td>Spam rate limit</td><td>Too many messages to user</td><td>Throttle per-user sends</td></tr><tr><td><code>131049</code></td><td>Marketing template limit</td><td>User hit Meta-enforced limit</td><td>Normal — respect the limit</td></tr><tr><td><code>131050</code></td><td>User opted out</td><td>User unsubscribed</td><td>Must not message this user</td></tr><tr><td><code>131051</code></td><td>Unsupported message type</td><td>User can't receive this type</td><td>Use different type</td></tr><tr><td><code>131052</code></td><td>Media download error</td><td>URL inaccessible or expired</td><td>Re-upload media</td></tr><tr><td><code>131053</code></td><td>Media upload error</td><td>Upload failed</td><td>Retry upload</td></tr><tr><td><code>131057</code></td><td>Account in maintenance</td><td>WABA under maintenance</td><td>Wait and retry</td></tr></tbody></table></div>
+<p>| Code | Error | Cause | Fix |</p>
+<p>|------|-------|-------|-----|</p>
+<p>| <code>131000</code> | Sending failure | Generic error | Check <code>details</code> for specifics |</p>
+<p>| <code>131005</code> | Permission denied | Missing <code>whatsapp_business_messaging</code> | Grant permission in app review |</p>
+<p>| <code>131008</code> | Required parameter missing | Missing <code>to</code>, <code>type</code>, etc. | Add missing field |</p>
+<p>| <code>131009</code> | Parameter not valid | Bad phone number, invalid media | Validate before sending |</p>
+<p>| <code>131016</code> | Service unavailable | WhatsApp Cloud API down | Retry with exponential backoff |</p>
+<p>| <code>131021</code> | Recipient not valid | Number not registered on WhatsApp | Verify number first |</p>
+<p>| <code>131026</code> | Message undeliverable | User unreachable or blocked | Log and skip |</p>
+<p>| <code>131042</code> | Business eligibility — payments | Not enabled for payments | Enable payments for WABA |</p>
+<p>| <code>131045</code> | Incorrect certificate | SSL issue | Fix SSL configuration |</p>
+<p>| <code>131047</code> | Re-engagement required | No 24h window open | Send a template |</p>
+<p>| <code>131048</code> | Spam rate limit | Too many messages to user | Throttle per-user sends |</p>
+<p>| <code>131049</code> | Marketing template limit | User hit Meta-enforced limit | Normal — respect the limit |</p>
+<p>| <code>131050</code> | User opted out | User unsubscribed | Must not message this user |</p>
+<p>| <code>131051</code> | Unsupported message type | User can't receive this type | Use different type |</p>
+<p>| <code>131052</code> | Media download error | URL inaccessible or expired | Re-upload media |</p>
+<p>| <code>131053</code> | Media upload error | Upload failed | Retry upload |</p>
+<p>| <code>131057</code> | Account in maintenance | WABA under maintenance | Wait and retry |</p>
+
 <h3 id="131063-131064-template-enforcement">131063-131064 — Template Enforcement</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Code</th><th>Error</th><th>Cause</th><th>Fix</th></tr></thead><tbody><tr><td><code>131063</code></td><td>Marketing templates disabled</td><td>WABA violated policy</td><td>Contact Meta support</td></tr><tr><td><code>131064</code></td><td>Account messaging limit</td><td>Classification violations accumulated</td><td>Review and fix template categories</td></tr></tbody></table></div>
+<p>| Code | Error | Cause | Fix |</p>
+<p>|------|-------|-------|-----|</p>
+<p>| <code>131063</code> | Marketing templates disabled | WABA violated policy | Contact Meta support |</p>
+<p>| <code>131064</code> | Account messaging limit | Classification violations accumulated | Review and fix template categories |</p>
+
 <h3 id="132xxx-template-errors">132xxx — Template Errors</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Code</th><th>Error</th><th>Cause</th><th>Fix</th></tr></thead><tbody><tr><td><code>132000</code></td><td>Template param count wrong</td><td>Wrong number of <code>parameters</code> objects</td><td>Count must match template exactly</td></tr><tr><td><code>132001</code></td><td>Template not found</td><td>Wrong name, wrong language, not approved</td><td>Verify template is <code>APPROVED</code></td></tr><tr><td><code>132005</code></td><td>Translated text too long</td><td>Variable expansion exceeds limit</td><td>Shorten parameter values</td></tr><tr><td><code>132006</code></td><td>Template paused</td><td>Low quality score</td><td>Use a different template</td></tr><tr><td><code>132007</code></td><td>Template policy violation</td><td>Violates WhatsApp Business Policy</td><td>Fix template content</td></tr><tr><td><code>132012</code></td><td>Variable format incorrect</td><td>Wrong parameter type or format</td><td>Check <code>type</code> in parameters</td></tr><tr><td><code>132015</code></td><td>Template paused</td><td>Same as 132006</td><td>—</td></tr><tr><td><code>132016</code></td><td>Template disabled</td><td>Permanently disabled</td><td>Create a new template</td></tr><tr><td><code>132018</code></td><td>Template validation error</td><td>Variables mismatch</td><td>Align send params with template</td></tr><tr><td><code>132068</code></td><td>Flow unavailable</td><td>Embedded flow in template failed</td><td>Check Flow status</td></tr><tr><td><code>132069</code></td><td>Flow blocked</td><td>Flow has errors</td><td>Fix the Flow</td></tr></tbody></table></div>
+<p>| Code | Error | Cause | Fix |</p>
+<p>|------|-------|-------|-----|</p>
+<p>| <code>132000</code> | Template param count wrong | Wrong number of <code>parameters</code> objects | Count must match template exactly |</p>
+<p>| <code>132001</code> | Template not found | Wrong name, wrong language, not approved | Verify template is <code>APPROVED</code> |</p>
+<p>| <code>132005</code> | Translated text too long | Variable expansion exceeds limit | Shorten parameter values |</p>
+<p>| <code>132006</code> | Template paused | Low quality score | Use a different template |</p>
+<p>| <code>132007</code> | Template policy violation | Violates WhatsApp Business Policy | Fix template content |</p>
+<p>| <code>132012</code> | Variable format incorrect | Wrong parameter type or format | Check <code>type</code> in parameters |</p>
+<p>| <code>132015</code> | Template paused | Same as 132006 | — |</p>
+<p>| <code>132016</code> | Template disabled | Permanently disabled | Create a new template |</p>
+<p>| <code>132018</code> | Template validation error | Variables mismatch | Align send params with template |</p>
+<p>| <code>132068</code> | Flow unavailable | Embedded flow in template failed | Check Flow status |</p>
+<p>| <code>132069</code> | Flow blocked | Flow has errors | Fix the Flow |</p>
+
 <h3 id="133xxx-account-registration-errors">133xxx — Account Registration Errors</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Code</th><th>Error</th><th>Cause</th><th>Fix</th></tr></thead><tbody><tr><td><code>133000</code></td><td>Phone number not registered</td><td>Registration didn't complete</td><td>Complete Cloud API registration</td></tr><tr><td><code>133004</code></td><td>Server temporarily unavailable</td><td>Registration service down</td><td>Retry</td></tr><tr><td><code>133005</code></td><td>Two-step verification PIN error</td><td>Wrong PIN</td><td>Provide correct PIN</td></tr><tr><td><code>133006</code></td><td>Phone number re-verification needed</td><td>Cert expired</td><td>Re-verify number</td></tr><tr><td><code>133008</code></td><td>Account locked</td><td>Too many PIN attempts</td><td>Wait for lockout to expire</td></tr><tr><td><code>133009</code></td><td>Phone already registered</td><td>Can't re-register</td><td>Deregister first</td></tr><tr><td><code>133010</code></td><td>Cloud API not accessible</td><td>Account issue</td><td>Contact Meta support</td></tr><tr><td><code>133015</code></td><td>Registration too fast</td><td>Repeated registration attempts</td><td>Wait before retrying</td></tr></tbody></table></div>
+<p>| Code | Error | Cause | Fix |</p>
+<p>|------|-------|-------|-----|</p>
+<p>| <code>133000</code> | Phone number not registered | Registration didn't complete | Complete Cloud API registration |</p>
+<p>| <code>133004</code> | Server temporarily unavailable | Registration service down | Retry |</p>
+<p>| <code>133005</code> | Two-step verification PIN error | Wrong PIN | Provide correct PIN |</p>
+<p>| <code>133006</code> | Phone number re-verification needed | Cert expired | Re-verify number |</p>
+<p>| <code>133008</code> | Account locked | Too many PIN attempts | Wait for lockout to expire |</p>
+<p>| <code>133009</code> | Phone already registered | Can't re-register | Deregister first |</p>
+<p>| <code>133010</code> | Cloud API not accessible | Account issue | Contact Meta support |</p>
+<p>| <code>133015</code> | Registration too fast | Repeated registration attempts | Wait before retrying |</p>
+
 <h3 id="134xxx-template-sync-errors-send-time">134xxx — Template Sync Errors (Send-time)</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Code</th><th>Error</th><th>Cause</th><th>Fix</th></tr></thead><tbody><tr><td><code>134100</code></td><td>Template does not exist</td><td>Not propagated yet after creation</td><td>Wait up to 10 minutes</td></tr><tr><td><code>134101</code></td><td>Template not synced</td><td>Creation/edit still propagating</td><td>Retry after a few minutes</td></tr><tr><td><code>134102</code></td><td>Template unavailable</td><td>Ad sync failed</td><td>Check Meta Ads account link</td></tr></tbody></table></div>
+<p>| Code | Error | Cause | Fix |</p>
+<p>|------|-------|-------|-----|</p>
+<p>| <code>134100</code> | Template does not exist | Not propagated yet after creation | Wait up to 10 minutes |</p>
+<p>| <code>134101</code> | Template not synced | Creation/edit still propagating | Retry after a few minutes |</p>
+<p>| <code>134102</code> | Template unavailable | Ad sync failed | Check Meta Ads account link |</p>
+
 <hr>
 
 <h2 id="template-validation-error-subcodes">Template Validation Error Subcodes</h2>
 
 <p>These appear as <code class="code-red">error_subcode</code> when creating/editing templates:</p>
 
-<div class="table-wrap"><table><thead><tr><th>Subcode</th><th>Error</th><th>Fix</th></tr></thead><tbody><tr><td><code>2388019</code></td><td>Template count limit</td><td>Delete unused templates</td></tr><tr><td><code>2388024</code></td><td>Duplicate template name</td><td>Choose different name</td></tr><tr><td><code>2388040</code></td><td>Character limit exceeded</td><td>Shorten field</td></tr><tr><td><code>2388047</code></td><td>Header format incorrect</td><td>Fix header component</td></tr><tr><td><code>2388049</code></td><td>Button URL invalid</td><td>Use valid HTTPS URL</td></tr><tr><td><code>2388055</code></td><td>Coupon code too long</td><td>Max 20 chars</td></tr><tr><td><code>2388072</code></td><td>Body format incorrect</td><td>Fix <code>{{n}}</code> variable syntax</td></tr><tr><td><code>2388073</code></td><td>Footer has variables</td><td>Remove variables from footer</td></tr><tr><td><code>2388075</code></td><td>Sample value mismatch</td><td>Fix example values</td></tr><tr><td><code>2388293</code></td><td>Too many variables</td><td>Reduce variable count or add text</td></tr><tr><td><code>2388299</code></td><td>Dangling variable</td><td>Surround variable with text</td></tr><tr><td><code>2494177</code></td><td>TOS URL not allowed</td><td>Use approved ToS URL</td></tr></tbody></table></div>
+<p>| Subcode | Error | Fix |</p>
+<p>|---------|-------|-----|</p>
+<p>| <code>2388019</code> | Template count limit | Delete unused templates |</p>
+<p>| <code>2388024</code> | Duplicate template name | Choose different name |</p>
+<p>| <code>2388040</code> | Character limit exceeded | Shorten field |</p>
+<p>| <code>2388047</code> | Header format incorrect | Fix header component |</p>
+<p>| <code>2388049</code> | Button URL invalid | Use valid HTTPS URL |</p>
+<p>| <code>2388055</code> | Coupon code too long | Max 20 chars |</p>
+<p>| <code>2388072</code> | Body format incorrect | Fix <code>{{n}}</code> variable syntax |</p>
+<p>| <code>2388073</code> | Footer has variables | Remove variables from footer |</p>
+<p>| <code>2388075</code> | Sample value mismatch | Fix example values |</p>
+<p>| <code>2388293</code> | Too many variables | Reduce variable count or add text |</p>
+<p>| <code>2388299</code> | Dangling variable | Surround variable with text |</p>
+<p>| <code>2494177</code> | TOS URL not allowed | Use approved ToS URL |</p>
+
 <hr>
 
 <h2 id="messenger-error-codes">Messenger Error Codes</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Code</th><th>Error</th><th>Cause</th><th>Fix</th></tr></thead><tbody><tr><td><code>10</code></td><td>Permission not granted</td><td>Send API not approved</td><td>Submit for App Review</td></tr><tr><td><code>100</code></td><td>Invalid parameter</td><td>Wrong PSID, wrong attachment</td><td>Validate recipient</td></tr><tr><td><code>200</code></td><td>No messaging permission</td><td>User hasn't messaged page, outside 24h window</td><td>Use notification/message tag</td></tr><tr><td><code>551</code></td><td>User blocked</td><td>User blocked the page</td><td>Don't retry</td></tr><tr><td><code>613</code></td><td>Rate limit</td><td>Too many messages</td><td>Throttle sends</td></tr></tbody></table></div>
+<p>| Code | Error | Cause | Fix |</p>
+<p>|------|-------|-------|-----|</p>
+<p>| <code>10</code> | Permission not granted | Send API not approved | Submit for App Review |</p>
+<p>| <code>100</code> | Invalid parameter | Wrong PSID, wrong attachment | Validate recipient |</p>
+<p>| <code>200</code> | No messaging permission | User hasn't messaged page, outside 24h window | Use notification/message tag |</p>
+<p>| <code>551</code> | User blocked | User blocked the page | Don't retry |</p>
+<p>| <code>613</code> | Rate limit | Too many messages | Throttle sends |</p>
+
 <hr>
 
 <h2 id="error-handling-strategy-for-seen-v2">Error Handling Strategy for SEEN V2</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Error Code</th><th>Action</th></tr></thead><tbody><tr><td><code>131000</code>, <code>131016</code>, <code>2</code></td><td>Retry with exponential backoff (max 3 attempts)</td></tr><tr><td><code>131026</code></td><td>Log and skip — don't retry</td></tr><tr><td><code>131047</code></td><td>Queue message as "template required"</td></tr><tr><td><code>131048</code>, <code>130429</code></td><td>Back off — wait before sending more</td></tr><tr><td><code>131049</code>, <code>131050</code></td><td>Remove user from broadcast list</td></tr><tr><td><code>131052</code>, <code>131053</code></td><td>Re-upload media and retry</td></tr><tr><td><code>132001</code>, <code>132006</code>, <code>132016</code></td><td>Alert QA team — template issue</td></tr><tr><td><code>132000</code></td><td>Bug — fix parameter count in code</td></tr><tr><td><code>190</code></td><td>Refresh access token</td></tr><tr><td><code>4</code>, <code>10</code></td><td>Alert developer — permission issue</td></tr></tbody></table></div>\n\n
+<p>| Error Code | Action |</p>
+<p>|------------|--------|</p>
+<p>| <code>131000</code>, <code>131016</code>, <code>2</code> | Retry with exponential backoff (max 3 attempts) |</p>
+<p>| <code>131026</code> | Log and skip — don't retry |</p>
+<p>| <code>131047</code> | Queue message as "template required" |</p>
+<p>| <code>131048</code>, <code>130429</code> | Back off — wait before sending more |</p>
+<p>| <code>131049</code>, <code>131050</code> | Remove user from broadcast list |</p>
+<p>| <code>131052</code>, <code>131053</code> | Re-upload media and retry |</p>
+<p>| <code>132001</code>, <code>132006</code>, <code>132016</code> | Alert QA team — template issue |</p>
+<p>| <code>132000</code> | Bug — fix parameter count in code |</p>
+<p>| <code>190</code> | Refresh access token |</p>
+<p>| <code>4</code>, <code>10</code> | Alert developer — permission issue |\n\n</p>
 
 <p>\n</p>
 
@@ -206,17 +294,8 @@
 
 <h2 id="هيكل-استجابة-الخطأ">هيكل استجابة الخطأ</h2>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "error": {</p>
 <p>    "message": "Invalid parameter",</p>
 <p>    "type": "OAuthException",</p>
@@ -228,61 +307,158 @@
 <p>    },</p>
 <p>    "fbtrace_id": "AbCd1234..."</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
-<div class="table-wrap"><table><thead><tr><th>الحقل</th><th>المعنى</th></tr></thead><tbody><tr><td><code>code</code></td><td>فئة الخطأ الرئيسية (Top-level)</td></tr><tr><td><code class="code-red">error_subcode</code></td><td>خطأ فرعي محدد ضمن الفئة</td></tr><tr><td><code class="code-red">error_data.details</code></td><td>شرح مقروء للإنسان</td></tr><tr><td><code>fbtrace_id</code></td><td>استخدم هذا المعرف عند التواصل مع دعم Meta</td></tr></tbody></table></div>
+<p>| الحقل | المعنى |</p>
+<p>|-------|---------|</p>
+<p>| <code>code</code> | فئة الخطأ الرئيسية (Top-level) |</p>
+<p>| <code class="code-red">error_subcode</code> | خطأ فرعي محدد ضمن الفئة |</p>
+<p>| <code class="code-red">error_data.details</code> | شرح مقروء للإنسان |</p>
+<p>| <code>fbtrace_id</code> | استخدم هذا المعرف عند التواصل مع دعم Meta |</p>
+
 <hr>
 
 <h2 id="رموز-الخطأ-الرئيسية">رموز الخطأ الرئيسية</h2>
 
 <h3 id="أخطاء-graph-api-العامة">أخطاء Graph API العامة</h3>
 
-<div class="table-wrap"><table><thead><tr><th>الرمز</th><th>الاسم</th><th>السبب الشائع</th></tr></thead><tbody><tr><td><code>1</code></td><td>خطأ غير معروف</td><td>مشكلة مؤقتة في Meta — أعد المحاولة</td></tr><tr><td><code>2</code></td><td>الخدمة غير متاحة مؤقتًا</td><td>انقطاع في Meta — أعد المحاولة مع تأخير زمني (backoff)</td></tr><tr><td><code>4</code></td><td>تم الوصول إلى الحد الأقصى لطلبات التطبيق</td><td>تم تجاوز حد المعدل (Rate limit)</td></tr><tr><td><code>10</code></td><td>تم رفض الإذن</td><td>يفتقر التطبيق إلى الإذن المطلوب</td></tr><tr><td><code>100</code></td><td>معلمة غير صالحة</td><td>تنسيق قيمة خاطئ أو حقل مفقود</td></tr><tr><td><code>190</code></td><td>رمز وصول غير صالح/منتهي الصلاحية</td><td>انتهت صلاحية الرمز (Token) أو تم إلغاؤه</td></tr><tr><td><code>200</code></td><td>يتطلب إذنًا</td><td>إذن Facebook/Meta مفقود</td></tr></tbody></table></div>
+<p>| الرمز | الاسم | السبب الشائع |</p>
+<p>|------|------|-------------|</p>
+<p>| <code>1</code> | خطأ غير معروف | مشكلة مؤقتة في Meta — أعد المحاولة |</p>
+<p>| <code>2</code> | الخدمة غير متاحة مؤقتًا | انقطاع في Meta — أعد المحاولة مع تأخير زمني (backoff) |</p>
+<p>| <code>4</code> | تم الوصول إلى الحد الأقصى لطلبات التطبيق | تم تجاوز حد المعدل (Rate limit) |</p>
+<p>| <code>10</code> | تم رفض الإذن | يفتقر التطبيق إلى الإذن المطلوب |</p>
+<p>| <code>100</code> | معلمة غير صالحة | تنسيق قيمة خاطئ أو حقل مفقود |</p>
+<p>| <code>190</code> | رمز وصول غير صالح/منتهي الصلاحية | انتهت صلاحية الرمز (Token) أو تم إلغاؤه |</p>
+<p>| <code>200</code> | يتطلب إذنًا | إذن Facebook/Meta مفقود |</p>
+
 <hr>
 
 <h2 id="رموز-الخطأ-الخاصة-بـ-whatsapp-13xxxx">رموز الخطأ الخاصة بـ WhatsApp (13xxxx)</h2>
 
 <h3 id="130xxx-التقييد-وحدود-المعدل-throttling-rate-limits">130xxx — التقييد وحدود المعدل (Throttling & Rate Limits)</h3>
 
-<div class="table-wrap"><table><thead><tr><th>الرمز</th><th>الخطأ</th><th>السبب</th><th>الحل</th></tr></thead><tbody><tr><td><code>130429</code></td><td>تم الوصول إلى حد المعدل</td><td>إرسال أكثر من 80 رسالة/ثانية</td><td>خفض المعدل إلى 80/ثانية</td></tr><tr><td><code>130472</code></td><td>تم الوصول إلى حد رسائل المستخدم</td><td>حد المستخدم الفردي</td><td>قلل الإرسال (Back off) لهذا المستخدم</td></tr></tbody></table></div>
+<p>| الرمز | الخطأ | السبب | الحل |</p>
+<p>|------|-------|-------|-----|</p>
+<p>| <code>130429</code> | تم الوصول إلى حد المعدل | إرسال أكثر من 80 رسالة/ثانية | خفض المعدل إلى 80/ثانية |</p>
+<p>| <code>130472</code> | تم الوصول إلى حد رسائل المستخدم | حد المستخدم الفردي | قلل الإرسال (Back off) لهذا المستخدم |</p>
+
 <h3 id="131xxx-أخطاء-إرسال-الرسائل">131xxx — أخطاء إرسال الرسائل</h3>
 
-<div class="table-wrap"><table><thead><tr><th>الرمز</th><th>الخطأ</th><th>السبب</th><th>الحل</th></tr></thead><tbody><tr><td><code>131000</code></td><td>فشل الإرسال</td><td>خطأ عام</td><td>تحقق من <code>details</code> لمعرفة التفاصيل</td></tr><tr><td><code>131005</code></td><td>تم رفض الإذن</td><td>إذن <code>whatsapp_business_messaging</code> مفقود</td><td>امنح الإذن في مراجعة التطبيق</td></tr><tr><td><code>131008</code></td><td>معلمة مطلوبة مفقودة</td><td>فقدان <code>to</code>، <code>type</code>، إلخ.</td><td>أضف الحقل المفقود</td></tr><tr><td><code>131009</code></td><td>معلمة غير صالحة</td><td>رقم هاتف خاطئ، وسائط غير صالحة</td><td>تحقق من الصحة قبل الإرسال</td></tr><tr><td><code>131016</code></td><td>الخدمة غير متاحة</td><td>WhatsApp Cloud API معطل</td><td>أعد المحاولة مع تأخير زمني مضاعف (exponential backoff)</td></tr><tr><td><code>131021</code></td><td>المستلم غير صالح</td><td>الرقم غير مسجل في WhatsApp</td><td>تحقق من الرقم أولاً</td></tr><tr><td><code>131026</code></td><td>تعذر تسليم الرسالة</td><td>المستخدم لا يمكن الوصول إليه أو قام بالحظر</td><td>قم بتسجيل الخطأ وتخطاه</td></tr><tr><td><code>131042</code></td><td>أهلية النشاط التجاري — المدفوعات</td><td>غير مفعل للمدفوعات</td><td>فعّل المدفوعات لـ WABA</td></tr><tr><td><code>131045</code></td><td>شهادة غير صحيحة</td><td>مشكلة في SSL</td><td>أصلح تكوين SSL</td></tr><tr><td><code>131047</code></td><td>إعادة التفاعل مطلوبة</td><td>لا توجد نافذة 24 ساعة مفتوحة</td><td>أرسل قالبًا (template)</td></tr><tr><td><code>131048</code></td><td>حد معدل البريد العشوائي (Spam)</td><td>رسائل كثيرة جدًا للمستخدم</td><td>قيد الإرسال لكل مستخدم (Throttle)</td></tr><tr><td><code>131049</code></td><td>حد قوالب التسويق</td><td>وصل المستخدم للحد المفروض من Meta</td><td>أمر طبيعي — التزم بالحد</td></tr><tr><td><code>131050</code></td><td>المستخدم ألغى الاشتراك</td><td>ألغى المستخدم الاشتراك</td><td>يجب عدم مراسلة هذا المستخدم</td></tr><tr><td><code>131051</code></td><td>نوع الرسالة غير مدعوم</td><td>لا يمكن للمستخدم تلقي هذا النوع</td><td>استخدم نوعًا مختلفًا</td></tr><tr><td><code>131052</code></td><td>خطأ في تنزيل الوسائط</td><td>الرابط لا يمكن الوصول إليه أو منتهي الصلاحية</td><td>أعد رفع الوسائط</td></tr><tr><td><code>131053</code></td><td>خطأ في رفع الوسائط</td><td>فشل الرفع</td><td>أعد محاولة الرفع</td></tr><tr><td><code>131057</code></td><td>الحساب قيد الصيانة</td><td>WABA قيد الصيانة</td><td>انتظر وأعد المحاولة</td></tr></tbody></table></div>
+<p>| الرمز | الخطأ | السبب | الحل |</p>
+<p>|------|-------|-------|-----|</p>
+<p>| <code>131000</code> | فشل الإرسال | خطأ عام | تحقق من <code>details</code> لمعرفة التفاصيل |</p>
+<p>| <code>131005</code> | تم رفض الإذن | إذن <code>whatsapp_business_messaging</code> مفقود | امنح الإذن في مراجعة التطبيق |</p>
+<p>| <code>131008</code> | معلمة مطلوبة مفقودة | فقدان <code>to</code>، <code>type</code>، إلخ. | أضف الحقل المفقود |</p>
+<p>| <code>131009</code> | معلمة غير صالحة | رقم هاتف خاطئ، وسائط غير صالحة | تحقق من الصحة قبل الإرسال |</p>
+<p>| <code>131016</code> | الخدمة غير متاحة | WhatsApp Cloud API معطل | أعد المحاولة مع تأخير زمني مضاعف (exponential backoff) |</p>
+<p>| <code>131021</code> | المستلم غير صالح | الرقم غير مسجل في WhatsApp | تحقق من الرقم أولاً |</p>
+<p>| <code>131026</code> | تعذر تسليم الرسالة | المستخدم لا يمكن الوصول إليه أو قام بالحظر | قم بتسجيل الخطأ وتخطاه |</p>
+<p>| <code>131042</code> | أهلية النشاط التجاري — المدفوعات | غير مفعل للمدفوعات | فعّل المدفوعات لـ WABA |</p>
+<p>| <code>131045</code> | شهادة غير صحيحة | مشكلة في SSL | أصلح تكوين SSL |</p>
+<p>| <code>131047</code> | إعادة التفاعل مطلوبة | لا توجد نافذة 24 ساعة مفتوحة | أرسل قالبًا (template) |</p>
+<p>| <code>131048</code> | حد معدل البريد العشوائي (Spam) | رسائل كثيرة جدًا للمستخدم | قيد الإرسال لكل مستخدم (Throttle) |</p>
+<p>| <code>131049</code> | حد قوالب التسويق | وصل المستخدم للحد المفروض من Meta | أمر طبيعي — التزم بالحد |</p>
+<p>| <code>131050</code> | المستخدم ألغى الاشتراك | ألغى المستخدم الاشتراك | يجب عدم مراسلة هذا المستخدم |</p>
+<p>| <code>131051</code> | نوع الرسالة غير مدعوم | لا يمكن للمستخدم تلقي هذا النوع | استخدم نوعًا مختلفًا |</p>
+<p>| <code>131052</code> | خطأ في تنزيل الوسائط | الرابط لا يمكن الوصول إليه أو منتهي الصلاحية | أعد رفع الوسائط |</p>
+<p>| <code>131053</code> | خطأ في رفع الوسائط | فشل الرفع | أعد محاولة الرفع |</p>
+<p>| <code>131057</code> | الحساب قيد الصيانة | WABA قيد الصيانة | انتظر وأعد المحاولة |</p>
+
 <h3 id="131063-131064-إنفاذ-القوالب-template-enforcement">131063-131064 — إنفاذ القوالب (Template Enforcement)</h3>
 
-<div class="table-wrap"><table><thead><tr><th>الرمز</th><th>الخطأ</th><th>السبب</th><th>الحل</th></tr></thead><tbody><tr><td><code>131063</code></td><td>قوالب التسويق معطلة</td><td>خالف WABA السياسة</td><td>تواصل مع دعم Meta</td></tr><tr><td><code>131064</code></td><td>حد مراسلة الحساب</td><td>تراكمت انتهاكات التصنيف</td><td>راجع فئات القوالب وأصلحها</td></tr></tbody></table></div>
+<p>| الرمز | الخطأ | السبب | الحل |</p>
+<p>|------|-------|-------|-----|</p>
+<p>| <code>131063</code> | قوالب التسويق معطلة | خالف WABA السياسة | تواصل مع دعم Meta |</p>
+<p>| <code>131064</code> | حد مراسلة الحساب | تراكمت انتهاكات التصنيف | راجع فئات القوالب وأصلحها |</p>
+
 <h3 id="132xxx-أخطاء-القوالب">132xxx — أخطاء القوالب</h3>
 
-<div class="table-wrap"><table><thead><tr><th>الرمز</th><th>الخطأ</th><th>السبب</th><th>الحل</th></tr></thead><tbody><tr><td><code>132000</code></td><td>عدد معلمات القالب خاطئ</td><td>عدد خاطئ من كائنات <code>parameters</code></td><td>يجب أن يتطابق العدد مع القالب تمامًا</td></tr><tr><td><code>132001</code></td><td>القالب غير موجود</td><td>اسم خاطئ، لغة خاطئة، غير معتمد</td><td>تأكد أن القالب بحالة <code>APPROVED</code></td></tr><tr><td><code>132005</code></td><td>النص المترجم طويل جدًا</td><td>توسع المتغير يتجاوز الحد</td><td>قم بتقصير قيم المعلمات</td></tr><tr><td><code>132006</code></td><td>القالب متوقف مؤقتًا</td><td>درجة جودة منخفضة</td><td>استخدم قالبًا مختلفًا</td></tr><tr><td><code>132007</code></td><td>انتهاك سياسة القوالب</td><td>ينتهك سياسة WhatsApp Business</td><td>أصلح محتوى القالب</td></tr><tr><td><code>132012</code></td><td>تنسيق المتغير غير صحيح</td><td>نوع أو تنسيق المعلمة خاطئ</td><td>تحقق من <code>type</code> في المعلمات</td></tr><tr><td><code>132015</code></td><td>القالب متوقف مؤقتًا</td><td>نفس 132006</td><td>—</td></tr><tr><td><code>132016</code></td><td>القالب معطل</td><td>معطل بشكل دائم</td><td>أنشئ قالبًا جديدًا</td></tr><tr><td><code>132018</code></td><td>خطأ في التحقق من صحة القالب</td><td>عدم تطابق المتغيرات</td><td>طابق معلمات الإرسال مع القالب</td></tr><tr><td><code>132068</code></td><td>التدفق (Flow) غير متاح</td><td>فشل التدفق المضمن في القالب</td><td>تحقق من حالة التدفق</td></tr><tr><td><code>132069</code></td><td>التدفق (Flow) محظور</td><td>التدفق يحتوي على أخطاء</td><td>أصلح التدفق</td></tr></tbody></table></div>
+<p>| الرمز | الخطأ | السبب | الحل |</p>
+<p>|------|-------|-------|-----|</p>
+<p>| <code>132000</code> | عدد معلمات القالب خاطئ | عدد خاطئ من كائنات <code>parameters</code> | يجب أن يتطابق العدد مع القالب تمامًا |</p>
+<p>| <code>132001</code> | القالب غير موجود | اسم خاطئ، لغة خاطئة، غير معتمد | تأكد أن القالب بحالة <code>APPROVED</code> |</p>
+<p>| <code>132005</code> | النص المترجم طويل جدًا | توسع المتغير يتجاوز الحد | قم بتقصير قيم المعلمات |</p>
+<p>| <code>132006</code> | القالب متوقف مؤقتًا | درجة جودة منخفضة | استخدم قالبًا مختلفًا |</p>
+<p>| <code>132007</code> | انتهاك سياسة القوالب | ينتهك سياسة WhatsApp Business | أصلح محتوى القالب |</p>
+<p>| <code>132012</code> | تنسيق المتغير غير صحيح | نوع أو تنسيق المعلمة خاطئ | تحقق من <code>type</code> في المعلمات |</p>
+<p>| <code>132015</code> | القالب متوقف مؤقتًا | نفس 132006 | — |</p>
+<p>| <code>132016</code> | القالب معطل | معطل بشكل دائم | أنشئ قالبًا جديدًا |</p>
+<p>| <code>132018</code> | خطأ في التحقق من صحة القالب | عدم تطابق المتغيرات | طابق معلمات الإرسال مع القالب |</p>
+<p>| <code>132068</code> | التدفق (Flow) غير متاح | فشل التدفق المضمن في القالب | تحقق من حالة التدفق |</p>
+<p>| <code>132069</code> | التدفق (Flow) محظور | التدفق يحتوي على أخطاء | أصلح التدفق |</p>
+
 <h3 id="133xxx-أخطاء-تسجيل-الحساب">133xxx — أخطاء تسجيل الحساب</h3>
 
-<div class="table-wrap"><table><thead><tr><th>الرمز</th><th>الخطأ</th><th>السبب</th><th>الحل</th></tr></thead><tbody><tr><td><code>133000</code></td><td>رقم الهاتف غير مسجل</td><td>لم يكتمل التسجيل</td><td>أكمل تسجيل Cloud API</td></tr><tr><td><code>133004</code></td><td>الخادم غير متاح مؤقتًا</td><td>خدمة التسجيل معطلة</td><td>أعد المحاولة</td></tr><tr><td><code>133005</code></td><td>خطأ في رمز التحقق بخطوتين</td><td>رمز PIN خاطئ</td><td>أدخل رمز PIN الصحيح</td></tr><tr><td><code>133006</code></td><td>يتطلب إعادة التحقق من رقم الهاتف</td><td>انتهت صلاحية الشهادة</td><td>أعد التحقق من الرقم</td></tr><tr><td><code>133008</code></td><td>الحساب مقفول</td><td>محاولات PIN كثيرة جدًا</td><td>انتظر حتى تنتهي مدة القفل</td></tr><tr><td><code>133009</code></td><td>الهاتف مسجل بالفعل</td><td>لا يمكن إعادة التسجيل</td><td>قم بإلغاء التسجيل أولاً</td></tr><tr><td><code>133010</code></td><td>Cloud API غير متاح</td><td>مشكلة في الحساب</td><td>تواصل مع دعم Meta</td></tr><tr><td><code>133015</code></td><td>التسجيل سريع جدًا</td><td>محاولات تسجيل متكررة</td><td>انتظر قبل إعادة المحاولة</td></tr></tbody></table></div>
+<p>| الرمز | الخطأ | السبب | الحل |</p>
+<p>|------|-------|-------|-----|</p>
+<p>| <code>133000</code> | رقم الهاتف غير مسجل | لم يكتمل التسجيل | أكمل تسجيل Cloud API |</p>
+<p>| <code>133004</code> | الخادم غير متاح مؤقتًا | خدمة التسجيل معطلة | أعد المحاولة |</p>
+<p>| <code>133005</code> | خطأ في رمز التحقق بخطوتين | رمز PIN خاطئ | أدخل رمز PIN الصحيح |</p>
+<p>| <code>133006</code> | يتطلب إعادة التحقق من رقم الهاتف | انتهت صلاحية الشهادة | أعد التحقق من الرقم |</p>
+<p>| <code>133008</code> | الحساب مقفول | محاولات PIN كثيرة جدًا | انتظر حتى تنتهي مدة القفل |</p>
+<p>| <code>133009</code> | الهاتف مسجل بالفعل | لا يمكن إعادة التسجيل | قم بإلغاء التسجيل أولاً |</p>
+<p>| <code>133010</code> | Cloud API غير متاح | مشكلة في الحساب | تواصل مع دعم Meta |</p>
+<p>| <code>133015</code> | التسجيل سريع جدًا | محاولات تسجيل متكررة | انتظر قبل إعادة المحاولة |</p>
+
 <h3 id="134xxx-أخطاء-مزامنة-القوالب-وقت-الإرسال">134xxx — أخطاء مزامنة القوالب (وقت الإرسال)</h3>
 
-<div class="table-wrap"><table><thead><tr><th>الرمز</th><th>الخطأ</th><th>السبب</th><th>الحل</th></tr></thead><tbody><tr><td><code>134100</code></td><td>القالب غير موجود</td><td>لم يتم نشره بعد إنشائه</td><td>انتظر حتى 10 دقائق</td></tr><tr><td><code>134101</code></td><td>القالب غير متزامن</td><td>إنشاء/تعديل لا يزال قيد النشر</td><td>أعد المحاولة بعد بضع دقائق</td></tr><tr><td><code>134102</code></td><td>القالب غير متاح</td><td>فشلت مزامنة الإعلان</td><td>تحقق من ربط حساب Meta Ads</td></tr></tbody></table></div>
+<p>| الرمز | الخطأ | السبب | الحل |</p>
+<p>|------|-------|-------|-----|</p>
+<p>| <code>134100</code> | القالب غير موجود | لم يتم نشره بعد إنشائه | انتظر حتى 10 دقائق |</p>
+<p>| <code>134101</code> | القالب غير متزامن | إنشاء/تعديل لا يزال قيد النشر | أعد المحاولة بعد بضع دقائق |</p>
+<p>| <code>134102</code> | القالب غير متاح | فشلت مزامنة الإعلان | تحقق من ربط حساب Meta Ads |</p>
+
 <hr>
 
 <h2 id="رموز-الأخطاء-الفرعية-للتحقق-من-صحة-القوالب">رموز الأخطاء الفرعية للتحقق من صحة القوالب</h2>
 
 <p>تظهر هذه كـ <code class="code-red">error_subcode</code> عند إنشاء/تعديل القوالب:</p>
 
-<div class="table-wrap"><table><thead><tr><th>الرمز الفرعي</th><th>الخطأ</th><th>الحل</th></tr></thead><tbody><tr><td><code>2388019</code></td><td>حد عدد القوالب</td><td>احذف القوالب غير المستخدمة</td></tr><tr><td><code>2388024</code></td><td>اسم قالب مكرر</td><td>اختر اسمًا مختلفًا</td></tr><tr><td><code>2388040</code></td><td>تجاوز حد الأحرف</td><td>قم بتقصير الحقل</td></tr><tr><td><code>2388047</code></td><td>تنسيق الترويسة غير صحيح</td><td>أصلح مكون الترويسة (header)</td></tr><tr><td><code>2388049</code></td><td>رابط الزر غير صالح</td><td>استخدم رابط HTTPS صالح</td></tr><tr><td><code>2388055</code></td><td>كود الخصم طويل جدًا</td><td>الحد الأقصى 20 حرفًا</td></tr><tr><td><code>2388072</code></td><td>تنسيق النص (Body) غير صحيح</td><td>أصلح صيغة المتغير <code>{{n}}</code></td></tr><tr><td><code>2388073</code></td><td>التذييل يحتوي على متغيرات</td><td>أزل المتغيرات من التذييل (footer)</td></tr><tr><td><code>2388075</code></td><td>عدم تطابق قيمة العينة</td><td>أصلح قيم الأمثلة</td></tr><tr><td><code>2388293</code></td><td>متغيرات كثيرة جدًا</td><td>قلل عدد المتغيرات أو أضف نصًا</td></tr><tr><td><code>2388299</code></td><td>متغير متدلٍ (Dangling variable)</td><td>حِط المتغير بنص</td></tr><tr><td><code>2494177</code></td><td>رابط شروط الخدمة (TOS) غير مسموح</td><td>استخدم رابط شروط خدمة معتمد</td></tr></tbody></table></div>
+<p>| الرمز الفرعي | الخطأ | الحل |</p>
+<p>|---------|-------|-----|</p>
+<p>| <code>2388019</code> | حد عدد القوالب | احذف القوالب غير المستخدمة |</p>
+<p>| <code>2388024</code> | اسم قالب مكرر | اختر اسمًا مختلفًا |</p>
+<p>| <code>2388040</code> | تجاوز حد الأحرف | قم بتقصير الحقل |</p>
+<p>| <code>2388047</code> | تنسيق الترويسة غير صحيح | أصلح مكون الترويسة (header) |</p>
+<p>| <code>2388049</code> | رابط الزر غير صالح | استخدم رابط HTTPS صالح |</p>
+<p>| <code>2388055</code> | كود الخصم طويل جدًا | الحد الأقصى 20 حرفًا |</p>
+<p>| <code>2388072</code> | تنسيق النص (Body) غير صحيح | أصلح صيغة المتغير <code>{{n}}</code> |</p>
+<p>| <code>2388073</code> | التذييل يحتوي على متغيرات | أزل المتغيرات من التذييل (footer) |</p>
+<p>| <code>2388075</code> | عدم تطابق قيمة العينة | أصلح قيم الأمثلة |</p>
+<p>| <code>2388293</code> | متغيرات كثيرة جدًا | قلل عدد المتغيرات أو أضف نصًا |</p>
+<p>| <code>2388299</code> | متغير متدلٍ (Dangling variable) | حِط المتغير بنص |</p>
+<p>| <code>2494177</code> | رابط شروط الخدمة (TOS) غير مسموح | استخدم رابط شروط خدمة معتمد |</p>
+
 <hr>
 
 <h2 id="رموز-أخطاء-messenger">رموز أخطاء Messenger</h2>
 
-<div class="table-wrap"><table><thead><tr><th>الرمز</th><th>الخطأ</th><th>السبب</th><th>الحل</th></tr></thead><tbody><tr><td><code>10</code></td><td>لم يتم منح الإذن</td><td>لم تتم الموافقة على Send API</td><td>أرسل للمراجعة (App Review)</td></tr><tr><td><code>100</code></td><td>معلمة غير صالحة</td><td>PSID خاطئ، مرفق خاطئ</td><td>تحقق من صحة المستلم</td></tr><tr><td><code>200</code></td><td>لا يوجد إذن مراسلة</td><td>لم يراسل المستخدم الصفحة، خارج نافذة الـ 24 ساعة</td><td>استخدم إشعار/إشارة الرسالة (message tag)</td></tr><tr><td><code>551</code></td><td>المستخدم محظور</td><td>حظر المستخدم الصفحة</td><td>لا تقم بإعادة المحاولة</td></tr><tr><td><code>613</code></td><td>حد المعدل</td><td>رسائل كثيرة جدًا</td><td>قيد الإرسال (Throttle)</td></tr></tbody></table></div>
+<p>| الرمز | الخطأ | السبب | الحل |</p>
+<p>|------|-------|-------|-----|</p>
+<p>| <code>10</code> | لم يتم منح الإذن | لم تتم الموافقة على Send API | أرسل للمراجعة (App Review) |</p>
+<p>| <code>100</code> | معلمة غير صالحة | PSID خاطئ، مرفق خاطئ | تحقق من صحة المستلم |</p>
+<p>| <code>200</code> | لا يوجد إذن مراسلة | لم يراسل المستخدم الصفحة، خارج نافذة الـ 24 ساعة | استخدم إشعار/إشارة الرسالة (message tag) |</p>
+<p>| <code>551</code> | المستخدم محظور | حظر المستخدم الصفحة | لا تقم بإعادة المحاولة |</p>
+<p>| <code>613</code> | حد المعدل | رسائل كثيرة جدًا | قيد الإرسال (Throttle) |</p>
+
 <hr>
 
 <h2 id="استراتيجية-معالجة-الأخطاء-لـ-seen-v2">استراتيجية معالجة الأخطاء لـ SEEN V2</h2>
 
-<div class="table-wrap"><table><thead><tr><th>رمز الخطأ</th><th>الإجراء</th></tr></thead><tbody><tr><td><code>131000</code>, <code>131016</code>, <code>2</code></td><td>أعد المحاولة مع تأخير زمني مضاعف (بحد أقصى 3 محاولات)</td></tr><tr><td><code>131026</code></td><td>قم بتسجيل الخطأ وتخطاه — لا تعد المحاولة</td></tr><tr><td><code>131047</code></td><td>ضع الرسالة في قائمة الانتظار على أنها "تتطلب قالبًا" (template required)</td></tr><tr><td><code>131048</code>, <code>130429</code></td><td>قلل الإرسال (Back off) — انتظر قبل إرسال المزيد</td></tr><tr><td><code>131049</code>, <code>131050</code></td><td>أزل المستخدم من قائمة البث (broadcast list)</td></tr><tr><td><code>131052</code>, <code>131053</code></td><td>أعد رفع الوسائط وأعد المحاولة</td></tr><tr><td><code>132001</code>, <code>132006</code>, <code>132016</code></td><td>نبه فريق ضمان الجودة (QA) — مشكلة في القالب</td></tr><tr><td><code>132000</code></td><td>خطأ برمجي (Bug) — أصلح عدد المعلمات في الكود</td></tr><tr><td><code>190</code></td><td>قم بتحديث رمز الوصول (access token)</td></tr><tr><td><code>4</code>, <code>10</code></td><td>نبه المطور — مشكلة في الأذونات</td></tr></tbody></table></div>\n\n
+<p>| رمز الخطأ | الإجراء |</p>
+<p>|------------|--------|</p>
+<p>| <code>131000</code>, <code>131016</code>, <code>2</code> | أعد المحاولة مع تأخير زمني مضاعف (بحد أقصى 3 محاولات) |</p>
+<p>| <code>131026</code> | قم بتسجيل الخطأ وتخطاه — لا تعد المحاولة |</p>
+<p>| <code>131047</code> | ضع الرسالة في قائمة الانتظار على أنها "تتطلب قالبًا" (template required) |</p>
+<p>| <code>131048</code>, <code>130429</code> | قلل الإرسال (Back off) — انتظر قبل إرسال المزيد |</p>
+<p>| <code>131049</code>, <code>131050</code> | أزل المستخدم من قائمة البث (broadcast list) |</p>
+<p>| <code>131052</code>, <code>131053</code> | أعد رفع الوسائط وأعد المحاولة |</p>
+<p>| <code>132001</code>, <code>132006</code>, <code>132016</code> | نبه فريق ضمان الجودة (QA) — مشكلة في القالب |</p>
+<p>| <code>132000</code> | خطأ برمجي (Bug) — أصلح عدد المعلمات في الكود |</p>
+<p>| <code>190</code> | قم بتحديث رمز الوصول (access token) |</p>
+<p>| <code>4</code>, <code>10</code> | نبه المطور — مشكلة في الأذونات |\n\n</p>
 
 <p>\n</p>
 
@@ -304,9 +480,7 @@
           <span class="panel-title">Comparison</span>
         </div>
         <div class="panel-body">
-          <p><strong>Client Errors vs Server Errors</strong></p>
-<ul><li style="margin-left:0px"><strong>Client Errors (4xx):</strong> Typically caused by invalid input, rate limits, or expired tokens. You must fix the request before retrying.</li>
-<li style="margin-left:0px"><strong>Server Errors (5xx):</strong> Caused by temporary issues on Meta\'s end. You should retry the request with exponential backoff.</li></ul>
+          <p><strong>Client Errors vs Server Errors</strong></p><ul><li style="margin-left:8px"><strong>Client Errors (4xx):</strong> Typically caused by invalid input, rate limits, or expired tokens. You must fix the request before retrying.</li><li style="margin-left:8px"><strong>Server Errors (5xx):</strong> Caused by temporary issues on Meta\'s end. You should retry the request with exponential backoff.</li></ul>
         </div>
       </div>
     
@@ -361,9 +535,7 @@
           <span class="panel-title">مقارنة</span>
         </div>
         <div class="panel-body">
-          <p><strong>أخطاء العميل مقابل أخطاء الخادم</strong></p>
-<ul><li style="margin-left:0px"><strong>أخطاء العميل (4xx):</strong> تحدث عادة بسبب إدخال غير صالح، أو تجاوز حدود الإرسال، أو انتهاء صلاحية التوكن. يجب إصلاح الطلب قبل إعادة المحاولة.</li>
-<li style="margin-left:0px"><strong>أخطاء الخادم (5xx):</strong> تحدث بسبب مشاكل مؤقتة من طرف Meta. يجب إعادة المحاولة لاحقاً مع استخدام التراجع التدريجي (Exponential Backoff).</li></ul>
+          <p><strong>أخطاء العميل مقابل أخطاء الخادم</strong></p><ul><li style="margin-left:8px"><strong>أخطاء العميل (4xx):</strong> تحدث عادة بسبب إدخال غير صالح، أو تجاوز حدود الإرسال، أو انتهاء صلاحية التوكن. يجب إصلاح الطلب قبل إعادة المحاولة.</li><li style="margin-left:8px"><strong>أخطاء الخادم (5xx):</strong> تحدث بسبب مشاكل مؤقتة من طرف Meta. يجب إعادة المحاولة لاحقاً مع استخدام التراجع التدريجي (Exponential Backoff).</li></ul>
         </div>
       </div>
     

@@ -44,7 +44,7 @@
       <div class="header-build-time" title="System Status: Up to date">
         <div class="build-pulse"></div>
         <span class="build-label">LAST BUILD</span>
-        <span class="build-value">Jun 26, 2026, 4:25 PM 🇪🇬</span>
+        <span class="build-value">Jun 28, 2026, 5:03 PM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
@@ -122,25 +122,32 @@
 
 <h3 id="parameters-fields-updating-profile">Parameters & Fields (Updating Profile)</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>messaging_product</code></td><td>string</td><td>Yes</td><td>Must be <code>"whatsapp"</code></td></tr><tr><td><code>address</code></td><td>string</td><td>No</td><td>Physical address (max 256 chars)</td></tr><tr><td><code>description</code></td><td>string</td><td>No</td><td>Business description (max 512 chars)</td></tr><tr><td><code>vertical</code></td><td>enum</td><td>No</td><td>Industry category (e.g., <code>RETAIL</code>, <code>FINANCE</code>)</td></tr><tr><td><code>email</code></td><td>string</td><td>No</td><td>Contact email (max 128 chars)</td></tr><tr><td><code>websites</code></td><td>array</td><td>No</td><td>Up to 2 URLs (max 256 chars each)</td></tr><tr><td><code>profile_picture_handle</code></td><td>string</td><td>No</td><td>Uploaded media handle for the avatar</td></tr><tr><td><code>about</code></td><td>string</td><td>No</td><td>The "About" text shown below the number (max 139 chars)</td></tr></tbody></table></div>
+<p>| Field | Type | Required | Description |</p>
+<p>|-------|------|----------|-------------|</p>
+<p>| <code>messaging_product</code> | string | Yes | Must be <code>"whatsapp"</code> |</p>
+<p>| <code>address</code> | string | No | Physical address (max 256 chars) |</p>
+<p>| <code>description</code> | string | No | Business description (max 512 chars) |</p>
+<p>| <code>vertical</code> | enum | No | Industry category (e.g., <code>RETAIL</code>, <code>FINANCE</code>) |</p>
+<p>| <code>email</code> | string | No | Contact email (max 128 chars) |</p>
+<p>| <code>websites</code> | array | No | Up to 2 URLs (max 256 chars each) |</p>
+<p>| <code>profile_picture_handle</code>| string | No | Uploaded media handle for the avatar |</p>
+<p>| <code>about</code> | string | No | The "About" text shown below the number (max 139 chars) |</p>
+
 <h2 id="validation-rules">Validation Rules</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Gets REJECTED</th><th><span class="icon-accept">✅</span> Gets ACCEPTED</th></tr></thead><tbody><tr><td>Websites Limit</td><td>Array with 3+ URLs</td><td>Array with 1 or 2 URLs</td></tr><tr><td>Website Format</td><td><code>"www.example.com"</code></td><td><code>"http://www.example.com"</code> or <code>"https://..."</code></td></tr><tr><td>About Length</td><td>140+ characters</td><td>139 chars max</td></tr><tr><td>Vertical Enum</td><td><code>"Technology"</code></td><td><code>"OTHER"</code>, <code>"RETAIL"</code>, <code>"PROF_SERVICES"</code> etc.</td></tr></tbody></table></div>
+<p>| Rule | <span class="icon-reject">❌</span> Gets REJECTED | <span class="icon-accept">✅</span> Gets ACCEPTED |</p>
+<p>|------|-----------------|-----------------|</p>
+<p>| Websites Limit | Array with 3+ URLs | Array with 1 or 2 URLs |</p>
+<p>| Website Format | <code>"www.example.com"</code> | <code>"http://www.example.com"</code> or <code>"https://..."</code> |</p>
+<p>| About Length | 140+ characters | 139 chars max |</p>
+<p>| Vertical Enum | <code>"Technology"</code> | <code>"OTHER"</code>, <code>"RETAIL"</code>, <code>"PROF_SERVICES"</code> etc. |</p>
+
 <h2 id="live-preview-what-it-looks-like">Live Preview — What It Looks Like</h2>
 
 <div class="preview-block preview-accepted"><span class="preview-label preview-label-ok">✅ Correct Usage — Live Preview</span>### ✅ Correct Usage — Updating Profile
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">POST /v19.0/{PHONE_NUMBER_ID}/whatsapp_business_profile</p>
+<p>```json</p>
+<p>POST /v19.0/{PHONE_NUMBER_ID}/whatsapp_business_profile</p>
 <p>Authorization: Bearer {ACCESS_TOKEN}</p>
 
 <p>{</p>
@@ -154,40 +161,21 @@
 <p>    "https://help.seenv2.com"</p>
 <p>  ],</p>
 <p>  "about": "Available 24/7 for support"</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><strong>Why it works:</strong> Valid URL formats, less than 3 websites, valid vertical enum.</p>
 
 <p></div><div class="preview-block preview-rejected"><span class="preview-label preview-label-err"><span class="icon-reject">❌</span> Common Mistake — What Goes Wrong</span>### <span class="icon-reject">❌</span> Common Mistake — Invalid Website Format</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "messaging_product": "whatsapp",</p>
 <p>  "websites": [</p>
 <p>    "seenv2.com"</p>
 <p>  ]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><strong>Error:</strong> <code class="code-red">Error 100: Invalid parameter</code> — URLs must begin with <code>http://</code> or <code>https://</code>.</p>
 
@@ -199,14 +187,9 @@
 <p>2. <strong>Upload the file:</strong> POST binary data to the returned session ID</p>
 <p>3. <strong>Update the profile:</strong> Pass the returned handle to <code>profile_picture_handle</code></p>
 
-<h2 id="seen-v2-implementation-notes">SEEN V2 Implementation Notes</h2>
-<ul><li style="margin-left:8px"><strong>Settings UI:</strong> SEEN V2's settings dashboard should strictly validate these inputs client-side (especially URL schemes and max character counts) before hitting the Meta API to prevent frustrating errors.</li>
-<li style="margin-left:0px"><strong>Caching:</strong> Fetch the profile on app load and cache it. Do not fetch it dynamically on every page render.</li></ul>
+<h2 id="seen-v2-implementation-notes">SEEN V2 Implementation Notes</h2><ul><li style="margin-left:24px"><strong>Settings UI:</strong> SEEN V2's settings dashboard should strictly validate these inputs client-side (especially URL schemes and max character counts) before hitting the Meta API to prevent frustrating errors.</li><li style="margin-left:8px"><strong>Caching:</strong> Fetch the profile on app load and cache it. Do not fetch it dynamically on every page render.</li></ul>
 
-<h2 id="qa-checklist">QA Checklist</h2>
-<ul><li style="margin-left:8px">[ ] Validate URLs have <code>http(s)://</code></li>
-<li style="margin-left:0px">[ ] Enforce max length of 139 chars for the <code>about</code> field</li>
-<li style="margin-left:0px">[ ] Ensure vertical selection uses Meta's exact enum values, not arbitrary strings\n\n</li></ul>
+<h2 id="qa-checklist">QA Checklist</h2><ul><li style="margin-left:24px">[ ] Validate URLs have <code>http(s)://</code></li><li style="margin-left:8px">[ ] Enforce max length of 139 chars for the <code>about</code> field</li><li style="margin-left:8px">[ ] Ensure vertical selection uses Meta's exact enum values, not arbitrary strings\n\n</li></ul>
 
 <p>\n</p>
 
@@ -222,25 +205,32 @@
 
 <h3 id="المعلمات-والحقول-تحديث-الملف-التعريفي">المعلمات والحقول (تحديث الملف التعريفي)</h3>
 
-<div class="table-wrap"><table><thead><tr><th>الحقل</th><th>النوع</th><th>مطلوب</th><th>الوصف</th></tr></thead><tbody><tr><td><code>messaging_product</code></td><td>string</td><td>نعم</td><td>يجب أن يكون <code>"whatsapp"</code></td></tr><tr><td><code>address</code></td><td>string</td><td>لا</td><td>العنوان الفعلي (بحد أقصى 256 حرفاً)</td></tr><tr><td><code>description</code></td><td>string</td><td>لا</td><td>وصف النشاط التجاري (بحد أقصى 512 حرفاً)</td></tr><tr><td><code>vertical</code></td><td>enum</td><td>لا</td><td>فئة الصناعة (مثل <code>RETAIL</code>، <code>FINANCE</code>)</td></tr><tr><td><code>email</code></td><td>string</td><td>لا</td><td>البريد الإلكتروني للتواصل (بحد أقصى 128 حرفاً)</td></tr><tr><td><code>websites</code></td><td>array</td><td>لا</td><td>ما يصل إلى رابطين (بحد أقصى 256 حرفاً لكل منهما)</td></tr><tr><td><code>profile_picture_handle</code></td><td>string</td><td>لا</td><td>معرّف الوسائط المرفوعة للصورة الشخصية</td></tr><tr><td><code>about</code></td><td>string</td><td>لا</td><td>نص "حول" (About) المعروض أسفل الرقم (بحد أقصى 139 حرفاً)</td></tr></tbody></table></div>
+<p>| الحقل | النوع | مطلوب | الوصف |</p>
+<p>|-------|------|----------|-------------|</p>
+<p>| <code>messaging_product</code> | string | نعم | يجب أن يكون <code>"whatsapp"</code> |</p>
+<p>| <code>address</code> | string | لا | العنوان الفعلي (بحد أقصى 256 حرفاً) |</p>
+<p>| <code>description</code> | string | لا | وصف النشاط التجاري (بحد أقصى 512 حرفاً) |</p>
+<p>| <code>vertical</code> | enum | لا | فئة الصناعة (مثل <code>RETAIL</code>، <code>FINANCE</code>) |</p>
+<p>| <code>email</code> | string | لا | البريد الإلكتروني للتواصل (بحد أقصى 128 حرفاً) |</p>
+<p>| <code>websites</code> | array | لا | ما يصل إلى رابطين (بحد أقصى 256 حرفاً لكل منهما) |</p>
+<p>| <code>profile_picture_handle</code>| string | لا | معرّف الوسائط المرفوعة للصورة الشخصية |</p>
+<p>| <code>about</code> | string | لا | نص "حول" (About) المعروض أسفل الرقم (بحد أقصى 139 حرفاً) |</p>
+
 <h2 id="قواعد-التحقق">قواعد التحقق</h2>
 
-<div class="table-wrap"><table><thead><tr><th>القاعدة</th><th><span class="icon-reject">❌</span> يُرفض (REJECTED)</th><th><span class="icon-accept">✅</span> يُقبل (ACCEPTED)</th></tr></thead><tbody><tr><td>حد مواقع الويب</td><td>مصفوفة تحتوي على 3 روابط أو أكثر</td><td>مصفوفة تحتوي على رابط واحد أو رابطين</td></tr><tr><td>تنسيق موقع الويب</td><td><code>"www.example.com"</code></td><td><code>"http://www.example.com"</code> أو <code>"https://..."</code></td></tr><tr><td>طول نص About</td><td>140 حرفاً أو أكثر</td><td>139 حرفاً كحد أقصى</td></tr><tr><td>فئة Enum (Vertical Enum)</td><td><code>"Technology"</code></td><td><code>"OTHER"</code>، <code>"RETAIL"</code>، <code>"PROF_SERVICES"</code> إلخ.</td></tr></tbody></table></div>
+<p>| القاعدة | <span class="icon-reject">❌</span> يُرفض (REJECTED) | <span class="icon-accept">✅</span> يُقبل (ACCEPTED) |</p>
+<p>|------|-----------------|-----------------|</p>
+<p>| حد مواقع الويب | مصفوفة تحتوي على 3 روابط أو أكثر | مصفوفة تحتوي على رابط واحد أو رابطين |</p>
+<p>| تنسيق موقع الويب | <code>"www.example.com"</code> | <code>"http://www.example.com"</code> أو <code>"https://..."</code> |</p>
+<p>| طول نص About | 140 حرفاً أو أكثر | 139 حرفاً كحد أقصى |</p>
+<p>| فئة Enum (Vertical Enum) | <code>"Technology"</code> | <code>"OTHER"</code>، <code>"RETAIL"</code>، <code>"PROF_SERVICES"</code> إلخ. |</p>
+
 <h2 id="معاينة-حية-كيف-يبدو">معاينة حية — كيف يبدو</h2>
 
 <div class="preview-block preview-accepted"><span class="preview-label preview-label-ok">✅ Correct Usage — Live Preview</span>### ✅ الاستخدام الصحيح — تحديث الملف التعريفي
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">POST /v19.0/{PHONE_NUMBER_ID}/whatsapp_business_profile</p>
+<p>```json</p>
+<p>POST /v19.0/{PHONE_NUMBER_ID}/whatsapp_business_profile</p>
 <p>Authorization: Bearer {ACCESS_TOKEN}</p>
 
 <p>{</p>
@@ -254,40 +244,21 @@
 <p>    "https://help.seenv2.com"</p>
 <p>  ],</p>
 <p>  "about": "Available 24/7 for support"</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><strong>لماذا ينجح:</strong> تنسيقات روابط صحيحة، أقل من 3 مواقع ويب، قيمة enum صحيحة للفئة.</p>
 
 <p></div><div class="preview-block preview-rejected"><span class="preview-label preview-label-err"><span class="icon-reject">❌</span> Common Mistake — What Goes Wrong</span>### <span class="icon-reject">❌</span> خطأ شائع — تنسيق موقع ويب غير صالح</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "messaging_product": "whatsapp",</p>
 <p>  "websites": [</p>
 <p>    "seenv2.com"</p>
 <p>  ]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><strong>الخطأ:</strong> <code class="code-red">Error 100: Invalid parameter</code> — يجب أن تبدأ الروابط بـ <code>http://</code> أو <code>https://</code>.</p>
 
@@ -299,14 +270,9 @@
 <p>2. <strong>رفع الملف:</strong> إرسال بيانات ثنائية كطلب POST إلى معرّف الجلسة المُرجع</p>
 <p>3. <strong>تحديث الملف التعريفي:</strong> تمرير المعرّف المُرجع إلى <code>profile_picture_handle</code></p>
 
-<h2 id="ملاحظات-التنفيذ-في-seen-v2">ملاحظات التنفيذ في SEEN V2</h2>
-<ul><li style="margin-left:8px"><strong>واجهة مستخدم الإعدادات:</strong> يجب أن تقوم لوحة إعدادات SEEN V2 بالتحقق الصارم من صحة هذه المدخلات من جهة العميل (خاصة مخططات الروابط والحد الأقصى لعدد الأحرف) قبل الاتصال بواجهة برمجة تطبيقات Meta لمنع الأخطاء المزعجة.</li>
-<li style="margin-left:0px"><strong>التخزين المؤقت (Caching):</strong> قم بجلب الملف التعريفي عند تحميل التطبيق وقم بتخزينه مؤقتاً. لا تقم بجلبه ديناميكياً عند كل عرض (render) للصفحة.</li></ul>
+<h2 id="ملاحظات-التنفيذ-في-seen-v2">ملاحظات التنفيذ في SEEN V2</h2><ul><li style="margin-left:24px"><strong>واجهة مستخدم الإعدادات:</strong> يجب أن تقوم لوحة إعدادات SEEN V2 بالتحقق الصارم من صحة هذه المدخلات من جهة العميل (خاصة مخططات الروابط والحد الأقصى لعدد الأحرف) قبل الاتصال بواجهة برمجة تطبيقات Meta لمنع الأخطاء المزعجة.</li><li style="margin-left:8px"><strong>التخزين المؤقت (Caching):</strong> قم بجلب الملف التعريفي عند تحميل التطبيق وقم بتخزينه مؤقتاً. لا تقم بجلبه ديناميكياً عند كل عرض (render) للصفحة.</li></ul>
 
-<h2 id="قائمة-مراجعة-ضمان-الجودة-qa-checklist">قائمة مراجعة ضمان الجودة (QA Checklist)</h2>
-<ul><li style="margin-left:8px">[ ] التحقق من أن الروابط تحتوي على <code>http(s)://</code></li>
-<li style="margin-left:0px">[ ] فرض حد أقصى للطول يبلغ 139 حرفاً للحقل <code>about</code></li>
-<li style="margin-left:0px">[ ] التأكد من أن اختيار الفئة (vertical) يستخدم قيم enum الدقيقة من Meta، وليس نصوصاً عشوائية\n\n</li></ul>
+<h2 id="قائمة-مراجعة-ضمان-الجودة-qa-checklist">قائمة مراجعة ضمان الجودة (QA Checklist)</h2><ul><li style="margin-left:24px">[ ] التحقق من أن الروابط تحتوي على <code>http(s)://</code></li><li style="margin-left:8px">[ ] فرض حد أقصى للطول يبلغ 139 حرفاً للحقل <code>about</code></li><li style="margin-left:8px">[ ] التأكد من أن اختيار الفئة (vertical) يستخدم قيم enum الدقيقة من Meta، وليس نصوصاً عشوائية\n\n</li></ul>
 
 <p>\n</p>
 
@@ -328,9 +294,7 @@
           <span class="panel-title">Comparison</span>
         </div>
         <div class="panel-body">
-          <p><strong>Profile Picture vs Description</strong></p>
-<ul><li style="margin-left:0px"><strong>Profile Picture:</strong> Must be an image (JPG/PNG). Displayed prominently in the chat header.</li>
-<li style="margin-left:0px"><strong>Description:</strong> Text describing your business. Max 256 characters. Displayed in the contact info view.</li></ul>
+          <p><strong>Profile Picture vs Description</strong></p><ul><li style="margin-left:8px"><strong>Profile Picture:</strong> Must be an image (JPG/PNG). Displayed prominently in the chat header.</li><li style="margin-left:8px"><strong>Description:</strong> Text describing your business. Max 256 characters. Displayed in the contact info view.</li></ul>
         </div>
       </div>
     
@@ -385,9 +349,7 @@
           <span class="panel-title">مقارنة</span>
         </div>
         <div class="panel-body">
-          <p><strong>صورة الملف الشخصي مقابل الوصف</strong></p>
-<ul><li style="margin-left:0px"><strong>صورة الملف الشخصي:</strong> يجب أن تكون صورة (JPG/PNG). تُعرض بوضوح في أعلى المحادثة.</li>
-<li style="margin-left:0px"><strong>الوصف (Description):</strong> نص يصف نشاطك التجاري. بحد أقصى 256 حرف. يُعرض في واجهة معلومات جهة الاتصال.</li></ul>
+          <p><strong>صورة الملف الشخصي مقابل الوصف</strong></p><ul><li style="margin-left:8px"><strong>صورة الملف الشخصي:</strong> يجب أن تكون صورة (JPG/PNG). تُعرض بوضوح في أعلى المحادثة.</li><li style="margin-left:8px"><strong>الوصف (Description):</strong> نص يصف نشاطك التجاري. بحد أقصى 256 حرف. يُعرض في واجهة معلومات جهة الاتصال.</li></ul>
         </div>
       </div>
     

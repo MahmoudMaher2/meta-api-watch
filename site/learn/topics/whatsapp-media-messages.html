@@ -44,7 +44,7 @@
       <div class="header-build-time" title="System Status: Up to date">
         <div class="build-pulse"></div>
         <span class="build-label">LAST BUILD</span>
-        <span class="build-value">Jun 26, 2026, 4:25 PM 🇪🇬</span>
+        <span class="build-value">Jun 28, 2026, 5:03 PM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
@@ -120,33 +120,47 @@
 
 <p>Meta imposes strict limits on file sizes and supported formats. Sending unsupported formats or oversized files will result in immediate rejection.</p>
 
-<div class="table-wrap"><table><thead><tr><th>Media Type</th><th>Max Size</th><th>Supported Formats</th></tr></thead><tbody><tr><td><strong>Audio</strong></td><td>16 MB</td><td><code>audio/aac</code>, <code>audio/mp4</code>, <code>audio/mpeg</code>, <code>audio/amr</code>, <code>audio/ogg</code> (Opus only)</td></tr><tr><td><strong>Document</strong></td><td>100 MB</td><td>Any valid MIME type (e.g., <code>text/plain</code>, <code>application/pdf</code>, <code>application/vnd.ms-excel</code>)</td></tr><tr><td><strong>Image</strong></td><td>5 MB</td><td><code>image/jpeg</code>, <code>image/png</code></td></tr><tr><td><strong>Video</strong></td><td>16 MB</td><td><code>video/mp4</code>, <code>video/3gp</code> (H.264 video codec and AAC audio codec only)</td></tr><tr><td><strong>Sticker</strong></td><td>100 KB</td><td><code>image/webp</code> (Exact dimensions: 512x512)</td></tr></tbody></table></div>
+<p>| Media Type | Max Size | Supported Formats |</p>
+<p>|------------|----------|-------------------|</p>
+<p>| <strong>Audio</strong>  | 16 MB    | <code>audio/aac</code>, <code>audio/mp4</code>, <code>audio/mpeg</code>, <code>audio/amr</code>, <code>audio/ogg</code> (Opus only) |</p>
+<p>| <strong>Document</strong>| 100 MB  | Any valid MIME type (e.g., <code>text/plain</code>, <code>application/pdf</code>, <code>application/vnd.ms-excel</code>) |</p>
+<p>| <strong>Image</strong>  | 5 MB     | <code>image/jpeg</code>, <code>image/png</code> |</p>
+<p>| <strong>Video</strong>  | 16 MB    | <code>video/mp4</code>, <code>video/3gp</code> (H.264 video codec and AAC audio codec only) |</p>
+<p>| <strong>Sticker</strong>| 100 KB   | <code>image/webp</code> (Exact dimensions: 512x512) |</p>
+
 <h2 id="parameters-fields">Parameters & Fields</h2>
 
 <p>When sending media via URL:</p>
 
-<div class="table-wrap"><table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>type</code></td><td>string</td><td>Yes</td><td><code>image</code>, <code>video</code>, <code>audio</code>, <code>document</code>, or <code>sticker</code></td></tr><tr><td><code>[type].link</code></td><td>string</td><td>Yes</td><td>HTTP/HTTPS URL of the media file</td></tr><tr><td><code>[type].caption</code></td><td>string</td><td>No</td><td>Caption text (max 1024 chars, supported for image/video/document)</td></tr><tr><td><code>[type].filename</code></td><td>string</td><td>No</td><td>Custom filename (only for document type)</td></tr></tbody></table></div>
+<p>| Field | Type | Required | Description |</p>
+<p>|-------|------|----------|-------------|</p>
+<p>| <code>type</code> | string | Yes | <code>image</code>, <code>video</code>, <code>audio</code>, <code>document</code>, or <code>sticker</code> |</p>
+<p>| <code>[type].link</code> | string | Yes | HTTP/HTTPS URL of the media file |</p>
+<p>| <code>[type].caption</code> | string | No | Caption text (max 1024 chars, supported for image/video/document) |</p>
+<p>| <code>[type].filename</code>| string | No | Custom filename (only for document type) |</p>
+
 <p>When sending media via ID:</p>
 
-<div class="table-wrap"><table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>[type].id</code></td><td>string</td><td>Yes</td><td>ID returned by the Media Upload API</td></tr></tbody></table></div>
+<p>| Field | Type | Required | Description |</p>
+<p>|-------|------|----------|-------------|</p>
+<p>| <code>[type].id</code> | string | Yes | ID returned by the Media Upload API |</p>
+
 <h2 id="validation-rules">Validation Rules</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Gets REJECTED</th><th><span class="icon-accept">✅</span> Gets ACCEPTED</th></tr></thead><tbody><tr><td>Image format</td><td><code>.gif</code> or <code>.bmp</code></td><td><code>.jpg</code>, <code>.jpeg</code>, <code>.png</code></td></tr><tr><td>Image size</td><td>6 MB image</td><td>4.9 MB image</td></tr><tr><td>Video format</td><td><code>.mkv</code> or <code>.avi</code></td><td><code>.mp4</code> (H.264 codec)</td></tr><tr><td>Sticker dimensions</td><td>500x500</td><td>exactly 512x512</td></tr><tr><td>Link URL</td><td>Requires auth or redirects</td><td>Direct link returning valid Content-Type</td></tr></tbody></table></div>
+<p>| Rule | <span class="icon-reject">❌</span> Gets REJECTED | <span class="icon-accept">✅</span> Gets ACCEPTED |</p>
+<p>|------|-----------------|-----------------|</p>
+<p>| Image format | <code>.gif</code> or <code>.bmp</code> | <code>.jpg</code>, <code>.jpeg</code>, <code>.png</code> |</p>
+<p>| Image size | 6 MB image | 4.9 MB image |</p>
+<p>| Video format | <code>.mkv</code> or <code>.avi</code> | <code>.mp4</code> (H.264 codec) |</p>
+<p>| Sticker dimensions | 500x500 | exactly 512x512 |</p>
+<p>| Link URL | Requires auth or redirects | Direct link returning valid Content-Type |</p>
+
 <h2 id="live-preview-what-it-looks-like">Live Preview — What It Looks Like</h2>
 
 <div class="preview-block preview-accepted"><span class="preview-label preview-label-ok">✅ Correct Usage — Live Preview</span>### ✅ Correct Usage — Sending Image via URL
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">POST /v19.0/{PHONE_NUMBER_ID}/messages</p>
+<p>```json</p>
+<p>POST /v19.0/{PHONE_NUMBER_ID}/messages</p>
 <p>Authorization: Bearer {ACCESS_TOKEN}</p>
 
 <p>{</p>
@@ -158,67 +172,34 @@
 <p>    "link": "https://seen-v2.example.com/assets/promo.jpg",</p>
 <p>    "caption": "Check out our latest summer collection! ☀️"</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><strong>Why it works:</strong> URL is a direct link to a <code>.jpg</code>, and caption is under 1024 characters.</p>
 
 <p></div><div class="preview-block preview-rejected"><span class="preview-label preview-label-err"><span class="icon-reject">❌</span> Common Mistake — What Goes Wrong</span>### <span class="icon-reject">❌</span> Common Mistake — Wrong Media Type Key</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "type": "image",</p>
 <p>  "media": {</p>
 <p>    "link": "https://example.com/image.png"</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><strong>Error:</strong> <code class="code-red">Error 100: Invalid parameter</code> — The key inside the JSON must match the <code>type</code>. If <code>type</code> is <code>"image"</code>, the object must be <code>"image": {...}</code>, not <code>"media": {...}</code>.</p>
 
 <p></div><div class="preview-block preview-rejected"><span class="preview-label preview-label-err"><span class="icon-reject">❌</span> Common Mistake — What Goes Wrong</span>### <span class="icon-reject">❌</span> Common Mistake — Exceeding Size Limit</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "type": "video",</p>
 <p>  "video": {</p>
 <p>    "link": "https://example.com/huge-presentation.mp4"</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><strong>Error:</strong> If the file at the link exceeds 16MB, Meta will try to download it, fail the size validation, and send an error webhook asynchronously indicating the download failed due to size limits.</p>
 
@@ -227,62 +208,29 @@
 <p>If you don't want to expose media via public URLs, upload it to Meta first.</p>
 
 <p>1. <strong>Upload:</strong></p>
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-bash"><code class="language-bash">curl -X POST "https://graph.facebook.com/v19.0/{PHONE_NUMBER_ID}/media" \</p>
+<p>```bash</p>
+<p>curl -X POST "https://graph.facebook.com/v19.0/{PHONE_NUMBER_ID}/media" \</p>
 <p>  -H "Authorization: Bearer {ACCESS_TOKEN}" \</p>
 <p>  -F "file=@/path/to/local/file.pdf" \</p>
 <p>  -F "type=application/pdf" \</p>
-<p>  -F "messaging_product=whatsapp"</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>  -F "messaging_product=whatsapp"</p>
+<p>```</p>
 <p><em>Returns:</em> <code>{"id":"1234567890"}</code></p>
 
 <p>2. <strong>Send:</strong></p>
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "type": "document",</p>
 <p>  "document": {</p>
 <p>    "id": "1234567890",</p>
 <p>    "filename": "SEEN_Invoice.pdf"</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
-<h2 id="seen-v2-implementation-notes">SEEN V2 Implementation Notes</h2>
-<ul><li style="margin-left:8px"><strong>URL vs ID:</strong> Always prefer <code>link</code> for static assets (logos, marketing banners) and <code>id</code> for dynamic/sensitive assets (invoices, reports) that shouldn't be publicly accessible on your CDN.</li>
-<li style="margin-left:0px"><strong>GIF Support:</strong> WhatsApp does not natively support GIF media types for business API. You must convert GIFs to <code>.mp4</code> and send them as <code>video</code>.</li></ul>
+<h2 id="seen-v2-implementation-notes">SEEN V2 Implementation Notes</h2><ul><li style="margin-left:24px"><strong>URL vs ID:</strong> Always prefer <code>link</code> for static assets (logos, marketing banners) and <code>id</code> for dynamic/sensitive assets (invoices, reports) that shouldn't be publicly accessible on your CDN.</li><li style="margin-left:8px"><strong>GIF Support:</strong> WhatsApp does not natively support GIF media types for business API. You must convert GIFs to <code>.mp4</code> and send them as <code>video</code>.</li></ul>
 
-<h2 id="qa-checklist">QA Checklist</h2>
-<ul><li style="margin-left:8px">[ ] Ensure user uploads in SEEN V2 are validated against Meta's strict MB limits <em>before</em> API dispatch</li>
-<li style="margin-left:0px">[ ] Implement auto-conversion for common incompatible types (e.g. converting <code>.gif</code> to <code>.mp4</code>)</li>
-<li style="margin-left:0px">[ ] Verify that document filenames include the correct extension for WhatsApp to render the appropriate icon\n\n</li></ul>
+<h2 id="qa-checklist">QA Checklist</h2><ul><li style="margin-left:24px">[ ] Ensure user uploads in SEEN V2 are validated against Meta's strict MB limits <em>before</em> API dispatch</li><li style="margin-left:8px">[ ] Implement auto-conversion for common incompatible types (e.g. converting <code>.gif</code> to <code>.mp4</code>)</li><li style="margin-left:8px">[ ] Verify that document filenames include the correct extension for WhatsApp to render the appropriate icon\n\n</li></ul>
 
 <p>\n</p>
 
@@ -296,33 +244,47 @@
 
 <p>تفرض Meta حدوداً صارمة على أحجام الملفات والتنسيقات المدعومة. سيؤدي إرسال التنسيقات غير المدعومة أو الملفات ذات الأحجام الكبيرة إلى الرفض الفوري.</p>
 
-<div class="table-wrap"><table><thead><tr><th>نوع الوسائط</th><th>الحد الأقصى للحجم</th><th>التنسيقات المدعومة</th></tr></thead><tbody><tr><td><strong>الصوت (Audio)</strong></td><td>16 MB</td><td><code>audio/aac</code>, <code>audio/mp4</code>, <code>audio/mpeg</code>, <code>audio/amr</code>, <code>audio/ogg</code> (Opus فقط)</td></tr><tr><td><strong>المستند (Document)</strong></td><td>100 MB</td><td>أي نوع MIME صالح (مثل <code>text/plain</code>، <code>application/pdf</code>، <code>application/vnd.ms-excel</code>)</td></tr><tr><td><strong>الصورة (Image)</strong></td><td>5 MB</td><td><code>image/jpeg</code>, <code>image/png</code></td></tr><tr><td><strong>الفيديو (Video)</strong></td><td>16 MB</td><td><code>video/mp4</code>, <code>video/3gp</code> (برنامج ترميز الفيديو H.264 وبرنامج ترميز الصوت AAC فقط)</td></tr><tr><td><strong>الملصق (Sticker)</strong></td><td>100 KB</td><td><code>image/webp</code> (الأبعاد الدقيقة: 512x512)</td></tr></tbody></table></div>
+<p>| نوع الوسائط | الحد الأقصى للحجم | التنسيقات المدعومة |</p>
+<p>|------------|----------|-------------------|</p>
+<p>| <strong>الصوت (Audio)</strong>  | 16 MB    | <code>audio/aac</code>, <code>audio/mp4</code>, <code>audio/mpeg</code>, <code>audio/amr</code>, <code>audio/ogg</code> (Opus فقط) |</p>
+<p>| <strong>المستند (Document)</strong>| 100 MB  | أي نوع MIME صالح (مثل <code>text/plain</code>، <code>application/pdf</code>، <code>application/vnd.ms-excel</code>) |</p>
+<p>| <strong>الصورة (Image)</strong>  | 5 MB     | <code>image/jpeg</code>, <code>image/png</code> |</p>
+<p>| <strong>الفيديو (Video)</strong>  | 16 MB    | <code>video/mp4</code>, <code>video/3gp</code> (برنامج ترميز الفيديو H.264 وبرنامج ترميز الصوت AAC فقط) |</p>
+<p>| <strong>الملصق (Sticker)</strong>| 100 KB   | <code>image/webp</code> (الأبعاد الدقيقة: 512x512) |</p>
+
 <h2 id="المعلمات-والحقول">المعلمات والحقول</h2>
 
 <p>عند إرسال الوسائط عبر الرابط (URL):</p>
 
-<div class="table-wrap"><table><thead><tr><th>الحقل</th><th>النوع</th><th>مطلوب</th><th>الوصف</th></tr></thead><tbody><tr><td><code>type</code></td><td>string</td><td>نعم</td><td><code>image</code>، <code>video</code>، <code>audio</code>، <code>document</code>، أو <code>sticker</code></td></tr><tr><td><code>[type].link</code></td><td>string</td><td>نعم</td><td>رابط HTTP/HTTPS لملف الوسائط</td></tr><tr><td><code>[type].caption</code></td><td>string</td><td>لا</td><td>نص التسمية التوضيحية (بحد أقصى 1024 حرفاً، مدعوم للصور/الفيديو/المستندات)</td></tr><tr><td><code>[type].filename</code></td><td>string</td><td>لا</td><td>اسم ملف مخصص (فقط لنوع المستند)</td></tr></tbody></table></div>
+<p>| الحقل | النوع | مطلوب | الوصف |</p>
+<p>|-------|------|----------|-------------|</p>
+<p>| <code>type</code> | string | نعم | <code>image</code>، <code>video</code>، <code>audio</code>، <code>document</code>، أو <code>sticker</code> |</p>
+<p>| <code>[type].link</code> | string | نعم | رابط HTTP/HTTPS لملف الوسائط |</p>
+<p>| <code>[type].caption</code> | string | لا | نص التسمية التوضيحية (بحد أقصى 1024 حرفاً، مدعوم للصور/الفيديو/المستندات) |</p>
+<p>| <code>[type].filename</code>| string | لا | اسم ملف مخصص (فقط لنوع المستند) |</p>
+
 <p>عند إرسال الوسائط عبر المعرف (ID):</p>
 
-<div class="table-wrap"><table><thead><tr><th>الحقل</th><th>النوع</th><th>مطلوب</th><th>الوصف</th></tr></thead><tbody><tr><td><code>[type].id</code></td><td>string</td><td>نعم</td><td>المعرف المرجع من واجهة برمجة تطبيقات رفع الوسائط (Media Upload API)</td></tr></tbody></table></div>
+<p>| الحقل | النوع | مطلوب | الوصف |</p>
+<p>|-------|------|----------|-------------|</p>
+<p>| <code>[type].id</code> | string | نعم | المعرف المرجع من واجهة برمجة تطبيقات رفع الوسائط (Media Upload API) |</p>
+
 <h2 id="قواعد-التحقق">قواعد التحقق</h2>
 
-<div class="table-wrap"><table><thead><tr><th>القاعدة</th><th><span class="icon-reject">❌</span> يُرفض</th><th><span class="icon-accept">✅</span> يُقبل</th></tr></thead><tbody><tr><td>تنسيق الصورة</td><td><code>.gif</code> أو <code>.bmp</code></td><td><code>.jpg</code>, <code>.jpeg</code>, <code>.png</code></td></tr><tr><td>حجم الصورة</td><td>صورة بحجم 6 MB</td><td>صورة بحجم 4.9 MB</td></tr><tr><td>تنسيق الفيديو</td><td><code>.mkv</code> أو <code>.avi</code></td><td><code>.mp4</code> (ترميز H.264)</td></tr><tr><td>أبعاد الملصق</td><td>500x500</td><td>512x512 بالضبط</td></tr><tr><td>رابط URL</td><td>يتطلب مصادقة أو إعادة توجيه</td><td>رابط مباشر يُرجع Content-Type صالح</td></tr></tbody></table></div>
+<p>| القاعدة | <span class="icon-reject">❌</span> يُرفض | <span class="icon-accept">✅</span> يُقبل |</p>
+<p>|------|-----------------|-----------------|</p>
+<p>| تنسيق الصورة | <code>.gif</code> أو <code>.bmp</code> | <code>.jpg</code>, <code>.jpeg</code>, <code>.png</code> |</p>
+<p>| حجم الصورة | صورة بحجم 6 MB | صورة بحجم 4.9 MB |</p>
+<p>| تنسيق الفيديو | <code>.mkv</code> أو <code>.avi</code> | <code>.mp4</code> (ترميز H.264) |</p>
+<p>| أبعاد الملصق | 500x500 | 512x512 بالضبط |</p>
+<p>| رابط URL | يتطلب مصادقة أو إعادة توجيه | رابط مباشر يُرجع Content-Type صالح |</p>
+
 <h2 id="معاينة-حية-كيف-تبدو">معاينة حية — كيف تبدو</h2>
 
 <div class="preview-block preview-accepted"><span class="preview-label preview-label-ok">✅ Correct Usage — Live Preview</span>### ✅ الاستخدام الصحيح — إرسال صورة عبر الرابط
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">POST /v19.0/{PHONE_NUMBER_ID}/messages</p>
+<p>```json</p>
+<p>POST /v19.0/{PHONE_NUMBER_ID}/messages</p>
 <p>Authorization: Bearer {ACCESS_TOKEN}</p>
 
 <p>{</p>
@@ -334,67 +296,34 @@
 <p>    "link": "https://seen-v2.example.com/assets/promo.jpg",</p>
 <p>    "caption": "Check out our latest summer collection! ☀️"</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><strong>لماذا ينجح هذا:</strong> الرابط هو رابط مباشر لملف <code>.jpg</code>، والتسمية التوضيحية أقل من 1024 حرفاً.</p>
 
 <p></div><div class="preview-block preview-rejected"><span class="preview-label preview-label-err"><span class="icon-reject">❌</span> Common Mistake — What Goes Wrong</span>### <span class="icon-reject">❌</span> خطأ شائع — مفتاح نوع الوسائط خاطئ</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "type": "image",</p>
 <p>  "media": {</p>
 <p>    "link": "https://example.com/image.png"</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><strong>الخطأ:</strong> <code class="code-red">Error 100: Invalid parameter</code> — يجب أن يتطابق المفتاح داخل JSON مع الـ <code>type</code>. إذا كان <code>type</code> هو <code>"image"</code>، يجب أن يكون الكائن <code>"image": {...}</code>، وليس <code>"media": {...}</code>.</p>
 
 <p></div><div class="preview-block preview-rejected"><span class="preview-label preview-label-err"><span class="icon-reject">❌</span> Common Mistake — What Goes Wrong</span>### <span class="icon-reject">❌</span> خطأ شائع — تجاوز حد الحجم</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "type": "video",</p>
 <p>  "video": {</p>
 <p>    "link": "https://example.com/huge-presentation.mp4"</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><strong>الخطأ:</strong> إذا تجاوز الملف الموجود في الرابط 16MB، ستحاول Meta تنزيله، وستفشل في التحقق من الحجم، وسترسل خطأ webhook بشكل غير متزامن يشير إلى فشل التنزيل بسبب حدود الحجم.</p>
 
@@ -403,62 +332,29 @@
 <p>إذا كنت لا ترغب في كشف الوسائط عبر روابط عامة، قم برفعها إلى Meta أولاً.</p>
 
 <p>1. <strong>الرفع:</strong></p>
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — BASH Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-bash"><code class="language-bash">curl -X POST "https://graph.facebook.com/v19.0/{PHONE_NUMBER_ID}/media" \</p>
+<p>```bash</p>
+<p>curl -X POST "https://graph.facebook.com/v19.0/{PHONE_NUMBER_ID}/media" \</p>
 <p>  -H "Authorization: Bearer {ACCESS_TOKEN}" \</p>
 <p>  -F "file=@/path/to/local/file.pdf" \</p>
 <p>  -F "type=application/pdf" \</p>
-<p>  -F "messaging_product=whatsapp"</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>  -F "messaging_product=whatsapp"</p>
+<p>```</p>
 <p><em>يُرجع:</em> <code>{"id":"1234567890"}</code></p>
 
 <p>2. <strong>الإرسال:</strong></p>
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "type": "document",</p>
 <p>  "document": {</p>
 <p>    "id": "1234567890",</p>
 <p>    "filename": "SEEN_Invoice.pdf"</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
-<h2 id="ملاحظات-التنفيذ-في-seen-v2">ملاحظات التنفيذ في SEEN V2</h2>
-<ul><li style="margin-left:8px"><strong>الرابط (URL) مقابل المعرف (ID):</strong> فضل دائماً استخدام <code>link</code> للأصول الثابتة (الشعارات، لافتات التسويق) واستخدام <code>id</code> للأصول الديناميكية/الحساسة (الفواتير، التقارير) التي لا ينبغي أن تكون متاحة للجمهور على شبكة توصيل المحتوى (CDN) الخاصة بك.</li>
-<li style="margin-left:0px"><strong>دعم GIF:</strong> لا يدعم واتساب تنسيقات الوسائط GIF محلياً في واجهة برمجة تطبيقات الأعمال (Business API). يجب عليك تحويل ملفات GIF إلى <code>.mp4</code> وإرسالها كـ <code>video</code>.</li></ul>
+<h2 id="ملاحظات-التنفيذ-في-seen-v2">ملاحظات التنفيذ في SEEN V2</h2><ul><li style="margin-left:24px"><strong>الرابط (URL) مقابل المعرف (ID):</strong> فضل دائماً استخدام <code>link</code> للأصول الثابتة (الشعارات، لافتات التسويق) واستخدام <code>id</code> للأصول الديناميكية/الحساسة (الفواتير، التقارير) التي لا ينبغي أن تكون متاحة للجمهور على شبكة توصيل المحتوى (CDN) الخاصة بك.</li><li style="margin-left:8px"><strong>دعم GIF:</strong> لا يدعم واتساب تنسيقات الوسائط GIF محلياً في واجهة برمجة تطبيقات الأعمال (Business API). يجب عليك تحويل ملفات GIF إلى <code>.mp4</code> وإرسالها كـ <code>video</code>.</li></ul>
 
-<h2 id="قائمة-التحقق-من-الجودة-qa">قائمة التحقق من الجودة (QA)</h2>
-<ul><li style="margin-left:8px">[ ] التأكد من التحقق من صحة عمليات رفع المستخدمين في SEEN V2 مقابل حدود MB الصارمة الخاصة بـ Meta <em>قبل</em> إرسالها إلى واجهة برمجة التطبيقات (API).</li>
-<li style="margin-left:0px">[ ] تنفيذ التحويل التلقائي للأنواع الشائعة غير المتوافقة (مثل تحويل <code>.gif</code> إلى <code>.mp4</code>).</li>
-<li style="margin-left:0px">[ ] التحقق من أن أسماء ملفات المستندات تتضمن الامتداد الصحيح ليتمكن واتساب من عرض الأيقونة المناسبة.\n\n</li></ul>
+<h2 id="قائمة-التحقق-من-الجودة-qa">قائمة التحقق من الجودة (QA)</h2><ul><li style="margin-left:24px">[ ] التأكد من التحقق من صحة عمليات رفع المستخدمين في SEEN V2 مقابل حدود MB الصارمة الخاصة بـ Meta <em>قبل</em> إرسالها إلى واجهة برمجة التطبيقات (API).</li><li style="margin-left:8px">[ ] تنفيذ التحويل التلقائي للأنواع الشائعة غير المتوافقة (مثل تحويل <code>.gif</code> إلى <code>.mp4</code>).</li><li style="margin-left:8px">[ ] التحقق من أن أسماء ملفات المستندات تتضمن الامتداد الصحيح ليتمكن واتساب من عرض الأيقونة المناسبة.\n\n</li></ul>
 
 <p>\n</p>
 
@@ -480,9 +376,7 @@
           <span class="panel-title">Comparison</span>
         </div>
         <div class="panel-body">
-          <p><strong>Media ID vs Media Link</strong></p>
-<ul><li style="margin-left:0px"><strong>Media ID:</strong> You upload the media to Meta\'s servers first, get an ID, and send using the ID. Faster delivery.</li>
-<li style="margin-left:0px"><strong>Media Link (URL):</strong> You provide a public URL. Meta downloads it on the fly. Slower, and fails if your server blocks Meta.</li></ul>
+          <p><strong>Media ID vs Media Link</strong></p><ul><li style="margin-left:8px"><strong>Media ID:</strong> You upload the media to Meta\'s servers first, get an ID, and send using the ID. Faster delivery.</li><li style="margin-left:8px"><strong>Media Link (URL):</strong> You provide a public URL. Meta downloads it on the fly. Slower, and fails if your server blocks Meta.</li></ul>
         </div>
       </div>
     
@@ -537,9 +431,7 @@
           <span class="panel-title">مقارنة</span>
         </div>
         <div class="panel-body">
-          <p><strong>معرّف الوسائط (ID) مقابل رابط الوسائط (URL)</strong></p>
-<ul><li style="margin-left:0px"><strong>معرّف الوسائط (Media ID):</strong> تقوم برفع الملف لسيرفرات Meta أولاً، ثم ترسله عبر المعرف (ID). أسرع في التسليم.</li>
-<li style="margin-left:0px"><strong>رابط الوسائط (Media Link):</strong> توفر رابطاً عاماً، وتقوم Meta بتحميله لحظة الإرسال. أبطأ، وقد يفشل إذا كان سيرفرك يحظر Meta.</li></ul>
+          <p><strong>معرّف الوسائط (ID) مقابل رابط الوسائط (URL)</strong></p><ul><li style="margin-left:8px"><strong>معرّف الوسائط (Media ID):</strong> تقوم برفع الملف لسيرفرات Meta أولاً، ثم ترسله عبر المعرف (ID). أسرع في التسليم.</li><li style="margin-left:8px"><strong>رابط الوسائط (Media Link):</strong> توفر رابطاً عاماً، وتقوم Meta بتحميله لحظة الإرسال. أبطأ، وقد يفشل إذا كان سيرفرك يحظر Meta.</li></ul>
         </div>
       </div>
     

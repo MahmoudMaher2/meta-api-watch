@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>"Messenger Sticker API" — Meta Docs Learn</title>
+  <meta name="description" content="Learn "Messenger Sticker API" in messenger: validation rules, error codes, examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="../../index.html" class="header-logo" style="text-decoration: none;">
+      <span class="logo-icon">🔭</span>
+      <div class="logo-text">
+        <div class="site-title">Meta API Explain</div>
+        <div class="site-subtitle">SEEN V2 · Developer Hub</div>
+      </div>
+    </a>
+    
+    <nav class="header-nav">
+      <a href="../../changelog.html" class="nav-tab ">
+        <span class="nav-icon">🔔</span>
+        <span class="nav-text" data-en="Latest Updates" data-ar="آخر التحديثات">Latest Updates</span>
+      </a>
+      <a href="../../learn/index.html" class="nav-tab active">
+        <span class="nav-icon">📚</span>
+        <span class="nav-text" data-en="Learn" data-ar="تعلّم">Learn</span>
+      </a>
+    </nav>
+
+    <div class="header-actions">
+      <!-- Search Trigger -->
+      <button id="search-trigger" class="search-btn" title="Search documentation... (Ctrl+K)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span>Search</span>
+        <kbd>/</kbd>
+      </button>
+
+      <div class="header-build-time" title="System Status: Up to date">
+        <div class="build-pulse"></div>
+        <span class="build-label">LAST BUILD</span>
+        <span class="build-value">Jun 28, 2026, 5:03 PM 🇪🇬</span>
+      </div>
+      
+      <!-- Language Toggle -->
+      <button id="lang-toggle" class="lang-toggle" title="Toggle Language (AR/EN)">
+        <span class="lang-en">EN</span>
+        <span class="lang-sep">|</span>
+        <span class="lang-ar">عربي</span>
+      </button>
+      
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+
+
+  <div class="learn-layout has-panels">
+
+    <!-- Sidebar -->
+    <aside class="learn-sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label" data-en="On this page" data-ar="على هذه الصفحة">On this page</span>
+        
+    <div class="lang-en">
+      <ul class="toc-list"><li class="toc-top"><a href="#new-endpoints">New Endpoints</a></li><li class="toc-top"><a href="#permissions">Permissions</a></li><li class="toc-top"><a href="#sending-a-sticker">Sending a Sticker</a></li><li class="toc-top"><a href="#webhook-transition-deadline-august-30-2026">Webhook Transition — Deadline August 30, 2026</a></li></ul>
+    </div>
+    
+    <div class="lang-ar">
+      <ul class="toc-list"><li class="toc-top"><a href="#نقاط-النهاية-الجديدة-endpoints">نقاط النهاية الجديدة (Endpoints)</a></li><li class="toc-top"><a href="#الصلاحيات-المطلوبة-permissions">الصلاحيات المطلوبة (Permissions)</a></li><li class="toc-top"><a href="#إرسال-ملصق">إرسال ملصق</a></li><li class="toc-top"><a href="#انتقال-الـ-webhook-الموعد-النهائي-30-أغسطس-2026">انتقال الـ Webhook — الموعد النهائي 30 أغسطس 2026</a></li></ul>
+    </div>
+  
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Source</span>
+        <a href="" target="_blank" rel="noopener" class="source-link">
+          📄 Meta Developer Docs ↗
+        </a>
+        
+      </div>
+      
+    </aside>
+
+    <!-- Main Content -->
+    <main class="learn-content" id="main-content">
+      <div class="topic-breadcrumb">
+        <a href="../index.html">Learn</a>
+        <span>›</span>
+        <span style="color:#a78bfa">messenger</span>
+        <span>›</span>
+        <span>"Messenger Sticker API"</span>
+      </div>
+
+      <div class="topic-hero">
+        <div class="topic-hero-badges">
+          <span class="platform-badge" style="background:#1a1a24;color:#a78bfa;border-color:#4c1d95">messenger</span>
+          
+        </div>
+        <h1 class="topic-title" data-en=""Messenger Sticker API"" data-ar=""Sticker API لمنصة Messenger"">"Messenger Sticker API"</h1>
+        <p class="topic-meta"><span data-en=""messenger"" data-ar=""messenger"">"messenger"</span> · <span data-en="Last verified:" data-ar="آخر مراجعة:">Last verified:</span> N/A</p>
+      </div>
+
+      <div class="topic-body lang-en">
+        <h1>Messenger Sticker API 🆕</h1>
+
+<p>Meta launched the <strong>Sticker API</strong> for Messenger Platform on June 1, 2026. Businesses can now programmatically browse, search, and send first-party sticker packs through the Messenger API.</p>
+
+<blockquote><p>⚠️ **Action Required:** Webhooks now include a `type: "sticker"` attachment. The 90-day transition period ends **August 30, 2026** — after that, only `sticker` type will be sent. Update your webhook handlers before the deadline.</p></blockquote>
+
+<h2 id="new-endpoints">New Endpoints</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Endpoint</th><th>What it does</th></tr></thead><tbody><tr><td><code>GET /sticker_packs</code></td><td>List all available sticker packs</td></tr><tr><td><code>GET /sticker_packs/<ID>/stickers</code></td><td>List stickers in a specific pack</td></tr><tr><td><code>GET /sticker_search?q=<QUERY></code></td><td>Search stickers by keyword</td></tr></tbody></table></div>
+<p><strong>Multilingual search:</strong> Use the <code>locale</code> parameter — e.g., <code>locale=ko_KR</code> for Korean, <code>locale=vi_VN</code> for Vietnamese. Defaults to <code>en_US</code>.</p>
+
+<h2 id="permissions">Permissions</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Action</th><th>Required</th></tr></thead><tbody><tr><td>Browse & Search stickers</td><td>App access token (no extra permissions)</td></tr><tr><td>Send stickers</td><td><code>pages_messaging</code> permission</td></tr></tbody></table></div>
+<h2 id="sending-a-sticker">Sending a Sticker</h2>
+
+<p>Use the Send Messages API with the <code>sticker_id</code> field:</p>
+
+<p><!-- preview --></p>
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>  "recipient": { "id": "&lt;PSID&gt;" },</p>
+<p>  "message": { "sticker_id": 767226160478561 }</p>
+<p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> Get the <code>sticker_id</code> from <code>GET /sticker_packs/<ID>/stickers</code> first, then pass it to the Send API.</p>
+
+<h2 id="webhook-transition-deadline-august-30-2026">Webhook Transition — Deadline August 30, 2026</h2>
+
+<blockquote><p>The same change applies to message echoes and Conversations API responses.</p></blockquote>
+
+
+      </div>
+      <div class="topic-body lang-ar"><h1>Sticker API لمنصة Messenger 🆕</h1>
+
+<p>أطلقت Meta في <strong>1 يونيو 2026</strong> واجهة برمجة تطبيقات <strong>Sticker API</strong> لمنصة Messenger. تتيح هذه الواجهة للشركات تصفح حزم الملصقات الأولى من Meta والبحث فيها وإرسالها برمجياً عبر Messenger API.</p>
+
+<blockquote><p>⚠️ **إجراء مطلوب:** تتضمن Webhooks الآن نوع مرفق جديد `type: "sticker"`. تنتهي فترة الانتقال البالغة 90 يوماً في **30 أغسطس 2026** — بعدها، سيُرسَل نوع `sticker` فقط. حدّث معالجات Webhook قبل الموعد النهائي.</p></blockquote>
+
+<h2 id="نقاط-النهاية-الجديدة-endpoints">نقاط النهاية الجديدة (Endpoints)</h2>
+
+<div class="table-wrap"><table><thead><tr><th>نقطة النهاية</th><th>الوظيفة</th></tr></thead><tbody><tr><td><code>GET /sticker_packs</code></td><td>عرض جميع حزم الملصقات المتاحة</td></tr><tr><td><code>GET /sticker_packs/<ID>/stickers</code></td><td>عرض الملصقات داخل حزمة محددة</td></tr><tr><td><code>GET /sticker_search?q=<QUERY></code></td><td>البحث في الملصقات بالكلمات المفتاحية</td></tr></tbody></table></div>
+<p><strong>البحث متعدد اللغات:</strong> استخدم معامل <code>locale</code> — مثلاً <code>locale=ar_AR</code> للعربية، أو <code>locale=ko_KR</code> للكورية. الافتراضي هو <code>en_US</code>.</p>
+
+<h2 id="الصلاحيات-المطلوبة-permissions">الصلاحيات المطلوبة (Permissions)</h2>
+
+<div class="table-wrap"><table><thead><tr><th>الإجراء</th><th>المطلوب</th></tr></thead><tbody><tr><td>تصفح الملصقات والبحث فيها</td><td>App access token (بدون صلاحيات إضافية)</td></tr><tr><td>إرسال الملصقات</td><td>صلاحية <code>pages_messaging</code></td></tr></tbody></table></div>
+<h2 id="إرسال-ملصق">إرسال ملصق</h2>
+
+<p>استخدم Send Messages API مع حقل <code>sticker_id</code>:</p>
+
+<p><!-- preview --></p>
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>  "recipient": { "id": "&lt;PSID&gt;" },</p>
+<p>  "message": { "sticker_id": 767226160478561 }</p>
+<p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> احصل على <code>sticker_id</code> من <code>GET /sticker_packs/<ID>/stickers</code> أولاً، ثم أرسله عبر Send API.</p>
+
+<h2 id="انتقال-الـ-webhook-الموعد-النهائي-30-أغسطس-2026">انتقال الـ Webhook — الموعد النهائي 30 أغسطس 2026</h2>
+
+<blockquote><p>ينطبق هذا التغيير أيضاً على message echoes وردود Conversations API.</p></blockquote>
+
+</div>
+
+      <div class="topic-nav">
+        <a class="nav-prev" href="messenger-persistent-menu.html">← "Messenger Persistent Menu Limits & Best Practices"</a>
+        
+      </div>
+    </main>
+
+    <!-- Interactive Panels -->
+    
+    <div class="learn-right-sidebar">
+      <aside class="interactive-panel lang-en">
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">Comparison</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>Before August 30, 2026 (Transition Period)</strong></p>
+<p>Both attachment types are present in the payload:</p>
+<ul><li style="margin-left:0px"><code>type: "image"</code> (existing)</li>
+<li style="margin-left:0px"><code>type: "sticker"</code> (new — includes <code>sticker_id</code> metadata)</li></ul>
+
+<p><strong>After August 30, 2026</strong></p>
+<p>Only <code>type: "sticker"</code> will be sent. The <code>image</code> type for stickers is removed.</p>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">Test Your Knowledge</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_en_1_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:right">Question 1 of 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p>After August 30, 2026, what attachment type will sticker messages use in Messenger webhooks?</p></div>
+          <div class="mcq-options">
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] <code>type: "image"</code> only</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] Both <code>type: "image"</code> and <code>type: "sticker"</code></span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="correct" onclick="handleMcqClick(this)">
+              <span class="mcq-text"><code>type: "sticker"</code> only</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] <code>type: "media"</code></span>
+            </label>
+          </div>
+        </div>
+      
+        </div>
+      </div>
+    </aside>
+      <aside class="interactive-panel lang-ar">
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">مقارنة</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>قبل 30 أغسطس 2026 (فترة الانتقال)</strong></p>
+<p>يحتوي الـ payload على نوعَي المرفق معاً:</p>
+<ul><li style="margin-left:0px"><code>type: "image"</code> (الموجود حالياً)</li>
+<li style="margin-left:0px"><code>type: "sticker"</code> (الجديد — يتضمن بيانات <code>sticker_id</code>)</li></ul>
+
+<p><strong>بعد 30 أغسطس 2026</strong></p>
+<p>سيُرسَل <code>type: "sticker"</code> فقط. يُزال نوع <code>image</code> للملصقات نهائياً.</p>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">اختبر فهمك</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_ar_1_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:left">السؤال 1 من 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p>بعد 30 أغسطس 2026، ما نوع المرفق الذي ستستخدمه رسائل الملصقات في Messenger Webhooks؟</p></div>
+          <div class="mcq-options">
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] <code>type: "image"</code> فقط</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] كلاهما <code>type: "image"</code> و <code>type: "sticker"</code></span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="correct" onclick="handleMcqClick(this)">
+              <span class="mcq-text"><code>type: "sticker"</code> فقط</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] <code>type: "media"</code></span>
+            </label>
+          </div>
+        </div>
+      
+        </div>
+      </div>
+    </aside>
+    </div>
+    
+
+  </div>
+
+  <script>
+(function(){
+  var html=document.documentElement;
+  var theme=localStorage.getItem('maw-theme');
+  if(!theme){
+    theme=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
+  }
+  function applyTheme(t){
+    html.setAttribute('data-theme',t);
+    localStorage.setItem('maw-theme',t);
+  }
+  applyTheme(theme);
+  
+  var lang=localStorage.getItem('maw-lang')||'en';
+  function applyLang(l){
+    html.setAttribute('data-lang',l);
+    localStorage.setItem('maw-lang',l);
+  }
+  applyLang(lang);
+
+  function wireButtons(){
+    var thBtn=document.getElementById('theme-toggle');
+    if(thBtn) thBtn.addEventListener('click',function(){
+      applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+    });
+    var lgBtn=document.getElementById('lang-toggle');
+    if(lgBtn) lgBtn.addEventListener('click',function(){
+      applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
+    });
+    
+  }
+
+  // Global handler for interactive MCQ quizzes
+  window.handleMcqClick = function(radio) {
+    var container = radio.closest('.mcq-options');
+    var labels = container.querySelectorAll('.mcq-option');
+    var widget = radio.closest('.mcq-widget');
+    var progressFill = widget.querySelector('.mcq-progress-bar-fill');
+    var progressPct = widget.querySelector('.mcq-pct');
+    
+    // Lock all inputs & show correct/wrong
+    labels.forEach(function(l) {
+      var inp = l.querySelector('input');
+      inp.disabled = true;
+      if (inp.value === 'correct') {
+        l.classList.add('correct');
+      } else if (inp === radio && inp.value === 'wrong') {
+        l.classList.add('wrong');
+      }
+    });
+    
+    // Update progress bar
+    if(progressFill) progressFill.style.width = '100%';
+    if(progressPct) progressPct.innerText = '100%';
+  };
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',wireButtons);
+  } else {
+    wireButtons();
+  }
+})();
+</script>
+<script>var _SEARCH_BASE_='../../';</script>
+<script src="../../search.js"></script>
+<!-- Syntax Highlighting (PrismJS) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+
+</body>
+</html>

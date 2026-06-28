@@ -44,7 +44,7 @@
       <div class="header-build-time" title="System Status: Up to date">
         <div class="build-pulse"></div>
         <span class="build-label">LAST BUILD</span>
-        <span class="build-value">Jun 26, 2026, 4:25 PM 🇪🇬</span>
+        <span class="build-value">Jun 28, 2026, 5:03 PM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
@@ -125,28 +125,43 @@
 
 <h3 id="reply-buttons">Reply Buttons</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>type</code></td><td>string</td><td>Yes</td><td>Set to <code>"button"</code></td></tr><tr><td><code>body.text</code></td><td>string</td><td>Yes</td><td>Main message text (max 1024 chars)</td></tr><tr><td><code>action.buttons</code></td><td>array</td><td>Yes</td><td>Array of up to 3 button objects</td></tr><tr><td><code>button.type</code></td><td>string</td><td>Yes</td><td>Must be <code>"reply"</code></td></tr><tr><td><code>button.reply.id</code></td><td>string</td><td>Yes</td><td>Unique payload sent to webhook (max 256 chars)</td></tr><tr><td><code>button.reply.title</code></td><td>string</td><td>Yes</td><td>Button text shown to user (max 20 chars)</td></tr></tbody></table></div>
+<p>| Field | Type | Required | Description |</p>
+<p>|-------|------|----------|-------------|</p>
+<p>| <code>type</code> | string | Yes | Set to <code>"button"</code> |</p>
+<p>| <code>body.text</code> | string | Yes | Main message text (max 1024 chars) |</p>
+<p>| <code>action.buttons</code> | array | Yes | Array of up to 3 button objects |</p>
+<p>| <code>button.type</code> | string | Yes | Must be <code>"reply"</code> |</p>
+<p>| <code>button.reply.id</code> | string | Yes | Unique payload sent to webhook (max 256 chars) |</p>
+<p>| <code>button.reply.title</code>| string | Yes | Button text shown to user (max 20 chars) |</p>
+
 <h3 id="list-messages">List Messages</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>type</code></td><td>string</td><td>Yes</td><td>Set to <code>"list"</code></td></tr><tr><td><code>body.text</code></td><td>string</td><td>Yes</td><td>Main message text (max 1024 chars)</td></tr><tr><td><code>action.button</code></td><td>string</td><td>Yes</td><td>Text on the button that opens the list (max 20 chars)</td></tr><tr><td><code>action.sections</code></td><td>array</td><td>Yes</td><td>Up to 10 sections max</td></tr><tr><td><code>row.id</code></td><td>string</td><td>Yes</td><td>Payload returned via webhook on selection</td></tr><tr><td><code>row.title</code></td><td>string</td><td>Yes</td><td>Row title (max 24 chars)</td></tr><tr><td><code>row.description</code></td><td>string</td><td>No</td><td>Subtext for the row (max 72 chars)</td></tr></tbody></table></div>
+<p>| Field | Type | Required | Description |</p>
+<p>|-------|------|----------|-------------|</p>
+<p>| <code>type</code> | string | Yes | Set to <code>"list"</code> |</p>
+<p>| <code>body.text</code> | string | Yes | Main message text (max 1024 chars) |</p>
+<p>| <code>action.button</code> | string | Yes | Text on the button that opens the list (max 20 chars) |</p>
+<p>| <code>action.sections</code> | array | Yes | Up to 10 sections max |</p>
+<p>| <code>row.id</code> | string | Yes | Payload returned via webhook on selection |</p>
+<p>| <code>row.title</code> | string | Yes | Row title (max 24 chars) |</p>
+<p>| <code>row.description</code>| string | No | Subtext for the row (max 72 chars) |</p>
+
 <h2 id="validation-rules">Validation Rules</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Gets REJECTED</th><th><span class="icon-accept">✅</span> Gets ACCEPTED</th></tr></thead><tbody><tr><td>Buttons Count</td><td>4 or more buttons</td><td>1 to 3 buttons max</td></tr><tr><td>Button Title Length</td><td><code>"Talk to a human representative now"</code> (34 chars)</td><td><code>"Talk to Sales"</code> (20 chars max)</td></tr><tr><td>List Rows Count</td><td>11 rows total across sections</td><td>10 rows total max</td></tr><tr><td>Row Title Length</td><td><code>"Schedule Appointment for Tomorrow"</code> (33 chars)</td><td><code>"Book Tomorrow"</code> (24 chars max)</td></tr><tr><td>Button IDs</td><td>Duplicate IDs in the same message</td><td>Unique IDs per button/row</td></tr></tbody></table></div>
+<p>| Rule | <span class="icon-reject">❌</span> Gets REJECTED | <span class="icon-accept">✅</span> Gets ACCEPTED |</p>
+<p>|------|-----------------|-----------------|</p>
+<p>| Buttons Count | 4 or more buttons | 1 to 3 buttons max |</p>
+<p>| Button Title Length | <code>"Talk to a human representative now"</code> (34 chars) | <code>"Talk to Sales"</code> (20 chars max) |</p>
+<p>| List Rows Count | 11 rows total across sections | 10 rows total max |</p>
+<p>| Row Title Length | <code>"Schedule Appointment for Tomorrow"</code> (33 chars) | <code>"Book Tomorrow"</code> (24 chars max) |</p>
+<p>| Button IDs | Duplicate IDs in the same message | Unique IDs per button/row |</p>
+
 <h2 id="live-preview-what-it-looks-like">Live Preview — What It Looks Like</h2>
 
 <div class="preview-block preview-accepted"><span class="preview-label preview-label-ok">✅ Correct Usage — Live Preview</span>### ✅ Correct Usage — Reply Buttons
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">POST /v19.0/{PHONE_NUMBER_ID}/messages</p>
+<p>```json</p>
+<p>POST /v19.0/{PHONE_NUMBER_ID}/messages</p>
 <p>Authorization: Bearer {ACCESS_TOKEN}</p>
 
 <p>{</p>
@@ -185,29 +200,15 @@
 <p>      ]</p>
 <p>    }</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><strong>Why it works:</strong> Exactly 2 buttons, titles are under 20 chars, IDs are unique.</p>
 
 <p></div><div class="preview-block preview-rejected"><span class="preview-label preview-label-err"><span class="icon-reject">❌</span> Common Mistake — What Goes Wrong</span>### <span class="icon-reject">❌</span> Common Mistake — Too Many Buttons</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "action": {</p>
 <p>    "buttons": [</p>
 <p>      { "type": "reply", "reply": { "id": "1", "title": "Option 1" } },</p>
@@ -216,13 +217,8 @@
 <p>      { "type": "reply", "reply": { "id": "4", "title": "Option 4" } }</p>
 <p>    ]</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><strong>Error:</strong> <code class="code-red">Error 100: Invalid parameter</code> — Maximum of 3 buttons allowed. For 4+ options, use a <code>list</code> message instead.</p>
 
@@ -230,17 +226,8 @@
 
 <p>When a user clicks a button or selects a list row, Meta sends a webhook to SEEN V2.</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "object": "whatsapp_business_account",</p>
 <p>  "entry": [{</p>
 <p>    "changes": [{</p>
@@ -259,23 +246,12 @@
 <p>      }</p>
 <p>    }]</p>
 <p>  }]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><strong>Important SEEN V2 implementation note:</strong> The bot builder should match against the <code>interactive.button_reply.id</code> (not the title) for routing logic, as the ID is immutable while the title might change based on localization.</p>
 
-<h2 id="qa-checklist">QA Checklist</h2>
-<ul><li style="margin-left:8px">[ ] Verify button titles do not exceed 20 characters</li>
-<li style="margin-left:0px">[ ] Verify maximum 3 buttons per message</li>
-<li style="margin-left:0px">[ ] Verify list rows do not exceed 10 across all sections combined</li>
-<li style="margin-left:0px">[ ] Verify row titles do not exceed 24 characters</li>
-<li style="margin-left:0px">[ ] Ensure <code>action.button</code> (for lists) is under 20 characters</li>
-<li style="margin-left:0px">[ ] Map webhook <code>interactive.*.id</code> accurately to SEEN V2 Flow Builder triggers\n\n</li></ul>
+<h2 id="qa-checklist">QA Checklist</h2><ul><li style="margin-left:24px">[ ] Verify button titles do not exceed 20 characters</li><li style="margin-left:8px">[ ] Verify maximum 3 buttons per message</li><li style="margin-left:8px">[ ] Verify list rows do not exceed 10 across all sections combined</li><li style="margin-left:8px">[ ] Verify row titles do not exceed 24 characters</li><li style="margin-left:8px">[ ] Ensure <code>action.button</code> (for lists) is under 20 characters</li><li style="margin-left:8px">[ ] Map webhook <code>interactive.*.id</code> accurately to SEEN V2 Flow Builder triggers\n\n</li></ul>
 
 <p>\n</p>
 
@@ -294,28 +270,43 @@
 
 <h3 id="أزرار-الرد">أزرار الرد</h3>
 
-<div class="table-wrap"><table><thead><tr><th>الحقل</th><th>النوع</th><th>مطلوب</th><th>الوصف</th></tr></thead><tbody><tr><td><code>type</code></td><td>string</td><td>نعم</td><td>يُعين إلى <code>"button"</code></td></tr><tr><td><code>body.text</code></td><td>string</td><td>نعم</td><td>نص الرسالة الرئيسي (الحد الأقصى 1024 حرفاً)</td></tr><tr><td><code>action.buttons</code></td><td>array</td><td>نعم</td><td>مصفوفة تحتوي على ما يصل إلى 3 كائنات أزرار</td></tr><tr><td><code>button.type</code></td><td>string</td><td>نعم</td><td>يجب أن يكون <code>"reply"</code></td></tr><tr><td><code>button.reply.id</code></td><td>string</td><td>نعم</td><td>حمولة (Payload) فريدة تُرسل إلى الـ webhook (الحد الأقصى 256 حرفاً)</td></tr><tr><td><code>button.reply.title</code></td><td>string</td><td>نعم</td><td>نص الزر المعروض للمستخدم (الحد الأقصى 20 حرفاً)</td></tr></tbody></table></div>
+<p>| الحقل | النوع | مطلوب | الوصف |</p>
+<p>|-------|------|----------|-------------|</p>
+<p>| <code>type</code> | string | نعم | يُعين إلى <code>"button"</code> |</p>
+<p>| <code>body.text</code> | string | نعم | نص الرسالة الرئيسي (الحد الأقصى 1024 حرفاً) |</p>
+<p>| <code>action.buttons</code> | array | نعم | مصفوفة تحتوي على ما يصل إلى 3 كائنات أزرار |</p>
+<p>| <code>button.type</code> | string | نعم | يجب أن يكون <code>"reply"</code> |</p>
+<p>| <code>button.reply.id</code> | string | نعم | حمولة (Payload) فريدة تُرسل إلى الـ webhook (الحد الأقصى 256 حرفاً) |</p>
+<p>| <code>button.reply.title</code>| string | نعم | نص الزر المعروض للمستخدم (الحد الأقصى 20 حرفاً) |</p>
+
 <h3 id="رسائل-القوائم">رسائل القوائم</h3>
 
-<div class="table-wrap"><table><thead><tr><th>الحقل</th><th>النوع</th><th>مطلوب</th><th>الوصف</th></tr></thead><tbody><tr><td><code>type</code></td><td>string</td><td>نعم</td><td>يُعين إلى <code>"list"</code></td></tr><tr><td><code>body.text</code></td><td>string</td><td>نعم</td><td>نص الرسالة الرئيسي (الحد الأقصى 1024 حرفاً)</td></tr><tr><td><code>action.button</code></td><td>string</td><td>نعم</td><td>النص الموجود على الزر الذي يفتح القائمة (الحد الأقصى 20 حرفاً)</td></tr><tr><td><code>action.sections</code></td><td>array</td><td>نعم</td><td>بحد أقصى 10 أقسام</td></tr><tr><td><code>row.id</code></td><td>string</td><td>نعم</td><td>الحمولة (Payload) المعادة عبر الـ webhook عند الاختيار</td></tr><tr><td><code>row.title</code></td><td>string</td><td>نعم</td><td>عنوان الصف (الحد الأقصى 24 حرفاً)</td></tr><tr><td><code>row.description</code></td><td>string</td><td>لا</td><td>نص فرعي للصف (الحد الأقصى 72 حرفاً)</td></tr></tbody></table></div>
+<p>| الحقل | النوع | مطلوب | الوصف |</p>
+<p>|-------|------|----------|-------------|</p>
+<p>| <code>type</code> | string | نعم | يُعين إلى <code>"list"</code> |</p>
+<p>| <code>body.text</code> | string | نعم | نص الرسالة الرئيسي (الحد الأقصى 1024 حرفاً) |</p>
+<p>| <code>action.button</code> | string | نعم | النص الموجود على الزر الذي يفتح القائمة (الحد الأقصى 20 حرفاً) |</p>
+<p>| <code>action.sections</code> | array | نعم | بحد أقصى 10 أقسام |</p>
+<p>| <code>row.id</code> | string | نعم | الحمولة (Payload) المعادة عبر الـ webhook عند الاختيار |</p>
+<p>| <code>row.title</code> | string | نعم | عنوان الصف (الحد الأقصى 24 حرفاً) |</p>
+<p>| <code>row.description</code>| string | لا | نص فرعي للصف (الحد الأقصى 72 حرفاً) |</p>
+
 <h2 id="قواعد-التحقق">قواعد التحقق</h2>
 
-<div class="table-wrap"><table><thead><tr><th>القاعدة</th><th><span class="icon-reject">❌</span> تُرفض</th><th><span class="icon-accept">✅</span> تُقبل</th></tr></thead><tbody><tr><td>عدد الأزرار</td><td>4 أزرار أو أكثر</td><td>من 1 إلى 3 أزرار كحد أقصى</td></tr><tr><td>طول عنوان الزر</td><td><code>"Talk to a human representative now"</code> (34 حرفاً)</td><td><code>"Talk to Sales"</code> (كحد أقصى 20 حرفاً)</td></tr><tr><td>عدد صفوف القائمة</td><td>إجمالي 11 صفاً عبر الأقسام</td><td>إجمالي 10 صفوف كحد أقصى</td></tr><tr><td>طول عنوان الصف</td><td><code>"Schedule Appointment for Tomorrow"</code> (33 حرفاً)</td><td><code>"Book Tomorrow"</code> (كحد أقصى 24 حرفاً)</td></tr><tr><td>معرّفات الأزرار (Button IDs)</td><td>معرّفات مكررة في نفس الرسالة</td><td>معرّفات فريدة لكل زر/صف</td></tr></tbody></table></div>
+<p>| القاعدة | <span class="icon-reject">❌</span> تُرفض | <span class="icon-accept">✅</span> تُقبل |</p>
+<p>|------|-----------------|-----------------|</p>
+<p>| عدد الأزرار | 4 أزرار أو أكثر | من 1 إلى 3 أزرار كحد أقصى |</p>
+<p>| طول عنوان الزر | <code>"Talk to a human representative now"</code> (34 حرفاً) | <code>"Talk to Sales"</code> (كحد أقصى 20 حرفاً) |</p>
+<p>| عدد صفوف القائمة | إجمالي 11 صفاً عبر الأقسام | إجمالي 10 صفوف كحد أقصى |</p>
+<p>| طول عنوان الصف | <code>"Schedule Appointment for Tomorrow"</code> (33 حرفاً) | <code>"Book Tomorrow"</code> (كحد أقصى 24 حرفاً) |</p>
+<p>| معرّفات الأزرار (Button IDs) | معرّفات مكررة في نفس الرسالة | معرّفات فريدة لكل زر/صف |</p>
+
 <h2 id="معاينة-حية-كيف-تبدو">معاينة حية — كيف تبدو</h2>
 
 <div class="preview-block preview-accepted"><span class="preview-label preview-label-ok">✅ Correct Usage — Live Preview</span>### ✅ الاستخدام الصحيح — أزرار الرد
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">POST /v19.0/{PHONE_NUMBER_ID}/messages</p>
+<p>```json</p>
+<p>POST /v19.0/{PHONE_NUMBER_ID}/messages</p>
 <p>Authorization: Bearer {ACCESS_TOKEN}</p>
 
 <p>{</p>
@@ -354,29 +345,15 @@
 <p>      ]</p>
 <p>    }</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><strong>لماذا تنجح:</strong> عدد الأزرار 2 بالضبط، وعناوين الأزرار أقل من 20 حرفاً، والمعرّفات (IDs) فريدة.</p>
 
 <p></div><div class="preview-block preview-rejected"><span class="preview-label preview-label-err"><span class="icon-reject">❌</span> Common Mistake — What Goes Wrong</span>### <span class="icon-reject">❌</span> خطأ شائع — أزرار كثيرة جداً</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "action": {</p>
 <p>    "buttons": [</p>
 <p>      { "type": "reply", "reply": { "id": "1", "title": "Option 1" } },</p>
@@ -385,13 +362,8 @@
 <p>      { "type": "reply", "reply": { "id": "4", "title": "Option 4" } }</p>
 <p>    ]</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><strong>الخطأ:</strong> <code class="code-red">Error 100: Invalid parameter</code> — يُسمح بحد أقصى 3 أزرار. لـ 4 خيارات أو أكثر، استخدم رسالة القائمة <code>list</code> بدلاً من ذلك.</p>
 
@@ -399,17 +371,8 @@
 
 <p>عندما ينقر المستخدم على زر أو يحدد صفاً في قائمة، ترسل Meta حدث webhook إلى SEEN V2.</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "object": "whatsapp_business_account",</p>
 <p>  "entry": [{</p>
 <p>    "changes": [{</p>
@@ -428,23 +391,12 @@
 <p>      }</p>
 <p>    }]</p>
 <p>  }]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><strong>ملاحظة هامة لتنفيذ SEEN V2:</strong> يجب أن يعتمد منشئ البوت (Bot builder) على مطابقة <code>interactive.button_reply.id</code> (وليس العنوان) في منطق التوجيه (routing logic)، حيث أن المعرّف (ID) غير قابل للتغيير بينما قد يتغير العنوان بناءً على الترجمة واللغة.</p>
 
-<h2 id="قائمة-التحقق-لضمان-الجودة-qa-checklist">قائمة التحقق لضمان الجودة (QA Checklist)</h2>
-<ul><li style="margin-left:8px">[ ] التحقق من أن عناوين الأزرار لا تتجاوز 20 حرفاً</li>
-<li style="margin-left:0px">[ ] التحقق من وجود 3 أزرار كحد أقصى لكل رسالة</li>
-<li style="margin-left:0px">[ ] التحقق من أن صفوف القائمة لا تتجاوز 10 صفوف إجمالاً في جميع الأقسام</li>
-<li style="margin-left:0px">[ ] التحقق من أن عناوين الصفوف لا تتجاوز 24 حرفاً</li>
-<li style="margin-left:0px">[ ] التأكد من أن <code>action.button</code> (للقوائم) يقل عن 20 حرفاً</li>
-<li style="margin-left:0px">[ ] تعيين <code>interactive.*.id</code> الخاص بالـ webhook بدقة إلى مشغلات منشئ التدفق (Flow Builder triggers) في SEEN V2\n\n</li></ul>
+<h2 id="قائمة-التحقق-لضمان-الجودة-qa-checklist">قائمة التحقق لضمان الجودة (QA Checklist)</h2><ul><li style="margin-left:24px">[ ] التحقق من أن عناوين الأزرار لا تتجاوز 20 حرفاً</li><li style="margin-left:8px">[ ] التحقق من وجود 3 أزرار كحد أقصى لكل رسالة</li><li style="margin-left:8px">[ ] التحقق من أن صفوف القائمة لا تتجاوز 10 صفوف إجمالاً في جميع الأقسام</li><li style="margin-left:8px">[ ] التحقق من أن عناوين الصفوف لا تتجاوز 24 حرفاً</li><li style="margin-left:8px">[ ] التأكد من أن <code>action.button</code> (للقوائم) يقل عن 20 حرفاً</li><li style="margin-left:8px">[ ] تعيين <code>interactive.*.id</code> الخاص بالـ webhook بدقة إلى مشغلات منشئ التدفق (Flow Builder triggers) في SEEN V2\n\n</li></ul>
 
 <p>\n</p>
 
@@ -466,9 +418,7 @@
           <span class="panel-title">Comparison</span>
         </div>
         <div class="panel-body">
-          <p><strong>Reply Buttons vs List Messages</strong></p>
-<ul><li style="margin-left:0px"><strong>Reply Buttons:</strong> Maximum 3 buttons. Fast, highly visible 1-tap options.</li>
-<li style="margin-left:0px"><strong>List Messages:</strong> Maximum 10 rows. Opens a bottom sheet. Ideal for menus, store locations, or long selections.</li></ul>
+          <p><strong>Reply Buttons vs List Messages</strong></p><ul><li style="margin-left:8px"><strong>Reply Buttons:</strong> Maximum 3 buttons. Fast, highly visible 1-tap options.</li><li style="margin-left:8px"><strong>List Messages:</strong> Maximum 10 rows. Opens a bottom sheet. Ideal for menus, store locations, or long selections.</li></ul>
         </div>
       </div>
     
@@ -523,9 +473,7 @@
           <span class="panel-title">مقارنة</span>
         </div>
         <div class="panel-body">
-          <p><strong>أزرار الرد مقابل رسائل القوائم</strong></p>
-<ul><li style="margin-left:0px"><strong>أزرار الرد (Reply Buttons):</strong> بحد أقصى 3 أزرار. سريعة، وواضحة جداً وتتطلب ضغطة واحدة.</li>
-<li style="margin-left:0px"><strong>رسائل القوائم (List Messages):</strong> بحد أقصى 10 صفوف. تفتح نافذة سفلية. مثالية لقوائم الطعام أو فروع المتاجر.</li></ul>
+          <p><strong>أزرار الرد مقابل رسائل القوائم</strong></p><ul><li style="margin-left:8px"><strong>أزرار الرد (Reply Buttons):</strong> بحد أقصى 3 أزرار. سريعة، وواضحة جداً وتتطلب ضغطة واحدة.</li><li style="margin-left:8px"><strong>رسائل القوائم (List Messages):</strong> بحد أقصى 10 صفوف. تفتح نافذة سفلية. مثالية لقوائم الطعام أو فروع المتاجر.</li></ul>
         </div>
       </div>
     

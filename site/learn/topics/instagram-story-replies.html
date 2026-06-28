@@ -44,7 +44,7 @@
       <div class="header-build-time" title="System Status: Up to date">
         <div class="build-pulse"></div>
         <span class="build-label">LAST BUILD</span>
-        <span class="build-value">Jun 26, 2026, 4:25 PM 🇪🇬</span>
+        <span class="build-value">Jun 28, 2026, 5:03 PM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
@@ -118,9 +118,7 @@
 
 <h2 id="ui-limitations-24-hour-constraints">UI Limitations & 24-Hour Constraints</h2>
 
-<p>The most critical limitation when dealing with story replies is the <strong>24-hour messaging window</strong>.</p>
-<ul><li style="margin-left:8px"><strong>The Messaging Window:</strong> When a user replies to your Instagram Story, they initiate a conversation, which opens a 24-hour messaging window. You can only send automated messages within this period.</li>
-<li style="margin-left:0px"><strong>Media Expiration:</strong> Stories are ephemeral. The <code>IG Media</code> object representing the story is only accessible via the API for 24 hours. After this, any attempt to fetch the story media or insights will fail.</li></ul>
+<p>The most critical limitation when dealing with story replies is the <strong>24-hour messaging window</strong>.</p><ul><li style="margin-left:24px"><strong>The Messaging Window:</strong> When a user replies to your Instagram Story, they initiate a conversation, which opens a 24-hour messaging window. You can only send automated messages within this period.</li><li style="margin-left:8px"><strong>Media Expiration:</strong> Stories are ephemeral. The <code>IG Media</code> object representing the story is only accessible via the API for 24 hours. After this, any attempt to fetch the story media or insights will fail.</li></ul>
 
 <p><!-- preview --></p>
 <p><span class="icon-accept">✅</span> Valid: Sending an automated welcome message immediately after a user replies to your story.</p>
@@ -128,43 +126,32 @@
 
 <h2 id="media-fetching-limitations">Media Fetching Limitations</h2>
 
-<p>When a webhook notification for a story reply is received, the payload includes a reference to the story media. However, there are limitations:</p>
-<ul><li style="margin-left:0px">If you need to analyze the media (e.g., download the image or video), you must do so within the 24-hour window.</li>
-<li style="margin-left:0px">The API will not return data for expired stories, even if you have the Media ID.</li></ul>
+<p>When a webhook notification for a story reply is received, the payload includes a reference to the story media. However, there are limitations:</p><ul><li style="margin-left:8px">If you need to analyze the media (e.g., download the image or video), you must do so within the 24-hour window.</li><li style="margin-left:8px">The API will not return data for expired stories, even if you have the Media ID.</li></ul>
 
 <h2 id="api-payload-structure">API Payload Structure</h2>
 
 <p>The webhook payload for a story reply typically contains a <code>story</code> object nested within the message data.</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "object": "instagram",</p>
 <p>  "entry": [</p>
 <p>    {</p>
-<p>      "id": "&lt;IG_ACCOUNT_ID&gt;",</p>
+<p>      "id": "<IG_ACCOUNT_ID>",</p>
 <p>      "time": 1600000000,</p>
 <p>      "messaging": [</p>
 <p>        {</p>
-<p>          "sender": { "id": "&lt;IGSID&gt;" },</p>
-<p>          "recipient": { "id": "&lt;IG_ACCOUNT_ID&gt;" },</p>
+<p>          "sender": { "id": "<IGSID>" },</p>
+<p>          "recipient": { "id": "<IG_ACCOUNT_ID>" },</p>
 <p>          "timestamp": 1600000000,</p>
 <p>          "message": {</p>
-<p>            "mid": "&lt;MESSAGE_ID&gt;",</p>
+<p>            "mid": "<MESSAGE_ID>",</p>
 <p>            "text": "Love this!",</p>
 <p>            "reply_to": {</p>
-<p>              "mid": "&lt;STORY_MESSAGE_ID&gt;",</p>
+<p>              "mid": "<STORY_MESSAGE_ID>",</p>
 <p>              "story": {</p>
-<p>                "url": "&lt;STORY_MEDIA_URL&gt;",</p>
-<p>                "id": "&lt;STORY_MEDIA_ID&gt;"</p>
+<p>                "url": "<STORY_MEDIA_URL>",</p>
+<p>                "id": "<STORY_MEDIA_ID>"</p>
 <p>              }</p>
 <p>            }</p>
 <p>          }</p>
@@ -172,13 +159,8 @@
 <p>      ]</p>
 <p>    }</p>
 <p>  ]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 <p><!-- preview --></p>
 <p><span class="icon-accept">✅</span> Valid: Extracting the <code>story.url</code> within the first few minutes to log the interaction.</p>
 <p><span class="icon-reject">❌</span> Invalid: Trying to query the Graph API for <code><STORY_MEDIA_ID></code> two days later.\n\n</p>
@@ -193,9 +175,7 @@
 
 <h2 id="قيود-واجهة-المستخدم-وقيود-الـ-24-ساعة">قيود واجهة المستخدم وقيود الـ 24 ساعة</h2>
 
-<p>القيود الأكثر أهمية عند التعامل مع الردود على القصص هي <strong>نافذة المراسلة التي تبلغ 24 ساعة</strong>.</p>
-<ul><li style="margin-left:8px"><strong>نافذة المراسلة:</strong> عندما يرد مستخدم على قصتك في إنستغرام، فإنه يبدأ محادثة، مما يفتح نافذة مراسلة مدتها 24 ساعة. يمكنك إرسال رسائل آلية فقط خلال هذه الفترة.</li>
-<li style="margin-left:0px"><strong>انتهاء صلاحية الوسائط:</strong> القصص مؤقتة بطبيعتها. يمكن الوصول إلى كائن <code>IG Media</code> الذي يمثل القصة عبر واجهة برمجة التطبيقات لمدة 24 ساعة فقط. بعد ذلك، ستفشل أي محاولة لجلب وسائط القصة أو الرؤى الخاصة بها.</li></ul>
+<p>القيود الأكثر أهمية عند التعامل مع الردود على القصص هي <strong>نافذة المراسلة التي تبلغ 24 ساعة</strong>.</p><ul><li style="margin-left:24px"><strong>نافذة المراسلة:</strong> عندما يرد مستخدم على قصتك في إنستغرام، فإنه يبدأ محادثة، مما يفتح نافذة مراسلة مدتها 24 ساعة. يمكنك إرسال رسائل آلية فقط خلال هذه الفترة.</li><li style="margin-left:8px"><strong>انتهاء صلاحية الوسائط:</strong> القصص مؤقتة بطبيعتها. يمكن الوصول إلى كائن <code>IG Media</code> الذي يمثل القصة عبر واجهة برمجة التطبيقات لمدة 24 ساعة فقط. بعد ذلك، ستفشل أي محاولة لجلب وسائط القصة أو الرؤى الخاصة بها.</li></ul>
 
 <p><!-- preview --></p>
 <p><span class="icon-accept">✅</span> Valid: إرسال رسالة ترحيب آلية فور رد المستخدم على قصتك.</p>
@@ -203,43 +183,32 @@
 
 <h2 id="قيود-جلب-الوسائط">قيود جلب الوسائط</h2>
 
-<p>عندما تتلقى إشعار Webhook لرد على قصة، تتضمن البيانات إشارة إلى وسائط القصة. ومع ذلك، هناك قيود:</p>
-<ul><li style="margin-left:0px">إذا كنت بحاجة إلى تحليل الوسائط (مثل تنزيل الصورة أو الفيديو)، فيجب عليك القيام بذلك خلال نافذة الـ 24 ساعة.</li>
-<li style="margin-left:0px">لن تُرجع واجهة برمجة التطبيقات بيانات للقصص منتهية الصلاحية، حتى لو كان لديك معرّف الوسائط (Media ID).</li></ul>
+<p>عندما تتلقى إشعار Webhook لرد على قصة، تتضمن البيانات إشارة إلى وسائط القصة. ومع ذلك، هناك قيود:</p><ul><li style="margin-left:8px">إذا كنت بحاجة إلى تحليل الوسائط (مثل تنزيل الصورة أو الفيديو)، فيجب عليك القيام بذلك خلال نافذة الـ 24 ساعة.</li><li style="margin-left:8px">لن تُرجع واجهة برمجة التطبيقات بيانات للقصص منتهية الصلاحية، حتى لو كان لديك معرّف الوسائط (Media ID).</li></ul>
 
 <h2 id="هيكل-الاستجابة-api-payload">هيكل الاستجابة (API Payload)</h2>
 
 <p>عادةً ما تحتوي بيانات Webhook لرد القصة على كائن <code>story</code> متداخل داخل بيانات الرسالة.</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "object": "instagram",</p>
 <p>  "entry": [</p>
 <p>    {</p>
-<p>      "id": "&lt;IG_ACCOUNT_ID&gt;",</p>
+<p>      "id": "<IG_ACCOUNT_ID>",</p>
 <p>      "time": 1600000000,</p>
 <p>      "messaging": [</p>
 <p>        {</p>
-<p>          "sender": { "id": "&lt;IGSID&gt;" },</p>
-<p>          "recipient": { "id": "&lt;IG_ACCOUNT_ID&gt;" },</p>
+<p>          "sender": { "id": "<IGSID>" },</p>
+<p>          "recipient": { "id": "<IG_ACCOUNT_ID>" },</p>
 <p>          "timestamp": 1600000000,</p>
 <p>          "message": {</p>
-<p>            "mid": "&lt;MESSAGE_ID&gt;",</p>
+<p>            "mid": "<MESSAGE_ID>",</p>
 <p>            "text": "Love this!",</p>
 <p>            "reply_to": {</p>
-<p>              "mid": "&lt;STORY_MESSAGE_ID&gt;",</p>
+<p>              "mid": "<STORY_MESSAGE_ID>",</p>
 <p>              "story": {</p>
-<p>                "url": "&lt;STORY_MEDIA_URL&gt;",</p>
-<p>                "id": "&lt;STORY_MEDIA_ID&gt;"</p>
+<p>                "url": "<STORY_MEDIA_URL>",</p>
+<p>                "id": "<STORY_MEDIA_ID>"</p>
 <p>              }</p>
 <p>            }</p>
 <p>          }</p>
@@ -247,13 +216,8 @@
 <p>      ]</p>
 <p>    }</p>
 <p>  ]</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 <p><!-- preview --></p>
 <p><span class="icon-accept">✅</span> Valid: استخراج <code>story.url</code> في الدقائق الأولى لتسجيل التفاعل.</p>
 <p><span class="icon-reject">❌</span> Invalid: محاولة الاستعلام عن واجهة برمجة التطبيقات للحصول على <code><STORY_MEDIA_ID></code> بعد يومين.\n\n</p>
@@ -278,9 +242,7 @@
           <span class="panel-title">Comparison</span>
         </div>
         <div class="panel-body">
-          <p><strong>Story Mentions vs Story Replies</strong></p>
-<ul><li style="margin-left:0px"><strong>Story Mentions:</strong> Triggered when a user tags your IG account in their own story. You receive a webhook event.</li>
-<li style="margin-left:0px"><strong>Story Replies:</strong> Triggered when a user swipes up and replies to your published story. Handled as a standard message.</li></ul>
+          <p><strong>Story Mentions vs Story Replies</strong></p><ul><li style="margin-left:8px"><strong>Story Mentions:</strong> Triggered when a user tags your IG account in their own story. You receive a webhook event.</li><li style="margin-left:8px"><strong>Story Replies:</strong> Triggered when a user swipes up and replies to your published story. Handled as a standard message.</li></ul>
         </div>
       </div>
     
@@ -335,9 +297,7 @@
           <span class="panel-title">مقارنة</span>
         </div>
         <div class="panel-body">
-          <p><strong>الإشارات في القصة (Mentions) مقابل الردود على القصة (Replies)</strong></p>
-<ul><li style="margin-left:0px"><strong>الإشارة (Mentions):</strong> تحدث عندما يذكرك مستخدم في قصته الخاصة (Tag). تتلقى إشعار Webhook بذلك.</li>
-<li style="margin-left:0px"><strong>الردود (Replies):</strong> تحدث عندما يرفع المستخدم الشاشة للرد على قصتك. تُعامل كرسالة عادية.</li></ul>
+          <p><strong>الإشارات في القصة (Mentions) مقابل الردود على القصة (Replies)</strong></p><ul><li style="margin-left:8px"><strong>الإشارة (Mentions):</strong> تحدث عندما يذكرك مستخدم في قصته الخاصة (Tag). تتلقى إشعار Webhook بذلك.</li><li style="margin-left:8px"><strong>الردود (Replies):</strong> تحدث عندما يرفع المستخدم الشاشة للرد على قصتك. تُعامل كرسالة عادية.</li></ul>
         </div>
       </div>
     

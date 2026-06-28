@@ -44,7 +44,7 @@
       <div class="header-build-time" title="System Status: Up to date">
         <div class="build-pulse"></div>
         <span class="build-label">LAST BUILD</span>
-        <span class="build-value">Jun 26, 2026, 4:25 PM 🇪🇬</span>
+        <span class="build-value">Jun 28, 2026, 5:03 PM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
@@ -118,22 +118,15 @@
 
 <h2 id="endpoint-encryption-decryption">Endpoint Encryption & Decryption</h2>
 
-<p>WhatsApp Flows use an end-to-end encrypted channel.</p>
-<ul><li style="margin-left:0px"><strong>Protocol</strong>: You must implement the WhatsApp Business Encryption protocol using <strong>RSA</strong> for key exchange and <strong>AES-GCM</strong> for payload encryption.</li>
-<li style="margin-left:0px"><strong>Key Management</strong>: Generate a 2048-bit RSA key pair. Upload the public key to your WABA and securely store the private key.</li>
-<li style="margin-left:0px"><strong>Workflow</strong>: Decrypt the <code>encrypted_aes_key</code> using your RSA private key, then use the AES key and IV to decrypt <code>encrypted_flow_data</code>. Your response must be encrypted with the same AES key and an inverted IV.</li></ul>
+<p>WhatsApp Flows use an end-to-end encrypted channel.</p><ul><li style="margin-left:8px"><strong>Protocol</strong>: You must implement the WhatsApp Business Encryption protocol using <strong>RSA</strong> for key exchange and <strong>AES-GCM</strong> for payload encryption.</li><li style="margin-left:8px"><strong>Key Management</strong>: Generate a 2048-bit RSA key pair. Upload the public key to your WABA and securely store the private key.</li><li style="margin-left:8px"><strong>Workflow</strong>: Decrypt the <code>encrypted_aes_key</code> using your RSA private key, then use the AES key and IV to decrypt <code>encrypted_flow_data</code>. Your response must be encrypted with the same AES key and an inverted IV.</li></ul>
 
 <h2 id="max-payload-sizes">Max Payload Sizes</h2>
 
-<p>While there is no strict byte limit documented, keeping payloads minimal is highly recommended. </p>
-<ul><li style="margin-left:0px">Avoid large data blobs like base64-encoded images.</li>
-<li style="margin-left:0px">Only include the specific data required for the Flow's logic to maintain low latency.</li></ul>
+<p>While there is no strict byte limit documented, keeping payloads minimal is highly recommended. </p><ul><li style="margin-left:8px">Avoid large data blobs like base64-encoded images.</li><li style="margin-left:8px">Only include the specific data required for the Flow's logic to maintain low latency.</li></ul>
 
 <h2 id="timeout-validations">Timeout Validations</h2>
 
-<p>Your data exchange endpoint must process and return a response within <strong>10 seconds</strong>.</p>
-<ul><li style="margin-left:0px">If the server takes longer, the request times out, resulting in a "Failed to fetch response" error for the user.</li>
-<li style="margin-left:0px">Ensure you perform heavy processing asynchronously and optimize database queries.</li></ul>
+<p>Your data exchange endpoint must process and return a response within <strong>10 seconds</strong>.</p><ul><li style="margin-left:8px">If the server takes longer, the request times out, resulting in a "Failed to fetch response" error for the user.</li><li style="margin-left:8px">Ensure you perform heavy processing asynchronously and optimize database queries.</li></ul>
 
 <h2 id="endpoint-validations">Endpoint Validations</h2>
 
@@ -155,22 +148,15 @@
 
 <h2 id="تشفير-وفك-تشفير-نقطة-النهاية">تشفير وفك تشفير نقطة النهاية</h2>
 
-<p>تستخدم تدفقات واتساب قناة مشفرة من طرف إلى طرف.</p>
-<ul><li style="margin-left:0px"><strong>البروتوكول</strong>: يجب عليك تنفيذ بروتوكول تشفير واتساب للأعمال باستخدام <strong>RSA</strong> لتبادل المفاتيح و <strong>AES-GCM</strong> لتشفير حمولة البيانات (Payload).</li>
-<li style="margin-left:0px"><strong>إدارة المفاتيح</strong>: قم بإنشاء زوج مفاتيح RSA بحجم 2048 بت. قم برفع المفتاح العام (Public Key) إلى حساب واتساب للأعمال الخاص بك (WABA) واحتفظ بالمفتاح الخاص (Private Key) بشكل آمن.</li>
-<li style="margin-left:0px"><strong>سير العمل</strong>: قم بفك تشفير <code>encrypted_aes_key</code> باستخدام مفتاح RSA الخاص بك، ثم استخدم مفتاح AES ومتجه التهيئة (IV) لفك تشفير <code>encrypted_flow_data</code>. يجب تشفير استجابتك باستخدام نفس مفتاح AES ومتجه تهيئة معكوس.</li></ul>
+<p>تستخدم تدفقات واتساب قناة مشفرة من طرف إلى طرف.</p><ul><li style="margin-left:8px"><strong>البروتوكول</strong>: يجب عليك تنفيذ بروتوكول تشفير واتساب للأعمال باستخدام <strong>RSA</strong> لتبادل المفاتيح و <strong>AES-GCM</strong> لتشفير حمولة البيانات (Payload).</li><li style="margin-left:8px"><strong>إدارة المفاتيح</strong>: قم بإنشاء زوج مفاتيح RSA بحجم 2048 بت. قم برفع المفتاح العام (Public Key) إلى حساب واتساب للأعمال الخاص بك (WABA) واحتفظ بالمفتاح الخاص (Private Key) بشكل آمن.</li><li style="margin-left:8px"><strong>سير العمل</strong>: قم بفك تشفير <code>encrypted_aes_key</code> باستخدام مفتاح RSA الخاص بك، ثم استخدم مفتاح AES ومتجه التهيئة (IV) لفك تشفير <code>encrypted_flow_data</code>. يجب تشفير استجابتك باستخدام نفس مفتاح AES ومتجه تهيئة معكوس.</li></ul>
 
 <h2 id="أقصى-أحجام-لحمولة-البيانات-payload">أقصى أحجام لحمولة البيانات (Payload)</h2>
 
-<p>على الرغم من عدم وجود حد أقصى دقيق للبتات موثق رسمياً، يوصى بشدة بالحفاظ على حجم حمولة البيانات في حده الأدنى.</p>
-<ul><li style="margin-left:0px">تجنب البيانات الكبيرة مثل الصور المرمزة بـ base64.</li>
-<li style="margin-left:0px">قم بتضمين البيانات المحددة المطلوبة لمنطق التدفق فقط للحفاظ على زمن انتقال منخفض.</li></ul>
+<p>على الرغم من عدم وجود حد أقصى دقيق للبتات موثق رسمياً، يوصى بشدة بالحفاظ على حجم حمولة البيانات في حده الأدنى.</p><ul><li style="margin-left:8px">تجنب البيانات الكبيرة مثل الصور المرمزة بـ base64.</li><li style="margin-left:8px">قم بتضمين البيانات المحددة المطلوبة لمنطق التدفق فقط للحفاظ على زمن انتقال منخفض.</li></ul>
 
 <h2 id="التحققات-من-المهلة-الزمنية-timeouts">التحققات من المهلة الزمنية (Timeouts)</h2>
 
-<p>يجب أن تقوم نقطة نهاية تبادل البيانات بمعالجة الطلب وإرجاع استجابة خلال <strong>10 ثوانٍ</strong>.</p>
-<ul><li style="margin-left:0px">إذا استغرق الخادم وقتاً أطول، تنتهي مهلة الطلب، مما يؤدي إلى ظهور خطأ "فشل في جلب الاستجابة" للمستخدم.</li>
-<li style="margin-left:0px">تأكد من أداء المعالجة الثقيلة بشكل غير متزامن (Asynchronously) وتحسين استعلامات قاعدة البيانات.</li></ul>
+<p>يجب أن تقوم نقطة نهاية تبادل البيانات بمعالجة الطلب وإرجاع استجابة خلال <strong>10 ثوانٍ</strong>.</p><ul><li style="margin-left:8px">إذا استغرق الخادم وقتاً أطول، تنتهي مهلة الطلب، مما يؤدي إلى ظهور خطأ "فشل في جلب الاستجابة" للمستخدم.</li><li style="margin-left:8px">تأكد من أداء المعالجة الثقيلة بشكل غير متزامن (Asynchronously) وتحسين استعلامات قاعدة البيانات.</li></ul>
 
 <h2 id="تحققات-نقطة-النهاية">تحققات نقطة النهاية</h2>
 
@@ -187,7 +173,7 @@
 <p>\n</p></div>
 
       <div class="topic-nav">
-        <a class="nav-prev" href="whatsapp-billing-pricing.html">← WhatsApp Billing & Pricing Model</a>
+        <a class="nav-prev" href="whatsapp-calling-voicemail.html">← "WhatsApp Cloud API Calling: Voicemail & SIP Call Webhooks"</a>
         <a class="nav-next" href="whatsapp-flows-json-ui.html">WhatsApp Flows JSON UI Limits & Validation →</a>
       </div>
     </main>
@@ -202,9 +188,7 @@
           <span class="panel-title">Comparison</span>
         </div>
         <div class="panel-body">
-          <p><strong>INIT Event vs DATA_EXCHANGE Event</strong></p>
-<ul><li style="margin-left:0px"><strong>INIT (Initialization):</strong> Triggered when the Flow is opened. Used to fetch initial dynamic data (e.g., list of stores).</li>
-<li style="margin-left:0px"><strong>DATA_EXCHANGE:</strong> Triggered when the user submits a screen or taps a button to fetch new data mid-flow.</li></ul>
+          <p><strong>INIT Event vs DATA_EXCHANGE Event</strong></p><ul><li style="margin-left:8px"><strong>INIT (Initialization):</strong> Triggered when the Flow is opened. Used to fetch initial dynamic data (e.g., list of stores).</li><li style="margin-left:8px"><strong>DATA_EXCHANGE:</strong> Triggered when the user submits a screen or taps a button to fetch new data mid-flow.</li></ul>
         </div>
       </div>
     
@@ -259,9 +243,7 @@
           <span class="panel-title">مقارنة</span>
         </div>
         <div class="panel-body">
-          <p><strong>حدث INIT مقابل حدث DATA_EXCHANGE</strong></p>
-<ul><li style="margin-left:0px"><strong>حدث التهيئة (INIT):</strong> يُرسل عند فتح الـ Flow. يُستخدم لجلب البيانات الديناميكية الأولية (مثل قائمة الفروع).</li>
-<li style="margin-left:0px"><strong>تبادل البيانات (DATA_EXCHANGE):</strong> يُرسل عندما يرسل المستخدم شاشة أو يضغط على زر لجلب بيانات جديدة في منتصف الـ Flow.</li></ul>
+          <p><strong>حدث INIT مقابل حدث DATA_EXCHANGE</strong></p><ul><li style="margin-left:8px"><strong>حدث التهيئة (INIT):</strong> يُرسل عند فتح الـ Flow. يُستخدم لجلب البيانات الديناميكية الأولية (مثل قائمة الفروع).</li><li style="margin-left:8px"><strong>تبادل البيانات (DATA_EXCHANGE):</strong> يُرسل عندما يرسل المستخدم شاشة أو يضغط على زر لجلب بيانات جديدة في منتصف الـ Flow.</li></ul>
         </div>
       </div>
     

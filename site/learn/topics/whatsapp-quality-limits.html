@@ -44,7 +44,7 @@
       <div class="header-build-time" title="System Status: Up to date">
         <div class="build-pulse"></div>
         <span class="build-label">LAST BUILD</span>
-        <span class="build-value">Jun 26, 2026, 4:25 PM 🇪🇬</span>
+        <span class="build-value">Jun 28, 2026, 5:03 PM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
@@ -123,18 +123,9 @@
 
 <p>Your business phone number's quality rating is evaluated based on the messages sent over the past 7 days.</p>
 
-<h3 id="quality-levels">Quality Levels:</h3>
-<ul><li style="margin-left:0px"><strong>High (GREEN):</strong> High quality. Block and report rates are very low.</li>
-<li style="margin-left:0px"><strong>Medium (YELLOW):</strong> Warning. There is a noticeable increase in negative user feedback (blocks/reports). You should review your message content and target your audience more precisely.</li>
-<li style="margin-left:0px"><strong>Low (RED):</strong> Danger. Quality is very low, which will lead to a change in your phone number status.</li></ul>
+<h3 id="quality-levels">Quality Levels:</h3><ul><li style="margin-left:8px"><strong>High (GREEN):</strong> High quality. Block and report rates are very low.</li><li style="margin-left:8px"><strong>Medium (YELLOW):</strong> Warning. There is a noticeable increase in negative user feedback (blocks/reports). You should review your message content and target your audience more precisely.</li><li style="margin-left:8px"><strong>Low (RED):</strong> Danger. Quality is very low, which will lead to a change in your phone number status.</li></ul>
 
-<h3 id="phone-number-status-flagged-penalty">Phone Number Status & "Flagged" Penalty:</h3>
-<ul><li style="margin-left:0px">\<code>CONNECTED\</code>: The normal status of the number.</li>
-<li style="margin-left:0px">\<code>FLAGGED\</code>: If the number's quality drops to <strong>Low (RED)</strong>, its status changes to Flagged.</li>
-<li style="margin-left:16px"><strong>Penalty:</strong> You cannot upgrade your messaging tier to a higher level.</li>
-<li style="margin-left:16px"><strong>Grace Period:</strong> If the quality does not improve within 7 days, your messaging limit will be <strong>downgraded</strong> (e.g., from 100,000 down to 10,000).</li>
-<li style="margin-left:0px">\<code>RESTRICTED\</code>: The number is restricted if it reaches its messaging limit while having a low quality rating.</li>
-<li style="margin-left:0px">\<code>OFFLINE\</code>: The number is permanently banned or unavailable.</li></ul>
+<h3 id="phone-number-status-flagged-penalty">Phone Number Status & "Flagged" Penalty:</h3><ul><li style="margin-left:8px">\<code>CONNECTED\</code>: The normal status of the number.</li><li style="margin-left:8px">\<code>FLAGGED\</code>: If the number's quality drops to <strong>Low (RED)</strong>, its status changes to Flagged.</li><li style="margin-left:24px"><strong>Penalty:</strong> You cannot upgrade your messaging tier to a higher level.</li><li style="margin-left:24px"><strong>Grace Period:</strong> If the quality does not improve within 7 days, your messaging limit will be <strong>downgraded</strong> (e.g., from 100,000 down to 10,000).</li><li style="margin-left:8px">\<code>RESTRICTED\</code>: The number is restricted if it reaches its messaging limit while having a low quality rating.</li><li style="margin-left:8px">\<code>OFFLINE\</code>: The number is permanently banned or unavailable.</li></ul>
 
 <hr>
 
@@ -142,16 +133,9 @@
 
 <p>To protect phone numbers from quickly dropping to the "RED" state, Meta introduced a specific rating for each individual message template.</p>
 
-<h3 id="template-quality-levels">Template Quality Levels:</h3>
-<ul><li style="margin-left:0px"><strong>Active (GREEN):</strong> The template works normally, and user engagement is positive or neutral.</li>
-<li style="margin-left:0px"><strong>Active - Warning (YELLOW):</strong> The template is receiving more negative feedback than usual. (You will receive a warning to change the content).</li>
-<li style="margin-left:0px"><strong>Paused (RED):</strong> If the template's quality drops to a very low level, it is <strong>automatically paused</strong>.</li>
-<li style="margin-left:16px">This template cannot be sent to any new customer (any API request will be met with \<code class="code-red">Error 100\</code>).</li>
-<li style="margin-left:16px">The pause is enacted to protect your phone number from dropping in overall rating.</li>
-<li style="margin-left:16px">The pause duration increases progressively:</li>
-<li style="margin-left:32px">1st time: Paused for 3 hours.</li>
-<li style="margin-left:32px">2nd time: Paused for 6 hours.</li>
-<li style="margin-left:32px">3rd time: \<code>DISABLED\</code> (permanently disabled).</li></ul>
+<h3 id="template-quality-levels">Template Quality Levels:</h3><ul><li style="margin-left:8px"><strong>Active (GREEN):</strong> The template works normally, and user engagement is positive or neutral.</li><li style="margin-left:8px"><strong>Active - Warning (YELLOW):</strong> The template is receiving more negative feedback than usual. (You will receive a warning to change the content).</li><li style="margin-left:8px"><strong>Paused (RED):</strong> If the template's quality drops to a very low level, it is <strong>automatically paused</strong>.</li><li style="margin-left:24px">This template cannot be sent to any new customer (any API request will be met with \<code class="code-red">Error 100\</code>).</li><li style="margin-left:24px">The pause is enacted to protect your phone number from dropping in overall rating.</li><li style="margin-left:24px">The pause duration increases progressively:</li><li style="margin-left:40px">1st time: Paused for 3 hours.</li><li style="margin-left:40px">2nd time: Paused for 6 hours.</li><li style="margin-left:40px">3rd time: \<code>DISABLED\</code> (permanently disabled).</li></ul>
+
+
 
 <hr>
 
@@ -175,11 +159,15 @@
 
 <h2 id="4-validation-rules-api-behavior">4. Validation Rules & API Behavior</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Scenario</th><th><span class="icon-reject">❌</span> Result (Reject/Error)</th><th><span class="icon-accept">✅</span> Accepted Behavior</th></tr></thead><tbody><tr><td>Sending a broadcast exceeding limit</td><td>\<code class="code-red">Error 131056: Rate limit hit\</code></td><td>Throttle campaign messages until a new window opens</td></tr><tr><td>Attempting to send a PAUSED template</td><td>\<code class="code-red">Error 100: Invalid parameter\</code></td><td>Handle rejection and notify user of paused template</td></tr><tr><td>Tracking quality changes</td><td>-</td><td>Listen for Webhooks: \<code>phone_number_quality_update\</code></td></tr></tbody></table></div>
+<p>| Scenario | <span class="icon-reject">❌</span> Result (Reject/Error) | <span class="icon-accept">✅</span> Accepted Behavior |</p>
+<p>|----------|-----------------------------|----------------------|</p>
+<p>| Sending a broadcast exceeding limit | \<code class="code-red">Error 131056: Rate limit hit\</code> | Throttle campaign messages until a new window opens |</p>
+<p>| Attempting to send a PAUSED template | \<code class="code-red">Error 100: Invalid parameter\</code> | Handle rejection and notify user of paused template |</p>
+<p>| Tracking quality changes | - | Listen for Webhooks: \<code>phone_number_quality_update\</code> |</p>
 
-<h2 id="5-seen-v2-implementation-notes">5. SEEN V2 Implementation Notes</h2>
-<ul><li style="margin-left:8px"><strong>Throttling Engine:</strong> The broadcast engine must check the current Tier of the number to avoid sending messages that exceed the limit, wasting API calls with \<code class="code-red">Error 131056\</code>.</li>
-<li style="margin-left:0px"><strong>Template Pause Monitoring:</strong> Enable the \<code>message_template_status_update\</code> Webhook to know when a template goes \<code>PAUSED\</code>, immediately halt scheduled campaigns relying on it, and show an alert to the user.</li></ul>
+
+
+<h2 id="5-seen-v2-implementation-notes">5. SEEN V2 Implementation Notes</h2><ul><li style="margin-left:24px"><strong>Throttling Engine:</strong> The broadcast engine must check the current Tier of the number to avoid sending messages that exceed the limit, wasting API calls with \<code class="code-red">Error 131056\</code>.</li><li style="margin-left:8px"><strong>Template Pause Monitoring:</strong> Enable the \<code>message_template_status_update\</code> Webhook to know when a template goes \<code>PAUSED\</code>, immediately halt scheduled campaigns relying on it, and show an alert to the user.</li></ul>
       </div>
       <div class="topic-body lang-ar"><h1>جودة واتساب (Quality) وحدود المراسلة</h1>
 
@@ -192,18 +180,9 @@
 
 <p>يتم تقييم جودة رقم الهاتف الخاص بنشاطك التجاري بناءً على الرسائل المرسلة خلال الأيام السبعة الماضية.</p>
 
-<h3 id="مستويات-جودة-الرقم">مستويات جودة الرقم:</h3>
-<ul><li style="margin-left:0px"><strong>مرتفع (GREEN):</strong> جودة عالية. معدلات الحظر والإبلاغ منخفضة جداً.</li>
-<li style="margin-left:0px"><strong>متوسط (YELLOW):</strong> تحذير. هناك ارتفاع ملحوظ في تعليقات المستخدمين السلبية (الحظر/التبليغ). يجب مراجعة محتوى الرسائل وتحديد الجمهور بدقة أكبر.</li>
-<li style="margin-left:0px"><strong>منخفض (RED):</strong> خطر. الجودة منخفضة جداً مما يؤدي لتغيير حالة الرقم.</li></ul>
+<h3 id="مستويات-جودة-الرقم">مستويات جودة الرقم:</h3><ul><li style="margin-left:8px"><strong>مرتفع (GREEN):</strong> جودة عالية. معدلات الحظر والإبلاغ منخفضة جداً.</li><li style="margin-left:8px"><strong>متوسط (YELLOW):</strong> تحذير. هناك ارتفاع ملحوظ في تعليقات المستخدمين السلبية (الحظر/التبليغ). يجب مراجعة محتوى الرسائل وتحديد الجمهور بدقة أكبر.</li><li style="margin-left:8px"><strong>منخفض (RED):</strong> خطر. الجودة منخفضة جداً مما يؤدي لتغيير حالة الرقم.</li></ul>
 
-<h3 id="حالة-الرقم-status-وعقوبة-flagged">حالة الرقم (Status) وعقوبة "Flagged":</h3>
-<ul><li style="margin-left:0px">\<code>CONNECTED\</code> (متصل): الحالة الطبيعية للرقم.</li>
-<li style="margin-left:0px">\<code>FLAGGED\</code> (مقيد): إذا انخفضت جودة الرقم إلى <strong>أحمر (RED)</strong>، تتغير حالته إلى Flagged.</li>
-<li style="margin-left:16px"><strong>العقوبة:</strong> لا يمكنك ترقية مستوى المراسلة (Tier) إلى مستوى أعلى أبداً.</li>
-<li style="margin-left:16px"><strong>المهلة:</strong> إذا لم تتحسن الجودة خلال 7 أيام، سيتم <strong>تخفيض</strong> حد المراسلة الخاص بك (مثلاً من 100,000 إلى 10,000).</li>
-<li style="margin-left:0px">\<code>RESTRICTED\</code> (مقيد بشدة): يتم تقييد الرقم إذا وصل إلى حد المراسلة الخاص به ولديه جودة منخفضة.</li>
-<li style="margin-left:0px">\<code>OFFLINE\</code> (غير متصل): الرقم محظور نهائياً أو غير متاح.</li></ul>
+<h3 id="حالة-الرقم-status-وعقوبة-flagged">حالة الرقم (Status) وعقوبة "Flagged":</h3><ul><li style="margin-left:8px">\<code>CONNECTED\</code> (متصل): الحالة الطبيعية للرقم.</li><li style="margin-left:8px">\<code>FLAGGED\</code> (مقيد): إذا انخفضت جودة الرقم إلى <strong>أحمر (RED)</strong>، تتغير حالته إلى Flagged.</li><li style="margin-left:24px"><strong>العقوبة:</strong> لا يمكنك ترقية مستوى المراسلة (Tier) إلى مستوى أعلى أبداً.</li><li style="margin-left:24px"><strong>المهلة:</strong> إذا لم تتحسن الجودة خلال 7 أيام، سيتم <strong>تخفيض</strong> حد المراسلة الخاص بك (مثلاً من 100,000 إلى 10,000).</li><li style="margin-left:8px">\<code>RESTRICTED\</code> (مقيد بشدة): يتم تقييد الرقم إذا وصل إلى حد المراسلة الخاص به ولديه جودة منخفضة.</li><li style="margin-left:8px">\<code>OFFLINE\</code> (غير متصل): الرقم محظور نهائياً أو غير متاح.</li></ul>
 
 <hr>
 
@@ -211,16 +190,9 @@
 
 <p>لحماية أرقام الهواتف من الوصول إلى الحالة "الحمراء" (RED) بسرعة، قدمت Meta تقييماً خاصاً بكل قالب (Template) على حدة. </p>
 
-<h3 id="مستويات-جودة-القالب">مستويات جودة القالب:</h3>
-<ul><li style="margin-left:0px"><strong>Active (نشط - GREEN):</strong> القالب يعمل بشكل طبيعي وتفاعل المستخدمين إيجابي أو محايد.</li>
-<li style="margin-left:0px"><strong>Active - Warning (تحذير - YELLOW):</strong> القالب يتلقى تعليقات سلبية أكثر من المعتاد. (ستتلقى تنبيهاً لتغيير المحتوى).</li>
-<li style="margin-left:0px"><strong>Paused (إيقاف مؤقت - RED):</strong> إذا وصلت جودة القالب إلى مستوى منخفض جداً، يتم <strong>إيقافه مؤقتاً بشكل تلقائي</strong>.</li>
-<li style="margin-left:16px">لا يمكن إرسال هذا القالب لأي عميل جديد (أي طلب API سيُقابل بـ \<code class="code-red">Error 100\</code>).</li>
-<li style="margin-left:16px">يتم الإيقاف المؤقت لحماية رقم هاتفك من الانخفاض في التقييم. </li>
-<li style="margin-left:16px">مدة الإيقاف تتزايد تدريجياً:</li>
-<li style="margin-left:32px">المرة الأولى: الإيقاف لمدة 3 ساعات.</li>
-<li style="margin-left:32px">المرة الثانية: الإيقاف لمدة 6 ساعات.</li>
-<li style="margin-left:32px">المرة الثالثة: \<code>DISABLED\</code> (معطل بشكل دائم).</li></ul>
+<h3 id="مستويات-جودة-القالب">مستويات جودة القالب:</h3><ul><li style="margin-left:8px"><strong>Active (نشط - GREEN):</strong> القالب يعمل بشكل طبيعي وتفاعل المستخدمين إيجابي أو محايد.</li><li style="margin-left:8px"><strong>Active - Warning (تحذير - YELLOW):</strong> القالب يتلقى تعليقات سلبية أكثر من المعتاد. (ستتلقى تنبيهاً لتغيير المحتوى).</li><li style="margin-left:8px"><strong>Paused (إيقاف مؤقت - RED):</strong> إذا وصلت جودة القالب إلى مستوى منخفض جداً، يتم <strong>إيقافه مؤقتاً بشكل تلقائي</strong>.</li><li style="margin-left:24px">لا يمكن إرسال هذا القالب لأي عميل جديد (أي طلب API سيُقابل بـ \<code class="code-red">Error 100\</code>).</li><li style="margin-left:24px">يتم الإيقاف المؤقت لحماية رقم هاتفك من الانخفاض في التقييم. </li><li style="margin-left:24px">مدة الإيقاف تتزايد تدريجياً:</li><li style="margin-left:40px">المرة الأولى: الإيقاف لمدة 3 ساعات.</li><li style="margin-left:40px">المرة الثانية: الإيقاف لمدة 6 ساعات.</li><li style="margin-left:40px">المرة الثالثة: \<code>DISABLED\</code> (معطل بشكل دائم).</li></ul>
+
+
 
 <hr>
 
@@ -244,11 +216,15 @@
 
 <h2 id="4-قواعد-التحقق-وسلوك-api">4. قواعد التحقق وسلوك API</h2>
 
-<div class="table-wrap"><table><thead><tr><th>السيناريو</th><th><span class="icon-reject">❌</span> النتيجة (رفض/خطأ)</th><th><span class="icon-accept">✅</span> السلوك المقبول</th></tr></thead><tbody><tr><td>إرسال بث يتجاوز الحد</td><td>\<code class="code-red">Error 131056: Rate limit hit\</code></td><td>الإيقاف المؤقت لرسائل الحملة حتى تُفتح نافذة جديدة</td></tr><tr><td>محاولة إرسال قالب حالته PAUSED</td><td>\<code class="code-red">Error 100: Invalid parameter\</code></td><td>معالجة الرفض وإشعار المستخدم بإيقاف القالب</td></tr><tr><td>متابعة تغييرات الجودة</td><td>-</td><td>الاستماع لـ Webhooks: \<code>phone_number_quality_update\</code></td></tr></tbody></table></div>
+<p>| السيناريو | <span class="icon-reject">❌</span> النتيجة (رفض/خطأ) | <span class="icon-accept">✅</span> السلوك المقبول |</p>
+<p>|----------|-----------------------------|----------------------|</p>
+<p>| إرسال بث يتجاوز الحد | \<code class="code-red">Error 131056: Rate limit hit\</code> | الإيقاف المؤقت لرسائل الحملة حتى تُفتح نافذة جديدة |</p>
+<p>| محاولة إرسال قالب حالته PAUSED | \<code class="code-red">Error 100: Invalid parameter\</code> | معالجة الرفض وإشعار المستخدم بإيقاف القالب |</p>
+<p>| متابعة تغييرات الجودة | - | الاستماع لـ Webhooks: \<code>phone_number_quality_update\</code> |</p>
 
-<h2 id="5-ملاحظات-تنفيذ-seen-v2">5. ملاحظات تنفيذ SEEN V2</h2>
-<ul><li style="margin-left:8px"><strong>إدارة الإرسال (Throttling):</strong> يجب على محرك الحملات (Broadcast) التحقق من الـ Tier الحالي للرقم لعدم إرسال رسائل تتجاوز الحد وتتسبب في إهدار استدعاءات API بخطأ \<code>131056\</code>.</li>
-<li style="margin-left:0px"><strong>متابعة الإيقاف المؤقت للقالب:</strong> تفعيل الـ Webhook الخاص بـ \<code>message_template_status_update\</code> لمعرفة متى يتحول القالب إلى \<code>PAUSED\</code> وإيقاف الحملات المجدولة التي تعتمد عليه فوراً وعرض تنبيه للعميل.</li></ul></div>
+
+
+<h2 id="5-ملاحظات-تنفيذ-seen-v2">5. ملاحظات تنفيذ SEEN V2</h2><ul><li style="margin-left:24px"><strong>إدارة الإرسال (Throttling):</strong> يجب على محرك الحملات (Broadcast) التحقق من الـ Tier الحالي للرقم لعدم إرسال رسائل تتجاوز الحد وتتسبب في إهدار استدعاءات API بخطأ \<code>131056\</code>.</li><li style="margin-left:8px"><strong>متابعة الإيقاف المؤقت للقالب:</strong> تفعيل الـ Webhook الخاص بـ \<code>message_template_status_update\</code> لمعرفة متى يتحول القالب إلى \<code>PAUSED\</code> وإيقاف الحملات المجدولة التي تعتمد عليه فوراً وعرض تنبيه للعميل.</li></ul></div>
 
       <div class="topic-nav">
         <a class="nav-prev" href="whatsapp-media-messages.html">← WhatsApp Media Messages (Images, Video, Docs)</a>
@@ -266,9 +242,7 @@
           <span class="panel-title">Comparison</span>
         </div>
         <div class="panel-body">
-          <p><strong>Relationship Between Template Quality and Phone Number Quality</strong></p>
-<ul><li style="margin-left:0px"><strong>Template Quality:</strong> The first line of defense. It stops a specific annoying marketing message from reaching more customers.</li>
-<li style="margin-left:0px"><strong>Phone Number Quality:</strong> The overall rating. It is affected by all templates and customer service messages combined.</li></ul>
+          <p><strong>Relationship Between Template Quality and Phone Number Quality</strong></p><ul><li style="margin-left:8px"><strong>Template Quality:</strong> The first line of defense. It stops a specific annoying marketing message from reaching more customers.</li><li style="margin-left:8px"><strong>Phone Number Quality:</strong> The overall rating. It is affected by all templates and customer service messages combined.</li></ul>
         </div>
       </div>
     
@@ -323,9 +297,7 @@
           <span class="panel-title">مقارنة</span>
         </div>
         <div class="panel-body">
-          <p><strong>العلاقة بين جودة القالب وجودة الرقم</strong></p>
-<ul><li style="margin-left:0px"><strong>جودة القالب (Template Quality):</strong> خط الدفاع الأول. توقف رسالة تسويقية محددة مزعجة للعملاء.</li>
-<li style="margin-left:0px"><strong>جودة الرقم (Phone Number Quality):</strong> التقييم الشامل. يتأثر بكل القوالب ورسائل خدمة العملاء معاً.</li></ul>
+          <p><strong>العلاقة بين جودة القالب وجودة الرقم</strong></p><ul><li style="margin-left:8px"><strong>جودة القالب (Template Quality):</strong> خط الدفاع الأول. توقف رسالة تسويقية محددة مزعجة للعملاء.</li><li style="margin-left:8px"><strong>جودة الرقم (Phone Number Quality):</strong> التقييم الشامل. يتأثر بكل القوالب ورسائل خدمة العملاء معاً.</li></ul>
         </div>
       </div>
     

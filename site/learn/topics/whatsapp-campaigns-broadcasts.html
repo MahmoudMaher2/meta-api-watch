@@ -44,7 +44,7 @@
       <div class="header-build-time" title="System Status: Up to date">
         <div class="build-pulse"></div>
         <span class="build-label">LAST BUILD</span>
-        <span class="build-value">Jun 26, 2026, 4:25 PM 🇪🇬</span>
+        <span class="build-value">Jun 28, 2026, 5:03 PM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
@@ -126,37 +126,42 @@
 
 <h2 id="template-categories-pricing-impacts">Template Categories (Pricing Impacts)</h2>
 
-<p>When creating templates, they must be assigned a category. Meta prices conversations based on this category.</p>
-<ul><li style="margin-left:8px"><strong>Marketing:</strong> Promotions, offers, newsletters. (Highest cost)</li>
-<li style="margin-left:0px"><strong>Utility:</strong> Transaction updates, shipping alerts, account notifications.</li>
-<li style="margin-left:0px"><strong>Authentication:</strong> OTPs, verification codes. (Lowest cost)</li></ul>
+<p>When creating templates, they must be assigned a category. Meta prices conversations based on this category.</p><ul><li style="margin-left:24px"><strong>Marketing:</strong> Promotions, offers, newsletters. (Highest cost)</li><li style="margin-left:8px"><strong>Utility:</strong> Transaction updates, shipping alerts, account notifications.</li><li style="margin-left:8px"><strong>Authentication:</strong> OTPs, verification codes. (Lowest cost)</li></ul>
 
 <h2 id="parameters-fields-sending-a-template">Parameters & Fields (Sending a Template)</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>type</code></td><td>string</td><td>Yes</td><td>Set to <code>"template"</code></td></tr><tr><td><code>template.name</code></td><td>string</td><td>Yes</td><td>The exact name of the approved template</td></tr><tr><td><code>template.language.code</code></td><td>string</td><td>Yes</td><td>e.g., <code>"en_US"</code>, <code>"ar"</code></td></tr><tr><td><code>template.components</code></td><td>array</td><td>No</td><td>Variables/media mapped to the template placeholders</td></tr></tbody></table></div>
+<p>| Field | Type | Required | Description |</p>
+<p>|-------|------|----------|-------------|</p>
+<p>| <code>type</code> | string | Yes | Set to <code>"template"</code> |</p>
+<p>| <code>template.name</code> | string | Yes | The exact name of the approved template |</p>
+<p>| <code>template.language.code</code> | string | Yes | e.g., <code>"en_US"</code>, <code>"ar"</code> |</p>
+<p>| <code>template.components</code> | array | No | Variables/media mapped to the template placeholders |</p>
+
 <h3 id="the-components-array">The Components Array</h3>
 
 <p>If your template has variables like <code>{{1}}</code> in the body, or requires an image in the header, you must pass them in <code>components</code>.</p>
 
-<div class="table-wrap"><table><thead><tr><th>Component Type</th><th>Sub-type</th><th>Description</th></tr></thead><tbody><tr><td><code>"header"</code></td><td><code>image</code>, <code>video</code>, <code>document</code>, <code>text</code></td><td>Fills the header placeholder</td></tr><tr><td><code>"body"</code></td><td><code>text</code></td><td>Replaces <code>{{1}}</code>, <code>{{2}}</code> sequentially</td></tr><tr><td><code>"button"</code></td><td><code>payload</code>, <code>text</code></td><td>Dynamic URLs or Quick Reply payloads</td></tr></tbody></table></div>
+<p>| Component Type | Sub-type | Description |</p>
+<p>|----------------|----------|-------------|</p>
+<p>| <code>"header"</code> | <code>image</code>, <code>video</code>, <code>document</code>, <code>text</code> | Fills the header placeholder |</p>
+<p>| <code>"body"</code> | <code>text</code> | Replaces <code>{{1}}</code>, <code>{{2}}</code> sequentially |</p>
+<p>| <code>"button"</code> | <code>payload</code>, <code>text</code> | Dynamic URLs or Quick Reply payloads |</p>
+
 <h2 id="validation-rules">Validation Rules</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Gets REJECTED</th><th><span class="icon-accept">✅</span> Gets ACCEPTED</th></tr></thead><tbody><tr><td>Variable Match</td><td>Template has 2 vars, you send 1</td><td>Send exactly the number of vars expected</td></tr><tr><td>Language Code</td><td><code>"en-us"</code> or <code>"EN"</code></td><td>Exact match <code>"en_US"</code></td></tr><tr><td>Template Status</td><td>Template is <code class="code-red">REJECTED</code> or <code>PAUSED</code></td><td>Template is <code>APPROVED</code></td></tr><tr><td>24-Hour Rule</td><td><em>Not applicable for templates</em></td><td>Templates bypass the 24-hour customer service window</td></tr></tbody></table></div>
+<p>| Rule | <span class="icon-reject">❌</span> Gets REJECTED | <span class="icon-accept">✅</span> Gets ACCEPTED |</p>
+<p>|------|-----------------|-----------------|</p>
+<p>| Variable Match | Template has 2 vars, you send 1 | Send exactly the number of vars expected |</p>
+<p>| Language Code | <code>"en-us"</code> or <code>"EN"</code> | Exact match <code>"en_US"</code> |</p>
+<p>| Template Status | Template is <code class="code-red">REJECTED</code> or <code>PAUSED</code> | Template is <code>APPROVED</code> |</p>
+<p>| 24-Hour Rule | <em>Not applicable for templates</em> | Templates bypass the 24-hour customer service window |</p>
+
 <h2 id="live-preview-what-it-looks-like">Live Preview — What It Looks Like</h2>
 
 <div class="preview-block preview-accepted"><span class="preview-label preview-label-ok">✅ Correct Usage — Live Preview</span>### ✅ Correct Usage — Sending a Marketing Broadcast
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">POST /v19.0/{PHONE_NUMBER_ID}/messages</p>
+<p>```json</p>
+<p>POST /v19.0/{PHONE_NUMBER_ID}/messages</p>
 <p>Authorization: Bearer {ACCESS_TOKEN}</p>
 
 <p>{</p>
@@ -190,41 +195,22 @@
 <p>      }</p>
 <p>    ]</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><strong>Why it works:</strong> The template <code>summer_sale_2026</code> expects an image header and two body variables (Name and Discount). The payload maps these exactly.</p>
 
 <p></div><div class="preview-block preview-rejected"><span class="preview-label preview-label-err"><span class="icon-reject">❌</span> Common Mistake — What Goes Wrong</span>### <span class="icon-reject">❌</span> Common Mistake — Missing Component Variables</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "type": "template",</p>
 <p>  "template": {</p>
 <p>    "name": "order_update",</p>
 <p>    "language": { "code": "en" }</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><strong>Error:</strong> <code class="code-red">Error 100: Invalid parameter</code> — If <code>order_update</code> was approved with body text "Your order {{1}} is arriving on {{2}}", sending it without the <code>components</code> array will fail validation instantly.</p>
 
@@ -235,15 +221,9 @@
 <p>2. <strong>Template Pause:</strong> Meta will flag the specific template as <code>PAUSED</code>. Sending it will return an error until it's unpaused.</p>
 <p>3. <strong>Number Ban:</strong> Continuous low quality results in complete restriction.</p>
 
-<h2 id="seen-v2-implementation-notes">SEEN V2 Implementation Notes</h2>
-<ul><li style="margin-left:8px"><strong>Batching:</strong> WhatsApp API restricts concurrency. For a 100K user campaign, SEEN V2 must implement rate limiting (max 80 requests per second) to avoid HTTP 429 Too Many Requests.</li>
-<li style="margin-left:0px"><strong>Failures:</strong> Not all numbers have WhatsApp. SEEN V2 must gracefully handle <code class="code-red">Error 131026: Message undeteliverable</code> and mark the contact accordingly so they are skipped in future broadcasts.</li></ul>
+<h2 id="seen-v2-implementation-notes">SEEN V2 Implementation Notes</h2><ul><li style="margin-left:24px"><strong>Batching:</strong> WhatsApp API restricts concurrency. For a 100K user campaign, SEEN V2 must implement rate limiting (max 80 requests per second) to avoid HTTP 429 Too Many Requests.</li><li style="margin-left:8px"><strong>Failures:</strong> Not all numbers have WhatsApp. SEEN V2 must gracefully handle <code class="code-red">Error 131026: Message undeteliverable</code> and mark the contact accordingly so they are skipped in future broadcasts.</li></ul>
 
-<h2 id="qa-checklist">QA Checklist</h2>
-<ul><li style="margin-left:8px">[ ] Ensure SEEN V2 maps exactly the correct number of variables per component</li>
-<li style="margin-left:0px">[ ] Enforce language code case sensitivity (<code>en_US</code> not <code>en-us</code>)</li>
-<li style="margin-left:0px">[ ] Implement a queue system for large broadcasts to adhere to rate limits</li>
-<li style="margin-left:0px">[ ] Read webhook statuses (<code>sent</code>, <code>delivered</code>, <code>read</code>, <code class="code-red">failed</code>) to update campaign analytics in real-time\n\n</li></ul>
+<h2 id="qa-checklist">QA Checklist</h2><ul><li style="margin-left:24px">[ ] Ensure SEEN V2 maps exactly the correct number of variables per component</li><li style="margin-left:8px">[ ] Enforce language code case sensitivity (<code>en_US</code> not <code>en-us</code>)</li><li style="margin-left:8px">[ ] Implement a queue system for large broadcasts to adhere to rate limits</li><li style="margin-left:8px">[ ] Read webhook statuses (<code>sent</code>, <code>delivered</code>, <code>read</code>, <code class="code-red">failed</code>) to update campaign analytics in real-time\n\n</li></ul>
 
 <p>\n</p>
 
@@ -263,37 +243,42 @@
 
 <h2 id="فئات-القوالب-تأثيرها-على-التسعير">فئات القوالب (تأثيرها على التسعير)</h2>
 
-<p>عند إنشاء القوالب، يجب تعيين فئة لها. تُسعر Meta المحادثات بناءً على هذه الفئة.</p>
-<ul><li style="margin-left:8px"><strong>Marketing:</strong> العروض الترويجية، الخصومات، النشرات الإخبارية. (الأعلى تكلفة)</li>
-<li style="margin-left:0px"><strong>Utility:</strong> تحديثات المعاملات، تنبيهات الشحن، إشعارات الحساب.</li>
-<li style="margin-left:0px"><strong>Authentication:</strong> كلمات المرور لمرة واحدة (OTPs)، رموز التحقق. (الأقل تكلفة)</li></ul>
+<p>عند إنشاء القوالب، يجب تعيين فئة لها. تُسعر Meta المحادثات بناءً على هذه الفئة.</p><ul><li style="margin-left:24px"><strong>Marketing:</strong> العروض الترويجية، الخصومات، النشرات الإخبارية. (الأعلى تكلفة)</li><li style="margin-left:8px"><strong>Utility:</strong> تحديثات المعاملات، تنبيهات الشحن، إشعارات الحساب.</li><li style="margin-left:8px"><strong>Authentication:</strong> كلمات المرور لمرة واحدة (OTPs)، رموز التحقق. (الأقل تكلفة)</li></ul>
 
 <h2 id="المعلمات-والحقول-إرسال-قالب">المعلمات والحقول (إرسال قالب)</h2>
 
-<div class="table-wrap"><table><thead><tr><th>الحقل</th><th>النوع</th><th>مطلوب</th><th>الوصف</th></tr></thead><tbody><tr><td><code>type</code></td><td>string</td><td>نعم</td><td>يتم تعيينه إلى <code>"template"</code></td></tr><tr><td><code>template.name</code></td><td>string</td><td>نعم</td><td>الاسم الدقيق للقالب المعتمد</td></tr><tr><td><code>template.language.code</code></td><td>string</td><td>نعم</td><td>مثال: <code>"en_US"</code>, <code>"ar"</code></td></tr><tr><td><code>template.components</code></td><td>array</td><td>لا</td><td>المتغيرات/الوسائط المعينة للعناصر النائبة في القالب</td></tr></tbody></table></div>
+<p>| الحقل | النوع | مطلوب | الوصف |</p>
+<p>|-------|------|----------|-------------|</p>
+<p>| <code>type</code> | string | نعم | يتم تعيينه إلى <code>"template"</code> |</p>
+<p>| <code>template.name</code> | string | نعم | الاسم الدقيق للقالب المعتمد |</p>
+<p>| <code>template.language.code</code> | string | نعم | مثال: <code>"en_US"</code>, <code>"ar"</code> |</p>
+<p>| <code>template.components</code> | array | لا | المتغيرات/الوسائط المعينة للعناصر النائبة في القالب |</p>
+
 <h3 id="مصفوفة-المكونات-the-components-array">مصفوفة المكونات (The Components Array)</h3>
 
 <p>إذا كان قالبك يحتوي على متغيرات مثل <code>{{1}}</code> في النص (body)، أو يتطلب صورة في الترويسة (header)، فيجب عليك تمريرها في <code>components</code>.</p>
 
-<div class="table-wrap"><table><thead><tr><th>نوع المكون</th><th>النوع الفرعي</th><th>الوصف</th></tr></thead><tbody><tr><td><code>"header"</code></td><td><code>image</code>, <code>video</code>, <code>document</code>, <code>text</code></td><td>يملأ العنصر النائب في الترويسة</td></tr><tr><td><code>"body"</code></td><td><code>text</code></td><td>يستبدل <code>{{1}}</code>, <code>{{2}}</code> بالتسلسل</td></tr><tr><td><code>"button"</code></td><td><code>payload</code>, <code>text</code></td><td>الروابط الديناميكية (URLs) أو بيانات الرد السريع (Quick Reply payloads)</td></tr></tbody></table></div>
+<p>| نوع المكون | النوع الفرعي | الوصف |</p>
+<p>|----------------|----------|-------------|</p>
+<p>| <code>"header"</code> | <code>image</code>, <code>video</code>, <code>document</code>, <code>text</code> | يملأ العنصر النائب في الترويسة |</p>
+<p>| <code>"body"</code> | <code>text</code> | يستبدل <code>{{1}}</code>, <code>{{2}}</code> بالتسلسل |</p>
+<p>| <code>"button"</code> | <code>payload</code>, <code>text</code> | الروابط الديناميكية (URLs) أو بيانات الرد السريع (Quick Reply payloads) |</p>
+
 <h2 id="قواعد-التحقق">قواعد التحقق</h2>
 
-<div class="table-wrap"><table><thead><tr><th>القاعدة</th><th><span class="icon-reject">❌</span> يتم الرفض</th><th><span class="icon-accept">✅</span> يتم القبول</th></tr></thead><tbody><tr><td>مطابقة المتغيرات</td><td>القالب يحتوي على متغيرين، وتقوم بإرسال 1</td><td>إرسال العدد المتوقع من المتغيرات بالضبط</td></tr><tr><td>رمز اللغة</td><td><code>"en-us"</code> أو <code>"EN"</code></td><td>تطابق تام <code>"en_US"</code></td></tr><tr><td>حالة القالب</td><td>القالب بحالة <code class="code-red">REJECTED</code> أو <code>PAUSED</code></td><td>القالب بحالة <code>APPROVED</code></td></tr><tr><td>قاعدة الـ 24 ساعة</td><td><em>لا تنطبق على القوالب</em></td><td>تتخطى القوالب نافذة خدمة العملاء البالغة 24 ساعة</td></tr></tbody></table></div>
+<p>| القاعدة | <span class="icon-reject">❌</span> يتم الرفض | <span class="icon-accept">✅</span> يتم القبول |</p>
+<p>|------|-----------------|-----------------|</p>
+<p>| مطابقة المتغيرات | القالب يحتوي على متغيرين، وتقوم بإرسال 1 | إرسال العدد المتوقع من المتغيرات بالضبط |</p>
+<p>| رمز اللغة | <code>"en-us"</code> أو <code>"EN"</code> | تطابق تام <code>"en_US"</code> |</p>
+<p>| حالة القالب | القالب بحالة <code class="code-red">REJECTED</code> أو <code>PAUSED</code> | القالب بحالة <code>APPROVED</code> |</p>
+<p>| قاعدة الـ 24 ساعة | <em>لا تنطبق على القوالب</em> | تتخطى القوالب نافذة خدمة العملاء البالغة 24 ساعة |</p>
+
 <h2 id="معاينة-حية-كيف-تبدو">معاينة حية — كيف تبدو</h2>
 
 <div class="preview-block preview-accepted"><span class="preview-label preview-label-ok">✅ Correct Usage — Live Preview</span>### ✅ الاستخدام الصحيح — إرسال بث تسويقي
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">POST /v19.0/{PHONE_NUMBER_ID}/messages</p>
+<p>```json</p>
+<p>POST /v19.0/{PHONE_NUMBER_ID}/messages</p>
 <p>Authorization: Bearer {ACCESS_TOKEN}</p>
 
 <p>{</p>
@@ -327,41 +312,22 @@
 <p>      }</p>
 <p>    ]</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><strong>لماذا تعمل:</strong> يتوقع القالب <code>summer_sale_2026</code> ترويسة بصورة ومتغيرين في النص (الاسم والخصم). تقوم حمولة البيانات (payload) بتعيين هذه العناصر بشكل دقيق.</p>
 
 <p></div><div class="preview-block preview-rejected"><span class="preview-label preview-label-err"><span class="icon-reject">❌</span> Common Mistake — What Goes Wrong</span>### <span class="icon-reject">❌</span> خطأ شائع — متغيرات المكونات مفقودة</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "type": "template",</p>
 <p>  "template": {</p>
 <p>    "name": "order_update",</p>
 <p>    "language": { "code": "en" }</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><strong>الخطأ:</strong> <code class="code-red">Error 100: Invalid parameter</code> — إذا تمت الموافقة على <code>order_update</code> بنص "Your order {{1}} is arriving on {{2}}"، فإن إرساله بدون مصفوفة <code>components</code> سيؤدي إلى فشل التحقق على الفور.</p>
 
@@ -372,15 +338,9 @@
 <p>2. <strong>إيقاف القالب مؤقتاً (Template Pause):</strong> ستقوم Meta بوضع علامة <code>PAUSED</code> على القالب المحدد. سيؤدي إرساله إلى إرجاع خطأ حتى يتم إلغاء إيقافه مؤقتاً.</p>
 <p>3. <strong>حظر الرقم (Number Ban):</strong> تؤدي الجودة المنخفضة المستمرة إلى تقييد كامل.</p>
 
-<h2 id="ملاحظات-تنفيذ-seen-v2">ملاحظات تنفيذ SEEN V2</h2>
-<ul><li style="margin-left:8px"><strong>التجميع (Batching):</strong> تقيد واجهة برمجة تطبيقات WhatsApp التزامن. بالنسبة لحملة تضم 100 ألف مستخدم، يجب أن يطبق SEEN V2 تحديد المعدل (بحد أقصى 80 طلباً في الثانية) لتجنب الخطأ HTTP 429 Too Many Requests.</li>
-<li style="margin-left:0px"><strong>الإخفاقات (Failures):</strong> لا تمتلك جميع الأرقام تطبيق WhatsApp. يجب أن يتعامل SEEN V2 بشكل صحيح مع الخطأ <code class="code-red">Error 131026: Message undeteliverable</code> ويضع علامة على جهة الاتصال وفقاً لذلك حتى يتم تخطيها في عمليات البث المستقبلية.</li></ul>
+<h2 id="ملاحظات-تنفيذ-seen-v2">ملاحظات تنفيذ SEEN V2</h2><ul><li style="margin-left:24px"><strong>التجميع (Batching):</strong> تقيد واجهة برمجة تطبيقات WhatsApp التزامن. بالنسبة لحملة تضم 100 ألف مستخدم، يجب أن يطبق SEEN V2 تحديد المعدل (بحد أقصى 80 طلباً في الثانية) لتجنب الخطأ HTTP 429 Too Many Requests.</li><li style="margin-left:8px"><strong>الإخفاقات (Failures):</strong> لا تمتلك جميع الأرقام تطبيق WhatsApp. يجب أن يتعامل SEEN V2 بشكل صحيح مع الخطأ <code class="code-red">Error 131026: Message undeteliverable</code> ويضع علامة على جهة الاتصال وفقاً لذلك حتى يتم تخطيها في عمليات البث المستقبلية.</li></ul>
 
-<h2 id="قائمة-التحقق-من-الجودة-qa">قائمة التحقق من الجودة (QA)</h2>
-<ul><li style="margin-left:8px">[ ] التأكد من أن SEEN V2 يقوم بتعيين العدد الصحيح من المتغيرات بالضبط لكل مكون</li>
-<li style="margin-left:0px">[ ] فرض حساسية حالة الأحرف لرمز اللغة (<code>en_US</code> وليس <code>en-us</code>)</li>
-<li style="margin-left:0px">[ ] تنفيذ نظام طابور (queue) لعمليات البث الكبيرة للالتزام بحدود المعدل (rate limits)</li>
-<li style="margin-left:0px">[ ] قراءة حالات الـ webhook (<code>sent</code>، <code>delivered</code>، <code>read</code>، <code class="code-red">failed</code>) لتحديث تحليلات الحملة في الوقت الفعلي\n\n</li></ul>
+<h2 id="قائمة-التحقق-من-الجودة-qa">قائمة التحقق من الجودة (QA)</h2><ul><li style="margin-left:24px">[ ] التأكد من أن SEEN V2 يقوم بتعيين العدد الصحيح من المتغيرات بالضبط لكل مكون</li><li style="margin-left:8px">[ ] فرض حساسية حالة الأحرف لرمز اللغة (<code>en_US</code> وليس <code>en-us</code>)</li><li style="margin-left:8px">[ ] تنفيذ نظام طابور (queue) لعمليات البث الكبيرة للالتزام بحدود المعدل (rate limits)</li><li style="margin-left:8px">[ ] قراءة حالات الـ webhook (<code>sent</code>، <code>delivered</code>، <code>read</code>، <code class="code-red">failed</code>) لتحديث تحليلات الحملة في الوقت الفعلي\n\n</li></ul>
 
 <p>\n</p>
 
@@ -402,9 +362,7 @@
           <span class="panel-title">Comparison</span>
         </div>
         <div class="panel-body">
-          <p><strong>Sequential Sending vs Batch Processing</strong></p>
-<ul><li style="margin-left:0px"><strong>Sequential (Looping):</strong> Sending one message at a time. Very slow, blocks the server thread, prone to timeouts.</li>
-<li style="margin-left:0px"><strong>Batch Processing (Async):</strong> Sending requests concurrently using Queues or asynchronous workers. Maximizes throughput.</li></ul>
+          <p><strong>Sequential Sending vs Batch Processing</strong></p><ul><li style="margin-left:8px"><strong>Sequential (Looping):</strong> Sending one message at a time. Very slow, blocks the server thread, prone to timeouts.</li><li style="margin-left:8px"><strong>Batch Processing (Async):</strong> Sending requests concurrently using Queues or asynchronous workers. Maximizes throughput.</li></ul>
         </div>
       </div>
     
@@ -459,9 +417,7 @@
           <span class="panel-title">مقارنة</span>
         </div>
         <div class="panel-body">
-          <p><strong>الإرسال المتسلسل مقابل المعالجة الدفعية (Batch)</strong></p>
-<ul><li style="margin-left:0px"><strong>المتسلسل (Sequential):</strong> إرسال رسالة تلو الأخرى. بطيء جداً، يعطل السيرفر، ومعرض لأخطاء الـ Timeout.</li>
-<li style="margin-left:0px"><strong>المعالجة الدفعية (Async):</strong> إرسال الطلبات بشكل متزامن باستخدام طوابير (Queues). يزيد من سرعة الإرسال لأقصى حد.</li></ul>
+          <p><strong>الإرسال المتسلسل مقابل المعالجة الدفعية (Batch)</strong></p><ul><li style="margin-left:8px"><strong>المتسلسل (Sequential):</strong> إرسال رسالة تلو الأخرى. بطيء جداً، يعطل السيرفر، ومعرض لأخطاء الـ Timeout.</li><li style="margin-left:8px"><strong>المعالجة الدفعية (Async):</strong> إرسال الطلبات بشكل متزامن باستخدام طوابير (Queues). يزيد من سرعة الإرسال لأقصى حد.</li></ul>
         </div>
       </div>
     

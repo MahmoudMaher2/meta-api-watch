@@ -44,7 +44,7 @@
       <div class="header-build-time" title="System Status: Up to date">
         <div class="build-pulse"></div>
         <span class="build-label">LAST BUILD</span>
-        <span class="build-value">Jun 26, 2026, 4:25 PM 🇪🇬</span>
+        <span class="build-value">Jun 28, 2026, 5:03 PM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
@@ -120,33 +120,31 @@
 
 <p>Flows v4 enables businesses to build multi-screen form experiences that run natively inside WhatsApp. Users answer questions, select options, and submit data — all without leaving the chat. For SEEN V2, this is directly relevant to lead capture, onboarding, and survey workflows in the Broadcasts module.</p>
 
-<h2 id="how-it-works">How It Works</h2>
-<ul><li style="margin-left:8px">Business sends a Flow message via the Messages API</li>
-<li style="margin-left:0px">WhatsApp renders the interactive screens on the user's device</li>
-<li style="margin-left:0px">User submits the form — a webhook payload arrives with the collected data</li>
-<li style="margin-left:0px">SEEN V2 maps the payload to a contact record or conversation</li></ul>
+<h2 id="how-it-works">How It Works</h2><ul><li style="margin-left:24px">Business sends a Flow message via the Messages API</li><li style="margin-left:8px">WhatsApp renders the interactive screens on the user's device</li><li style="margin-left:8px">User submits the form — a webhook payload arrives with the collected data</li><li style="margin-left:8px">SEEN V2 maps the payload to a contact record or conversation</li></ul>
 
 <h2 id="parameters-fields">Parameters & Fields</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>flow_id</code></td><td>string</td><td>Yes</td><td>Unique ID of the published Flow</td></tr><tr><td><code>flow_action</code></td><td>enum</td><td>Yes</td><td><code>navigate</code> or <code>data_exchange</code></td></tr><tr><td><code>flow_action_payload</code></td><td>object</td><td>No</td><td>Data passed to the flow on open</td></tr><tr><td><code>flow_token</code></td><td>string</td><td>No</td><td>Unique token per conversation for tracking</td></tr></tbody></table></div>
+<p>| Field | Type | Required | Description |</p>
+<p>|-------|------|----------|-------------|</p>
+<p>| <code>flow_id</code> | string | Yes | Unique ID of the published Flow |</p>
+<p>| <code>flow_action</code> | enum | Yes | <code>navigate</code> or <code>data_exchange</code> |</p>
+<p>| <code>flow_action_payload</code> | object | No | Data passed to the flow on open |</p>
+<p>| <code>flow_token</code> | string | No | Unique token per conversation for tracking |</p>
+
 <h2 id="validation-rules">Validation Rules</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Gets REJECTED</th><th><span class="icon-accept">✅</span> Gets ACCEPTED</th></tr></thead><tbody><tr><td>Flow status</td><td>Sending a <code>DRAFT</code> flow</td><td>Only <code>PUBLISHED</code> flows can be sent</td></tr><tr><td>flow_action value</td><td><code>"open"</code>, <code>"start"</code> (invalid)</td><td><code>"navigate"</code> or <code>"data_exchange"</code></td></tr><tr><td>flow_token length</td><td>More than 64 characters</td><td>64 chars or fewer, alphanumeric</td></tr></tbody></table></div>
+<p>| Rule | <span class="icon-reject">❌</span> Gets REJECTED | <span class="icon-accept">✅</span> Gets ACCEPTED |</p>
+<p>|------|-----------------|-----------------|</p>
+<p>| Flow status | Sending a <code>DRAFT</code> flow | Only <code>PUBLISHED</code> flows can be sent |</p>
+<p>| flow_action value | <code>"open"</code>, <code>"start"</code> (invalid) | <code>"navigate"</code> or <code>"data_exchange"</code> |</p>
+<p>| flow_token length | More than 64 characters | 64 chars or fewer, alphanumeric |</p>
+
 <h2 id="live-preview-what-it-looks-like">Live Preview — What It Looks Like</h2>
 
 <div class="preview-block preview-accepted"><span class="preview-label preview-label-ok">✅ Correct Usage — Live Preview</span>### ✅ Correct Usage
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">POST /v19.0/{PHONE_NUMBER_ID}/messages</p>
+<p>```json</p>
+<p>POST /v19.0/{PHONE_NUMBER_ID}/messages</p>
 
 <p>{</p>
 <p>  "messaging_product": "whatsapp",</p>
@@ -173,29 +171,15 @@
 <p>      }</p>
 <p>    }</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><strong>Why it works:</strong> Flow is <code>PUBLISHED</code>, <code>flow_action</code> is <code>navigate</code>, token is valid length, all required fields present.</p>
 
 <p></div><div class="preview-block preview-rejected"><span class="preview-label preview-label-err"><span class="icon-reject">❌</span> Common Mistake — What Goes Wrong</span>### <span class="icon-reject">❌</span> Common Mistake</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "action": {</p>
 <p>    "name": "flow",</p>
 <p>    "parameters": {</p>
@@ -204,32 +188,23 @@
 <p>      "flow_token": "this-token-is-way-too-long-and-exceeds-the-maximum-allowed-64-character-limit-xyz"</p>
 <p>    }</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><strong>Error:</strong> <code class="code-red">Error 100: Invalid parameter</code> — <code>flow_action</code> must be <code>navigate</code> or <code>data_exchange</code>, and <code>flow_token</code> exceeds 64 characters.</p>
 
 <h2 id="comparison-before-vs-after-this-feature">Comparison: Before vs After This Feature</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Aspect</th><th>Before This Feature</th><th>After This Feature</th></tr></thead><tbody><tr><td>Data collection</td><td>Redirect to external web form</td><td>Native in-chat form</td></tr><tr><td>Drop-off rate</td><td>High (leaves WhatsApp)</td><td>Low (stays in chat)</td></tr><tr><td>Webhook payload</td><td>Text message only</td><td>Structured JSON with all form fields</td></tr></tbody></table></div>
+<p>| Aspect | Before This Feature | After This Feature |</p>
+<p>|--------|--------------------|--------------------|</p>
+<p>| Data collection | Redirect to external web form | Native in-chat form |</p>
+<p>| Drop-off rate | High (leaves WhatsApp) | Low (stays in chat) |</p>
+<p>| Webhook payload | Text message only | Structured JSON with all form fields |</p>
+
 <h2 id="code-example-full-working-request">Code Example — Full Working Request</h2>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">POST /v19.0/{PHONE_NUMBER_ID}/messages</p>
+<p>```json</p>
+<p>POST /v19.0/{PHONE_NUMBER_ID}/messages</p>
 <p>Authorization: Bearer {ACCESS_TOKEN}</p>
 
 <p>{</p>
@@ -250,26 +225,21 @@
 <p>      }</p>
 <p>    }</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h2 id="seen-v2-impact-notes">SEEN V2 — Impact & Notes</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Module</th><th>Impact</th></tr></thead><tbody><tr><td>Broadcasts</td><td>Can send Flow messages as part of campaigns — use for lead forms</td></tr><tr><td>Webhooks</td><td>New <code>flow_completion</code> webhook event delivers submitted form data</td></tr><tr><td>Channel Integration/OAuth</td><td>Flow ID must be associated with the connected WABA</td></tr></tbody></table></div>
+<p>| Module | Impact |</p>
+<p>|--------|--------|</p>
+<p>| Broadcasts | Can send Flow messages as part of campaigns — use for lead forms |</p>
+<p>| Webhooks | New <code>flow_completion</code> webhook event delivers submitted form data |</p>
+<p>| Channel Integration/OAuth | Flow ID must be associated with the connected WABA |</p>
+
 <div class="callout callout-info"><strong>📋 Linked Changelog Article:</strong><p>This feature was detected on 2026-06-24.</p></div>
 <blockquote><p>See: [Changelog entry for 2026-06-24](https://developers.facebook.com/docs/whatsapp/flows)</p></blockquote>
 
-<h2 id="qa-checklist">QA Checklist</h2>
-<ul><li style="margin-left:8px">[ ] Verify Flow is in <code>PUBLISHED</code> state before sending</li>
-<li style="margin-left:0px">[ ] Test the <span class="icon-accept">✅</span> accepted example — confirm interactive message renders in WhatsApp</li>
-<li style="margin-left:0px">[ ] Test the <span class="icon-reject">❌</span> rejected example — confirm error 100 for invalid <code>flow_action</code></li>
-<li style="margin-left:0px">[ ] Verify webhook receives structured payload on flow completion</li>
-<li style="margin-left:0px">[ ] Test with <code>flow_token</code> exactly 64 chars — confirm it works\n\n</li></ul>
+<h2 id="qa-checklist">QA Checklist</h2><ul><li style="margin-left:24px">[ ] Verify Flow is in <code>PUBLISHED</code> state before sending</li><li style="margin-left:8px">[ ] Test the <span class="icon-accept">✅</span> accepted example — confirm interactive message renders in WhatsApp</li><li style="margin-left:8px">[ ] Test the <span class="icon-reject">❌</span> rejected example — confirm error 100 for invalid <code>flow_action</code></li><li style="margin-left:8px">[ ] Verify webhook receives structured payload on flow completion</li><li style="margin-left:8px">[ ] Test with <code>flow_token</code> exactly 64 chars — confirm it works\n\n</li></ul>
 
 <p>\n</p>
 
@@ -283,33 +253,31 @@
 
 <p>يمكّن Flows v4 الشركات من بناء تجارب نماذج متعددة الشاشات تعمل بشكل أصلي داخل WhatsApp. يجيب المستخدمون على الأسئلة، ويحددون الخيارات، ويرسلون البيانات — كل ذلك دون مغادرة المحادثة. بالنسبة إلى SEEN V2، يعد هذا ذا صلة مباشرة بجمع بيانات العملاء المحتملين، والإعداد، وسير عمل الاستبيانات في وحدة Broadcasts.</p>
 
-<h2 id="كيف-يعمل">كيف يعمل</h2>
-<ul><li style="margin-left:8px">ترسل الشركة رسالة Flow عبر واجهة برمجة التطبيقات Messages API</li>
-<li style="margin-left:0px">يعرض WhatsApp الشاشات التفاعلية على جهاز المستخدم</li>
-<li style="margin-left:0px">يرسل المستخدم النموذج — تصل حمولة webhook بالبيانات المجمعة</li>
-<li style="margin-left:0px">يقوم SEEN V2 بتعيين الحمولة إلى سجل جهة اتصال أو محادثة</li></ul>
+<h2 id="كيف-يعمل">كيف يعمل</h2><ul><li style="margin-left:24px">ترسل الشركة رسالة Flow عبر واجهة برمجة التطبيقات Messages API</li><li style="margin-left:8px">يعرض WhatsApp الشاشات التفاعلية على جهاز المستخدم</li><li style="margin-left:8px">يرسل المستخدم النموذج — تصل حمولة webhook بالبيانات المجمعة</li><li style="margin-left:8px">يقوم SEEN V2 بتعيين الحمولة إلى سجل جهة اتصال أو محادثة</li></ul>
 
 <h2 id="المعلمات-والحقول">المعلمات والحقول</h2>
 
-<div class="table-wrap"><table><thead><tr><th>الحقل</th><th>النوع</th><th>مطلوب</th><th>الوصف</th></tr></thead><tbody><tr><td><code>flow_id</code></td><td>string</td><td>نعم</td><td>المعرف الفريد للـ Flow المنشور</td></tr><tr><td><code>flow_action</code></td><td>enum</td><td>نعم</td><td><code>navigate</code> أو <code>data_exchange</code></td></tr><tr><td><code>flow_action_payload</code></td><td>object</td><td>لا</td><td>البيانات الممررة إلى الـ flow عند الفتح</td></tr><tr><td><code>flow_token</code></td><td>string</td><td>لا</td><td>رمز فريد لكل محادثة للتتبع</td></tr></tbody></table></div>
+<p>| الحقل | النوع | مطلوب | الوصف |</p>
+<p>|-------|------|----------|-------------|</p>
+<p>| <code>flow_id</code> | string | نعم | المعرف الفريد للـ Flow المنشور |</p>
+<p>| <code>flow_action</code> | enum | نعم | <code>navigate</code> أو <code>data_exchange</code> |</p>
+<p>| <code>flow_action_payload</code> | object | لا | البيانات الممررة إلى الـ flow عند الفتح |</p>
+<p>| <code>flow_token</code> | string | لا | رمز فريد لكل محادثة للتتبع |</p>
+
 <h2 id="قواعد-التحقق">قواعد التحقق</h2>
 
-<div class="table-wrap"><table><thead><tr><th>القاعدة</th><th><span class="icon-reject">❌</span> يُرفض</th><th><span class="icon-accept">✅</span> يُقبل</th></tr></thead><tbody><tr><td>حالة الـ Flow</td><td>إرسال flow بحالة <code>DRAFT</code></td><td>فقط الـ flows بحالة <code>PUBLISHED</code> يمكن إرسالها</td></tr><tr><td>قيمة flow_action</td><td><code>"open"</code>, <code>"start"</code> (غير صالحة)</td><td><code>"navigate"</code> أو <code>"data_exchange"</code></td></tr><tr><td>طول flow_token</td><td>أكثر من 64 حرفاً</td><td>64 حرفاً أو أقل، أبجدي رقمي</td></tr></tbody></table></div>
+<p>| القاعدة | <span class="icon-reject">❌</span> يُرفض | <span class="icon-accept">✅</span> يُقبل |</p>
+<p>|------|-----------------|-----------------|</p>
+<p>| حالة الـ Flow | إرسال flow بحالة <code>DRAFT</code> | فقط الـ flows بحالة <code>PUBLISHED</code> يمكن إرسالها |</p>
+<p>| قيمة flow_action | <code>"open"</code>, <code>"start"</code> (غير صالحة) | <code>"navigate"</code> أو <code>"data_exchange"</code> |</p>
+<p>| طول flow_token | أكثر من 64 حرفاً | 64 حرفاً أو أقل، أبجدي رقمي |</p>
+
 <h2 id="معاينة-حية-كيف-يبدو">معاينة حية — كيف يبدو</h2>
 
 <div class="preview-block preview-accepted"><span class="preview-label preview-label-ok">✅ Correct Usage — Live Preview</span>### ✅ الاستخدام الصحيح
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">POST /v19.0/{PHONE_NUMBER_ID}/messages</p>
+<p>```json</p>
+<p>POST /v19.0/{PHONE_NUMBER_ID}/messages</p>
 
 <p>{</p>
 <p>  "messaging_product": "whatsapp",</p>
@@ -336,29 +304,15 @@
 <p>      }</p>
 <p>    }</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><strong>لماذا ينجح هذا:</strong> الـ Flow في حالة <code>PUBLISHED</code>، و <code>flow_action</code> هي <code>navigate</code>، وطول الرمز صالح، وجميع الحقول المطلوبة موجودة.</p>
 
 <p></div><div class="preview-block preview-rejected"><span class="preview-label preview-label-err"><span class="icon-reject">❌</span> Common Mistake — What Goes Wrong</span>### <span class="icon-reject">❌</span> خطأ شائع</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>```json</p>
+<p>{</p>
 <p>  "action": {</p>
 <p>    "name": "flow",</p>
 <p>    "parameters": {</p>
@@ -367,32 +321,23 @@
 <p>      "flow_token": "this-token-is-way-too-long-and-exceeds-the-maximum-allowed-64-character-limit-xyz"</p>
 <p>    }</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><strong>الخطأ:</strong> <code class="code-red">Error 100: Invalid parameter</code> — يجب أن يكون <code>flow_action</code> إما <code>navigate</code> أو <code>data_exchange</code>، ويتجاوز <code>flow_token</code> 64 حرفاً.</p>
 
 <h2 id="مقارنة-قبل-وبعد-هذه-الميزة">مقارنة: قبل وبعد هذه الميزة</h2>
 
-<div class="table-wrap"><table><thead><tr><th>الجانب</th><th>قبل هذه الميزة</th><th>بعد هذه الميزة</th></tr></thead><tbody><tr><td>جمع البيانات</td><td>إعادة توجيه إلى نموذج ويب خارجي</td><td>نموذج أصلي داخل المحادثة</td></tr><tr><td>معدل الانسحاب</td><td>مرتفع (يغادر WhatsApp)</td><td>منخفض (يبقى في المحادثة)</td></tr><tr><td>حمولة webhook</td><td>رسالة نصية فقط</td><td>JSON منظم يحتوي على جميع حقول النموذج</td></tr></tbody></table></div>
+<p>| الجانب | قبل هذه الميزة | بعد هذه الميزة |</p>
+<p>|--------|--------------------|--------------------|</p>
+<p>| جمع البيانات | إعادة توجيه إلى نموذج ويب خارجي | نموذج أصلي داخل المحادثة |</p>
+<p>| معدل الانسحاب | مرتفع (يغادر WhatsApp) | منخفض (يبقى في المحادثة) |</p>
+<p>| حمولة webhook | رسالة نصية فقط | JSON منظم يحتوي على جميع حقول النموذج |</p>
+
 <h2 id="مثال-برمجي-طلب-كامل-يعمل">مثال برمجي — طلب كامل يعمل</h2>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">POST /v19.0/{PHONE_NUMBER_ID}/messages</p>
+<p>```json</p>
+<p>POST /v19.0/{PHONE_NUMBER_ID}/messages</p>
 <p>Authorization: Bearer {ACCESS_TOKEN}</p>
 
 <p>{</p>
@@ -413,26 +358,21 @@
 <p>      }</p>
 <p>    }</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h2 id="seen-v2-التأثير-والملاحظات">SEEN V2 — التأثير والملاحظات</h2>
 
-<div class="table-wrap"><table><thead><tr><th>الوحدة</th><th>التأثير</th></tr></thead><tbody><tr><td>Broadcasts</td><td>يمكن إرسال رسائل Flow كجزء من الحملات — استخدمها لنماذج العملاء المحتملين</td></tr><tr><td>Webhooks</td><td>حدث webhook جديد <code>flow_completion</code> يسلم بيانات النموذج المرسلة</td></tr><tr><td>Channel Integration/OAuth</td><td>يجب أن يكون معرف الـ Flow (Flow ID) مرتبطاً بحساب WABA المتصل</td></tr></tbody></table></div>
+<p>| الوحدة | التأثير |</p>
+<p>|--------|--------|</p>
+<p>| Broadcasts | يمكن إرسال رسائل Flow كجزء من الحملات — استخدمها لنماذج العملاء المحتملين |</p>
+<p>| Webhooks | حدث webhook جديد <code>flow_completion</code> يسلم بيانات النموذج المرسلة |</p>
+<p>| Channel Integration/OAuth | يجب أن يكون معرف الـ Flow (Flow ID) مرتبطاً بحساب WABA المتصل |</p>
+
 <div class="callout callout-info"><strong>📋 مقال سجل التغييرات المرتبط:</strong><p>تم اكتشاف هذه الميزة في 2026-06-24.</p></div>
 <blockquote><p>انظر: [إدخال سجل التغييرات لـ 2026-06-24](https://developers.facebook.com/docs/whatsapp/flows)</p></blockquote>
 
-<h2 id="قائمة-التحقق-من-الجودة-qa">قائمة التحقق من الجودة (QA)</h2>
-<ul><li style="margin-left:8px">[ ] تحقق من أن الـ Flow في حالة <code>PUBLISHED</code> قبل الإرسال</li>
-<li style="margin-left:0px">[ ] اختبر المثال المقبول <span class="icon-accept">✅</span> — تأكد من أن الرسالة التفاعلية تظهر في WhatsApp</li>
-<li style="margin-left:0px">[ ] اختبر المثال المرفوض <span class="icon-reject">❌</span> — تأكد من ظهور الخطأ 100 لـ <code>flow_action</code> غير الصالح</li>
-<li style="margin-left:0px">[ ] تحقق من أن webhook يستقبل حمولة منظمة عند اكتمال الـ flow</li>
-<li style="margin-left:0px">[ ] اختبر باستخدام <code>flow_token</code> من 64 حرفاً بالضبط — تأكد من أنه يعمل\n\n</li></ul>
+<h2 id="قائمة-التحقق-من-الجودة-qa">قائمة التحقق من الجودة (QA)</h2><ul><li style="margin-left:24px">[ ] تحقق من أن الـ Flow في حالة <code>PUBLISHED</code> قبل الإرسال</li><li style="margin-left:8px">[ ] اختبر المثال المقبول <span class="icon-accept">✅</span> — تأكد من أن الرسالة التفاعلية تظهر في WhatsApp</li><li style="margin-left:8px">[ ] اختبر المثال المرفوض <span class="icon-reject">❌</span> — تأكد من ظهور الخطأ 100 لـ <code>flow_action</code> غير الصالح</li><li style="margin-left:8px">[ ] تحقق من أن webhook يستقبل حمولة منظمة عند اكتمال الـ flow</li><li style="margin-left:8px">[ ] اختبر باستخدام <code>flow_token</code> من 64 حرفاً بالضبط — تأكد من أنه يعمل\n\n</li></ul>
 
 <p>\n</p>
 
@@ -454,9 +394,7 @@
           <span class="panel-title">Comparison</span>
         </div>
         <div class="panel-body">
-          <p><strong>Flows v3 vs Flows v4</strong></p>
-<ul><li style="margin-left:0px"><strong>Flows v3:</strong> Basic forms and static layouts. Routing required heavy backend logic.</li>
-<li style="margin-left:0px"><strong>Flows v4:</strong> Introduces declarative branching, client-side validation, and dynamic UI updates without endpoint calls.</li></ul>
+          <p><strong>Flows v3 vs Flows v4</strong></p><ul><li style="margin-left:8px"><strong>Flows v3:</strong> Basic forms and static layouts. Routing required heavy backend logic.</li><li style="margin-left:8px"><strong>Flows v4:</strong> Introduces declarative branching, client-side validation, and dynamic UI updates without endpoint calls.</li></ul>
         </div>
       </div>
     
@@ -511,9 +449,7 @@
           <span class="panel-title">مقارنة</span>
         </div>
         <div class="panel-body">
-          <p><strong>Flows v3 مقابل Flows v4</strong></p>
-<ul><li style="margin-left:0px"><strong>الإصدار الثالث (Flows v3):</strong> نماذج أساسية وتصميمات ثابتة. كان توجيه الشاشات يتطلب منطقاً معقداً من السيرفر.</li>
-<li style="margin-left:0px"><strong>الإصدار الرابع (Flows v4):</strong> يقدم التوجيه المشروط (Branching)، والتحقق من جانب العميل، وتحديث الواجهة دون الاتصال بالسيرفر.</li></ul>
+          <p><strong>Flows v3 مقابل Flows v4</strong></p><ul><li style="margin-left:8px"><strong>الإصدار الثالث (Flows v3):</strong> نماذج أساسية وتصميمات ثابتة. كان توجيه الشاشات يتطلب منطقاً معقداً من السيرفر.</li><li style="margin-left:8px"><strong>الإصدار الرابع (Flows v4):</strong> يقدم التوجيه المشروط (Branching)، والتحقق من جانب العميل، وتحديث الواجهة دون الاتصال بالسيرفر.</li></ul>
         </div>
       </div>
     

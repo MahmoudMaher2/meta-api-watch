@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>"WhatsApp Cloud API Calling: Voicemail & SIP Call Webhooks" — Meta Docs Learn</title>
+  <meta name="description" content="Learn "WhatsApp Cloud API Calling: Voicemail & SIP Call Webhooks" in whatsapp: validation rules, error codes, examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="../../index.html" class="header-logo" style="text-decoration: none;">
+      <span class="logo-icon">🔭</span>
+      <div class="logo-text">
+        <div class="site-title">Meta API Explain</div>
+        <div class="site-subtitle">SEEN V2 · Developer Hub</div>
+      </div>
+    </a>
+    
+    <nav class="header-nav">
+      <a href="../../changelog.html" class="nav-tab ">
+        <span class="nav-icon">🔔</span>
+        <span class="nav-text" data-en="Latest Updates" data-ar="آخر التحديثات">Latest Updates</span>
+      </a>
+      <a href="../../learn/index.html" class="nav-tab active">
+        <span class="nav-icon">📚</span>
+        <span class="nav-text" data-en="Learn" data-ar="تعلّم">Learn</span>
+      </a>
+    </nav>
+
+    <div class="header-actions">
+      <!-- Search Trigger -->
+      <button id="search-trigger" class="search-btn" title="Search documentation... (Ctrl+K)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span>Search</span>
+        <kbd>/</kbd>
+      </button>
+
+      <div class="header-build-time" title="System Status: Up to date">
+        <div class="build-pulse"></div>
+        <span class="build-label">LAST BUILD</span>
+        <span class="build-value">Jun 28, 2026, 5:03 PM 🇪🇬</span>
+      </div>
+      
+      <!-- Language Toggle -->
+      <button id="lang-toggle" class="lang-toggle" title="Toggle Language (AR/EN)">
+        <span class="lang-en">EN</span>
+        <span class="lang-sep">|</span>
+        <span class="lang-ar">عربي</span>
+      </button>
+      
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+
+
+  <div class="learn-layout has-panels">
+
+    <!-- Sidebar -->
+    <aside class="learn-sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label" data-en="On this page" data-ar="على هذه الصفحة">On this page</span>
+        
+    <div class="lang-en">
+      <ul class="toc-list"><li class="toc-top"><a href="#1-voicemail-generally-available-ga">1. Voicemail — Generally Available (GA)</a></li><li class="toc-sub"><a href="#what-you-can-configure">What You Can Configure</a></li><li class="toc-sub"><a href="#how-voicemails-arrive">How Voicemails Arrive</a></li><li class="toc-top"><a href="#2-sip-call-webhooks">2. SIP Call Webhooks</a></li><li class="toc-sub"><a href="#configuration">Configuration</a></li><li class="toc-sub"><a href="#events-delivered">Events Delivered</a></li><li class="toc-sub"><a href="#correlation-with-sip">Correlation with SIP</a></li></ul>
+    </div>
+    
+    <div class="lang-ar">
+      <ul class="toc-list"><li class="toc-top"><a href="#1-البريد-الصوتي-voicemail-متاح-الآن-بشكل-عام-ga">1. البريد الصوتي (Voicemail) — متاح الآن بشكل عام (GA)</a></li><li class="toc-sub"><a href="#ما-يمكن-تهيئته">ما يمكن تهيئته</a></li><li class="toc-sub"><a href="#كيف-تصل-رسائل-البريد-الصوتي">كيف تصل رسائل البريد الصوتي</a></li><li class="toc-top"><a href="#2-sip-call-webhooks">2. SIP Call Webhooks</a></li><li class="toc-sub"><a href="#الإعداد">الإعداد</a></li><li class="toc-sub"><a href="#الأحداث-المسلمة">الأحداث المُسلَّمة</a></li><li class="toc-sub"><a href="#الربط-مع-sip">الربط مع SIP</a></li></ul>
+    </div>
+  
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Source</span>
+        <a href="" target="_blank" rel="noopener" class="source-link">
+          📄 Meta Developer Docs ↗
+        </a>
+        
+      </div>
+      
+    </aside>
+
+    <!-- Main Content -->
+    <main class="learn-content" id="main-content">
+      <div class="topic-breadcrumb">
+        <a href="../index.html">Learn</a>
+        <span>›</span>
+        <span style="color:#a78bfa">whatsapp</span>
+        <span>›</span>
+        <span>"WhatsApp Cloud API Calling: Voicemail & SIP Call Webhooks"</span>
+      </div>
+
+      <div class="topic-hero">
+        <div class="topic-hero-badges">
+          <span class="platform-badge" style="background:#1a1a24;color:#a78bfa;border-color:#4c1d95">whatsapp</span>
+          
+        </div>
+        <h1 class="topic-title" data-en=""WhatsApp Cloud API Calling: Voicemail & SIP Call Webhooks"" data-ar=""WhatsApp Cloud API Calling: البريد الصوتي (Voicemail) وـ SIP Call Webhooks"">"WhatsApp Cloud API Calling: Voicemail & SIP Call Webhooks"</h1>
+        <p class="topic-meta"><span data-en=""whatsapp"" data-ar=""whatsapp"">"whatsapp"</span> · <span data-en="Last verified:" data-ar="آخر مراجعة:">Last verified:</span> N/A</p>
+      </div>
+
+      <div class="topic-body lang-en">
+        <h1>WhatsApp Cloud API Calling: Voicemail & SIP Webhooks 🆕</h1>
+
+<p>Two major updates landed for the <strong>WhatsApp Cloud API Calling</strong> feature in late June 2026.</p>
+
+<h2 id="1-voicemail-generally-available-ga">1. Voicemail — Generally Available (GA)</h2>
+
+<p><strong>Voicemail</strong> for WhatsApp Cloud API Calling is now fully live for all businesses. Callers who aren't answered can leave a voice message, which your system receives as a standard <strong>inbound audio message</strong> through the existing <code>messages</code> webhook.</p>
+
+<h3 id="what-you-can-configure">What You Can Configure</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Option</th><th>Description</th></tr></thead><tbody><tr><td><strong>Announcement media</strong></td><td>Play a custom audio message before the voicemail beep</td></tr><tr><td><strong>REJECT trigger</strong></td><td>Hang up the call instead of recording</td></tr><tr><td><strong>TIMEOUT trigger</strong></td><td>End the voicemail recording after a time limit</td></tr></tbody></table></div>
+<h3 id="how-voicemails-arrive">How Voicemails Arrive</h3>
+
+<p><!-- preview --></p>
+<p>Voicemails arrive via the <strong>existing <code>messages</code> webhook</strong> as inbound audio messages — no new webhook subscription is needed. The payload looks like a standard audio message from the user.</p>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> No new webhook to subscribe to — but your backend must distinguish voicemail audio from regular user voice messages based on call context.</p>
+
+<h2 id="2-sip-call-webhooks">2. SIP Call Webhooks</h2>
+
+<p>For businesses with <strong>SIP-enabled</strong> phone numbers, webhook delivery for call lifecycle events is now available.</p>
+
+<h3 id="configuration">Configuration</h3>
+
+<p>Enable webhook delivery via the <code>webhook_delivery</code> field in your SIP settings configuration.</p>
+
+<h3 id="events-delivered">Events Delivered</h3>
+
+<div class="table-wrap"><table><thead><tr><th>Event</th><th>Trigger</th></tr></thead><tbody><tr><td><code>call_created</code></td><td>A new SIP call is initiated</td></tr><tr><td><code>terminate</code></td><td>The SIP call ends</td></tr></tbody></table></div>
+<h3 id="correlation-with-sip">Correlation with SIP</h3>
+
+<p>The <code>call_created</code> webhook includes the <strong>WhatsApp Call ID (WACID)</strong>, which can be correlated with the <strong>SIP Call-ID header</strong> for end-to-end call tracing and debugging.</p>
+
+
+      </div>
+      <div class="topic-body lang-ar"><h1>WhatsApp Cloud API Calling: البريد الصوتي وـ SIP Webhooks 🆕</h1>
+
+<p>وصل تحديثان رئيسيان لميزة <strong>WhatsApp Cloud API Calling</strong> في أواخر يونيو 2026.</p>
+
+<h2 id="1-البريد-الصوتي-voicemail-متاح-الآن-بشكل-عام-ga">1. البريد الصوتي (Voicemail) — متاح الآن بشكل عام (GA)</h2>
+
+<p>أصبح <strong>البريد الصوتي</strong> لـ WhatsApp Cloud API Calling متاحاً لجميع الشركات. يمكن للمتصلين غير المجاب عليهم ترك رسالة صوتية، يستقبلها نظامك كـ <strong>رسالة صوتية واردة</strong> عبر webhook الحالي <code>messages</code>.</p>
+
+<h3 id="ما-يمكن-تهيئته">ما يمكن تهيئته</h3>
+
+<div class="table-wrap"><table><thead><tr><th>الخيار</th><th>الوصف</th></tr></thead><tbody><tr><td><strong>وسائط الإعلان (Announcement media)</strong></td><td>تشغيل رسالة صوتية مخصصة قبل بدء التسجيل</td></tr><tr><td><strong>مشغّل REJECT</strong></td><td>قطع المكالمة بدلاً من التسجيل</td></tr><tr><td><strong>مشغّل TIMEOUT</strong></td><td>إنهاء تسجيل البريد الصوتي بعد حدّ زمني</td></tr></tbody></table></div>
+<h3 id="كيف-تصل-رسائل-البريد-الصوتي">كيف تصل رسائل البريد الصوتي</h3>
+
+<p><!-- preview --></p>
+<p>تصل رسائل البريد الصوتي عبر <strong>webhook الحالي <code>messages</code></strong> كرسائل صوتية واردة — لا حاجة للاشتراك في webhook جديد. يبدو الـ payload كرسالة صوتية عادية من المستخدم.</p>
+
+<p><!-- preview --></p>
+<p><span class="icon-accept">✅</span> لا يلزم الاشتراك في webhook جديد — لكن يجب على الـ backend التمييز بين صوت البريد الصوتي ورسائل المستخدم الصوتية العادية بناءً على سياق المكالمة.</p>
+
+<h2 id="2-sip-call-webhooks">2. SIP Call Webhooks</h2>
+
+<p>للشركات التي تمتلك أرقام هواتف مفعّلة لـ <strong>SIP</strong>، أصبح تسليم Webhook لأحداث دورة حياة المكالمات متاحاً الآن.</p>
+
+<h3 id="الإعداد">الإعداد</h3>
+
+<p>فعّل تسليم Webhook عبر حقل <code>webhook_delivery</code> في إعدادات SIP الخاصة بك.</p>
+
+<h3 id="الأحداث-المسلمة">الأحداث المُسلَّمة</h3>
+
+<div class="table-wrap"><table><thead><tr><th>الحدث</th><th>متى يُرسَل</th></tr></thead><tbody><tr><td><code>call_created</code></td><td>عند بدء مكالمة SIP جديدة</td></tr><tr><td><code>terminate</code></td><td>عند انتهاء مكالمة SIP</td></tr></tbody></table></div>
+<h3 id="الربط-مع-sip">الربط مع SIP</h3>
+
+<p>يتضمن webhook <code>call_created</code> معرّف <strong>WhatsApp Call ID (WACID)</strong>، والذي يمكن ربطه بـ <strong>SIP Call-ID header</strong> لتتبع المكالمات من طرف إلى طرف وتصحيح الأخطاء.</p>
+
+</div>
+
+      <div class="topic-nav">
+        <a class="nav-prev" href="whatsapp-billing-pricing.html">← WhatsApp Billing & Pricing Model</a>
+        <a class="nav-next" href="whatsapp-flows-data-exchange.html">WhatsApp Flows Data Exchange Endpoint →</a>
+      </div>
+    </main>
+
+    <!-- Interactive Panels -->
+    
+    <div class="learn-right-sidebar">
+      <aside class="interactive-panel lang-en">
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">Comparison</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>Voicemail</strong></p>
+<ul><li style="margin-left:0px">Available to all businesses using Cloud API Calling</li>
+<li style="margin-left:0px">No new webhook subscription needed</li>
+<li style="margin-left:0px">Voicemails arrive as inbound audio in the <code>messages</code> webhook</li></ul>
+
+<p><strong>SIP Call Webhooks</strong></p>
+<ul><li style="margin-left:0px">Only for SIP-enabled phone numbers</li>
+<li style="margin-left:0px">Must enable <code>webhook_delivery</code> in SIP settings</li>
+<li style="margin-left:0px">Delivers <code>call_created</code> and <code>terminate</code> lifecycle events</li></ul>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">Test Your Knowledge</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_en_1_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:right">Question 1 of 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p>How are voicemails delivered in the WhatsApp Cloud API?</p></div>
+          <div class="mcq-options">
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] Via a new dedicated <code>voicemail</code> webhook field</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="correct" onclick="handleMcqClick(this)">
+              <span class="mcq-text">As inbound audio messages via the existing <code>messages</code> webhook field</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] Via a separate Voicemail API endpoint</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] Via email notification</span>
+            </label>
+          </div>
+        </div>
+      
+        </div>
+      </div>
+    </aside>
+      <aside class="interactive-panel lang-ar">
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">مقارنة</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>البريد الصوتي (Voicemail)</strong></p>
+<ul><li style="margin-left:0px">متاح لجميع الشركات التي تستخدم Cloud API Calling</li>
+<li style="margin-left:0px">لا حاجة للاشتراك في webhook جديد</li>
+<li style="margin-left:0px">يصل كرسالة صوتية واردة في webhook الحالي <code>messages</code></li></ul>
+
+<p><strong>SIP Call Webhooks</strong></p>
+<ul><li style="margin-left:0px">للأرقام المفعّلة لـ SIP فقط</li>
+<li style="margin-left:0px">يجب تفعيل <code>webhook_delivery</code> في إعدادات SIP</li>
+<li style="margin-left:0px">يُسلِّم أحداث دورة حياة <code>call_created</code> و<code>terminate</code></li></ul>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">اختبر فهمك</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_ar_1_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:left">السؤال 1 من 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p>كيف يتم تسليم رسائل البريد الصوتي في WhatsApp Cloud API؟</p></div>
+          <div class="mcq-options">
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] عبر حقل webhook مخصص جديد <code>voicemail</code></span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="correct" onclick="handleMcqClick(this)">
+              <span class="mcq-text">كرسائل صوتية واردة عبر حقل webhook الحالي <code>messages</code></span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] عبر نقطة نهاية Voicemail API منفصلة</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] عبر إشعار البريد الإلكتروني</span>
+            </label>
+          </div>
+        </div>
+      
+        </div>
+      </div>
+    </aside>
+    </div>
+    
+
+  </div>
+
+  <script>
+(function(){
+  var html=document.documentElement;
+  var theme=localStorage.getItem('maw-theme');
+  if(!theme){
+    theme=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
+  }
+  function applyTheme(t){
+    html.setAttribute('data-theme',t);
+    localStorage.setItem('maw-theme',t);
+  }
+  applyTheme(theme);
+  
+  var lang=localStorage.getItem('maw-lang')||'en';
+  function applyLang(l){
+    html.setAttribute('data-lang',l);
+    localStorage.setItem('maw-lang',l);
+  }
+  applyLang(lang);
+
+  function wireButtons(){
+    var thBtn=document.getElementById('theme-toggle');
+    if(thBtn) thBtn.addEventListener('click',function(){
+      applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+    });
+    var lgBtn=document.getElementById('lang-toggle');
+    if(lgBtn) lgBtn.addEventListener('click',function(){
+      applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
+    });
+    
+  }
+
+  // Global handler for interactive MCQ quizzes
+  window.handleMcqClick = function(radio) {
+    var container = radio.closest('.mcq-options');
+    var labels = container.querySelectorAll('.mcq-option');
+    var widget = radio.closest('.mcq-widget');
+    var progressFill = widget.querySelector('.mcq-progress-bar-fill');
+    var progressPct = widget.querySelector('.mcq-pct');
+    
+    // Lock all inputs & show correct/wrong
+    labels.forEach(function(l) {
+      var inp = l.querySelector('input');
+      inp.disabled = true;
+      if (inp.value === 'correct') {
+        l.classList.add('correct');
+      } else if (inp === radio && inp.value === 'wrong') {
+        l.classList.add('wrong');
+      }
+    });
+    
+    // Update progress bar
+    if(progressFill) progressFill.style.width = '100%';
+    if(progressPct) progressPct.innerText = '100%';
+  };
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',wireButtons);
+  } else {
+    wireButtons();
+  }
+})();
+</script>
+<script>var _SEARCH_BASE_='../../';</script>
+<script src="../../search.js"></script>
+<!-- Syntax Highlighting (PrismJS) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+
+</body>
+</html>

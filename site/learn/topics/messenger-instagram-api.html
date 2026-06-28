@@ -44,7 +44,7 @@
       <div class="header-build-time" title="System Status: Up to date">
         <div class="build-pulse"></div>
         <span class="build-label">LAST BUILD</span>
-        <span class="build-value">Jun 26, 2026, 4:25 PM 🇪🇬</span>
+        <span class="build-value">Jun 28, 2026, 5:03 PM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
@@ -118,31 +118,31 @@
 
 <h2 id="the-24-hour-messaging-window">The 24-Hour Messaging Window</h2>
 
-<p>When a user sends a message to your Facebook Page or Instagram Professional Account, a 24-hour timer starts.</p>
-<ul><li style="margin-left:8px"><strong>Within 24 hours:</strong> You can send standard messages, media, and interactive elements (like generic templates) for free.</li>
-<li style="margin-left:0px"><strong>After 24 hours:</strong> You can <strong>only</strong> send messages if they qualify for specific Message Tags (e.g., <code>CONFIRMED_EVENT_UPDATE</code>, <code>POST_PURCHASE_UPDATE</code>, <code>ACCOUNT_UPDATE</code>). Promotional messages outside the 24-hour window are strictly prohibited unless sent as Sponsored Messages (Ads).</li></ul>
+<p>When a user sends a message to your Facebook Page or Instagram Professional Account, a 24-hour timer starts.</p><ul><li style="margin-left:24px"><strong>Within 24 hours:</strong> You can send standard messages, media, and interactive elements (like generic templates) for free.</li><li style="margin-left:8px"><strong>After 24 hours:</strong> You can <strong>only</strong> send messages if they qualify for specific Message Tags (e.g., <code>CONFIRMED_EVENT_UPDATE</code>, <code>POST_PURCHASE_UPDATE</code>, <code>ACCOUNT_UPDATE</code>). Promotional messages outside the 24-hour window are strictly prohibited unless sent as Sponsored Messages (Ads).</li></ul>
 
 <h2 id="shared-features-messenger-instagram">Shared Features (Messenger & Instagram)</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Feature</th><th>Messenger</th><th>Instagram</th><th>Description</th></tr></thead><tbody><tr><td><strong>Text & Media</strong></td><td><span class="icon-accept">✅</span></td><td><span class="icon-accept">✅</span></td><td>Standard text, images, audio, video, files.</td></tr><tr><td><strong>Ice Breakers</strong></td><td><span class="icon-accept">✅</span></td><td><span class="icon-accept">✅</span></td><td>Quick-tap FAQs shown when a user first opens the chat.</td></tr><tr><td><strong>Generic Template</strong></td><td><span class="icon-accept">✅</span></td><td><span class="icon-accept">✅</span></td><td>A horizontal scrollable carousel of cards (image, title, subtitle, buttons).</td></tr><tr><td><strong>Quick Replies</strong></td><td><span class="icon-accept">✅</span></td><td><span class="icon-accept">✅</span></td><td>Up to 13 buttons (Messenger) or 13 buttons (Instagram) that disappear after tapping.</td></tr></tbody></table></div>
+<p>| Feature | Messenger | Instagram | Description |</p>
+<p>|---------|-----------|-----------|-------------|</p>
+<p>| <strong>Text & Media</strong> | <span class="icon-accept">✅</span> | <span class="icon-accept">✅</span> | Standard text, images, audio, video, files. |</p>
+<p>| <strong>Ice Breakers</strong> | <span class="icon-accept">✅</span> | <span class="icon-accept">✅</span> | Quick-tap FAQs shown when a user first opens the chat. |</p>
+<p>| <strong>Generic Template</strong> | <span class="icon-accept">✅</span> | <span class="icon-accept">✅</span> | A horizontal scrollable carousel of cards (image, title, subtitle, buttons). |</p>
+<p>| <strong>Quick Replies</strong> | <span class="icon-accept">✅</span> | <span class="icon-accept">✅</span> | Up to 13 buttons (Messenger) or 13 buttons (Instagram) that disappear after tapping. |</p>
+
 <h2 id="instagram-specific-features">Instagram-Specific Features</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Feature</th><th>Description</th><th>SEEN V2 Use Case</th></tr></thead><tbody><tr><td><strong>Story Mentions</strong></td><td>Triggers a webhook when a user @mentions the brand in their Story.</td><td>Auto-reply to mentions thanking the user and sending a discount code.</td></tr><tr><td><strong>Story Replies</strong></td><td>Triggers a webhook when a user replies to the brand's Story.</td><td>Capture leads based on specific Story content.</td></tr><tr><td><strong>Product Templates</strong></td><td>Send Instagram Shop products natively in chat.</td><td>abandoned cart recovery within the 24-hour window.</td></tr></tbody></table></div>
+<p>| Feature | Description | SEEN V2 Use Case |</p>
+<p>|---------|-------------|------------------|</p>
+<p>| <strong>Story Mentions</strong> | Triggers a webhook when a user @mentions the brand in their Story. | Auto-reply to mentions thanking the user and sending a discount code. |</p>
+<p>| <strong>Story Replies</strong> | Triggers a webhook when a user replies to the brand's Story. | Capture leads based on specific Story content. |</p>
+<p>| <strong>Product Templates</strong> | Send Instagram Shop products natively in chat. | abandoned cart recovery within the 24-hour window. |</p>
+
 <h2 id="parameters-fields-sending-a-generic-template">Parameters & Fields (Sending a Generic Template)</h2>
 
 <p>The Generic Template (Carousel) is the most common rich UI element across both platforms.</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">POST /v19.0/{PAGE_ID}/messages</p>
+<p>```json</p>
+<p>POST /v19.0/{PAGE_ID}/messages</p>
 <p>Authorization: Bearer {PAGE_ACCESS_TOKEN}</p>
 
 <p>{</p>
@@ -181,27 +181,25 @@
 <p>      }</p>
 <p>    }</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h2 id="validation-rules">Validation Rules</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Rule</th><th><span class="icon-reject">❌</span> Gets REJECTED</th><th><span class="icon-accept">✅</span> Gets ACCEPTED</th></tr></thead><tbody><tr><td>Carousel Cards</td><td>11+ elements</td><td>Up to 10 elements</td></tr><tr><td>Quick Replies</td><td>14+ quick replies</td><td>Up to 13 quick replies</td></tr><tr><td>Outside 24h Window</td><td>Standard message with no tag</td><td>Message with valid <code>message_tag</code></td></tr><tr><td>IG Story Mention</td><td>Replying 8 days later</td><td>Replying within 7 days</td></tr></tbody></table></div>
+<p>| Rule | <span class="icon-reject">❌</span> Gets REJECTED | <span class="icon-accept">✅</span> Gets ACCEPTED |</p>
+<p>|------|-----------------|-----------------|</p>
+<p>| Carousel Cards | 11+ elements | Up to 10 elements |</p>
+<p>| Quick Replies | 14+ quick replies | Up to 13 quick replies |</p>
+<p>| Outside 24h Window | Standard message with no tag | Message with valid <code>message_tag</code> |</p>
+<p>| IG Story Mention | Replying 8 days later | Replying within 7 days |</p>
+
 <h2 id="webhooks">Webhooks</h2>
 
 <p>Messenger and Instagram webhooks share the exact same format and are delivered to the same endpoint.</p>
 
 <p><strong>Crucial SEEN V2 Note:</strong> Because the payloads look identical, you must check the <code>messaging.message.is_echo</code> flag to ignore messages the bot itself sent, and look for <code>standby</code> vs <code>messaging</code> events if using the Handover Protocol (passing control between Bot and Human agent).</p>
 
-<h2 id="qa-checklist">QA Checklist</h2>
-<ul><li style="margin-left:8px">[ ] Ensure SEEN V2 tracks the 24-hour window timer for every active conversation per user (PSID/IGSID).</li>
-<li style="margin-left:0px">[ ] Prevent agents or automated broadcasts from sending untagged messages after 24 hours.</li>
-<li style="margin-left:0px">[ ] Implement support for Instagram Story Mention webhook payloads natively in the Flow Builder.\n\n</li></ul>
+<h2 id="qa-checklist">QA Checklist</h2><ul><li style="margin-left:24px">[ ] Ensure SEEN V2 tracks the 24-hour window timer for every active conversation per user (PSID/IGSID).</li><li style="margin-left:8px">[ ] Prevent agents or automated broadcasts from sending untagged messages after 24 hours.</li><li style="margin-left:8px">[ ] Implement support for Instagram Story Mention webhook payloads natively in the Flow Builder.\n\n</li></ul>
 
 <p>\n</p>
 
@@ -213,31 +211,31 @@
 
 <h2 id="نافذة-المراسلة-لمدة-24-ساعة">نافذة المراسلة لمدة 24 ساعة</h2>
 
-<p>عندما يرسل مستخدم رسالة إلى صفحتك على Facebook أو حسابك الاحترافي على Instagram، يبدأ مؤقت مدته 24 ساعة.</p>
-<ul><li style="margin-left:8px"><strong>خلال 24 ساعة:</strong> يمكنك إرسال رسائل قياسية ووسائط وعناصر تفاعلية (مثل القوالب العامة) مجاناً.</li>
-<li style="margin-left:0px"><strong>بعد 24 ساعة:</strong> يمكنك <strong>فقط</strong> إرسال الرسائل إذا كانت مؤهلة لعلامات رسائل محددة (على سبيل المثال، <code>CONFIRMED_EVENT_UPDATE</code>، <code>POST_PURCHASE_UPDATE</code>، <code>ACCOUNT_UPDATE</code>). تُحظر الرسائل الترويجية خارج نافذة الـ 24 ساعة منعاً باتاً ما لم يتم إرسالها كرسائل ممولة (إعلانات).</li></ul>
+<p>عندما يرسل مستخدم رسالة إلى صفحتك على Facebook أو حسابك الاحترافي على Instagram، يبدأ مؤقت مدته 24 ساعة.</p><ul><li style="margin-left:24px"><strong>خلال 24 ساعة:</strong> يمكنك إرسال رسائل قياسية ووسائط وعناصر تفاعلية (مثل القوالب العامة) مجاناً.</li><li style="margin-left:8px"><strong>بعد 24 ساعة:</strong> يمكنك <strong>فقط</strong> إرسال الرسائل إذا كانت مؤهلة لعلامات رسائل محددة (على سبيل المثال، <code>CONFIRMED_EVENT_UPDATE</code>، <code>POST_PURCHASE_UPDATE</code>، <code>ACCOUNT_UPDATE</code>). تُحظر الرسائل الترويجية خارج نافذة الـ 24 ساعة منعاً باتاً ما لم يتم إرسالها كرسائل ممولة (إعلانات).</li></ul>
 
 <h2 id="الميزات-المشتركة-messenger-و-instagram">الميزات المشتركة (Messenger و Instagram)</h2>
 
-<div class="table-wrap"><table><thead><tr><th>الميزة</th><th>Messenger</th><th>Instagram</th><th>الوصف</th></tr></thead><tbody><tr><td><strong>النص والوسائط</strong></td><td><span class="icon-accept">✅</span></td><td><span class="icon-accept">✅</span></td><td>النصوص القياسية والصور والصوت والفيديو والملفات.</td></tr><tr><td><strong>كاسرات الجليد</strong></td><td><span class="icon-accept">✅</span></td><td><span class="icon-accept">✅</span></td><td>أسئلة شائعة يمكن النقر عليها سريعاً تظهر عندما يفتح المستخدم الدردشة لأول مرة.</td></tr><tr><td><strong>القالب العام</strong></td><td><span class="icon-accept">✅</span></td><td><span class="icon-accept">✅</span></td><td>مجموعة بطاقات قابلة للتمرير أفقياً (صورة، عنوان، عنوان فرعي، أزرار).</td></tr><tr><td><strong>الردود السريعة</strong></td><td><span class="icon-accept">✅</span></td><td><span class="icon-accept">✅</span></td><td>ما يصل إلى 13 زراً (Messenger) أو 13 زراً (Instagram) تختفي بعد النقر عليها.</td></tr></tbody></table></div>
+<p>| الميزة | Messenger | Instagram | الوصف |</p>
+<p>|---------|-----------|-----------|-------------|</p>
+<p>| <strong>النص والوسائط</strong> | <span class="icon-accept">✅</span> | <span class="icon-accept">✅</span> | النصوص القياسية والصور والصوت والفيديو والملفات. |</p>
+<p>| <strong>كاسرات الجليد</strong> | <span class="icon-accept">✅</span> | <span class="icon-accept">✅</span> | أسئلة شائعة يمكن النقر عليها سريعاً تظهر عندما يفتح المستخدم الدردشة لأول مرة. |</p>
+<p>| <strong>القالب العام</strong> | <span class="icon-accept">✅</span> | <span class="icon-accept">✅</span> | مجموعة بطاقات قابلة للتمرير أفقياً (صورة، عنوان، عنوان فرعي، أزرار). |</p>
+<p>| <strong>الردود السريعة</strong> | <span class="icon-accept">✅</span> | <span class="icon-accept">✅</span> | ما يصل إلى 13 زراً (Messenger) أو 13 زراً (Instagram) تختفي بعد النقر عليها. |</p>
+
 <h2 id="الميزات-الخاصة-بـ-instagram">الميزات الخاصة بـ Instagram</h2>
 
-<div class="table-wrap"><table><thead><tr><th>الميزة</th><th>الوصف</th><th>حالة الاستخدام في SEEN V2</th></tr></thead><tbody><tr><td><strong>إشارات القصة</strong></td><td>يُشغّل خطاف ويب (webhook) عندما يقوم مستخدم بعمل إشارة (@mention) للعلامة التجارية في قصته.</td><td>الرد التلقائي على الإشارات بشكر المستخدم وإرسال كود خصم.</td></tr><tr><td><strong>ردود القصة</strong></td><td>يُشغّل خطاف ويب (webhook) عندما يرد مستخدم على قصة العلامة التجارية.</td><td>التقاط العملاء المحتملين بناءً على محتوى قصة محدد.</td></tr><tr><td><strong>قوالب المنتجات</strong></td><td>إرسال منتجات متجر Instagram بشكل أصلي داخل الدردشة.</td><td>استعادة سلة التسوق المتروكة خلال نافذة الـ 24 ساعة.</td></tr></tbody></table></div>
+<p>| الميزة | الوصف | حالة الاستخدام في SEEN V2 |</p>
+<p>|---------|-------------|------------------|</p>
+<p>| <strong>إشارات القصة</strong> | يُشغّل خطاف ويب (webhook) عندما يقوم مستخدم بعمل إشارة (@mention) للعلامة التجارية في قصته. | الرد التلقائي على الإشارات بشكر المستخدم وإرسال كود خصم. |</p>
+<p>| <strong>ردود القصة</strong> | يُشغّل خطاف ويب (webhook) عندما يرد مستخدم على قصة العلامة التجارية. | التقاط العملاء المحتملين بناءً على محتوى قصة محدد. |</p>
+<p>| <strong>قوالب المنتجات</strong> | إرسال منتجات متجر Instagram بشكل أصلي داخل الدردشة. | استعادة سلة التسوق المتروكة خلال نافذة الـ 24 ساعة. |</p>
+
 <h2 id="المعلمات-والحقول-إرسال-قالب-عام">المعلمات والحقول (إرسال قالب عام)</h2>
 
 <p>القالب العام (العنصر الدوار) هو عنصر واجهة المستخدم الغني الأكثر شيوعاً عبر كلتا المنصتين.</p>
 
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">POST /v19.0/{PAGE_ID}/messages</p>
+<p>```json</p>
+<p>POST /v19.0/{PAGE_ID}/messages</p>
 <p>Authorization: Bearer {PAGE_ACCESS_TOKEN}</p>
 
 <p>{</p>
@@ -276,27 +274,25 @@
 <p>      }</p>
 <p>    }</p>
 <p>  }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <h2 id="قواعد-التحقق">قواعد التحقق</h2>
 
-<div class="table-wrap"><table><thead><tr><th>القاعدة</th><th><span class="icon-reject">❌</span> يتم الرفض</th><th><span class="icon-accept">✅</span> يتم القبول</th></tr></thead><tbody><tr><td>بطاقات العنصر الدوار</td><td>11 عنصر أو أكثر</td><td>ما يصل إلى 10 عناصر</td></tr><tr><td>الردود السريعة</td><td>14 رد سريع أو أكثر</td><td>ما يصل إلى 13 رداً سريعاً</td></tr><tr><td>خارج نافذة الـ 24 ساعة</td><td>رسالة قياسية بدون علامة</td><td>رسالة بعلامة <code>message_tag</code> صالحة</td></tr><tr><td>إشارة قصة Instagram</td><td>الرد بعد 8 أيام</td><td>الرد خلال 7 أيام</td></tr></tbody></table></div>
+<p>| القاعدة | <span class="icon-reject">❌</span> يتم الرفض | <span class="icon-accept">✅</span> يتم القبول |</p>
+<p>|------|-----------------|-----------------|</p>
+<p>| بطاقات العنصر الدوار | 11 عنصر أو أكثر | ما يصل إلى 10 عناصر |</p>
+<p>| الردود السريعة | 14 رد سريع أو أكثر | ما يصل إلى 13 رداً سريعاً |</p>
+<p>| خارج نافذة الـ 24 ساعة | رسالة قياسية بدون علامة | رسالة بعلامة <code>message_tag</code> صالحة |</p>
+<p>| إشارة قصة Instagram | الرد بعد 8 أيام | الرد خلال 7 أيام |</p>
+
 <h2 id="خطافات-الويب-webhooks">خطافات الويب (Webhooks)</h2>
 
 <p>تتشارك خطافات الويب لكل من Messenger و Instagram في نفس التنسيق تماماً ويتم تسليمها إلى نفس نقطة النهاية.</p>
 
 <p><strong>ملاحظة هامة في SEEN V2:</strong> نظراً لأن الحمولات تبدو متطابقة، يجب عليك التحقق من علامة <code>messaging.message.is_echo</code> لتجاهل الرسائل التي أرسلها الروبوت نفسه، والبحث عن أحداث <code>standby</code> مقابل أحداث <code>messaging</code> إذا كنت تستخدم بروتوكول التسليم (تمرير التحكم بين الروبوت والوكيل البشري).</p>
 
-<h2 id="قائمة-التحقق-لضمان-الجودة">قائمة التحقق لضمان الجودة</h2>
-<ul><li style="margin-left:8px">[ ] تأكد من أن SEEN V2 يتتبع مؤقت نافذة الـ 24 ساعة لكل محادثة نشطة لكل مستخدم (PSID/IGSID).</li>
-<li style="margin-left:0px">[ ] منع الوكلاء أو البث الآلي من إرسال رسائل غير مميزة بعلامات بعد مرور 24 ساعة.</li>
-<li style="margin-left:0px">[ ] تنفيذ الدعم لحمولات خطاف الويب الخاصة بإشارة قصة Instagram بشكل أصلي في منشئ التدفق (Flow Builder).\n\n</li></ul>
+<h2 id="قائمة-التحقق-لضمان-الجودة">قائمة التحقق لضمان الجودة</h2><ul><li style="margin-left:24px">[ ] تأكد من أن SEEN V2 يتتبع مؤقت نافذة الـ 24 ساعة لكل محادثة نشطة لكل مستخدم (PSID/IGSID).</li><li style="margin-left:8px">[ ] منع الوكلاء أو البث الآلي من إرسال رسائل غير مميزة بعلامات بعد مرور 24 ساعة.</li><li style="margin-left:8px">[ ] تنفيذ الدعم لحمولات خطاف الويب الخاصة بإشارة قصة Instagram بشكل أصلي في منشئ التدفق (Flow Builder).\n\n</li></ul>
 
 <p>\n</p>
 
@@ -318,9 +314,7 @@
           <span class="panel-title">Comparison</span>
         </div>
         <div class="panel-body">
-          <p><strong>Messenger API vs Instagram Messaging API</strong></p>
-<ul><li style="margin-left:0px"><strong>Messenger API:</strong> Uses Facebook Page ID. Supports features like generic templates, receipts, and persistent menu.</li>
-<li style="margin-left:0px"><strong>Instagram Messaging API:</strong> Uses IG Professional Account ID. Supports story replies, ice breakers, and product templates.</li></ul>
+          <p><strong>Messenger API vs Instagram Messaging API</strong></p><ul><li style="margin-left:8px"><strong>Messenger API:</strong> Uses Facebook Page ID. Supports features like generic templates, receipts, and persistent menu.</li><li style="margin-left:8px"><strong>Instagram Messaging API:</strong> Uses IG Professional Account ID. Supports story replies, ice breakers, and product templates.</li></ul>
         </div>
       </div>
     
@@ -375,9 +369,7 @@
           <span class="panel-title">مقارنة</span>
         </div>
         <div class="panel-body">
-          <p><strong>واجهة ماسنجر مقابل واجهة إنستغرام</strong></p>
-<ul><li style="margin-left:0px"><strong>Messenger API:</strong> تستخدم معرّف صفحة فيسبوك. تدعم قوالب الإيصالات، والقوائم الثابتة (Persistent Menu).</li>
-<li style="margin-left:0px"><strong>Instagram Messaging API:</strong> تستخدم معرّف حساب IG الاحترافي. تدعم الردود على القصص، وكسر الجليد، وقوالب المنتجات.</li></ul>
+          <p><strong>واجهة ماسنجر مقابل واجهة إنستغرام</strong></p><ul><li style="margin-left:8px"><strong>Messenger API:</strong> تستخدم معرّف صفحة فيسبوك. تدعم قوالب الإيصالات، والقوائم الثابتة (Persistent Menu).</li><li style="margin-left:8px"><strong>Instagram Messaging API:</strong> تستخدم معرّف حساب IG الاحترافي. تدعم الردود على القصص، وكسر الجليد، وقوالب المنتجات.</li></ul>
         </div>
       </div>
     
