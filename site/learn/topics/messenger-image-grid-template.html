@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>"Messenger Platform: Image Grid Template" — Meta Docs Learn</title>
+  <meta name="description" content="Learn "Messenger Platform: Image Grid Template" in messenger: validation rules, error codes, examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="../../index.html" class="header-logo" style="text-decoration: none;">
+      <span class="logo-icon">🔭</span>
+      <div class="logo-text">
+        <div class="site-title">Meta API Explain</div>
+        <div class="site-subtitle">SEEN V2 · Developer Hub</div>
+      </div>
+    </a>
+    
+    <nav class="header-nav">
+      <a href="../../changelog.html" class="nav-tab ">
+        <span class="nav-icon">🔔</span>
+        <span class="nav-text" data-en="Latest Updates" data-ar="آخر التحديثات">Latest Updates</span>
+      </a>
+      <a href="../../learn/index.html" class="nav-tab active">
+        <span class="nav-icon">📚</span>
+        <span class="nav-text" data-en="Learn" data-ar="تعلّم">Learn</span>
+      </a>
+    </nav>
+
+    <div class="header-actions">
+      <!-- Search Trigger -->
+      <button id="search-trigger" class="search-btn" title="Search documentation... (Ctrl+K)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span>Search</span>
+        <kbd>/</kbd>
+      </button>
+
+      <div class="header-build-time" title="System Status: Up to date">
+        <div class="build-pulse"></div>
+        <span class="build-label">LAST BUILD</span>
+        <span class="build-value">Jul 16, 2026, 11:46 AM 🇪🇬</span>
+      </div>
+      
+      <!-- Language Toggle -->
+      <button id="lang-toggle" class="lang-toggle" title="Toggle Language (AR/EN)">
+        <span class="lang-en">EN</span>
+        <span class="lang-sep">|</span>
+        <span class="lang-ar">عربي</span>
+      </button>
+      
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+
+
+  <div class="learn-layout has-panels">
+
+    <!-- Sidebar -->
+    <aside class="learn-sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label" data-en="On this page" data-ar="على هذه الصفحة">On this page</span>
+        
+    <div class="lang-en">
+      <ul class="toc-list"><li class="toc-top"><a href="#key-features">Key Features</a></li><li class="toc-top"><a href="#sending-an-image-grid">Sending an Image Grid</a></li><li class="toc-top"><a href="#tap-action-behaviors">Tap Action Behaviors</a></li><li class="toc-top"><a href="#quick-quiz">Quick Quiz</a></li></ul>
+    </div>
+    
+    <div class="lang-ar">
+      <ul class="toc-list"><li class="toc-top"><a href="#الميزات-الأساسية">الميزات الأساسية</a></li><li class="toc-top"><a href="#إرسال-شبكة-صور">إرسال شبكة صور</a></li><li class="toc-top"><a href="#مقارنة-بين-إجراءات-النقر">مقارنة بين إجراءات النقر</a></li><li class="toc-top"><a href="#اختبار-سريع">اختبار سريع</a></li></ul>
+    </div>
+  
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Source</span>
+        <a href="" target="_blank" rel="noopener" class="source-link">
+          📄 Meta Developer Docs ↗
+        </a>
+        
+      </div>
+      
+    </aside>
+
+    <!-- Main Content -->
+    <main class="learn-content" id="main-content">
+      <div class="topic-breadcrumb">
+        <a href="../index.html">Learn</a>
+        <span>›</span>
+        <span style="color:#a78bfa">messenger</span>
+        <span>›</span>
+        <span>"Messenger Platform: Image Grid Template"</span>
+      </div>
+
+      <div class="topic-hero">
+        <div class="topic-hero-badges">
+          <span class="platform-badge" style="background:#1a1a24;color:#a78bfa;border-color:#4c1d95">messenger</span>
+          
+        </div>
+        <h1 class="topic-title" data-en=""Messenger Platform: Image Grid Template"" data-ar=""قالب شبكة الصور (Image Grid Template) لمنصة Messenger"">"Messenger Platform: Image Grid Template"</h1>
+        <p class="topic-meta"><span data-en=""messenger"" data-ar=""messenger"">"messenger"</span> · <span data-en="Last verified:" data-ar="آخر مراجعة:">Last verified:</span> N/A</p>
+      </div>
+
+      <div class="topic-body lang-en">
+        <h1>Messenger Platform: Image Grid Template 🆕</h1>
+
+<p>Meta launched the <strong>Image Grid template</strong> for the Messenger Platform on June 30, 2026. This new message template type allows businesses to send between 2 and 6 images arranged in a clean grid layout inside a single message bubble.</p>
+
+<hr>
+
+<h2 id="key-features">Key Features</h2>
+<ul><li style="margin-left:8px"><strong>Multi-Image Presentation:</strong> Send 2 to 6 images together in a single message.</li>
+<li style="margin-left:0px"><strong>Custom Tap Actions:</strong> Each image in the grid can support its own default action:</li>
+<li style="margin-left:16px"><code>web_url</code>: Opens a specific URL when tapped.</li>
+<li style="margin-left:16px"><code>postback</code>: Sends a developer-defined postback payload to your webhook.</li>
+<li style="margin-left:0px"><strong>Bottom Call-to-Action:</strong> You can specify an optional title, subtitle, and up to three buttons below the image grid.</li></ul>
+
+<hr>
+
+<h2 id="sending-an-image-grid">Sending an Image Grid</h2>
+
+<p>Use the Send Messages API with the following structure:</p>
+
+<p><!-- preview --></p>
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>  "recipient": { "id": "&lt;PSID&gt;" },</p>
+<p>  "message": {</p>
+<p>    "attachment": {</p>
+<p>      "type": "template",</p>
+<p>      "payload": {</p>
+<p>        "template_type": "image_grid",</p>
+<p>        "elements": [</p>
+<p>          {</p>
+<p>            "image_url": "https://example.com/img1.jpg",</p>
+<p>            "default_action": {</p>
+<p>              "type": "web_url",</p>
+<p>              "url": "https://example.com/detail1"</p>
+<p>            }</p>
+<p>          },</p>
+<p>          {</p>
+<p>            "image_url": "https://example.com/img2.jpg",</p>
+<p>            "default_action": {</p>
+<p>              "type": "postback",</p>
+<p>              "payload": "GRID_IMAGE_2_CLICKED"</p>
+<p>            }</p>
+<p>          }</p>
+<p>        ],</p>
+<p>        "title": "Stunning Grid Layout",</p>
+<p>        "subtitle": "Discover our collection",</p>
+<p>        "buttons": [</p>
+<p>          {</p>
+<p>            "type": "postback",</p>
+<p>            "title": "View All",</p>
+<p>            "payload": "VIEW_ALL_COLLECTION"</p>
+<p>          }</p>
+<p>        ]</p>
+<p>      }</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
+
+<hr>
+
+<h2 id="tap-action-behaviors">Tap Action Behaviors</h2>
+
+<hr>
+
+<h2 id="quick-quiz">Quick Quiz</h2>
+
+
+      </div>
+      <div class="topic-body lang-ar"><h1>منصة Messenger: قالب شبكة الصور 🆕</h1>
+
+<p>أطلقت Meta قالب <strong>شبكة الصور (Image Grid template)</strong> لمنصة Messenger في 30 يونيو 2026. يتيح نوع قالب الرسائل الجديد هذا للشركات إرسال ما بين 2 إلى 6 صور مرتبة في تخطيط شبكي نظيف داخل فقاعة رسالة واحدة.</p>
+
+<hr>
+
+<h2 id="الميزات-الأساسية">الميزات الأساسية</h2>
+<ul><li style="margin-left:8px"><strong>عرض متعدد الصور:</strong> أرسل من 2 إلى 6 صور معاً في رسالة واحدة.</li>
+<li style="margin-left:0px"><strong>إجراءات نقر مخصصة:</strong> يمكن لكل صورة في الشبكة دعم إجراء نقر افتراضي خاص بها:</li>
+<li style="margin-left:16px"><code>web_url</code>: يفتح رابط URL محدداً عند النقر.</li>
+<li style="margin-left:16px"><code>postback</code>: يرسل بيانات نقرة (postback payload) محددة من المطور إلى الـ Webhook الخاص بك.</li>
+<li style="margin-left:0px"><strong>أزرار تفاعل سفلية:</strong> يمكنك تحديد عنوان اختياري، وعنوان فرعي، وما يصل إلى ثلاثة أزرار أسفل شبكة الصور.</li></ul>
+
+<hr>
+
+<h2 id="إرسال-شبكة-صور">إرسال شبكة صور</h2>
+
+<p>استخدم Send Messages API بالهيكل التالي:</p>
+
+<p><!-- preview --></p>
+<div class="mac-editor">
+<p>        <div class="mac-editor-header"></p>
+<p>          <div class="mac-editor-dots"></p>
+<p>            <span class="dot close"></span></p>
+<p>            <span class="dot minimize"></span></p>
+<p>            <span class="dot maximize"></span></p>
+<p>          </div></p>
+<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-body"></p>
+<p>          <pre class="code-block language-json"><code class="language-json">{</p>
+<p>  "recipient": { "id": "&lt;PSID&gt;" },</p>
+<p>  "message": {</p>
+<p>    "attachment": {</p>
+<p>      "type": "template",</p>
+<p>      "payload": {</p>
+<p>        "template_type": "image_grid",</p>
+<p>        "elements": [</p>
+<p>          {</p>
+<p>            "image_url": "https://example.com/img1.jpg",</p>
+<p>            "default_action": {</p>
+<p>              "type": "web_url",</p>
+<p>              "url": "https://example.com/detail1"</p>
+<p>            }</p>
+<p>          },</p>
+<p>          {</p>
+<p>            "image_url": "https://example.com/img2.jpg",</p>
+<p>            "default_action": {</p>
+<p>              "type": "postback",</p>
+<p>              "payload": "GRID_IMAGE_2_CLICKED"</p>
+<p>            }</p>
+<p>          }</p>
+<p>        ],</p>
+<p>        "title": "تخطيط شبكي رائع",</p>
+<p>        "subtitle": "اكتشف مجموعتنا الجديدة",</p>
+<p>        "buttons": [</p>
+<p>          {</p>
+<p>            "type": "postback",</p>
+<p>            "title": "عرض الكل",</p>
+<p>            "payload": "VIEW_ALL_COLLECTION"</p>
+<p>          }</p>
+<p>        ]</p>
+<p>      }</p>
+<p>    }</p>
+<p>  }</p>
+<p>}</code></pre></p>
+<p>        </div></p>
+<p>        <div class="mac-editor-footer"></p>
+<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
+<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
+<p>        </div></p>
+<p>      </div></p>
+
+<hr>
+
+<h2 id="مقارنة-بين-إجراءات-النقر">مقارنة بين إجراءات النقر</h2>
+
+<hr>
+
+<h2 id="اختبار-سريع">اختبار سريع</h2>
+
+</div>
+
+      <div class="topic-nav">
+        <a class="nav-prev" href="messenger-handover-protocol.html">← "Messenger Handover Protocol & Thread Control"</a>
+        <a class="nav-next" href="messenger-persistent-menu.html">"Messenger Persistent Menu Limits & Best Practices" →</a>
+      </div>
+    </main>
+
+    <!-- Interactive Panels -->
+    
+    <div class="learn-right-sidebar">
+      <aside class="interactive-panel lang-en">
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">Comparison</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>web_url Tap Action</strong></p>
+<ul><li style="margin-left:0px">Opens the specified URL in the in-app browser.</li>
+<li style="margin-left:0px">Best for product detail pages or external links.</li></ul>
+
+<p><strong>postback Tap Action</strong></p>
+<ul><li style="margin-left:0px">Fires a postback event to your webhook.</li>
+<li style="margin-left:0px">Best for conversational flows or triggers in your backend.</li></ul>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">Test Your Knowledge</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_en_1_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:right">Question 1 of 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p>What is the minimum and maximum number of images supported by the Image Grid template?</p></div>
+          <div class="mcq-options">
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] 1 to 5 images</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="correct" onclick="handleMcqClick(this)">
+              <span class="mcq-text">2 to 6 images</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] 2 to 4 images</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] Unlimited images</span>
+            </label>
+          </div>
+        </div>
+      
+        </div>
+      </div>
+    </aside>
+      <aside class="interactive-panel lang-ar">
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">مقارنة</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>إجراء النقر web_url</strong></p>
+<ul><li style="margin-left:0px">يفتح رابط الـ URL المحدد في المتصفح داخل التطبيق.</li>
+<li style="margin-left:0px">الأفضل لصفحات تفاصيل المنتجات أو الروابط الخارجية.</li></ul>
+
+<p><strong>إجراء النقر postback</strong></p>
+<ul><li style="margin-left:0px">يرسل حدث postback إلى الـ Webhook الخاص بك.</li>
+<li style="margin-left:0px">الأفضل للمسارات الحوارية التفاعلية أو الاستجابات البرمجية في خادمك.</li></ul>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">اختبر فهمك</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_ar_1_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:left">السؤال 1 من 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p>ما هو الحد الأدنى والأقصى لعدد الصور المدعومة في قالب شبكة الصور (Image Grid)؟</p></div>
+          <div class="mcq-options">
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] من 1 إلى 5 صور</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="correct" onclick="handleMcqClick(this)">
+              <span class="mcq-text">من 2 إلى 6 صور</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] من 2 إلى 4 صور</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] عدد غير محدود من الصور</span>
+            </label>
+          </div>
+        </div>
+      
+        </div>
+      </div>
+    </aside>
+    </div>
+    
+
+  </div>
+
+  <script>
+(function(){
+  var html=document.documentElement;
+  var theme=localStorage.getItem('maw-theme');
+  if(!theme){
+    theme=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
+  }
+  function applyTheme(t){
+    html.setAttribute('data-theme',t);
+    localStorage.setItem('maw-theme',t);
+  }
+  applyTheme(theme);
+  
+  var lang=localStorage.getItem('maw-lang')||'en';
+  function applyLang(l){
+    html.setAttribute('data-lang',l);
+    localStorage.setItem('maw-lang',l);
+  }
+  applyLang(lang);
+
+  function wireButtons(){
+    var thBtn=document.getElementById('theme-toggle');
+    if(thBtn) thBtn.addEventListener('click',function(){
+      applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+    });
+    var lgBtn=document.getElementById('lang-toggle');
+    if(lgBtn) lgBtn.addEventListener('click',function(){
+      applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
+    });
+    
+  }
+
+  // Global handler for interactive MCQ quizzes
+  window.handleMcqClick = function(radio) {
+    var container = radio.closest('.mcq-options');
+    var labels = container.querySelectorAll('.mcq-option');
+    var widget = radio.closest('.mcq-widget');
+    var progressFill = widget.querySelector('.mcq-progress-bar-fill');
+    var progressPct = widget.querySelector('.mcq-pct');
+    
+    // Lock all inputs & show correct/wrong
+    labels.forEach(function(l) {
+      var inp = l.querySelector('input');
+      inp.disabled = true;
+      if (inp.value === 'correct') {
+        l.classList.add('correct');
+      } else if (inp === radio && inp.value === 'wrong') {
+        l.classList.add('wrong');
+      }
+    });
+    
+    // Update progress bar
+    if(progressFill) progressFill.style.width = '100%';
+    if(progressPct) progressPct.innerText = '100%';
+  };
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',wireButtons);
+  } else {
+    wireButtons();
+  }
+})();
+</script>
+<script>var _SEARCH_BASE_='../../';</script>
+<script src="../../search.js"></script>
+<!-- Syntax Highlighting (PrismJS) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+
+</body>
+</html>

@@ -44,7 +44,7 @@
       <div class="header-build-time" title="System Status: Up to date">
         <div class="build-pulse"></div>
         <span class="build-label">LAST BUILD</span>
-        <span class="build-value">Jun 28, 2026, 5:03 PM 🇪🇬</span>
+        <span class="build-value">Jul 16, 2026, 11:46 AM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
@@ -122,7 +122,12 @@
 
 <h3 id="what-you-can-configure">What You Can Configure</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Option</th><th>Description</th></tr></thead><tbody><tr><td><strong>Announcement media</strong></td><td>Play a custom audio message before the voicemail beep</td></tr><tr><td><strong>REJECT trigger</strong></td><td>Hang up the call instead of recording</td></tr><tr><td><strong>TIMEOUT trigger</strong></td><td>End the voicemail recording after a time limit</td></tr></tbody></table></div>
+<p>| Option | Description |</p>
+<p>|---|---|</p>
+<p>| <strong>Announcement media</strong> | Play a custom audio message before the voicemail beep |</p>
+<p>| <strong>REJECT trigger</strong> | Hang up the call instead of recording |</p>
+<p>| <strong>TIMEOUT trigger</strong> | End the voicemail recording after a time limit |</p>
+
 <h3 id="how-voicemails-arrive">How Voicemails Arrive</h3>
 
 <p><!-- preview --></p>
@@ -141,10 +146,16 @@
 
 <h3 id="events-delivered">Events Delivered</h3>
 
-<div class="table-wrap"><table><thead><tr><th>Event</th><th>Trigger</th></tr></thead><tbody><tr><td><code>call_created</code></td><td>A new SIP call is initiated</td></tr><tr><td><code>terminate</code></td><td>The SIP call ends</td></tr></tbody></table></div>
+<p>| Event | Trigger |</p>
+<p>|---|---|</p>
+<p>| <code>call_created</code> | A new SIP call is initiated |</p>
+<p>| <code>terminate</code> | The SIP call ends |</p>
+
 <h3 id="correlation-with-sip">Correlation with SIP</h3>
 
 <p>The <code>call_created</code> webhook includes the <strong>WhatsApp Call ID (WACID)</strong>, which can be correlated with the <strong>SIP Call-ID header</strong> for end-to-end call tracing and debugging.</p>
+
+
 
 
       </div>
@@ -158,7 +169,12 @@
 
 <h3 id="ما-يمكن-تهيئته">ما يمكن تهيئته</h3>
 
-<div class="table-wrap"><table><thead><tr><th>الخيار</th><th>الوصف</th></tr></thead><tbody><tr><td><strong>وسائط الإعلان (Announcement media)</strong></td><td>تشغيل رسالة صوتية مخصصة قبل بدء التسجيل</td></tr><tr><td><strong>مشغّل REJECT</strong></td><td>قطع المكالمة بدلاً من التسجيل</td></tr><tr><td><strong>مشغّل TIMEOUT</strong></td><td>إنهاء تسجيل البريد الصوتي بعد حدّ زمني</td></tr></tbody></table></div>
+<p>| الخيار | الوصف |</p>
+<p>|---|---|</p>
+<p>| <strong>وسائط الإعلان (Announcement media)</strong> | تشغيل رسالة صوتية مخصصة قبل بدء التسجيل |</p>
+<p>| <strong>مشغّل REJECT</strong> | قطع المكالمة بدلاً من التسجيل |</p>
+<p>| <strong>مشغّل TIMEOUT</strong> | إنهاء تسجيل البريد الصوتي بعد حدّ زمني |</p>
+
 <h3 id="كيف-تصل-رسائل-البريد-الصوتي">كيف تصل رسائل البريد الصوتي</h3>
 
 <p><!-- preview --></p>
@@ -177,15 +193,21 @@
 
 <h3 id="الأحداث-المسلمة">الأحداث المُسلَّمة</h3>
 
-<div class="table-wrap"><table><thead><tr><th>الحدث</th><th>متى يُرسَل</th></tr></thead><tbody><tr><td><code>call_created</code></td><td>عند بدء مكالمة SIP جديدة</td></tr><tr><td><code>terminate</code></td><td>عند انتهاء مكالمة SIP</td></tr></tbody></table></div>
+<p>| الحدث | متى يُرسَل |</p>
+<p>|---|---|</p>
+<p>| <code>call_created</code> | عند بدء مكالمة SIP جديدة |</p>
+<p>| <code>terminate</code> | عند انتهاء مكالمة SIP |</p>
+
 <h3 id="الربط-مع-sip">الربط مع SIP</h3>
 
 <p>يتضمن webhook <code>call_created</code> معرّف <strong>WhatsApp Call ID (WACID)</strong>، والذي يمكن ربطه بـ <strong>SIP Call-ID header</strong> لتتبع المكالمات من طرف إلى طرف وتصحيح الأخطاء.</p>
 
+
+
 </div>
 
       <div class="topic-nav">
-        <a class="nav-prev" href="whatsapp-billing-pricing.html">← WhatsApp Billing & Pricing Model</a>
+        <a class="nav-prev" href="whatsapp-calling-recording-transcription.html">← "WhatsApp Cloud API Calling: Call Recording & Call Transcription"</a>
         <a class="nav-next" href="whatsapp-flows-data-exchange.html">WhatsApp Flows Data Exchange Endpoint →</a>
       </div>
     </main>
@@ -200,15 +222,9 @@
           <span class="panel-title">Comparison</span>
         </div>
         <div class="panel-body">
-          <p><strong>Voicemail</strong></p>
-<ul><li style="margin-left:0px">Available to all businesses using Cloud API Calling</li>
-<li style="margin-left:0px">No new webhook subscription needed</li>
-<li style="margin-left:0px">Voicemails arrive as inbound audio in the <code>messages</code> webhook</li></ul>
+          <p><strong>Voicemail</strong></p><ul><li style="margin-left:8px">Available to all businesses using Cloud API Calling</li><li style="margin-left:8px">No new webhook subscription needed</li><li style="margin-left:8px">Voicemails arrive as inbound audio in the <code>messages</code> webhook</li></ul>
 
-<p><strong>SIP Call Webhooks</strong></p>
-<ul><li style="margin-left:0px">Only for SIP-enabled phone numbers</li>
-<li style="margin-left:0px">Must enable <code>webhook_delivery</code> in SIP settings</li>
-<li style="margin-left:0px">Delivers <code>call_created</code> and <code>terminate</code> lifecycle events</li></ul>
+<p><strong>SIP Call Webhooks</strong></p><ul><li style="margin-left:8px">Only for SIP-enabled phone numbers</li><li style="margin-left:8px">Must enable <code>webhook_delivery</code> in SIP settings</li><li style="margin-left:8px">Delivers <code>call_created</code> and <code>terminate</code> lifecycle events</li></ul>
         </div>
       </div>
     
@@ -263,15 +279,9 @@
           <span class="panel-title">مقارنة</span>
         </div>
         <div class="panel-body">
-          <p><strong>البريد الصوتي (Voicemail)</strong></p>
-<ul><li style="margin-left:0px">متاح لجميع الشركات التي تستخدم Cloud API Calling</li>
-<li style="margin-left:0px">لا حاجة للاشتراك في webhook جديد</li>
-<li style="margin-left:0px">يصل كرسالة صوتية واردة في webhook الحالي <code>messages</code></li></ul>
+          <p><strong>البريد الصوتي (Voicemail)</strong></p><ul><li style="margin-left:8px">متاح لجميع الشركات التي تستخدم Cloud API Calling</li><li style="margin-left:8px">لا حاجة للاشتراك في webhook جديد</li><li style="margin-left:8px">يصل كرسالة صوتية واردة في webhook الحالي <code>messages</code></li></ul>
 
-<p><strong>SIP Call Webhooks</strong></p>
-<ul><li style="margin-left:0px">للأرقام المفعّلة لـ SIP فقط</li>
-<li style="margin-left:0px">يجب تفعيل <code>webhook_delivery</code> في إعدادات SIP</li>
-<li style="margin-left:0px">يُسلِّم أحداث دورة حياة <code>call_created</code> و<code>terminate</code></li></ul>
+<p><strong>SIP Call Webhooks</strong></p><ul><li style="margin-left:8px">للأرقام المفعّلة لـ SIP فقط</li><li style="margin-left:8px">يجب تفعيل <code>webhook_delivery</code> في إعدادات SIP</li><li style="margin-left:8px">يُسلِّم أحداث دورة حياة <code>call_created</code> و<code>terminate</code></li></ul>
         </div>
       </div>
     

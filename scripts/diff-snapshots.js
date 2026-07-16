@@ -48,11 +48,24 @@ function stripFrontmatter(content) {
 
 // ── Normalize whitespace for comparison ──────────────────────────────────────
 function normalize(text) {
-  return text
+  let normalized = text
     .replace(/\r\n/g, '\n')
     .replace(/[ \t]+$/gm, '')      // trailing whitespace per line
     .replace(/\n{3,}/g, '\n\n')   // collapse multiple blank lines
     .trim();
+
+  // If it's HTML, split by tags to make line-by-line diffing work
+  if (normalized.startsWith('<!DOCTYPE') || normalized.startsWith('<html') || normalized.includes('<div') || normalized.includes('<p')) {
+    normalized = normalized
+      .replace(/>\s*</g, '>\n<')
+      .replace(/>/g, '>\n')
+      .replace(/</g, '\n<')
+      .split('\n')
+      .map(line => line.trim())
+      .filter(Boolean)
+      .join('\n');
+  }
+  return normalized;
 }
 
 // ── Simple line-level diff ────────────────────────────────────────────────────

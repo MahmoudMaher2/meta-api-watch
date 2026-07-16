@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>"WhatsApp Cloud API Calling: Call Recording & Call Transcription" — Meta Docs Learn</title>
+  <meta name="description" content="Learn "WhatsApp Cloud API Calling: Call Recording & Call Transcription" in whatsapp: validation rules, error codes, examples." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="../../index.html" class="header-logo" style="text-decoration: none;">
+      <span class="logo-icon">🔭</span>
+      <div class="logo-text">
+        <div class="site-title">Meta API Explain</div>
+        <div class="site-subtitle">SEEN V2 · Developer Hub</div>
+      </div>
+    </a>
+    
+    <nav class="header-nav">
+      <a href="../../changelog.html" class="nav-tab ">
+        <span class="nav-icon">🔔</span>
+        <span class="nav-text" data-en="Latest Updates" data-ar="آخر التحديثات">Latest Updates</span>
+      </a>
+      <a href="../../learn/index.html" class="nav-tab active">
+        <span class="nav-icon">📚</span>
+        <span class="nav-text" data-en="Learn" data-ar="تعلّم">Learn</span>
+      </a>
+    </nav>
+
+    <div class="header-actions">
+      <!-- Search Trigger -->
+      <button id="search-trigger" class="search-btn" title="Search documentation... (Ctrl+K)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span>Search</span>
+        <kbd>/</kbd>
+      </button>
+
+      <div class="header-build-time" title="System Status: Up to date">
+        <div class="build-pulse"></div>
+        <span class="build-label">LAST BUILD</span>
+        <span class="build-value">Jul 16, 2026, 11:46 AM 🇪🇬</span>
+      </div>
+      
+      <!-- Language Toggle -->
+      <button id="lang-toggle" class="lang-toggle" title="Toggle Language (AR/EN)">
+        <span class="lang-en">EN</span>
+        <span class="lang-sep">|</span>
+        <span class="lang-ar">عربي</span>
+      </button>
+      
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+
+
+  <div class="learn-layout has-panels">
+
+    <!-- Sidebar -->
+    <aside class="learn-sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <span class="sidebar-label" data-en="On this page" data-ar="على هذه الصفحة">On this page</span>
+        
+    <div class="lang-en">
+      <ul class="toc-list"><li class="toc-top"><a href="#1-call-recording">1. Call Recording</a></li><li class="toc-sub"><a href="#how-it-works">How it Works</a></li><li class="toc-top"><a href="#2-call-transcription">2. Call Transcription</a></li><li class="toc-sub"><a href="#key-features">Key Features</a></li><li class="toc-top"><a href="#configuration-usage-comparison">Configuration & Usage Comparison</a></li><li class="toc-top"><a href="#quick-quiz">Quick Quiz</a></li></ul>
+    </div>
+    
+    <div class="lang-ar">
+      <ul class="toc-list"><li class="toc-top"><a href="#1-تسجيل-المكالمات-call-recording">1. تسجيل المكالمات (Call Recording)</a></li><li class="toc-sub"><a href="#كيف-تعمل">كيف تعمل</a></li><li class="toc-top"><a href="#2-تحويل-المكالمات-إلى-نصوص-call-transcription">2. تحويل المكالمات إلى نصوص (Call Transcription)</a></li><li class="toc-sub"><a href="#الميزات-الأساسية">الميزات الأساسية</a></li><li class="toc-top"><a href="#مقارنة-بين-التسجيل-والتحويل-إلى-نصوص">مقارنة بين التسجيل والتحويل إلى نصوص</a></li><li class="toc-top"><a href="#اختبار-سريع">اختبار سريع</a></li></ul>
+    </div>
+  
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">Source</span>
+        <a href="" target="_blank" rel="noopener" class="source-link">
+          📄 Meta Developer Docs ↗
+        </a>
+        
+      </div>
+      
+    </aside>
+
+    <!-- Main Content -->
+    <main class="learn-content" id="main-content">
+      <div class="topic-breadcrumb">
+        <a href="../index.html">Learn</a>
+        <span>›</span>
+        <span style="color:#a78bfa">whatsapp</span>
+        <span>›</span>
+        <span>"WhatsApp Cloud API Calling: Call Recording & Call Transcription"</span>
+      </div>
+
+      <div class="topic-hero">
+        <div class="topic-hero-badges">
+          <span class="platform-badge" style="background:#1a1a24;color:#a78bfa;border-color:#4c1d95">whatsapp</span>
+          
+        </div>
+        <h1 class="topic-title" data-en=""WhatsApp Cloud API Calling: Call Recording & Call Transcription"" data-ar=""تسجيل ومكالمات WhatsApp Cloud API Calling: تسجيل المكالمات وتحويلها لنصوص"">"WhatsApp Cloud API Calling: Call Recording & Call Transcription"</h1>
+        <p class="topic-meta"><span data-en=""whatsapp"" data-ar=""whatsapp"">"whatsapp"</span> · <span data-en="Last verified:" data-ar="آخر مراجعة:">Last verified:</span> N/A</p>
+      </div>
+
+      <div class="topic-body lang-en">
+        <h1>WhatsApp Calling: Call Recording & Transcription 🆕</h1>
+
+<p>Meta has added official guides and support for <strong>Call Recording</strong> and <strong>Call Transcription</strong> to the <strong>WhatsApp Business Calling API</strong> (introduced in June 2026). Both features are designed to help businesses record calling interactions and programmatically transcribe the spoken audio to text.</p>
+
+<blockquote><p>⚠️ **Important Consent Policy:** You must play a customer announcement notifying the user that the call is being recorded and/or transcribed before starting the recording. This announcement must comply with local privacy regulations.</p></blockquote>
+
+<hr>
+
+<h2 id="1-call-recording">1. Call Recording</h2>
+
+<p>Call Recording is available for both <strong>business-initiated</strong> and <strong>user-initiated</strong> calls.</p>
+
+<h3 id="how-it-works">How it Works</h3>
+<ul><li style="margin-left:0px">The business triggers the recording process during an active calling session.</li>
+<li style="margin-left:0px">Once the call is ended, the recorded calling audio is saved and made available for download.</li>
+<li style="margin-left:0px">Recorded audio files are delivered to your media storage or webhook as inbound audio content.</li></ul>
+
+<hr>
+
+<h2 id="2-call-transcription">2. Call Transcription</h2>
+
+<p>Call Transcription allows converting the recorded call audio to text programmatically.</p>
+
+<h3 id="key-features">Key Features</h3>
+<ul><li style="margin-left:0px">Converts the audio stream from both caller and receiver channels into readable text transcripts.</li>
+<li style="margin-left:0px">Supports both business-initiated and user-initiated calls.</li>
+<li style="margin-left:0px">Helps in automating customer support auditing, training, and QA checks.</li></ul>
+
+<hr>
+
+<h2 id="configuration-usage-comparison">Configuration & Usage Comparison</h2>
+
+<hr>
+
+<h2 id="quick-quiz">Quick Quiz</h2>
+
+
+      </div>
+      <div class="topic-body lang-ar"><h1>تسجيل ومكالمات WhatsApp: تسجيل المكالمات وتحويلها لنصوص 🆕</h1>
+
+<p>أضافت Meta أدلة توجيهية ودعماً رسمياً لميزتي <strong>تسجيل المكالمات (Call Recording)</strong> و<strong>تحويل المكالمات إلى نصوص (Call Transcription)</strong> إلى واجهة <strong>WhatsApp Business Calling API</strong> (التي تم إطلاقها في يونيو 2026). تم تصميم هاتين الميزتين لمساعدة الشركات على تسجيل تفاعلات المكالمات وتحويل الصوت المنطوق برمجياً إلى نص مكتوب.</p>
+
+<blockquote><p>⚠️ **سياسة موافقة مهمة:** يجب تشغيل إعلان تنبيهي للمستقبل يعلمه بأن المكالمة يتم تسجيلها و/أو تحويلها إلى نص قبل بدء التسجيل. يجب أن يمتثل هذا الإعلان للقوانين واللوائح المحلية للخصوصية.</p></blockquote>
+
+<hr>
+
+<h2 id="1-تسجيل-المكالمات-call-recording">1. تسجيل المكالمات (Call Recording)</h2>
+
+<p>ميزة تسجيل المكالمات متاحة لكل من المكالمات <strong>التي تبدأها الشركة</strong> والمكالمات <strong>التي يبدأها المستخدم</strong>.</p>
+
+<h3 id="كيف-تعمل">كيف تعمل</h3>
+<ul><li style="margin-left:0px">تقوم الشركة بتفعيل التسجيل أثناء جلسة مكالمة نشطة.</li>
+<li style="margin-left:0px">بمجرد انتهاء المكالمة، يتم حفظ الصوت المسجل وجعله متاحاً للتنزيل.</li>
+<li style="margin-left:0px">يتم إرسال ملفات الصوت المسجلة إلى وحدة تخزين الوسائط الخاصة بك أو عبر الـ Webhook كرسالة صوتية واردة.</li></ul>
+
+<hr>
+
+<h2 id="2-تحويل-المكالمات-إلى-نصوص-call-transcription">2. تحويل المكالمات إلى نصوص (Call Transcription)</h2>
+
+<p>يتيح تحويل المكالمات إلى نصوص تحويل الصوت المسجل للمكالمة برمجياً إلى نصوص مكتوبة.</p>
+
+<h3 id="الميزات-الأساسية">الميزات الأساسية</h3>
+<ul><li style="margin-left:0px">تحويل التدفق الصوتي من كل من قنوات المتصل والمستقبل إلى نصوص مكتوبة سهلة القراءة.</li>
+<li style="margin-left:0px">دعم المكالمات التي تبدأها الشركة وتلك التي يبدأها المستخدم.</li>
+<li style="margin-left:0px">المساعدة في أتمتة مراجعة دعم العملاء، والتدريب، وفحوصات الجودة (QA).</li></ul>
+
+<hr>
+
+<h2 id="مقارنة-بين-التسجيل-والتحويل-إلى-نصوص">مقارنة بين التسجيل والتحويل إلى نصوص</h2>
+
+<hr>
+
+<h2 id="اختبار-سريع">اختبار سريع</h2>
+
+</div>
+
+      <div class="topic-nav">
+        <a class="nav-prev" href="whatsapp-billing-pricing.html">← WhatsApp Billing & Pricing Model</a>
+        <a class="nav-next" href="whatsapp-calling-voicemail.html">"WhatsApp Cloud API Calling: Voicemail & SIP Call Webhooks" →</a>
+      </div>
+    </main>
+
+    <!-- Interactive Panels -->
+    
+    <div class="learn-right-sidebar">
+      <aside class="interactive-panel lang-en">
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">Comparison</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>Call Recording</strong></p>
+<ul><li style="margin-left:0px">Saves call audio as a downloadable media file.</li>
+<li style="margin-left:0px">Works on both incoming and outgoing calls.</li>
+<li style="margin-left:0px">Requires compliance with user announcement rules.</li></ul>
+
+<p><strong>Call Transcription</strong></p>
+<ul><li style="margin-left:0px">Converts recorded voice calling audio into text transcripts.</li>
+<li style="margin-left:0px">Useful for archiving and training models.</li>
+<li style="margin-left:0px">Can be used alongside call recording pipelines.</li></ul>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">Test Your Knowledge</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_en_1_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:right">Question 1 of 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p>Before starting call recording or transcription, what action is legally and policy-wise required?</p></div>
+          <div class="mcq-options">
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] No action is required</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] Sending a text message confirmation to the user</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="correct" onclick="handleMcqClick(this)">
+              <span class="mcq-text">Playing an audio customer announcement notifying them of recording/transcription</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_en_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] Submitting a request to Meta for approval per call</span>
+            </label>
+          </div>
+        </div>
+      
+        </div>
+      </div>
+    </aside>
+      <aside class="interactive-panel lang-ar">
+      <div class="panel-card panel-comparison">
+        <div class="panel-header">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">مقارنة</span>
+        </div>
+        <div class="panel-body">
+          <p><strong>تسجيل المكالمات</strong></p>
+<ul><li style="margin-left:0px">يحفظ صوت المكالمة كملف وسائط قابل للتنزيل.</li>
+<li style="margin-left:0px">يعمل على كل من المكالمات الواردة والصادرة.</li>
+<li style="margin-left:0px">يتطلب الامتثال لقواعد الإعلان الصوتي للمستخدم.</li></ul>
+
+<p><strong>تحويل المكالمات إلى نصوص</strong></p>
+<ul><li style="margin-left:0px">يحول صوت المكالمات المسجل إلى نصوص مكتوبة.</li>
+<li style="margin-left:0px">مفيد للأرشفة وتدريب النماذج.</li>
+<li style="margin-left:0px">يمكن استخدامه جنباً إلى جنب مع عمليات تسجيل المكالمات.</li></ul>
+        </div>
+      </div>
+    
+      <div class="panel-card panel-quiz">
+        <div class="panel-header">
+          <span class="panel-icon">🧠</span>
+          <span class="panel-title">اختبر فهمك</span>
+        </div>
+        <div class="panel-body">
+          
+        <div class="mcq-widget" id="q_ar_1_widget">
+          <div class="mcq-progress">
+            <div class="mcq-progress-text">
+              <span class="mcq-pct">0%</span> 
+              <span class="mcq-count" style="float:left">السؤال 1 من 1</span>
+            </div>
+            <div class="mcq-progress-bar-bg">
+              <div class="mcq-progress-bar-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="mcq-question"><p>قبل البدء في تسجيل المكالمات أو تحويلها إلى نصوص، ما الإجراء المطلوب قانوناً وحسب سياسة Meta؟</p></div>
+          <div class="mcq-options">
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] لا يلزم اتخاذ أي إجراء</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] إرسال تأكيد عبر رسالة نصية للمستخدم</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="correct" onclick="handleMcqClick(this)">
+              <span class="mcq-text">تشغيل إعلان صوتي عميل يعلمه بالتسجيل/التحويل</span>
+            </label>
+          
+            <label class="mcq-option">
+              <input type="radio" name="q_ar_1" value="wrong" onclick="handleMcqClick(this)">
+              <span class="mcq-text">[ ] تقديم طلب إلى Meta للموافقة لكل مكالمة</span>
+            </label>
+          </div>
+        </div>
+      
+        </div>
+      </div>
+    </aside>
+    </div>
+    
+
+  </div>
+
+  <script>
+(function(){
+  var html=document.documentElement;
+  var theme=localStorage.getItem('maw-theme');
+  if(!theme){
+    theme=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
+  }
+  function applyTheme(t){
+    html.setAttribute('data-theme',t);
+    localStorage.setItem('maw-theme',t);
+  }
+  applyTheme(theme);
+  
+  var lang=localStorage.getItem('maw-lang')||'en';
+  function applyLang(l){
+    html.setAttribute('data-lang',l);
+    localStorage.setItem('maw-lang',l);
+  }
+  applyLang(lang);
+
+  function wireButtons(){
+    var thBtn=document.getElementById('theme-toggle');
+    if(thBtn) thBtn.addEventListener('click',function(){
+      applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+    });
+    var lgBtn=document.getElementById('lang-toggle');
+    if(lgBtn) lgBtn.addEventListener('click',function(){
+      applyLang(html.getAttribute('data-lang')==='ar'?'en':'ar');
+    });
+    
+  }
+
+  // Global handler for interactive MCQ quizzes
+  window.handleMcqClick = function(radio) {
+    var container = radio.closest('.mcq-options');
+    var labels = container.querySelectorAll('.mcq-option');
+    var widget = radio.closest('.mcq-widget');
+    var progressFill = widget.querySelector('.mcq-progress-bar-fill');
+    var progressPct = widget.querySelector('.mcq-pct');
+    
+    // Lock all inputs & show correct/wrong
+    labels.forEach(function(l) {
+      var inp = l.querySelector('input');
+      inp.disabled = true;
+      if (inp.value === 'correct') {
+        l.classList.add('correct');
+      } else if (inp === radio && inp.value === 'wrong') {
+        l.classList.add('wrong');
+      }
+    });
+    
+    // Update progress bar
+    if(progressFill) progressFill.style.width = '100%';
+    if(progressPct) progressPct.innerText = '100%';
+  };
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',wireButtons);
+  } else {
+    wireButtons();
+  }
+})();
+</script>
+<script>var _SEARCH_BASE_='../../';</script>
+<script src="../../search.js"></script>
+<!-- Syntax Highlighting (PrismJS) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+
+</body>
+</html>

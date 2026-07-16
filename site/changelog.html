@@ -44,7 +44,7 @@
       <div class="header-build-time" title="System Status: Up to date">
         <div class="build-pulse"></div>
         <span class="build-label">LAST BUILD</span>
-        <span class="build-value">28 Jun 2026 · 5:03 PM 🇪🇬</span>
+        <span class="build-value">16 Jul 2026 · 11:46 AM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
@@ -74,7 +74,7 @@
         <select id="filter-category">
           <option value=""
                   data-en="All categories" data-ar="جميع الفئات">All categories</option>
-          <option value="New Feature / API Update">New Feature / API Update</option><option value="New Feature">New Feature</option>
+          <option value="Policy/Compliance">Policy/Compliance</option><option value="New Feature">New Feature</option><option value="Bug Fix/Clarification">Bug Fix/Clarification</option>
         </select>
       </div>
       <div class="filter-group">
@@ -83,13 +83,13 @@
         <select id="filter-module">
           <option value=""
                   data-en="All modules" data-ar="جميع الموديولات">All modules</option>
-          <option value="WhatsApp">WhatsApp</option><option value="Webhooks">Webhooks</option><option value="Cloud API">Cloud API</option><option value="Messenger">Messenger</option>
+          <option value="Channel Integration/OAuth">Channel Integration/OAuth</option><option value="Broadcasts">Broadcasts</option><option value="Webhooks">Webhooks</option><option value="Messenger">Messenger</option>
         </select>
       </div>
       <button id="clear-filters" class="btn-clear"
               data-en="Clear filters" data-ar="مسح الفلاتر">Clear filters</button>
       <div class="filter-results">
-        <span id="filtered-count">113</span>
+        <span id="filtered-count">118</span>
         <span data-en="results" data-ar="نتيجة">results</span>
       </div>
     </div>
@@ -99,22 +99,22 @@
     <div class="cards-grid" id="cards-grid">
       <article class="card"
     id="card-0"
-    data-date="2026-06-28"
-    data-category="New Feature / API Update"
-    data-modules="WhatsApp,Webhooks,Cloud API">
+    data-date="2026-07-16"
+    data-category="Policy/Compliance"
+    data-modules="Channel Integration/OAuth">
 
     <div class="card-header">
-      <time class="card-date">28 Jun 2026</time>
-      <span class="badge cat-badge" style="background:#1a1a1a;color:#aaa;border-color:#333">New Feature / API Update</span>
+      <time class="card-date">16 Jul 2026</time>
+      <span class="badge cat-badge" style="background:#0f1d3d;color:#93c5fd;border-color:#1e3a8a">Policy/Compliance</span>
     </div>
 
     <h2 class="card-title"
-        data-en=""WhatsApp Cloud API Calling: Voicemail Now GA &amp; SIP Call Webhooks Support Added""
-        data-ar="تحديث في ويب هوكس WhatsApp و ويب هوكس و Cloud API. (New Feature / API Update)">"WhatsApp Cloud API Calling: Voicemail Now GA &amp; SIP Call Webhooks Support Added"</h2>
-    <div class="card-badges"><span class="badge mod-badge" style="border-color:#666;color:#666">WhatsApp</span><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span><span class="badge mod-badge" style="border-color:#666;color:#666">Cloud API</span></div>
+        data-en=""WhatsApp In-App Signup API: Geographic availability documented""
+        data-ar="Policy/Compliance في موديول تكامل القناة.">"WhatsApp In-App Signup API: Geographic availability documented"</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span></div>
     <p class="card-summary"
-       data-en=""WhatsApp Cloud API Calling now supports Voicemail (GA) and SIP call webhooks. Businesses can configure announcement media, REJECT/TIMEOUT triggers, and receive recorded voicemails"
-       data-ar="تحديث في ويب هوكس WhatsApp و ويب هوكس و Cloud API. (New Feature / API Update)">"WhatsApp Cloud API Calling now supports Voicemail (GA) and SIP call webhooks. Businesses can configure announcement media, REJECT/TIMEOUT triggers, and receive recorded voicemails</p>
+       data-en=""Meta documented geographic restrictions for the In-App Signup API: it is available in all markets except EEA, UK, Brazil, Japan, South Korea, Nigeria, South Africa, and Turkey due"
+       data-ar="Policy/Compliance في موديول تكامل القناة.">"Meta documented geographic restrictions for the In-App Signup API: it is available in all markets except EEA, UK, Brazil, Japan, South Korea, Nigeria, South Africa, and Turkey due</p>
 
     <!-- Expandable detail panel -->
     <div class="card-details" id="det-card-0" aria-hidden="true">
@@ -124,10 +124,7 @@
           <span class="detail-icon">📌</span>
           <span data-en="What Changed" data-ar="ما الذي تغيّر">What Changed</span>
         </h4>
-        <p>Two significant updates landed for the **WhatsApp Cloud API Calling** feature between June 25–26, 2026:
-
-1. **Voicemail is now Generally Available (GA)** for WhatsApp Cloud API Calling.
-2. **SIP call webhooks** are now supported for SIP-enabled business phone numbers.
+        <p>On **July 3, 2026**, Meta updated the **In-App Signup** documentation to specify the geographic availability and restrictions for the In-App Signup API.
 
 ---</p>
       </div>
@@ -137,14 +134,8 @@
           <span class="detail-icon">🎯</span>
           <span data-en="Impact on SEEN V2" data-ar="التأثير على SEEN V2">Impact on SEEN V2</span>
         </h4>
-        <p>### Voicemail (GA)
-- If SV2 uses the WhatsApp Calling API, voicemails will now arrive via the **existing `messages` webhook** as `audio` type messages.
-- **No new webhook subscription needed** — but the backend must handle the new voicemail audio context correctly (distinguish from regular voice messages).
-- The `messages` webhook handler should be reviewed to ensure voicemail audio is routed to the correct conversation thread.
-
-### SIP Call Webhooks
-- If SV2 supports SIP-enabled phone numbers, the new `webhook_delivery` configuration must be set to receive call lifecycle events.
-- The `call_created` event's **WACID** can be used to correlate WhatsApp calls with SIP Call-ID headers for logging/debugging purposes.</p>
+        <p>- If SV2 plans to use or currently uses the In-App Signup API for onboarding new clients, it will fail for clients located in the restricted regions.
+- Onboarding for clients in EEA, UK, Brazil, Japan, South Korea, Nigeria, South Africa, and Turkey must continue using the standard web-based **Embedded Signup** flow.</p>
       </div>
 
       <div class="detail-section detail-qa">
@@ -152,9 +143,8 @@
           <span class="detail-icon">✅</span>
           <span data-en="Suggested QA Action" data-ar="إجراء QA المقترح">Suggested QA Action</span>
         </h4>
-        <p>1. **Voicemail**: Trigger an inbound call on a SV2-connected WhatsApp number → let it go to voicemail → verify the audio arrives in the conversation via the `messages` webhook.
-2. **SIP webhooks**: If SIP is enabled, verify `call_created` and `terminate` events are received and logged after a call.
-3. Check that voicemail audio is not misclassified as a regular voice message in the UI.</p>
+        <p>1. **Verify Onboarding Logic**: Ensure the system routes users in restricted countries to Embedded Signup instead of In-App Signup.
+2. **Error Handling**: Verify that if an onboarding request fails from these countries, appropriate error messages are shown indicating country restrictions.</p>
       </div>
 
       
@@ -169,7 +159,7 @@
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
       </button>
-      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog#june-28-2026" target="_blank" rel="noopener">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog#july-16-2026" target="_blank" rel="noopener">
         📄 <span data-en="View in Changelog" data-ar="رابط في سجل التغييرات">View in Changelog</span> ↗
       </a>
     </div>
@@ -177,22 +167,22 @@
 
 <article class="card"
     id="card-1"
-    data-date="2026-06-28"
+    data-date="2026-07-16"
     data-category="New Feature"
-    data-modules="Messenger,Webhooks">
+    data-modules="Channel Integration/OAuth">
 
     <div class="card-header">
-      <time class="card-date">28 Jun 2026</time>
+      <time class="card-date">16 Jul 2026</time>
       <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
     </div>
 
     <h2 class="card-title"
-        data-en=""Messenger Sticker API: Browse, Search, and Send First-Party Stickers via API""
-        data-ar="تحديث في ويب هوكس Messenger و ويب هوكس. (ميزة جديدة)">"Messenger Sticker API: Browse, Search, and Send First-Party Stickers via API"</h2>
-    <div class="card-badges"><span class="badge mod-badge" style="border-color:#0084ff;color:#0084ff">Messenger</span><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span></div>
+        data-en=""WhatsApp Embedded Signup: Phone Number First Flow rolls out to default flow""
+        data-ar="ميزة جديدة في موديول تكامل القناة.">"WhatsApp Embedded Signup: Phone Number First Flow rolls out to default flow"</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span></div>
     <p class="card-summary"
-       data-en=""Meta launched the Messenger Sticker API: new endpoints to browse, search, and send first-party stickers. Webhooks now include a new 'sticker' attachment type — a 90-day transition"
-       data-ar="تحديث في ويب هوكس Messenger و ويب هوكس. (ميزة جديدة)">"Meta launched the Messenger Sticker API: new endpoints to browse, search, and send first-party stickers. Webhooks now include a new 'sticker' attachment type — a 90-day transition</p>
+       data-en=""Meta is beginning to roll out the Phone Number First flow in the default Embedded Signup flow. Business customers verify their phone number near the start of signup, surfacing eli"
+       data-ar="ميزة جديدة في موديول تكامل القناة.">"Meta is beginning to roll out the Phone Number First flow in the default Embedded Signup flow. Business customers verify their phone number near the start of signup, surfacing eli</p>
 
     <!-- Expandable detail panel -->
     <div class="card-details" id="det-card-1" aria-hidden="true">
@@ -202,9 +192,7 @@
           <span class="detail-icon">📌</span>
           <span data-en="What Changed" data-ar="ما الذي تغيّر">What Changed</span>
         </h4>
-        <p>On **June 1, 2026**, Meta launched the **Sticker API for Messenger Platform** — a new set of endpoints enabling businesses to browse, search, and send first-party stickers programmatically through the Messenger Platform API.
-
-&gt; ⚠️ **Action Required — Webhook Breaking Change:** Sticker messages in webhooks now include a new `type: "sticker"` attachment. The 90-day transition period ends **August 30, 2026** — after that, only the `sticker` type will be sent. Update your webhook handlers before that date.
+        <p>On **July 15, 2026**, Meta began rolling out the **Phone Number First flow** to a subset of business customers in the default **Embedded Signup** flow. This flow has been in public preview (v2, v3, and v4) for the past month and is now transitioning to the default onboarding path.
 
 ---</p>
       </div>
@@ -214,9 +202,9 @@
           <span class="detail-icon">🎯</span>
           <span data-en="Impact on SEEN V2" data-ar="التأثير على SEEN V2">Impact on SEEN V2</span>
         </h4>
-        <p>- SV2's Messenger webhook handlers currently expect `type: "image"` for sticker messages. After **August 30, 2026**, these will break — stickers will arrive only as `type: "sticker"`.
-- The backend must be updated to recognize and handle the `sticker` attachment type.
-- If SV2 surfaces sticker messages in the conversation UI, the sticker rendering path needs to be added.</p>
+        <p>- For SV2's user onboarding, if customers use the default Embedded Signup flow, they will now experience this new sequence.
+- This is a positive change because any verification or eligibility issues will be exposed immediately at the beginning, reducing support queries regarding "stuck" signup flows.
+- No integration code changes are required as this is managed entirely by Meta's Embedded Signup JS SDK wrapper.</p>
       </div>
 
       <div class="detail-section detail-qa">
@@ -224,9 +212,8 @@
           <span class="detail-icon">✅</span>
           <span data-en="Suggested QA Action" data-ar="إجراء QA المقترح">Suggested QA Action</span>
         </h4>
-        <p>1. **Immediate**: Test that incoming sticker messages are handled — during the transition period, both `image` and `sticker` types arrive. Verify neither causes an unhandled exception.
-2. **Before August 30**: Add explicit `type: "sticker"` handler to the Messenger webhook processor.
-3. **Optional**: Test the new `/sticker_packs` and `/sticker_search` endpoints if SV2 plans to expose sticker selection to agents.</p>
+        <p>1. **Verification**: Run a test signup using the default Embedded Signup flow in sandbox to observe the new Phone Number First flow sequence.
+2. **Support alignment**: Update QA documentation and support team playbooks to reflect that users will now verify their phone numbers earlier in the process.</p>
       </div>
 
       
@@ -241,7 +228,7 @@
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
       </button>
-      <a class="card-source" href="https://developers.facebook.com/docs/messenger-platform/changelog#june-28-2026" target="_blank" rel="noopener">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog#july-16-2026" target="_blank" rel="noopener">
         📄 <span data-en="View in Changelog" data-ar="رابط في سجل التغييرات">View in Changelog</span> ↗
       </a>
     </div>
@@ -249,31 +236,53 @@
 
 <article class="card"
     id="card-2"
-    data-date=""
-    data-category=""
-    data-modules="">
+    data-date="2026-07-16"
+    data-category="New Feature"
+    data-modules="Broadcasts,Webhooks">
 
     <div class="card-header">
-      <time class="card-date"></time>
-      <span class="badge cat-badge" style="background:#1a1a1a;color:#aaa;border-color:#333"></span>
+      <time class="card-date">16 Jul 2026</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
     </div>
 
     <h2 class="card-title"
-        data-en=""
-        data-ar=" في موديول Meta API."></h2>
-    <div class="card-badges"></div>
+        data-en=""WhatsApp Calling API: Call Recording &amp; Call Transcription added""
+        data-ar="ميزة جديدة في موديول البث الجماعي و ويب هوكس.">"WhatsApp Calling API: Call Recording &amp; Call Transcription added"</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#128C7E;color:#128C7E">Broadcasts</span><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span></div>
     <p class="card-summary"
-       data-en=""
-       data-ar=" في موديول Meta API."></p>
+       data-en=""Meta added Call Recording and Call Transcription guides to the WhatsApp Business Calling API. Both work on business-initiated and user-initiated calls. Consent announcements are m"
+       data-ar="ميزة جديدة في موديول البث الجماعي و ويب هوكس.">"Meta added Call Recording and Call Transcription guides to the WhatsApp Business Calling API. Both work on business-initiated and user-initiated calls. Consent announcements are m</p>
 
     <!-- Expandable detail panel -->
     <div class="card-details" id="det-card-2" aria-hidden="true">
 
-      
+      <div class="detail-section detail-changed">
+        <h4 class="detail-label">
+          <span class="detail-icon">📌</span>
+          <span data-en="What Changed" data-ar="ما الذي تغيّر">What Changed</span>
+        </h4>
+        <p>On **June 30, 2026**, Meta added official guides and support for **Call Recording** and **Call Transcription** to the **WhatsApp Business Calling API**. This expansion follows the calling API's initial release earlier in June.
 
-      
+---</p>
+      </div>
 
-      
+      <div class="detail-section detail-impact">
+        <h4 class="detail-label">
+          <span class="detail-icon">🎯</span>
+          <span data-en="Impact on SEEN V2" data-ar="التأثير على SEEN V2">Impact on SEEN V2</span>
+        </h4>
+        <p>- If SV2 plans to implement calling features via the WhatsApp Calling API, the backend can now support call archiving and AI-based transcription for support agent reviews.
+- Compliance team must ensure the audio announcement is played first to comply with Meta's policy and protect the WABA from suspension.</p>
+      </div>
+
+      <div class="detail-section detail-qa">
+        <h4 class="detail-label">
+          <span class="detail-icon">✅</span>
+          <span data-en="Suggested QA Action" data-ar="إجراء QA المقترح">Suggested QA Action</span>
+        </h4>
+        <p>1. **Review Learn Hub**: Check out the [WhatsApp Cloud API Calling: Call Recording &amp; Call Transcription](../../../content-learn/whatsapp/whatsapp-calling-recording-transcription.md) topic for implementation details.
+2. **Compliance Test**: If calling is active, verify that a customer announcement plays successfully before any recording or transcription hook is triggered.</p>
+      </div>
 
       
     </div>
@@ -287,7 +296,7 @@
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
       </button>
-      <a class="card-source" href="" target="_blank" rel="noopener">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog#july-16-2026" target="_blank" rel="noopener">
         📄 <span data-en="View in Changelog" data-ar="رابط في سجل التغييرات">View in Changelog</span> ↗
       </a>
     </div>
@@ -295,31 +304,53 @@
 
 <article class="card"
     id="card-3"
-    data-date=""
-    data-category=""
-    data-modules="">
+    data-date="2026-07-16"
+    data-category="Bug Fix/Clarification"
+    data-modules="Channel Integration/OAuth,Webhooks">
 
     <div class="card-header">
-      <time class="card-date"></time>
-      <span class="badge cat-badge" style="background:#1a1a1a;color:#aaa;border-color:#333"></span>
+      <time class="card-date">16 Jul 2026</time>
+      <span class="badge cat-badge" style="background:#0d2d2d;color:#67e8f9;border-color:#0e7490">Bug Fix/Clarification</span>
     </div>
 
     <h2 class="card-title"
-        data-en=""
-        data-ar=" في موديول Meta API."></h2>
-    <div class="card-badges"></div>
+        data-en=""WhatsApp BSUID: Username adoption live; messaging support delayed to July""
+        data-ar="إصلاح أو توضيح في موديول تكامل القناة و ويب هوكس.">"WhatsApp BSUID: Username adoption live; messaging support delayed to July"</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#6366f1;color:#6366f1">Channel Integration/OAuth</span><span class="badge mod-badge" style="border-color:#f59e0b;color:#f59e0b">Webhooks</span></div>
     <p class="card-summary"
-       data-en=""
-       data-ar=" في موديول Meta API."></p>
+       data-en=""Username reservation and adoption for Business-scoped user IDs (BSUID) went live on June 29, 2026. However, messaging support and the contact request button are delayed to July 20"
+       data-ar="إصلاح أو توضيح في موديول تكامل القناة و ويب هوكس.">"Username reservation and adoption for Business-scoped user IDs (BSUID) went live on June 29, 2026. However, messaging support and the contact request button are delayed to July 20</p>
 
     <!-- Expandable detail panel -->
     <div class="card-details" id="det-card-3" aria-hidden="true">
 
-      
+      <div class="detail-section detail-changed">
+        <h4 class="detail-label">
+          <span class="detail-icon">📌</span>
+          <span data-en="What Changed" data-ar="ما الذي تغيّر">What Changed</span>
+        </h4>
+        <p>On **June 29, 2026**, Meta updated the timeline and availability for **Business-scoped user IDs (BSUID)** features:
 
-      
+---</p>
+      </div>
 
-      
+      <div class="detail-section detail-impact">
+        <h4 class="detail-label">
+          <span class="detail-icon">🎯</span>
+          <span data-en="Impact on SEEN V2" data-ar="التأثير على SEEN V2">Impact on SEEN V2</span>
+        </h4>
+        <p>- If SV2 is building workflows around BSUID messaging (crucial for WhatsApp marketing without storing full phone numbers initially), developers must account for the new July 2026 rollout date.
+- The webhook and messaging integrations for BSUID cannot be fully tested in production until the July rollout completes.</p>
+      </div>
+
+      <div class="detail-section detail-qa">
+        <h4 class="detail-label">
+          <span class="detail-icon">✅</span>
+          <span data-en="Suggested QA Action" data-ar="إجراء QA المقترح">Suggested QA Action</span>
+        </h4>
+        <p>1. **Verify Username Adoption**: Check that the business username adoption endpoints are responsive.
+2. **Update Timelines**: Inform the product team that BSUID message-sending and the `REQUEST_CONTACT_INFO` button tests are pushed to July 2026.</p>
+      </div>
 
       
     </div>
@@ -333,7 +364,7 @@
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
       </button>
-      <a class="card-source" href="" target="_blank" rel="noopener">
+      <a class="card-source" href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog#july-16-2026" target="_blank" rel="noopener">
         📄 <span data-en="View in Changelog" data-ar="رابط في سجل التغييرات">View in Changelog</span> ↗
       </a>
     </div>
@@ -341,31 +372,54 @@
 
 <article class="card"
     id="card-4"
-    data-date=""
-    data-category=""
-    data-modules="">
+    data-date="2026-07-16"
+    data-category="New Feature"
+    data-modules="Messenger">
 
     <div class="card-header">
-      <time class="card-date"></time>
-      <span class="badge cat-badge" style="background:#1a1a1a;color:#aaa;border-color:#333"></span>
+      <time class="card-date">16 Jul 2026</time>
+      <span class="badge cat-badge" style="background:#0a3d2e;color:#4ade80;border-color:#166534">New Feature</span>
     </div>
 
     <h2 class="card-title"
-        data-en=""
-        data-ar=" في موديول Meta API."></h2>
-    <div class="card-badges"></div>
+        data-en=""Messenger Platform: New Image Grid template launched""
+        data-ar="تحديث في قوالب Messenger. (ميزة جديدة)">"Messenger Platform: New Image Grid template launched"</h2>
+    <div class="card-badges"><span class="badge mod-badge" style="border-color:#0084ff;color:#0084ff">Messenger</span></div>
     <p class="card-summary"
-       data-en=""
-       data-ar=" في موديول Meta API."></p>
+       data-en=""Meta launched the Image Grid template for Messenger Platform. Send 2 to 6 images in a single grid layout with custom web_url/postback tap actions and action buttons.""
+       data-ar="تحديث في قوالب Messenger. (ميزة جديدة)">"Meta launched the Image Grid template for Messenger Platform. Send 2 to 6 images in a single grid layout with custom web_url/postback tap actions and action buttons."</p>
 
     <!-- Expandable detail panel -->
     <div class="card-details" id="det-card-4" aria-hidden="true">
 
-      
+      <div class="detail-section detail-changed">
+        <h4 class="detail-label">
+          <span class="detail-icon">📌</span>
+          <span data-en="What Changed" data-ar="ما الذي تغيّر">What Changed</span>
+        </h4>
+        <p>On **June 30, 2026**, Meta launched the **Image Grid template** for the Messenger Platform. This is a new structured message template type allowing businesses to present multiple images in a grid layout within a single message.
 
-      
+---</p>
+      </div>
 
-      
+      <div class="detail-section detail-impact">
+        <h4 class="detail-label">
+          <span class="detail-icon">🎯</span>
+          <span data-en="Impact on SEEN V2" data-ar="التأثير على SEEN V2">Impact on SEEN V2</span>
+        </h4>
+        <p>- Agents and marketing broadcasts in SV2 can now send rich multi-image grids to customers on Messenger instead of flooding the chat with separate image messages.
+- The SV2 chat renderer must be updated to support rendering the new `image_grid` template attachment type in the conversation history UI.</p>
+      </div>
+
+      <div class="detail-section detail-qa">
+        <h4 class="detail-label">
+          <span class="detail-icon">✅</span>
+          <span data-en="Suggested QA Action" data-ar="إجراء QA المقترح">Suggested QA Action</span>
+        </h4>
+        <p>1. **Review Learn Hub**: See the [Messenger Platform: Image Grid Template](../../../content-learn/messenger/messenger-image-grid-template.md) topic for configuration examples.
+2. **Send Test Grids**: Trigger the Send API with 2, 4, and 6 images. Verify that the grid displays correctly on Messenger client apps.
+3. **Webhook Verification**: Test that tapping on images with `postback` actions successfully fires postbacks to the SV2 webhook handler.</p>
+      </div>
 
       
     </div>
@@ -379,7 +433,7 @@
         <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
         <span class="expand-chevron">▾</span>
       </button>
-      <a class="card-source" href="" target="_blank" rel="noopener">
+      <a class="card-source" href="https://developers.facebook.com/docs/messenger-platform/changelog#july-16-2026" target="_blank" rel="noopener">
         📄 <span data-en="View in Changelog" data-ar="رابط في سجل التغييرات">View in Changelog</span> ↗
       </a>
     </div>
@@ -5352,6 +5406,236 @@
       </a>
     </div>
   </article>
+
+<article class="card"
+    id="card-113"
+    data-date=""
+    data-category=""
+    data-modules="">
+
+    <div class="card-header">
+      <time class="card-date"></time>
+      <span class="badge cat-badge" style="background:#1a1a1a;color:#aaa;border-color:#333"></span>
+    </div>
+
+    <h2 class="card-title"
+        data-en=""
+        data-ar=" في موديول Meta API."></h2>
+    <div class="card-badges"></div>
+    <p class="card-summary"
+       data-en=""
+       data-ar=" في موديول Meta API."></p>
+
+    <!-- Expandable detail panel -->
+    <div class="card-details" id="det-card-113" aria-hidden="true">
+
+      
+
+      
+
+      
+
+      
+    </div>
+
+    <div class="card-footer">
+      <button class="btn-expand"
+        data-det="det-card-113"
+        aria-expanded="false"
+        aria-controls="det-card-113">
+        <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
+        <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
+        <span class="expand-chevron">▾</span>
+      </button>
+      <a class="card-source" href="" target="_blank" rel="noopener">
+        📄 <span data-en="View in Changelog" data-ar="رابط في سجل التغييرات">View in Changelog</span> ↗
+      </a>
+    </div>
+  </article>
+
+<article class="card"
+    id="card-114"
+    data-date=""
+    data-category=""
+    data-modules="">
+
+    <div class="card-header">
+      <time class="card-date"></time>
+      <span class="badge cat-badge" style="background:#1a1a1a;color:#aaa;border-color:#333"></span>
+    </div>
+
+    <h2 class="card-title"
+        data-en=""
+        data-ar=" في موديول Meta API."></h2>
+    <div class="card-badges"></div>
+    <p class="card-summary"
+       data-en=""
+       data-ar=" في موديول Meta API."></p>
+
+    <!-- Expandable detail panel -->
+    <div class="card-details" id="det-card-114" aria-hidden="true">
+
+      
+
+      
+
+      
+
+      
+    </div>
+
+    <div class="card-footer">
+      <button class="btn-expand"
+        data-det="det-card-114"
+        aria-expanded="false"
+        aria-controls="det-card-114">
+        <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
+        <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
+        <span class="expand-chevron">▾</span>
+      </button>
+      <a class="card-source" href="" target="_blank" rel="noopener">
+        📄 <span data-en="View in Changelog" data-ar="رابط في سجل التغييرات">View in Changelog</span> ↗
+      </a>
+    </div>
+  </article>
+
+<article class="card"
+    id="card-115"
+    data-date=""
+    data-category=""
+    data-modules="">
+
+    <div class="card-header">
+      <time class="card-date"></time>
+      <span class="badge cat-badge" style="background:#1a1a1a;color:#aaa;border-color:#333"></span>
+    </div>
+
+    <h2 class="card-title"
+        data-en=""
+        data-ar=" في موديول Meta API."></h2>
+    <div class="card-badges"></div>
+    <p class="card-summary"
+       data-en=""
+       data-ar=" في موديول Meta API."></p>
+
+    <!-- Expandable detail panel -->
+    <div class="card-details" id="det-card-115" aria-hidden="true">
+
+      
+
+      
+
+      
+
+      
+    </div>
+
+    <div class="card-footer">
+      <button class="btn-expand"
+        data-det="det-card-115"
+        aria-expanded="false"
+        aria-controls="det-card-115">
+        <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
+        <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
+        <span class="expand-chevron">▾</span>
+      </button>
+      <a class="card-source" href="" target="_blank" rel="noopener">
+        📄 <span data-en="View in Changelog" data-ar="رابط في سجل التغييرات">View in Changelog</span> ↗
+      </a>
+    </div>
+  </article>
+
+<article class="card"
+    id="card-116"
+    data-date=""
+    data-category=""
+    data-modules="">
+
+    <div class="card-header">
+      <time class="card-date"></time>
+      <span class="badge cat-badge" style="background:#1a1a1a;color:#aaa;border-color:#333"></span>
+    </div>
+
+    <h2 class="card-title"
+        data-en=""
+        data-ar=" في موديول Meta API."></h2>
+    <div class="card-badges"></div>
+    <p class="card-summary"
+       data-en=""
+       data-ar=" في موديول Meta API."></p>
+
+    <!-- Expandable detail panel -->
+    <div class="card-details" id="det-card-116" aria-hidden="true">
+
+      
+
+      
+
+      
+
+      
+    </div>
+
+    <div class="card-footer">
+      <button class="btn-expand"
+        data-det="det-card-116"
+        aria-expanded="false"
+        aria-controls="det-card-116">
+        <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
+        <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
+        <span class="expand-chevron">▾</span>
+      </button>
+      <a class="card-source" href="" target="_blank" rel="noopener">
+        📄 <span data-en="View in Changelog" data-ar="رابط في سجل التغييرات">View in Changelog</span> ↗
+      </a>
+    </div>
+  </article>
+
+<article class="card"
+    id="card-117"
+    data-date=""
+    data-category=""
+    data-modules="">
+
+    <div class="card-header">
+      <time class="card-date"></time>
+      <span class="badge cat-badge" style="background:#1a1a1a;color:#aaa;border-color:#333"></span>
+    </div>
+
+    <h2 class="card-title"
+        data-en=""
+        data-ar=" في موديول Meta API."></h2>
+    <div class="card-badges"></div>
+    <p class="card-summary"
+       data-en=""
+       data-ar=" في موديول Meta API."></p>
+
+    <!-- Expandable detail panel -->
+    <div class="card-details" id="det-card-117" aria-hidden="true">
+
+      
+
+      
+
+      
+
+      
+    </div>
+
+    <div class="card-footer">
+      <button class="btn-expand"
+        data-det="det-card-117"
+        aria-expanded="false"
+        aria-controls="det-card-117">
+        <span class="lbl-more" data-en="Show details" data-ar="عرض التفاصيل">Show details</span>
+        <span class="lbl-less" data-en="Hide details" data-ar="إخفاء التفاصيل">Hide details</span>
+        <span class="expand-chevron">▾</span>
+      </button>
+      <a class="card-source" href="" target="_blank" rel="noopener">
+        📄 <span data-en="View in Changelog" data-ar="رابط في سجل التغييرات">View in Changelog</span> ↗
+      </a>
+    </div>
+  </article>
     </div>
   </main>
 
@@ -5361,7 +5645,7 @@
       <a href="https://antigravity.dev" target="_blank" rel="noopener">Antigravity</a> ·
       <span data-en="Sources:" data-ar="المصادر:">Sources:</span>
       <a href="https://developers.facebook.com/docs" target="_blank" rel="noopener">Meta for Developers</a> ·
-      <time datetime="2026-06-28T14:03:23.504Z">28 Jun 2026 5:03 PM 🇪🇬</time>
+      <time datetime="2026-07-16T08:46:50.918Z">16 Jul 2026 11:46 AM 🇪🇬</time>
     </p>
   </footer>
 

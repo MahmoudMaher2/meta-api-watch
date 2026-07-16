@@ -44,7 +44,7 @@
       <div class="header-build-time" title="System Status: Up to date">
         <div class="build-pulse"></div>
         <span class="build-label">LAST BUILD</span>
-        <span class="build-value">Jun 28, 2026, 5:03 PM 🇪🇬</span>
+        <span class="build-value">Jul 16, 2026, 11:46 AM 🇪🇬</span>
       </div>
       
       <!-- Language Toggle -->
@@ -120,42 +120,39 @@
 
 <h2 id="new-endpoints">New Endpoints</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Endpoint</th><th>What it does</th></tr></thead><tbody><tr><td><code>GET /sticker_packs</code></td><td>List all available sticker packs</td></tr><tr><td><code>GET /sticker_packs/<ID>/stickers</code></td><td>List stickers in a specific pack</td></tr><tr><td><code>GET /sticker_search?q=<QUERY></code></td><td>Search stickers by keyword</td></tr></tbody></table></div>
+<p>| Endpoint | What it does |</p>
+<p>|---|---|</p>
+<p>| <code>GET /sticker_packs</code> | List all available sticker packs |</p>
+<p>| <code>GET /sticker_packs/<ID>/stickers</code> | List stickers in a specific pack |</p>
+<p>| <code>GET /sticker_search?q=<QUERY></code> | Search stickers by keyword |</p>
+
 <p><strong>Multilingual search:</strong> Use the <code>locale</code> parameter — e.g., <code>locale=ko_KR</code> for Korean, <code>locale=vi_VN</code> for Vietnamese. Defaults to <code>en_US</code>.</p>
 
 <h2 id="permissions">Permissions</h2>
 
-<div class="table-wrap"><table><thead><tr><th>Action</th><th>Required</th></tr></thead><tbody><tr><td>Browse & Search stickers</td><td>App access token (no extra permissions)</td></tr><tr><td>Send stickers</td><td><code>pages_messaging</code> permission</td></tr></tbody></table></div>
+<p>| Action | Required |</p>
+<p>|---|---|</p>
+<p>| Browse & Search stickers | App access token (no extra permissions) |</p>
+<p>| Send stickers | <code>pages_messaging</code> permission |</p>
+
 <h2 id="sending-a-sticker">Sending a Sticker</h2>
 
 <p>Use the Send Messages API with the <code>sticker_id</code> field:</p>
 
 <p><!-- preview --></p>
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
-<p>  "recipient": { "id": "&lt;PSID&gt;" },</p>
+<p>```json</p>
+<p>{</p>
+<p>  "recipient": { "id": "<PSID>" },</p>
 <p>  "message": { "sticker_id": 767226160478561 }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><!-- preview --></p>
 <p><span class="icon-accept">✅</span> Get the <code>sticker_id</code> from <code>GET /sticker_packs/<ID>/stickers</code> first, then pass it to the Send API.</p>
 
 <h2 id="webhook-transition-deadline-august-30-2026">Webhook Transition — Deadline August 30, 2026</h2>
+
+
 
 <blockquote><p>The same change applies to message echoes and Conversations API responses.</p></blockquote>
 
@@ -169,42 +166,39 @@
 
 <h2 id="نقاط-النهاية-الجديدة-endpoints">نقاط النهاية الجديدة (Endpoints)</h2>
 
-<div class="table-wrap"><table><thead><tr><th>نقطة النهاية</th><th>الوظيفة</th></tr></thead><tbody><tr><td><code>GET /sticker_packs</code></td><td>عرض جميع حزم الملصقات المتاحة</td></tr><tr><td><code>GET /sticker_packs/<ID>/stickers</code></td><td>عرض الملصقات داخل حزمة محددة</td></tr><tr><td><code>GET /sticker_search?q=<QUERY></code></td><td>البحث في الملصقات بالكلمات المفتاحية</td></tr></tbody></table></div>
+<p>| نقطة النهاية | الوظيفة |</p>
+<p>|---|---|</p>
+<p>| <code>GET /sticker_packs</code> | عرض جميع حزم الملصقات المتاحة |</p>
+<p>| <code>GET /sticker_packs/<ID>/stickers</code> | عرض الملصقات داخل حزمة محددة |</p>
+<p>| <code>GET /sticker_search?q=<QUERY></code> | البحث في الملصقات بالكلمات المفتاحية |</p>
+
 <p><strong>البحث متعدد اللغات:</strong> استخدم معامل <code>locale</code> — مثلاً <code>locale=ar_AR</code> للعربية، أو <code>locale=ko_KR</code> للكورية. الافتراضي هو <code>en_US</code>.</p>
 
 <h2 id="الصلاحيات-المطلوبة-permissions">الصلاحيات المطلوبة (Permissions)</h2>
 
-<div class="table-wrap"><table><thead><tr><th>الإجراء</th><th>المطلوب</th></tr></thead><tbody><tr><td>تصفح الملصقات والبحث فيها</td><td>App access token (بدون صلاحيات إضافية)</td></tr><tr><td>إرسال الملصقات</td><td>صلاحية <code>pages_messaging</code></td></tr></tbody></table></div>
+<p>| الإجراء | المطلوب |</p>
+<p>|---|---|</p>
+<p>| تصفح الملصقات والبحث فيها | App access token (بدون صلاحيات إضافية) |</p>
+<p>| إرسال الملصقات | صلاحية <code>pages_messaging</code> |</p>
+
 <h2 id="إرسال-ملصق">إرسال ملصق</h2>
 
 <p>استخدم Send Messages API مع حقل <code>sticker_id</code>:</p>
 
 <p><!-- preview --></p>
-<div class="mac-editor">
-<p>        <div class="mac-editor-header"></p>
-<p>          <div class="mac-editor-dots"></p>
-<p>            <span class="dot close"></span></p>
-<p>            <span class="dot minimize"></span></p>
-<p>            <span class="dot maximize"></span></p>
-<p>          </div></p>
-<p>          <div class="mac-editor-lang">SEEN V2 — JSON Snippet</div></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-body"></p>
-<p>          <pre class="code-block language-json"><code class="language-json">{</p>
-<p>  "recipient": { "id": "&lt;PSID&gt;" },</p>
+<p>```json</p>
+<p>{</p>
+<p>  "recipient": { "id": "<PSID>" },</p>
 <p>  "message": { "sticker_id": 767226160478561 }</p>
-<p>}</code></pre></p>
-<p>        </div></p>
-<p>        <div class="mac-editor-footer"></p>
-<p>          <div class="mac-editor-desc">Use this code snippet directly in your project.</div></p>
-<p>          <button class="mac-editor-copy" onclick="navigator.clipboard.writeText(this.parentElement.previousElementSibling.innerText); this.innerText='Copied!'; setTimeout(()=>this.innerText='Copy', 2000)">Copy</button></p>
-<p>        </div></p>
-<p>      </div></p>
+<p>}</p>
+<p>```</p>
 
 <p><!-- preview --></p>
 <p><span class="icon-accept">✅</span> احصل على <code>sticker_id</code> من <code>GET /sticker_packs/<ID>/stickers</code> أولاً، ثم أرسله عبر Send API.</p>
 
 <h2 id="انتقال-الـ-webhook-الموعد-النهائي-30-أغسطس-2026">انتقال الـ Webhook — الموعد النهائي 30 أغسطس 2026</h2>
+
+
 
 <blockquote><p>ينطبق هذا التغيير أيضاً على message echoes وردود Conversations API.</p></blockquote>
 
@@ -227,9 +221,7 @@
         </div>
         <div class="panel-body">
           <p><strong>Before August 30, 2026 (Transition Period)</strong></p>
-<p>Both attachment types are present in the payload:</p>
-<ul><li style="margin-left:0px"><code>type: "image"</code> (existing)</li>
-<li style="margin-left:0px"><code>type: "sticker"</code> (new — includes <code>sticker_id</code> metadata)</li></ul>
+<p>Both attachment types are present in the payload:</p><ul><li style="margin-left:8px"><code>type: "image"</code> (existing)</li><li style="margin-left:8px"><code>type: "sticker"</code> (new — includes <code>sticker_id</code> metadata)</li></ul>
 
 <p><strong>After August 30, 2026</strong></p>
 <p>Only <code>type: "sticker"</code> will be sent. The <code>image</code> type for stickers is removed.</p>
@@ -288,9 +280,7 @@
         </div>
         <div class="panel-body">
           <p><strong>قبل 30 أغسطس 2026 (فترة الانتقال)</strong></p>
-<p>يحتوي الـ payload على نوعَي المرفق معاً:</p>
-<ul><li style="margin-left:0px"><code>type: "image"</code> (الموجود حالياً)</li>
-<li style="margin-left:0px"><code>type: "sticker"</code> (الجديد — يتضمن بيانات <code>sticker_id</code>)</li></ul>
+<p>يحتوي الـ payload على نوعَي المرفق معاً:</p><ul><li style="margin-left:8px"><code>type: "image"</code> (الموجود حالياً)</li><li style="margin-left:8px"><code>type: "sticker"</code> (الجديد — يتضمن بيانات <code>sticker_id</code>)</li></ul>
 
 <p><strong>بعد 30 أغسطس 2026</strong></p>
 <p>سيُرسَل <code>type: "sticker"</code> فقط. يُزال نوع <code>image</code> للملصقات نهائياً.</p>
